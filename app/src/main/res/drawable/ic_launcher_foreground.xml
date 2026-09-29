@@ -1,0 +1,4 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Four rising, gap-up limit bars; original Robin mark. -->
+    <path android:fillColor="#FFFFFF" android:pathData="M29,68 L39,68 L39,76 L29,76 Z M42,56 L52,56 L52,64 L42,64 Z M55,44 L65,44 L65,52 L55,52 Z M68,32 L78,32 L78,40 L68,40 Z"/>
+</vector>
