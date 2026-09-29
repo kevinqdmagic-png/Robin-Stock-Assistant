@@ -136,3 +136,27 @@ def market():
         "candidate_count": len(rows),
         "candidates": rows,
     }
+
+
+@app.get("/api/stocks/{code}/minute")
+def stock_minute(code: str):
+    code = "".join(ch for ch in code if ch.isdigit())[:6]
+    if len(code) != 6:
+        return {"ok": False, "status": "invalid_code", "code": code, "bars": []}
+    errors = []
+    try:
+        df = ak.stock_zh_a_hist_min_em(symbol=code, period="1", adjust="")
+        if df is None or df.empty:
+            return {"ok": False, "status": "empty", "code": code, "bars": []}
+        rename = {"时间":"time","开盘":"open","收盘":"close","最高":"high","最低":"low","成交量":"volume","成交额":"amount"}
+        cols = [x for x in rename if x in df.columns]
+        w = df[cols].rename(columns=rename).copy()
+        for x in ["open","close","high","low","volume","amount"]:
+            if x in w.columns:
+                w[x] = pd.to_numeric(w[x], errors="coerce")
+        w = w.tail(300)
+        return {"ok": True, "status": "ok", "time_cn": now_cn(), "code": code, "count": len(w), "bars": w.where(pd.notnull(w), None).to_dict("records")}
+    except Exception as exc:
+        logger.warning("Minute provider failed for %s: %s", code, exc)
+        errors.append(type(exc).__name__)
+        return {"ok": False, "status": "minute_data_temporarily_unavailable", "code": code, "errors": errors, "bars": []}
