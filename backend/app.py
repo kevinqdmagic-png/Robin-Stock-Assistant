@@ -1,5 +1,7 @@
 from datetime import datetime
+import json
 import logging
+import os
 from zoneinfo import ZoneInfo
 
 import akshare as ak
@@ -21,6 +23,31 @@ logger = logging.getLogger("robin-stock-api")
 
 def now_cn():
     return datetime.now(CN_TZ).isoformat(timespec="seconds")
+
+
+@app.get("/api/research")
+def research():
+    """Published research only. A scheduled task does not itself publish here."""
+    path = os.environ.get("ROBIN_RESEARCH_FILE", "/data/research.json")
+    try:
+        with open(path, encoding="utf-8") as file:
+            payload = json.load(file)
+        items = payload.get("items", [])
+        if not isinstance(items, list):
+            raise ValueError("items must be a list")
+        allowed = {"market_review", "dragon_tiger", "low_position", "quant_research"}
+        clean = [
+            {key: str(item[key]) for key in ("date", "track", "title", "summary")}
+            for item in items
+            if isinstance(item, dict) and all(key in item for key in ("date", "track", "title", "summary"))
+            and item["track"] in allowed
+        ]
+        return {"ok": True, "time_cn": now_cn(), "items": clean[-100:][::-1]}
+    except FileNotFoundError:
+        return {"ok": True, "time_cn": now_cn(), "items": [], "status": "not_published"}
+    except (OSError, ValueError, TypeError) as exc:
+        logger.warning("Research data unavailable: %s", exc)
+        return {"ok": False, "time_cn": now_cn(), "items": [], "status": "research_data_unavailable"}
 
 
 def get_spot():
