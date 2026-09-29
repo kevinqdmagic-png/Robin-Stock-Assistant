@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         root.addView(label("Robin股票助手",28f,true))
         root.addView(label("Android v0.1 · 可安装测试版",14f))
         root.addView(label("市场扫描",20f,true))
-        root.addView(label("云端后台：尚未连接\n全A扫描：等待后台部署\n当前版本不显示伪造实时行情",16f))
+        root.addView(label("云端后台：https://robin-stock-api-production.up.railway.app\nRailway 已部署成功；下一版界面将直接读取 /api/market。",16f))
         root.addView(label("买点观察",20f,true))
         root.addView(label("暂无真实信号。后续接入：低位首次启动 / 分歧转一致 / 超跌转强。",16f))
         root.addView(label("自选股",20f,true))
