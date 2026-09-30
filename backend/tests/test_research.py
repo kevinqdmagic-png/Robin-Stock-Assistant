@@ -140,6 +140,27 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual(len(page["items"]), 1)
         self.assertTrue(page["has_more"])
 
+    def test_recorded_outcomes_are_append_only(self):
+        before = {"items": [{"id": "a", "results": [
+            {"as_of": "2026-10-08", "horizon": 1, "close_pct": -5},
+            {"as_of": "2026-10-09", "horizon": 2, "close_pct": 2}]}]}
+        after = copy.deepcopy(before)
+        after["items"][0]["results"].append({"as_of": "2026-10-12", "horizon": 3, "close_pct": 1})
+        verify_append_only(before, after, "recommendations")
+        for changed in ([], list(reversed(before["items"][0]["results"])),
+                        [{"as_of": "2026-10-08", "horizon": 1, "close_pct": 5}]):
+            with self.subTest(results=changed), self.assertRaises(ValueError):
+                altered = copy.deepcopy(before)
+                altered["items"][0]["results"] = changed
+                verify_append_only(before, altered, "recommendations")
+
+    def test_original_strategy_label_may_not_change(self):
+        before = {"items": [{"id": "a", "strategy": "combined_limitup_watch"}]}
+        after = copy.deepcopy(before)
+        after["items"][0]["strategy"] = "different_model"
+        with self.assertRaises(ValueError):
+            verify_append_only(before, after, "recommendations")
+
     def test_versioned_data_documents(self):
         root = Path(__file__).resolve().parents[1] / "data"
         for name, kind in (("research.json", "research"), ("recommendations.json", "recommendations")):

@@ -38,6 +38,8 @@ def validate_document(payload, kind):
         else:
             if not re.fullmatch(r"\d{6}", str(row.get("code", ""))) or row.get("group") not in GROUPS:
                 raise ValueError("invalid_recommendation")
+            if not isinstance(row.get("results", []), list):
+                raise ValueError("invalid_results")
             if row.get("provenance") == "contemporaneous":
                 if (not row.get("published_at") or not row.get("reference_price") or
                         not row.get("sources") or not row.get("trigger") or not row.get("invalid")):
@@ -53,6 +55,12 @@ def verify_append_only(before, after, kind):
         keys = FROZEN if kind == "recommendations" else tuple(old.keys())
         if any(old.get(key) != new.get(key) for key in keys):
             raise ValueError("historical_record_changed")
+        if kind == "recommendations":
+            old_results = old.get("results", [])
+            new_results = new.get("results", [])
+            if (not isinstance(old_results, list) or not isinstance(new_results, list) or
+                    new_results[:len(old_results)] != old_results):
+                raise ValueError("historical_result_changed")
 
 
 def archive_page(track=None, day=None, offset=0, limit=30):
