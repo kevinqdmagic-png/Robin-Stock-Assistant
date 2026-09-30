@@ -290,7 +290,28 @@ def _kick_market_refresh():
 
 @app.on_event("startup")
 def warm_market_cache():
-    _kick_market_refresh()
+    def self_test():
+        market_payload = _refresh_market()
+        if market_payload:
+            print(
+                "ROBIN_SELFTEST market "
+                f"ok={market_payload.get('ok')} "
+                f"source={market_payload.get('source')} "
+                f"count={market_payload.get('count')} "
+                f"candidates={market_payload.get('candidate_count')}",
+                flush=True,
+            )
+        else:
+            print("ROBIN_SELFTEST market ok=False source=None count=0", flush=True)
+
+        bars, source, errors = _eastmoney_minute("600000")
+        print(
+            "ROBIN_SELFTEST minute "
+            f"ok={bool(bars)} source={source} bars={len(bars)} errors={','.join(errors)}",
+            flush=True,
+        )
+
+    threading.Thread(target=self_test, daemon=True, name="startup-self-test").start()
 
 
 @app.get("/api/market")
