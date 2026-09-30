@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
                 if (!isForeground || currentTab != 0) return
                 val status = homeMarketStatus ?: return
                 val box = homeCandidatesBox ?: return
-                loadMarket(status, box)
+                loadLiveCandidates(box)
                 homeRefreshHandler.postDelayed(this, autoRefreshMs)
             }
         }
@@ -279,22 +279,36 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun renderCandidates(box: LinearLayout, rows: JSONArray, updatedAt: String? = null) {
+        box.removeAllViews()
+        if (!updatedAt.isNullOrBlank()) {
+            box.addView(label("自动更新 · $updatedAt", 11f))
+        }
+        for (i in 0 until minOf(20, rows.length())) {
+            val x = rows.getJSONObject(i); val code = x.optString("code").takeLast(6)
+            box.addView(label("${x.optString("name")}  $code   ¥${x.optString("price")}\n${x.optString("pct")}%  ·  量比 ${x.optString("volume_ratio")}  ·  换手 ${x.optString("turnover")}%").apply {
+                setTextColor(ink); setPadding(0, dp(12), 0, dp(12))
+                setOnClickListener { selectedCode = code; showTab(2) }
+            })
+        }
+    }
+
+    private fun loadLiveCandidates(box: LinearLayout) {
+        fetch("/api/candidates?limit=20") { data, _ ->
+            if (data == null || !data.optBoolean("ok")) return@fetch
+            val rows = data.optJSONArray("candidates") ?: return@fetch
+            renderCandidates(box, rows, data.optString("time_cn"))
+        }
+    }
+
     private fun loadMarket(status: TextView, box: LinearLayout) {
         status.text = "正在读取全 A 行情…"; box.removeAllViews()
         fetch("/api/market") { data, error ->
-            box.removeAllViews()
             if (data == null || !data.optBoolean("ok")) {
                 status.text = "行情暂不可用，请稍后刷新。" + (error?.let { "\n$it" } ?: ""); return@fetch
             }
-            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}\n扫描 ${data.optInt("count")} 只 · ${data.optString("time_cn")}\n来源 ${data.optString("source")} · 北京时间 · 30秒自动刷新"
-            val rows = data.optJSONArray("candidates") ?: JSONArray()
-            for (i in 0 until minOf(20, rows.length())) {
-                val x = rows.getJSONObject(i); val code = x.optString("code").takeLast(6)
-                box.addView(label("${x.optString("name")}  $code   ¥${x.optString("price")}\n${x.optString("pct")}%  ·  量比 ${x.optString("volume_ratio")}  ·  换手 ${x.optString("turnover")}%").apply {
-                    setTextColor(ink); setPadding(0, dp(12), 0, dp(12))
-                    setOnClickListener { selectedCode = code; showTab(2) }
-                })
-            }
+            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}\n扫描 ${data.optInt("count")} 只 · ${data.optString("time_cn")}\n来源 ${data.optString("source")} · 北京时间\n动态候选每30秒自动刷新"
+            renderCandidates(box, data.optJSONArray("candidates") ?: JSONArray(), data.optString("time_cn"))
         }
     }
     private fun research() {
