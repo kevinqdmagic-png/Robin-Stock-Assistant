@@ -43,6 +43,8 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(result["status"], "report_missing")
         wrong = dict(REPORT, task_id="combined_pair")
         self.assertEqual(checked_receipt(EVENT, {"items": [wrong]})["status"], "report_missing")
+        wrong_date = dict(REPORT, date="2026-09-29")
+        self.assertEqual(checked_receipt(EVENT, {"items": [wrong_date]})["status"], "report_missing")
         self.assertEqual(checked_receipt(EVENT, {"items": [REPORT]})["status"], "completed")
 
     def test_latest_event_and_report_link(self):
@@ -61,7 +63,8 @@ class TaskTests(unittest.TestCase):
     def test_invalid_and_naive_receipts_rejected(self):
         for changed in (dict(EVENT, task_id="unknown"),
                         dict(EVENT, started_at="2026-09-30T21:00:00"),
-                        dict(EVENT, report_ids=[])):
+                        dict(EVENT, report_ids=[]),
+                        dict(EVENT, completed_at="2026-10-01T21:00:00+13:00")):
             with self.subTest(receipt=changed), self.assertRaises(ValueError):
                 validate_runs({"items": [changed]}, TASKS)
 

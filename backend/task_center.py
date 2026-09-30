@@ -46,7 +46,7 @@ def validate_runs(document, tasks):
             raise ValueError("invalid_receipt_time")
         if row.get("trigger") not in {"scheduled", "manual"}:
             raise ValueError("invalid_receipt_trigger")
-        if row["status"] in TERMINAL and instant(row["completed_at"]) < started:
+        if row["status"] in TERMINAL and not started <= instant(row["completed_at"]) <= recorded:
             raise ValueError("invalid_completion_time")
         if row["status"] == "completed" and not row.get("report_ids"):
             raise ValueError("completed_receipt_requires_report")
@@ -91,7 +91,7 @@ def checked_receipt(receipt, reports):
     row = dict(receipt)
     index = {r["id"]: r for r in reports["items"] if r.get("id")}
     linked = [index.get(key) for key in row.get("report_ids", [])]
-    if row["status"] == "completed" and (not linked or any(r is None or r.get("task_id") != row["task_id"] for r in linked)):
+    if row["status"] == "completed" and (not linked or any(r is None or (r.get("task_id") != row["task_id"] or r.get("date") != row["date"]) for r in linked)):
         row["status"] = "report_missing"
         row["summary"] = "执行回执已有，关联报告尚未完整发布。"
     return row
