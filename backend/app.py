@@ -4,6 +4,7 @@ import logging
 import os
 import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -27,7 +28,7 @@ HTTP_HEADERS = {
     "Accept": "application/json,text/plain,*/*",
     "Referer": "https://quote.eastmoney.com/",
 }
-MARKET_CACHE_TTL = 45
+MARKET_CACHE_TTL = 90
 _market_lock = threading.Lock()
 _market_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
 _minute_lock = threading.Lock()
@@ -89,9 +90,8 @@ def health():
 
 
 def _eastmoney_spot():
-    params = {
-        "pn": "1",
-        "pz": "20000",
+    page_size = 100
+    base_params = {
         "po": "1",
         "np": "2",
         "ut": "bd1d9ddb04089700cf9c27f6f7426281",
@@ -101,46 +101,82 @@ def _eastmoney_spot():
         "fs": "m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23,m:0+t:81+s:2048",
         "fields": "f2,f3,f6,f8,f10,f12,f14",
     }
+    url = "https://push2.eastmoney.com/api/qt/clist/get"
     errors = []
-    for host in ("https://push2.eastmoney.com",):
-        try:
-            response = requests.get(
-                host + "/api/qt/clist/get",
-                params=params,
-                headers=HTTP_HEADERS,
-                timeout=(2.5, 5.5),
-            )
-            response.raise_for_status()
-            payload = response.json()
-            data = payload.get("data") or {}
-            diff = data.get("diff") or []
-            if isinstance(diff, dict):
-                diff = list(diff.values())
-            if not diff:
-                raise ValueError("empty diff")
-            rows = []
-            for item in diff:
-                if not isinstance(item, dict):
-                    continue
-                rows.append(
-                    {
-                        "code": str(item.get("f12") or ""),
-                        "name": str(item.get("f14") or ""),
-                        "price": _num(item.get("f2")),
-                        "pct": _num(item.get("f3")),
-                        "amount": _num(item.get("f6"), 0.0),
-                        "volume_ratio": _num(item.get("f10"), 0.0),
-                        "turnover": _num(item.get("f8"), 0.0),
-                    }
-                )
-            frame = pd.DataFrame(rows)
-            if frame.empty:
-                raise ValueError("empty frame")
-            return frame, "eastmoney_direct", True, errors
-        except Exception as exc:
-            logger.warning("Eastmoney direct failed via %s: %s", host, exc)
-            errors.append(f"eastmoney_direct:{type(exc).__name__}")
-    return pd.DataFrame(), None, False, errors
+
+    def fetch_page(page):
+        params = dict(base_params)
+        params.update({"pn": str(page), "pz": str(page_size)})
+        response = requests.get(
+            url,
+            params=params,
+            headers=HTTP_HEADERS,
+            timeout=(2.5, 5.5),
+        )
+        response.raise_for_status()
+        payload = response.json()
+        data = payload.get("data") or {}
+        diff = data.get("diff") or []
+        if isinstance(diff, dict):
+            diff = list(diff.values())
+        return int(data.get("total") or 0), diff
+
+    try:
+        total, first = fetch_page(1)
+        if not first:
+            raise ValueError("empty first page")
+    except Exception as exc:
+        logger.warning("Eastmoney first page failed: %s", exc)
+        return pd.DataFrame(), None, False, [f"eastmoney_direct:{type(exc).__name__}"]
+
+    pages = max(1, (total + page_size - 1) // page_size)
+    all_items = list(first)
+    failed_pages = []
+
+    if pages > 1:
+        workers = min(16, pages - 1)
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="em-page") as pool:
+            futures = {pool.submit(fetch_page, page): page for page in range(2, pages + 1)}
+            for future in as_completed(futures):
+                page = futures[future]
+                try:
+                    _, rows = future.result()
+                    all_items.extend(rows)
+                except Exception as exc:
+                    failed_pages.append(page)
+                    errors.append(f"eastmoney_page_{page}:{type(exc).__name__}")
+
+    if failed_pages:
+        logger.warning(
+            "Eastmoney pagination incomplete: %s/%s pages failed",
+            len(failed_pages),
+            pages,
+        )
+
+    rows = []
+    for item in all_items:
+        if not isinstance(item, dict):
+            continue
+        rows.append(
+            {
+                "code": str(item.get("f12") or ""),
+                "name": str(item.get("f14") or ""),
+                "price": _num(item.get("f2")),
+                "pct": _num(item.get("f3")),
+                "amount": _num(item.get("f6"), 0.0),
+                "volume_ratio": _num(item.get("f10"), 0.0),
+                "turnover": _num(item.get("f8"), 0.0),
+            }
+        )
+
+    frame = pd.DataFrame(rows)
+    if frame.empty:
+        return pd.DataFrame(), None, False, errors + ["eastmoney_direct:empty"]
+
+    unique_codes = frame["code"].astype(str).nunique()
+    complete = not failed_pages and (total <= 0 or unique_codes >= int(total * 0.97))
+    source = "eastmoney_direct_parallel" if complete else "eastmoney_partial"
+    return frame, source, complete, errors
 
 
 def _sina_partial():
