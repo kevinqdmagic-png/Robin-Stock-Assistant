@@ -1,6 +1,6 @@
 # Robin stock assistant: research contract and holiday progress
 
-Version: 0.4.0 draft, 2026-10-01. User requested daily APK improvement, independent broader stock research, and the existing volume-price study. Code is on holiday-polish-2026-10; do not say it is deployed until deployment and live checks succeed.
+Version: 0.5.0, 2026-10-01. User requested daily APK improvement, independent broader stock research, and the existing volume-price study. Code is on holiday-polish-2026-10; do not say it is deployed until deployment and live checks succeed.
 
 ## What this iteration implements
 
@@ -18,7 +18,7 @@ Version: 0.4.0 draft, 2026-10-01. User requested daily APK improvement, independ
 
 All files live in backend/data and are included in the deployment image. Existing production /data/research.json takes precedence for compatibility; ROBIN_RESEARCH_FILE and ROBIN_RECOMMENDATIONS_FILE override defaults. Inspect production overrides before declaring bundled records visible. Publish complete valid JSON through the existing repository workflow; there is no unauthenticated write API.
 
-research.json has schema_version and items[]. Each record requires a stable id, date (China-market research date), track, title, summary, body and sources. Allowed tracks: market_review, volume_price, dragon_tiger, low_position, quant_research, high_elasticity. A source-corrected report gets a new id; never edit/delete the old report.
+research.json has schema_version and items[]. Each record requires a stable id, date (China-market research date), track, title, summary, body and sources. Allowed tracks: market_review, volume_price, dragon_tiger, low_position, quant_research, high_elasticity, app_development. New reports add task_id from tasks.json; legacy reports retain their original content. A source-corrected report gets a new id; never edit/delete the old report.
 
 recommendations.json has items[] and optional legacy_audit. Required original fields:
 id, date, published_at (ISO timestamp with timezone), code, name, group (close / 0950 / 1440), model, reason, reference_price, trigger, invalid, sources, provenance. New combined selections also store strategy=combined_limitup_watch, which is immutable. reference_price is a timestamped observed quote, not an assumed fill; conditional entry ranges belong in trigger and actual fills in results[].
@@ -70,3 +70,33 @@ Official 2026 calendar source: https://www.sse.com.cn/disclosure/announcement/ge
 Provider board field mapping checked against:
 https://github.com/akfamily/akshare/blob/main/akshare/stock/stock_board_industry_em.py
 https://github.com/akfamily/akshare/blob/main/akshare/stock/stock_board_concept_em.py
+
+## Task center and execution receipts
+
+All ten current tasks are registered in tasks.json with safe local ids, confirmed schedule snapshots, timezone, timing mode and dependencies. Private scheduler identifiers and prompts are not published. Update this snapshot after changing a schedule; the app labels the configuration update time. This is not a live connection to the scheduler's private administration API.
+
+APP reads /api/tasks, /api/task-runs?task=TASK_ID and /api/research?task=TASK_ID. Latest status comes only from published execution receipts; a scheduled time never creates a successful run. Historical reports without a task_id remain linked as historical material and do not establish that a new scheduled run completed. Cached data is labeled offline.
+
+Each actual task iteration appends events to task_runs.json.items. Required fields:
+id (unique event id), run_id (stable id shared by events for this iteration), task_id, date (China trading/research date), trigger (scheduled or manual), started_at and recorded_at (ISO timestamps with timezone), status, summary and report_ids[].
+Statuses: running, waiting, completed, blocked, failed. Terminal events require completed_at. completed requires a real report whose task_id matches. Add recommendation_ids[] for stock selections and sources[] for execution evidence. Never overwrite prior events; append a new event for a state transition or delivery correction. Do not reconstruct nonexistent historical executions. Explicitly label manual work.
+
+Publish reports, original conditional recommendations and their receipts together in one commit based on the latest head. Validate schemas, report links and append-only history. After merge, the connected Railway service deploys from main; the production verification workflow checks the actual endpoints and records their result. Only after successful deployment and verification claim that APP can read the update. Network/CI/deployment failures remain visible; append a blocked/failed receipt if possible.
+
+Combined decisions require same-day completed receipts and their full linked reports from market_review, quant_research, volume_price, low_position and dragon_tiger. Empty scans and no qualified selections still get a report explaining the decision. A waiting receipt does not satisfy a dependency. Check unique trading-day decision ids before reporting again.
+
+Local ids and tracks:
+- apk_polish -> app_development (上午打磨股票 APK)
+- high_elasticity_once -> high_elasticity (高弹性一次性深度研究)
+- market_review -> market_review (A股每日复盘)
+- quant_research -> quant_research (A股量化痕迹复盘)
+- volume_price -> volume_price (量价研究与每日验证)
+- low_position -> low_position (低位启动30天研究)
+- dragon_tiger -> dragon_tiger (龙虎榜超短研究)
+- combined_pair -> market_review (盘后综合双标)
+- early_pair -> market_review (早盘短线双标)
+- late_pair -> market_review (尾盘短线双标)
+
+Container build now includes all backend modules and data. CI starts the actual container and reads health/tasks/research/receipts/recommendations, so missing packaged modules cannot be hidden by source-only tests.
+
+APK 0.5.0 adds the expandable task center and task-filtered reports. A tested debug build is provided; handset layout, certificate compatibility with the currently installed APK, and actual installation remain device checks.

@@ -15,8 +15,9 @@ from analytics import backtest_daily, recommendation_performance
 from research_archive import archive_page, load_document
 from trading_calendar import completed_bars, session_state
 from market_insights import overview as market_overview
+from task_center import task_list, run_page, report_page, data_revision
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.4.0")
+app = FastAPI(title="Robin Stock Assistant API", version="0.5.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -60,13 +61,31 @@ def _num(value, default=None):
 
 
 @app.get("/api/research")
-def research(track: str = "", date: str = "", offset: int = 0, limit: int = 30):
+def research(track: str = "", date: str = "", offset: int = 0, limit: int = 30, task: str = ""):
     try:
-        page = archive_page(track or None, date or None, offset, limit)
+        page = report_page(task, track or None, date or None, offset, limit) if task else archive_page(track or None, date or None, offset, limit)
         return {"ok": True, "time_cn": now_cn(), **page}
     except (OSError, ValueError, TypeError) as exc:
         logger.warning("Research archive unavailable: %s", exc)
         return {"ok": False, "status": "research_data_unavailable", "items": [], "total": 0}
+
+
+@app.get("/api/tasks")
+def tasks():
+    try:
+        return {"ok": True, "time_cn": now_cn(), **task_list()}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Task data unavailable: %s", exc)
+        return {"ok": False, "status": "task_data_unavailable", "items": []}
+
+
+@app.get("/api/task-runs")
+def task_runs(task: str = "", offset: int = 0, limit: int = 20):
+    try:
+        return {"ok": True, "time_cn": now_cn(), **run_page(task or None, offset, limit)}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Task receipts unavailable: %s", exc)
+        return {"ok": False, "status": "task_receipts_unavailable", "items": []}
 
 
 @app.get("/api/overview")
@@ -125,10 +144,16 @@ def health():
     with _market_lock:
         cached = _market_cache["payload"] is not None
         age = int(time.time() - _market_cache["saved_at"]) if cached else None
+    try:
+        revision = data_revision()
+    except (OSError, ValueError, TypeError, KeyError):
+        revision = None
     return {
         "ok": True,
+        "data_revision": revision,
+        "build_commit": os.environ.get("RAILWAY_GIT_COMMIT_SHA"),
         "service": "Robin Stock Assistant API",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,

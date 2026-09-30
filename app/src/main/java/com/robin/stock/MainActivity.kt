@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var root: LinearLayout
     private lateinit var scroller: ScrollView
     private lateinit var nav: LinearLayout
+    private var researchTask = ""
+    private var researchTaskTitle = ""
+    private var taskRefreshAction: (() -> Unit)? = null
     private var currentTab = 0
     private var pageGeneration = 0
     private var minuteGeneration = 0
@@ -97,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             val data = runCatching {
                 request(path).also {
-                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/recommendations?")))
+                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/recommendations?") || path.startsWith("/api/tasks") || path.startsWith("/api/task-runs")))
                         prefs.edit().putString("cache:$path", it.toString()).apply()
                 }
             }.recoverCatching {
@@ -132,6 +135,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         isForeground = true
         if (currentTab == 0) overviewBox?.let { loadOverview(it) }
+        taskRefreshAction?.invoke()
         startHomeAutoRefresh()
     }
     override fun onPause() {
@@ -148,6 +152,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() { if (currentTab != 0) showTab(0) else super.onBackPressed() }
     private fun showTab(index: Int) {
         stopHomeAutoRefresh()
+        taskRefreshAction = null
         homeMarketStatus = null
         homeCandidatesBox = null
         overviewBox = null
@@ -431,7 +436,12 @@ class MainActivity : AppCompatActivity() {
     }
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
-            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性")
+            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性", "app_development" to "APK打磨")
+        taskCenterCard()
+        if (researchTask.isNotBlank()) {
+            val selection = card("当前任务：$researchTaskTitle")
+            selection.addView(action("查看全部研究") { researchTask = ""; researchTaskTitle = ""; showTab(3) })
+        }
         recommendationCard()
         backtestCard()
         val archive = card("研究历史")
@@ -451,7 +461,7 @@ class MainActivity : AppCompatActivity() {
             if (!append) { offset = 0; items.removeAllViews(); more.visibility = View.GONE }
             val id = ++requestId
             status.text = "正在读取历史…"; more.isEnabled = false
-            val path = "/api/research?limit=20&offset=$offset&track=$track&date=$filterDate"
+            val path = "/api/research?limit=20&offset=$offset&track=$track&date=$filterDate&task=$researchTask"
             fetch(path) { data, error ->
                 if (id != requestId) return@fetch
                 more.isEnabled = true
@@ -494,10 +504,79 @@ class MainActivity : AppCompatActivity() {
             }
         }
         names.forEach { (key, title) ->
-            chips.addView(action(title) { track = key; load() })
+            chips.addView(action(title) { researchTask = ""; researchTaskTitle = ""; track = key; load() })
         }
         archive.addView(action("按日期筛选 / 刷新") { load() })
         more.setOnClickListener { load(true) }; archive.addView(more); load()
+    }
+    private fun taskCenterCard() {
+        val parent = card("定时任务中心")
+        parent.addView(label("查看安排、执行记录和研究成果。", 12f))
+        val status = label("正在读取任务…", 12f); parent.addView(status)
+        val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
+        val toggle = action("展开任务安排") { }
+        toggle.setOnClickListener {
+            box.visibility = if (box.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            toggle.text = if (box.visibility == View.VISIBLE) "收起任务安排" else "展开任务安排"
+        }
+        parent.addView(toggle); parent.addView(box)
+        val states = mapOf("running" to "执行中", "waiting" to "等待研究齐备",
+            "completed" to "已完成", "blocked" to "遇到阻碍", "failed" to "执行失败",
+            "report_missing" to "报告待发布")
+        fun renderEvent(event: JSONObject): String {
+            val source = if (event.optString("trigger") == "manual") "本次人工工作" else "定时执行"
+            return "$source · ${states[event.optString("status")] ?: "状态待核验"}\n" +
+                event.optString("recorded_at") + "\n" + event.optString("summary")
+        }
+        fun load() {
+            fetch("/api/tasks") { data, _ ->
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "任务记录暂不可用，请刷新重试。"; return@fetch
+                }
+                val rows = data.optJSONArray("items") ?: JSONArray()
+                status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
+                    "${rows.length()}项任务 · 最近记录以实际执行回执为准\n安排更新：${data.optString("configuration_updated_at")}"
+                box.removeAllViews()
+                for (i in 0 until rows.length()) {
+                    val task = rows.getJSONObject(i)
+                    val taskId = task.optString("id")
+                    val title = task.optString("title")
+                    val wrapper = LinearLayout(this).apply {
+                        orientation = LinearLayout.VERTICAL; setPadding(0, dp(10), 0, dp(16))
+                    }
+                    wrapper.addView(label(title + if (task.optBoolean("one_time")) " · 一次性" else "", 16f, true))
+                    wrapper.addView(label(task.optString("schedule_text"), 12f))
+                    wrapper.addView(label(task.optString("summary"), 13f))
+                    val latest = task.optJSONObject("last_run")
+                    wrapper.addView(label(if (latest == null) "未收到执行记录" else renderEvent(latest), 12f))
+                    wrapper.addView(label("已归档 ${task.optInt("report_count")} 篇报告", 12f))
+                    wrapper.addView(action("查看对应报告") {
+                        researchTask = taskId; researchTaskTitle = title; showTab(3)
+                    })
+                    val history = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
+                    val records = action("查看执行记录") { }
+                    records.setOnClickListener {
+                        if (history.visibility == View.VISIBLE) { history.visibility = View.GONE; return@setOnClickListener }
+                        records.isEnabled = false
+                        fetch("/api/task-runs?task=$taskId&limit=20") { result, _ ->
+                            records.isEnabled = true; history.removeAllViews(); history.visibility = View.VISIBLE
+                            if (result == null || !result.optBoolean("ok")) {
+                                history.addView(label("执行回执暂不可用。", 12f)); return@fetch
+                            }
+                            if (result.optBoolean("_offline")) history.addView(label("离线缓存", 11f))
+                            val events = result.optJSONArray("items") ?: JSONArray()
+                            if (events.length() == 0) history.addView(label("暂无可核验执行记录；历史报告可单独查看。", 12f))
+                            for (j in 0 until events.length()) history.addView(label(renderEvent(events.getJSONObject(j)), 12f))
+                            if (result.optBoolean("has_more")) history.addView(label("此处显示最近20条，完整研究保存在历史报告中。", 11f))
+                        }
+                    }
+                    wrapper.addView(records); wrapper.addView(history); box.addView(wrapper)
+                }
+            }
+        }
+        taskRefreshAction = { load() }
+        parent.addView(action("刷新任务状态") { load() })
+        load()
     }
     private fun recommendationCard() {
         val parent = card("每日双标 · 表现记录")
