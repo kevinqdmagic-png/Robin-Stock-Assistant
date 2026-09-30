@@ -225,6 +225,71 @@ def _sina_partial():
     return frame, "sina_partial", False, []
 
 
+
+def _eastmoney_candidate_frame():
+    """Fast live candidate pool: merge leaders by amount, pct, turnover and volume ratio."""
+    base_params = {
+        "po": "1",
+        "np": "2",
+        "ut": "bd1d9ddb04089700cf9c27f6f7426281",
+        "fltt": "2",
+        "invt": "2",
+        "fs": "m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23,m:0+t:81+s:2048",
+        "fields": "f2,f3,f6,f8,f10,f12,f14",
+        "pn": "1",
+        "pz": "100",
+    }
+    url = "https://push2.eastmoney.com/api/qt/clist/get"
+
+    def fetch_rank(fid):
+        params = dict(base_params)
+        params["fid"] = fid
+        response = requests.get(
+            url,
+            params=params,
+            headers=HTTP_HEADERS,
+            timeout=(2.5, 5.5),
+        )
+        response.raise_for_status()
+        data = (response.json().get("data") or {})
+        diff = data.get("diff") or []
+        if isinstance(diff, dict):
+            diff = list(diff.values())
+        return diff
+
+    items = []
+    errors = []
+    with ThreadPoolExecutor(max_workers=4, thread_name_prefix="candidate-rank") as pool:
+        futures = {pool.submit(fetch_rank, fid): fid for fid in ("f6", "f3", "f8", "f10")}
+        for future in as_completed(futures):
+            fid = futures[future]
+            try:
+                items.extend(future.result())
+            except Exception as exc:
+                errors.append(f"{fid}:{type(exc).__name__}")
+
+    rows = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        rows.append(
+            {
+                "code": str(item.get("f12") or ""),
+                "name": str(item.get("f14") or ""),
+                "price": _num(item.get("f2")),
+                "pct": _num(item.get("f3")),
+                "amount": _num(item.get("f6"), 0.0),
+                "volume_ratio": _num(item.get("f10"), 0.0),
+                "turnover": _num(item.get("f8"), 0.0),
+            }
+        )
+
+    frame = pd.DataFrame(rows)
+    if frame.empty:
+        raise ValueError("empty live candidate frame")
+    frame = frame.drop_duplicates(subset=["code"], keep="first")
+    return frame, errors
+
 def _build_market_payload(frame, source, breadth_complete, provider_errors):
     work = frame.copy()
     required = {"code", "name", "price", "pct", "amount"}
@@ -356,6 +421,56 @@ def warm_market_cache():
 
     threading.Thread(target=self_test, daemon=True, name="startup-self-test").start()
 
+
+
+@app.get("/api/candidates")
+def live_candidates(limit: int = 20):
+    limit = max(1, min(50, int(limit)))
+    try:
+        frame, errors = _eastmoney_candidate_frame()
+        payload = _build_market_payload(
+            frame,
+            "eastmoney_live_candidates",
+            False,
+            errors,
+        )
+        rows = list(payload.get("candidates") or [])[:limit]
+        return {
+            "ok": True,
+            "status": "ok",
+            "time_cn": payload.get("time_cn") or now_cn(),
+            "source": "eastmoney_live_candidates",
+            "scanned": payload.get("count", 0),
+            "candidate_count": len(rows),
+            "candidates": rows,
+            "provider_errors": errors,
+        }
+    except Exception as exc:
+        logger.warning("Live candidate refresh failed: %s", exc)
+        with _market_lock:
+            cached = _market_cache["payload"]
+            age = time.time() - _market_cache["saved_at"] if cached else None
+        if cached:
+            rows = list(cached.get("candidates") or [])[:limit]
+            return {
+                "ok": True,
+                "status": "fallback_market_cache",
+                "time_cn": cached.get("time_cn") or now_cn(),
+                "source": cached.get("source"),
+                "scanned": cached.get("count", 0),
+                "candidate_count": len(rows),
+                "candidates": rows,
+                "cache_age_sec": int(age or 0),
+            }
+        return {
+            "ok": False,
+            "status": "candidate_data_temporarily_unavailable",
+            "time_cn": now_cn(),
+            "source": None,
+            "scanned": 0,
+            "candidate_count": 0,
+            "candidates": [],
+        }
 
 @app.get("/api/market")
 def market():
