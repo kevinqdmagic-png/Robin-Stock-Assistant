@@ -23,7 +23,14 @@ class MainActivity : AppCompatActivity() {
     private val executor = Executors.newFixedThreadPool(3)
     private val homeRefreshHandler = Handler(Looper.getMainLooper())
     private val autoRefreshMs = 30_000L
-    private val red = Color.rgb(232, 49, 62)
+    private val red = Color.rgb(218, 45, 61)
+    private val green = Color.rgb(20, 143, 102)
+    private var overviewBox: LinearLayout? = null
+    private var sectorBox: LinearLayout? = null
+    private var overviewData: JSONObject? = null
+    private var sectorKind = "industry"
+    private var homeIsLive = false
+    private var refreshTick = 0
     private val ink = Color.rgb(35, 38, 44)
     private val muted = Color.rgb(122, 126, 134)
     private lateinit var root: LinearLayout
@@ -86,7 +93,15 @@ class MainActivity : AppCompatActivity() {
     private fun fetch(path: String, result: (JSONObject?, String?) -> Unit) {
         val generation = pageGeneration
         executor.execute {
-            val data = runCatching { request(path) }
+            val data = runCatching {
+                request(path).also {
+                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path == "/api/recommendations?limit=12"))
+                        prefs.edit().putString("cache:$path", it.toString()).apply()
+                }
+            }.recoverCatching {
+                val cached = prefs.getString("cache:$path", null) ?: throw it
+                JSONObject(cached).put("_offline", true)
+            }
             runOnUiThread {
                 if (!isDestroyed && generation == pageGeneration) result(data.getOrNull(), data.exceptionOrNull()?.message)
             }
@@ -95,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         selectedCode = savedInstanceState?.getString("code") ?: prefs.getString("selected", prefs.getString("watch", "")).orEmpty()
-        val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(Color.rgb(246, 246, 248)) }
+        val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(Color.rgb(245, 247, 250)) }
         root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(16)) }
         scroller = ScrollView(this).apply { isFillViewport = true; addView(root) }
         shell.addView(scroller, LinearLayout.LayoutParams(-1, 0, 1f))
@@ -114,6 +129,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         isForeground = true
+        if (currentTab == 0) overviewBox?.let { loadOverview(it) }
         startHomeAutoRefresh()
     }
     override fun onPause() {
@@ -132,6 +148,8 @@ class MainActivity : AppCompatActivity() {
         stopHomeAutoRefresh()
         homeMarketStatus = null
         homeCandidatesBox = null
+        overviewBox = null
+        sectorBox = null
         currentTab = index; pageGeneration++; root.removeAllViews(); nav.removeAllViews(); scroller.scrollTo(0, 0)
         val tabs = listOf("首页", "自选", "分时", "股票研究")
         tabs.forEachIndexed { i, title ->
@@ -145,29 +163,100 @@ class MainActivity : AppCompatActivity() {
             nav.addView(item, LinearLayout.LayoutParams(0, -2, 1f))
         }
         root.addView(label(if (index == 0) "Robin 股票助手" else tabs[index], 26f, true))
-        root.addView(label(when(index) { 0 -> "看市场 · 等确认 · 留记录"; 1 -> "我的关注 · 保存在本机"; 2 -> "分钟走势 · 北京时间"; else -> "每日复盘与研究档案" }, 13f).apply { setPadding(0, 0, 0, dp(18)) })
+        root.addView(label(when(index) { 0 -> "看市场 · 等确认 · 留记录"; 1 -> "我的关注 · 保存在本机"; 2 -> "分钟走势 · 北京时间"; else -> "研究留档 · 推荐跟踪 · 历史验证" }, 13f).apply { setPadding(0, 0, 0, dp(18)) })
         when (index) { 0 -> home(); 1 -> watchlist(); 2 -> minuteCard(); else -> research() }
+    }
+    private fun pctText(value: Double): String =
+        if (!value.isFinite()) "—" else String.format(java.util.Locale.CHINA, "%+.2f%%", value)
+    private fun numText(value: Double, digits: Int = 2): String =
+        if (!value.isFinite()) "—" else String.format(java.util.Locale.CHINA, "%.${digits}f", value)
+    private fun trendColor(value: Double) = if (!value.isFinite() || value == 0.0) muted else if (value > 0) red else green
+    private fun textRow(parent: LinearLayout, left: String, right: String, pct: Double = Double.NaN) {
+        val row = LinearLayout(this).apply { gravity = Gravity.CENTER_VERTICAL; setPadding(0, dp(7), 0, dp(7)) }
+        row.addView(label(left, 14f, true), LinearLayout.LayoutParams(0, -2, 1f))
+        row.addView(label(right, 14f, true).apply { setTextColor(trendColor(pct)); gravity = Gravity.END })
+        parent.addView(row)
     }
     private fun home() {
         val market = card("市场概览")
-        val status = label("正在读取行情…", 13f); market.addView(status)
+        val status = label("正在读取行情…", 12f); market.addView(status)
+        val indices = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; market.addView(indices)
         val candidates = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        homeMarketStatus = status
-        homeCandidatesBox = candidates
-        market.addView(action("刷新市场") { loadMarket(status, candidates) })
+        homeMarketStatus = status; homeCandidatesBox = candidates; overviewBox = indices
+        market.addView(action("刷新市场") { loadMarket(status, candidates); loadOverview(indices) })
+        val sectors = card("板块强弱")
+        val switcher = LinearLayout(this)
+        switcher.addView(action("行业板块") { sectorKind = "industry"; renderSectors() }, LinearLayout.LayoutParams(0, -2, 1f))
+        switcher.addView(action("概念板块") { sectorKind = "concept"; renderSectors() }, LinearLayout.LayoutParams(0, -2, 1f))
+        sectors.addView(switcher)
+        val sectorItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        sectors.addView(sectorItems); sectorItems.addView(label("正在读取板块…", 12f)); sectorBox = sectorItems
         val signalCard = card("买点观察")
         val signalStatus = label("正在扫描观察信号…", 16f, true)
-        val signalBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        val signalItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         signalCard.addView(signalStatus)
-        signalCard.addView(label("低位首次启动 · 分歧转一致 · 超跌转强", 13f))
-        signalCard.addView(signalBox)
-        signalCard.addView(action("刷新买点观察") { loadSignals(signalStatus, signalBox) })
-        minuteCard()
+        signalCard.addView(label("低位首次启动 · 分歧转一致 · 超跌转强", 12f))
+        signalCard.addView(signalItems)
+        signalCard.addView(action("刷新买点观察") { loadSignals(signalStatus, signalItems) })
         val pool = card("动态候选")
-        pool.addView(label("量价初筛，仅供观察", 13f)); pool.addView(candidates)
-        loadMarket(status, candidates)
-        loadSignals(signalStatus, signalBox)
+        pool.addView(label("全市场入口 · 量价初筛 · 点击查看分时", 12f)); pool.addView(candidates)
+        loadMarket(status, candidates); loadOverview(indices); loadSignals(signalStatus, signalItems)
         startHomeAutoRefresh()
+    }
+    private fun loadOverview(box: LinearLayout) {
+        fetch("/api/overview") { data, _ ->
+            if (data == null || !data.optBoolean("ok")) {
+                if (box.childCount == 0) box.addView(label("指数与板块暂不可用，点击刷新重试。", 12f))
+                sectorBox?.let { if (it.childCount <= 1) { it.removeAllViews(); it.addView(label("板块数据暂不可用", 12f)) } }
+                return@fetch
+            }
+            overviewData = data; homeIsLive = data.optJSONObject("session")?.optBoolean("is_live") == true
+            box.removeAllViews()
+            box.addView(label(data.optJSONObject("session")?.optString("label").orEmpty() +
+                if (data.optBoolean("stale")) " · 缓存已过期" else if (!homeIsLive) " · 显示最近可用行情" else " · 候选30秒刷新", 12f))
+            val rows = data.optJSONArray("indices") ?: JSONArray()
+            val byCode = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.associateBy { it.optString("code") }
+            val ordered = listOf("000001", "399001", "399006", "000300").mapNotNull { byCode[it] }
+            for (start in ordered.indices step 2) {
+                val row = LinearLayout(this)
+                ordered.drop(start).take(2).forEach { x ->
+                    val tile = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(0, dp(6), dp(8), dp(8)) }
+                    val pct = x.optDouble("pct")
+                    tile.addView(label(x.optString("name"), 12f))
+                    tile.addView(label(numText(x.optDouble("price")), 21f, true).apply { setTextColor(trendColor(pct)) })
+                    tile.addView(label(pctText(pct), 13f, true).apply { setTextColor(trendColor(pct)) })
+                    row.addView(tile, LinearLayout.LayoutParams(0, -2, 1f))
+                }
+                box.addView(row)
+            }
+            val times = ordered.map { it.optString("as_of").takeIf { time -> time.isNotBlank() && time != "null" } }
+            val time = times.filterNotNull().minOrNull()
+            box.addView(label("指数数据：${time ?: "时间待核验"} · 北京时间", 11f))
+            if (data.optString("status") == "partial") box.addView(label("部分指数或板块暂不可用，已保留可用部分。", 11f))
+            renderSectors()
+        }
+    }
+    private fun renderSectors() {
+        val box = sectorBox ?: return
+        box.removeAllViews()
+        val board = overviewData?.optJSONObject(sectorKind)
+        val kindLabel = if (sectorKind == "industry") "行业" else "概念"
+        var count = 0
+        for (side in listOf("strong", "weak")) {
+            val rows = board?.optJSONArray(side) ?: JSONArray()
+            box.addView(label("$kindLabel · " + if (side == "strong") "领涨" else "领跌", 12f, true))
+            for (i in 0 until minOf(3, rows.length())) {
+                val x = rows.optJSONObject(i) ?: continue
+                val pct = x.optDouble("pct")
+                textRow(box, x.optString("name"), pctText(pct), pct)
+                val leader = x.optString("leader").takeIf { it.isNotBlank() && it != "null" }
+                if (side == "strong" && leader != null)
+                    box.addView(label("领涨股 $leader · ${pctText(x.optDouble("leader_pct"))}", 11f))
+                count++
+            }
+        }
+        if (count == 0) box.addView(label("当前板块数据暂不可用，请刷新市场。", 12f))
+        box.addView(label("板块可重叠，涨跌幅不能相加；来源：东方财富公开行情。", 11f))
     }
 
     private fun startHomeAutoRefresh() {
@@ -178,7 +267,13 @@ class MainActivity : AppCompatActivity() {
                 if (!isForeground || currentTab != 0) return
                 val status = homeMarketStatus ?: return
                 val box = homeCandidatesBox ?: return
-                loadLiveCandidates(box)
+                if (homeIsLive) {
+                    loadLiveCandidates(box)
+                    if (++refreshTick % 3 == 0) {
+                        loadMarket(status, box)
+                        overviewBox?.let { loadOverview(it) }
+                    }
+                }
                 homeRefreshHandler.postDelayed(this, autoRefreshMs)
             }
         }
@@ -281,59 +376,211 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderCandidates(box: LinearLayout, rows: JSONArray, updatedAt: String? = null) {
         box.removeAllViews()
-        if (!updatedAt.isNullOrBlank()) {
-            box.addView(label("自动更新 · $updatedAt", 11f))
-        }
+        if (!updatedAt.isNullOrBlank()) box.addView(label("读取时间 $updatedAt · 北京时间", 11f))
+        if (rows.length() == 0) box.addView(label("当前没有可用候选", 13f))
         for (i in 0 until minOf(20, rows.length())) {
             val x = rows.getJSONObject(i); val code = x.optString("code").takeLast(6)
-            box.addView(label("${x.optString("name")}  $code   ¥${x.optString("price")}\n${x.optString("pct")}%  ·  量比 ${x.optString("volume_ratio")}  ·  换手 ${x.optString("turnover")}%").apply {
-                setTextColor(ink); setPadding(0, dp(12), 0, dp(12))
+            val item = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL; setPadding(0, dp(8), 0, dp(10))
                 setOnClickListener { selectedCode = code; showTab(2) }
-            })
+            }
+            val pct = x.optDouble("pct")
+            textRow(item, "${x.optString("name")}  $code", pctText(pct), pct)
+            item.addView(label("¥${numText(x.optDouble("price"))}  ·  量比 ${numText(x.optDouble("volume_ratio"))}  ·  换手 ${numText(x.optDouble("turnover"))}%", 12f))
+            box.addView(item)
         }
     }
-
     private fun loadLiveCandidates(box: LinearLayout) {
         fetch("/api/candidates?limit=20") { data, _ ->
-            if (data == null || !data.optBoolean("ok")) return@fetch
-            val rows = data.optJSONArray("candidates") ?: return@fetch
-            renderCandidates(box, rows, data.optString("time_cn"))
+            if (data == null || !data.optBoolean("ok")) {
+                homeMarketStatus?.text = "候选刷新失败，仍显示上次结果；请稍后重试。"
+                return@fetch
+            }
+            renderCandidates(box, data.optJSONArray("candidates") ?: JSONArray(), data.optString("time_cn"))
+            if (data.optString("status") == "fallback_market_cache")
+                box.addView(label("备用缓存 · ${data.optInt("cache_age_sec")} 秒前，请核对数据时间。", 11f))
         }
     }
-
     private fun loadMarket(status: TextView, box: LinearLayout) {
-        status.text = "正在读取全 A 行情…"; box.removeAllViews()
+        if (box.childCount == 0) status.text = "正在读取市场行情…"
         fetch("/api/market") { data, error ->
             if (data == null || !data.optBoolean("ok")) {
-                status.text = "行情暂不可用，请稍后刷新。" + (error?.let { "\n$it" } ?: ""); return@fetch
+                status.text = "市场行情暂不可用，请刷新重试。" + (error?.let { "\n$it" } ?: ""); return@fetch
             }
-            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}\n扫描 ${data.optInt("count")} 只 · ${data.optString("time_cn")}\n来源 ${data.optString("source")} · 北京时间\n动态候选每30秒自动刷新"
+            val complete = data.optBoolean("breadth_complete")
+            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}  ·  平盘 ${data.optInt("flat")}\n" +
+                "${if (complete) "覆盖" else "部分覆盖"} ${data.optInt("count")} 只  ·  " +
+                "${data.optString("amount_scope", "覆盖成交额")} ${numText(data.optDouble("amount_yi"))} 亿\n" +
+                "读取时间 ${data.optString("time_cn")} · 北京时间" +
+                if (data.optBoolean("stale")) "\n缓存已过期，请核对行情时间。" else ""
             renderCandidates(box, data.optJSONArray("candidates") ?: JSONArray(), data.optString("time_cn"))
         }
     }
     private fun research() {
-        val names = mapOf("market_review" to "每日复盘", "dragon_tiger" to "龙虎榜研究", "low_position" to "低位启动跟踪", "quant_research" to "量化交易研究")
-        card("研究栏目").addView(label(names.values.joinToString(" · "), 14f))
-        val records = card("研究记录")
-        val status = label("正在读取已发布记录…", 13f); records.addView(status)
-        val items = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; records.addView(items)
-        fun load() {
-            status.text = "正在读取已发布记录…"; items.removeAllViews()
-            fetch("/api/research") { data, error ->
+        val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
+            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性")
+        recommendationCard()
+        backtestCard()
+        val archive = card("研究历史")
+        val day = EditText(this).apply { hint = "按日期查看：2026-09-30"; textSize = 14f; isSingleLine = true }
+        archive.addView(day)
+        val chips = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+        archive.addView(HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; addView(chips) })
+        var track = ""; var offset = 0; var requestId = 0
+        val status = label("正在读取历史…", 12f); archive.addView(status)
+        val items = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; archive.addView(items)
+        val more = action("加载更早记录") { }; more.visibility = View.GONE
+        fun load(append: Boolean = false) {
+            val filterDate = day.text.toString().trim()
+            if (filterDate.isNotBlank() && !Regex("[0-9]{4}-[0-9]{2}-[0-9]{2}").matches(filterDate)) {
+                day.error = "日期格式为 YYYY-MM-DD"; return
+            }
+            if (!append) { offset = 0; items.removeAllViews(); more.visibility = View.GONE }
+            val id = ++requestId
+            status.text = "正在读取历史…"; more.isEnabled = false
+            val path = "/api/research?limit=20&offset=$offset&track=$track&date=$filterDate"
+            fetch(path) { data, error ->
+                if (id != requestId) return@fetch
+                more.isEnabled = true
                 if (data == null || !data.optBoolean("ok")) {
-                    status.text = "研究记录暂不可用，请稍后刷新。" + (error?.let { "\n$it" } ?: ""); return@fetch
+                    status.text = "研究档案暂不可用。" + (error?.let { "\n$it" } ?: ""); return@fetch
                 }
                 val rows = data.optJSONArray("items") ?: JSONArray()
-                status.text = if (rows.length() == 0) "尚无已发布研究。每日任务的结果需要同步发布后才能在这里查看。" else "已发布 ${rows.length()} 篇 · 北京时间"
+                status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
+                    "共 ${data.optInt("total", rows.length())} 篇 · 点击展开全文"
+                if (rows.length() == 0 && !append) items.addView(label("该日期或栏目暂无已归档记录。", 13f))
                 for (i in 0 until rows.length()) {
                     val x = rows.getJSONObject(i)
-                    items.addView(label("${x.optString("date")} · ${names[x.optString("track")] ?: x.optString("track")}", 12f))
-                    items.addView(label(x.optString("title"), 17f, true))
-                    items.addView(label(x.optString("summary"), 15f).apply { setTextColor(ink); setTextIsSelectable(true); setPadding(0, dp(4), 0, dp(22)) })
+                    val wrapper = LinearLayout(this).apply {
+                        orientation = LinearLayout.VERTICAL; setPadding(0, dp(12), 0, dp(16))
+                    }
+                    wrapper.addView(label("${x.optString("date")} · ${names[x.optString("track")] ?: x.optString("track")}", 12f))
+                    wrapper.addView(label(x.optString("title"), 17f, true))
+                    wrapper.addView(label(x.optString("summary"), 14f).apply { setTextColor(ink) })
+                    val body = label(x.optString("body", x.optString("summary")), 14f).apply {
+                        setTextColor(ink); setTextIsSelectable(true); visibility = View.GONE
+                    }
+                    wrapper.addView(body)
+                    val toggle = action("展开全文") { }
+                    toggle.setOnClickListener {
+                        body.visibility = if (body.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                        toggle.text = if (body.visibility == View.VISIBLE) "收起全文" else "展开全文"
+                    }
+                    wrapper.addView(toggle)
+                    val sources = x.optJSONArray("sources")
+                    if (sources != null) for (j in 0 until sources.length()) {
+                        val source = sources.optString(j)
+                        wrapper.addView(label(source, 11f).apply {
+                            setTextIsSelectable(true); autoLinkMask = android.text.util.Linkify.WEB_URLS
+                        })
+                    }
+                    items.addView(wrapper)
                 }
+                offset += rows.length()
+                more.visibility = if (data.optBoolean("has_more")) View.VISIBLE else View.GONE
             }
         }
-        records.addView(action("刷新研究") { load() }); load()
+        names.forEach { (key, title) ->
+            chips.addView(action(title) { track = key; load() })
+        }
+        archive.addView(action("按日期筛选 / 刷新") { load() })
+        more.setOnClickListener { load(true) }; archive.addView(more); load()
+    }
+    private fun recommendationCard() {
+        val parent = card("每日双标 · 表现记录")
+        parent.addView(label("原始推荐保留，后续结果追加；按交易日跟踪。", 12f))
+        val status = label("正在读取推荐记录…", 12f); parent.addView(status)
+        val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; parent.addView(box)
+        fetch("/api/recommendations?limit=12") { data, _ ->
+            if (data == null || !data.optBoolean("ok")) {
+                status.text = "推荐记录暂不可用，请稍后刷新。"; return@fetch
+            }
+            val rows = data.optJSONArray("items") ?: JSONArray()
+            status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") + "已归档 ${data.optInt("total", rows.length())} 条"
+            if (rows.length() == 0) box.addView(label("历史推荐正在补证。缺少当时价格或时间的记录不计算收益。", 13f))
+            val groups = mapOf("close" to "盘后组", "0950" to "早盘9:50", "1440" to "尾盘14:40")
+            for (i in 0 until rows.length()) {
+                val row = rows.getJSONObject(i)
+                val code = row.optString("code")
+                box.addView(label("${row.optString("date")} · ${groups[row.optString("group")] ?: row.optString("group")}", 12f))
+                box.addView(label("${row.optString("name")}  $code", 16f, true).apply {
+                    setOnClickListener { selectedCode = code; showTab(2) }
+                })
+                box.addView(label(row.optString("reason"), 13f))
+                val performance = label("点击查询T+1及3/5/10/20/30交易日表现", 12f); box.addView(performance)
+                val check = action("查询后续表现") { }
+                check.setOnClickListener {
+                    check.isEnabled = false; performance.text = "正在核查后续行情…"
+                    val recordId = java.net.URLEncoder.encode(row.optString("id"), "UTF-8")
+                    fetch("/api/recommendations/$recordId/performance") { result, _ ->
+                        check.isEnabled = true
+                        if (result == null || !result.optBoolean("ok")) {
+                            performance.text = "后续行情暂不可用。"; return@fetch
+                        }
+                        val points = result.optJSONArray("points") ?: JSONArray()
+                        if (points.length() == 0) {
+                            performance.text = result.optString("note", "等待原始记录或后续交易日数据。")
+                        } else {
+                            performance.text = (0 until points.length()).joinToString("\n") { j ->
+                                val p = points.getJSONObject(j)
+                                "${p.optInt("horizon")}交易日：" +
+                                    if (p.optString("status") == "pending") "等待后续数据"
+                                    else "收盘 ${pctText(p.optDouble("close_pct"))} · 最大浮盈 ${pctText(p.optDouble("mfe_pct"))} · 最大不利 ${pctText(p.optDouble("mae_pct"))}"
+                            } + "\n" + result.optString("note")
+                        }
+                    }
+                }
+                box.addView(check)
+            }
+            val audit = data.optJSONArray("legacy_audit") ?: JSONArray()
+            if (audit.length() > 0) box.addView(label("待补证历史关注："+
+                (0 until audit.length()).joinToString("、") { audit.optJSONObject(it)?.optString("name").orEmpty() }, 12f))
+        }
+    }
+    private fun backtestCard() {
+        val parent = card("最近30交易日 · 历史验证")
+        parent.addView(label("日线放量突破代理模型 · 与盘中三模型分别验证", 12f))
+        val input = codeInput(); input.setText(selectedCode); parent.addView(input)
+        val holding = Spinner(this)
+        val horizons = listOf(1, 3, 5)
+        holding.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,
+            horizons.map { "买入后第${it}个交易日开盘退出" })
+        holding.setSelection(1); parent.addView(holding)
+        val cost = Spinner(this)
+        val costs = listOf(10, 20, 40)
+        cost.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,
+            costs.map { "综合成本假设 ${it} 基点（${numText(it / 100.0)}%）" })
+        cost.setSelection(1); parent.addView(cost)
+        val status = label("输入代码后运行；数据不足会明确显示。", 12f); parent.addView(status)
+        val results = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; parent.addView(results)
+        val run = action("运行30交易日验证") { }
+        var generation = 0
+        run.setOnClickListener { checked(input) { code ->
+            val id = ++generation
+            status.text = "正在读取完整日线并验证…"; results.removeAllViews(); run.isEnabled = false
+            fetch("/api/stocks/$code/backtest?days=30&holding=${horizons[holding.selectedItemPosition]}&cost_bps=${costs[cost.selectedItemPosition]}") { data, _ ->
+                if (id != generation) return@fetch
+                run.isEnabled = true
+                if (data == null || !data.optBoolean("ok")) { status.text = "日线数据暂不可用，未生成回测结果。"; return@fetch }
+                val stats = data.optJSONObject("stats") ?: JSONObject()
+                status.text = "${data.optString("window_start")} — ${data.optString("window_end")}\n"+
+                    "信号 ${data.optInt("signal_count")} · 已退出 ${data.optInt("completed_count")} · 待后续 ${data.optInt("pending_count")} · 无法买入 ${data.optInt("unavailable_count")}"
+                textRow(results, "完成样本胜率", numText(stats.optDouble("win_rate_pct")) + "%")
+                textRow(results, "平均净收益", pctText(stats.optDouble("mean_net_pct")), stats.optDouble("mean_net_pct"))
+                textRow(results, "中位净收益", pctText(stats.optDouble("median_net_pct")), stats.optDouble("median_net_pct"))
+                results.addView(label("规则 ${data.optString("model")} · 数据 ${data.optString("source")}", 11f))
+                val trades = data.optJSONArray("trades") ?: JSONArray()
+                val states = mapOf("pending_entry" to "待买入交易日", "pending_exit" to "待退出 / 无法退出", "entry_unavailable" to "开盘无法买入")
+                for (i in (0 until trades.length()).reversed().take(15)) {
+                    val t = trades.getJSONObject(i)
+                    val outcome = if (t.optString("status") == "completed") "净收益 ${pctText(t.optDouble("net_pct"))}" else states[t.optString("status")].orEmpty()
+                    results.addView(label("${t.optString("date")} · $outcome", 12f))
+                }
+                val notes = data.optJSONArray("notes") ?: JSONArray()
+                for (i in 0 until notes.length()) results.addView(label(notes.optString(i), 11f))
+            }
+        } }
+        parent.addView(run)
     }
     inner class NavIcon(private val kind: Int, private val tint: Int) : View(this) {
         override fun onDraw(canvas: Canvas) {

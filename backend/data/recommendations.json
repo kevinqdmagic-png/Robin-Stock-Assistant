@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "items": [],
+  "legacy_audit": [
+    {
+      "name": "健康元",
+      "status": "needs_source",
+      "note": "用户反馈近期重复；需找回每次原始推荐日期、时间、价格与组别。"
+    },
+    {
+      "name": "双环传动",
+      "status": "needs_source",
+      "note": "用户反馈近期重复；未经原始台账补证，不回填推荐收益。"
+    },
+    {
+      "name": "汉邦科技",
+      "status": "needs_source",
+      "note": "用户询问与正式独立推荐须区分；不能自动认定为推荐样本。"
+    }
+  ]
+}

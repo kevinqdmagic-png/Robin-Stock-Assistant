@@ -1,0 +1,25 @@
+name: Research correctness
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r backend/requirements.txt
+      - name: T+1, future-data, price limits, archive and API checks
+        run: python -m unittest discover -s backend/tests -v
+      - name: Freeze published history
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python scripts/validate_archives.py "$BASE_SHA"
