@@ -9,6 +9,7 @@ from urllib.request import urlopen
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
 from task_center import data_revision
 from research_archive import verify_append_only
+from research_stocks import validate_catalog, verify_catalog_history
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--base", default="https://robin-stock-api-production.up.railway.app")
@@ -18,7 +19,7 @@ root = Path(__file__).resolve().parents[1]
 version = re.search(r'FastAPI\(title=.*?version="([^"]+)"', (root / "backend/app.py").read_text())[1]
 expected_revision = data_revision()
 expected = {name: json.loads((root / "backend/data" / name).read_text(encoding="utf-8"))
-            for name in ("tasks.json", "task_runs.json", "research.json", "recommendations.json")}
+            for name in ("tasks.json", "task_runs.json", "research.json", "recommendations.json", "research_stocks.json")}
 
 
 def get(path):
@@ -54,6 +55,17 @@ while True:
         reports = all_rows("/api/research")
         receipts = all_rows("/api/task-runs")
         recommendations = all_rows("/api/recommendations")
+        stock_catalog = get("/api/research-stocks")
+        validate_catalog(stock_catalog, reports)
+        verify_catalog_history(expected["research_stocks.json"], stock_catalog)
+        for stock in expected["research_stocks.json"]["items"]:
+            detail = get("/api/stocks/" + stock["code"] + "/research")
+            verify_catalog_history({"items": [stock]}, {"items": [detail["stock"]]})
+            linked = get("/api/research?code=" + stock["code"] + "&limit=100")
+            report_ids = {r["id"] for r in linked["items"]}
+            required = {r for entry in stock["history"] for r in entry["report_ids"]}
+            if not required.issubset(report_ids):
+                raise RuntimeError("stock research links not yet deployed: " + stock["code"])
         # A newer concurrent deployment may legitimately append records.
         for filename, actual, kind in (("research.json", reports, "research"),
                                         ("task_runs.json", receipts, "task_runs"),
@@ -62,6 +74,7 @@ while True:
         print(json.dumps({"verified": True, "version": version, "tasks": len(tasks["items"]),
                           "reports": len(reports["items"]), "receipts": len(receipts["items"]),
                           "recommendations": len(recommendations["items"]),
+                          "research_stocks": len(stock_catalog["items"]),
                           "data_revision_matches": health.get("data_revision") == expected_revision,
                           "base": args.base}, ensure_ascii=False))
         break

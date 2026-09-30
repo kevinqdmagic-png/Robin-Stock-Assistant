@@ -16,8 +16,9 @@ from research_archive import archive_page, load_document
 from trading_calendar import completed_bars, session_state
 from market_insights import overview as market_overview
 from task_center import task_list, run_page, report_page, data_revision
+from research_stocks import catalog, stock_research, stock_reports
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.5.0")
+app = FastAPI(title="Robin Stock Assistant API", version="0.6.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -61,13 +62,33 @@ def _num(value, default=None):
 
 
 @app.get("/api/research")
-def research(track: str = "", date: str = "", offset: int = 0, limit: int = 30, task: str = ""):
+def research(track: str = "", date: str = "", offset: int = 0, limit: int = 30, task: str = "", code: str = ""):
     try:
+        if code:
+            return {"time_cn": now_cn(), **stock_reports(code, task, track, date, offset, limit)}
         page = report_page(task, track or None, date or None, offset, limit) if task else archive_page(track or None, date or None, offset, limit)
         return {"ok": True, "time_cn": now_cn(), **page}
     except (OSError, ValueError, TypeError) as exc:
         logger.warning("Research archive unavailable: %s", exc)
         return {"ok": False, "status": "research_data_unavailable", "items": [], "total": 0}
+
+
+@app.get("/api/research-stocks")
+def research_stocks():
+    try:
+        return {"ok": True, "time_cn": now_cn(), **catalog()}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Research stock catalog unavailable: %s", exc)
+        return {"ok": False, "status": "research_stock_data_unavailable", "items": []}
+
+
+@app.get("/api/stocks/{code}/research")
+def research_stock(code: str):
+    try:
+        return {"time_cn": now_cn(), **stock_research(code)}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Stock rationale unavailable: %s", exc)
+        return {"ok": False, "status": "research_stock_data_unavailable"}
 
 
 @app.get("/api/tasks")
@@ -153,7 +174,7 @@ def health():
         "data_revision": revision,
         "build_commit": os.environ.get("RAILWAY_GIT_COMMIT_SHA"),
         "service": "Robin Stock Assistant API",
-        "version": "0.5.0",
+        "version": "0.6.0",
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,

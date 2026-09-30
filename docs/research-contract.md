@@ -1,5 +1,19 @@
 # Robin stock assistant: research contract and holiday progress
 
+## 0.6.0：自选股研究理由与历史
+
+用户要求把此前高弹性及AI产业链研究股加入自选，并点开查看理由。`backend/data/research_stocks.json`是研究观察档案，和可执行每日双标的`recommendations.json`分开。
+
+- 每只股票用准确的六位`code`关联，包含`name`、`sector`、`role`（core/comparison/research）、`default_watch`和非空`history`。
+- 每条历史包含唯一`id`、实际研究`date`、本次整理`recorded_at`、`title`、`reason`、`evidence_status`、`fact_note`、`validation[]`、`risk`、`report_ids[]`和`sources[]`。完整报告必须先归档，关联报告正文须包含该股票名称。
+- 昨天三只核心（先导智能300450、柯力传感603662、源杰科技688498）保留原研究；鼎通科技688668为补充比较。此前AI连接、光器件、封装、电源七只研究股的原对话摘要另行恢复，注明回溯整理，不能把摘要恢复伪称原始完整报告，也不能补填当时报价或绩效。
+- 已发布股票和历史理由不删除、不改写。新的核验、反证、下调关注或结论更正使用新的历史id追加，原理由继续可读。当前角色可更新，更新依据必须在新历史说明。
+- 研究任务对已入库股票形成新结论时，追加有报告、日期、条件和来源的历史条目；新研究股可入清单，但默认`default_watch=false`，除非用户要求加入。仅由用户询问、风险对照或没有实际研究支持的名字不得冒称推荐。
+- 每次更新档案，同步`app/src/main/assets/research_stocks.json`为同一JSON，供离线备份；CI核验一致性与关联报告，不需要为纯研究数据更新要求用户反复安装APK。
+- `/api/research-stocks`提供清单，`/api/stocks/{code}/research`提供个股理由，`/api/research?code=...`按关联报告id查询全文。理由不依赖行情接口；缺失行情不能阻止档案展示。
+- APK首轮合并这次用户要求的十只观察股，不覆盖本机原有自选。已提供过的代码单独记在`research_seeded_codes`，用户移除后不会因刷新、重启或新批次重加；可以从过去研究清单主动恢复。
+- 自选→股票详情显示原关注理由、研究日期、最近核验、继续验证和下调关注条件，并可展开历史/来源或进入关联全文；在线档案同步，本机缓存和内置备份保留。研究观察池的标签不能被展示为当日两只短线交易指令。
+
 Version: 0.5.0, 2026-10-01. User requested daily APK improvement, independent broader stock research, and the existing volume-price study. Code is on holiday-polish-2026-10; do not say it is deployed until deployment and live checks succeed.
 
 ## What this iteration implements
