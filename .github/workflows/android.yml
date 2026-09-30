@@ -5,8 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+permissions:
+  contents: read
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,3 +27,17 @@ jobs:
         with:
           name: Robin-Stock-Assistant-debug
           path: app/build/outputs/apk/debug/app-debug.apk
+      - name: Publish the versioned test APK
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          APK_VERSION=$(sed -n 's/.*versionName = "\([^"]*\)".*/\1/p' app/build.gradle.kts)
+          APK_TAG="v$APK_VERSION"
+          APK_FILE="Robin-Stock-Assistant-$APK_VERSION.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk "$APK_FILE"
+          if gh release view "$APK_TAG" >/dev/null 2>&1; then
+            echo "Version $APK_VERSION is already published"
+          else
+            gh release create "$APK_TAG" "$APK_FILE" --title "Robin 股票助手 $APK_VERSION 测试版" --notes-file docs/apk-release-notes.md --target "$GITHUB_SHA"
+          fi

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.RobinStock" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorAccent">#E8313E</item>
+        <item name="colorAccent">#DA2D3D</item>
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">#FFFFFF</item>

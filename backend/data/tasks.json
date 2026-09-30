@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-30T19:56:55.749Z",
+  "source": "confirmed_automation_configuration",
+  "items": [
+    {
+      "id": "apk_polish",
+      "title": "上午打磨股票 APK",
+      "track": "app_development",
+      "summary": "界面、行情、历史记录、验证工具与安装检查",
+      "schedule_text": "每日09:00左右 · 奥克兰",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T090000\nRRULE:FREQ=DAILY\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "flexible_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "high_elasticity_once",
+      "title": "高弹性一次性深度研究",
+      "track": "high_elasticity",
+      "summary": "保留先导、柯力、源杰等原研究，深入验证订单、利润、竞争与估值",
+      "schedule_text": "10月1日20:00左右 · 奥克兰 · 一次性",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T200000\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "flexible_schedule",
+      "enabled": true,
+      "one_time": true,
+      "dependencies": []
+    },
+    {
+      "id": "market_review",
+      "title": "A股每日复盘",
+      "track": "market_review",
+      "summary": "市场、情绪、板块复盘与候选证据",
+      "schedule_text": "工作日20:15左右 · 奥克兰",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20260928T201500\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=20;BYMINUTE=15\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "flexible_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "quant_research",
+      "title": "A股量化痕迹复盘",
+      "track": "quant_research",
+      "summary": "量化痕迹及样本验证",
+      "schedule_text": "工作日15:45左右 · 北京",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260925T154500\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "flexible_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "volume_price",
+      "title": "量价研究与每日验证",
+      "track": "volume_price",
+      "summary": "量价假设、样本与失败归因",
+      "schedule_text": "每日21:00 · 奥克兰",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T210000\nRRULE:FREQ=DAILY\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "low_position",
+      "title": "低位启动30天研究",
+      "track": "low_position",
+      "summary": "低位启动及30交易日验证",
+      "schedule_text": "工作日15:45左右 · 北京",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260925T154500\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "flexible_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "dragon_tiger",
+      "title": "龙虎榜超短研究",
+      "track": "dragon_tiger",
+      "summary": "龙虎榜资金结构与反例",
+      "schedule_text": "工作日21:50 · 奥克兰",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20260929T215000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=21;BYMINUTE=50\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "combined_pair",
+      "title": "盘后综合双标",
+      "track": "market_review",
+      "summary": "五项研究完成后，单独筛选T+1介入的两支短线观察标的",
+      "schedule_text": "22:30起检查 · 奥克兰 · 未齐则复查",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T223000\nRRULE:FREQ=DAILY;BYHOUR=0,6,22,23;BYMINUTE=30\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "condition_watch",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": [
+        "market_review",
+        "quant_research",
+        "volume_price",
+        "low_position",
+        "dragon_tiger"
+      ]
+    },
+    {
+      "id": "early_pair",
+      "title": "早盘短线双标",
+      "track": "market_review",
+      "summary": "早盘两只 · 独立实验组",
+      "schedule_text": "工作日09:50 · 北京",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260930T095000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=9;BYMINUTE=50\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    },
+    {
+      "id": "late_pair",
+      "title": "尾盘短线双标",
+      "track": "market_review",
+      "summary": "尾盘两只 · 独立实验组",
+      "schedule_text": "工作日14:40 · 北京",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260929T144000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=14;BYMINUTE=40\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": []
+    }
+  ]
+}

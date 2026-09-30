@@ -11,8 +11,13 @@ import pandas as pd
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from analytics import backtest_daily, recommendation_performance
+from research_archive import archive_page, load_document
+from trading_calendar import completed_bars, session_state
+from market_insights import overview as market_overview
+from task_center import task_list, run_page, report_page, data_revision
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.3.0")
+app = FastAPI(title="Robin Stock Assistant API", version="0.5.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -56,29 +61,82 @@ def _num(value, default=None):
 
 
 @app.get("/api/research")
-def research():
-    """Published research only. A scheduled task does not itself publish here."""
-    path = os.environ.get("ROBIN_RESEARCH_FILE", "/data/research.json")
+def research(track: str = "", date: str = "", offset: int = 0, limit: int = 30, task: str = ""):
     try:
-        with open(path, encoding="utf-8") as file:
-            payload = json.load(file)
-        items = payload.get("items", [])
-        if not isinstance(items, list):
-            raise ValueError("items must be a list")
-        allowed = {"market_review", "dragon_tiger", "low_position", "quant_research"}
-        clean = [
-            {key: str(item[key]) for key in ("date", "track", "title", "summary")}
-            for item in items
-            if isinstance(item, dict)
-            and all(key in item for key in ("date", "track", "title", "summary"))
-            and item["track"] in allowed
-        ]
-        return {"ok": True, "time_cn": now_cn(), "items": clean[-100:][::-1]}
-    except FileNotFoundError:
-        return {"ok": True, "time_cn": now_cn(), "items": [], "status": "not_published"}
+        page = report_page(task, track or None, date or None, offset, limit) if task else archive_page(track or None, date or None, offset, limit)
+        return {"ok": True, "time_cn": now_cn(), **page}
     except (OSError, ValueError, TypeError) as exc:
-        logger.warning("Research data unavailable: %s", exc)
-        return {"ok": False, "time_cn": now_cn(), "items": [], "status": "research_data_unavailable"}
+        logger.warning("Research archive unavailable: %s", exc)
+        return {"ok": False, "status": "research_data_unavailable", "items": [], "total": 0}
+
+
+@app.get("/api/tasks")
+def tasks():
+    try:
+        return {"ok": True, "time_cn": now_cn(), **task_list()}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Task data unavailable: %s", exc)
+        return {"ok": False, "status": "task_data_unavailable", "items": []}
+
+
+@app.get("/api/task-runs")
+def task_runs(task: str = "", offset: int = 0, limit: int = 20):
+    try:
+        return {"ok": True, "time_cn": now_cn(), **run_page(task or None, offset, limit)}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Task receipts unavailable: %s", exc)
+        return {"ok": False, "status": "task_receipts_unavailable", "items": []}
+
+
+@app.get("/api/overview")
+def overview():
+    return market_overview()
+
+
+@app.get("/api/recommendations")
+def recommendations(limit: int = 20, offset: int = 0):
+    try:
+        document = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")
+        rows = sorted(document["items"], key=lambda r: (r.get("date", ""), r.get("published_at", "")), reverse=True)
+        limit = max(1, min(30, limit))
+        offset = max(0, offset)
+        # Metadata returns promptly. Each performance calculation has its own bounded request.
+        return {"ok": True, "time_cn": now_cn(), "items": rows[offset:offset + limit],
+                "total": len(rows), "has_more": offset + limit < len(rows),
+                "legacy_audit": document.get("legacy_audit", [])}
+    except (OSError, ValueError, TypeError) as exc:
+        logger.warning("Recommendations unavailable: %s", exc)
+        return {"ok": False, "status": "recommendation_data_unavailable", "items": []}
+
+
+@app.get("/api/recommendations/{record_id}/performance")
+def performance(record_id: str):
+    try:
+        rows = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")["items"]
+        row = next((r for r in rows if r.get("id") == record_id), None)
+        if row is None:
+            return {"ok": False, "status": "record_not_found"}
+        if not row.get("reference_price") or row.get("provenance") != "contemporaneous":
+            return {"ok": True, **recommendation_performance(row, [])}
+        bars, source, errors = _get_daily(row["code"], adjust="0")
+        return {"ok": True, **recommendation_performance(row, completed_bars(bars)),
+                "source": source, "provider_errors": errors, "time_cn": now_cn()}
+    except (OSError, ValueError, TypeError) as exc:
+        logger.warning("Performance data unavailable: %s", exc)
+        return {"ok": False, "status": "performance_data_unavailable"}
+
+
+@app.get("/api/stocks/{code}/backtest")
+def stock_backtest(code: str, days: int = 30, holding: int = 3, cost_bps: float = 20):
+    if len(code) != 6 or not code.isascii() or not code.isdigit():
+        return {"ok": False, "status": "invalid_code"}
+    try:
+        bars, source, errors = _get_daily(code)
+        report = backtest_daily(completed_bars(bars), code, days, holding, cost_bps)
+        return {**report, "code": code, "source": source, "provider_errors": errors, "time_cn": now_cn()}
+    except (ValueError, TypeError) as exc:
+        logger.warning("Backtest data invalid: %s", exc)
+        return {"ok": False, "status": "backtest_data_unavailable"}
 
 
 @app.get("/health")
@@ -86,10 +144,16 @@ def health():
     with _market_lock:
         cached = _market_cache["payload"] is not None
         age = int(time.time() - _market_cache["saved_at"]) if cached else None
+    try:
+        revision = data_revision()
+    except (OSError, ValueError, TypeError, KeyError):
+        revision = None
     return {
         "ok": True,
+        "data_revision": revision,
+        "build_commit": os.environ.get("RAILWAY_GIT_COMMIT_SHA"),
         "service": "Robin Stock Assistant API",
-        "version": "0.3.0",
+        "version": "0.5.0",
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,
@@ -303,7 +367,6 @@ def _build_market_payload(frame, source, breadth_complete, provider_errors):
 
     work["code"] = work["code"].astype(str).str.extract(r"(\d{6})", expand=False).fillna("")
     work["name"] = work["name"].astype(str)
-    work = work[~work["name"].str.contains("ST|退", regex=True, na=False)]
     work = work.dropna(subset=["price", "pct", "amount"])
     work = work[work["code"].str.len() == 6]
     work = work[work["price"] > 0]
@@ -311,6 +374,9 @@ def _build_market_payload(frame, source, breadth_complete, provider_errors):
     if work.empty:
         raise ValueError("market_data_empty_after_clean")
 
+    work = work.drop_duplicates(subset=["code"], keep="last")
+    breadth = work.copy()
+    work = work[~work["name"].str.contains("ST|退", regex=True, na=False)]
     amt_rank = work["amount"].rank(pct=True)
     vr_rank = work["volume_ratio"].fillna(0).rank(pct=True)
     to_rank = work["turnover"].fillna(0).rank(pct=True)
@@ -321,7 +387,7 @@ def _build_market_payload(frame, source, breadth_complete, provider_errors):
     else:
         work["score"] = (amt_rank * 0.45 + pct_score * 0.35 + to_rank * 0.20) * 100
 
-    top = work.sort_values("score", ascending=False).head(50)
+    top = work.sort_values("score", ascending=False).head(120)
     rounded = top[
         ["code", "name", "price", "pct", "amount", "volume_ratio", "turnover", "score"]
     ].round(
@@ -343,10 +409,12 @@ def _build_market_payload(frame, source, breadth_complete, provider_errors):
         "source": source,
         "breadth_complete": breadth_complete,
         "provider_errors": provider_errors,
-        "count": int(len(work)),
-        "advance": int((work["pct"] > 0).sum()),
-        "decline": int((work["pct"] < 0).sum()),
-        "flat": int((work["pct"] == 0).sum()),
+        "count": int(len(breadth)),
+        "advance": int((breadth["pct"] > 0).sum()),
+        "decline": int((breadth["pct"] < 0).sum()),
+        "flat": int((breadth["pct"] == 0).sum()),
+        "amount_yi": round(float(breadth["amount"].sum()) / 1e8, 2),
+        "amount_scope": "沪深京A股覆盖成交额" if breadth_complete else "部分覆盖成交额",
         "candidate_count": len(rows),
         "candidates": rows,
     }
@@ -619,11 +687,11 @@ def stock_minute(code: str):
     return payload
 
 
-def _eastmoney_daily(code, limit=80):
+def _eastmoney_daily(code, limit=120, adjust="1"):
     params = {
         "secid": _minute_secid(code),
         "klt": "101",
-        "fqt": "1",
+        "fqt": adjust,
         "lmt": str(limit),
         "end": "20500101",
         "fields1": "f1,f2,f3,f4,f5,f6",
@@ -673,34 +741,36 @@ def _eastmoney_daily(code, limit=80):
     return [], None, errors
 
 
-def _get_daily(code):
+def _get_daily(code, adjust="1"):
+    cache_key = code + ":" + adjust
     now = time.time()
     with _daily_lock:
-        cached = _daily_cache.get(code)
+        cached = _daily_cache.get(cache_key)
     if cached and now - cached["saved_at"] < DAILY_CACHE_TTL:
         return cached["bars"], cached["source"], cached["errors"]
 
-    bars, source, errors = _eastmoney_daily(code)
+    bars, source, errors = _eastmoney_daily(code, adjust=adjust)
     if bars:
         with _daily_lock:
-            _daily_cache[code] = {
+            _daily_cache[cache_key] = {
                 "saved_at": now,
                 "bars": bars,
                 "source": source,
                 "errors": errors,
             }
     elif cached:
-        return cached["bars"], cached["source"], errors
+        return cached["bars"], cached["source"], errors + ["stale_cache"]
     return bars, source, errors
 
 
 def _signal_session_state():
-    now = datetime.now(CN_TZ)
-    minutes = now.hour * 60 + now.minute
-    if now.weekday() < 5 and (570 <= minutes <= 690 or 780 <= minutes <= 900):
+    state = session_state()
+    if state["is_live"]:
         return "实时观察"
-    if now.weekday() < 5 and 690 < minutes < 780:
+    if state["code"] == "lunch":
         return "午间观察"
+    if state["code"] == "closed":
+        return "休市历史观察"
     return "收盘观察"
 
 

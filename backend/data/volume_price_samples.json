@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "validation_status": "awaiting_original_prices_and_sources",
+  "items": [
+    {
+      "date": "2026-09-29",
+      "provenance": "retrospective_report_excerpt",
+      "samples": [
+        "传艺科技",
+        "大金重工",
+        "健康元",
+        "国轩高科",
+        "金辰股份"
+      ],
+      "reported_statistics": {
+        "sample_count": 5,
+        "positive_close_count": 4,
+        "mean_close_pct": 3.65,
+        "median_close_pct": 2.79,
+        "mean_mfe_pct": 7.83,
+        "mean_mae_pct": -1.47
+      },
+      "eligible_for_model_statistics": false
+    },
+    {
+      "date": "2026-09-30",
+      "provenance": "prior_report_excerpt",
+      "cohort": "holiday_overnight",
+      "samples": [
+        "健康元",
+        "汉邦科技",
+        "襄阳轴承",
+        "南模生物",
+        "金辰股份"
+      ],
+      "eligible_for_model_statistics": false
+    }
+  ]
+}
