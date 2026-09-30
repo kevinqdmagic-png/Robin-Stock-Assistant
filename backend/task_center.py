@@ -133,7 +133,8 @@ def report_page(task_id, track=None, day=None, offset=0, limit=20):
 
 def data_revision():
     envs = {"research.json": "ROBIN_RESEARCH_FILE", "recommendations.json": "ROBIN_RECOMMENDATIONS_FILE",
-            "tasks.json": "ROBIN_TASKS_FILE", "task_runs.json": "ROBIN_TASK_RUNS_FILE"}
+            "tasks.json": "ROBIN_TASKS_FILE", "task_runs.json": "ROBIN_TASK_RUNS_FILE",
+            "research_stocks.json": "ROBIN_RESEARCH_STOCKS_FILE"}
     payload = {name: load_document(name, env) for name, env in envs.items()}
     encoded = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()
     return hashlib.sha256(encoded).hexdigest()

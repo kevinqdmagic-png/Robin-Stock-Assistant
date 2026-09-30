@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nav: LinearLayout
     private var researchTask = ""
     private var researchTaskTitle = ""
+    private var researchCode = ""
+    private var researchStockName = ""
+    private var stockCatalog = JSONObject()
+    private var catalogOffline = true
     private var taskRefreshAction: (() -> Unit)? = null
     private var currentTab = 0
     private var pageGeneration = 0
@@ -81,12 +85,53 @@ class MainActivity : AppCompatActivity() {
     }
     private fun watchCodes(): List<String> {
         val saved = prefs.getString("watchlist", null)
-        return (saved ?: prefs.getString("watch", "").orEmpty()).split(",").filter { validCode.matches(it) }.distinct()
+        return WatchlistPolicy.codes((saved ?: prefs.getString("watch", "").orEmpty()).split(","))
     }
     private fun saveWatch(code: String) {
         prefs.edit().putString("watchlist", (watchCodes() + code).distinct().joinToString(",")).apply()
         Toast.makeText(this, "已加入自选", Toast.LENGTH_SHORT).show()
     }
+    private fun researchStock(code: String): JSONObject? {
+        val rows = stockCatalog.optJSONArray("items") ?: return null
+        return (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.firstOrNull { it.optString("code") == code }
+    }
+    private fun stockHistory(stock: JSONObject): List<JSONObject> {
+        val rows = stock.optJSONArray("history") ?: JSONArray()
+        return (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.sortedBy { it.optString("date") }
+    }
+    private fun roleName(stock: JSONObject) = when (stock.optString("role")) {
+        "core" -> "原研究核心观察"; "comparison" -> "补充比较"; else -> "产业链研究观察"
+    }
+    private fun applyCatalog(data: JSONObject): Boolean {
+        val rows = data.optJSONArray("items") ?: return false
+        if (data.optInt("schema_version") != 1 || (0 until rows.length()).any {
+            val stock = rows.optJSONObject(it)
+            stock == null || !validCode.matches(stock.optString("code")) || stock.optString("name").isBlank() ||
+                (stock.optJSONArray("history")?.length() ?: 0) == 0
+        }) return false
+        stockCatalog = data
+        val defaults = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }
+            .filter { it.optBoolean("default_watch") }.map { it.optString("code") }
+        val result = WatchlistPolicy.seed(watchCodes(), prefs.getString("research_seeded_codes", "").orEmpty().split(","), defaults)
+        prefs.edit().putString("watchlist", result.watchlist.joinToString(","))
+            .putString("research_seeded_codes", result.seededCodes.joinToString(",")).apply()
+        return true
+    }
+    private fun loadBundledCatalog() {
+        val cached = runCatching { JSONObject(prefs.getString("research_stock_catalog", "").orEmpty()) }.getOrNull()
+        if (cached != null && applyCatalog(cached)) return
+        runCatching { assets.open("research_stocks.json").bufferedReader().use { JSONObject(it.readText()) } }
+            .getOrNull()?.let { applyCatalog(it) }
+    }
+    private fun refreshCatalog(done: (Boolean) -> Unit) {
+        fetch("/api/research-stocks") { data, _ ->
+            val fresh = data != null && data.optBoolean("ok") && applyCatalog(data)
+            catalogOffline = !fresh || data?.optBoolean("_offline") == true
+            if (fresh) prefs.edit().putString("research_stock_catalog", data.toString()).apply()
+            done(fresh)
+        }
+    }
+    private fun openStock(code: String) { selectedCode = code; showTab(2) }
     private fun request(path: String): JSONObject {
         val conn = URL(base + path).openConnection() as HttpURLConnection
         conn.connectTimeout = 12000; conn.readTimeout = 25000
@@ -100,7 +145,7 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             val data = runCatching {
                 request(path).also {
-                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/recommendations?") || path.startsWith("/api/tasks") || path.startsWith("/api/task-runs")))
+                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/recommendations?") || path.startsWith("/api/tasks") || path.startsWith("/api/task-runs") || path.endsWith("/research")))
                         prefs.edit().putString("cache:$path", it.toString()).apply()
                 }
             }.recoverCatching {
@@ -114,6 +159,7 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadBundledCatalog()
         selectedCode = savedInstanceState?.getString("code") ?: prefs.getString("selected", prefs.getString("watch", "")).orEmpty()
         val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(Color.rgb(245, 247, 250)) }
         root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(16)) }
@@ -304,35 +350,116 @@ class MainActivity : AppCompatActivity() {
         homeRefreshTask = null
     }
     private fun watchlist() {
+        val intro = card("研究自选")
+        intro.addView(label("已加入过去研究过的股票；原有自选继续保留。移除后不会因刷新再次加入。", 13f))
+        val status = label("正在核对最新研究…", 12f); intro.addView(status)
+        val stockBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         card("添加自选").apply {
             val input = codeInput(); addView(input)
             addView(action("加入自选") { checked(input) { saveWatch(it); showTab(1) } })
         }
-        val codes = watchCodes()
-        if (codes.isEmpty()) card("").addView(label("还没有自选股。输入代码添加，或在分时页点击加入自选。"))
-        codes.forEach { code ->
-            card("").apply {
-                addView(label(code, 20f, true))
-                val row = LinearLayout(this@MainActivity)
-                row.addView(action("查看分时") { selectedCode = code; showTab(2) }, LinearLayout.LayoutParams(0, -2, 1f))
+        root.addView(stockBox)
+        fun render() {
+            stockBox.removeAllViews()
+            val codes = watchCodes()
+            status.text = (if (catalogOffline) "本机研究档案 · " else "已同步研究 · ") + "${codes.size} 只自选"
+            if (codes.isEmpty()) stockBox.addView(label("还没有自选股。输入代码添加，或从下方研究清单选择。"))
+            codes.forEach { code ->
+                val stock = researchStock(code)
+                val item = LinearLayout(this).apply {
+                    orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(14))
+                    background = surface(Color.WHITE)
+                    setOnClickListener { openStock(code) }
+                }
+                item.addView(label("${stock?.optString("name") ?: "股票"}  $code", 20f, true))
+                if (stock != null) {
+                    item.addView(label("${roleName(stock)} · ${stock.optString("sector")}", 12f))
+                    item.addView(label(stockHistory(stock).firstOrNull()?.optString("reason").orEmpty(), 14f).apply { setTextColor(ink) })
+                } else item.addView(label("手动自选 · 暂无已归档的推荐理由", 12f))
+                val row = LinearLayout(this)
+                row.addView(action("推荐理由 / 分时") { openStock(code) }, LinearLayout.LayoutParams(0, -2, 1f))
                 row.addView(action("移除") {
-                    prefs.edit().putString("watchlist", watchCodes().filter { it != code }.joinToString(",")).apply(); showTab(1)
+                    prefs.edit().putString("watchlist", watchCodes().filter { it != code }.joinToString(",")).apply(); render()
                 }, LinearLayout.LayoutParams(0, -2, 1f))
-                addView(row)
+                item.addView(row)
+                stockBox.addView(item, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(12) })
             }
         }
+        intro.addView(action("刷新研究理由") { refreshCatalog { render() } })
+        render(); refreshCatalog { render() }
+        val restore = card("过去研究清单")
+        val choices = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
+        val toggle = action("展开清单，选择重新加入") { }
+        toggle.setOnClickListener {
+            choices.visibility = if (choices.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            choices.removeAllViews()
+            val rows = stockCatalog.optJSONArray("items") ?: JSONArray()
+            for (i in 0 until rows.length()) {
+                val stock = rows.getJSONObject(i); val code = stock.optString("code")
+                choices.addView(action("${stock.optString("name")} $code · ${roleName(stock)}") { saveWatch(code); render() })
+            }
+        }
+        restore.addView(toggle); restore.addView(choices)
+    }
+    private fun renderStockReason(parent: LinearLayout, code: String) {
+        parent.removeAllViews()
+        val stock = researchStock(code)
+        if (stock == null) {
+            parent.addView(label(if (validCode.matches(code)) "这只股票暂无已归档的推荐理由。" else "选择股票后可查看推荐理由。", 13f)); return
+        }
+        val history = stockHistory(stock)
+        val first = history.firstOrNull() ?: return
+        val latest = history.last()
+        parent.addView(label("${stock.optString("name")} · ${roleName(stock)}", 18f, true))
+        parent.addView(label("${stock.optString("sector")} · 首次研究 ${first.optString("date")} · 最近记录 ${latest.optString("date")}", 12f))
+        parent.addView(label("最初为何关注", 15f, true))
+        parent.addView(label(first.optString("reason"), 15f).apply { setTextColor(ink); setTextIsSelectable(true) })
+        parent.addView(label("${if (catalogOffline) "本机档案 · " else ""}${latest.optString("evidence_status")}", 12f))
+        if (latest.optString("fact_note").isNotBlank()) parent.addView(label("最近核验：${latest.optString("fact_note")}", 14f).apply { setTextColor(ink) })
+        parent.addView(label("继续验证", 15f, true))
+        val checks = latest.optJSONArray("validation") ?: JSONArray()
+        for (i in 0 until checks.length()) parent.addView(label("• ${checks.optString(i)}", 14f))
+        parent.addView(label("下调关注的条件：${latest.optString("risk")}", 14f))
+        parent.addView(label(stockCatalog.optString("notice"), 12f))
+        val records = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
+        val toggle = action("展开 ${history.size} 条研究记录与来源") { }
+        toggle.setOnClickListener {
+            records.visibility = if (records.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            toggle.text = if (records.visibility == View.VISIBLE) "收起研究记录" else "展开 ${history.size} 条研究记录与来源"
+        }
+        history.asReversed().forEach { entry ->
+            records.addView(label("${entry.optString("date")} · ${entry.optString("title")}", 15f, true))
+            records.addView(label(entry.optString("reason"), 14f).apply { setTextColor(ink) })
+            records.addView(label(entry.optString("evidence_status") + "\n" + entry.optString("fact_note"), 12f))
+            val validation = entry.optJSONArray("validation") ?: JSONArray()
+            for (i in 0 until validation.length()) records.addView(label("• ${validation.optString(i)}", 13f))
+            records.addView(label("下调关注：${entry.optString("risk")}", 13f))
+            val sources = entry.optJSONArray("sources") ?: JSONArray()
+            for (i in 0 until sources.length()) records.addView(label(sources.optString(i), 11f).apply {
+                setTextIsSelectable(true); autoLinkMask = android.text.util.Linkify.WEB_URLS
+            })
+        }
+        parent.addView(toggle); parent.addView(records)
+        parent.addView(action("查看关联研究全文") {
+            researchCode = code; researchStockName = stock.optString("name"); researchTask = ""; researchTaskTitle = ""; showTab(3)
+        })
     }
     private fun minuteCard() {
-        val minute = card("个股分时")
+        val minute = card("个股研究与分时")
         val title = label("选择股票查看走势", 17f, true); minute.addView(title)
         val input = codeInput(); input.setText(selectedCode); minute.addView(input)
         val status = label("输入代码，或从自选和动态候选进入。", 12f)
         val chart = MinuteChart()
+        val reason = card("推荐理由与研究记录")
+        val reasonBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; reason.addView(reasonBox)
+        val chartCard = card("分钟走势")
         val row = LinearLayout(this)
         fun load(code: String) {
             selectedCode = code; prefs.edit().putString("selected", code).apply()
             title.text = "$code · 分时"; status.text = "正在读取分钟数据…"; chart.setBars(JSONArray())
             val requestId = ++minuteGeneration
+            renderStockReason(reasonBox, code)
+            refreshCatalog { if (requestId == minuteGeneration) renderStockReason(reasonBox, code) }
             fetch("/api/stocks/$code/minute") { data, error ->
                 if (requestId != minuteGeneration) return@fetch
                 val bars = data?.optJSONArray("bars") ?: JSONArray()
@@ -346,8 +473,8 @@ class MainActivity : AppCompatActivity() {
         }
         row.addView(action("查看 / 刷新") { checked(input) { load(it) } }, LinearLayout.LayoutParams(0, -2, 1f))
         row.addView(action("加入自选") { checked(input) { saveWatch(it) } }, LinearLayout.LayoutParams(0, -2, 1f))
-        minute.addView(row); minute.addView(status); minute.addView(chart, LinearLayout.LayoutParams(-1, dp(if (currentTab == 0) 220 else 320)))
-        if (validCode.matches(selectedCode)) load(selectedCode)
+        minute.addView(row); chartCard.addView(status); chartCard.addView(chart, LinearLayout.LayoutParams(-1, dp(320)))
+        if (validCode.matches(selectedCode)) load(selectedCode) else renderStockReason(reasonBox, "")
     }
     private fun loadSignals(status: TextView, box: LinearLayout) {
         status.text = "正在扫描观察信号…"
@@ -438,6 +565,12 @@ class MainActivity : AppCompatActivity() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性", "app_development" to "APK打磨")
         taskCenterCard()
+        if (researchCode.isNotBlank()) {
+            card("${researchStockName} $researchCode · 关联研究").apply {
+                addView(label("以下全文包含这只股票的研究来源。", 12f))
+                addView(action("查看全部股票研究") { researchCode = ""; researchStockName = ""; showTab(3) })
+            }
+        }
         if (researchTask.isNotBlank()) {
             val selection = card("当前任务：$researchTaskTitle")
             selection.addView(action("查看全部研究") { researchTask = ""; researchTaskTitle = ""; showTab(3) })
@@ -461,7 +594,7 @@ class MainActivity : AppCompatActivity() {
             if (!append) { offset = 0; items.removeAllViews(); more.visibility = View.GONE }
             val id = ++requestId
             status.text = "正在读取历史…"; more.isEnabled = false
-            val path = "/api/research?limit=20&offset=$offset&track=$track&date=$filterDate&task=$researchTask"
+            val path = "/api/research?limit=20&offset=$offset&track=$track&date=$filterDate&task=$researchTask&code=$researchCode"
             fetch(path) { data, error ->
                 if (id != requestId) return@fetch
                 more.isEnabled = true
@@ -551,6 +684,7 @@ class MainActivity : AppCompatActivity() {
                     wrapper.addView(label(if (latest == null) "未收到执行记录" else renderEvent(latest), 12f))
                     wrapper.addView(label("已归档 ${task.optInt("report_count")} 篇报告", 12f))
                     wrapper.addView(action("查看对应报告") {
+                        researchCode = ""; researchStockName = ""
                         researchTask = taskId; researchTaskTitle = title; showTab(3)
                     })
                     val history = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
