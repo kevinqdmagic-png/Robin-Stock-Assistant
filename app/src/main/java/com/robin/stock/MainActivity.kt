@@ -128,15 +128,18 @@ class MainActivity : AppCompatActivity() {
         val status = label("正在读取行情…", 13f); market.addView(status)
         val candidates = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         market.addView(action("刷新市场") { loadMarket(status, candidates) })
-        card("买点观察").apply {
-            addView(label("等待有效信号", 16f, true))
-            addView(label("低位首次启动 · 分歧转一致 · 超跌转强", 13f))
-            addView(label("信号服务尚未接入，暂无经验证的实时买点。", 13f))
-        }
+        val signalCard = card("买点观察")
+        val signalStatus = label("正在扫描观察信号…", 16f, true)
+        val signalBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        signalCard.addView(signalStatus)
+        signalCard.addView(label("低位首次启动 · 分歧转一致 · 超跌转强", 13f))
+        signalCard.addView(signalBox)
+        signalCard.addView(action("刷新买点观察") { loadSignals(signalStatus, signalBox) })
         minuteCard()
         val pool = card("动态候选")
         pool.addView(label("量价初筛，仅供观察", 13f)); pool.addView(candidates)
         loadMarket(status, candidates)
+        loadSignals(signalStatus, signalBox)
     }
     private fun watchlist() {
         card("添加自选").apply {
@@ -184,6 +187,49 @@ class MainActivity : AppCompatActivity() {
         minute.addView(row); minute.addView(status); minute.addView(chart, LinearLayout.LayoutParams(-1, dp(if (currentTab == 0) 220 else 320)))
         if (validCode.matches(selectedCode)) load(selectedCode)
     }
+    private fun loadSignals(status: TextView, box: LinearLayout) {
+        status.text = "正在扫描观察信号…"
+        box.removeAllViews()
+        fetch("/api/signals?limit=8") { data, error ->
+            box.removeAllViews()
+            if (data == null || !data.optBoolean("ok")) {
+                status.text = "信号扫描暂不可用，请稍后刷新。"
+                box.addView(label(error ?: "后台正在准备分钟数据。", 12f))
+                return@fetch
+            }
+            val rows = data.optJSONArray("signals") ?: JSONArray()
+            val time = data.optString("time_cn")
+            if (rows.length() == 0) {
+                status.text = "当前暂无符合条件的观察信号"
+                box.addView(label("模型已接通 · 扫描 ${data.optInt("scanned")} 只候选 · $time", 12f))
+                box.addView(label("没有信号时保持观察；当前模型尚未回测，不把“无信号”当故障。", 12f))
+                return@fetch
+            }
+            status.text = "发现 ${rows.length()} 个观察信号 · $time"
+            for (i in 0 until rows.length()) {
+                val x = rows.getJSONObject(i)
+                val code = x.optString("code").takeLast(6)
+                val reasons = x.optJSONArray("reasons")
+                val reasonText = if (reasons != null) {
+                    (0 until reasons.length()).joinToString(" · ") { reasons.optString(it) }
+                } else ""
+                val text = buildString {
+                    append("${x.optString("state")}  ${x.optString("name")}  $code\n")
+                    append("${x.optString("type")} · 强度 ${x.optInt("score")}/100")
+                    append(" · ${x.optString("pct")}%\n")
+                    append("现价 ¥${x.optString("price")}  ·  确认 ¥${x.optString("confirm_price")}  ·  失效 ¥${x.optString("invalid_price")}")
+                    if (reasonText.isNotBlank()) append("\n$reasonText")
+                }
+                box.addView(label(text, 14f).apply {
+                    setTextColor(ink)
+                    setPadding(0, dp(12), 0, dp(12))
+                    setOnClickListener { selectedCode = code; showTab(2) }
+                })
+            }
+            box.addView(label("试运行信号：先接通并记录，完成样本积累后再做回测与阈值校准。", 12f))
+        }
+    }
+
     private fun loadMarket(status: TextView, box: LinearLayout) {
         status.text = "正在读取全 A 行情…"; box.removeAllViews()
         fetch("/api/market") { data, error ->
