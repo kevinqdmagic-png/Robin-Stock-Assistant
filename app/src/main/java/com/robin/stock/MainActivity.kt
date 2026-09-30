@@ -3,6 +3,8 @@ package com.robin.stock
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.View
 import android.widget.*
@@ -19,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private val base = "https://robin-stock-api-production.up.railway.app"
     private val prefs by lazy { getSharedPreferences("robin", MODE_PRIVATE) }
     private val executor = Executors.newFixedThreadPool(3)
+    private val homeRefreshHandler = Handler(Looper.getMainLooper())
+    private val autoRefreshMs = 30_000L
     private val red = Color.rgb(232, 49, 62)
     private val ink = Color.rgb(35, 38, 44)
     private val muted = Color.rgb(122, 126, 134)
@@ -29,6 +33,10 @@ class MainActivity : AppCompatActivity() {
     private var pageGeneration = 0
     private var minuteGeneration = 0
     private var selectedCode = ""
+    private var isForeground = false
+    private var homeRefreshTask: Runnable? = null
+    private var homeMarketStatus: TextView? = null
+    private var homeCandidatesBox: LinearLayout? = null
     private val validCode = Regex("[0-9]{6}")
     private fun dp(n: Int) = (n * resources.displayMetrics.density).toInt()
     private fun label(value: String, size: Float = 15f, bold: Boolean = false) = TextView(this).apply {
@@ -103,10 +111,27 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("tab", currentTab); outState.putString("code", selectedCode); super.onSaveInstanceState(outState)
     }
-    override fun onDestroy() { executor.shutdownNow(); super.onDestroy() }
+    override fun onResume() {
+        super.onResume()
+        isForeground = true
+        startHomeAutoRefresh()
+    }
+    override fun onPause() {
+        isForeground = false
+        stopHomeAutoRefresh()
+        super.onPause()
+    }
+    override fun onDestroy() {
+        stopHomeAutoRefresh()
+        executor.shutdownNow()
+        super.onDestroy()
+    }
     @Deprecated("Legacy back handling")
     override fun onBackPressed() { if (currentTab != 0) showTab(0) else super.onBackPressed() }
     private fun showTab(index: Int) {
+        stopHomeAutoRefresh()
+        homeMarketStatus = null
+        homeCandidatesBox = null
         currentTab = index; pageGeneration++; root.removeAllViews(); nav.removeAllViews(); scroller.scrollTo(0, 0)
         val tabs = listOf("首页", "自选", "分时", "股票研究")
         tabs.forEachIndexed { i, title ->
@@ -127,6 +152,8 @@ class MainActivity : AppCompatActivity() {
         val market = card("市场概览")
         val status = label("正在读取行情…", 13f); market.addView(status)
         val candidates = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        homeMarketStatus = status
+        homeCandidatesBox = candidates
         market.addView(action("刷新市场") { loadMarket(status, candidates) })
         val signalCard = card("买点观察")
         val signalStatus = label("正在扫描观察信号…", 16f, true)
@@ -140,6 +167,28 @@ class MainActivity : AppCompatActivity() {
         pool.addView(label("量价初筛，仅供观察", 13f)); pool.addView(candidates)
         loadMarket(status, candidates)
         loadSignals(signalStatus, signalBox)
+        startHomeAutoRefresh()
+    }
+
+    private fun startHomeAutoRefresh() {
+        stopHomeAutoRefresh()
+        if (!isForeground || currentTab != 0) return
+        val task = object : Runnable {
+            override fun run() {
+                if (!isForeground || currentTab != 0) return
+                val status = homeMarketStatus ?: return
+                val box = homeCandidatesBox ?: return
+                loadMarket(status, box)
+                homeRefreshHandler.postDelayed(this, autoRefreshMs)
+            }
+        }
+        homeRefreshTask = task
+        homeRefreshHandler.postDelayed(task, autoRefreshMs)
+    }
+
+    private fun stopHomeAutoRefresh() {
+        homeRefreshTask?.let { homeRefreshHandler.removeCallbacks(it) }
+        homeRefreshTask = null
     }
     private fun watchlist() {
         card("添加自选").apply {
@@ -237,7 +286,7 @@ class MainActivity : AppCompatActivity() {
             if (data == null || !data.optBoolean("ok")) {
                 status.text = "行情暂不可用，请稍后刷新。" + (error?.let { "\n$it" } ?: ""); return@fetch
             }
-            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}\n扫描 ${data.optInt("count")} 只 · ${data.optString("time_cn")}\n来源 ${data.optString("source")} · 北京时间"
+            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}\n扫描 ${data.optInt("count")} 只 · ${data.optString("time_cn")}\n来源 ${data.optString("source")} · 北京时间 · 30秒自动刷新"
             val rows = data.optJSONArray("candidates") ?: JSONArray()
             for (i in 0 until minOf(20, rows.length())) {
                 val x = rows.getJSONObject(i); val code = x.optString("code").takeLast(6)
