@@ -10,7 +10,7 @@ Version: 0.4.0 draft, 2026-10-01. User requested daily APK improvement, independ
 - Industry/concept leaders and laggards, leading stock, provider quote timestamps where supplied.
 - Exchange-calendar status and no candidate polling outside a known trading session.
 - Date/category/paginated research archive, full report text and sources; cached reports remain readable offline after a successful fetch.
-- Recommendation metadata and on-demand 1/3/5/10/20/30-session price observation.
+- Paginated recommendation history, separately labeled combined/early/tail cohorts, original trigger and invalidation conditions, and on-demand 1/3/5/10/20/30-session price observation.
 - A frozen daily breakout proxy with 20-session warm-up, trailing 30-session signal window, next-session-open entry, earliest following-session-open exit, assumed roundtrip costs and opening price-limit constraints.
 - Exact historical research that is available is retained. Missing original recommendation prices are not manufactured.
 
@@ -21,7 +21,7 @@ All files live in backend/data and are included in the deployment image. Existin
 research.json has schema_version and items[]. Each record requires a stable id, date (China-market research date), track, title, summary, body and sources. Allowed tracks: market_review, volume_price, dragon_tiger, low_position, quant_research, high_elasticity. A source-corrected report gets a new id; never edit/delete the old report.
 
 recommendations.json has items[] and optional legacy_audit. Required original fields:
-id, date, published_at (ISO timestamp with timezone), code, name, group (close / 0950 / 1440), model, reason, reference_price, trigger, invalid, sources, provenance.
+id, date, published_at (ISO timestamp with timezone), code, name, group (close / 0950 / 1440), model, reason, reference_price, trigger, invalid, sources, provenance. New combined selections also store strategy=combined_limitup_watch, which is immutable. reference_price is a timestamped observed quote, not an assumed fill; conditional entry ranges belong in trigger and actual fills in results[].
 Use provenance=contemporaneous only for a recommendation recorded before its future outcome was known. Retrospective examples remain retrospective. Append actual outcomes in results[]; preserve original fields and previous outcomes. Include result as_of, source, horizon, price basis, whether the trigger actually happened, and whether the result is price observation or an executable trade.
 
 Check schemas and frozen history using scripts/validate_archives.py BASE_COMMIT and the research CI. Scheduled ChatGPT output is NOT automatically a backend report: write the JSON and validate CI. Branch data becomes available to the running app only after a successful reviewed deployment that uses those files. Multiple scheduled writers must read the latest branch head and retry conflicts by rebasing, never force-push.
@@ -40,14 +40,19 @@ Recommendation comparison uses unadjusted candles against the stored raw referen
 
 Always start with available full-market scanning. Target 80–150 names spanning at least five sectors, deep-review 20–30 and select up to two; report actual coverage instead of claiming a full scan. User asks/watchlist/holdings must not become an input shortlist by default. Repeated choices need fresh independent comparison and reasons; track 5/10-session repetition. Do not force turnover to look diverse.
 
-Current provisional industry candidates: 鼎通科技688668, 柯力传感603662, 先导智能300450. They are research candidates, not immediate entries. Latest price/valuation remains to be verified. Old PDF is preserved and corrections appear in a new report: 柯力's >2000 units include robot force/torque product categories, not exclusively six-axis sensors; 先导's old solid-state repeated-order statement was not independently found in the checked half-year PDF, so do not treat it as confirmed.
+Preserve the earlier high-elasticity thesis and its core candidates: 先导智能300450, 柯力传感603662, 源杰科技688498, with 海目星/铖昌科技 as earlier alternatives. Robin's latest instruction is deeper reasoning, not rejection of that research. The new 鼎通科技 comparison is supplementary and does not replace the original shortlist. The one-time continuation must test order-to-revenue/profit/cash conversion, competitive position, valuation scenarios and falsifiers. These remain research candidates, not immediate entries; current prices and valuation must be verified. The old PDF is preserved and fact-check notes appear in a separate report: 柯力's >2000 units include robot force/torque product categories, not exclusively six-axis sensors; 先导's old solid-state repeated-order statement was not independently found in the checked half-year PDF, so do not treat it as confirmed.
 
 ## Daily work configured
 
-- APK improvement: evening around 19:00 Pacific/Auckland, flexible window.
-- High-elasticity study and recommendation follow-up: evening around 20:00, flexible window.
-- Volume-price research/verification: existing 21:00 task now DAILY, including holidays.
-- Existing 9:50, 14:40 and close-review prompts updated with independent-pool, immutable-history and publishing rules.
+- APK improvement: mornings around 09:00 Pacific/Auckland, daily flexible window.
+- High-elasticity deep continuation: ONE TIME on 2026-10-01 around 20:00 Pacific/Auckland; preserve and deepen the prior research.
+- Volume-price research/verification: existing 21:00 Pacific/Auckland task now DAILY, including holidays.
+- Separate combined after-close selections: daily around 22:30 Pacific/Auckland, after verifying that market review, quant, volume-price, low-position and Dragon Tiger reports for the relevant trading day are actually complete. A scheduled clock time alone is not completion; missing or stale reports must be disclosed and must not be represented as an integrated final selection.
+- Existing 9:50 and 14:40 selections remain separately labeled experimental cohorts. Close-review candidates supply evidence to the later combined decision.
+
+The combined cohort defines T as the reviewed trading day and T+1 as the intended entry day. Research the possibility of a limit-up move on T+1 or T+2 and premium exit conditions. T+1 purchases cannot be sold until T+2; a T+1 limit-up is unrealized profit, and a limit-up quote does not establish an executable purchase or exit. Publish up to two conditional candidates; weak markets or insufficient evidence can justify fewer or none. Do not invent limit-up probabilities. Recheck auction/opening conditions before treating a trigger as valid.
+
+For each integrated report, show all five research completion dates, supporting and opposing evidence, selection versus alternatives, trigger/range, abandonment and invalidation conditions, and the first legally executable exit plan. On closed-market days maintain the reopening plan and evidence; do not manufacture fresh daily trade recommendations.
 
 Tasks run at their scheduled times; this is not continuous background autonomous training. Each run should produce evidence, append samples, explain failed hypotheses, freeze versions and use forward/out-of-sample checks. Actual tool access must be verified each run.
 

@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private var sectorBox: LinearLayout? = null
     private var overviewData: JSONObject? = null
     private var sectorKind = "industry"
+    private var homeSessionCode = ""
+    private var homeSessionDate = ""
     private var homeIsLive = false
     private var refreshTick = 0
     private val ink = Color.rgb(35, 38, 44)
@@ -95,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             val data = runCatching {
                 request(path).also {
-                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path == "/api/recommendations?limit=12"))
+                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/recommendations?")))
                         prefs.edit().putString("cache:$path", it.toString()).apply()
                 }
             }.recoverCatching {
@@ -210,7 +212,10 @@ class MainActivity : AppCompatActivity() {
                 sectorBox?.let { if (it.childCount <= 1) { it.removeAllViews(); it.addView(label("板块数据暂不可用", 12f)) } }
                 return@fetch
             }
-            overviewData = data; homeIsLive = data.optJSONObject("session")?.optBoolean("is_live") == true
+            overviewData = data
+            homeIsLive = data.optJSONObject("session")?.optBoolean("is_live") == true
+            homeSessionCode = data.optJSONObject("session")?.optString("code").orEmpty()
+            homeSessionDate = java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Shanghai")).toLocalDate().toString()
             box.removeAllViews()
             box.addView(label(data.optJSONObject("session")?.optString("label").orEmpty() +
                 if (data.optBoolean("stale")) " · 缓存已过期" else if (!homeIsLive) " · 显示最近可用行情" else " · 候选30秒刷新", 12f))
@@ -267,7 +272,15 @@ class MainActivity : AppCompatActivity() {
                 if (!isForeground || currentTab != 0) return
                 val status = homeMarketStatus ?: return
                 val box = homeCandidatesBox ?: return
-                if (homeIsLive) {
+                val clock = java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Shanghai"))
+                val minutes = clock.hour * 60 + clock.minute
+                val clockOpen = clock.dayOfWeek.value <= 5 &&
+                    (minutes in 570 until 690 || minutes in 780 until 900)
+                val changedDay = homeSessionDate != clock.toLocalDate().toString()
+                val sessionTransition = (clockOpen && homeSessionCode in listOf("before_open", "lunch", "")) ||
+                    (!clockOpen && homeSessionCode == "trading")
+                if (changedDay || sessionTransition) overviewBox?.let { loadOverview(it) }
+                if (homeIsLive && clockOpen) {
                     loadLiveCandidates(box)
                     if (++refreshTick % 3 == 0) {
                         loadMarket(status, box)
@@ -491,23 +504,32 @@ class MainActivity : AppCompatActivity() {
         parent.addView(label("原始推荐保留，后续结果追加；按交易日跟踪。", 12f))
         val status = label("正在读取推荐记录…", 12f); parent.addView(status)
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; parent.addView(box)
-        fetch("/api/recommendations?limit=12") { data, _ ->
+        var offset = 0
+        val more = action("加载更早推荐") { }.apply { visibility = View.GONE }
+        fun load() {
+        more.isEnabled = false
+        fetch("/api/recommendations?limit=12&offset=$offset") { data, _ ->
+            more.isEnabled = true
             if (data == null || !data.optBoolean("ok")) {
                 status.text = "推荐记录暂不可用，请稍后刷新。"; return@fetch
             }
             val rows = data.optJSONArray("items") ?: JSONArray()
             status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") + "已归档 ${data.optInt("total", rows.length())} 条"
-            if (rows.length() == 0) box.addView(label("历史推荐正在补证。缺少当时价格或时间的记录不计算收益。", 13f))
+            if (rows.length() == 0 && offset == 0) box.addView(label("历史推荐正在补证。缺少当时价格或时间的记录不计算收益。", 13f))
             val groups = mapOf("close" to "盘后组", "0950" to "早盘9:50", "1440" to "尾盘14:40")
             for (i in 0 until rows.length()) {
                 val row = rows.getJSONObject(i)
                 val code = row.optString("code")
-                box.addView(label("${row.optString("date")} · ${groups[row.optString("group")] ?: row.optString("group")}", 12f))
+                val groupLabel = if (row.optString("strategy") == "combined_limitup_watch") "综合盘后组"
+                    else groups[row.optString("group")] ?: row.optString("group")
+                box.addView(label("${row.optString("date")} · $groupLabel", 12f))
                 box.addView(label("${row.optString("name")}  $code", 16f, true).apply {
                     setOnClickListener { selectedCode = code; showTab(2) }
                 })
                 box.addView(label(row.optString("reason"), 13f))
-                val performance = label("点击查询T+1及3/5/10/20/30交易日表现", 12f); box.addView(performance)
+                if (row.optString("trigger").isNotBlank()) box.addView(label("介入条件：${row.optString("trigger")}", 12f))
+                if (row.optString("invalid").isNotBlank()) box.addView(label("失效条件：${row.optString("invalid")}", 12f))
+                val performance = label("查询原始参考价后1/3/5/10/20/30交易日价格表现", 12f); box.addView(performance)
                 val check = action("查询后续表现") { }
                 check.setOnClickListener {
                     check.isEnabled = false; performance.text = "正在核查后续行情…"
@@ -533,9 +555,15 @@ class MainActivity : AppCompatActivity() {
                 box.addView(check)
             }
             val audit = data.optJSONArray("legacy_audit") ?: JSONArray()
-            if (audit.length() > 0) box.addView(label("待补证历史关注："+
+            if (audit.length() > 0 && offset == 0) box.addView(label("待补证历史关注："+
                 (0 until audit.length()).joinToString("、") { audit.optJSONObject(it)?.optString("name").orEmpty() }, 12f))
+            offset += rows.length()
+            more.visibility = if (data.optBoolean("has_more")) View.VISIBLE else View.GONE
         }
+        }
+        more.setOnClickListener { load() }
+        parent.addView(more)
+        load()
     }
     private fun backtestCard() {
         val parent = card("最近30交易日 · 历史验证")
