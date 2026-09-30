@@ -21,6 +21,22 @@
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/36771773969",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/releases/tag/v0.5.0"
       ]
+    },
+    {
+      "id": "manual-watchlist-20261001-signing-blocked",
+      "run_id": "manual-watchlist-20261001",
+      "task_id": "apk_polish",
+      "date": "2026-10-01",
+      "trigger": "manual",
+      "started_at": "2026-09-30T20:49:06+00:00",
+      "completed_at": "2026-09-30T21:20:24+00:00",
+      "recorded_at": "2026-09-30T21:20:24+00:00",
+      "status": "blocked",
+      "summary": "0.6.0自选理由和线上接口已完成；签名与0.5.0不同，手机无损覆盖升级待解决。",
+      "report_ids": [
+        "research-watchlist-manual-2026-10-01",
+        "apk-signing-audit-2026-10-01"
+      ]
     }
   ]
 }

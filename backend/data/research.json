@@ -83,6 +83,23 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant"
       ]
+    },
+    {
+      "id": "apk-signing-audit-2026-10-01",
+      "date": "2026-10-01",
+      "published_at": "2026-09-30T21:20:24+00:00",
+      "task_id": "apk_polish",
+      "track": "app_development",
+      "title": "0.6.0上线核验与覆盖升级签名问题·本次人工检查",
+      "summary": "自选研究功能已发布，45项检查及线上接口验证通过；确认0.5.0与0.6.0签名不同，覆盖升级受阻。",
+      "body": "本次人工工作完成0.6.0自选研究入口：10只研究股票、14条日期明确的理由记录、原研究与补充核验、股票关联全文及离线备份。41项后端检查、4项Kotlin自选迁移检查和APK/容器构建通过。现有Railway服务已部署main提交1c72ddee79b6988cd37aaadcf4bd7beac6d31e03，生产检查确认版本0.6.0、10只研究股、6篇报告、1条原执行回执，数据版本一致。\n实际下载并检查已发布0.6.0 APK，离线资产与后端档案一致。比较两只APK的V2/V3签名块中DER证书SHA-256，0.5.0为497d9a194094dcb0614c4ab005893f33918a0ff83a5ac97114ccf33e29dd3f2f；0.6.0为d65d52805fa09d537583a556a2d343c1b688d0fb7ea1fb35bb8f92aa53f12abf，两者不同。\n因此0.6.0测试包不能直接覆盖已安装0.5.0；不要为升级先卸载旧版，以免丢失本机自选。代码中的自选保留与单次加入策略通过检查，但在手机上无损覆盖升级仍需原安装版本的签名私钥，当前未找到可用原私钥。后续APK打磨优先建立安全、固定的签名与数据迁移方案，私钥不得写入公开仓库或公开缓存。没有原私钥不能承诺当前同包名无损覆盖升级。\n本次是人工检查，不能冒充上午定时任务已经自动执行。手机安装、界面及实际本机数据迁移尚未验证。",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/pull/5",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/36777969850",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/36777969548",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/releases/tag/v0.5.0",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/releases/tag/v0.6.0"
+      ]
     }
   ]
 }

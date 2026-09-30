@@ -120,3 +120,7 @@ APK 0.5.0 adds the expandable task center and task-filtered reports. A tested de
 PR #4 was merged. 33 tests, container read checks and APK build passed. Commit 4365fc4acba792953c126057b18ffefc7495d4ed was deployed to the existing production service and its public read APIs were verified as version 0.5.0 with all ten tasks. The first execution receipt is explicitly manual; other tasks are not shown as completed without their own receipts. The test APK is available in GitHub release v0.5.0.
 
 Publishing order: validate the research job (including archives and container), then explicitly deploy the tested main SHA, then validate the production job. Do not wait for the production job to pass before starting deployment. Check latest main and deployed SHA to avoid rolling back a concurrent newer publication. Native auto-deploy was inspected and is disabled because the repository lacks a Railway GitHub App installation; connected deployment operations are the current authorized publishing path. No new service, variable or domain was introduced.
+
+## 已核实的APK签名阻碍（2026-10-01）
+
+已发布0.5.0与0.6.0的APK签名证书不同，不能直接覆盖安装0.5.0。自选迁移策略只在可兼容安装且原SharedPreferences仍保留时生效；不能将代码测试称为手机数据已保留。签名证书哈希及验证证据见apk-signing-audit-2026-10-01。上午APK任务应优先建立安全固定签名、查找合法可用原签名私钥及数据迁移方案；没有原私钥不能承诺当前同包名的无损覆盖升级。不要引导先卸载旧版，不把私钥提交公开GitHub仓库、公开Actions缓存或报告。功能、服务发布与手机安装状态分别据实说明。
