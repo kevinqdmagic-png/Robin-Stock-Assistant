@@ -12,7 +12,7 @@ import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.2.0")
+app = FastAPI(title="Robin Stock Assistant API", version="0.3.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -33,6 +33,13 @@ _market_lock = threading.Lock()
 _market_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
 _minute_lock = threading.Lock()
 _minute_cache = {}
+
+SIGNAL_CACHE_TTL = 75
+DAILY_CACHE_TTL = 600
+_signal_lock = threading.Lock()
+_signal_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
+_daily_lock = threading.Lock()
+_daily_cache = {}
 
 
 def now_cn():
@@ -82,7 +89,7 @@ def health():
     return {
         "ok": True,
         "service": "Robin Stock Assistant API",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,
@@ -495,3 +502,354 @@ def stock_minute(code: str):
     with _minute_lock:
         _minute_cache[code] = {"saved_at": now, "payload": payload}
     return payload
+
+
+def _eastmoney_daily(code, limit=80):
+    params = {
+        "secid": _minute_secid(code),
+        "klt": "101",
+        "fqt": "1",
+        "lmt": str(limit),
+        "end": "20500101",
+        "fields1": "f1,f2,f3,f4,f5,f6",
+        "fields2": "f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61",
+    }
+    errors = []
+    for host in ("https://push2his.eastmoney.com", "https://push2.eastmoney.com"):
+        try:
+            response = requests.get(
+                host + "/api/qt/stock/kline/get",
+                params=params,
+                headers=HTTP_HEADERS,
+                timeout=(2.5, 5.5),
+            )
+            response.raise_for_status()
+            data = (response.json().get("data") or {})
+            lines = data.get("klines") or []
+            if not lines:
+                raise ValueError("empty klines")
+            bars = []
+            for line in lines[-limit:]:
+                parts = str(line).split(",")
+                if len(parts) < 7:
+                    continue
+                close = _num(parts[2])
+                if close is None or close <= 0:
+                    continue
+                bars.append(
+                    {
+                        "date": parts[0],
+                        "open": _num(parts[1], close),
+                        "close": close,
+                        "high": _num(parts[3], close),
+                        "low": _num(parts[4], close),
+                        "volume": _num(parts[5], 0.0),
+                        "amount": _num(parts[6], 0.0),
+                        "pct": _num(parts[8], 0.0) if len(parts) > 8 else 0.0,
+                        "turnover": _num(parts[10], 0.0) if len(parts) > 10 else 0.0,
+                    }
+                )
+            if bars:
+                return bars, "eastmoney_kline", errors
+            raise ValueError("no valid daily bars")
+        except Exception as exc:
+            logger.warning("Daily direct failed for %s via %s: %s", code, host, exc)
+            errors.append(type(exc).__name__)
+    return [], None, errors
+
+
+def _get_daily(code):
+    now = time.time()
+    with _daily_lock:
+        cached = _daily_cache.get(code)
+    if cached and now - cached["saved_at"] < DAILY_CACHE_TTL:
+        return cached["bars"], cached["source"], cached["errors"]
+
+    bars, source, errors = _eastmoney_daily(code)
+    if bars:
+        with _daily_lock:
+            _daily_cache[code] = {
+                "saved_at": now,
+                "bars": bars,
+                "source": source,
+                "errors": errors,
+            }
+    elif cached:
+        return cached["bars"], cached["source"], errors
+    return bars, source, errors
+
+
+def _signal_session_state():
+    now = datetime.now(CN_TZ)
+    minutes = now.hour * 60 + now.minute
+    if now.weekday() < 5 and (570 <= minutes <= 690 or 780 <= minutes <= 900):
+        return "实时观察"
+    if now.weekday() < 5 and 690 < minutes < 780:
+        return "午间观察"
+    return "收盘观察"
+
+
+def _analyze_signal(stock):
+    code = str(stock.get("code") or "")
+    name = str(stock.get("name") or "")
+    pct = _num(stock.get("pct"))
+    if len(code) != 6 or pct is None or pct < 0.3 or pct > 9.3:
+        return None
+
+    minute_bars, minute_source, minute_errors = _eastmoney_minute(code)
+    if len(minute_bars) < 25:
+        return None
+
+    prices = [float(x["close"]) for x in minute_bars if _num(x.get("close"))]
+    volumes = [float(x.get("volume") or 0.0) for x in minute_bars if _num(x.get("close"))]
+    if len(prices) < 25:
+        return None
+
+    current = prices[-1]
+    session_open = prices[0]
+    session_high = max(prices)
+    session_low = min(prices)
+    span = max(session_high - session_low, current * 0.002)
+    range_pos = (current - session_low) / span
+    early = prices[: min(60, len(prices))]
+    early_low = min(early)
+    early_drawdown = early_low / session_open - 1.0 if session_open else 0.0
+    recent_start = max(0, len(prices) - 20)
+    recent_return = current / prices[recent_start] - 1.0 if prices[recent_start] else 0.0
+    recent_floor = min(prices[-20:])
+    previous_slice = prices[-50:-20] if len(prices) >= 50 else prices[:-20]
+    previous_floor = min(previous_slice) if previous_slice else session_low
+    low_lift = recent_floor >= previous_floor * 1.002
+
+    recent_vol = sum(volumes[-10:]) / max(1, len(volumes[-10:]))
+    prior_vols = volumes[-40:-10] if len(volumes) >= 40 else volumes[:-10]
+    prior_vol = sum(prior_vols) / max(1, len(prior_vols)) if prior_vols else recent_vol
+    volume_pulse = recent_vol / prior_vol if prior_vol > 0 else 1.0
+
+    daily_bars, daily_source, daily_errors = _get_daily(code)
+    position60 = None
+    drawdown20 = None
+    ma5 = None
+    ma10 = None
+    if len(daily_bars) >= 20:
+        closes = [float(x["close"]) for x in daily_bars]
+        highs = [float(x["high"]) for x in daily_bars]
+        lows = [float(x["low"]) for x in daily_bars]
+        lookback = min(60, len(closes))
+        low60 = min(lows[-lookback:])
+        high60 = max(highs[-lookback:])
+        if high60 > low60:
+            position60 = (current - low60) / (high60 - low60)
+        prior_highs = highs[-21:-1] if len(highs) >= 21 else highs[:-1]
+        if prior_highs:
+            drawdown20 = current / max(prior_highs) - 1.0
+        ma5 = sum(closes[-5:]) / min(5, len(closes))
+        ma10 = sum(closes[-10:]) / min(10, len(closes))
+
+    choices = []
+
+    if (
+        position60 is not None
+        and position60 <= 0.45
+        and ma10 is not None
+        and current >= ma10 * 0.995
+        and 1.0 <= pct <= 7.8
+        and range_pos >= 0.72
+        and recent_return >= 0.0015
+    ):
+        score = 66
+        score += min(8, int(max(0.0, (0.45 - position60) * 40)))
+        score += min(7, int(max(0.0, (range_pos - 0.72) * 25)))
+        score += min(6, int(max(0.0, recent_return * 450)))
+        score += min(5, int(max(0.0, (volume_pulse - 1.0) * 8)))
+        choices.append(
+            (
+                score,
+                "低位首次启动",
+                [
+                    f"60日位置约{position60 * 100:.0f}%",
+                    "分时收在日内区间上部",
+                    "近20分钟保持转强",
+                ],
+            )
+        )
+
+    if (
+        early_drawdown <= -0.003
+        and current >= session_open * 1.003
+        and range_pos >= 0.70
+        and recent_return >= 0.001
+        and low_lift
+    ):
+        score = 67
+        score += min(8, int(abs(early_drawdown) * 350))
+        score += min(7, int(max(0.0, (range_pos - 0.70) * 25)))
+        score += min(7, int(max(0.0, recent_return * 500)))
+        score += min(5, int(max(0.0, (volume_pulse - 1.0) * 8)))
+        choices.append(
+            (
+                score,
+                "分歧转一致",
+                [
+                    f"早盘回撤{early_drawdown * 100:.1f}%后收复",
+                    "近期低点抬高",
+                    "价格回到日内强势区",
+                ],
+            )
+        )
+
+    if (
+        drawdown20 is not None
+        and position60 is not None
+        and drawdown20 <= -0.10
+        and position60 <= 0.58
+        and pct >= 1.5
+        and range_pos >= 0.72
+        and (ma5 is None or current >= ma5 * 0.985)
+    ):
+        score = 65
+        score += min(10, int(max(0.0, abs(drawdown20) - 0.10) * 70))
+        score += min(8, int(max(0.0, (range_pos - 0.72) * 28)))
+        score += min(6, int(max(0.0, recent_return * 420)))
+        choices.append(
+            (
+                score,
+                "超跌转强",
+                [
+                    f"距近20日高点回撤约{abs(drawdown20) * 100:.0f}%",
+                    "当日涨幅转正并处于强势区",
+                    "分时未出现明显破位",
+                ],
+            )
+        )
+
+    if not choices:
+        return None
+
+    score, signal_type, reasons = max(choices, key=lambda x: x[0])
+    recent_high = max(prices[-10:])
+    confirm_price = max(current, recent_high)
+    invalid_price = min(recent_floor, current * 0.988)
+    return {
+        "code": code,
+        "name": name,
+        "type": signal_type,
+        "state": _signal_session_state(),
+        "score": min(95, int(score)),
+        "price": round(current, 3),
+        "pct": round(pct, 2),
+        "confirm_price": round(confirm_price, 3),
+        "invalid_price": round(invalid_price, 3),
+        "range_position": round(range_pos, 3),
+        "volume_pulse": round(volume_pulse, 2),
+        "reasons": reasons,
+        "minute_source": minute_source,
+        "daily_source": daily_source,
+        "provider_errors": minute_errors + daily_errors,
+    }
+
+
+def _refresh_signals():
+    with _signal_lock:
+        if _signal_cache["refreshing"]:
+            return _signal_cache["payload"]
+        _signal_cache["refreshing"] = True
+
+    payload = None
+    try:
+        with _market_lock:
+            market_payload = _market_cache["payload"]
+            market_age = time.time() - _market_cache["saved_at"] if market_payload else None
+
+        if market_payload is None or (market_age is not None and market_age > MARKET_CACHE_TTL * 4):
+            market_payload = _refresh_market()
+
+        candidates = list((market_payload or {}).get("candidates") or [])
+        candidates = [
+            x for x in candidates
+            if 0.3 <= (_num(x.get("pct"), -99.0) or -99.0) <= 9.3
+        ][:16]
+
+        signals = []
+        if candidates:
+            with ThreadPoolExecutor(max_workers=min(8, len(candidates)), thread_name_prefix="signal") as pool:
+                futures = [pool.submit(_analyze_signal, item) for item in candidates]
+                for future in as_completed(futures):
+                    try:
+                        signal = future.result()
+                        if signal:
+                            signals.append(signal)
+                    except Exception as exc:
+                        logger.warning("Signal scan item failed: %s", exc)
+
+        signals.sort(key=lambda x: (x.get("score", 0), x.get("pct", 0)), reverse=True)
+        payload = {
+            "ok": True,
+            "status": "ok" if signals else "no_signal",
+            "time_cn": now_cn(),
+            "model": "live_observation_v0.1",
+            "model_status": "unbacktested",
+            "scanned": len(candidates),
+            "count": len(signals),
+            "signals": signals[:12],
+        }
+        with _signal_lock:
+            _signal_cache["payload"] = payload
+            _signal_cache["saved_at"] = time.time()
+    except Exception as exc:
+        logger.exception("Signal refresh failed: %s", exc)
+    finally:
+        with _signal_lock:
+            _signal_cache["refreshing"] = False
+    return payload
+
+
+def _kick_signal_refresh():
+    with _signal_lock:
+        if _signal_cache["refreshing"]:
+            return
+    threading.Thread(target=_refresh_signals, daemon=True, name="signal-refresh").start()
+
+
+@app.get("/api/signals")
+def signals(limit: int = 8):
+    limit = max(1, min(12, int(limit)))
+    with _signal_lock:
+        cached = _signal_cache["payload"]
+        saved_at = _signal_cache["saved_at"]
+    age = time.time() - saved_at if cached else None
+
+    if cached is not None:
+        if age is not None and age > SIGNAL_CACHE_TTL:
+            _kick_signal_refresh()
+        result = dict(cached)
+        result["signals"] = list(cached.get("signals") or [])[:limit]
+        result["count"] = len(result["signals"])
+        result["cache_age_sec"] = int(age or 0)
+        result["stale"] = bool(age and age > SIGNAL_CACHE_TTL * 4)
+        return result
+
+    _kick_signal_refresh()
+    deadline = time.time() + 18.0
+    while time.time() < deadline:
+        time.sleep(0.15)
+        with _signal_lock:
+            payload = _signal_cache["payload"]
+        if payload is not None:
+            result = dict(payload)
+            result["signals"] = list(payload.get("signals") or [])[:limit]
+            result["count"] = len(result["signals"])
+            result["cache_age_sec"] = 0
+            result["stale"] = False
+            return result
+
+    return {
+        "ok": False,
+        "status": "signal_scan_warming",
+        "time_cn": now_cn(),
+        "model": "live_observation_v0.1",
+        "model_status": "unbacktested",
+        "scanned": 0,
+        "count": 0,
+        "signals": [],
+    }
