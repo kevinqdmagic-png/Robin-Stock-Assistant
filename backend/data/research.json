@@ -225,6 +225,42 @@
         "688668"
       ],
       "strategy": "long_term_industry_growth_research"
+    },
+    {
+      "id": "combined-pair-2026-09-30-dependency-waiting",
+      "date": "2026-09-30",
+      "published_at": "2026-10-02T02:04:00+08:00",
+      "task_id": "combined_pair",
+      "track": "market_review",
+      "title": "盘后综合双标 · 依赖等待（9月30日，无新标的）",
+      "summary": "最近有效交易日为9月30日；五项前置研究没有同日完整闭环，低位启动和龙虎榜报告缺失，市场/量化/量价仅有节日补证且自述不构成完整输入。本轮0只，不追加推荐。",
+      "body": "结论：本轮不发布股票，不给参考介入区间，也不向recommendations.json追加任何综合盘后组记录。原因不是为了谨慎而临时空选，而是五项前置研究没有达到同一交易日、完整报告、完成回执三项门槛。旧名单、用户询问股、早盘/尾盘实验组和节日补证样本均不能代替这一条件。\n\n一、日期与T+1口径\n\n最近一个已收盘的中国A股交易日T为2026年9月30日。上海证券交易所2026年休市通知明确，10月1日至10月7日休市，10月8日起恢复交易。因此若9月30日已有真实可执行买入，T+1是10月8日、最早可卖出的T+2是10月9日；但本次没有把任何9月30日历史线索补造成实际买入。当前为休市维护，不能制造10月1日或10月2日的新盘面。\n\n二、五项依赖逐项核验\n\n1. 市场复盘：仅有market-review-2026-10-01-holiday-audit，完成于10月1日16:05:30+08:00。它复核了9月30日前一候选池和27只观察样本，但明确说明没有保存80—150只广泛池的完整代码与时间戳，也明确声明不构成10月1日交易日五项输入。它可以提供风险边界，不能视作9月30日同日完整复盘。\n\n2. 量化痕迹：仅有quant-research-2026-10-01-holiday，完成于10月1日15:46:25+08:00。它冻结9月30日16只Day-0样本，但没有下一交易日竞价、分时、MFE/MAE或可执行结果，并明确说不满足当日五项研究输入。量化身份不是选股依据，本轮不据标签推断具体资金。\n\n3. 量价研究：仅有volume-price-2026-10-01-holiday-run，完成于10月1日16:00:58+08:00。它冻结9月30日5只样本；现有可审计跨度只有两个交易日，没有30日全市场池、分钟触发顺序和前瞻D+1结果。该报告能反对追逐高位爆量，却不足以确认次日买点。\n\n4. 低位启动：backend/data/research.json和task_runs.json均没有low_position的9月30日完整报告或completed回执。因而无法用统一30日阶段、缩量回踩、启动位置、板块相对强度与反例检验候选是否真是低位启动。\n\n5. 龙虎榜：backend/data/research.json和task_runs.json均没有dragon_tiger的9月30日完整报告或completed回执。因而无法核对上榜原因、买卖席位集中度、机构/游资/量化只能作为何种证据、净买卖结构和次日兑现风险。没有龙虎榜不代表没有机会，但不满足本任务预先约定的综合门槛。\n\n严格口径为0/5项合格；其中市场、量化、量价有3份节日补证，只能作为局部证据，低位与龙虎榜为2项完全缺失。不能因为三份回执状态为completed，就忽略其正文对数据日期和适用范围的限制。\n\n三、实际覆盖与为什么不能裁决\n\n没有新的80—150只带时间戳全A广泛池，也没有新的20—30只同口径深筛池。可见历史材料包括市场审计27只、约26只历史深筛线索、量化16只和量价5只，但存在交叉、口径不同且多为9月30日样本冻结；不能相加成64只，更不能声称完成全市场扫描。缺少同一时间截面的板块广度、竞价/分时触发、低位阶段和龙虎榜资金结构，无法公平比较候选与替代者，也无法给出不含后见之明的介入区间、失效位和T+2退出路径。\n\n四、历史线索与正式台账边界\n\nrecommendations.json正式items仍为空，没有上一期“综合盘后组”可计算真实触发、成交、T+2退出或3/5/10/20/30日表现。市场审计记录：双环传动历史区间曾盘中触发但没有正向确认；健康元未进入严格区间，属于未触发。健康元、汉邦科技、襄阳轴承、南模生物、金辰股份等仅为补证/样本线索，不能反向登记为本次原始推荐。早盘和尾盘10月1日也因休市各自0只，与综合盘后组保持分离。\n\n五、缺项的直接影响\n\n没有低位研究，无法判断上涨是新趋势启动还是高位反抽；没有龙虎榜研究，无法评估筹码集中、席位兑现和次日承接；市场广泛池不完整，无法证明候选胜过至少三只替代者；分钟和点时数据不完整，无法证明触发先于失效或普通投资者能够成交。任何一个缺口都足以使T+1/T+2涨停路径成为事后故事，因此本轮0只优于制造两个名字。\n\n六、下一交易日重点\n\n10月8日复市前只做风险复核，不把盘后观察变成开盘即买。先检查长假公告和外围变化，再记录9:25竞价、板块广度和旧Day-0样本的真实跳空；高开要等待回踩承接，开盘涨停且无可执行成交不算触发。若10月8日五项研究各自产生同一交易日完整报告，新的盘后综合决策以10月8日为T、10月9日为T+1；10月9日买入后最早10月12日（周一）卖出。证据不足仍可0只。\n\n本报告是翌日上午的依赖缺项通知和去重锚点，不是完整综合选股完成证明。后续只有五项输入补齐或出现重大事实变化才追加新版本；本记录和等待回执不改写。",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/task_runs.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/recommendations.json"
+      ],
+      "provenance": "contemporaneous_dependency_audit",
+      "decision_id": "combined-pair-2026-09-30",
+      "review_trade_date": "2026-09-30",
+      "planned_entry_date": "2026-10-08",
+      "earliest_exit_date": "2026-10-09",
+      "group": "close",
+      "strategy": "combined_limitup_watch",
+      "model_version": "CP-DEP-0.1",
+      "coverage": {
+        "fresh_broad_pool": 0,
+        "fresh_deep_pool": 0,
+        "qualified_dependencies": 0,
+        "partial_dependency_audits": 3,
+        "missing_dependencies": [
+          "low_position",
+          "dragon_tiger"
+        ]
+      },
+      "recommendation_ids": []
     }
   ]
 }

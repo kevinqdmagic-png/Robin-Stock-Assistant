@@ -168,6 +168,27 @@
         "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/high-elasticity-2026-10-01-deep.md"
       ]
+    },
+    {
+      "id": "combined-pair-20260930-dependencies-waiting-20261002",
+      "run_id": "combined-pair-20260930-scheduled",
+      "task_id": "combined_pair",
+      "date": "2026-09-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-02T06:58:19+13:00",
+      "recorded_at": "2026-10-02T07:04:00+13:00",
+      "status": "waiting",
+      "summary": "翌日上午依赖复核：9月30日五项完整输入仍未齐；市场/量化/量价只有节日补证，低位与龙虎榜缺失。本轮0只、无推荐，等待下一有效交易日同日闭环。",
+      "report_ids": [
+        "combined-pair-2026-09-30-dependency-waiting"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/task_runs.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/recommendations.json"
+      ]
     }
   ]
 }
