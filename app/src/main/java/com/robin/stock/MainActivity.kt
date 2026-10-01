@@ -264,9 +264,12 @@ class MainActivity : AppCompatActivity() {
                 return@fetch
             }
             overviewData = data
-            homeIsLive = data.optJSONObject("session")?.optBoolean("is_live") == true
-            homeSessionCode = data.optJSONObject("session")?.optString("code").orEmpty()
-            homeSessionDate = java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Shanghai")).toLocalDate().toString()
+            val session = data.optJSONObject("session")
+            homeIsLive = session?.optBoolean("is_live") == true
+            homeSessionCode = session?.optString("code").orEmpty()
+            homeSessionDate = session?.optString("date").orEmpty().ifBlank {
+                java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Shanghai")).toLocalDate().toString()
+            }
             box.removeAllViews()
             box.addView(label(data.optJSONObject("session")?.optString("label").orEmpty() +
                 if (data.optBoolean("stale")) " · 缓存已过期" else if (!homeIsLive) " · 显示最近可用行情" else " · 候选30秒刷新", 12f))
@@ -324,20 +327,23 @@ class MainActivity : AppCompatActivity() {
                 val status = homeMarketStatus ?: return
                 val box = homeCandidatesBox ?: return
                 val clock = java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Shanghai"))
-                val minutes = clock.hour * 60 + clock.minute
-                val clockOpen = clock.dayOfWeek.value <= 5 &&
-                    (minutes in 570 until 690 || minutes in 780 until 900)
-                val changedDay = homeSessionDate != clock.toLocalDate().toString()
-                val sessionTransition = (clockOpen && homeSessionCode in listOf("before_open", "lunch", "")) ||
-                    (!clockOpen && homeSessionCode == "trading")
-                if (changedDay || sessionTransition) overviewBox?.let { loadOverview(it) }
-                if (homeIsLive && clockOpen) {
+                val decision = MarketRefreshPolicy.decide(
+                    dayOfWeek = clock.dayOfWeek.value,
+                    hour = clock.hour,
+                    minute = clock.minute,
+                    currentDate = clock.toLocalDate().toString(),
+                    sessionDate = homeSessionDate,
+                    sessionCode = homeSessionCode,
+                    serverSaysLive = homeIsLive,
+                    refreshTick = refreshTick,
+                )
+                if (decision.refreshOverview) overviewBox?.let { loadOverview(it) }
+                if (decision.refreshCandidates) {
+                    if (!homeIsLive) status.text = "交易时段切换中，正在恢复实时行情…"
                     loadLiveCandidates(box)
-                    if (++refreshTick % 3 == 0) {
-                        loadMarket(status, box)
-                        overviewBox?.let { loadOverview(it) }
-                    }
+                    refreshTick = (refreshTick + 1) % 3
                 }
+                if (decision.refreshMarket) loadMarket(status, box)
                 homeRefreshHandler.postDelayed(this, autoRefreshMs)
             }
         }
@@ -553,7 +559,13 @@ class MainActivity : AppCompatActivity() {
                 status.text = "市场行情暂不可用，请刷新重试。" + (error?.let { "\n$it" } ?: ""); return@fetch
             }
             val complete = data.optBoolean("breadth_complete")
-            status.text = "上涨 ${data.optInt("advance")}  ·  下跌 ${data.optInt("decline")}  ·  平盘 ${data.optInt("flat")}\n" +
+            val advance = data.optInt("advance")
+            val decline = data.optInt("decline")
+            val flat = data.optInt("flat")
+            val mood = MarketRefreshPolicy.breadthMood(advance, decline, flat)
+            status.text = "${if (complete) "全覆盖" else "覆盖口径"}情绪 ${mood.label}" +
+                (mood.advancePct?.let { " · 上涨占比 ${numText(it, 1)}%" } ?: "") + "\n" +
+                "上涨 $advance  ·  下跌 $decline  ·  平盘 $flat\n" +
                 "${if (complete) "覆盖" else "部分覆盖"} ${data.optInt("count")} 只  ·  " +
                 "${data.optString("amount_scope", "覆盖成交额")} ${numText(data.optDouble("amount_yi"))} 亿\n" +
                 "读取时间 ${data.optString("time_cn")} · 北京时间" +
@@ -718,17 +730,32 @@ class MainActivity : AppCompatActivity() {
         val status = label("正在读取推荐记录…", 12f); parent.addView(status)
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; parent.addView(box)
         var offset = 0
+        var requestId = 0
+        var loading = false
         val more = action("加载更早推荐") { }.apply { visibility = View.GONE }
-        fun load() {
-        more.isEnabled = false
-        fetch("/api/recommendations?limit=12&offset=$offset") { data, _ ->
+        fun load(append: Boolean = false) {
+        if (loading) return
+        if (!append) {
+            offset = 0
+            box.removeAllViews()
+            more.visibility = View.GONE
+        }
+        val requestedOffset = offset
+        val id = ++requestId
+        loading = true; more.isEnabled = false
+        fetch("/api/recommendations?limit=12&offset=$requestedOffset") { data, _ ->
+            if (id != requestId) return@fetch
+            loading = false
             more.isEnabled = true
             if (data == null || !data.optBoolean("ok")) {
                 status.text = "推荐记录暂不可用，请稍后刷新。"; return@fetch
             }
             val rows = data.optJSONArray("items") ?: JSONArray()
-            status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") + "已归档 ${data.optInt("total", rows.length())} 条"
-            if (rows.length() == 0 && offset == 0) box.addView(label("历史推荐正在补证。缺少当时价格或时间的记录不计算收益。", 13f))
+            val total = data.optInt("total", rows.length())
+            val loaded = requestedOffset + rows.length()
+            status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
+                "已显示 $loaded / $total 条"
+            if (rows.length() == 0 && requestedOffset == 0) box.addView(label("历史推荐正在补证。缺少当时价格或时间的记录不计算收益。", 13f))
             val groups = mapOf("close" to "盘后组", "0950" to "早盘9:50", "1440" to "尾盘14:40")
             for (i in 0 until rows.length()) {
                 val row = rows.getJSONObject(i)
@@ -768,15 +795,16 @@ class MainActivity : AppCompatActivity() {
                 box.addView(check)
             }
             val audit = data.optJSONArray("legacy_audit") ?: JSONArray()
-            if (audit.length() > 0 && offset == 0) box.addView(label("待补证历史关注："+
+            if (audit.length() > 0 && requestedOffset == 0) box.addView(label("待补证历史关注："+
                 (0 until audit.length()).joinToString("、") { audit.optJSONObject(it)?.optString("name").orEmpty() }, 12f))
-            offset += rows.length()
+            offset = loaded
             more.visibility = if (data.optBoolean("has_more")) View.VISIBLE else View.GONE
         }
         }
-        more.setOnClickListener { load() }
+        parent.addView(action("刷新推荐记录") { load(false) })
+        more.setOnClickListener { load(true) }
         parent.addView(more)
-        load()
+        load(false)
     }
     private fun backtestCard() {
         val parent = card("最近30交易日 · 历史验证")

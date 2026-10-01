@@ -1,5 +1,12 @@
 .gradle/
 .idea/
+__pycache__/
+*.py[cod]
 local.properties
 **/build/
 *.iml
+*.jks
+*.keystore
+*.p12
+*.pfx
+keystore.properties

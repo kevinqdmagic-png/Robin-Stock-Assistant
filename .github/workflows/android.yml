@@ -21,23 +21,73 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-      - name: Verify watchlist migration and build debug APK
+      - name: Verify watchlist, market refresh and build debug APK
         run: gradle :app:testDebugUnitTest :app:assembleDebug
+      - name: Read app version
+        id: version
+        run: echo "name=$(sed -n 's/.*versionName = \"\([^\"]*\)\".*/\1/p' app/build.gradle.kts)" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:
-          name: Robin-Stock-Assistant-debug
+          name: Robin-Stock-Assistant-${{ steps.version.outputs.name }}-debug-ci
           path: app/build/outputs/apk/debug/app-debug.apk
-      - name: Publish the versioned test APK
-        if: github.event_name == 'push'
+      - name: Check fixed release signing readiness
+        id: signing
+        env:
+          KEYSTORE_B64: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
+          STORE_PASSWORD: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ROBIN_UPLOAD_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ROBIN_UPLOAD_KEY_PASSWORD }}
+          EXPECTED_CERT_SHA256: ${{ vars.ROBIN_SIGNING_CERT_SHA256 }}
+        run: |
+          if [[ -n "$KEYSTORE_B64" && -n "$STORE_PASSWORD" && -n "$KEY_ALIAS" && -n "$KEY_PASSWORD" && -n "$EXPECTED_CERT_SHA256" ]]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Public APK release skipped: fixed signing secrets and pinned certificate are not fully configured."
+          fi
+      - name: Prepare ephemeral release keystore file
+        if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
+        env:
+          KEYSTORE_B64: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
+        run: |
+          umask 077
+          printf '%s' "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/robin-upload.jks"
+      - name: Build fixed-signed release APK
+        if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
+        env:
+          ROBIN_UPLOAD_KEYSTORE: ${{ runner.temp }}/robin-upload.jks
+          ROBIN_UPLOAD_STORE_PASSWORD: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
+          ROBIN_UPLOAD_KEY_ALIAS: ${{ secrets.ROBIN_UPLOAD_KEY_ALIAS }}
+          ROBIN_UPLOAD_KEY_PASSWORD: ${{ secrets.ROBIN_UPLOAD_KEY_PASSWORD }}
+        run: gradle :app:assembleRelease
+      - name: Verify pinned release certificate
+        if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
+        env:
+          EXPECTED_CERT_SHA256: ${{ vars.ROBIN_SIGNING_CERT_SHA256 }}
+        run: |
+          APKSIGNER=$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)
+          test -n "$APKSIGNER"
+          ACTUAL=$($APKSIGNER verify --print-certs app/build/outputs/apk/release/app-release.apk | sed -n 's/^Signer #1 certificate SHA-256 digest: //p' | head -1 | tr '[:upper:]' '[:lower:]' | tr -d ':')
+          EXPECTED=$(printf '%s' "$EXPECTED_CERT_SHA256" | tr '[:upper:]' '[:lower:]' | tr -d ':')
+          test -n "$ACTUAL"
+          test "$ACTUAL" = "$EXPECTED"
+          echo "Verified fixed release certificate SHA-256: $ACTUAL"
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
+        with:
+          name: Robin-Stock-Assistant-${{ steps.version.outputs.name }}-release
+          path: app/build/outputs/apk/release/app-release.apk
+      - name: Publish fixed-signed APK
+        if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APK_VERSION: ${{ steps.version.outputs.name }}
         run: |
-          APK_VERSION=$(sed -n 's/.*versionName = "\([^"]*\)".*/\1/p' app/build.gradle.kts)
           APK_TAG="v$APK_VERSION"
           APK_FILE="Robin-Stock-Assistant-$APK_VERSION.apk"
-          cp app/build/outputs/apk/debug/app-debug.apk "$APK_FILE"
+          cp app/build/outputs/apk/release/app-release.apk "$APK_FILE"
           if gh release view "$APK_TAG" >/dev/null 2>&1; then
             echo "Version $APK_VERSION is already published"
           else
-            gh release create "$APK_TAG" "$APK_FILE" --title "Robin 股票助手 $APK_VERSION 测试版" --notes-file docs/apk-release-notes.md --target "$GITHUB_SHA"
+            gh release create "$APK_TAG" "$APK_FILE" --title "Robin 股票助手 $APK_VERSION" --notes-file docs/apk-release-notes.md --target "$GITHUB_SHA"
           fi

@@ -104,7 +104,9 @@ class CalendarTests(unittest.TestCase):
         self.assertFalse(state["is_live"])
 
     def test_first_reopening_and_weekend(self):
-        self.assertTrue(session_state(datetime(2026, 10, 8, 10, tzinfo=CN_TZ))["is_live"])
+        reopening = session_state(datetime(2026, 10, 8, 10, tzinfo=CN_TZ))
+        self.assertTrue(reopening["is_live"])
+        self.assertEqual(reopening["date"], "2026-10-08")
         self.assertFalse(session_state(datetime(2026, 10, 10, 10, tzinfo=CN_TZ))["is_live"])
 
     def test_unverified_calendar_fails_closed(self):

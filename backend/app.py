@@ -18,7 +18,7 @@ from market_insights import overview as market_overview
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.6.0")
+app = FastAPI(title="Robin Stock Assistant API", version="0.6.1")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -174,7 +174,7 @@ def health():
         "data_revision": revision,
         "build_commit": os.environ.get("RAILWAY_GIT_COMMIT_SHA"),
         "service": "Robin Stock Assistant API",
-        "version": "0.6.0",
+        "version": "0.6.1",
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,

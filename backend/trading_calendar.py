@@ -16,17 +16,17 @@ def session_state(now=None):
     now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
     day = now.date().isoformat()
     if now.weekday() >= 5:
-        return {"code": "closed", "label": "周末休市", "is_live": False}
+        return {"date": day, "code": "closed", "label": "周末休市", "is_live": False}
     if now.year != 2026:
-        return {"code": "unknown", "label": "交易日待核验", "is_live": False}
+        return {"date": day, "code": "unknown", "label": "交易日待核验", "is_live": False}
     if any(start <= day <= end for start, end in CLOSURES_2026):
-        return {"code": "closed", "label": "节假日休市", "is_live": False}
+        return {"date": day, "code": "closed", "label": "节假日休市", "is_live": False}
     minutes = now.hour * 60 + now.minute
     if 570 <= minutes < 690 or 780 <= minutes < 900:
-        return {"code": "trading", "label": "交易时段", "is_live": True}
+        return {"date": day, "code": "trading", "label": "交易时段", "is_live": True}
     if 690 <= minutes < 780:
-        return {"code": "lunch", "label": "午间休市", "is_live": False}
-    return {"code": "after_close" if minutes >= 900 else "before_open",
+        return {"date": day, "code": "lunch", "label": "午间休市", "is_live": False}
+    return {"date": day, "code": "after_close" if minutes >= 900 else "before_open",
             "label": "已收盘" if minutes >= 900 else "盘前", "is_live": False}
 
 
