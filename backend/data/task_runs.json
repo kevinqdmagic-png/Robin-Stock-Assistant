@@ -132,6 +132,42 @@
       "sources": [
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
       ]
+    },
+    {
+      "id": "high-elasticity-once-20261001T072418Z-completed",
+      "run_id": "high-elasticity-once-20261001T072418Z",
+      "task_id": "high_elasticity_once",
+      "date": "2026-10-01",
+      "trigger": "scheduled",
+      "started_at": "2026-10-01T20:24:18+13:00",
+      "recorded_at": "2026-10-01T21:07:59+13:00",
+      "completed_at": "2026-10-01T21:07:59+13:00",
+      "status": "completed",
+      "summary": "一次性深度分析完成：保留原框架，六股核验及三情景、个股历史已归档；未生成短线买入指令。部署及线上可读状态另行核验。",
+      "report_ids": [
+        "high-elasticity-2026-10-01-deep-once"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://static.cninfo.com.cn/finalpage/2026-08-29/1225528023.PDF",
+        "https://leadintelligent.com/news-detail/397",
+        "https://www.leadintelligent.com/news-detail/504",
+        "https://static.cninfo.com.cn/finalpage/2026-08-28/1225518537.PDF",
+        "https://www.ati-ia.com/Products/FT/sensors.aspx",
+        "https://static.cninfo.com.cn/finalpage/2026-08-29/1225527905.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-08-12/1225469034.PDF",
+        "https://www.lumentum.com/en/products/data-center/cw-lasers/cw-lasers-sipho-transceivers",
+        "https://www.lumentum.com/en/products/eml-200g-pam4-cwdm-laser",
+        "https://ir.coherent.com/news-releases/news-release-details/coherent-showcases-optical-innovations-scale-ai-infrastructure",
+        "https://static.cninfo.com.cn/finalpage/2026-08-31/1225534653.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-09-29/1225586288.PDF",
+        "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-11/e1d97d2c-1d40-41ec-bf14-0cd4be85b5d5.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-05-19/1225314875.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-08-05/1225457964.PDF",
+        "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+        "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/high-elasticity-2026-10-01-deep.md"
+      ]
     }
   ]
 }

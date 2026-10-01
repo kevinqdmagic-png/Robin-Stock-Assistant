@@ -1,0 +1,449 @@
+{
+  "as_of": "2026-10-01",
+  "quote_date": "2026-09-30",
+  "amount_unit": "CNY_100_million",
+  "horizon_years": 4,
+  "terminal_operating_year": 2030,
+  "discount_rate": 0.12,
+  "interpretation": "Conditional tests only; no probabilities, forecasts or buy/sell targets. Terminal P/E equity value, not enterprise value or a full DCF; no net-cash addition or interim dividends.",
+  "items": [
+    {
+      "code": "300450",
+      "name": "先导智能",
+      "current_a_price_implied_equity_value": 584.97,
+      "cases": [
+        {
+          "case": "cautious",
+          "core_revenue": 180,
+          "core_normalized_net_margin": 0.08,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0.08,
+          "total_revenue": 180,
+          "normalized_net_profit": 14.4,
+          "terminal_pe": 15,
+          "terminal_equity_value": 216.0,
+          "discounted_terminal_equity_value": 137.271905,
+          "price_implied_normalized_profit": 61.364108,
+          "ocf_to_profit_assumption": 0.7,
+          "annual_cash_capex_assumption": 4,
+          "cash_after_capex_proxy": 6.08,
+          "discount_sensitivity": {
+            "0.1": 147.530906,
+            "0.12": 137.271905,
+            "0.15": 123.498701
+          }
+        },
+        {
+          "case": "base",
+          "core_revenue": 240,
+          "core_normalized_net_margin": 0.11,
+          "incremental_new_revenue": 15,
+          "incremental_new_net_margin": 0.14,
+          "total_revenue": 255,
+          "normalized_net_profit": 28.5,
+          "terminal_pe": 25,
+          "terminal_equity_value": 712.5,
+          "discounted_terminal_equity_value": 452.806631,
+          "price_implied_normalized_profit": 36.818465,
+          "ocf_to_profit_assumption": 0.9,
+          "annual_cash_capex_assumption": 6,
+          "cash_after_capex_proxy": 19.65,
+          "discount_sensitivity": {
+            "0.1": 486.647087,
+            "0.12": 452.806631,
+            "0.15": 407.374187
+          }
+        },
+        {
+          "case": "optimistic",
+          "core_revenue": 300,
+          "core_normalized_net_margin": 0.12,
+          "incremental_new_revenue": 40,
+          "incremental_new_net_margin": 0.18,
+          "total_revenue": 340,
+          "normalized_net_profit": 43.2,
+          "terminal_pe": 35,
+          "terminal_equity_value": 1512.0,
+          "discounted_terminal_equity_value": 960.903335,
+          "price_implied_normalized_profit": 26.298903,
+          "ocf_to_profit_assumption": 1.0,
+          "annual_cash_capex_assumption": 8,
+          "cash_after_capex_proxy": 35.2,
+          "discount_sensitivity": {
+            "0.1": 1032.716345,
+            "0.12": 960.903335,
+            "0.15": 864.490907
+          }
+        }
+      ],
+      "base_implied_revenue_at_assumed_margin": 329.428371,
+      "base_discounted_value_per_existing_share": 27.045803,
+      "illustrative_20pct_new_shares_value_per_existing_share": 22.538169
+    },
+    {
+      "code": "603662",
+      "name": "柯力传感",
+      "current_a_price_implied_equity_value": 134.49,
+      "cases": [
+        {
+          "case": "cautious",
+          "core_revenue": 22,
+          "core_normalized_net_margin": 0.13,
+          "incremental_new_revenue": 1,
+          "incremental_new_net_margin": 0.1,
+          "total_revenue": 23,
+          "normalized_net_profit": 2.96,
+          "terminal_pe": 20,
+          "terminal_equity_value": 59.2,
+          "discounted_terminal_equity_value": 37.62267,
+          "price_implied_normalized_profit": 10.581131,
+          "ocf_to_profit_assumption": 0.65,
+          "annual_cash_capex_assumption": 0.8,
+          "cash_after_capex_proxy": 1.124,
+          "discount_sensitivity": {
+            "0.1": 40.434397,
+            "0.12": 37.62267,
+            "0.15": 33.847792
+          }
+        },
+        {
+          "case": "base",
+          "core_revenue": 28,
+          "core_normalized_net_margin": 0.15,
+          "incremental_new_revenue": 4,
+          "incremental_new_net_margin": 0.18,
+          "total_revenue": 32,
+          "normalized_net_profit": 4.92,
+          "terminal_pe": 30,
+          "terminal_equity_value": 147.6,
+          "discounted_terminal_equity_value": 93.802468,
+          "price_implied_normalized_profit": 7.054087,
+          "ocf_to_profit_assumption": 0.85,
+          "annual_cash_capex_assumption": 1.2,
+          "cash_after_capex_proxy": 2.982,
+          "discount_sensitivity": {
+            "0.1": 100.812786,
+            "0.12": 93.802468,
+            "0.15": 84.390779
+          }
+        },
+        {
+          "case": "optimistic",
+          "core_revenue": 34,
+          "core_normalized_net_margin": 0.16,
+          "incremental_new_revenue": 10,
+          "incremental_new_net_margin": 0.22,
+          "total_revenue": 44,
+          "normalized_net_profit": 7.64,
+          "terminal_pe": 45,
+          "terminal_equity_value": 343.8,
+          "discounted_terminal_equity_value": 218.491115,
+          "price_implied_normalized_profit": 4.702725,
+          "ocf_to_profit_assumption": 1.0,
+          "annual_cash_capex_assumption": 1.8,
+          "cash_after_capex_proxy": 5.84,
+          "discount_sensitivity": {
+            "0.1": 234.820026,
+            "0.12": 218.491115,
+            "0.15": 196.568766
+          }
+        }
+      ],
+      "base_implied_revenue_at_assumed_margin": 45.880241,
+      "base_discounted_value_per_existing_share": 33.401884,
+      "illustrative_20pct_new_shares_value_per_existing_share": 27.834904
+    },
+    {
+      "code": "688498",
+      "name": "源杰科技",
+      "current_a_price_implied_equity_value": 2008.19,
+      "cases": [
+        {
+          "case": "cautious",
+          "core_revenue": 45,
+          "core_normalized_net_margin": 0.25,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 45,
+          "normalized_net_profit": 11.25,
+          "terminal_pe": 25,
+          "terminal_equity_value": 281.25,
+          "discounted_terminal_equity_value": 178.73946,
+          "price_implied_normalized_profit": 126.397034,
+          "ocf_to_profit_assumption": 0.65,
+          "annual_cash_capex_assumption": 10,
+          "cash_after_capex_proxy": -2.6875,
+          "discount_sensitivity": {
+            "0.1": 192.097534,
+            "0.12": 178.73946,
+            "0.15": 160.8056
+          }
+        },
+        {
+          "case": "base",
+          "core_revenue": 90,
+          "core_normalized_net_margin": 0.35,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 90,
+          "normalized_net_profit": 31.5,
+          "terminal_pe": 40,
+          "terminal_equity_value": 1260.0,
+          "discounted_terminal_equity_value": 800.752779,
+          "price_implied_normalized_profit": 78.998146,
+          "ocf_to_profit_assumption": 0.8,
+          "annual_cash_capex_assumption": 15,
+          "cash_after_capex_proxy": 10.2,
+          "discount_sensitivity": {
+            "0.1": 860.596954,
+            "0.12": 800.752779,
+            "0.15": 720.409089
+          }
+        },
+        {
+          "case": "optimistic",
+          "core_revenue": 160,
+          "core_normalized_net_margin": 0.4,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 160,
+          "normalized_net_profit": 64.0,
+          "terminal_pe": 55,
+          "terminal_equity_value": 3520.0,
+          "discounted_terminal_equity_value": 2237.023636,
+          "price_implied_normalized_profit": 57.453197,
+          "ocf_to_profit_assumption": 0.9,
+          "annual_cash_capex_assumption": 25,
+          "cash_after_capex_proxy": 32.6,
+          "discount_sensitivity": {
+            "0.1": 2404.207363,
+            "0.12": 2237.023636,
+            "0.15": 2012.571424
+          }
+        }
+      ],
+      "base_implied_revenue_at_assumed_margin": 225.708989,
+      "base_discounted_value_per_existing_share": 643.172975,
+      "illustrative_20pct_new_shares_value_per_existing_share": 535.977479
+    },
+    {
+      "code": "688559",
+      "name": "海目星",
+      "current_a_price_implied_equity_value": 120.91,
+      "cases": [
+        {
+          "case": "cautious",
+          "core_revenue": 70,
+          "core_normalized_net_margin": 0.02,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 70,
+          "normalized_net_profit": 1.4,
+          "terminal_pe": 15,
+          "terminal_equity_value": 21.0,
+          "discounted_terminal_equity_value": 13.34588,
+          "price_implied_normalized_profit": 12.683615,
+          "ocf_to_profit_assumption": 0.5,
+          "annual_cash_capex_assumption": 3,
+          "cash_after_capex_proxy": -2.3,
+          "discount_sensitivity": {
+            "0.1": 14.343283,
+            "0.12": 13.34588,
+            "0.15": 12.006818
+          }
+        },
+        {
+          "case": "base",
+          "core_revenue": 120,
+          "core_normalized_net_margin": 0.06,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 120,
+          "normalized_net_profit": 7.2,
+          "terminal_pe": 25,
+          "terminal_equity_value": 180.0,
+          "discounted_terminal_equity_value": 114.393254,
+          "price_implied_normalized_profit": 7.610169,
+          "ocf_to_profit_assumption": 0.8,
+          "annual_cash_capex_assumption": 4,
+          "cash_after_capex_proxy": 1.76,
+          "discount_sensitivity": {
+            "0.1": 122.942422,
+            "0.12": 114.393254,
+            "0.15": 102.915584
+          }
+        },
+        {
+          "case": "optimistic",
+          "core_revenue": 170,
+          "core_normalized_net_margin": 0.09,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 170,
+          "normalized_net_profit": 15.3,
+          "terminal_pe": 35,
+          "terminal_equity_value": 535.5,
+          "discounted_terminal_equity_value": 340.319931,
+          "price_implied_normalized_profit": 5.435835,
+          "ocf_to_profit_assumption": 1.0,
+          "annual_cash_capex_assumption": 6,
+          "cash_after_capex_proxy": 9.3,
+          "discount_sensitivity": {
+            "0.1": 365.753705,
+            "0.12": 340.319931,
+            "0.15": 306.173863
+          }
+        }
+      ],
+      "base_implied_revenue_at_assumed_margin": 126.83615,
+      "base_discounted_value_per_existing_share": 46.171172,
+      "illustrative_20pct_new_shares_value_per_existing_share": 38.475977
+    },
+    {
+      "code": "001270",
+      "name": "铖昌科技",
+      "current_a_price_implied_equity_value": 184.47,
+      "cases": [
+        {
+          "case": "cautious",
+          "core_revenue": 8,
+          "core_normalized_net_margin": 0.22,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 8,
+          "normalized_net_profit": 1.76,
+          "terminal_pe": 20,
+          "terminal_equity_value": 35.2,
+          "discounted_terminal_equity_value": 22.370236,
+          "price_implied_normalized_profit": 14.513356,
+          "ocf_to_profit_assumption": 0.6,
+          "annual_cash_capex_assumption": 0.3,
+          "cash_after_capex_proxy": 0.756,
+          "discount_sensitivity": {
+            "0.1": 24.042074,
+            "0.12": 22.370236,
+            "0.15": 20.125714
+          }
+        },
+        {
+          "case": "base",
+          "core_revenue": 15,
+          "core_normalized_net_margin": 0.3,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 15,
+          "normalized_net_profit": 4.5,
+          "terminal_pe": 30,
+          "terminal_equity_value": 135.0,
+          "discounted_terminal_equity_value": 85.794941,
+          "price_implied_normalized_profit": 9.675571,
+          "ocf_to_profit_assumption": 0.8,
+          "annual_cash_capex_assumption": 0.6,
+          "cash_after_capex_proxy": 3.0,
+          "discount_sensitivity": {
+            "0.1": 92.206816,
+            "0.12": 85.794941,
+            "0.15": 77.186688
+          }
+        },
+        {
+          "case": "optimistic",
+          "core_revenue": 25,
+          "core_normalized_net_margin": 0.35,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 25,
+          "normalized_net_profit": 8.75,
+          "terminal_pe": 40,
+          "terminal_equity_value": 350.0,
+          "discounted_terminal_equity_value": 222.431327,
+          "price_implied_normalized_profit": 7.256678,
+          "ocf_to_profit_assumption": 0.95,
+          "annual_cash_capex_assumption": 1,
+          "cash_after_capex_proxy": 7.3125,
+          "discount_sensitivity": {
+            "0.1": 239.054709,
+            "0.12": 222.431327,
+            "0.15": 200.113636
+          }
+        }
+      ],
+      "base_implied_revenue_at_assumed_margin": 32.251903,
+      "base_discounted_value_per_existing_share": 41.624812,
+      "illustrative_20pct_new_shares_value_per_existing_share": 34.687344
+    },
+    {
+      "code": "688668",
+      "name": "鼎通科技",
+      "current_a_price_implied_equity_value": 287.47,
+      "cases": [
+        {
+          "case": "cautious",
+          "core_revenue": 30,
+          "core_normalized_net_margin": 0.14,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 30,
+          "normalized_net_profit": 4.2,
+          "terminal_pe": 20,
+          "terminal_equity_value": 84.0,
+          "discounted_terminal_equity_value": 53.383519,
+          "price_implied_normalized_profit": 22.616981,
+          "ocf_to_profit_assumption": 0.7,
+          "annual_cash_capex_assumption": 1.5,
+          "cash_after_capex_proxy": 1.44,
+          "discount_sensitivity": {
+            "0.1": 57.37313,
+            "0.12": 53.383519,
+            "0.15": 48.027273
+          }
+        },
+        {
+          "case": "base",
+          "core_revenue": 45,
+          "core_normalized_net_margin": 0.18,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 45,
+          "normalized_net_profit": 8.1,
+          "terminal_pe": 30,
+          "terminal_equity_value": 243.0,
+          "discounted_terminal_equity_value": 154.430893,
+          "price_implied_normalized_profit": 15.077987,
+          "ocf_to_profit_assumption": 0.85,
+          "annual_cash_capex_assumption": 2.5,
+          "cash_after_capex_proxy": 4.385,
+          "discount_sensitivity": {
+            "0.1": 165.97227,
+            "0.12": 154.430893,
+            "0.15": 138.936039
+          }
+        },
+        {
+          "case": "optimistic",
+          "core_revenue": 70,
+          "core_normalized_net_margin": 0.2,
+          "incremental_new_revenue": 0,
+          "incremental_new_net_margin": 0,
+          "total_revenue": 70,
+          "normalized_net_profit": 14.0,
+          "terminal_pe": 40,
+          "terminal_equity_value": 560.0,
+          "discounted_terminal_equity_value": 355.890124,
+          "price_implied_normalized_profit": 11.30849,
+          "ocf_to_profit_assumption": 1.0,
+          "annual_cash_capex_assumption": 4,
+          "cash_after_capex_proxy": 10.0,
+          "discount_sensitivity": {
+            "0.1": 382.487535,
+            "0.12": 355.890124,
+            "0.15": 320.181818
+          }
+        }
+      ],
+      "base_implied_revenue_at_assumed_margin": 83.766594,
+      "base_discounted_value_per_existing_share": 110.885489,
+      "illustrative_20pct_new_shares_value_per_existing_share": 92.404574
+    }
+  ]
+}

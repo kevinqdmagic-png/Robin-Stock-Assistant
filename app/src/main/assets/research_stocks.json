@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T21:03:56+00:00",
+  "updated_at": "2026-10-01T21:07:59+13:00",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -50,6 +50,34 @@
           "sources": [
             "https://static.cninfo.com.cn/finalpage/2026-08-29/1225528023.PDF"
           ]
+        },
+        {
+          "title": "一次性深研·优先级1·平台与固态增量分开估值",
+          "reason": "保留原核心。整线交付和成熟设备业务是基础，固态关键工艺与复购作为增量；优先检验验收到扣非利润及跨交付周期现金，不把研究优先级当当前买入指令。",
+          "fact_note": "锂电毛利率更正为32.64%，34.66%为收入增幅。新取得2025-06-19及2026-04-24公司官网复购/批量交付披露，原“所查半年报未找到”历史不改；客户、合同金额和固态收入仍未单列。9月30日A股价34.94元，A股价×全部股本为估值代理，非实际A/H市值合计。",
+          "validation": [
+            "跟踪锂电毛利、扣非归母与验收节奏是否同向改善",
+            "核对固态同客户批量复购及分产品收入，缺失则继续标待核实",
+            "跨周期检查合同负债、存货/发出商品、合同资产、应收账龄与现金",
+            "用2030核心240亿收入/11%净利率及固态增量15亿/14%情景反推所需经营证据"
+          ],
+          "risk": "固态路线取消关键工序只否定增量；主业份额和持续回款同时恶化才否定平台。预收不能永久当自由现金，估值压缩可抵消经营增长。",
+          "id": "300450-20261001-deep-once",
+          "date": "2026-10-01",
+          "recorded_at": "2026-10-01T21:07:59+13:00",
+          "evidence_status": "原始财报与公告核验；官网交付/复购为公司自述；未取得的订单/型号参数明确待核实；三情景为研究假设，非预测。",
+          "report_ids": [
+            "high-elasticity-2026-10-01-deep-once"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-29/1225528023.PDF",
+            "https://leadintelligent.com/news-detail/397",
+            "https://www.leadintelligent.com/news-detail/504",
+            "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+            "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "long_term_industry_growth_research"
         }
       ]
     },
@@ -100,6 +128,33 @@
           "sources": [
             "https://static.cninfo.com.cn/finalpage/2026-08-28/1225518537.PDF"
           ]
+        },
+        {
+          "title": "一次性深研·优先级2·分类复购与标定成本",
+          "reason": "保留原核心。力学传感器商业化证据扩大，关键在同客户复购、自动化标定一致性、单只成本及归母利润；用传统业务与机器人增量分别建模。",
+          "fact_note": "H1超过2000只是机器人力学传感器多品类，并非全为六维；月订单千只与销售2000只不同口径，90家送样不等于90家量产客户。归母下降24.38%而扣非增24.89%，不能混作主业崩塌。9月30日47.89元。",
+          "validation": [
+            "补证按六维/关节力矩等类别的销量、ASP、收入及批量复购",
+            "核对标定产能、温漂/解耦/过载一致性与返修成本",
+            "基准机器人4亿收入、3000元加权ASP仅是假设，需约13.33万只年度合格出货支持",
+            "区分并表、参股和少数股东权益，检查应收、库存、商誉与现金"
+          ],
+          "risk": "低价订单、人工标定/返修成本或客户替代路线可能使量增不增利；机器人增量失败不自动否定健康传统主业。",
+          "id": "603662-20261001-deep-once",
+          "date": "2026-10-01",
+          "recorded_at": "2026-10-01T21:07:59+13:00",
+          "evidence_status": "原始财报与公告核验；官网交付/复购为公司自述；未取得的订单/型号参数明确待核实；三情景为研究假设，非预测。",
+          "report_ids": [
+            "high-elasticity-2026-10-01-deep-once"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-28/1225518537.PDF",
+            "https://www.ati-ia.com/Products/FT/sensors.aspx",
+            "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+            "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "long_term_industry_growth_research"
         }
       ]
     },
@@ -149,6 +204,36 @@
           "sources": [
             "高弹性补充复筛档案：2026-10-01"
           ]
+        },
+        {
+          "title": "一次性深研·优先级3·业务核心与估值等待",
+          "reason": "保留原核心，维持强业务、估值条件严格的定位。CW/EML产品路线分开，重点检验供给扩张后的正常价格、良率、折旧及现金回报，避免将芯片稀缺溢价永久化。",
+          "fact_note": "H1归母6.0707亿、扣非5.1444亿，部分投资公允价值收益非芯片持续利润。经营现金4.8767亿低于现金购建6.5959亿。8月12日约42.68亿产业园方案原件已核验，后续审批/开工进度未完整取得。9月30日1613元、代理权益2008.19亿，半年扣非×2参考PE195.18非TTM。",
+          "validation": [
+            "按CW功率与EML速率核验新品客户认证及重复采购",
+            "补证销量、ASP、良率；不以集团数通增速代替细分参数",
+            "检查产业园审批、设备付款、在建转固、折旧、贷款和增量现金",
+            "12%/4年、终点40倍PE口径下当前权益需约79亿标准化归母；情景非预测"
+          ],
+          "risk": "扩产折旧、价格回归、客户双供和外置光源架构改变可能压缩利润；即使经营很好，高PE压缩仍可能使投资回报失败。",
+          "id": "688498-20261001-deep-once",
+          "date": "2026-10-01",
+          "recorded_at": "2026-10-01T21:07:59+13:00",
+          "evidence_status": "原始财报与公告核验；官网交付/复购为公司自述；未取得的订单/型号参数明确待核实；三情景为研究假设，非预测。",
+          "report_ids": [
+            "high-elasticity-2026-10-01-deep-once"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-29/1225527905.PDF",
+            "https://static.cninfo.com.cn/finalpage/2026-08-12/1225469034.PDF",
+            "https://www.lumentum.com/en/products/data-center/cw-lasers/cw-lasers-sipho-transceivers",
+            "https://www.lumentum.com/en/products/eml-200g-pam4-cwdm-laser",
+            "https://ir.coherent.com/news-releases/news-release-details/coherent-showcases-optical-innovations-scale-ai-infrastructure",
+            "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+            "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "long_term_industry_growth_research"
         }
       ]
     },
@@ -199,6 +284,32 @@
           "sources": [
             "https://static.cninfo.com.cn/finalpage/2026-08-05/1225457964.PDF"
           ]
+        },
+        {
+          "title": "一次性深研·保持补充比较·高速组件与资本回报",
+          "reason": "继续作AI产业链下一层比较，不替换原三只核心。比较高速组件升级能否在大客户议价、材料价格和竞争下转成稳定利润/每股价值。",
+          "fact_note": "112G稳定量产、224G风冷规模生产；液冷相关SKU试产/批量阶段需分别核对。H1扣非1.7480亿、经营现金1.7542亿、现金购建2.0261亿，简单现金余量约-0.27亿。9月30日为XD除息价206.41元，不据此回填历史收益。",
+          "validation": [
+            "按SKU和客户核对224G/液冷认证、复购与良率",
+            "区分AI/非AI收入，核对年度降价与材料/镀层成本",
+            "检查扩产回报、现金购建及可转债转股/摊薄条件",
+            "用同一估值口径比较源杰与鼎通，下一层身份不等于未定价"
+          ],
+          "risk": "客户自制/替代架构、其他精密供应商竞争、材料成本及高估值压缩；资本募集本身不构成自由现金。",
+          "id": "688668-20261001-deep-once",
+          "date": "2026-10-01",
+          "recorded_at": "2026-10-01T21:07:59+13:00",
+          "evidence_status": "原始财报与公告核验；官网交付/复购为公司自述；未取得的订单/型号参数明确待核实；三情景为研究假设，非预测。",
+          "report_ids": [
+            "high-elasticity-2026-10-01-deep-once"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-05/1225457964.PDF",
+            "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+            "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "long_term_industry_growth_research"
         }
       ]
     },
@@ -378,6 +489,78 @@
             "此前AI产业链研究对话：2026-09-30，恢复摘要",
             "https://static.cninfo.com.cn/finalpage/2026-07-15/1225424944.PDF"
           ]
+        }
+      ]
+    },
+    {
+      "code": "688559",
+      "name": "海目星",
+      "sector": "激光与电池装备",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "title": "一次性深研·原候选保留·等待扣非与融资回报",
+          "reason": "保留原固态/激光设备候选，暂缓提高优先级。订单规模需转成验收、扣非利润和融资后的每股价值，不能把全公司订单称为固态订单。",
+          "fact_note": "H1归母0.5191亿但扣非仅0.1859亿，扣非净利率约0.60%。9月29日拟募上限22.6290亿含6亿补流已核验，非完成融资。200亿含税订单/1.5年交付的公司交流转载有支持，但原件待补证。9月30日48.80元。",
+          "validation": [
+            "补齐订单原件及产品/税额/有效性/交付验收分布",
+            "跨交付周期检查存货、合同负债、应收和经营现金",
+            "研究门槛：连续两个披露期扣非净利率3%以上且验收回款改善",
+            "核对实际发行价/股数/费用、项目回报；20%增股只为敏感性假设"
+          ],
+          "risk": "技术验证未变订单、订单未验收、低项目利润或融资摊薄超过利润增量；预收现金不是无履约义务的收益。",
+          "id": "688559-20261001-deep-once",
+          "date": "2026-10-01",
+          "recorded_at": "2026-10-01T21:07:59+13:00",
+          "evidence_status": "原始财报与公告核验；官网交付/复购为公司自述；未取得的订单/型号参数明确待核实；三情景为研究假设，非预测。",
+          "report_ids": [
+            "high-elasticity-2026-10-01-deep-once"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-31/1225534653.PDF",
+            "https://static.cninfo.com.cn/finalpage/2026-09-29/1225586288.PDF",
+            "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+            "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "long_term_industry_growth_research"
+        }
+      ]
+    },
+    {
+      "code": "001270",
+      "name": "铖昌科技",
+      "sector": "商业航天 / 相控阵芯片",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "title": "一次性深研·原候选保留·项目与回款条件",
+          "reason": "保留星载相控阵T/R芯片逻辑，暂缓提高优先级。技术/资格、单星价值量、项目节奏及实际回款分别检验；不以星座规划规模直接推利润。",
+          "fact_note": "2026-05-20起已撤销退市风险警示，原历史风险留档。H1扣非0.7438亿、经营现金0.6065亿，应收账面6.2319亿显著高于半年收入2.1597亿。下半年低轨批次为计划，未伪称验收。9月30日89.50元。",
+          "validation": [
+            "核对下半年通信卫星批次实际交付、验收与收入",
+            "比较同频段、功率、可靠性等级及GaN/GaAs/集成替代约束",
+            "检查代工/封测一致性、客户双供和每星通道架构",
+            "检查应收账龄、坏账及滚动现金转换；估值情景与项目计划分开"
+          ],
+          "risk": "采购/发射延期、双供/集成降低价值量、账龄与坏账恶化；历史ST撤销不代表现金/估值风险自动消失。",
+          "id": "001270-20261001-deep-once",
+          "date": "2026-10-01",
+          "recorded_at": "2026-10-01T21:07:59+13:00",
+          "evidence_status": "原始财报与公告核验；官网交付/复购为公司自述；未取得的订单/型号参数明确待核实；三情景为研究假设，非预测。",
+          "report_ids": [
+            "high-elasticity-2026-10-01-deep-once"
+          ],
+          "sources": [
+            "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-11/e1d97d2c-1d40-41ec-bf14-0cd4be85b5d5.PDF",
+            "https://static.cninfo.com.cn/finalpage/2026-05-19/1225314875.PDF",
+            "https://hq.sinajs.cn/list=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668",
+            "https://qt.gtimg.cn/q=sz300450,sh603662,sh688498,sh688559,sz001270,sh688668"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "long_term_industry_growth_research"
         }
       ]
     }

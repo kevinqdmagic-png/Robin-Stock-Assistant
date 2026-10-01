@@ -32,7 +32,16 @@ class ResearchStocksTests(unittest.TestCase):
                         .issubset({r["id"] for r in result["items"]}))
         filtered = api.research(code="688498", date="2026-10-01", task="high_elasticity_once")
         self.assertTrue(filtered["ok"])
-        self.assertEqual([r["id"] for r in filtered["items"]], ["high-elasticity-2026-10-01-rescreen"])
+        # Later reports may be appended on the same date without replacing
+        # the preserved legacy follow-up. Verify filtering, not a frozen count.
+        filtered_ids = {r["id"] for r in filtered["items"]}
+        self.assertIn("high-elasticity-2026-10-01-rescreen", filtered_ids)
+        self.assertNotIn("high-elasticity-2026-09-30-original", filtered_ids)
+        for report in filtered["items"]:
+            self.assertEqual(report["date"], "2026-10-01")
+            self.assertEqual(report["track"], "high_elasticity")
+            if report.get("task_id"):
+                self.assertEqual(report["task_id"], "high_elasticity_once")
 
     def test_invalid_or_unknown_stock_never_receives_another_stock_reason(self):
         self.assertFalse(api.research_stock("../300450")["ok"])
