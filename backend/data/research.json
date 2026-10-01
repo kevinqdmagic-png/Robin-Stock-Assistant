@@ -116,6 +116,22 @@
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/recommendations.json"
       ],
       "provenance": "contemporaneous_holiday_verification"
+    },
+    {
+      "id": "late-pair-2026-10-01-holiday",
+      "date": "2026-10-01",
+      "published_at": "2026-10-01T14:40:33.596+08:00",
+      "task_id": "late_pair",
+      "track": "market_review",
+      "title": "尾盘短线双标 · 国庆休市核验",
+      "summary": "10月1日A股休市；不建立14:40样本、不写推荐，下一次有效尾盘筛选为10月8日。",
+      "body": "交易日核验：上海证券交易所2026年年度休市安排明确，10月1日至10月7日休市，10月8日起照常开市。今天不存在14:40可执行A股行情，因此不生成正常盘中交易报告、不建立新推荐、不记录参考价，也不把9月30日收盘数据回填成今天已知的尾盘样本。\n\n本次实际扫描覆盖：0只股票、0个板块。原因是休市而非筛选失败；80—150只广泛研究池、20—30只深筛池、至少五个板块候选来源和最多两只最终标的，只在实际交易时段按可核验行情建立。过去5/10交易日重复率、重选理由和替代候选本日不适用；不为满足格式虚构三只被替代股票。\n\n历史台账核查：recommendations.json当前正式items仍为空；健康元、双环传动、汉邦科技仍仅处于needs_source历史补证清单，不能反推成带14:40时间和价格的正式推荐。今天没有可用于与9:50组同口径比较的新样本，现阶段仍不足以判断尾盘组是否改善T+1风险收益。\n\n10月8日重开执行：先核验交易日与行情时间戳，再从全A构建80—150只、至少五个板块的研究池，深筛20—30只，记录5/10交易日重复率、重选依据和至少三只真实替代候选；14:40仅在全天量价、尾盘承接、板块强度、参考价、触发与失效条件均可核验时发布最多两只。若10月8日14:40触发买入，按A股T+1最早10月9日卖出；价格观察收益与可执行策略收益分开记录。",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/recommendations.json"
+      ],
+      "provenance": "contemporaneous_holiday_verification"
     }
   ]
 }

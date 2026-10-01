@@ -56,6 +56,25 @@
       "sources": [
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
       ]
+    },
+    {
+      "id": "late-pair-20261001-holiday-completed",
+      "run_id": "late-pair-2026-10-01-scheduled",
+      "task_id": "late_pair",
+      "date": "2026-10-01",
+      "trigger": "scheduled",
+      "started_at": "2026-10-01T14:35:33+08:00",
+      "recorded_at": "2026-10-01T14:40:33.596+08:00",
+      "completed_at": "2026-10-01T14:40:33.596+08:00",
+      "status": "completed",
+      "summary": "官方日历确认国庆休市；已完成休市核验和重开计划，未生成14:40推荐样本。",
+      "report_ids": [
+        "late-pair-2026-10-01-holiday"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
+      ]
     }
   ]
 }
