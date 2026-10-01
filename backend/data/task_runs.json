@@ -94,6 +94,25 @@
       "sources": [
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
       ]
+    },
+    {
+      "id": "volume-price-20261001-holiday-completed",
+      "run_id": "volume-price-2026-10-01-scheduled",
+      "task_id": "volume_price",
+      "date": "2026-10-01",
+      "trigger": "scheduled",
+      "started_at": "2026-10-01T15:55:09+08:00",
+      "recorded_at": "2026-10-01T16:00:58.187+08:00",
+      "completed_at": "2026-10-01T16:00:58.187+08:00",
+      "status": "completed",
+      "summary": "国庆休市；已完成量价前推审计并冻结9月30日五个Day-0样本，未生成当日交易样本或胜率。",
+      "report_ids": [
+        "volume-price-2026-10-01-holiday-run"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
+      ]
     }
   ]
 }
