@@ -113,6 +113,25 @@
       "sources": [
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
       ]
+    },
+    {
+      "id": "market-review-20261001-holiday-completed",
+      "run_id": "market-review-2026-10-01-scheduled",
+      "task_id": "market_review",
+      "date": "2026-10-01",
+      "trigger": "scheduled",
+      "started_at": "2026-10-01T16:03:44+08:00",
+      "recorded_at": "2026-10-01T16:05:30.975+08:00",
+      "completed_at": "2026-10-01T16:05:30.975+08:00",
+      "status": "completed",
+      "summary": "国庆休市；已完成9月30日前一候选池与T+1可执行性审计，未生成10月1日行情或新推荐。",
+      "report_ids": [
+        "market-review-2026-10-01-holiday-audit"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
+      ]
     }
   ]
 }
