@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T21:07:59+13:00",
+  "updated_at": "2026-10-01T19:33:50.075Z",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -497,7 +497,7 @@
       "name": "海目星",
       "sector": "激光与电池装备",
       "role": "research",
-      "default_watch": false,
+      "default_watch": true,
       "history": [
         {
           "title": "一次性深研·原候选保留·等待扣非与融资回报",
@@ -533,7 +533,7 @@
       "name": "铖昌科技",
       "sector": "商业航天 / 相控阵芯片",
       "role": "research",
-      "default_watch": false,
+      "default_watch": true,
       "history": [
         {
           "title": "一次性深研·原候选保留·项目与回款条件",
