@@ -75,6 +75,25 @@
       "sources": [
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
       ]
+    },
+    {
+      "id": "quant-research-20261001-holiday-completed",
+      "run_id": "quant-research-2026-10-01-scheduled",
+      "task_id": "quant_research",
+      "date": "2026-10-01",
+      "trigger": "scheduled",
+      "started_at": "2026-10-01T15:40:38+08:00",
+      "recorded_at": "2026-10-01T15:46:25.327+08:00",
+      "completed_at": "2026-10-01T15:46:25.327+08:00",
+      "status": "completed",
+      "summary": "官方日历确认国庆休市；已冻结9月30日量化样本并制定10月8日验证方案，未生成10月1日交易样本。",
+      "report_ids": [
+        "quant-research-2026-10-01-holiday"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
+      ]
     }
   ]
 }
