@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T19:33:50.075Z",
+  "updated_at": "2026-10-01T20:19:06.534Z",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -561,6 +561,118 @@
           ],
           "task_id": "high_elasticity_once",
           "strategy": "long_term_industry_growth_research"
+        }
+      ]
+    },
+    {
+      "code": "688049",
+      "name": "炬芯科技",
+      "sector": "端侧 AI / 低功耗计算与连接",
+      "role": "research",
+      "default_watch": true,
+      "history": [
+        {
+          "id": "688049-20261002-ai-long-horizon",
+          "date": "2026-10-02",
+          "recorded_at": "2026-10-01T20:19:06.534Z",
+          "title": "AI长周期研究·优先一·端侧计算已有收入",
+          "reason": "重点追踪低功耗端侧AI芯片从音频走向多类终端的机会。存内计算相关产品已贡献收入，下一代技术与工具链可能扩大客户覆盖；先验证复购、产品价值量和现金回款，现有证据不支持从现价确定上涨50或100倍。",
+          "fact_note": "2026H1营收5.7636亿元、归母1.0880亿元、扣非1.0398亿元；存内NPU SoC及端侧AI处理器收入占比超过25%。经营现金仅0.1115亿元。9月30日双源收盘45.78元，总市值约80.58亿元。",
+          "evidence_status": "已核验2026半年报财务表与公司公告；客户与性能按公司披露，推理和敏感性为研究假设，未证实50/100倍",
+          "validation": [
+            "下一代存内计算依次核验流片、回片、功能测试、客户定点、量产与复购，不能把计划流片当量产收入",
+            "拆分已有音频产品与AI眼镜/AI Note等新增终端，核验收入、ASP、毛利、客户集中度和同客复购",
+            "研究门槛：连续两次披露检验存货增长是否快于销售，滚动12个月经营现金/扣非利润能否恢复至0.7以上",
+            "强扩张假设也需数十亿元收入与稳定净利率；每次用最新总股本和价格重算估值，不沿用固定目标倍数"
+          ],
+          "risk": "竞争对手同规格降价、云端方案削弱端侧付费价值、下一代延期或新品替代旧品而非增加总价值量；存货备货吞噬现金。>25%是披露下限，不是精确金额或精确增速，也不代表所有收入来自大模型推理。 已筹划H股但9月交流称尚未实质推进，融资时间和规模未知。",
+          "report_ids": [
+            "ai-long-horizon-2026-10-02-three-candidates",
+            "ai-long-horizon-688049-2026-10-02"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-25/1225499913.PDF",
+            "https://dataclouds.cninfo.com.cn/shgonggao/investor/2026/20260910/ff4fd2bcfad879a9dfe46ec21cc6ee13.pdf",
+            "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-9/2026-09-17/12608167.DOCX",
+            "https://hq.sinajs.cn/list=sh688049,sh688595,sh688691",
+            "https://qt.gtimg.cn/q=sh688049,sh688595,sh688691"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "ai_long_term_optionality_research"
+        }
+      ]
+    },
+    {
+      "code": "688595",
+      "name": "芯海科技",
+      "sector": "AI PC 与边缘设备 / 计算外围芯片",
+      "role": "research",
+      "default_watch": true,
+      "history": [
+        {
+          "id": "688595-20261002-ai-long-horizon",
+          "date": "2026-10-02",
+          "recorded_at": "2026-10-01T20:19:06.534Z",
+          "title": "AI长周期研究·优先二·小规模平台验证",
+          "reason": "重点观察EC、接口控制与edge BMC从单芯片走向计算外围产品组合。公司披露客户出货及边缘设备量产，市值起点较小；但仍亏损，必须先验证毛利修复、持续扣非盈利及现金流，不能把AI设备总市场直接算成公司收入。",
+          "fact_note": "2026H1营收4.3533亿元，归母亏损0.3836亿元、扣非亏损0.3983亿元，经营现金-0.3545亿元；毛利率30.55%。公司披露联想EC出货及edge BMC量产。9月30日29.82元，总市值约42.97亿元；9月回售申报0张。",
+          "evidence_status": "已核验2026半年报财务表与公司公告；客户与性能按公司披露，推理和敏感性为研究假设，未证实50/100倍",
+          "validation": [
+            "核验EC定点后的批量出货与复购，并拆分PD/USB HUB/触控等配套芯片的实际收入和单位毛利",
+            "区分轻量edge BMC、AI NAS与主流云服务器全功能BMC；取得应用口径、SKU及付费订单证据后再估计市场份额",
+            "研究门槛：毛利率能否恢复至35%左右，连续两个披露期扣非盈利，滚动12个月经营现金转正",
+            "单季微利不能代表盈利模式成立；核对可转债、转股价格、股份出售/注销及经济性融资稀释，用实际新股本更新估值"
+          ],
+          "risk": "头部认证不等于大份额，计算外围芯片数量与单价存在上限；竞品降价、供应成本上涨与高研发支出可造成增收不增利。当前亏损和负经营现金是真实反证，低市值本身不是便宜或50倍潜力的证明。",
+          "report_ids": [
+            "ai-long-horizon-2026-10-02-three-candidates",
+            "ai-long-horizon-688595-2026-10-02"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-28/1225522336.PDF",
+            "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12606908&stockid=688595",
+            "https://hq.sinajs.cn/list=sh688049,sh688595,sh688691",
+            "https://qt.gtimg.cn/q=sh688049,sh688595,sh688691"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "ai_long_term_optionality_research"
+        }
+      ]
+    },
+    {
+      "code": "688691",
+      "name": "灿芯股份",
+      "sector": "AI 定制芯片 / IP 与设计量产服务",
+      "role": "research",
+      "default_watch": true,
+      "history": [
+        {
+          "id": "688691-20261002-ai-long-horizon",
+          "date": "2026-10-02",
+          "recorded_at": "2026-10-01T20:19:06.534Z",
+          "title": "AI长周期研究·优先三·设计到量产的期权",
+          "reason": "重点观察AI定制设计项目向持续量产服务转化，以及可复用IP能否提高盈利质量。已有在手订单与存算/先进封装项目线索，但项目成功不等于自有AI芯片利润，收入结构和低毛利是关键反证；暂列高风险探索。",
+          "fact_note": "2026H1营收3.7843亿元，归母-0.6106亿元、扣非-0.6645亿元，经营现金-0.2137亿元；综合毛利15.68%。6月底在手10.72亿元含税订单，非全部AI订单。9月30日58.32元，总市值约69.98亿元。",
+          "evidence_status": "已核验2026半年报财务表与公司公告；客户与性能按公司披露，推理和敏感性为研究假设，未证实50/100倍",
+          "validation": [
+            "分开全定制与工程定制、设计费与量产服务收入，追踪项目验收、首轮流片、量产、持续复购和回款",
+            "10.72亿元订单需拆分税额、取消条款、交付时间、AI应用占比与可实现毛利；不能全算AI销售或已实现利润",
+            "SMPU/存算与3D封装项目按研发、测试、量产阶段核验，厘清客户产品所有权及公司的设计/量产服务收益",
+            "研究门槛：综合毛利能否恢复至20%以上、连续两个披露期扣非盈利，并且费用效率与经营现金同步改善；这些是研究门槛而非已验证胜率"
+          ],
+          "risk": "低毛利工程服务增速可能稀释整体利润；客户项目延期、取消或流片失败；代工/封测与先进工艺约束。把客户AI产品销量、全部含税订单或SMPU设计参数直接算成公司利润，会高估弹性。",
+          "report_ids": [
+            "ai-long-horizon-2026-10-02-three-candidates",
+            "ai-long-horizon-688691-2026-10-02"
+          ],
+          "sources": [
+            "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-8/2026-08-28/12559219.PDF",
+            "https://www.britesemi.com/news/cxzx-detail-4030.htm",
+            "https://hq.sinajs.cn/list=sh688049,sh688595,sh688691",
+            "https://qt.gtimg.cn/q=sh688049,sh688595,sh688691"
+          ],
+          "task_id": "high_elasticity_once",
+          "strategy": "ai_long_term_optionality_research"
         }
       ]
     }

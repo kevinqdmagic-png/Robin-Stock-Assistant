@@ -189,6 +189,43 @@
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/task_runs.json",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/recommendations.json"
       ]
+    },
+    {
+      "id": "ai-long-horizon-20261002-manual-completed",
+      "run_id": "ai-long-horizon-20261002-manual",
+      "task_id": "high_elasticity_once",
+      "date": "2026-10-02",
+      "trigger": "manual",
+      "started_at": "2026-10-02T08:38:58+13:00",
+      "recorded_at": "2026-10-01T20:19:06.534Z",
+      "completed_at": "2026-10-01T20:19:06.534Z",
+      "status": "completed",
+      "summary": "人工完成AI长周期三只深研：炬芯科技、芯海科技、灿芯股份；89只行情/总市值筛选，三只形成完整报告。新增用户要求的自选及理由、反证与50/100倍压力测试；现有证据不支持确定从现价上涨50或100倍。非定时任务执行，未生成短线买入指令。",
+      "report_ids": [
+        "ai-long-horizon-2026-10-02-three-candidates",
+        "ai-long-horizon-688049-2026-10-02",
+        "ai-long-horizon-688595-2026-10-02",
+        "ai-long-horizon-688691-2026-10-02"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://static.cninfo.com.cn/finalpage/2026-08-25/1225499913.PDF",
+        "https://dataclouds.cninfo.com.cn/shgonggao/investor/2026/20260910/ff4fd2bcfad879a9dfe46ec21cc6ee13.pdf",
+        "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-9/2026-09-17/12608167.DOCX",
+        "https://static.cninfo.com.cn/finalpage/2026-08-28/1225522336.PDF",
+        "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12606908&stockid=688595",
+        "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-8/2026-08-28/12559219.PDF",
+        "https://www.britesemi.com/news/cxzx-detail-4030.htm",
+        "https://dataclouds.cninfo.com.cn/shgonggao/hsomarket/2026/20260825/b811e488985c46bc84f8c19768f07193.PDF",
+        "https://dataclouds.cninfo.com.cn/shgonggao/investor/2026/20260908/eb3f38a30469ca642549559524d77167.pdf",
+        "https://static.cninfo.com.cn/finalpage/2026-08-25/1225499094.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-08-26/1225505867.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-08-18/1225478519.PDF",
+        "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-18/da8d9bbf-7c91-45e2-9790-ad5778acb192.PDF",
+        "https://dataclouds.cninfo.com.cn/shgonggao/hsomarket/2026/20260826/023ac5b0185b4c8b921de754fc5e949c.PDF",
+        "https://hq.sinajs.cn/list=sz300502,sz300308,sz300394,sh688498,sh688313,sh688195,sz300570,sz301183,sh688205,sh688025,sh688048,sz300620,sz301205,sz300548,sz000988,sz003031,sh688691,sh688521,sh688049,sh688595,sh688416,sh688018,sh688332,sh688608,sh603893,sz300458,sh688099,sz300613,sh688262,sh688107,sh688515,sh688702,sh688110,sh688256,sh688041,sz300474,sh688008,sh688047,sh688012,sz002371,sh688361,sz300567,sh688200,sz300604,sh688037,sh688383,sh688720,sz002156,sh600584,sz002185,sh688362,sh688372,sz002436,sz300476,sz002463,sz002916,sh688525,sz301308,sz001309,sh688141,sh688368,sh688508,sh688693,sh688052,sz300661,sh688536,sh688209,sz002851,sz002364,sz002993,sz002837,sz301018,sz300499,sh688322,sh688343,sh688088,sh688475,sh688400,sh688258,sz300007,sh603662,sh688017,sh603728,sz300913,sz002925,sh600728,sz002230,sz300033,sh688111",
+        "https://qt.gtimg.cn/q=sz300502,sz300308,sz300394,sh688498,sh688313,sh688195,sz300570,sz301183,sh688205,sh688025,sh688048,sz300620,sz301205,sz300548,sz000988,sz003031,sh688691,sh688521,sh688049,sh688595,sh688416,sh688018,sh688332,sh688608,sh603893,sz300458,sh688099,sz300613,sh688262,sh688107,sh688515,sh688702,sh688110,sh688256,sh688041,sz300474,sh688008,sh688047,sh688012,sz002371,sh688361,sz300567,sh688200,sz300604,sh688037,sh688383,sh688720,sz002156,sh600584,sz002185,sh688362,sh688372,sz002436,sz300476,sz002463,sz002916,sh688525,sz301308,sz001309,sh688141,sh688368,sh688508,sh688693,sh688052,sz300661,sh688536,sh688209,sz002851,sz002364,sz002993,sz002837,sz301018,sz300499,sh688322,sh688343,sh688088,sh688475,sh688400,sh688258,sz300007,sh603662,sh688017,sh603728,sz300913,sz002925,sh600728,sz002230,sz300033,sh688111"
+      ]
     }
   ]
 }
