@@ -312,6 +312,25 @@
         "https://qt.gtimg.cn/q=sh688580,sz300003,sh688085,sh688277,sz300326,sh603309,sh688358,sz300314,sh603259,sz300759,sz002821,sz300347,sh603127,sz300363,sh688202,sh688621,sh688222,sh688076,sh688117,sh688026,sh688073,sz301080,sz301047,sz300676,sh688114,sz000710,sz300685,sz300482,sh688289,sh603658,sz300832,sz300406,sh688389,sh603387,sz300244,sh600763,sz300015,sz000516,sz301293,sh603122",
         "https://qt.gtimg.cn/q=sz300143,sz300253,sz300451,sz000411,sh603108,sh605186,sh603520,sh688513,sh688799,sh688278,sh603087,sh600867,sz000766,sz002390"
       ]
+    },
+    {
+      "id": "early-pair-20261002-holiday-completed",
+      "run_id": "early-pair-2026-10-02-scheduled",
+      "task_id": "early_pair",
+      "date": "2026-10-02",
+      "trigger": "scheduled",
+      "started_at": "2026-10-02T09:53:24+08:00",
+      "recorded_at": "2026-10-02T09:54:38.095+08:00",
+      "status": "completed",
+      "summary": "国庆休市核验完成：实时扫描0、候选0、推荐0，不计入9:50组统计。",
+      "report_ids": [
+        "early-pair-2026-10-02-holiday"
+      ],
+      "recommendation_ids": [],
+      "completed_at": "2026-10-02T09:54:38.095+08:00",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
+      ]
     }
   ]
 }
