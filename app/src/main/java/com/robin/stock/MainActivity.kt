@@ -1,13 +1,20 @@
 package com.robin.stock
 
+import android.app.DownloadManager
+import android.content.Intent
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.view.Gravity
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -15,6 +22,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
+import java.security.MessageDigest
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +30,9 @@ class MainActivity : AppCompatActivity() {
     private val prefs by lazy { getSharedPreferences("robin", MODE_PRIVATE) }
     private val executor = Executors.newFixedThreadPool(3)
     private val homeRefreshHandler = Handler(Looper.getMainLooper())
+    private val updateHandler = Handler(Looper.getMainLooper())
+    private var updatePollTask: Runnable? = null
+    private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
     private val red = Color.rgb(218, 45, 61)
     private val green = Color.rgb(20, 143, 102)
@@ -182,6 +193,7 @@ class MainActivity : AppCompatActivity() {
         isForeground = true
         if (currentTab == 0) overviewBox?.let { loadOverview(it) }
         taskRefreshAction?.invoke()
+        resumePendingUpdateIfReady()
         startHomeAutoRefresh()
     }
     override fun onPause() {
@@ -191,6 +203,7 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onDestroy() {
         stopHomeAutoRefresh()
+        updatePollTask?.let { updateHandler.removeCallbacks(it) }
         executor.shutdownNow()
         super.onDestroy()
     }
@@ -219,6 +232,203 @@ class MainActivity : AppCompatActivity() {
         root.addView(label(when(index) { 0 -> "看市场 · 等确认 · 留记录"; 1 -> "我的关注 · 保存在本机"; 2 -> "分钟走势 · 北京时间"; else -> "研究留档 · 推荐跟踪 · 历史验证" }, 13f).apply { setPadding(0, 0, 0, dp(18)) })
         when (index) { 0 -> home(); 1 -> watchlist(); 2 -> minuteCard(); else -> research() }
     }
+
+    private fun requestAbsolute(url: String): JSONObject {
+        val conn = URL(url).openConnection() as HttpURLConnection
+        conn.connectTimeout = 12000; conn.readTimeout = 25000
+        conn.setRequestProperty("Accept", "application/vnd.github+json")
+        conn.setRequestProperty("User-Agent", "Robin-Stock-Assistant/" + BuildConfig.VERSION_NAME)
+        try {
+            if (conn.responseCode !in 200..299) error("HTTP ${conn.responseCode}")
+            return JSONObject(conn.inputStream.bufferedReader().use { it.readText() })
+        } finally { conn.disconnect() }
+    }
+    private fun versionParts(value: String): List<Int> {
+        val clean = value.trim().removePrefix("v").substringBefore("-")
+        val parts = clean.split(".").map { token -> token.filter { it.isDigit() }.toIntOrNull() ?: 0 }
+        return List(3) { index -> parts.getOrElse(index) { 0 } }
+    }
+    private fun isNewerVersion(latest: String, current: String): Boolean {
+        val a = versionParts(latest); val b = versionParts(current)
+        for (i in 0..2) {
+            if (a[i] != b[i]) return a[i] > b[i]
+        }
+        return false
+    }
+    private fun checkForUpdate(status: TextView) {
+        status.text = "正在检查正式版本…"
+        executor.execute {
+            val result = runCatching {
+                requestAbsolute("https://api.github.com/repos/kevinqdmagic-png/Robin-Stock-Assistant/releases/latest")
+            }
+            runOnUiThread {
+                if (isDestroyed) return@runOnUiThread
+                val release = result.getOrNull()
+                if (release == null) {
+                    val missingRelease = result.exceptionOrNull()?.message?.contains("404") == true
+                    status.text = if (missingRelease) "目前还没有可升级的固定签名正式版。" else "检查更新失败，请稍后再试。"
+                    return@runOnUiThread
+                }
+                val latest = release.optString("tag_name").removePrefix("v").ifBlank { release.optString("name") }
+                if (latest.isBlank()) {
+                    status.text = "版本信息异常，未执行更新。"; return@runOnUiThread
+                }
+                if (!isNewerVersion(latest, BuildConfig.VERSION_NAME)) {
+                    status.text = "当前 ${BuildConfig.VERSION_NAME} 已是最新版。"
+                    return@runOnUiThread
+                }
+                val assets = release.optJSONArray("assets") ?: JSONArray()
+                val apk = (0 until assets.length()).mapNotNull { assets.optJSONObject(it) }
+                    .firstOrNull { it.optString("name").endsWith(".apk", ignoreCase = true) }
+                val url = apk?.optString("browser_download_url").orEmpty()
+                if (url.isBlank()) {
+                    status.text = "发现 $latest，但正式 APK 尚未发布。"; return@runOnUiThread
+                }
+                val digest = apk?.optString("digest").orEmpty()
+                    .removePrefix("sha256:").trim().lowercase()
+                val notes = release.optString("body").trim().take(1200)
+                AlertDialog.Builder(this)
+                    .setTitle("发现新版本 $latest")
+                    .setMessage("当前版本：${BuildConfig.VERSION_NAME}\n\n" +
+                        (if (notes.isBlank()) "本次更新已发布。" else notes))
+                    .setNegativeButton("稍后", null)
+                    .setPositiveButton("下载更新") { _, _ ->
+                        startUpdateDownload(url, latest, digest, status)
+                    }
+                    .show()
+                status.text = "发现新版本 $latest，可手动下载升级。"
+            }
+        }
+    }
+    private fun startUpdateDownload(url: String, version: String, expectedSha256: String, status: TextView?) {
+        val manager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+        val fileName = "Robin-Stock-Assistant-$version.apk"
+        val request = DownloadManager.Request(Uri.parse(url))
+            .setTitle("Robin 股票助手 $version")
+            .setDescription("正在下载更新")
+            .setMimeType("application/vnd.android.package-archive")
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            .setAllowedOverMetered(true)
+            .setAllowedOverRoaming(false)
+            .setDestinationInExternalFilesDir(this, Environment.DIRECTORY_DOWNLOADS, fileName)
+        val id = manager.enqueue(request)
+        prefs.edit()
+            .putLong("pending_update_download_id", id)
+            .putString("pending_update_sha256", expectedSha256)
+            .putString("pending_update_version", version)
+            .putBoolean("pending_update_permission_prompted", false)
+            .apply()
+        status?.text = "正在下载 $version… 下载完成后会调出系统更新界面。"
+        pollUpdateDownload(id, status)
+    }
+    private fun pollUpdateDownload(id: Long, status: TextView?) {
+        updatePollTask?.let { updateHandler.removeCallbacks(it) }
+        val task = object : Runnable {
+            override fun run() {
+                val manager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+                val cursor = manager.query(DownloadManager.Query().setFilterById(id))
+                val state = cursor.use {
+                    if (!it.moveToFirst()) null
+                    else Pair(
+                        it.getInt(it.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS)),
+                        it.getInt(it.getColumnIndexOrThrow(DownloadManager.COLUMN_REASON))
+                    )
+                }
+                when (state?.first) {
+                    DownloadManager.STATUS_SUCCESSFUL -> {
+                        updatePollTask = null
+                        verifyAndInstallUpdate(id, status)
+                    }
+                    DownloadManager.STATUS_FAILED -> {
+                        updatePollTask = null
+                        status?.text = "更新下载失败（${state.second}），请稍后重新检查。"
+                        clearPendingUpdate()
+                    }
+                    else -> updateHandler.postDelayed(this, 1200)
+                }
+            }
+        }
+        updatePollTask = task
+        updateHandler.post(task)
+    }
+    private fun sha256(uri: Uri): String {
+        val digest = MessageDigest.getInstance("SHA-256")
+        contentResolver.openInputStream(uri)?.use { input ->
+            val buffer = ByteArray(8192)
+            while (true) {
+                val count = input.read(buffer)
+                if (count <= 0) break
+                digest.update(buffer, 0, count)
+            }
+        } ?: error("无法读取已下载 APK")
+        return digest.digest().joinToString("") { byte -> "%02x".format(byte) }
+    }
+    private fun verifyAndInstallUpdate(id: Long, status: TextView?) {
+        val manager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+        val uri = manager.getUriForDownloadedFile(id)
+        if (uri == null) {
+            status?.text = "下载文件不可用，请重新检查更新。"; clearPendingUpdate(); return
+        }
+        val expected = prefs.getString("pending_update_sha256", "").orEmpty().lowercase()
+        status?.text = if (expected.isBlank()) "下载完成，正在准备系统更新…" else "下载完成，正在校验安装包…"
+        executor.execute {
+            val verified = runCatching {
+                expected.isBlank() || sha256(uri).equals(expected, ignoreCase = true)
+            }.getOrDefault(false)
+            runOnUiThread {
+                if (!verified) {
+                    status?.text = "安装包校验失败，已停止更新。"
+                    clearPendingUpdate()
+                    return@runOnUiThread
+                }
+                openPackageInstaller(id, status)
+            }
+        }
+    }
+    private fun openPackageInstaller(id: Long, status: TextView?) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls()) {
+            val alreadyPrompted = prefs.getBoolean("pending_update_permission_prompted", false)
+            status?.text = "请在系统设置中允许“Robin股票助手”安装未知应用，然后返回继续。"
+            if (!alreadyPrompted) {
+                prefs.edit().putBoolean("pending_update_permission_prompted", true).apply()
+                startActivity(Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:$packageName")))
+            }
+            return
+        }
+        val manager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+        val uri = manager.getUriForDownloadedFile(id)
+        if (uri == null) {
+            status?.text = "安装包不可用，请重新下载。"; clearPendingUpdate(); return
+        }
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            setDataAndType(uri, "application/vnd.android.package-archive")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        status?.text = "请在 Android 系统界面点击“更新”。"
+        startActivity(intent)
+        clearPendingUpdate()
+    }
+    private fun resumePendingUpdateIfReady() {
+        val id = prefs.getLong("pending_update_download_id", -1L)
+        if (id <= 0) return
+        val manager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+        val cursor = manager.query(DownloadManager.Query().setFilterById(id))
+        val state = cursor.use {
+            if (!it.moveToFirst()) null else it.getInt(it.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS))
+        }
+        if (state == DownloadManager.STATUS_SUCCESSFUL) verifyAndInstallUpdate(id, updateStatusView)
+        else if (state == DownloadManager.STATUS_FAILED) clearPendingUpdate()
+    }
+    private fun clearPendingUpdate() {
+        prefs.edit()
+            .remove("pending_update_download_id")
+            .remove("pending_update_sha256")
+            .remove("pending_update_version")
+            .remove("pending_update_permission_prompted")
+            .apply()
+    }
+
     private fun pctText(value: Double): String =
         if (!value.isFinite()) "—" else String.format(java.util.Locale.CHINA, "%+.2f%%", value)
     private fun numText(value: Double, digits: Int = 2): String =
@@ -253,6 +463,13 @@ class MainActivity : AppCompatActivity() {
         signalCard.addView(action("刷新买点观察") { loadSignals(signalStatus, signalItems) })
         val pool = card("动态候选")
         pool.addView(label("全市场入口 · 量价初筛 · 点击查看分时", 12f)); pool.addView(candidates)
+        val settings = card("设置 / 关于")
+        settings.addView(label("Robin 股票助手  ${BuildConfig.VERSION_NAME}", 15f, true))
+        val updateStatus = label("不会自动检查更新；需要时手动检查。", 12f)
+        updateStatusView = updateStatus
+        settings.addView(updateStatus)
+        settings.addView(action("检查更新") { checkForUpdate(updateStatus) })
+        settings.addView(label("更新包由 Android 系统验证签名。首次从旧测试签名迁移到固定正式签名时，可能需要一次重新安装。", 11f))
         loadMarket(status, candidates); loadOverview(indices); loadSignals(signalStatus, signalItems)
         startHomeAutoRefresh()
     }
