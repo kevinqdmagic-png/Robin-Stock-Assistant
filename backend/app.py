@@ -554,7 +554,7 @@ def warm_market_cache():
 
 
 
-def _eastmoney_quotes(codes):
+def _eastmoney_quotes(codes, timeout=(1.2, 1.8)):
     secids = ",".join(_minute_secid(code) for code in codes)
     params = {
         "secids": secids,
@@ -566,7 +566,7 @@ def _eastmoney_quotes(codes):
         "https://push2.eastmoney.com/api/qt/ulist.np/get",
         params=params,
         headers=HTTP_HEADERS,
-        timeout=(2.0, 4.0),
+        timeout=timeout,
     )
     response.raise_for_status()
     data = (response.json().get("data") or {})
@@ -641,6 +641,42 @@ def _quote_with_cache(code):
     return quote
 
 
+def _refresh_quote_set(codes):
+    errors = []
+    try:
+        batch_rows = _eastmoney_quotes(codes, timeout=(2.0, 4.0))
+        saved_at = time.time()
+        with _quote_lock:
+            for row in batch_rows:
+                _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
+        return
+    except Exception as exc:
+        errors.append(f"batch:{type(exc).__name__}")
+        logger.warning("Background batch quote refresh failed: %s", exc)
+
+    workers = min(8, len(codes))
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="quote-bg") as pool:
+        futures = {pool.submit(_eastmoney_quote, code): code for code in codes}
+        for future in as_completed(futures):
+            code = futures[future]
+            try:
+                row = future.result()
+                with _quote_lock:
+                    _quote_cache[code] = {"saved_at": time.time(), "quote": row}
+            except Exception as exc:
+                errors.append(f"{code}:{type(exc).__name__}")
+
+
+def _kick_quote_refresh(codes):
+    thread = threading.Thread(
+        target=_refresh_quote_set,
+        args=(list(codes),),
+        daemon=True,
+        name="watch-quote-refresh",
+    )
+    thread.start()
+
+
 @app.get("/api/quotes")
 def quotes(codes: str = ""):
     requested = []
@@ -658,16 +694,27 @@ def quotes(codes: str = ""):
         cached_rows = {
             code: dict(_quote_cache[code]["quote"])
             for code in requested
-            if code in _quote_cache and now - _quote_cache[code]["saved_at"] < QUOTE_CACHE_TTL
+            if code in _quote_cache
         }
+        cache_ages = {
+            code: max(0, int(now - _quote_cache[code]["saved_at"]))
+            for code in requested
+            if code in _quote_cache
+        }
+
     if len(cached_rows) == len(requested):
+        max_age = max(cache_ages.values(), default=0)
+        if max_age > QUOTE_CACHE_TTL:
+            _kick_quote_refresh(requested)
         return {
             "ok": True,
             "status": "ok",
             "time_cn": now_cn(),
-            "source": "quote_cache",
+            "source": "instant_quote_cache",
             "count": len(requested),
             "items": [cached_rows[code] for code in requested],
+            "cache_age_sec": max_age,
+            "refreshing": max_age > QUOTE_CACHE_TTL,
             "provider_errors": [],
         }
 
@@ -688,32 +735,38 @@ def quotes(codes: str = ""):
                 "source": "eastmoney_batch_quote",
                 "count": len(ordered),
                 "items": ordered,
+                "cache_age_sec": 0,
+                "refreshing": False,
                 "provider_errors": [],
             }
     except Exception as exc:
         errors.append(f"batch:{type(exc).__name__}")
-        logger.warning("Batch quote refresh failed: %s", exc)
+        logger.warning("Fast batch quote refresh failed: %s", exc)
 
-    items = []
-    workers = min(8, len(requested))
-    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="watch-quote") as pool:
-        futures = {pool.submit(_quote_with_cache, code): code for code in requested}
-        for future in as_completed(futures):
-            code = futures[future]
-            try:
-                items.append(future.result())
-            except Exception as exc:
-                errors.append(f"{code}:{type(exc).__name__}")
+    if cached_rows:
+        _kick_quote_refresh(requested)
+        ordered = [cached_rows[code] for code in requested if code in cached_rows]
+        return {
+            "ok": True,
+            "status": "partial",
+            "time_cn": now_cn(),
+            "source": "instant_partial_cache",
+            "count": len(ordered),
+            "items": ordered,
+            "cache_age_sec": max(cache_ages.values(), default=0),
+            "refreshing": True,
+            "provider_errors": errors,
+        }
 
-    by_code = {row["code"]: row for row in items}
-    ordered = [by_code[code] for code in requested if code in by_code]
+    _kick_quote_refresh(requested)
     return {
-        "ok": bool(ordered),
-        "status": "ok" if len(ordered) == len(requested) else "partial",
+        "ok": False,
+        "status": "quote_warming",
         "time_cn": now_cn(),
-        "source": "eastmoney_stock_quote_fallback",
-        "count": len(ordered),
-        "items": ordered,
+        "source": None,
+        "count": 0,
+        "items": [],
+        "refreshing": True,
         "provider_errors": errors,
     }
 
