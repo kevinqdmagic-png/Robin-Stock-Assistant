@@ -444,6 +444,33 @@ def _build_market_payload(frame, source, breadth_complete, provider_errors):
     }
 
 
+def _cache_quotes_from_frame(frame):
+    if frame is None or frame.empty:
+        return
+    saved_at = time.time()
+    updates = {}
+    for row in frame.to_dict("records"):
+        code = str(row.get("code") or "")[-6:]
+        price = _num(row.get("price"))
+        pct = _num(row.get("pct"))
+        if len(code) != 6 or price is None or pct is None or price <= 0:
+            continue
+        updates[code] = {
+            "saved_at": saved_at,
+            "quote": {
+                "code": code,
+                "name": str(row.get("name") or ""),
+                "price": round(price, 3),
+                "pct": round(pct, 2),
+                "volume_ratio": round(_num(row.get("volume_ratio"), 0.0), 2),
+                "turnover": round(_num(row.get("turnover"), 0.0), 2),
+            },
+        }
+    if updates:
+        with _quote_lock:
+            _quote_cache.update(updates)
+
+
 def _refresh_market():
     with _market_lock:
         if _market_cache["refreshing"]:
@@ -467,6 +494,7 @@ def _refresh_market():
                 complete = False
 
         if not frame.empty:
+            _cache_quotes_from_frame(frame)
             payload = _build_market_payload(frame, source, complete, provider_errors)
             with _market_lock:
                 _market_cache["payload"] = payload
@@ -504,6 +532,17 @@ def warm_market_cache():
         else:
             print("ROBIN_SELFTEST market ok=False source=None count=0", flush=True)
 
+        try:
+            overview_payload = market_overview()
+            print(
+                "ROBIN_SELFTEST overview "
+                f"ok={overview_payload.get('ok')} "
+                f"status={overview_payload.get('status')}",
+                flush=True,
+            )
+        except Exception as exc:
+            logger.warning("Overview warmup failed: %s", exc)
+
         bars, source, errors = _eastmoney_minute("600000")
         print(
             "ROBIN_SELFTEST minute "
@@ -513,6 +552,51 @@ def warm_market_cache():
 
     threading.Thread(target=self_test, daemon=True, name="startup-self-test").start()
 
+
+
+def _eastmoney_quotes(codes):
+    secids = ",".join(_minute_secid(code) for code in codes)
+    params = {
+        "secids": secids,
+        "fltt": "2",
+        "invt": "2",
+        "fields": "f2,f3,f8,f10,f12,f14",
+    }
+    response = requests.get(
+        "https://push2.eastmoney.com/api/qt/ulist.np/get",
+        params=params,
+        headers=HTTP_HEADERS,
+        timeout=(2.0, 4.0),
+    )
+    response.raise_for_status()
+    data = (response.json().get("data") or {})
+    rows = data.get("diff") or []
+    if isinstance(rows, dict):
+        rows = list(rows.values())
+    if not isinstance(rows, list) or not rows:
+        raise ValueError("batch_quote_empty")
+    quotes = []
+    for item in rows:
+        if not isinstance(item, dict):
+            continue
+        code = str(item.get("f12") or "")[-6:]
+        price = _num(item.get("f2"))
+        pct = _num(item.get("f3"))
+        if len(code) != 6 or price is None or pct is None or price <= 0:
+            continue
+        quotes.append(
+            {
+                "code": code,
+                "name": str(item.get("f14") or ""),
+                "price": round(price, 3),
+                "pct": round(pct, 2),
+                "volume_ratio": round(_num(item.get("f10"), 0.0), 2),
+                "turnover": round(_num(item.get("f8"), 0.0), 2),
+            }
+        )
+    if not quotes:
+        raise ValueError("batch_quote_invalid")
+    return quotes
 
 
 def _eastmoney_quote(code):
@@ -569,8 +653,48 @@ def quotes(codes: str = ""):
     if not requested:
         return {"ok": False, "status": "no_valid_codes", "time_cn": now_cn(), "items": []}
 
-    items = []
+    now = time.time()
+    with _quote_lock:
+        cached_rows = {
+            code: dict(_quote_cache[code]["quote"])
+            for code in requested
+            if code in _quote_cache and now - _quote_cache[code]["saved_at"] < QUOTE_CACHE_TTL
+        }
+    if len(cached_rows) == len(requested):
+        return {
+            "ok": True,
+            "status": "ok",
+            "time_cn": now_cn(),
+            "source": "quote_cache",
+            "count": len(requested),
+            "items": [cached_rows[code] for code in requested],
+            "provider_errors": [],
+        }
+
     errors = []
+    try:
+        batch_rows = _eastmoney_quotes(requested)
+        saved_at = time.time()
+        with _quote_lock:
+            for row in batch_rows:
+                _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
+        by_code = {row["code"]: row for row in batch_rows}
+        ordered = [by_code[code] for code in requested if code in by_code]
+        if ordered:
+            return {
+                "ok": True,
+                "status": "ok" if len(ordered) == len(requested) else "partial",
+                "time_cn": now_cn(),
+                "source": "eastmoney_batch_quote",
+                "count": len(ordered),
+                "items": ordered,
+                "provider_errors": [],
+            }
+    except Exception as exc:
+        errors.append(f"batch:{type(exc).__name__}")
+        logger.warning("Batch quote refresh failed: %s", exc)
+
+    items = []
     workers = min(8, len(requested))
     with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="watch-quote") as pool:
         futures = {pool.submit(_quote_with_cache, code): code for code in requested}
@@ -587,12 +711,11 @@ def quotes(codes: str = ""):
         "ok": bool(ordered),
         "status": "ok" if len(ordered) == len(requested) else "partial",
         "time_cn": now_cn(),
-        "source": "eastmoney_stock_quote",
+        "source": "eastmoney_stock_quote_fallback",
         "count": len(ordered),
         "items": ordered,
         "provider_errors": errors,
     }
-
 
 @app.get("/api/candidates")
 def live_candidates(limit: int = 20):
