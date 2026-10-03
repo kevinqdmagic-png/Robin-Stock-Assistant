@@ -33,9 +33,11 @@ jobs:
       - name: Check fixed release signing readiness
         id: signing
         env:
-          KEYSTORE_B64: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
-          STORE_PASSWORD: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
+          KEYSTORE_B64_RAW: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
+          STORE_PASSWORD_RAW: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
         run: |
+          KEYSTORE_B64=$(printf '%s' "$KEYSTORE_B64_RAW" | sed -E 's/^[[:space:]]*(Value:|ROBIN_UPLOAD_KEYSTORE_B64[=:])[[:space:]]*//' | tr -d '[:space:]')
+          STORE_PASSWORD=$(printf '%s' "$STORE_PASSWORD_RAW" | sed -E 's/^[[:space:]]*(Value:|ROBIN_UPLOAD_STORE_PASSWORD[=:])[[:space:]]*//' | tr -d '\r\n')
           EXPECTED_CERT_SHA256=$(tr -d '[:space:]:' < app/signing-cert-sha256.txt)
           if [[ -n "$KEYSTORE_B64" && -n "$STORE_PASSWORD" && -n "$EXPECTED_CERT_SHA256" ]]; then
             echo "available=true" >> "$GITHUB_OUTPUT"
@@ -46,16 +48,19 @@ jobs:
       - name: Prepare ephemeral release keystore file
         if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
         env:
-          KEYSTORE_B64: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
+          KEYSTORE_B64_RAW: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
         run: |
           umask 077
+          KEYSTORE_B64=$(printf '%s' "$KEYSTORE_B64_RAW" | sed -E 's/^[[:space:]]*(Value:|ROBIN_UPLOAD_KEYSTORE_B64[=:])[[:space:]]*//' | tr -d '[:space:]')
           printf '%s' "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/robin-upload.jks"
       - name: Build fixed-signed release APK
         if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
         env:
-          ROBIN_UPLOAD_KEYSTORE: ${{ runner.temp }}/robin-upload.jks
-          ROBIN_UPLOAD_STORE_PASSWORD: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
-        run: gradle :app:assembleRelease
+          STORE_PASSWORD_RAW: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
+        run: |
+          export ROBIN_UPLOAD_KEYSTORE="${RUNNER_TEMP}/robin-upload.jks"
+          export ROBIN_UPLOAD_STORE_PASSWORD=$(printf '%s' "$STORE_PASSWORD_RAW" | sed -E 's/^[[:space:]]*(Value:|ROBIN_UPLOAD_STORE_PASSWORD[=:])[[:space:]]*//' | tr -d '\r\n')
+          gradle :app:assembleRelease
       - name: Verify pinned release certificate
         if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
         run: |
