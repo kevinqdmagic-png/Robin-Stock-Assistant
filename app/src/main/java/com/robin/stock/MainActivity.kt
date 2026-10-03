@@ -493,7 +493,7 @@ class MainActivity : AppCompatActivity() {
                 if (data.optBoolean("stale")) " · 缓存已过期" else if (!homeIsLive) " · 显示最近可用行情" else " · 候选30秒刷新", 12f))
             val rows = data.optJSONArray("indices") ?: JSONArray()
             val byCode = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.associateBy { it.optString("code") }
-            val ordered = listOf("000001", "399001", "399006", "000300").mapNotNull { byCode[it] }
+            val ordered = listOf("000001", "399001", "399006", "000688").mapNotNull { byCode[it] }
             for (start in ordered.indices step 2) {
                 val row = LinearLayout(this)
                 ordered.drop(start).take(2).forEach { x ->
