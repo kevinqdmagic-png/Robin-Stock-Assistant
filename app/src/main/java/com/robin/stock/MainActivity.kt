@@ -635,13 +635,6 @@ class MainActivity : AppCompatActivity() {
                         toggle.text = if (body.visibility == View.VISIBLE) "收起全文" else "展开全文"
                     }
                     wrapper.addView(toggle)
-                    val sources = x.optJSONArray("sources")
-                    if (sources != null) for (j in 0 until sources.length()) {
-                        val source = sources.optString(j)
-                        wrapper.addView(label(source, 11f).apply {
-                            setTextIsSelectable(true); autoLinkMask = android.text.util.Linkify.WEB_URLS
-                        })
-                    }
                     items.addView(wrapper)
                 }
                 offset += rows.length()
