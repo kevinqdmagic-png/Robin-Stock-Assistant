@@ -9,8 +9,8 @@ android {
         applicationId = "com.robin.stock"
         minSdk = 26
         targetSdk = 35
-        versionCode = 8
-        versionName = "0.6.2"
+        versionCode = 9
+        versionName = "0.7.0"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -21,13 +21,11 @@ android {
     }
     val releaseStorePath = providers.environmentVariable("ROBIN_UPLOAD_KEYSTORE").orNull
     val releaseStorePassword = providers.environmentVariable("ROBIN_UPLOAD_STORE_PASSWORD").orNull
-    val releaseKeyAlias = providers.environmentVariable("ROBIN_UPLOAD_KEY_ALIAS").orNull
-    val releaseKeyPassword = providers.environmentVariable("ROBIN_UPLOAD_KEY_PASSWORD").orNull
+    val releaseKeyAlias = "robin-upload"
+    val releaseKeyPassword = releaseStorePassword
     val hasSecureReleaseSigning = listOf(
         releaseStorePath,
         releaseStorePassword,
-        releaseKeyAlias,
-        releaseKeyPassword,
     ).all { !it.isNullOrBlank() }
     signingConfigs {
         if (hasSecureReleaseSigning) {

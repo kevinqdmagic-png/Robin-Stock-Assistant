@@ -35,11 +35,9 @@ jobs:
         env:
           KEYSTORE_B64: ${{ secrets.ROBIN_UPLOAD_KEYSTORE_B64 }}
           STORE_PASSWORD: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.ROBIN_UPLOAD_KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.ROBIN_UPLOAD_KEY_PASSWORD }}
-          EXPECTED_CERT_SHA256: ${{ vars.ROBIN_SIGNING_CERT_SHA256 }}
         run: |
-          if [[ -n "$KEYSTORE_B64" && -n "$STORE_PASSWORD" && -n "$KEY_ALIAS" && -n "$KEY_PASSWORD" && -n "$EXPECTED_CERT_SHA256" ]]; then
+          EXPECTED_CERT_SHA256=$(tr -d '[:space:]:' < app/signing-cert-sha256.txt)
+          if [[ -n "$KEYSTORE_B64" && -n "$STORE_PASSWORD" && -n "$EXPECTED_CERT_SHA256" ]]; then
             echo "available=true" >> "$GITHUB_OUTPUT"
           else
             echo "available=false" >> "$GITHUB_OUTPUT"
@@ -57,18 +55,14 @@ jobs:
         env:
           ROBIN_UPLOAD_KEYSTORE: ${{ runner.temp }}/robin-upload.jks
           ROBIN_UPLOAD_STORE_PASSWORD: ${{ secrets.ROBIN_UPLOAD_STORE_PASSWORD }}
-          ROBIN_UPLOAD_KEY_ALIAS: ${{ secrets.ROBIN_UPLOAD_KEY_ALIAS }}
-          ROBIN_UPLOAD_KEY_PASSWORD: ${{ secrets.ROBIN_UPLOAD_KEY_PASSWORD }}
         run: gradle :app:assembleRelease
       - name: Verify pinned release certificate
         if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
-        env:
-          EXPECTED_CERT_SHA256: ${{ vars.ROBIN_SIGNING_CERT_SHA256 }}
         run: |
           APKSIGNER=$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)
           test -n "$APKSIGNER"
           ACTUAL=$($APKSIGNER verify --print-certs app/build/outputs/apk/release/app-release.apk | sed -n 's/^Signer #1 certificate SHA-256 digest: //p' | head -1 | tr '[:upper:]' '[:lower:]' | tr -d ':')
-          EXPECTED=$(printf '%s' "$EXPECTED_CERT_SHA256" | tr '[:upper:]' '[:lower:]' | tr -d ':')
+          EXPECTED=$(tr -d '[:space:]:' < app/signing-cert-sha256.txt | tr '[:upper:]' '[:lower:]')
           test -n "$ACTUAL"
           test "$ACTUAL" = "$EXPECTED"
           echo "Verified fixed release certificate SHA-256: $ACTUAL"
