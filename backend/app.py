@@ -18,7 +18,7 @@ from market_insights import overview as market_overview
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.6.1")
+app = FastAPI(title="Robin Stock Assistant API", version="0.7.1")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -42,6 +42,9 @@ _minute_cache = {}
 
 SIGNAL_CACHE_TTL = 75
 DAILY_CACHE_TTL = 600
+QUOTE_CACHE_TTL = 15
+_quote_lock = threading.Lock()
+_quote_cache = {}
 _signal_lock = threading.Lock()
 _signal_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
 _daily_lock = threading.Lock()
@@ -174,7 +177,7 @@ def health():
         "data_revision": revision,
         "build_commit": os.environ.get("RAILWAY_GIT_COMMIT_SHA"),
         "service": "Robin Stock Assistant API",
-        "version": "0.6.1",
+        "version": "0.7.1",
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,
@@ -510,6 +513,85 @@ def warm_market_cache():
 
     threading.Thread(target=self_test, daemon=True, name="startup-self-test").start()
 
+
+
+def _eastmoney_quote(code):
+    params = {
+        "secid": _minute_secid(code),
+        "fields": "f43,f50,f57,f58,f168,f170",
+        "fltt": "2",
+        "invt": "2",
+        "ut": "fa5fd1943c7b386f172d6893dbfba10b",
+    }
+    response = requests.get(
+        "https://push2.eastmoney.com/api/qt/stock/get",
+        params=params,
+        headers=HTTP_HEADERS,
+        timeout=(2.5, 5.5),
+    )
+    response.raise_for_status()
+    data = (response.json().get("data") or {})
+    price = _num(data.get("f43"))
+    pct = _num(data.get("f170"))
+    if price is None or pct is None:
+        raise ValueError("quote_missing")
+    return {
+        "code": str(data.get("f57") or code)[-6:],
+        "name": str(data.get("f58") or ""),
+        "price": round(price, 3),
+        "pct": round(pct, 2),
+        "volume_ratio": round(_num(data.get("f50"), 0.0), 2),
+        "turnover": round(_num(data.get("f168"), 0.0), 2),
+    }
+
+
+def _quote_with_cache(code):
+    now = time.time()
+    with _quote_lock:
+        cached = _quote_cache.get(code)
+    if cached and now - cached["saved_at"] < QUOTE_CACHE_TTL:
+        return dict(cached["quote"])
+    quote = _eastmoney_quote(code)
+    with _quote_lock:
+        _quote_cache[code] = {"saved_at": now, "quote": quote}
+    return quote
+
+
+@app.get("/api/quotes")
+def quotes(codes: str = ""):
+    requested = []
+    for raw in codes.split(","):
+        code = "".join(ch for ch in raw if ch.isdigit())[-6:]
+        if len(code) == 6 and code not in requested:
+            requested.append(code)
+        if len(requested) >= 30:
+            break
+    if not requested:
+        return {"ok": False, "status": "no_valid_codes", "time_cn": now_cn(), "items": []}
+
+    items = []
+    errors = []
+    workers = min(8, len(requested))
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="watch-quote") as pool:
+        futures = {pool.submit(_quote_with_cache, code): code for code in requested}
+        for future in as_completed(futures):
+            code = futures[future]
+            try:
+                items.append(future.result())
+            except Exception as exc:
+                errors.append(f"{code}:{type(exc).__name__}")
+
+    by_code = {row["code"]: row for row in items}
+    ordered = [by_code[code] for code in requested if code in by_code]
+    return {
+        "ok": bool(ordered),
+        "status": "ok" if len(ordered) == len(requested) else "partial",
+        "time_cn": now_cn(),
+        "source": "eastmoney_stock_quote",
+        "count": len(ordered),
+        "items": ordered,
+        "provider_errors": errors,
+    }
 
 
 @app.get("/api/candidates")
