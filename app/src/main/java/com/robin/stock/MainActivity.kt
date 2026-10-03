@@ -575,14 +575,18 @@ class MainActivity : AppCompatActivity() {
     }
     private fun watchlist() {
         val intro = card("研究自选")
-        intro.addView(label("已加入过去研究过的股票；原有自选继续保留。移除后不会因刷新再次加入。", 13f))
+        intro.addView(label("自选直接显示价格、涨跌幅、量比和换手；点股票仍可查看研究理由与分时。", 13f))
         val status = label("正在核对最新研究…", 12f); intro.addView(status)
+        val quoteStatus = label("行情：正在读取…", 12f); intro.addView(quoteStatus)
         val stockBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         card("添加自选").apply {
             val input = codeInput(); addView(input)
             addView(action("加入自选") { checked(input) { saveWatch(it); showTab(1) } })
         }
         root.addView(stockBox)
+
+        var quoteMap: Map<String, JSONObject> = emptyMap()
+
         fun render() {
             stockBox.removeAllViews()
             val codes = watchCodes()
@@ -590,27 +594,88 @@ class MainActivity : AppCompatActivity() {
             if (codes.isEmpty()) stockBox.addView(label("还没有自选股。输入代码添加，或从下方研究清单选择。"))
             codes.forEach { code ->
                 val stock = researchStock(code)
+                val quote = quoteMap[code]
+                val displayName = quote?.optString("name")?.takeIf { it.isNotBlank() }
+                    ?: stock?.optString("name")?.takeIf { it.isNotBlank() }
+                    ?: "股票"
                 val item = LinearLayout(this).apply {
                     orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(14))
                     background = surface(Color.WHITE)
                     setOnClickListener { openStock(code) }
                 }
-                item.addView(label("${stock?.optString("name") ?: "股票"}  $code", 20f, true))
+
+                val header = LinearLayout(this).apply { gravity = Gravity.CENTER_VERTICAL }
+                header.addView(label("$displayName  $code", 20f, true), LinearLayout.LayoutParams(0, -2, 1f))
+                if (quote != null) {
+                    val pct = quote.optDouble("pct", Double.NaN)
+                    header.addView(label(pctText(pct), 18f, true).apply {
+                        setTextColor(trendColor(pct)); gravity = Gravity.END
+                    })
+                }
+                item.addView(header)
+
+                if (quote != null) {
+                    val price = quote.optDouble("price", Double.NaN)
+                    val volumeRatio = quote.optDouble("volume_ratio", Double.NaN)
+                    val turnover = quote.optDouble("turnover", Double.NaN)
+                    item.addView(label(
+                        "¥${numText(price)}  ·  量比 ${numText(volumeRatio)}  ·  换手 ${numText(turnover)}%",
+                        13f
+                    ).apply { setTextColor(ink) })
+                } else {
+                    item.addView(label("行情读取中…", 12f))
+                }
+
                 if (stock != null) {
                     item.addView(label("${roleName(stock)} · ${stock.optString("sector")}", 12f))
                     item.addView(label(stockHistory(stock).firstOrNull()?.optString("reason").orEmpty(), 14f).apply { setTextColor(ink) })
                 } else item.addView(label("手动自选 · 暂无已归档的推荐理由", 12f))
+
                 val row = LinearLayout(this)
                 row.addView(action("推荐理由 / 分时") { openStock(code) }, LinearLayout.LayoutParams(0, -2, 1f))
                 row.addView(action("移除") {
-                    prefs.edit().putString("watchlist", watchCodes().filter { it != code }.joinToString(",")).apply(); render()
+                    prefs.edit().putString("watchlist", watchCodes().filter { it != code }.joinToString(",")).apply()
+                    quoteMap = quoteMap - code
+                    render()
                 }, LinearLayout.LayoutParams(0, -2, 1f))
                 item.addView(row)
                 stockBox.addView(item, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(12) })
             }
         }
-        intro.addView(action("刷新研究理由") { refreshCatalog { render() } })
-        render(); refreshCatalog { render() }
+
+        fun refreshQuotes() {
+            val codes = watchCodes()
+            if (codes.isEmpty()) {
+                quoteStatus.text = "行情：暂无自选"
+                quoteMap = emptyMap()
+                render()
+                return
+            }
+            quoteStatus.text = "行情：正在刷新…"
+            fetch("/api/quotes?codes=${codes.joinToString(",")}") { data, _ ->
+                if (data == null || !data.optBoolean("ok")) {
+                    quoteStatus.text = "行情暂不可用，稍后点“刷新行情”重试。"
+                    render()
+                    return@fetch
+                }
+                val rows = data.optJSONArray("items") ?: JSONArray()
+                quoteMap = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }
+                    .associateBy { it.optString("code").takeLast(6) }
+                quoteStatus.text = "行情：${data.optString("time_cn")} · 北京时间" +
+                    if (data.optString("status") == "partial") " · 部分股票暂缺" else ""
+                render()
+            }
+        }
+
+        val refreshRow = LinearLayout(this)
+        refreshRow.addView(action("刷新行情") { refreshQuotes() }, LinearLayout.LayoutParams(0, -2, 1f))
+        refreshRow.addView(action("刷新研究理由") { refreshCatalog { render() } }, LinearLayout.LayoutParams(0, -2, 1f))
+        intro.addView(refreshRow)
+
+        render()
+        refreshQuotes()
+        refreshCatalog { render() }
+
         val restore = card("过去研究清单")
         val choices = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
         val toggle = action("展开清单，选择重新加入") { }
@@ -620,7 +685,9 @@ class MainActivity : AppCompatActivity() {
             val rows = stockCatalog.optJSONArray("items") ?: JSONArray()
             for (i in 0 until rows.length()) {
                 val stock = rows.getJSONObject(i); val code = stock.optString("code")
-                choices.addView(action("${stock.optString("name")} $code · ${roleName(stock)}") { saveWatch(code); render() })
+                choices.addView(action("${stock.optString("name")} $code · ${roleName(stock)}") {
+                    saveWatch(code); render(); refreshQuotes()
+                })
             }
         }
         restore.addView(toggle); restore.addView(choices)
