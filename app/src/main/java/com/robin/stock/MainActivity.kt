@@ -28,6 +28,7 @@ import java.util.concurrent.Executors
 class MainActivity : AppCompatActivity() {
     private val base = "https://robin-stock-api-production.up.railway.app"
     private val prefs by lazy { getSharedPreferences("robin", MODE_PRIVATE) }
+    private val appVersionName by lazy { packageManager.getPackageInfo(packageName, 0).versionName ?: "0.0.0" }
     private val executor = Executors.newFixedThreadPool(3)
     private val homeRefreshHandler = Handler(Looper.getMainLooper())
     private val updateHandler = Handler(Looper.getMainLooper())
@@ -237,7 +238,7 @@ class MainActivity : AppCompatActivity() {
         val conn = URL(url).openConnection() as HttpURLConnection
         conn.connectTimeout = 12000; conn.readTimeout = 25000
         conn.setRequestProperty("Accept", "application/vnd.github+json")
-        conn.setRequestProperty("User-Agent", "Robin-Stock-Assistant/" + BuildConfig.VERSION_NAME)
+        conn.setRequestProperty("User-Agent", "Robin-Stock-Assistant/" + appVersionName)
         try {
             if (conn.responseCode !in 200..299) error("HTTP ${conn.responseCode}")
             return JSONObject(conn.inputStream.bufferedReader().use { it.readText() })
@@ -273,8 +274,8 @@ class MainActivity : AppCompatActivity() {
                 if (latest.isBlank()) {
                     status.text = "版本信息异常，未执行更新。"; return@runOnUiThread
                 }
-                if (!isNewerVersion(latest, BuildConfig.VERSION_NAME)) {
-                    status.text = "当前 ${BuildConfig.VERSION_NAME} 已是最新版。"
+                if (!isNewerVersion(latest, appVersionName)) {
+                    status.text = "当前 ${appVersionName} 已是最新版。"
                     return@runOnUiThread
                 }
                 val assets = release.optJSONArray("assets") ?: JSONArray()
@@ -289,7 +290,7 @@ class MainActivity : AppCompatActivity() {
                 val notes = release.optString("body").trim().take(1200)
                 AlertDialog.Builder(this)
                     .setTitle("发现新版本 $latest")
-                    .setMessage("当前版本：${BuildConfig.VERSION_NAME}\n\n" +
+                    .setMessage("当前版本：${appVersionName}\n\n" +
                         (if (notes.isBlank()) "本次更新已发布。" else notes))
                     .setNegativeButton("稍后", null)
                     .setPositiveButton("下载更新") { _, _ ->
@@ -464,7 +465,7 @@ class MainActivity : AppCompatActivity() {
         val pool = card("动态候选")
         pool.addView(label("全市场入口 · 量价初筛 · 点击查看分时", 12f)); pool.addView(candidates)
         val settings = card("设置 / 关于")
-        settings.addView(label("Robin 股票助手  ${BuildConfig.VERSION_NAME}", 15f, true))
+        settings.addView(label("Robin 股票助手  ${appVersionName}", 15f, true))
         val updateStatus = label("不会自动检查更新；需要时手动检查。", 12f)
         updateStatusView = updateStatus
         settings.addView(updateStatus)
