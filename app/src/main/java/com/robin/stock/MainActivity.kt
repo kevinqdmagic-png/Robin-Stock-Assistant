@@ -585,7 +585,22 @@ class MainActivity : AppCompatActivity() {
         }
         root.addView(stockBox)
 
-        var quoteMap: Map<String, JSONObject> = emptyMap()
+        val savedQuoteArray = runCatching {
+            JSONArray(prefs.getString("watchlist_quote_cache", "[]") ?: "[]")
+        }.getOrDefault(JSONArray())
+        var quoteMap: Map<String, JSONObject> =
+            (0 until savedQuoteArray.length()).mapNotNull { savedQuoteArray.optJSONObject(it) }
+                .associateBy { it.optString("code").takeLast(6) }
+        if (quoteMap.isNotEmpty()) quoteStatus.text = "行情：已显示上次数据，正在后台刷新…"
+
+        fun persistQuotes() {
+            val rows = JSONArray()
+            quoteMap.values.forEach { rows.put(it) }
+            prefs.edit()
+                .putString("watchlist_quote_cache", rows.toString())
+                .putLong("watchlist_quote_cache_saved_at", System.currentTimeMillis())
+                .apply()
+        }
 
         fun render() {
             stockBox.removeAllViews()
@@ -643,27 +658,44 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun refreshQuotes() {
+        fun refreshQuotes(followUp: Boolean = false) {
             val codes = watchCodes()
             if (codes.isEmpty()) {
                 quoteStatus.text = "行情：暂无自选"
                 quoteMap = emptyMap()
+                persistQuotes()
                 render()
                 return
             }
-            quoteStatus.text = "行情：正在刷新…"
+            quoteStatus.text = if (quoteMap.isEmpty()) "行情：正在读取…" else "行情：已显示最近数据，正在刷新…"
             fetch("/api/quotes?codes=${codes.joinToString(",")}") { data, _ ->
                 if (data == null || !data.optBoolean("ok")) {
-                    quoteStatus.text = "行情暂不可用，稍后点“刷新行情”重试。"
+                    quoteStatus.text = if (quoteMap.isEmpty())
+                        "行情暂不可用，稍后点“刷新行情”重试。"
+                    else "行情：暂用最近一次数据，后台行情稍后再试。"
                     render()
                     return@fetch
                 }
                 val rows = data.optJSONArray("items") ?: JSONArray()
-                quoteMap = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }
-                    .associateBy { it.optString("code").takeLast(6) }
-                quoteStatus.text = "行情：${data.optString("time_cn")} · 北京时间" +
-                    if (data.optString("status") == "partial") " · 部分股票暂缺" else ""
+                val merged = quoteMap.toMutableMap()
+                for (i in 0 until rows.length()) {
+                    val row = rows.optJSONObject(i) ?: continue
+                    val code = row.optString("code").takeLast(6)
+                    if (code.length == 6) merged[code] = row
+                }
+                quoteMap = merged
+                persistQuotes()
+                val refreshing = data.optBoolean("refreshing")
+                val age = data.optInt("cache_age_sec", 0)
+                quoteStatus.text = when {
+                    refreshing && age > 0 -> "行情：秒开缓存 · ${age}秒前，后台更新中…"
+                    data.optString("status") == "partial" -> "行情：部分股票暂缺 · ${data.optString("time_cn")} 北京时间"
+                    else -> "行情：${data.optString("time_cn")} · 北京时间"
+                }
                 render()
+                if (refreshing && !followUp) {
+                    updateHandler.postDelayed({ refreshQuotes(true) }, 2500L)
+                }
             }
         }
 
