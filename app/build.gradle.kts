@@ -9,8 +9,8 @@ android {
         applicationId = "com.robin.stock"
         minSdk = 26
         targetSdk = 35
-        versionCode = 11
-        versionName = "0.7.2"
+        versionCode = 12
+        versionName = "0.7.3"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
