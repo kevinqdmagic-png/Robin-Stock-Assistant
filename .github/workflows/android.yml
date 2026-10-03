@@ -64,9 +64,11 @@ jobs:
       - name: Verify pinned release certificate
         if: github.event_name == 'push' && steps.signing.outputs.available == 'true'
         run: |
-          APKSIGNER=$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)
+          APKSIGNER=$(find "$ANDROID_HOME/build-tools" -name apksigner -print | sort -V | tail -1)
           test -n "$APKSIGNER"
-          ACTUAL=$($APKSIGNER verify --print-certs app/build/outputs/apk/release/app-release.apk | sed -n 's/^Signer #1 certificate SHA-256 digest: //p' | head -1 | tr '[:upper:]' '[:lower:]' | tr -d ':')
+          "$APKSIGNER" verify app/build/outputs/apk/release/app-release.apk
+          CERT_INFO=$("$APKSIGNER" verify --print-certs app/build/outputs/apk/release/app-release.apk)
+          ACTUAL=$(printf '%s\n' "$CERT_INFO" | grep -i 'certificate SHA-256 digest:' | head -1 | sed -E 's/.*certificate SHA-256 digest:[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]:')
           EXPECTED=$(tr -d '[:space:]:' < app/signing-cert-sha256.txt | tr '[:upper:]' '[:lower:]')
           test -n "$ACTUAL"
           test "$ACTUAL" = "$EXPECTED"
