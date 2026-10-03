@@ -10,7 +10,7 @@ from trading_calendar import CN_TZ, session_state
 
 _HEADERS = {"User-Agent": "Mozilla/5.0", "Referer": "https://quote.eastmoney.com/"}
 _LOCK = threading.Lock()
-_CACHE = {"saved_at": 0.0, "payload": None}
+_CACHE = {"saved_at": 0.0, "payload": None, "refreshing": False}
 _TTL = 90
 
 
@@ -60,16 +60,17 @@ def board_quotes(kind, strong):
             for r in fetch_rows(params)]
 
 
-def overview():
-    # Serialize cache refreshes to avoid multiplying provider requests per client.
+def _refresh_overview():
     with _LOCK:
+        if _CACHE["refreshing"]:
+            return _CACHE["payload"]
+        _CACHE["refreshing"] = True
         cached = _CACHE["payload"]
-        age = time.time() - _CACHE["saved_at"]
-        if cached and age < _TTL:
-            return dict(cached, session=session_state(), cache_age_sec=int(age))
-        payload = {"ok": False, "indices": [], "industry": {"strong": [], "weak": []},
-                   "concept": {"strong": [], "weak": []}, "provider_errors": [],
-                   "source": "eastmoney_public", "retrieved_at": datetime.now(CN_TZ).isoformat(timespec="seconds")}
+
+    payload = {"ok": False, "indices": [], "industry": {"strong": [], "weak": []},
+               "concept": {"strong": [], "weak": []}, "provider_errors": [],
+               "source": "eastmoney_public", "retrieved_at": datetime.now(CN_TZ).isoformat(timespec="seconds")}
+    try:
         jobs = {"indices": index_quotes}
         for kind in ("industry", "concept"):
             for side in ("strong", "weak"):
@@ -92,9 +93,42 @@ def overview():
         payload["ok"] = bool(successes)
         payload["status"] = "ok" if successes == 5 else "partial" if successes else "unavailable"
         if successes:
-            _CACHE.update(saved_at=time.time(), payload=payload)
+            with _LOCK:
+                _CACHE["saved_at"] = time.time()
+                _CACHE["payload"] = payload
         elif cached:
-            payload = dict(cached, status="stale", stale=True, cache_age_sec=int(age),
+            payload = dict(cached, status="stale", stale=True,
                            provider_errors=payload["provider_errors"])
         payload["session"] = session_state()
         return payload
+    finally:
+        with _LOCK:
+            _CACHE["refreshing"] = False
+
+
+def overview():
+    with _LOCK:
+        cached = _CACHE["payload"]
+        saved_at = _CACHE["saved_at"]
+        refreshing = _CACHE["refreshing"]
+    age = time.time() - saved_at if cached else None
+
+    if cached is not None:
+        if age is not None and age > _TTL and not refreshing:
+            threading.Thread(target=_refresh_overview, daemon=True, name="overview-refresh").start()
+        return dict(
+            cached,
+            session=session_state(),
+            cache_age_sec=int(age or 0),
+            stale=bool(age and age > _TTL * 4),
+        )
+
+    payload = _refresh_overview()
+    if payload is None:
+        return {"ok": False, "status": "warming", "indices": [],
+                "industry": {"strong": [], "weak": []},
+                "concept": {"strong": [], "weak": []},
+                "provider_errors": [], "source": "eastmoney_public",
+                "session": session_state()}
+    return payload
+
