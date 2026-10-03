@@ -38,7 +38,7 @@ def fetch_rows(params, path="/api/qt/clist/get"):
 
 
 def index_quotes():
-    params = {"secids": "1.000001,0.399001,0.399006,1.000300", "fltt": "2",
+    params = {"secids": "1.000001,0.399001,0.399006,1.000688", "fltt": "2",
               "invt": "2", "fields": "f2,f3,f12,f14,f124"}
     return [dict(code=str(r.get("f12") or ""), name=str(r.get("f14") or ""),
                  price=number(r.get("f2")), pct=number(r.get("f3")),
