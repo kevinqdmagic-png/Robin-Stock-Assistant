@@ -87,7 +87,7 @@ https://github.com/akfamily/akshare/blob/main/akshare/stock/stock_board_concept_
 
 ## Task center and execution receipts
 
-All ten current tasks are registered in tasks.json with safe local ids, confirmed schedule snapshots, timezone, timing mode and dependencies. Private scheduler identifiers and prompts are not published. Update this snapshot after changing a schedule; the app labels the configuration update time. This is not a live connection to the scheduler's private administration API.
+Tasks are registered in tasks.json with safe local ids, confirmed schedule snapshots, timezone, timing mode and dependencies. Private scheduler identifiers and prompts are not published. Update this snapshot after changing a schedule; the app labels the configuration update time. This is not a live connection to the scheduler's private administration API.
 
 APP reads /api/tasks, /api/task-runs?task=TASK_ID and /api/research?task=TASK_ID. Latest status comes only from published execution receipts; a scheduled time never creates a successful run. Historical reports without a task_id remain linked as historical material and do not establish that a new scheduled run completed. Cached data is labeled offline.
 
@@ -133,3 +133,15 @@ Publishing order: validate the research job (including archives and container), 
 - GitHub工作流始终保留调试构建供CI验证，但不再自动把临时debug证书包发布为版本下载。只有四项加密签名输入齐全且构建证书SHA-256等于固定仓库变量时，才构建并发布release APK。
 - 所需Secrets为`ROBIN_UPLOAD_KEYSTORE_B64`、`ROBIN_UPLOAD_STORE_PASSWORD`、`ROBIN_UPLOAD_KEY_ALIAS`、`ROBIN_UPLOAD_KEY_PASSWORD`；固定证书变量为`ROBIN_SIGNING_CERT_SHA256`。私钥不得进入源码、日志、缓存或研究档案。
 - 该闸门只阻止继续制造随机签名版本，不会找回0.5.0私钥。没有原私钥仍不能覆盖已安装0.5.0；不要先卸载。调试APK、固定签名release APK、手机已安装验证继续分别陈述。
+
+
+## 2026-10-05：其他板块高弹性双股研究
+
+Robin要求把新的其他板块高弹性选股任务及成果写进APP。新增独立一次性任务`high_elasticity_other_once`，track为`high_elasticity`；不替换原`high_elasticity_once`及原研究。
+
+- 范围：A股其余板块，严格排除以电池、AI、医药医疗、航空航天和机器人为核心增长逻辑的公司。最终研究两只长期观察标的，核查成长依据、当前市值、市场空间、订单商业化、利润现金流、竞争壁垒、估值、稀释和反证。
+- 50倍/100倍作为未来几年极端情景的规模检验；区分事实与假设，不将目标涨幅写成确定预测。记录基准、乐观、极端假设及后续验证节点。
+- 奥克兰时区的一次性启动为2026-10-06 07:30，用户要求09:00前提交。私有定时任务已创建；APP仅保存安全配置快照及真实执行状态。
+- 注册回执为manual/waiting，表示任务已登记且研究尚未开始。未来研究使用独立scheduled运行id；只有完整研究完成并有对应报告才能追加completed。
+- `include_legacy_reports=false`：本任务仅关联其准确task_id的报告，原高弹性历史报告不展示为本次成果。原十项任务和旧档案保留。
+- 完成后先归档完整报告和回执，再在研究股票档案中追加两只的理由、验证、风险与来源；同步离线档案。纯研究与任务数据更新不要求重新安装APK。研究观察股不混入每日双标交易指令。

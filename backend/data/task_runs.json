@@ -331,6 +331,19 @@
       "sources": [
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/"
       ]
+    },
+    {
+      "id": "high-elasticity-other-20261005-manual-registration-waiting",
+      "run_id": "high-elasticity-other-20261005-manual-registration",
+      "task_id": "high_elasticity_other_once",
+      "date": "2026-10-05",
+      "trigger": "manual",
+      "started_at": "2026-10-04T19:22:54.378Z",
+      "recorded_at": "2026-10-04T19:22:54.378Z",
+      "status": "waiting",
+      "summary": "一次性任务及定时启动已登记，实际选股研究尚未开始。计划奥克兰10月6日07:30启动，按09:00前提交要求研究两只其他板块高弹性股；完成后发布报告与个股研究理由。",
+      "report_ids": [],
+      "recommendation_ids": []
     }
   ]
 }

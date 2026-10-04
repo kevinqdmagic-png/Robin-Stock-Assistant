@@ -58,6 +58,8 @@ def belongs(report, task):
     if report.get("task_id"):
         return report["task_id"] == task["id"]
     # Legacy report links are historical material, not proof that a current run completed.
+    if task.get("include_legacy_reports") is False:
+        return False
     slug = task["id"]
     if slug in {"early_pair", "late_pair", "apk_polish"}:
         return False

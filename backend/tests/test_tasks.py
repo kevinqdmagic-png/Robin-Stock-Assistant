@@ -85,7 +85,9 @@ class TaskTests(unittest.TestCase):
         runs = json.loads((root / "task_runs.json").read_text())
         validate_registry(tasks)
         validate_runs(runs, tasks)
-        self.assertEqual(len(tasks["items"]), 10)
+        self.assertTrue({"apk_polish", "high_elasticity_once", "market_review", "quant_research",
+                         "volume_price", "low_position", "dragon_tiger", "combined_pair",
+                         "early_pair", "late_pair"}.issubset({row["id"] for row in tasks["items"]}))
 
 
 if __name__ == "__main__":

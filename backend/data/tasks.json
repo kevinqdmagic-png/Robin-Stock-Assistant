@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T19:56:55.749Z",
+  "updated_at": "2026-10-04T19:22:54.378Z",
   "source": "confirmed_automation_configuration",
   "items": [
     {
@@ -138,6 +138,21 @@
       "enabled": true,
       "one_time": false,
       "dependencies": []
+    },
+    {
+      "id": "high_elasticity_other_once",
+      "title": "其他板块高弹性双股研究",
+      "track": "high_elasticity",
+      "summary": "从其他板块筛选两只高弹性成长股；排除电池、AI、医药、航空航天及机器人。检验未来几年50/100倍的极端情景，核查成长依据、估值、风险和验证节点，完成后同步报告与个股研究理由。",
+      "schedule_text": "10月6日07:30启动 · 09:00前提交 · 奥克兰 · 一次性",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261006T073000\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": true,
+      "dependencies": [],
+      "include_legacy_reports": false,
+      "deadline_at": "2026-10-06T09:00:00+13:00"
     }
   ]
 }
