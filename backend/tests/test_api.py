@@ -49,6 +49,27 @@ class APITests(unittest.TestCase):
         self.assertEqual(result["status"], "partial")
         self.assertEqual(len(result["provider_errors"]), 4)
 
+    def test_watchlist_quote_refresh_is_single_flight_per_code(self):
+        api._quote_refreshing_codes.clear()
+        with patch("app.threading.Thread") as thread:
+            first = api._kick_quote_refresh(["600000", "000001", "600000"])
+            second = api._kick_quote_refresh(["600000", "000001"])
+        self.assertEqual(first, ["600000", "000001"])
+        self.assertEqual(second, [])
+        self.assertEqual(thread.call_count, 1)
+        self.assertTrue(api._quotes_refreshing(["600000"]))
+        api._quote_refreshing_codes.clear()
+
+    def test_watchlist_quote_refresh_always_releases_single_flight_guard(self):
+        api._quote_refreshing_codes.update(["600000"])
+        with patch("app._eastmoney_quotes", return_value=[{
+            "code": "600000", "name": "浦发银行", "price": 10.0, "pct": 1.0,
+            "volume_ratio": 1.2, "turnover": 0.8,
+        }]):
+            api._refresh_quote_set(["600000"])
+        self.assertFalse(api._quotes_refreshing(["600000"]))
+        self.assertIn("600000", api._quote_cache)
+
 
 if __name__ == "__main__":
     unittest.main()

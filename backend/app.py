@@ -18,7 +18,8 @@ from market_insights import overview as market_overview
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 
-app = FastAPI(title="Robin Stock Assistant API", version="0.7.1")
+API_VERSION = "0.7.4"
+app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -45,6 +46,7 @@ DAILY_CACHE_TTL = 600
 QUOTE_CACHE_TTL = 15
 _quote_lock = threading.Lock()
 _quote_cache = {}
+_quote_refreshing_codes = set()
 _signal_lock = threading.Lock()
 _signal_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
 _daily_lock = threading.Lock()
@@ -177,7 +179,7 @@ def health():
         "data_revision": revision,
         "build_commit": os.environ.get("RAILWAY_GIT_COMMIT_SHA"),
         "service": "Robin Stock Assistant API",
-        "version": "0.7.1",
+        "version": API_VERSION,
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,
@@ -642,39 +644,59 @@ def _quote_with_cache(code):
 
 
 def _refresh_quote_set(codes):
-    errors = []
     try:
-        batch_rows = _eastmoney_quotes(codes, timeout=(2.0, 4.0))
-        saved_at = time.time()
-        with _quote_lock:
-            for row in batch_rows:
-                _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
-        return
-    except Exception as exc:
-        errors.append(f"batch:{type(exc).__name__}")
-        logger.warning("Background batch quote refresh failed: %s", exc)
+        errors = []
+        try:
+            batch_rows = _eastmoney_quotes(codes, timeout=(2.0, 4.0))
+            saved_at = time.time()
+            with _quote_lock:
+                for row in batch_rows:
+                    _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
+            return
+        except Exception as exc:
+            errors.append(f"batch:{type(exc).__name__}")
+            logger.warning("Background batch quote refresh failed: %s", exc)
 
-    workers = min(8, len(codes))
-    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="quote-bg") as pool:
-        futures = {pool.submit(_eastmoney_quote, code): code for code in codes}
-        for future in as_completed(futures):
-            code = futures[future]
-            try:
-                row = future.result()
-                with _quote_lock:
-                    _quote_cache[code] = {"saved_at": time.time(), "quote": row}
-            except Exception as exc:
-                errors.append(f"{code}:{type(exc).__name__}")
+        workers = min(8, len(codes))
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="quote-bg") as pool:
+            futures = {pool.submit(_eastmoney_quote, code): code for code in codes}
+            for future in as_completed(futures):
+                code = futures[future]
+                try:
+                    row = future.result()
+                    with _quote_lock:
+                        _quote_cache[code] = {"saved_at": time.time(), "quote": row}
+                except Exception as exc:
+                    errors.append(f"{code}:{type(exc).__name__}")
+    finally:
+        with _quote_lock:
+            _quote_refreshing_codes.difference_update(codes)
 
 
 def _kick_quote_refresh(codes):
+    with _quote_lock:
+        pending = [code for code in dict.fromkeys(codes) if code not in _quote_refreshing_codes]
+        _quote_refreshing_codes.update(pending)
+    if not pending:
+        return []
     thread = threading.Thread(
         target=_refresh_quote_set,
-        args=(list(codes),),
+        args=(pending,),
         daemon=True,
         name="watch-quote-refresh",
     )
-    thread.start()
+    try:
+        thread.start()
+    except Exception:
+        with _quote_lock:
+            _quote_refreshing_codes.difference_update(pending)
+        raise
+    return pending
+
+
+def _quotes_refreshing(codes):
+    with _quote_lock:
+        return any(code in _quote_refreshing_codes for code in codes)
 
 
 @app.get("/api/quotes")

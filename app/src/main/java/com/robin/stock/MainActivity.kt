@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.provider.Settings
 import android.view.Gravity
 import android.view.View
@@ -57,6 +58,9 @@ class MainActivity : AppCompatActivity() {
     private var stockCatalog = JSONObject()
     private var catalogOffline = true
     private var taskRefreshAction: (() -> Unit)? = null
+    private var watchlistRefreshAction: (() -> Unit)? = null
+    private var watchlistLastRequestElapsedMs = 0L
+    private var watchlistFollowUpTask: Runnable? = null
     private var currentTab = 0
     private var pageGeneration = 0
     private var minuteGeneration = 0
@@ -193,6 +197,9 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         isForeground = true
         if (currentTab == 0) overviewBox?.let { loadOverview(it) }
+        if (currentTab == 1 && WatchlistQuotePolicy.shouldRefreshOnResume(
+                watchlistLastRequestElapsedMs, SystemClock.elapsedRealtime()
+            )) watchlistRefreshAction?.invoke()
         taskRefreshAction?.invoke()
         resumePendingUpdateIfReady()
         startHomeAutoRefresh()
@@ -200,10 +207,12 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         isForeground = false
         stopHomeAutoRefresh()
+        stopWatchlistFollowUp()
         super.onPause()
     }
     override fun onDestroy() {
         stopHomeAutoRefresh()
+        stopWatchlistFollowUp()
         updatePollTask?.let { updateHandler.removeCallbacks(it) }
         executor.shutdownNow()
         super.onDestroy()
@@ -212,7 +221,9 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() { if (currentTab != 0) showTab(0) else super.onBackPressed() }
     private fun showTab(index: Int) {
         stopHomeAutoRefresh()
+        stopWatchlistFollowUp()
         taskRefreshAction = null
+        watchlistRefreshAction = null
         homeMarketStatus = null
         homeCandidatesBox = null
         overviewBox = null
@@ -573,7 +584,12 @@ class MainActivity : AppCompatActivity() {
         homeRefreshTask?.let { homeRefreshHandler.removeCallbacks(it) }
         homeRefreshTask = null
     }
+    private fun stopWatchlistFollowUp() {
+        watchlistFollowUpTask?.let { updateHandler.removeCallbacks(it) }
+        watchlistFollowUpTask = null
+    }
     private fun watchlist() {
+        val watchlistGeneration = pageGeneration
         val intro = card("研究自选")
         intro.addView(label("自选直接显示价格、涨跌幅、量比和换手；点股票仍可查看研究理由与分时。", 13f))
         val status = label("正在核对最新研究…", 12f); intro.addView(status)
@@ -591,14 +607,26 @@ class MainActivity : AppCompatActivity() {
         var quoteMap: Map<String, JSONObject> =
             (0 until savedQuoteArray.length()).mapNotNull { savedQuoteArray.optJSONObject(it) }
                 .associateBy { it.optString("code").takeLast(6) }
-        if (quoteMap.isNotEmpty()) quoteStatus.text = "行情：已显示上次数据，正在后台刷新…"
+        var localQuoteSavedAt = prefs.getLong("watchlist_quote_cache_saved_at", 0L)
+        if (quoteMap.isNotEmpty()) {
+            val age = WatchlistQuotePolicy.ageSeconds(
+                localQuoteSavedAt, System.currentTimeMillis()
+            )
+            quoteStatus.text = "行情：本地缓存 · ${WatchlistQuotePolicy.ageText(age)}，正在后台刷新…"
+        }
 
         fun persistQuotes() {
+            if (quoteMap.isEmpty()) {
+                localQuoteSavedAt = 0L
+                prefs.edit().remove("watchlist_quote_cache")
+                    .remove("watchlist_quote_cache_saved_at").apply()
+                return
+            }
             val rows = JSONArray()
             quoteMap.values.forEach { rows.put(it) }
             prefs.edit()
                 .putString("watchlist_quote_cache", rows.toString())
-                .putLong("watchlist_quote_cache_saved_at", System.currentTimeMillis())
+                .putLong("watchlist_quote_cache_saved_at", localQuoteSavedAt)
                 .apply()
         }
 
@@ -658,7 +686,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        fun scheduleFollowUp(refreshing: Boolean, alreadyFollowed: Boolean, action: () -> Unit) {
+            if (!WatchlistQuotePolicy.shouldRunFollowUp(
+                    refreshing, alreadyFollowed, isForeground, currentTab,
+                    watchlistGeneration, pageGeneration
+                )) return
+            val task = Runnable {
+                watchlistFollowUpTask = null
+                if (isForeground && currentTab == 1 && pageGeneration == watchlistGeneration) action()
+            }
+            watchlistFollowUpTask = task
+            updateHandler.postDelayed(task, 2500L)
+        }
+
         fun refreshQuotes(followUp: Boolean = false) {
+            stopWatchlistFollowUp()
+            watchlistLastRequestElapsedMs = SystemClock.elapsedRealtime()
             val codes = watchCodes()
             if (codes.isEmpty()) {
                 quoteStatus.text = "行情：暂无自选"
@@ -667,13 +710,28 @@ class MainActivity : AppCompatActivity() {
                 render()
                 return
             }
-            quoteStatus.text = if (quoteMap.isEmpty()) "行情：正在读取…" else "行情：已显示最近数据，正在刷新…"
+            quoteStatus.text = if (quoteMap.isEmpty()) "行情：正在读取…" else {
+                val age = WatchlistQuotePolicy.ageSeconds(
+                    localQuoteSavedAt, System.currentTimeMillis()
+                )
+                "行情：本地缓存 · ${WatchlistQuotePolicy.ageText(age)}，正在刷新…"
+            }
             fetch("/api/quotes?codes=${codes.joinToString(",")}") { data, _ ->
                 if (data == null || !data.optBoolean("ok")) {
-                    quoteStatus.text = if (quoteMap.isEmpty())
-                        "行情暂不可用，稍后点“刷新行情”重试。"
-                    else "行情：暂用最近一次数据，后台行情稍后再试。"
+                    val warming = data?.optBoolean("refreshing") == true
+                    quoteStatus.text = when {
+                        warming && !followUp -> "行情：首次数据准备中，正在自动跟进…"
+                        warming -> "行情准备仍未完成，稍后点“刷新行情”重试。"
+                        quoteMap.isEmpty() -> "行情暂不可用，稍后点“刷新行情”重试。"
+                        else -> {
+                        val age = WatchlistQuotePolicy.ageSeconds(
+                            localQuoteSavedAt, System.currentTimeMillis()
+                        )
+                        "行情：网络暂不可用 · 暂用本地缓存（${WatchlistQuotePolicy.ageText(age)}）"
+                        }
+                    }
                     render()
+                    scheduleFollowUp(warming, followUp) { refreshQuotes(true) }
                     return@fetch
                 }
                 val rows = data.optJSONArray("items") ?: JSONArray()
@@ -684,20 +742,30 @@ class MainActivity : AppCompatActivity() {
                     if (code.length == 6) merged[code] = row
                 }
                 quoteMap = merged
-                persistQuotes()
                 val refreshing = data.optBoolean("refreshing")
                 val age = data.optInt("cache_age_sec", 0)
+                val serverSavedAt = (System.currentTimeMillis() - age.toLong() * 1_000L).coerceAtLeast(1L)
+                localQuoteSavedAt = if (data.optString("status") == "ok" && rows.length() >= codes.size) {
+                    serverSavedAt
+                } else {
+                    listOfNotNull(localQuoteSavedAt.takeIf { it > 0L }, serverSavedAt).minOrNull()
+                        ?: serverSavedAt
+                }
+                persistQuotes()
                 quoteStatus.text = when {
-                    refreshing && age > 0 -> "行情：秒开缓存 · ${age}秒前，后台更新中…"
-                    data.optString("status") == "partial" -> "行情：部分股票暂缺 · ${data.optString("time_cn")} 北京时间"
+                    refreshing -> "行情：服务器缓存 · ${WatchlistQuotePolicy.ageText(age.toLong())}，后台更新中…"
+                    data.optString("status") == "partial" -> {
+                        val oldest = WatchlistQuotePolicy.ageSeconds(localQuoteSavedAt, System.currentTimeMillis())
+                        "行情：部分股票暂缺 · 最旧本地数据 ${WatchlistQuotePolicy.ageText(oldest)}"
+                    }
                     else -> "行情：${data.optString("time_cn")} · 北京时间"
                 }
                 render()
-                if (refreshing && !followUp) {
-                    updateHandler.postDelayed({ refreshQuotes(true) }, 2500L)
-                }
+                scheduleFollowUp(refreshing, followUp) { refreshQuotes(true) }
             }
         }
+
+        watchlistRefreshAction = { refreshQuotes() }
 
         val refreshRow = LinearLayout(this)
         refreshRow.addView(action("刷新行情") { refreshQuotes() }, LinearLayout.LayoutParams(0, -2, 1f))
