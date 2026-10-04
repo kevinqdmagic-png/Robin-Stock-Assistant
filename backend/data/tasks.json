@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-04T19:22:54.378Z",
+  "updated_at": "2026-10-04T20:13:44Z",
   "source": "confirmed_automation_configuration",
   "items": [
     {
@@ -8,10 +8,10 @@
       "title": "上午打磨股票 APK",
       "track": "app_development",
       "summary": "界面、行情、历史记录、验证工具与安装检查",
-      "schedule_text": "每日09:00左右 · 奥克兰",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T090000\nRRULE:FREQ=DAILY\nEND:VEVENT",
+      "schedule_text": "每周一09:00 · 奥克兰",
+      "schedule": "BEGIN:VEVENT\nDTSTART:20260930T200000Z\nRRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
-      "timing_mode": "flexible_schedule",
+      "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
       "dependencies": []

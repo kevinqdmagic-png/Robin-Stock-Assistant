@@ -344,6 +344,28 @@
       "summary": "一次性任务及定时启动已登记，实际选股研究尚未开始。计划奥克兰10月6日07:30启动，按09:00前提交要求研究两只其他板块高弹性股；完成后发布报告与个股研究理由。",
       "report_ids": [],
       "recommendation_ids": []
+    },
+    {
+      "id": "apk-polish-20261005T085900NZDT-completed",
+      "run_id": "apk-polish-20261005T085900NZDT",
+      "task_id": "apk_polish",
+      "date": "2026-10-05",
+      "trigger": "scheduled",
+      "started_at": "2026-10-05T08:59:00+13:00",
+      "recorded_at": "2026-10-05T09:13:44+13:00",
+      "completed_at": "2026-10-05T09:13:44+13:00",
+      "status": "completed",
+      "summary": "0.7.4完成自选缓存年龄、冷缓存自动跟进、前台恢复刷新和后端single-flight；固定签名正式APK已发布，代码/容器/Android检查通过，手机安装与真机界面未在本次任务验证。",
+      "report_ids": [
+        "apk-polish-2026-10-05-cache-refresh-074"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/05d290b000a641cd0b9c814efd1fe8af85ff1bb5",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/37231162647",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/37231162692",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/releases/tag/v0.7.4"
+      ]
     }
   ]
 }

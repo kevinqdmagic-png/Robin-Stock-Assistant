@@ -58,7 +58,7 @@ Preserve the earlier high-elasticity thesis and its core candidates: 先导智�
 
 ## Daily work configured
 
-- APK improvement: mornings around 09:00 Pacific/Auckland, daily flexible window.
+- APK improvement: Mondays at 09:00 Pacific/Auckland in the current confirmed schedule snapshot.
 - High-elasticity deep continuation: ONE TIME on 2026-10-01 around 20:00 Pacific/Auckland; preserve and deepen the prior research.
 - Volume-price research/verification: existing 21:00 Pacific/Auckland task now DAILY, including holidays.
 - Separate combined after-close selections: daily around 22:30 Pacific/Auckland, after verifying that market review, quant, volume-price, low-position and Dragon Tiger reports for the relevant trading day are actually complete. A scheduled clock time alone is not completion. This condition task rechecks at 23:30, 00:30 and 06:30 Pacific/Auckland when needed; it reports once per trading-day decision and skips completed decisions. Missing or stale reports must be disclosed and must not be represented as an integrated final selection.
@@ -145,3 +145,11 @@ Robin要求把新的其他板块高弹性选股任务及成果写进APP。新增
 - 注册回执为manual/waiting，表示任务已登记且研究尚未开始。未来研究使用独立scheduled运行id；只有完整研究完成并有对应报告才能追加completed。
 - `include_legacy_reports=false`：本任务仅关联其准确task_id的报告，原高弹性历史报告不展示为本次成果。原十项任务和旧档案保留。
 - 完成后先归档完整报告和回执，再在研究股票档案中追加两只的理由、验证、风险与来源；同步离线档案。纯研究与任务数据更新不要求重新安装APK。研究观察股不混入每日双标交易指令。
+
+## 0.7.4：自选行情时间透明与刷新单飞
+
+- 本地秒开缓存必须显示真实年龄；网络失败、服务器旧缓存和部分股票缺失不能用新的请求时间伪装为实时行情。
+- 回到前台且距上次请求超过5秒时恢复一次自选刷新；冷缓存自动跟进一次。离开自选页或页面代次改变后取消迟到回调。
+- 服务端对同一股票的后台行情刷新采用single-flight，重复请求不启动相同在途抓取，结束时无论成功或失败都释放保护。
+- 正式0.7.4继续使用从0.7.0建立的固定证书；固定签名版本之间可覆盖升级。0.5.0/0.6.0测试签名历史不兼容结论保留。
+- 首页第四指数保持科创50，四个底部栏目、自选理由、研究历史与离线档案不回退。本次未做真机安装或界面验收，不将构建成功称为手机已经更新。
