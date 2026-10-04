@@ -16,7 +16,13 @@ parser.add_argument("--base", default="https://robin-stock-api-production.up.rai
 parser.add_argument("--wait", type=int, default=600)
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
-version = re.search(r'FastAPI\(title=.*?version="([^"]+)"', (root / "backend/app.py").read_text())[1]
+app_source = (root / "backend/app.py").read_text(encoding="utf-8")
+version_match = re.search(r'^API_VERSION\s*=\s*"([^"]+)"', app_source, re.MULTILINE)
+if version_match is None:
+    version_match = re.search(r'FastAPI\(title=.*?version="([^"]+)"', app_source)
+if version_match is None:
+    raise RuntimeError("backend version declaration not found")
+version = version_match[1]
 expected_revision = data_revision()
 expected = {name: json.loads((root / "backend/data" / name).read_text(encoding="utf-8"))
             for name in ("tasks.json", "task_runs.json", "research.json", "recommendations.json", "research_stocks.json")}
