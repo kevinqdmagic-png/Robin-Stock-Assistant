@@ -805,6 +805,87 @@
           "strategy": "healthcare_long_term_research"
         }
       ]
+    },
+    {
+      "code": "605016",
+      "name": "百龙创园",
+      "sector": "食品配料与低糖原料",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "other-20261006-605016-initial",
+          "date": "2026-10-06",
+          "recorded_at": "2026-10-05T19:08:55.941991+00:00",
+          "title": "其他板块独立研究：食品配料商业化，50/100倍不获支持",
+          "reason": "食品配料收入与扣非利润增长；核对国内阿洛酮糖准入、短周期订单、客户集中、调整现金和扩产稀释，50/100倍所需规模不获支持。",
+          "evidence_status": "中报和监管公告已核验；在手订单、产线规划为公司口径；2031情景和验证阈值为研究假设。",
+          "fact_note": "9月30日总市值88.66亿元；2026H1收入7.5946亿、归母利润2.1064亿、扣非+26.29%。OCF剔除存单净收付后约3.1051亿；最大客户44.10%，不能把分销终端当直接客户。",
+          "validation": [
+            "2026年报/2027H1核验食品配料复购、分产品销量与毛利、国内阿洛酮糖导入。",
+            "核查功能糖项目验收/利用率，泰国2028起投产是公司计划；柔性联产能力不可重复相加。",
+            "核验剔除定期存单收付后的滚动现金转化、客户集中、可转债发行转股和建设资金。",
+            "连续两个可比期核心收入增长低于10%且净利率低于20%，或滚动调整OCF/净利低于0.7并伴应收库存超收入增长，下调；重大质量/大客户缩单则失效。"
+          ],
+          "risk": "客户集中、竞争扩产压价、原料/汇率/贸易、食品安全、泰国建设和融资稀释。基准/乐观/极端只是压力测试；50/100倍未获支持，默认不自动加入自选。",
+          "report_ids": [
+            "high-elasticity-other-20261006-overview-v1",
+            "high-elasticity-other-20261006-605016-v1"
+          ],
+          "sources": [
+            "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12573993&stockid=605016",
+            "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12510006&stockid=605016",
+            "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12595454&stockid=605016",
+            "https://zwfw.nhc.gov.cn/kzx/tzgg/sptjjxpzsp_224/202507/t20250702_3106.html",
+            "https://www.sdblcy.com/gongsixinwen/aluotongtangshengcha.html",
+            "https://paper.cnstock.com/html/2026-09/11/content_2267689.htm",
+            "https://paper.cnstock.com/html/2026-09/23/content_2271926.htm",
+            "https://static.sse.com.cn/stock/disclosure/announcement/c/202606/605016_20260610_2AH9.pdf",
+            "https://paper.cnstock.com/html/2026-08/31/content_2263379.htm",
+            "https://qt.gtimg.cn/q=sh688639,sh688065,sh605016,sz300829,sh605077,sz301206,sz002286,sz002166,sh600873,sh688089,sh603011,sz300092,sz002438,sz000777,sz002318,sz300470,sh603699,sh603169,sz002255,sz000969,sz300286,sz002322,sz300880,sz300360,sh603050",
+            "https://hq.sinajs.cn/list=sh688639,sh688065,sh605016,sz300829,sh605077,sz301206,sz002286,sz002166,sh600873,sh688089,sh603011,sz300092,sz002438,sz000777,sz002318,sz300470,sh603699,sh603169,sz002255,sz000969,sz300286,sz002322,sz300880,sz300360,sh603050"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "002438",
+      "name": "江苏神通",
+      "sector": "民用核裂变阀门与工业节能",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "other-20261006-002438-initial",
+          "date": "2026-10-06",
+          "recorded_at": "2026-10-05T19:08:55.941991+00:00",
+          "title": "其他板块独立研究：核电订单兑现，回款为首要反证",
+          "reason": "核裂变阀门有监管许可和商业订单，但核电收入下降、回款弱；仅观察新产能与订单兑现，排除AI/航空航天等增量，50/100倍不获支持。",
+          "evidence_status": "中报及监管许可证已核验；新厂投产、单机/备件价值量为公司口径；核电规模情景及现金阈值为待验证假设。",
+          "fact_note": "9月30日总市值69.43亿元；2026H1收入10.0838亿、归母1.5054亿，核电收入-22.44%；半年新增订单9.27亿中神通核能3.08亿，不等于在手余额。OCF0.1429亿、应收13.2994亿。",
+          "validation": [
+            "2026年报/2027H1核验核电订单交付验收、新厂利用率、折旧和备件收入。",
+            "年度与可比中期结合核验滚动OCF/净利、应收/合同资产、借款与融资。",
+            "持证主体为神通核能，监管许可有效期至2028-09-30；继续核对许可范围与质量。",
+            "核电增长不能恢复，且滚动OCF/净利低于0.5并伴应收/合同资产超收入增长，下调；核业务毛利率持续低于30%、许可/质量事件或订单取消则失效。",
+            "若核心增量改为AI、航空航天、电池或机器人链，退出本次主题；这些业务增长均未计入情景。"
+          ],
+          "risk": "工程验收延迟、回款与债务、折旧/产能利用率、质量许可、传统客户周期、融资稀释和非核心参股风险。增长尚未兑现，观察优先级低于百龙；50/100倍未获支持。",
+          "report_ids": [
+            "high-elasticity-other-20261006-overview-v1",
+            "high-elasticity-other-20261006-002438-v1"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-08-18/1225476502.PDF",
+            "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12625316&stockid=002438",
+            "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12324357&stockid=002438",
+            "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk09/202308/t20230801_1037844.html",
+            "https://www.china-nea.cn/site/content/53351.html",
+            "https://qt.gtimg.cn/q=sh688639,sh688065,sh605016,sz300829,sh605077,sz301206,sz002286,sz002166,sh600873,sh688089,sh603011,sz300092,sz002438,sz000777,sz002318,sz300470,sh603699,sh603169,sz002255,sz000969,sz300286,sz002322,sz300880,sz300360,sh603050",
+            "https://hq.sinajs.cn/list=sh688639,sh688065,sh605016,sz300829,sh605077,sz301206,sz002286,sz002166,sh600873,sh688089,sh603011,sz300092,sz002438,sz000777,sz002318,sz300470,sh603699,sh603169,sz002255,sz000969,sz300286,sz002322,sz300880,sz300360,sh603050"
+          ]
+        }
+      ]
     }
   ]
 }
