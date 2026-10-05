@@ -2909,5 +2909,13 @@
     "url": "https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=6000&po=1&np=1&fltt=2&invt=2&fid=f12&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23,m:0+t:81+s:2048&fields=f12,f14,f2,f20,f9,f100",
     "attempted_at": "2026-10-05T18:46:04.962445+00:00",
     "error": "HTTP Error 502: Bad Gateway"
+  },
+  "execution_receipt_correction": {
+    "id": "high-elasticity-other-20261006-scheduled-183055-completion-recorded",
+    "run_id": "high-elasticity-other-20261006-scheduled-183055",
+    "recorded_at": "2026-10-05T19:13:47.189124+00:00",
+    "completed_at": "2026-10-05T19:08:55.941991+00:00",
+    "reason": "同一归档时间的running和completed事件排序歧义；仅追加终态，不改变实际开始/完成时间或旧报告。",
+    "first_research_commit": "fecb75c8f2cda81f57cee55870792bda658c6bb5"
   }
 }

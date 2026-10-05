@@ -400,6 +400,28 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/high-elasticity-other-2026-10-06.md"
       ]
+    },
+    {
+      "run_id": "high-elasticity-other-20261006-scheduled-183055",
+      "task_id": "high_elasticity_other_once",
+      "date": "2026-10-06",
+      "trigger": "scheduled",
+      "started_at": "2026-10-05T18:30:55+00:00",
+      "recorded_at": "2026-10-05T19:13:47.189124+00:00",
+      "report_ids": [
+        "high-elasticity-other-20261006-overview-v1",
+        "high-elasticity-other-20261006-605016-v1",
+        "high-elasticity-other-20261006-002438-v1"
+      ],
+      "recommendation_ids": [],
+      "id": "high-elasticity-other-20261006-scheduled-183055-completion-recorded",
+      "status": "completed",
+      "completed_at": "2026-10-05T19:08:55.941991+00:00",
+      "summary": "研究已在completed_at完成并附三篇完整报告；本条在实际recorded_at追加完成状态，解决此前同时间回执排序造成的显示歧义。保留全部原记录。线上同步仍须经实际部署与读取核验。",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/high-elasticity-other-2026-10-06.md",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/fecb75c8f2cda81f57cee55870792bda658c6bb5"
+      ]
     }
   ]
 }
