@@ -1,6 +1,139 @@
 {
   "schema_version": 1,
-  "items": [],
+  "items": [
+    {
+      "id": "limitup-single-20261008-600592-v1",
+      "date": "2026-10-08",
+      "published_at": "2026-10-07T20:04:03+00:00",
+      "code": "600592",
+      "name": "龙溪股份",
+      "group": "close",
+      "strategy": "limitup_single_v1",
+      "task_id": "limitup_single",
+      "model": "limitup_single_v1",
+      "reason": "独立打板一股·仅模拟：9月30日整理平台放量首板；10月8日仅观察满足冻结条件的换手二板/首次回封。节前参考价16.20不是成交价，今日上限待核验；未确认触发或买入。",
+      "reference_price": 16.2,
+      "reference_price_time": "2026-09-30T16:14:50+08:00",
+      "reference_price_market_date": "2026-09-30",
+      "reference_price_source": "https://qt.gtimg.cn/q=sh600592",
+      "reference_price_cross_check": "https://q.stock.sohu.com/hisHq?code=cn_600592&start=20260801&end=20260930&stat=1&order=A&period=d",
+      "trigger": "仅模拟、待开盘核验：券商/交易所当日行情确认正常交易、无除权或风险警示，涨停价确为17.82元；9:25有效竞价价16.20—17.01元；09:35—10:30内，宁波东力与凯迪股份两只观察同伴均上涨至少3%，襄阳轴承未跌停；龙溪当日累计换手2%—12%。只观察首次开板后的第一次回封：开板后连续60秒成交价不低于17.46元且不低于当日成交均价，再出现17.82元成交和持续买盘。须有覆盖该段的分钟/逐笔、带时间报价与实际成交回报才能确认；触价、封单或排队均不等于买入。",
+      "invalid": "开盘低于16.20或高于17.01；停牌/ST/除权或当日上限不是17.82；一字无换手；板块条件不满足、开板后跌破17.46或均价、累计换手超过12%、连续两次开板、可见买盘连续收缩/撤单且无成交承接、放量却不能推进；10:30仍未满足全部条件；无法核实今日行情、时序或盘口，均放弃。原始候选当日作废，不更换第二只。",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20260915_10832273.shtml",
+        "https://www.cls.cn/detail/2496354",
+        "https://www.cls.cn/detail/2496176",
+        "https://www.dabanke.com/index-20260930.html",
+        "https://www.dabanke.com/ztgc.html",
+        "https://qt.gtimg.cn/q=sh600825,sh603127,sh603538,sh688185,sh605303,sz002242,sh605577,sh600241,sz000710,sz301190,sh601118,sh605388,sz002058,sz000678,sh600663,sh600592,sh600059,sz002388,sz002226,sz001318,sz000504,sz002164,sh600356,sh603928,sz002962,sh603200,sh603906,sz000011,sz002316,sz000692,sz001266,sh605011,sh688806,sh605287,sz002866,sz002454,sh600072,sh603185,sh600081,sz002041,sh600131,sh605288,sh603188,sz002419,sz001206,sz002188,sh603948,sz300893,sh603590,sh603919,sh603739,sz002755,sh603949,sh600488,sh600032,sz002912,sz301560,sz301513,sz002244,sh600657,sz000002,sh601238,sh601811,sh688685,sz002074,sh603980,sz002882,sh600152,sz002303,sz002913,sh603533,bj920779,sh600189,sh600325,sh603630,sh605198,sh601949,sh603598,sh603636,sh603602,sz002799,sh603400,sz000036,sz002846,sh600982,sz000068,sh601519,sz000607,sh603328,sz000823,sz002205,sh603322,sh688655,sz002494,sz002815,sh605058,sh605258,sz002813,sz002860,sh688265,sz000668,sh600383,sz002513,sh600719,sz002043,sz002262,sh600418,sh603982,sz002273,sh603396,sh688658,sz300765,sz300122,sz300601,sz300142,sz002821,bj920344,sz301080,sh688356,bj920982,sh688710,sh688317,sh688176,sz300725,sz301257,sh688553,sz002317,sh603669,sh688163,sh688520,sz002437,sh688578,sh688137,sz301047,sz301166,sh688105,sh688293,sz300905,sz300107,sh688046,sh688606,sh688426,sh688026,sh600737,sh603803,sh603118,sz002849",
+        "https://qt.gtimg.cn/q=sh600592,sh600356,sz000710,sh603928,sz002164,sh605288",
+        "https://q.stock.sohu.com/hisHq?code=cn_600592&start=20260801&end=20260930&stat=1&order=A&period=d",
+        "https://q.stock.sohu.com/cn/600592/index.shtml",
+        "https://basic.10jqka.com.cn/600592/event.html",
+        "https://data.eastmoney.com/stockcalendar/600592.html",
+        "https://quote.eastmoney.com/sh600592.html",
+        "https://static.cninfo.com.cn/finalpage/2026-08-28/1225521821.PDF",
+        "https://www.csrc.gov.cn/fujian/c104066/c7603393/content.shtml",
+        "https://static.cninfo.com.cn/finalpage/2025-12-25/1224896048.PDF",
+        "https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml",
+        "https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/10816492/files/704204728fe74fff89de4f16efda4791.docx"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-07T19:44:49+00:00",
+      "planned_entry_date": "2026-10-08",
+      "earliest_legal_exit_date_if_bought": "2026-10-09",
+      "current_stage": "forward_simulation",
+      "verified_quote_day_upper": {
+        "date": "2026-09-30",
+        "price": 16.2,
+        "source": "https://qt.gtimg.cn/q=sh600592"
+      },
+      "planned_entry_day_upper": {
+        "date": "2026-10-08",
+        "calculated_reference": 17.82,
+        "verified_market_upper": null,
+        "status": "pending_authoritative_quote_and_security_status",
+        "basis": "已核验上交所2026规则；以前收16.20且无除权/状态改变为条件，仅用于准备",
+        "source": "https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml"
+      },
+      "exit_plan": "若D=10月8日成交，10月9日09:30起首个可证实可成交的价格退出；强/平/弱开均不事后择高点，跌停无买盘/停牌或卖单未成交追加延后记录；完整分支见关联报告。",
+      "report_ids": [
+        "limitup-single-20261008-review-v1"
+      ],
+      "rules": {
+        "version": "limitup_single_v1",
+        "frozen_at": "2026-10-07T20:04:03+00:00",
+        "stage": "forward_simulation",
+        "initial_review_sessions": [
+          20,
+          30
+        ],
+        "review_is_not_live_trading_gate": true,
+        "universe": "普通主板正常10%涨跌幅股票；优先整理平台换手首板及其二板/分歧回封",
+        "exclusions": [
+          "ST/退市风险",
+          "上市初期无涨跌幅限制",
+          "流动性不足",
+          "一字排队板",
+          "高位连续缩量加速",
+          "明显高位爆量滞涨"
+        ],
+        "planned_type": "second_board",
+        "planned_subtype": "first_reseal_after_first_opening",
+        "auction_range_pct": [
+          0,
+          5
+        ],
+        "entry_window_cn": [
+          "09:35:00",
+          "10:30:00"
+        ],
+        "sector_peer_codes": [
+          "002164",
+          "605288"
+        ],
+        "peer_min_gain_pct_each": 3,
+        "high_board_guard_code": "000678",
+        "high_board_guard": "not_at_limit_down",
+        "cumulative_turnover_pct_range": [
+          2,
+          12
+        ],
+        "after_opening_hold_seconds": 60,
+        "after_opening_min_price_fraction_of_verified_upper": 0.98,
+        "must_hold_intraday_vwap": true,
+        "candidate_verified_upper_required": 17.82,
+        "candidate_after_opening_floor": 17.46,
+        "max_prior_openings_before_entry": 1,
+        "fill_policy": "只有成交回报或可重建队列的逐笔证据才确认模拟成交；缺证据保留成交待验证样本",
+        "exit_policy": "D+1实际交易日09:30起首个能证实可成交的报价/成交退出，不以日内高点或事后最优价格记收益",
+        "unfilled_exit_policy": "跌停无买盘/停牌或委托未成则追加未成交与后续最早可成交观察，不伪造止损成交",
+        "cost_assumption": {
+          "provisional_round_trip_bps": 20,
+          "includes": "暂拟合计20bp费用与滑点，未校准真实费率/最低佣金/交易数量/排队滑点",
+          "use_for_executable_net_return": false,
+          "net_return_gate": "买卖时序、成交价、数量、佣金/印花税/过户费及滑点均可核验后才统计"
+        },
+        "all_thresholds_are_unvalidated_hypotheses": true,
+        "future_change_policy": "记录原因、日期及新版本，只对随后前推或样本外样本检验；不改写v1旧候选"
+      },
+      "results": [
+        {
+          "id": "limitup-single-20261008-600592-preopen-checkpoint",
+          "recorded_at": "2026-10-07T20:04:03+00:00",
+          "market_date": "2026-10-08",
+          "status": "pending_market_open",
+          "trigger_status": "not_observable_before_open",
+          "entry_fill_status": "not_verified",
+          "entry_price": null,
+          "closing_seal_status": "pending",
+          "next_day_open_status": "pending",
+          "executable_net_return_pct": null,
+          "note": "真实盘前检查点，仅冻结条件；未观察到今日竞价、盘口或成交。"
+        }
+      ]
+    }
+  ],
   "legacy_audit": [
     {
       "name": "健康元",
