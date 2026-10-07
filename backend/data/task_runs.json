@@ -445,6 +445,25 @@
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/limitup-single-2026-10-08-evidence.json"
       ],
       "publication_status": "pending_ci_and_production_verification"
+    },
+    {
+      "id": "limitup-single-framework-20261008-manual-215658-completed",
+      "run_id": "limitup-single-framework-20261008-manual-215658",
+      "task_id": "limitup_single",
+      "date": "2026-10-08",
+      "trigger": "manual",
+      "started_at": "2026-10-07T21:56:58+00:00",
+      "recorded_at": "2026-10-07T21:59:05+00:00",
+      "completed_at": "2026-10-07T21:59:05+00:00",
+      "status": "completed",
+      "report_ids": [
+        "limitup-single-20261008-framework-v2"
+      ],
+      "recommendation_ids": [],
+      "summary": "本次人工规则补充已完成：任务指令四项必查更新并读回核验，v2用于后续新候选。首轮已冻结v1记录全部保留，无第二只候选；时间、启用状态及其他任务保持原值。此回执证明规则整理完成，生产同步另经部署与API核验。",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/limitup-single-v2-market-context.md"
+      ]
     }
   ]
 }

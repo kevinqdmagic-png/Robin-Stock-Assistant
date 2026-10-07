@@ -4397,6 +4397,177 @@
           "net_return_gate": "买卖时序、成交价、数量、佣金/印花税/过户费及滑点均可核验后才统计"
         }
       }
+    },
+    {
+      "id": "limitup-single-20261008-framework-v2",
+      "date": "2026-10-08",
+      "task_id": "limitup_single",
+      "track": "market_review",
+      "run_id": "limitup-single-framework-20261008-manual-215658",
+      "published_at": "2026-10-07T21:59:05+00:00",
+      "recorded_at": "2026-10-07T21:59:05+00:00",
+      "title": "打板规则v2：市场情绪、高度板、空间板与分层晋级必查",
+      "summary": "Robin补充四项必查，先情绪/梯队后个股与触发；v2下一轮新候选生效，今天原v1候选不改。没有新选股、触发或收益结论。",
+      "body": "已按Robin本次补充，将“每日打板一股”任务的市场情绪、高度板、空间板和进阶/晋级板设为每轮必查项。此次只追加研究规则，没有发布第二只候选，也没有改写今日已冻结的龙溪股份600592及其limitup_single_v1原始条件。\n\n版本及生效：2026-10-08记录limitup_single_v2，下一轮新候选起采用；本轮首个后续交易日为10月9日。v1样本继续按v1随访，新增情绪事实可追加说明但不能倒写成原始筛选条件。v1/v2的策略结果分开统计，20—30交易日仍只是模拟阶段首轮复核节点，不是盈利证明或自动转实盘门槛。\n\n新增四项 | 固定研究内容 | 对候选的作用\n--- | --- | ---\n市场情绪 | 最近三个已完成交易日的涨停、炸板、跌停、量能；上一日连板/断板股次日反馈、主线持续性；列启动/修复/分歧/加速/退潮或无法分类及正反证据 | 先判断接力环境。指数上涨或涨停数量高不能单独证明适合打板；退潮风险可否决形态好看的个股。\n高度板 | 普通主板最高与次高连板股、六位代码，1/2/3/4/5板及以上梯队；另列候选所属主线高度；一字/换手、缩量加速及断板负反馈 | 作为资金接力风险参考，不自动推荐最高板，也不能把主线高度与全市场高度混写。\n空间板 | 本实验指打开或尝试突破本轮连板高度上限的标的；辅助参照固定为截至T之前20个实际交易日的最高连板高度，另列能冻结的情绪周期起点和高点 | 区分尝试、收盘确认突破与失败。历史不足标未知；高度板/空间板可能同一只，去重，不将N天M板写成连续M板。\n晋级板 | 将用户“进阶板”按首板进二板、二板进三板、三板进四板及更高各层分别统计 | 分母取上一实际交易日该层逐股名单，保留晋级、断板、停牌和缺失；不能从今天的成功股倒推分母。\n\n每轮先查情绪和梯队，再比较个股，最后核验触发。候选必须写当前/计划板数、主线高度及领涨/换手核心/补涨/跟随/待确认角色，解释高标反馈如何可能影响固定次日退出；角色依证据判断，不能由股票名称或题材标签自动确认。至少三只真实备选也比较这四项。\n\n否决优先：退潮/高标跌停与晋级断层共振、空间突破失败后亏钱效应扩散、主线断层且后排缺独立承接、一字或高位连续缩量加速、爆量滞涨、承接丧失，以及关键状态/盘口/时序无法核验。新候选发布时冻结具体高位参考股、资料交易日、观察窗口和附加放弃条件，不事后替换参考股。重大风险查不清或证据不足就“今日空仓，无合格打板候选”，不因每天一只降低标准。\n\n口径：以普通主板正常10%涨跌幅为核心，ST、无上限初期、创业/科创20%、北交所30%分别处理。缺完整市场梯队时写“可见范围最高”；来源标签与全市场统计分开。晋级表先列上一日冻结总分母，再列晋级/断板/停牌/缺失。可得晋级率=晋级/(晋级+已核实断板)，同时保留原分母和缺失率；有缺失只能称可得样本口径。停牌不补成断板成功或可成交。\n\n已有背景校验：财联社9月30日复盘列新华传媒7连板、襄阳轴承4连板，并报告整体连板晋级率60%；同文还记录此前高位股断板后的连续跌停负反馈。这说明“最高板仍上行”与“其他高位股亏钱效应”可以并存，不能只看高度。媒体60%没有本实验所需逐层冻结分母，不将其套成首板进二板率。本次未取得前20日完整普通主板连板梯队，空间参照仍为待验证；不能据此确认本轮空间已打开。当前尚未开盘，没有今日竞价、开盘或盘中封板新结论，节前7板/4板不当成复市即时高度。\n\n统计与限制：新增因子的情绪阶段、市场/主线高度、空间尝试/确认、晋级层级以及长假样本均需单列版本、候选数、完成样本数、可核验成交数、封板/炸板、价格观察与可执行净收益。v2当前新候选0、完成样本0、可验证成交0，所有收益与优势均待验证。基于日线的情绪研究不证明盘中回封、排队买入、止损成交；没有接入持续盯盘、秒级预警或Level-2。\n\n任务指令的四项必查已更新并读回核验；执行时间和启用状态保持原值，其他任务未动。APP契约、任务安全快照、完整规则报告与本次manual回执一起归档，生产同步仍按原有完整性、容器、准确提交版本和API读取核验流程。",
+      "sources": [
+        "https://www.cls.cn/detail/2496354",
+        "https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/1b0151c6e5da8cee98543f6f7bbdf2de1ca0121b/docs/research/limitup-single-2026-10-08.md"
+      ],
+      "strategy": "limitup_single_v2",
+      "research_version": "limitup_single_v2",
+      "phase": "forward_simulation",
+      "record_type": "research_rule_update",
+      "candidate_ids": [],
+      "codes": [],
+      "previous_candidate_unchanged": "limitup-single-20261008-600592-v1",
+      "rules": {
+        "version": "limitup_single_v2",
+        "recorded_at": "2026-10-07T21:59:05+00:00",
+        "base_version": "limitup_single_v1",
+        "change_reason": "Robin要求在打板任务中明确考虑市场情绪、高度板、空间板和进阶/晋级板因素",
+        "effective_scope": "下一轮新候选起；2026-10-08已冻结v1候选原条件保持不变",
+        "first_eligible_new_candidate_day": "2026-10-09",
+        "stage": "forward_simulation",
+        "keep_old_versions_and_results": true,
+        "do_not_combine_version_performance": true,
+        "baseline_entry_and_exit": "沿用v1普通主板范围、排除项、竞价/介入窗口、换手/回封承接及D+1固定退出；新候选的参考股、价格与附加否决条件仍须事前冻结",
+        "workflow_order": [
+          "情绪与市场/主线梯队",
+          "空间及分层晋级反馈",
+          "候选角色与至少三只备选比较",
+          "盘口和成交可验证性"
+        ],
+        "primary_board_scope": "普通主板正常10%涨跌幅；ST、无上限初期股及20%/30%制度分开",
+        "emotion": {
+          "completed_session_lookback": 3,
+          "stage_values": [
+            "启动",
+            "修复",
+            "分歧",
+            "加速",
+            "退潮",
+            "无法分类"
+          ],
+          "evidence": [
+            "涨停/炸板/跌停数与分母",
+            "上一日连板和断板股次日反馈",
+            "市场量能",
+            "主线持续性",
+            "正反证据与资料截止"
+          ],
+          "single_indicator_is_insufficient": true
+        },
+        "height": {
+          "record_market_and_sector_separately": true,
+          "ladder_buckets": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5+"
+          ],
+          "reference_roles": [
+            "最高连板",
+            "次高连板",
+            "候选主线高度"
+          ],
+          "record_reference_codes_before_next_outcome": true,
+          "checks": [
+            "一字与换手",
+            "缩量加速/爆量滞涨",
+            "断板及天地板等负反馈",
+            "已公开监管/异常交易公告"
+          ],
+          "incomplete_universe_label": "可见范围最高；不声称全市场最高"
+        },
+        "space": {
+          "working_definition": "打开或尝试突破本轮连板高度上限的标的；这是本实验口径，不是交易所官方分类",
+          "historical_reference_sessions": 20,
+          "historical_reference_excludes_T": true,
+          "freeze_cycle_start_if_evidenced": true,
+          "otherwise_cycle_start": null,
+          "states": [
+            "尝试突破",
+            "收盘确认突破",
+            "突破失败",
+            "历史缺失/无法分类"
+          ],
+          "deduplicate_with_height_leader": true,
+          "N_days_M_boards_are_not_M_consecutive_boards": true
+        },
+        "promotion": {
+          "interpret_user_jinjie_as": "晋级板",
+          "levels": [
+            "1进2",
+            "2进3",
+            "3进4",
+            "4及以上各层"
+          ],
+          "denominator": "T-1该层逐只已核实股票，不按T成功名单倒推",
+          "records": [
+            "冻结分母名单及来源",
+            "晋级",
+            "断板",
+            "停牌/缺失",
+            "覆盖是否完整"
+          ],
+          "observed_rate": "晋级/(晋级+已核实断板)，同时报告原分母及停牌/缺失数；有缺失不冒称全层晋级率",
+          "do_not_reuse_media_aggregate_as_specific_level_rate": true
+        },
+        "candidate_role": {
+          "values": [
+            "领涨",
+            "换手核心",
+            "补涨",
+            "跟随",
+            "待确认"
+          ],
+          "evidence_required": true,
+          "record_current_and_planned_board_count": true,
+          "compare_height_space_promotion_in_at_least_three_real_alternatives": true,
+          "explain_possible_overnight_exit_effect": true
+        },
+        "market_veto_checks": [
+          "退潮/高标跌停与晋级断层共振",
+          "空间突破失败后的亏钱效应扩散",
+          "主线断层且候选缺独立承接",
+          "一字或高位连续缩量加速",
+          "爆量滞涨与承接丧失",
+          "关键行情/状态/时序不能核验"
+        ],
+        "veto_threshold_policy": "每条新候选在发布时冻结具体参考股、交易日期、观察窗口及附加放弃条件；缺关键风险证据不选，不事后更改",
+        "classification_and_statistics": "情绪阶段、市场/主线高度、晋级层级、空间尝试、长假及规则版本分别列样本数与缺项；N/A不写成0%或盈利优势",
+        "no_continuous_monitoring_or_unconnected_Level2": true,
+        "all_extra_factors_are_unvalidated_hypotheses": true
+      },
+      "statistics": {
+        "version": "limitup_single_v2",
+        "start_date": null,
+        "as_of": "2026-10-07T21:59:05+00:00",
+        "frozen_candidates": 0,
+        "completed_samples": 0,
+        "verified_entries": 0,
+        "first_board_samples": 0,
+        "second_board_samples": 0,
+        "reseal_samples": 0,
+        "emotion_stage_samples": {},
+        "market_height_samples": {},
+        "sector_height_samples": {},
+        "space_status_samples": {},
+        "promotion_level_samples": {},
+        "seal_rate": null,
+        "broken_board_rate": null,
+        "t1_observation_return_mean": null,
+        "t1_observation_return_median": null,
+        "executable_net_return_mean": null,
+        "executable_net_return_median": null,
+        "profit_loss_ratio": null,
+        "tail_loss": null,
+        "max_adverse_excursion": null,
+        "status": "待验证；规则增强不是交易样本",
+        "cost_policy": "沿用未校准的20bp研究占位，不能用它宣称可执行净收益"
+      }
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-07T20:04:03+00:00",
+  "updated_at": "2026-10-07T21:59:05+00:00",
   "source": "confirmed_automation_configuration",
   "items": [
     {
@@ -158,7 +158,7 @@
       "id": "limitup_single",
       "title": "每日打板一股",
       "track": "market_review",
-      "summary": "独立limitup_single_v1前推模拟；最多一只条件候选，弱市或证据不足空仓；先追踪旧样本，不替代综合双标。",
+      "summary": "独立打板一股前推模拟；v2新增情绪/高度/空间/分层晋级必查。旧v1继续原规则追踪；最多一只，证据不足空仓。",
       "schedule_text": "工作日08:00左右 · 奥克兰",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261008T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
@@ -166,7 +166,9 @@
       "enabled": true,
       "one_time": false,
       "dependencies": [],
-      "include_legacy_reports": false
+      "include_legacy_reports": false,
+      "research_rule_version": "limitup_single_v2",
+      "research_rule_effective_scope": "下一轮新候选起；2026-10-08已冻结v1候选保持原条件"
     }
   ]
 }
