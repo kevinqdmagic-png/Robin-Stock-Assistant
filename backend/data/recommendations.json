@@ -212,6 +212,80 @@
       "reason": "14:40独立扫描：成交额约47.46亿元、换手约2.69%，盘中量比约2.28，日量相对5/10/20日均量约2.17/1.57/1.52倍；CLV约0.853，尾盘靠近日内高位，低换手高成交额有利于研究T+1退出质量。",
       "trigger": "21.95—22.05元附近仅作14:40观察区；须保持21.90上方且航运/能源运输板块同向强度未快速消失。没有券商成交回报则记未确认成交。",
       "invalid": "跌破21.90后不能快速收回，或放量跌破21.75，或尾盘放量却无法重新靠近日内高位，均放弃。"
+    },
+    {
+      "date": "2026-10-08",
+      "published_at": "2026-10-08T21:36:00+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "model": "market_review_v2",
+      "sources": [
+        "https://www.mrjjxw.com/articles/2026-10-08/4598348.html",
+        "https://www.cls.cn/detail/2499275",
+        "https://www.cls.cn/detail/2499103",
+        "https://www.dabanke.com/",
+        "https://cn.investing.com/equities/merchants-ship-historical-data",
+        "https://cn.investing.com/equities/dongyuan-electri-a-historical-data",
+        "https://cn.investing.com/equities/jiangsu-transimage-tech-historical-data",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-08T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-08",
+      "planned_entry_date": "2026-10-09",
+      "earliest_legal_exit_date_if_bought": "2026-10-12",
+      "current_stage": "frozen_conditional_observation",
+      "results": [],
+      "report_ids": [
+        "market-review-20261008-close-v1"
+      ],
+      "id": "market-review-20261008-601872-close-v1",
+      "code": "601872",
+      "name": "招商轮船",
+      "reference_price": 22.17,
+      "reference_price_time": "2026-10-08T15:00:00+08:00",
+      "reference_price_source": "https://cn.investing.com/equities/merchants-ship-historical-data",
+      "reason": "航运多股共振，10月8日收22.17涨停并收日高；容量与换手结构相对高位情绪票更适合T+1退出研究。",
+      "trigger": "10月9日不高开超过3%；9:45—10:30回踩后重新站稳22.00，且中远海能/招商南油未同步转弱。",
+      "invalid": "放量跌破21.75，或航运板块集体兑现并失去22.00附近承接。"
+    },
+    {
+      "date": "2026-10-08",
+      "published_at": "2026-10-08T21:36:00+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "model": "market_review_v2",
+      "sources": [
+        "https://www.mrjjxw.com/articles/2026-10-08/4598348.html",
+        "https://www.cls.cn/detail/2499275",
+        "https://www.cls.cn/detail/2499103",
+        "https://www.dabanke.com/",
+        "https://cn.investing.com/equities/merchants-ship-historical-data",
+        "https://cn.investing.com/equities/dongyuan-electri-a-historical-data",
+        "https://cn.investing.com/equities/jiangsu-transimage-tech-historical-data",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-08T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-08",
+      "planned_entry_date": "2026-10-09",
+      "earliest_legal_exit_date_if_bought": "2026-10-12",
+      "current_stage": "frozen_conditional_observation",
+      "results": [],
+      "report_ids": [
+        "market-review-20261008-close-v1"
+      ],
+      "id": "market-review-20261008-002074-close-v1",
+      "code": "002074",
+      "name": "国轩高科",
+      "reference_price": 31.18,
+      "reference_price_time": "2026-10-08T15:00:00+08:00",
+      "reference_price_source": "https://cn.investing.com/equities/dongyuan-electri-a-historical-data",
+      "reason": "9月29日启动后跨长假继续推进，10月8日+5.69%；固态电池共振，量能较9月30日回落但价格仍上行，作为分歧承接样本。",
+      "trigger": "10月9日不大幅高开；30.50—31.00缩量承接后重新站回31.20，且固态电池高标不批量炸板。",
+      "invalid": "放量跌破29.45，或固态电池板块宽度快速坍塌。"
     }
   ],
   "legacy_audit": [

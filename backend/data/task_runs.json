@@ -517,6 +517,35 @@
         "https://www.cnfin.com/gs-lb/detail/20261008/4477939_1.html",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
       ]
+    },
+    {
+      "id": "market-review-20261008-scheduled-close-v1-completed",
+      "run_id": "market-review-20261008-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-08T20:15:00+08:00",
+      "recorded_at": "2026-10-08T21:36:00+08:00",
+      "completed_at": "2026-10-08T21:36:00+08:00",
+      "status": "completed",
+      "summary": "完成10月8日收盘复盘：长假后放量分歧；复用120只广泛池证据，深筛24只；冻结招商轮船、国轩高科两只market_review条件观察；9月30日旧池缺失同源数据者保留pending。",
+      "report_ids": [
+        "market-review-20261008-close-v1"
+      ],
+      "recommendation_ids": [
+        "market-review-20261008-601872-close-v1",
+        "market-review-20261008-002074-close-v1"
+      ],
+      "sources": [
+        "https://www.mrjjxw.com/articles/2026-10-08/4598348.html",
+        "https://www.cls.cn/detail/2499275",
+        "https://www.cls.cn/detail/2499103",
+        "https://www.dabanke.com/",
+        "https://cn.investing.com/equities/merchants-ship-historical-data",
+        "https://cn.investing.com/equities/dongyuan-electri-a-historical-data",
+        "https://cn.investing.com/equities/jiangsu-transimage-tech-historical-data",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ]
     }
   ]
 }
