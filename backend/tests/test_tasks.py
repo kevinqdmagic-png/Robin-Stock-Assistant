@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from task_center import task_list, report_page, validate_registry, validate_runs, checked_receipt
+from task_center import task_list, run_page, report_page, validate_registry, validate_runs, checked_receipt, receipt_clock_issue, instant
 from research_archive import verify_append_only
 import app as api
 
@@ -74,6 +74,26 @@ class TaskTests(unittest.TestCase):
         after["items"][0]["status"] = "failed"
         with self.assertRaises(ValueError):
             verify_append_only(before, after, "task_runs")
+
+    def test_future_clock_is_not_displayed_as_verified_completion(self):
+        future = dict(EVENT, started_at="2999-01-01T08:00:00+00:00",
+                      recorded_at="2999-01-01T08:20:00+00:00", completed_at="2999-01-01T08:20:00+00:00")
+        with patch("task_center.load_document", side_effect=loader([future], [REPORT])):
+            shown = task_list()["items"][0]["last_run"]
+            history = run_page()["items"][0]
+        self.assertEqual(shown["status"], "clock_unverified")
+        self.assertEqual(history["status"], "completed")
+        self.assertEqual(history["clock_status"], "unverified")
+        verify_append_only({"items": [future]}, {"items": [history]}, "task_runs")
+
+    def test_timezone_conversion_does_not_create_clock_warning(self):
+        now = instant("2026-09-30T16:25:00+08:00")
+        self.assertIsNone(receipt_clock_issue(EVENT, {"items": [EVENT]}, now))
+
+    def test_append_only_clock_audit_remains_visible_after_future_time_passes(self):
+        audit = dict(EVENT, id="clock-audit", status="blocked", timestamp_disputes=["e"])
+        issue = receipt_clock_issue(EVENT, {"items": [EVENT, audit]}, instant("2027-01-01T00:00:00+00:00"))
+        self.assertIn("追加审计", issue)
 
     def test_api_errors_are_visible(self):
         with patch("app.task_list", side_effect=OSError("missing")):

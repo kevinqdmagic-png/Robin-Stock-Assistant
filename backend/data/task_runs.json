@@ -546,6 +546,55 @@
         "https://cn.investing.com/equities/jiangsu-transimage-tech-historical-data",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
       ]
+    },
+    {
+      "id": "app-stability-task-configuration-2026-10-08-work-mode-completed",
+      "run_id": "app-stability-task-configuration-2026-10-08-work-mode",
+      "task_id": "apk_polish",
+      "date": "2026-10-08",
+      "trigger": "manual",
+      "started_at": "2026-10-08T08:01:00+00:00",
+      "recorded_at": "2026-10-08T08:17:25+00:00",
+      "completed_at": "2026-10-08T08:17:25+00:00",
+      "status": "completed",
+      "summary": "完成配置核对、后端分时修复与51项本地测试；此手动回执不表示当日股票研究、成交或生产发布完成。",
+      "report_ids": [
+        "app-stability-task-configuration-2026-10-08-work-mode"
+      ]
+    },
+    {
+      "id": "market-review-configuration-audit-2026-10-08-work-mode-blocked",
+      "run_id": "market-review-configuration-audit-2026-10-08-work-mode",
+      "task_id": "market_review",
+      "date": "2026-10-08",
+      "trigger": "manual",
+      "started_at": "2026-10-08T08:28:25+00:00",
+      "recorded_at": "2026-10-08T08:28:25+00:00",
+      "completed_at": "2026-10-08T08:28:25+00:00",
+      "status": "blocked",
+      "summary": "配置核查已完成并恢复独立调度；今天完整复盘与回执尚未发布，不能标为当天研究成功。",
+      "report_ids": [
+        "market-review-configuration-audit-2026-10-08-work-mode"
+      ]
+    },
+    {
+      "id": "market-review-clock-audit-2026-10-08-work-mode-manual-blocked",
+      "run_id": "market-review-clock-audit-2026-10-08-work-mode-manual",
+      "task_id": "market_review",
+      "date": "2026-10-08",
+      "trigger": "manual",
+      "status": "blocked",
+      "started_at": "2026-10-08T16:55:13+08:00",
+      "recorded_at": "2026-10-08T16:58:27+08:00",
+      "completed_at": "2026-10-08T16:58:27+08:00",
+      "report_ids": [
+        "market-review-clock-audit-2026-10-08-work-mode"
+      ],
+      "recommendation_ids": [],
+      "summary": "完整复盘已在线归档；原定时回执的时区标记与真实服务器时间不符，执行起止待核验。本回执仅记录人工配置与归档审计。",
+      "timestamp_disputes": [
+        "market-review-20261008-scheduled-close-v1-completed"
+      ]
     }
   ]
 }

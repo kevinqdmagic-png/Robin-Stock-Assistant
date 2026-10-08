@@ -4709,6 +4709,65 @@
         "000503"
       ],
       "provenance": "contemporaneous"
+    },
+    {
+      "id": "app-stability-task-configuration-2026-10-08-work-mode",
+      "date": "2026-10-08",
+      "recorded_at": "2026-10-08T08:17:25+00:00",
+      "task_id": "apk_polish",
+      "track": "app_development",
+      "title": "任务配置核对与分时稳定性修复",
+      "summary": "独立龙虎榜已恢复；完整研究兜底与APP快照校正；修复上游失败、并发重复和分时缓存。",
+      "body": "本次手动工作完成了任务配置核对和分时稳定性代码修复，未执行新的股票选股研究或假想成交。\n定时安排：龙虎榜已真实恢复独立调度，工作日21:50奥克兰；量价独立调度为工作日22:00；打板和综合双标原安排保留。当前市场复盘、量化痕迹和低位研究的独立调度暂停，综合双标保存全部五套原研究要求，缺失时逐项完整补做，分别使用原task_id/track、样本和真实回执。已有同日完整报告跳过，五份研究齐备后按原双标规则裁决，不把龙虎榜缩写为综合报告的一段。配置快照校正为实际调度状态；登记配置不代表今天研究已完成。\n故障证据：旧生产build_commit=b3d28d72ab089ebdb65dce5ec61ef785b00a4004。600592分时连续两次HTTP 200但业务ok=false，耗时12.995秒/12.392秒，错误HTTPError与ConnectionError。源码中的同股票并发合并修复此前尚未在该线上版本生效。一次腾讯公开接口实测返回HTTP 200及分钟价格序列，后续本地探测也出现连接超时，不能宣称备用源永不失败。\n修复：同股票并发共用一次刷新，行情与信号扫描共享分钟缓存；冷请求失败进入30秒重试冷却，有旧图时立即返回原图及真实缓存年龄，并在后台刷新。东方财富失败后接入腾讯独立分时价格点备用源，东方财富分钟通道暂缓120秒重试；分钟抓取最多三路、全市场分页线程由16降至4。腾讯累计量额转换为每点增量，标明不是已核验OHLC，不用于买点信号。东方财富分钟close改为f53真实收盘字段，open保留f52。\n验证：51项本地测试通过，包括六个并发请求只抓一次、失败冷却、后台刷新旧缓存保留、异常释放保护、备用源时间与累计量额映射、真实开收盘字段、备用分时不会冒充已核验信号；原档案、研究自选和全部历史保持。生产发布和实际分钟读数仍需准确SHA部署及线上核验，以后续真实检查为准。此次为后台更新，无需为了后台配置或接口修复重装APK。",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/d19d472044cb74ced734f4b1f3912a1b9d7da4e1",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600592"
+      ]
+    },
+    {
+      "id": "market-review-configuration-audit-2026-10-08-work-mode",
+      "date": "2026-10-08",
+      "recorded_at": "2026-10-08T08:28:25+00:00",
+      "task_id": "market_review",
+      "track": "market_review",
+      "report_type": "configuration_audit",
+      "eligible_for_integrated_research": false,
+      "title": "每日复盘未完成核查（调度与发布检查）",
+      "summary": "10月8日完整复盘和执行回执尚未在当前main及生产发布；独立调度已恢复，综合双标保留完整补做要求。",
+      "body": "本报告仅为配置与发布核查，不是10月8日完整股票研究。\n核对现有main和线上API：生产build_commit=e9e56d2730e78b935b7d03c23e21472b5679fc07，health正常；/api/research?task=market_review&date=2026-10-08返回total=0，/api/task-runs?task=market_review仅有10月1日已完成休市审计。/api/tasks显示的启用状态来自10月7日旧配置，与实际独立调度已暂停的情况不一致。\n用户截图显示任务停留在部署授权界面，不能据此认定原研究已完整归档或发布。恢复了原独立工作日21:00奥克兰调度，次轮10月9日；原研究提示词保持。今晚综合双标仍负责核对最近交易日的五份完整研究，对缺失项按完整原要求补做、分别保存样本和验证记录；配置报告、blocked回执和历史旧日报不能冒充同日完整研究。\n本轮稳定性修复及更新配置已完成本地51项测试和历史完整性校验；远程推送及生产发布受到自动审批阻挡，当前线上没有这些新增改动。此核查状态blocked表示今天完整复盘尚未取得已发布证据，不代表本次配置核查失败或虚构选股。",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/e9e56d2730e78b935b7d03c23e21472b5679fc07",
+        "https://robin-stock-api-production.up.railway.app/api/research?task=market_review&date=2026-10-08",
+        "https://robin-stock-api-production.up.railway.app/api/task-runs?task=market_review"
+      ]
+    },
+    {
+      "id": "market-review-clock-audit-2026-10-08-work-mode",
+      "date": "2026-10-08",
+      "task_id": "market_review",
+      "track": "market_review",
+      "run_id": "market-review-clock-audit-2026-10-08-work-mode-manual",
+      "published_at": "2026-10-08T16:58:27+08:00",
+      "recorded_at": "2026-10-08T16:58:27+08:00",
+      "title": "每日复盘报告上线与回执时区核验",
+      "report_type": "configuration_audit",
+      "eligible_for_integrated_research": false,
+      "summary": "线上已可读取10月8日完整复盘报告；原定时回执的北京时间标记晚于实际查询时间，执行起止尚待核验。",
+      "body": "本次工作模式人工核验：生产 /health 的 build_commit 为 11c89377819288f237bac7c94433063ea9105b97；time_cn 为2026-10-08T16:55:13+08:00。同次 /api/research?task=market_review&date=2026-10-08 返回完整报告 market-review-20261008-close-v1，/api/task-runs 返回原 completed 回执。报告已经归档并可供APP读取。原报告 published_at/recorded_at 及原回执 completed_at/recorded_at 却写作2026-10-08T21:36:00+08:00，晚于该次真实查询时间，不能将其当作已核实的定时执行起止。可能存在时区标记错误，未经证据不擅自减去5小时，也不修改原报告、候选或回执。此追加审计永久标记原回执时间待核验；任务中心对未来时间或被审计质疑的回执显示状态待核验。独立复盘调度已恢复，后续必须用真实UTC时钟转换时区并进行生产核验。本记录是配置与归档核验，不是重新完成当日交易研究，不作为综合双标前置完整研究。",
+      "affected_report_ids": [
+        "market-review-20261008-close-v1"
+      ],
+      "affected_receipt_ids": [
+        "market-review-20261008-scheduled-close-v1-completed"
+      ],
+      "sources": [
+        {
+          "name": "Production health and archive API verification",
+          "url": "https://robin-stock-api-production.up.railway.app/health",
+          "observed_at": "2026-10-08T16:55:13+08:00"
+        }
+      ]
     }
   ]
 }
