@@ -2,7 +2,7 @@
 import hashlib
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from research_archive import load_document
 
 STATUSES = {"running", "waiting", "completed", "blocked", "failed"}
@@ -99,6 +99,19 @@ def checked_receipt(receipt, reports):
     return row
 
 
+def receipt_clock_issue(receipt, runs, now=None):
+    """Annotate suspect clocks without rewriting immutable archive receipts."""
+    for audit in runs["items"]:
+        if (receipt["id"] in audit.get("timestamp_disputes", []) and
+                audit["task_id"] == receipt["task_id"] and audit["date"] == receipt["date"]):
+            return "原回执的时区标记已被追加审计标记为待核验；报告原文与原始回执均保留。"
+    ceiling = (now or datetime.now(timezone.utc)) + timedelta(minutes=5)
+    if any(instant(receipt[key]) > ceiling for key in ("started_at", "recorded_at", "completed_at")
+           if receipt.get(key)):
+        return "回执时间晚于服务器当前时间，不能据此确认定时执行起止；请核验时区标记。"
+    return None
+
+
 def task_list():
     tasks, runs, reports = context()
     items = []
@@ -108,6 +121,12 @@ def task_list():
                           key=lambda r: instant(r["recorded_at"]), reverse=True)
         history = paginate([r for r in reports["items"] if belongs(r, task)])
         row["last_run"] = checked_receipt(receipts[0], reports) if receipts else None
+        if receipts:
+            clock_issue = receipt_clock_issue(receipts[0], runs)
+            if clock_issue:
+                row["last_run"]["reported_status"] = row["last_run"]["status"]
+                row["last_run"]["status"] = "clock_unverified"
+                row["last_run"]["summary"] = clock_issue
         row["report_count"] = history["total"]
         row["latest_report"] = history["items"][0] if history["items"] else None
         items.append(row)
@@ -119,7 +138,16 @@ def run_page(task=None, offset=0, limit=20):
     tasks, runs, reports = context()
     if task and task not in {r["id"] for r in tasks["items"]}:
         raise ValueError("unknown_task")
-    return paginate([checked_receipt(r, reports) for r in runs["items"] if not task or r["task_id"] == task], offset, limit)
+    rows = []
+    for receipt in runs["items"]:
+        if task and receipt["task_id"] != task:
+            continue
+        row = checked_receipt(receipt, reports)
+        clock_issue = receipt_clock_issue(receipt, runs)
+        if clock_issue:
+            row.update(clock_status="unverified", clock_warning=clock_issue)
+        rows.append(row)
+    return paginate(rows, offset, limit)
 
 
 def report_page(task_id, track=None, day=None, offset=0, limit=20):

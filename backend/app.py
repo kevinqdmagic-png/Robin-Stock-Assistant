@@ -41,6 +41,11 @@ _market_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
 _minute_lock = threading.Lock()
 _minute_cache = {}
 _minute_inflight = {}
+_minute_failures = {}
+_minute_provider_gate = threading.BoundedSemaphore(3)
+_minute_eastmoney_retry_after = 0.0
+MINUTE_CACHE_TTL = 30
+MINUTE_FAILURE_TTL = 30
 
 SIGNAL_CACHE_TTL = 75
 DAILY_CACHE_TTL = 600
@@ -232,7 +237,7 @@ def _eastmoney_spot():
     failed_pages = []
 
     if pages > 1:
-        workers = min(16, pages - 1)
+        workers = min(4, pages - 1)
         with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="em-page") as pool:
             futures = {pool.submit(fetch_page, page): page for page in range(2, pages + 1)}
             for future in as_completed(futures):
@@ -905,7 +910,7 @@ def _eastmoney_minute(code):
                 host + "/api/qt/stock/trends2/get",
                 params=params,
                 headers=HTTP_HEADERS,
-                timeout=(2.5, 5.5),
+                timeout=(2, 3),
             )
             response.raise_for_status()
             data = (response.json().get("data") or {})
@@ -917,9 +922,10 @@ def _eastmoney_minute(code):
                 parts = str(line).split(",")
                 if len(parts) < 7:
                     continue
-                price = _num(parts[1])
+                opening = _num(parts[1])
+                price = _num(parts[2])
                 if price is None or price <= 0:
-                    price = _num(parts[2])
+                    price = opening
                 if price is None or price <= 0:
                     continue
                 high = _num(parts[3], price)
@@ -927,7 +933,7 @@ def _eastmoney_minute(code):
                 bars.append(
                     {
                         "time": parts[0],
-                        "open": price,
+                        "open": opening if opening and opening > 0 else price,
                         "close": price,
                         "high": high if high and high > 0 else price,
                         "low": low if low and low > 0 else price,
@@ -944,6 +950,95 @@ def _eastmoney_minute(code):
     return [], None, errors
 
 
+def _tencent_minute(code):
+    """Fallback price points; cumulative lots/amount are converted to increments."""
+    symbol = ("sh" if code.startswith(("5", "6", "9")) else
+              "bj" if code.startswith(("4", "8")) else "sz") + code
+    try:
+        response = requests.get(
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+            params={"code": symbol}, headers=HTTP_HEADERS, timeout=(4, 5),
+        )
+        response.raise_for_status()
+        payload = response.json()
+        data = (payload.get("data") or {}).get(symbol, {}).get("data") or {}
+        day = datetime.strptime(str(data.get("date")), "%Y%m%d").strftime("%Y-%m-%d")
+        bars = []
+        previous_volume = previous_amount = 0.0
+        for line in data.get("data") or []:
+            parts = str(line).split()
+            if len(parts) < 4:
+                continue
+            clock = datetime.strptime(parts[0], "%H%M").strftime("%H:%M")
+            price, volume, amount = _num(parts[1]), _num(parts[2]), _num(parts[3])
+            if (price is None or price <= 0 or volume is None or amount is None or
+                    volume < previous_volume or amount < previous_amount):
+                raise ValueError("invalid cumulative minute data")
+            bars.append({"time": day + " " + clock, "open": price, "close": price,
+                         "high": price, "low": price,
+                         "volume": volume - previous_volume,
+                         "amount": amount - previous_amount,
+                         "ohlc_verified": False, "bar_kind": "price_point"})
+            previous_volume, previous_amount = volume, amount
+        if bars:
+            return bars, "tencent_minute", []
+        raise ValueError("empty minute data")
+    except Exception as exc:
+        logger.warning("Tencent minute failed for %s: %s", code, exc)
+        return [], None, ["tencent_minute:" + type(exc).__name__]
+
+
+def _fetch_minute(code):
+    global _minute_eastmoney_retry_after
+    if not _minute_provider_gate.acquire(timeout=1):
+        return [], None, ["minute_provider_busy"]
+    try:
+        errors = []
+        # Stop hammering a failing provider across charts and signal scans.
+        if time.time() >= _minute_eastmoney_retry_after:
+            bars, source, errors = _eastmoney_minute(code)
+            if bars:
+                return bars, source, errors
+            _minute_eastmoney_retry_after = time.time() + 120
+        bars, source, fallback_errors = _tencent_minute(code)
+        return bars, source, errors + fallback_errors
+    finally:
+        _minute_provider_gate.release()
+
+
+def _minute_response(code, entry, refreshing=False, errors=None):
+    result = dict(entry["payload"])
+    age = max(0, int(time.time() - entry["saved_at"]))
+    result.update(cache_age_sec=age, refreshing=refreshing,
+                  stale=age >= MINUTE_CACHE_TTL,
+                  status="stale" if age >= MINUTE_CACHE_TTL else "ok")
+    if errors:
+        result["errors"] = errors
+    return result
+
+
+def _refresh_minute(code, flight):
+    try:
+        try:
+            bars, source, errors = _fetch_minute(code)
+        except Exception as exc:
+            bars, source, errors = [], None, [type(exc).__name__]
+        with _minute_lock:
+            if bars:
+                payload = {"ok": True, "status": "ok", "time_cn": now_cn(),
+                           "code": code, "source": source, "count": len(bars), "bars": bars,
+                           "data_as_of": bars[-1]["time"], "errors": errors}
+                _minute_cache[code] = {"saved_at": time.time(), "payload": payload}
+                _minute_failures.pop(code, None)
+            else:
+                _minute_failures[code] = {"retry_after": time.time() + MINUTE_FAILURE_TTL,
+                                          "errors": errors, "source": source}
+    finally:
+        with _minute_lock:
+            _minute_inflight.pop(code, None)
+            flight.set()
+
+
 @app.get("/api/stocks/{code}/minute")
 def stock_minute(code: str):
     code = "".join(ch for ch in code if ch.isdigit())[:6]
@@ -953,8 +1048,15 @@ def stock_minute(code: str):
     now = time.time()
     with _minute_lock:
         cached = _minute_cache.get(code)
-        if cached and now - cached["saved_at"] < 30:
-            return dict(cached["payload"])
+        if cached and now - cached["saved_at"] < MINUTE_CACHE_TTL:
+            return _minute_response(code, cached)
+        failure = _minute_failures.get(code)
+        if failure and now < failure["retry_after"]:
+            if cached:
+                return _minute_response(code, cached, errors=failure["errors"])
+            return {"ok": False, "status": "minute_data_temporarily_unavailable",
+                    "code": code, "bars": [], "count": 0, "errors": failure["errors"],
+                    "retry_after_sec": max(1, int(failure["retry_after"] - now))}
         # Single-flight: concurrent requests for the same symbol share a refresh.
         flight = _minute_inflight.get(code)
         if flight is None:
@@ -964,41 +1066,26 @@ def stock_minute(code: str):
         else:
             owner = False
 
-    if not owner:
-        flight.wait(timeout=13)
-        with _minute_lock:
-            refreshed = _minute_cache.get(code)
-        if refreshed:
-            result = dict(refreshed["payload"])
-            if time.time() - refreshed["saved_at"] >= 30:
-                result["status"] = "stale"
-                result["stale"] = True
-            return result
-        return {"ok": False, "status": "minute_data_temporarily_unavailable",
-                "time_cn": now_cn(), "code": code, "bars": [], "errors": ["refresh_in_progress"]}
+    if cached:
+        if owner:
+            threading.Thread(target=_refresh_minute, args=(code, flight), daemon=True,
+                             name="minute-refresh-" + code).start()
+        return _minute_response(code, cached, refreshing=True)
 
-    try:
-        bars, source, errors = _eastmoney_minute(code)
-        if not bars:
-            if cached:
-                result = dict(cached["payload"])
-                result["status"] = "stale"
-                result["stale"] = True
-                result["errors"] = errors
-                return result
-            return {"ok": False, "status": "minute_data_temporarily_unavailable",
-                    "time_cn": now_cn(), "code": code, "source": source,
-                    "errors": errors, "count": 0, "bars": []}
-
-        payload = {"ok": True, "status": "ok", "time_cn": now_cn(),
-                   "code": code, "source": source, "count": len(bars), "bars": bars}
-        with _minute_lock:
-            _minute_cache[code] = {"saved_at": time.time(), "payload": payload}
-        return payload
-    finally:
-        with _minute_lock:
-            _minute_inflight.pop(code, None)
-            flight.set()
+    if owner:
+        _refresh_minute(code, flight)
+    else:
+        flight.wait(timeout=24)
+    with _minute_lock:
+        refreshed = _minute_cache.get(code)
+        failure = _minute_failures.get(code)
+        refreshing = code in _minute_inflight
+    if refreshed:
+        return _minute_response(code, refreshed, refreshing=refreshing)
+    return {"ok": False, "status": "minute_data_temporarily_unavailable",
+            "time_cn": now_cn(), "code": code, "bars": [], "count": 0,
+            "errors": failure["errors"] if failure else ["refresh_in_progress"],
+            "retry_after_sec": max(1, int(failure["retry_after"] - time.time())) if failure else 1}
 
 
 def _eastmoney_daily(code, limit=120, adjust="1"):
@@ -1095,7 +1182,11 @@ def _analyze_signal(stock):
     if len(code) != 6 or pct is None or pct < 0.3 or pct > 9.3:
         return None
 
-    minute_bars, minute_source, minute_errors = _eastmoney_minute(code)
+    minute = stock_minute(code)
+    if not minute.get("ok") or minute.get("stale") or minute.get("source") != "eastmoney_trends":
+        # The fallback is a chart price path, not verified minute OHLC for signals.
+        return None
+    minute_bars, minute_source, minute_errors = minute["bars"], minute["source"], minute.get("errors", [])
     if len(minute_bars) < 25:
         return None
 
@@ -1271,7 +1362,7 @@ def _refresh_signals():
 
         signals = []
         if candidates:
-            with ThreadPoolExecutor(max_workers=min(8, len(candidates)), thread_name_prefix="signal") as pool:
+            with ThreadPoolExecutor(max_workers=min(3, len(candidates)), thread_name_prefix="signal") as pool:
                 futures = [pool.submit(_analyze_signal, item) for item in candidates]
                 for future in as_completed(futures):
                     try:

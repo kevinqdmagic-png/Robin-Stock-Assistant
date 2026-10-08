@@ -58,6 +58,12 @@ while True:
         tasks = get("/api/tasks")
         if not {r["id"] for r in expected["tasks.json"]["items"]}.issubset({r["id"] for r in tasks["items"]}):
             raise RuntimeError("task registry not yet deployed")
+        actual_tasks = {r["id"]: r for r in tasks["items"]}
+        for task in expected["tasks.json"]["items"]:
+            fields = ("enabled", "schedule", "timezone", "timing_mode", "execution_mode",
+                      "executor_task_id", "effective_enabled", "executes_missing_tasks")
+            if any(actual_tasks[task["id"]].get(key) != task.get(key) for key in fields):
+                raise RuntimeError("task configuration not yet deployed: " + task["id"])
         reports = all_rows("/api/research")
         receipts = all_rows("/api/task-runs")
         recommendations = all_rows("/api/recommendations")
