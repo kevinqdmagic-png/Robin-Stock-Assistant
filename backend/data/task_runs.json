@@ -494,6 +494,29 @@
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601872,day,,,130,qfq",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
       ]
+    },
+    {
+      "id": "low-position-20261008-scheduled-081254z-completed",
+      "run_id": "low-position-20261008-scheduled-081254z",
+      "task_id": "low_position",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-08T08:12:54.424Z",
+      "recorded_at": "2026-10-08T08:15:08.201Z",
+      "completed_at": "2026-10-08T08:15:08.201Z",
+      "status": "completed",
+      "summary": "完成节后首日低位启动研究：历史11只及对照1只恢复台账；1只核验收盘、10只待补证；无强凑新候选，30日统计N/A。仅表示研究归档完成，CI/生产发布另核验。",
+      "report_ids": [
+        "low-position-20261008-review-v1"
+      ],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.mrjjxw.com/articles/2026-10-08/4598348.html",
+        "https://www.lvzen.top/stock/002074.html",
+        "https://cn.investing.com/equities/dongyuan-electri-a-historical-data",
+        "https://www.cnfin.com/gs-lb/detail/20261008/4477939_1.html",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ]
     }
   ]
 }

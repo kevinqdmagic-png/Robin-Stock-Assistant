@@ -1,0 +1,362 @@
+{
+  "schema_version": 1,
+  "track": "low_position",
+  "research_version": "low_position_30d_v1",
+  "created_at": "2026-10-08T08:15:08.201Z",
+  "updated_at": "2026-10-08T08:15:08.201Z",
+  "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
+  "milestones_calendar_days": [
+    1,
+    3,
+    5,
+    10,
+    15,
+    20,
+    30
+  ],
+  "milestones_trading_days": [
+    5,
+    10,
+    20
+  ],
+  "items": [
+    {
+      "id": "low-position-20260923-002472",
+      "date": "2026-09-23",
+      "code": "002472",
+      "name": "双环传动",
+      "day0_close": 37.58,
+      "invalid_close_below": 37,
+      "primary_model": "板块共振趋势反转",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 15,
+          "trading_day": 5,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260923-600845",
+      "date": "2026-09-23",
+      "code": "600845",
+      "name": "宝信软件",
+      "day0_close": 18.34,
+      "invalid_close_below": 17.5,
+      "primary_model": "底部放量缩量承接",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 15,
+          "trading_day": 5,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260928-600380",
+      "date": "2026-09-28",
+      "code": "600380",
+      "name": "健康元",
+      "day0_close": 9.79,
+      "invalid_close_below": 9.2,
+      "primary_model": "底部放量启动",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_change_pct": 5.84,
+      "day0_turnover_pct": 2.62,
+      "day0_amount_yi": 4.64,
+      "day0_rvol20": 3.47,
+      "day0_range_position_pct": {
+        "20": 97,
+        "60": 43,
+        "120": 33
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260928-000503",
+      "date": "2026-09-28",
+      "code": "000503",
+      "name": "国新健康",
+      "day0_close": 7.44,
+      "invalid_close_below": 6.75,
+      "primary_model": "低位平台突破",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260928-000513",
+      "date": "2026-09-28",
+      "code": "000513",
+      "name": "丽珠集团",
+      "day0_close": 30.34,
+      "invalid_close_below": 27.15,
+      "primary_model": "板块共振启动",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_turnover_pct": 4.92,
+      "day0_amount_yi": 8.43,
+      "day0_rvol20": 5.3,
+      "day0_range_position_pct": {
+        "20": 100,
+        "60": 77,
+        "120": 59
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260928-002962",
+      "date": "2026-09-28",
+      "code": "002962",
+      "name": "五方光电",
+      "day0_close": 14.76,
+      "invalid_close_below": 13.35,
+      "primary_model": "箱体突破",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_turnover_pct": 14.96,
+      "day0_amount_yi": 4.58,
+      "day0_rvol20": 4.2,
+      "day0_range_position_pct": {
+        "20": 100,
+        "60": 59,
+        "120": 36
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260929-002074",
+      "date": "2026-09-29",
+      "code": "002074",
+      "name": "国轩高科",
+      "day0_close": 28.68,
+      "invalid_close_below": 26,
+      "primary_model": "低位箱体突破",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_change_pct": 10.01,
+      "day0_turnover_pct": 2.66,
+      "day0_amount_yi": 13.02,
+      "day0_rvol20": 2.15,
+      "day0_range_position_pct": {
+        "20": 100,
+        "60": 91.7,
+        "120": 26.2
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 9,
+          "trading_day": 2,
+          "close": 31.19,
+          "close_source": "https://www.lvzen.top/stock/002074.html",
+          "close_source_label": "2026-10-08 收盘",
+          "change_from_day0_pct": 8.75,
+          "daily_change_pct": 5.73,
+          "open": 29.87,
+          "high": 32.14,
+          "low": 29.47,
+          "amount_yi": 29.94,
+          "volume_shares": 97758100,
+          "turnover_pct": 5.63,
+          "clv": 0.644,
+          "daily_amplitude_pct": 9.05,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260929-600152",
+      "date": "2026-09-29",
+      "code": "600152",
+      "name": "维科技术",
+      "day0_close": 8.32,
+      "invalid_close_below": 7.45,
+      "primary_model": "底部首次放量",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_change_pct": 10.05,
+      "day0_turnover_pct": 6.76,
+      "day0_amount_yi": 2.89,
+      "day0_rvol20": 2.83,
+      "day0_range_position_pct": {
+        "20": 83.5,
+        "60": 65.8,
+        "120": 18.9
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 9,
+          "trading_day": 2,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260929-002866",
+      "date": "2026-09-29",
+      "code": "002866",
+      "name": "传艺科技",
+      "day0_close": 15.36,
+      "invalid_close_below": 13.65,
+      "primary_model": "低位平台突破",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_change_pct": 10.03,
+      "day0_turnover_pct": 6.8,
+      "day0_amount_yi": 1.89,
+      "day0_rvol20": 2.53,
+      "day0_range_position_pct": {
+        "20": 100,
+        "60": 68.9,
+        "120": 12.3
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 9,
+          "trading_day": 2,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260929-002244",
+      "date": "2026-09-29",
+      "code": "002244",
+      "name": "滨江集团",
+      "day0_close": 9.46,
+      "invalid_close_below": 8.45,
+      "primary_model": "政策板块共振",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_change_pct": 10,
+      "day0_turnover_pct": 3.02,
+      "day0_amount_yi": 7.68,
+      "day0_rvol20": 2.02,
+      "day0_range_position_pct": {
+        "20": 100,
+        "60": 87.7,
+        "120": 47
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 9,
+          "trading_day": 2,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    },
+    {
+      "id": "low-position-20260929-603636",
+      "date": "2026-09-29",
+      "code": "603636",
+      "name": "南威软件",
+      "day0_close": 7.87,
+      "invalid_close_below": 6.85,
+      "primary_model": "事件催化底部放量",
+      "original_snapshot_provenance": "prior_conversation_report_excerpt",
+      "original_snapshot_verified": false,
+      "eligible_for_model_statistics": false,
+      "day0_change_pct": 10.07,
+      "day0_turnover_pct": 12.1,
+      "day0_amount_yi": 5.33,
+      "day0_rvol20": 2.77,
+      "day0_range_position_pct": {
+        "20": 59,
+        "60": 70.1,
+        "120": 31.7
+      },
+      "observations": [
+        {
+          "as_of": "2026-10-08",
+          "calendar_day": 9,
+          "trading_day": 2,
+          "close": null,
+          "status": "pending_verified_closing_quote",
+          "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        }
+      ]
+    }
+  ],
+  "comparison_items": [
+    {
+      "code": "002487",
+      "name": "大金重工",
+      "role": "high_position_trend_comparison",
+      "start_date": "2026-09-11",
+      "start_close": 35.21,
+      "provenance": "prior_conversation_report_excerpt",
+      "eligible_for_low_position_statistics": false
+    }
+  ]
+}
