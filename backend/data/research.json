@@ -5013,6 +5013,739 @@
         "https://robin-stock-api-production.up.railway.app/api/market",
         "https://www.cninfo.com.cn/new/disclosure/stock?stockCode=002074&orgId=9900014073"
       ]
+    },
+    {
+      "id": "limitup-single-20261009-review-v2",
+      "date": "2026-10-09",
+      "published_at": "2026-10-08T19:45:52+00:00",
+      "recorded_at": "2026-10-08T19:45:52+00:00",
+      "task_id": "limitup_single",
+      "run_id": "limitup-single-20261009-scheduled-192350",
+      "track": "market_review",
+      "title": "独立打板一股｜10月9日空仓：高度突破与低位晋级背离",
+      "summary": "今日空仓；258只有限池、12个重叠题材标签。龙溪v1必要条件失败，未触发、未确认成交；可见主板8板/次高4板，前20日可见上限7，1进2原37中3晋级/1停牌。v2仍待验证。",
+      "body": "今日空仓，无合格打板候选。新规则limitup_single_v2首次日常裁决；不新建股票推荐、不顺延龙溪股份原候选，不替代其他研究任务。空仓是当轮研究决定，不是实际证券账户仓位证明。\n\n1. 交易日、时钟和信息新鲜度\n研究/计划介入日D=2026-10-09（周五），最新已完成实际交易日T=2026-10-08。上交所公告明确国庆10月1—7日休市、10月8日复市；10月10—11日为周末。资料截止2026-10-09T03:40:19+08:00（真实UTC 2026-10-08T19:40:19+00:00），本轮报告与回执使用UTC时钟转换，未将奥克兰墙钟拼接为北京时间。所用258条股票报价均为10月8日，供应商收盘后标记约16:14—16:29；这个标记是供应商更新时间，不是该时刻仍有连续交易。没有10月9日9:25竞价或开盘数据，没有接入Level-2、持续盯盘或秒级预警。\n昨日龙溪样本跨国庆长假单列。10月9日的新候选若存在，其T=10月8日参考行情不再是节前封单；本轮没有新候选。\n\n2. 先追踪已冻结v1：龙溪股份600592\n原id=limitup-single-20261008-600592-v1，原日期、16.20参考价、17.82必要触发价、9:25竞价范围16.20—17.01、09:35—10:30首次回封、同伴/失效/成本等全部保持原样，只追加results。\n10月8日搜狐未复权日线与腾讯行情一致：开16.04、最高16.04、最低15.43、收15.55，较9月30日16.20跌4.01%；成交30.2136万手、约4.7437亿元、换手7.56%。腾讯报价时间20261008161457，同时给出当日上限17.82、下限14.58。此前17.82只是准备推算，本轮才有10月8日行情上限交叉资料；这不是10月9日涨停价。\n开盘16.04已经低于原16.20必要条件，全天最高也小于冻结触发价17.82，足以证伪本次计划的必要价格条件。因此标记“未触发，按冻结规则不入场”，不是“炸板买入亏损”。未确认模拟买入，未记交易净收益，收盘没有封板，也没有证据表明该日触及涨停后炸板。\n冻结同伴宁波东力002164收12.83（-3.24%）、凯迪股份605288收66.32（-7.67%）；高标襄阳轴承000678从4板断板，收12.24（-5.04%）、换手28.23%。收盘负反馈支持机器人接力风险，但不能用这些收盘数字反推09:35—10:30同伴同时涨跌或买盘变化。没有该段分钟/逐笔、真实9:25价、队列或成交回报。日线能否决必要价位，不能证明回封顺序、排队成交、止损先后。\n10月9日竞价/开盘尚未发生，次日观察继续pending；因昨日未触发，没有本策略应卖仓位。若只比较15.55/16.20-1=-4.01%，这是相对旧参考价的日线价格观察，不是本策略已亏4.01%，也不是T+1已退出收益。\n\n3. 独立扫描实际覆盖与缺项\n独立从T日公开涨停/炸板/连板/活跃题材和成交额排序扫描：打板客10月8日页面可见167只不同股票；新浪按成交额排序前100只，与前池重合10只；另加入1只风险对照艾力斯688578，合计258只。258条腾讯报价逐一取得且交易日期均为T，不以用户持仓、自选或其他组推荐获得选股资格。旧龙溪及原同伴只用于冻结样本跟踪/风险核对。\n题材页面实际覆盖12个标签：固态电池、钠电池、天然气、锂电池、动力电池生产、俄乌冲突影响、分散染料、电子树脂、染料、原料药、前期暴炒股、油气运储。标签有重叠，“前期暴炒股”不是行业，不把它们称为12个独立行业；100只高成交额池拓宽了弱势科技等对照。全A入口先超时、重试502，未拿到无缺口证券名册/全A报价，不声称全市场独立扫描。258池139涨/116跌/3平是被活跃/成交额筛选后的偏倚池，不代替市场宽度。\n六只重点备选历史请求中，雄韬002733、野马605378、中远海能600026取得8月1日至10月8日各43条日线；丰元002805、龙蟠603906、兴业603928请求503，保留数据缺失。龙溪另取得9月29、30及10月8日三日追踪。没有T日完整分钟/逐笔、排队成交及全部当日证券状态；同花顺涨停池尝试404，不能据此推断所有同花顺服务不可用；其10月8日龙虎榜页面已读取。缺项对形态、回封质量和未来可成交性构成实质限制。\n\n4. 市场情绪：分歧偏退潮压力，电池/航运局部强\n最近三次已完成实际交易日依次为9月29、9月30、10月8，不能把休市自然日当样本。财联社非ST/退市股收盘报道口径：9月29日57涨停/8封板未遂（约87.69%封住）；9月30日52/12（81.25%）；10月8日43/32（57.33%），仍混合10%/20%/30%制度，只作市场情绪背景，不是本实验普通主板胜率。同期打板客宽度表跌停数12/13/16，是该表全市场口径，状态过滤与财联社不完全同一，不拼成单一同口径序列。其沪深北成交额约1.42/1.45/1.70万亿元。另中证报/东财10月8日全市场成交16943亿元、上涨1698/下跌3748，放量与普跌共存。\n来源差异永久保留：东财Choice称45涨停/39盘中触板未封、封板53.57%；打板客生态表43/80=53.75%、隐含37未封，而其宽度表涨停45；财联社43/75=57.33%。不平均这些口径，也不把报道整体连板晋级58%或60%当成1进2概率。结论看共同方向与逐股证据：整体封板反馈较节前下滑、科技端跌停/大跌；同时电池梯队仍晋级，航运仍有首板，故没有仅凭指数下跌判“全面冰点”或宣称所有主线崩溃。\n高位反馈：新华传媒仍8板，九阳和时代万恒均4板，是正证据；襄阳4进5失败、两只原机器人同伴走弱，是反证据。实际可交易的低位接力与一字最高板表现分化，更适合先保留资本和验证空仓条件。\n\n5. 高度板：可见普通主板最高8、次高4，中间断层\n按10月8日公开封住列表剔除创业/科创/北交所后，可见主板梯队：1板28只、2板3只、3板4只、4板2只、5板及以上1只（8板新华传媒600825），5/6/7板为0。不是无缺口全A权威梯队。\n次高同为4板：九阳股份002242、时代万恒600241。3板：园林股份605303、紫竹高科002058、传艺科技002866、上海洗霸603200。2板：兴业股份603928、陆家嘴600663、龙蟠科技603906。\n腾讯OHLC确认新华11.39开/高/低/收相同，九阳13.75也相同，园林31.53也相同，为本日一字价格形态，按排除规则不选；日线成交量非零不证明排队能买到。时代万恒开9.72、低9.27、收10.69，换手10.88%，有换手但已4板，次日计划5板超出本实验首板/二板重点；不能追最高/次高去硬凑。电池主线可见高度4（时代），固态子线可见高度3（传艺/紫竹/洗霸），题材角色是工作分类，未把它们确认成某账户操盘龙头。\n\n6. 空间板：固定历史参照有数据，周期空间仍待核\n本实验空间板指尝试打开本轮连板高度上限，和高度板重合时去重。辅助窗口严格排除T，前20个实际交易日为2026-09-02至2026-09-30；20个公开历史页面已取得，每页从成功列表按沪深主板筛出可见最高高度，最大为7（9月30日新华传媒）。逐日资料及最高股存于证据文件，未从当日榜单倒推20日历史。\n10月8日新华8板高于这个可见20日7板参照，可记为“固定窗口高度突破观察”；其一字排队且有重大重组事件，不能推断普通低位接力空间同步打开。情绪周期起点/该周期全市场上限尚无可独立冻结的完整证据，标未知；不把滚动20日最大值直接等同周期高点。是否随后断板引发亏钱扩散尚待未来反馈。它同时属于高度板与窗口空间观察，去重为同一只，不新增推荐。\n已读取财联社10月8日21:23和证券之星10月9日01:01公告转载：新华提示继续异常上涨可能申请停牌核查。已追到公告编号2026-026及交易所原文链接，但原文请求返回HTML而非PDF，未完成原文核验，保留缺项；不是确认10月9日已停牌，不将转载补写成交易所已验证事实。一字形态本身已足以排除。\n\n7. 晋级板：前日逐股分母与制度分开\n在本轮冻结9月30日公开成功列表，再映射10月8日结果，逐股名称、代码、前板数、成/败/炸/停及对应价格存于证据文件，绝不按10月8日赢家倒推分母。这个跨长假历史市场观察不是v2前推成交样本；全量点时证券状态不足，使用“可见主板列表”标签。\n层级 | 前日原名单 | 晋级 | 未晋级 | 停牌/无正常成交 | 缺报价 | 可交易名单比例\n1进2 | 37 | 3 | 33（含页面标炸4） | 1（新亚制程002388，开/高/低及成交量为0，页面标停） | 0 | 3/36=8.33%\n2进3 | 6 | 4 | 2 | 0 | 0 | 4/6=66.67%\n3进4 | 3 | 2 | 1（深物业A000011页面标炸） | 0 | 0 | 2/3=66.67%\n4进5 | 1 | 0 | 1（襄阳轴承000678） | 0 | 0 | 0/1=0%\n7进8 | 1 | 1 | 0 | 0 | 0 | 1/1=100%\n停牌样本保留在原37分母登记；若以全部原样本为分母，1进2为3/37=8.11%，与可交易比例分开。停牌为公开页/零成交反馈，未声称完成逐股交易所全状态审计。\n媒体3/39含9月30日40只首板剔除1停牌，但其中还含3只20%股票（康希诺688185、泰诺麦博688806、松原安全300893），不能套为普通主板概率。3进4媒体分母4中还有创业板善水301190，应单列20%失败样本（收涨约9.99%但不到20%涨停）；“涨近10%”不是该板制度的晋级。路畅002813、星帅尔002860为此前已暂停延续层级，不在9月30日新首板名单，另留停牌观察，不补入当日首板分母。\n\n8. 至少三只真实备选的隔夜退出比较，均否决\n这些是独立扫描比较对象，不是新的交易观察推荐。以下价格和涨停价都对应T=10月8日，参考价不是成交价；10月9日真实上限、除权与状态均未核验，不能以前收乘1.1充当已核验今日涨停价。\n股票 | T收盘/当日上限/換手 | 梯队与主线角色 | 正证据 | 否决/隔夜退出风险\n雄韬股份002733 | 18.89 /18.89 /4.41% | 首板、若续为二板；电池高度4下的低位跟随待确认 | 非一字；43日线成交量/此前20均量1.519倍，近期收盘位置相对温和 | 本日最高18.89仍未超前20日高18.98；回封/最后封板时序无分钟证据，主线次日兑现与周末敞口未解除，不足冻结唯一入选者\n丰元股份002805 | 17.67 /17.67 /8.81% | 首板、计划二板方向；电池跟随待确认 | 换手首板、同花顺单日龙虎榜净买4804.34万元 | 完整历史请求503，平台/低位和回封质量未核；净买不能替代承接、锁仓或隔夜退出证据\n野马电池605378 | 17.27 /17.27 /6.17% | 首板、计划二板方向；电池链同伴，核心地位未确认 | 43日线放量，量/前20均量3.342倍，收盘高于原20日高16.89 | 开15.17低于前收15.70、日低15.09，盘中宽幅修复；相对20日前收已涨18.37%，回封顺序/缩量承接及周末退路不足，不能把日线收最高认作次日可卖溢价\n龙蟠科技603906 | 20.94 /20.94 /14.89% | 已二板、次日为三板，电池换手股 | 板块共振；同花顺三日榜净买约1.14亿元 | 已超优先二板计划且换手较高，日线请求503，未证明更适合固定首个可成交价退出，不扩展v2范围凑股\n另看中远海能600026首板收22.62、换手1.01%、量/前20均量0.505倍，前20日高23.08；主线航运受事件驱动，放量低位启动证据不优于上述，不能因涨停或其他组已讨论获得资格。\n同花顺兴业603928单日榜净卖7174.12万元、三日榜净卖2057.67万元必须分开，不和丰元单日/龙蟠三日横向排名。龙虎榜是T收盘后已披露资料，允许用于D盘前；发布精确分钟不全，记录本次取得时间，不倒用到T盘中。席位标签不确认为游资或量化账户；没有榜单不自动淘汰，未核实的席位不补造。东财涨停/市场报道与同花顺榜单分别读取，东财完整席位交叉仍缺，未声称双源逐席位全部核验。\n\n9. 本轮价格卡、待核验与退出边界\n唯一新候选/代码：无。今日候选参考价、经权威确认的D涨停价、候选支撑/失效价、买入触发阈值均N/A，不填写不存在的股票记录。\n本轮没有可执行打板触发。9月30日龙溪规则不顺延至10月9日；以后独立新候选须重新冻结版本、参考股、时间窗与上限，不能把今天“观察电池修复”作为临时买入许可。盘前条件仍待核：竞价真实性、交易状态和真实涨停价、时代/传艺/洗霸等主线反馈、低位1进2承接；开盘后还须能核实价格时序、换手、首次冲板/回封、持续承接。高标负反馈与梯队断层共振、空间失败亏钱扩散、板块转弱、连续开板/撤单、爆量不推进或关键盘口无法核实，优先放弃；一笔大封单不构成依据。\n合法退出：如果另有按未来新冻结规则在D=10月9日真实买入的股票，最早D+1实际交易日是10月12日（周一），不是10月10日。若T=10月8日盘后选、T+1=10月9日才买，也最早T+2=10月12日可卖。没有本轮新候选/持仓，因此不杜撰个股强开/平开/弱开/跌停关键价。\n原v1如昨日曾满足条件成交，今天10月9日才是最早卖出日，其强/平/弱开按原E分支、09:30首个可证实可成交价退出；实际必要条件已失败，无本策略成交记录，这些保留为原预案而不是本轮卖单。买入当日炸板无法靠当天止损离场；跌停/停牌或委托未成交必须追加延后记录，止损线不保证成交。任何盘中最高涨幅不记为已赚。\n\n10. 独立前推统计与新假设\n版本v1/v2分开。自2026-10-08起：v1冻结候选1（计划二板1，计划回封子标签1重叠），实际回封0可核验，已判必要条件未触发1、买入可验证0、完成卖出0；D+1价格观察pending。首板计划0、二板计划1、市场“节前分化/复市待核”候选1、机器人修复主题候选1、跨国庆长假样本1；未触发与缺分钟字段全部保留。\nv2=10月9日开始新的裁决：空仓研究轮次1、新候选0、首板/二板/回封成交样本均0，市场“分歧偏退潮压力”无入场观察轮次1、电池局部强/主板高8次4/1进2较弱/固定窗口空间突破等是市场描述标签，不是交易样本。空仓轮次不能充当一笔零收益交易或提高策略胜率。\n各版本、类型、情绪/主线阶段、高度/晋级/空间/长假队列均需分别列样本数。封板率=有真实触发及收盘证据者中收盘封板数/该分母；炸板率=同一触发分母中收盘未封者比例，曾开板后封住另列；封板与赚钱分开。当前触发分母0，故封板率/炸板率均N/A，不是0%。\n策略T+1观察收益均值/中位数、可执行净收益均值/中位数、盈亏比、尾部亏损及不利波动全部N/A（待验证）。龙溪相对原参考价-4.01%只列价格观察；实际入场价不存在不能混入策略收益。不按日高低回推路径或认为有排队成交。成本仍仅暂拟往返20bp（手续费/滑点占位），真实佣金最低额、印花税、过户费、数量和队列滑点未校准，不用于净收益结论。\n新发现：主板1进2必须从前日逐股名单剔除其他制度及停牌，媒体3/39不能直接拿来打分；高度突破与低位接力反馈可以背离。待验证假设：在高标一字且低位晋级弱时，放弃未有承接证据的二板计划是否降低隔夜尾部损失；没有样本证明优势，不把本轮未触发或空仓称为获利。\n当前仍模拟阶段，约20—30实际交易日只作首轮复核节点，不能自动转实盘；不推动重仓，也不使用长期资金、融资或借款。后续先追加龙溪10月9日可得开盘/分钟价格观察，再做下一轮新裁决；不反改原条件。完整研究与回执归档，生产上线以实际部署及API核验为准。\n",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20260915_10832273.shtml",
+        "https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml",
+        "https://www.cls.cn/detail/2495139",
+        "https://www.cls.cn/detail/2496354",
+        "https://www.cls.cn/detail/2499298",
+        "https://finance.eastmoney.com/a/202610083889588655.html",
+        "https://finance.eastmoney.com/a/202610083889595632.html",
+        "https://finance.eastmoney.com/a/202610083889637651.html",
+        "https://www.dabanke.com/index-20260929.html",
+        "https://www.dabanke.com/index-20260930.html",
+        "https://www.dabanke.com/index-20261008.html",
+        "https://www.dabanke.com/ztgc.html?date=2026-10-08",
+        "https://data.10jqka.com.cn/market/longhu/",
+        "https://www.cls.cn/detail/2499814",
+        "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-10-09/600825_20261009_DH6Z.pdf",
+        "https://stock.stockstar.com/notice/SN2026100900001386.shtml",
+        "https://q.stock.sohu.com/hisHq?code=cn_600592&start=20260929&end=20261008&stat=1&order=A&period=d",
+        "https://cn.investing.com/equities/longxi-bearing-historical-data",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=100&sort=amount&asc=0&node=hs_a&symbol=&_s_r_a=setlen",
+        "https://qt.gtimg.cn/q=sh600592,sz002164,sh605288,sz000678,sh600825,sh603906,sh603928,sz002733,sz002805,sh605378,sh600026,sh601975,sh601872,sh600241,sz002242",
+        "https://q.stock.sohu.com/hisHq?code=cn_002733&start=20260801&end=20261008&stat=1&order=A&period=d",
+        "https://q.stock.sohu.com/hisHq?code=cn_605378&start=20260801&end=20261008&stat=1&order=A&period=d",
+        "https://q.stock.sohu.com/hisHq?code=cn_600026&start=20260801&end=20261008&stat=1&order=A&period=d",
+        "https://www.dabanke.com/index-20260928.html",
+        "https://www.dabanke.com/index-20260924.html",
+        "https://www.dabanke.com/index-20260923.html",
+        "https://www.dabanke.com/index-20260922.html",
+        "https://www.dabanke.com/index-20260921.html",
+        "https://www.dabanke.com/index-20260918.html",
+        "https://www.dabanke.com/index-20260917.html",
+        "https://www.dabanke.com/index-20260916.html",
+        "https://www.dabanke.com/index-20260915.html",
+        "https://www.dabanke.com/index-20260914.html",
+        "https://www.dabanke.com/index-20260911.html",
+        "https://www.dabanke.com/index-20260910.html",
+        "https://www.dabanke.com/index-20260909.html",
+        "https://www.dabanke.com/index-20260908.html",
+        "https://www.dabanke.com/index-20260907.html",
+        "https://www.dabanke.com/index-20260904.html",
+        "https://www.dabanke.com/index-20260903.html",
+        "https://www.dabanke.com/index-20260902.html"
+      ],
+      "strategy": "limitup_single_v2",
+      "research_rule_version": "limitup_single_v2",
+      "research_version": "limitup_single_v2",
+      "current_stage": "forward_simulation",
+      "data_cutoff_at": "2026-10-08T19:40:19+00:00",
+      "latest_completed_trading_day": "2026-10-08",
+      "decision": "cash_no_qualified_candidate",
+      "candidate_ids": [],
+      "codes": [],
+      "tracked_candidate_ids": [
+        "limitup-single-20261008-600592-v1"
+      ],
+      "market_emotion": "分歧偏退潮压力；电池/航运局部强",
+      "source_coverage": {
+        "full_a_scan": false,
+        "public_T_pool": 167,
+        "sina_turnover_ranking": 100,
+        "overlap": 10,
+        "additional_risk_code": "688578",
+        "requested_unique_codes": 258,
+        "verified_quote_count": 258,
+        "provider_quote_market_date": "2026-10-08",
+        "concept_count": 12,
+        "concept_labels": [
+          "固态电池",
+          "钠电池",
+          "天然气",
+          "锂电池",
+          "动力电池生产",
+          "俄乌冲突影响",
+          "分散染料",
+          "电子树脂",
+          "染料",
+          "原料药",
+          "前期暴炒股",
+          "油气运储"
+        ],
+        "concepts_overlap": true,
+        "all_a_retry_status": 502,
+        "daily_history_requested": 6,
+        "daily_history_success": 3,
+        "daily_history_failure_codes": [
+          "002805",
+          "603906",
+          "603928"
+        ]
+      },
+      "promotion_layers": [
+        {
+          "from_board": 1,
+          "to_board": 2,
+          "frozen_previous_list": [
+            {
+              "code": "002226",
+              "name": "江南化工",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 5.29,
+              "quote_time": "20261008161445",
+              "reported_upper": 5.87,
+              "data_missing": false
+            },
+            {
+              "code": "000692",
+              "name": "惠天热电",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 4.61,
+              "quote_time": "20261008161439",
+              "reported_upper": 5.05,
+              "data_missing": false
+            },
+            {
+              "code": "001318",
+              "name": "阳光乳业",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 12.83,
+              "quote_time": "20261008161454",
+              "reported_upper": 14.34,
+              "data_missing": false
+            },
+            {
+              "code": "002164",
+              "name": "宁波东力",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 12.83,
+              "quote_time": "20261008161430",
+              "reported_upper": 14.59,
+              "data_missing": false
+            },
+            {
+              "code": "002388",
+              "name": "新亚制程",
+              "previous_board_count": 1,
+              "current_table_status": "suspended",
+              "close": 9.1,
+              "quote_time": "20261008161451",
+              "reported_upper": 10.01,
+              "data_missing": false
+            },
+            {
+              "code": "600059",
+              "name": "古越龙山",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 11.88,
+              "quote_time": "20261008161447",
+              "reported_upper": 13.5,
+              "data_missing": false
+            },
+            {
+              "code": "603739",
+              "name": "蔚蓝生物",
+              "previous_board_count": 1,
+              "current_table_status": "opened",
+              "close": 13.71,
+              "quote_time": "20261008161454",
+              "reported_upper": 15.44,
+              "data_missing": false
+            },
+            {
+              "code": "000710",
+              "name": "贝瑞基因",
+              "previous_board_count": 1,
+              "current_table_status": "opened",
+              "close": 10.27,
+              "quote_time": "20261008161454",
+              "reported_upper": 11.96,
+              "data_missing": false
+            },
+            {
+              "code": "601118",
+              "name": "海南橡胶",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 6.51,
+              "quote_time": "20261008161457",
+              "reported_upper": 7.01,
+              "data_missing": false
+            },
+            {
+              "code": "603185",
+              "name": "弘元绿能",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 14.87,
+              "quote_time": "20261008161434",
+              "reported_upper": 16.67,
+              "data_missing": false
+            },
+            {
+              "code": "603928",
+              "name": "兴业股份",
+              "previous_board_count": 1,
+              "current_table_status": "success",
+              "close": 14.38,
+              "quote_time": "20261008161442",
+              "reported_upper": 14.38,
+              "data_missing": false
+            },
+            {
+              "code": "605011",
+              "name": "杭州热电",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 19.11,
+              "quote_time": "20261008161500",
+              "reported_upper": 21.13,
+              "data_missing": false
+            },
+            {
+              "code": "000504",
+              "name": "南华生物",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 11.45,
+              "quote_time": "20261008161445",
+              "reported_upper": 13.66,
+              "data_missing": false
+            },
+            {
+              "code": "600131",
+              "name": "国网信通",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 15.07,
+              "quote_time": "20261008161432",
+              "reported_upper": 16.93,
+              "data_missing": false
+            },
+            {
+              "code": "600663",
+              "name": "陆家嘴",
+              "previous_board_count": 1,
+              "current_table_status": "success",
+              "close": 11.12,
+              "quote_time": "20261008161448",
+              "reported_upper": 11.12,
+              "data_missing": false
+            },
+            {
+              "code": "002041",
+              "name": "登海种业",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 10.13,
+              "quote_time": "20261008161445",
+              "reported_upper": 11.25,
+              "data_missing": false
+            },
+            {
+              "code": "002316",
+              "name": "亚联发展",
+              "previous_board_count": 1,
+              "current_table_status": "opened",
+              "close": 4.98,
+              "quote_time": "20261008161445",
+              "reported_upper": 5.45,
+              "data_missing": false
+            },
+            {
+              "code": "002454",
+              "name": "松芝股份",
+              "previous_board_count": 1,
+              "current_table_status": "opened",
+              "close": 5.7,
+              "quote_time": "20261008161445",
+              "reported_upper": 6.17,
+              "data_missing": false
+            },
+            {
+              "code": "002962",
+              "name": "五方光电",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 16.69,
+              "quote_time": "20261008161433",
+              "reported_upper": 17.79,
+              "data_missing": false
+            },
+            {
+              "code": "603127",
+              "name": "昭衍新药",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 52.06,
+              "quote_time": "20261008161448",
+              "reported_upper": 54.23,
+              "data_missing": false
+            },
+            {
+              "code": "603538",
+              "name": "美诺华",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 29.46,
+              "quote_time": "20261008161451",
+              "reported_upper": 31.45,
+              "data_missing": false
+            },
+            {
+              "code": "603590",
+              "name": "康辰药业",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 31.19,
+              "quote_time": "20261008161455",
+              "reported_upper": 35.32,
+              "data_missing": false
+            },
+            {
+              "code": "605287",
+              "name": "德才股份",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 36.53,
+              "quote_time": "20261008161455",
+              "reported_upper": 41.13,
+              "data_missing": false
+            },
+            {
+              "code": "605288",
+              "name": "凯迪股份",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 66.32,
+              "quote_time": "20261008161453",
+              "reported_upper": 79.01,
+              "data_missing": false
+            },
+            {
+              "code": "605577",
+              "name": "龙版传媒",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 14.73,
+              "quote_time": "20261008161457",
+              "reported_upper": 17.91,
+              "data_missing": false
+            },
+            {
+              "code": "001266",
+              "name": "宏英智能",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 41.62,
+              "quote_time": "20261008161445",
+              "reported_upper": 43.96,
+              "data_missing": false
+            },
+            {
+              "code": "600081",
+              "name": "东风科技",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 10.92,
+              "quote_time": "20261008161448",
+              "reported_upper": 13.08,
+              "data_missing": false
+            },
+            {
+              "code": "603906",
+              "name": "龙蟠科技",
+              "previous_board_count": 1,
+              "current_table_status": "success",
+              "close": 20.94,
+              "quote_time": "20261008161458",
+              "reported_upper": 20.94,
+              "data_missing": false
+            },
+            {
+              "code": "603919",
+              "name": "金徽酒",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 16.86,
+              "quote_time": "20261008161453",
+              "reported_upper": 19.14,
+              "data_missing": false
+            },
+            {
+              "code": "603948",
+              "name": "建业股份",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 20.79,
+              "quote_time": "20261008161445",
+              "reported_upper": 23.5,
+              "data_missing": false
+            },
+            {
+              "code": "001206",
+              "name": "依依股份",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 19.13,
+              "quote_time": "20261008161500",
+              "reported_upper": 20.48,
+              "data_missing": false
+            },
+            {
+              "code": "002755",
+              "name": "奥赛康",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 13.22,
+              "quote_time": "20261008161412",
+              "reported_upper": 14.91,
+              "data_missing": false
+            },
+            {
+              "code": "600072",
+              "name": "中船科技",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 9.47,
+              "quote_time": "20261008161444",
+              "reported_upper": 10.67,
+              "data_missing": false
+            },
+            {
+              "code": "600356",
+              "name": "恒丰纸业",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 10.8,
+              "quote_time": "20261008161449",
+              "reported_upper": 12.61,
+              "data_missing": false
+            },
+            {
+              "code": "600592",
+              "name": "龙溪股份",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 15.55,
+              "quote_time": "20261008161457",
+              "reported_upper": 17.82,
+              "data_missing": false
+            },
+            {
+              "code": "002188",
+              "name": "中天服务",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 5.97,
+              "quote_time": "20261008161430",
+              "reported_upper": 7.04,
+              "data_missing": false
+            },
+            {
+              "code": "002419",
+              "name": "天虹股份",
+              "previous_board_count": 1,
+              "current_table_status": "failed",
+              "close": 4.9,
+              "quote_time": "20261008161412",
+              "reported_upper": 5.6,
+              "data_missing": false
+            }
+          ],
+          "total_previous_samples": 37,
+          "active_verified_price_count": 36,
+          "promoted": 3,
+          "failed_to_promote": 33,
+          "reported_suspended": 1,
+          "missing": 0,
+          "promotion_ratio_active": 0.08333333333333333,
+          "ratio_with_all_previous_samples": 0.08108108108108109,
+          "previous_market_date": "2026-09-30",
+          "feedback_date": "2026-10-08",
+          "denominator_frozen_at": "2026-10-08T19:45:52+00:00",
+          "previous_source": "https://www.dabanke.com/index-20260930.html",
+          "feedback_source": "https://www.dabanke.com/index-20261008.html",
+          "scope": "已公开前日列表中沪深主板股票，剔除20%/30%；历史完整证券状态仍未全量交叉核实，属于可见列表市场观察，不是策略胜率。"
+        },
+        {
+          "from_board": 2,
+          "to_board": 3,
+          "frozen_previous_list": [
+            {
+              "code": "002866",
+              "name": "传艺科技",
+              "previous_board_count": 2,
+              "current_table_status": "success",
+              "close": 18.59,
+              "quote_time": "20261008161448",
+              "reported_upper": 18.59,
+              "data_missing": false
+            },
+            {
+              "code": "002058",
+              "name": "紫竹高科",
+              "previous_board_count": 2,
+              "current_table_status": "success",
+              "close": 22.22,
+              "quote_time": "20261008161500",
+              "reported_upper": 22.22,
+              "data_missing": false
+            },
+            {
+              "code": "605303",
+              "name": "园林股份",
+              "previous_board_count": 2,
+              "current_table_status": "success",
+              "close": 31.53,
+              "quote_time": "20261008161456",
+              "reported_upper": 31.53,
+              "data_missing": false
+            },
+            {
+              "code": "603200",
+              "name": "上海洗霸",
+              "previous_board_count": 2,
+              "current_table_status": "success",
+              "close": 49.21,
+              "quote_time": "20261008161448",
+              "reported_upper": 49.21,
+              "data_missing": false
+            },
+            {
+              "code": "603188",
+              "name": "亚邦股份",
+              "previous_board_count": 2,
+              "current_table_status": "failed",
+              "close": 5.04,
+              "quote_time": "20261008161441",
+              "reported_upper": 5.94,
+              "data_missing": false
+            },
+            {
+              "code": "605388",
+              "name": "均瑶健康",
+              "previous_board_count": 2,
+              "current_table_status": "failed",
+              "close": 6.93,
+              "quote_time": "20261008161457",
+              "reported_upper": 8.13,
+              "data_missing": false
+            }
+          ],
+          "total_previous_samples": 6,
+          "active_verified_price_count": 6,
+          "promoted": 4,
+          "failed_to_promote": 2,
+          "reported_suspended": 0,
+          "missing": 0,
+          "promotion_ratio_active": 0.6666666666666666,
+          "ratio_with_all_previous_samples": 0.6666666666666666,
+          "previous_market_date": "2026-09-30",
+          "feedback_date": "2026-10-08",
+          "denominator_frozen_at": "2026-10-08T19:45:52+00:00",
+          "previous_source": "https://www.dabanke.com/index-20260930.html",
+          "feedback_source": "https://www.dabanke.com/index-20261008.html",
+          "scope": "已公开前日列表中沪深主板股票，剔除20%/30%；历史完整证券状态仍未全量交叉核实，属于可见列表市场观察，不是策略胜率。"
+        },
+        {
+          "from_board": 3,
+          "to_board": 4,
+          "frozen_previous_list": [
+            {
+              "code": "002242",
+              "name": "九阳股份",
+              "previous_board_count": 3,
+              "current_table_status": "success",
+              "close": 13.75,
+              "quote_time": "20261008161433",
+              "reported_upper": 13.75,
+              "data_missing": false
+            },
+            {
+              "code": "000011",
+              "name": "深物业A",
+              "previous_board_count": 3,
+              "current_table_status": "opened",
+              "close": 12.12,
+              "quote_time": "20261008161445",
+              "reported_upper": 13.46,
+              "data_missing": false
+            },
+            {
+              "code": "600241",
+              "name": "时代万恒",
+              "previous_board_count": 3,
+              "current_table_status": "success",
+              "close": 10.69,
+              "quote_time": "20261008161445",
+              "reported_upper": 10.69,
+              "data_missing": false
+            }
+          ],
+          "total_previous_samples": 3,
+          "active_verified_price_count": 3,
+          "promoted": 2,
+          "failed_to_promote": 1,
+          "reported_suspended": 0,
+          "missing": 0,
+          "promotion_ratio_active": 0.6666666666666666,
+          "ratio_with_all_previous_samples": 0.6666666666666666,
+          "previous_market_date": "2026-09-30",
+          "feedback_date": "2026-10-08",
+          "denominator_frozen_at": "2026-10-08T19:45:52+00:00",
+          "previous_source": "https://www.dabanke.com/index-20260930.html",
+          "feedback_source": "https://www.dabanke.com/index-20261008.html",
+          "scope": "已公开前日列表中沪深主板股票，剔除20%/30%；历史完整证券状态仍未全量交叉核实，属于可见列表市场观察，不是策略胜率。"
+        },
+        {
+          "from_board": 4,
+          "to_board": 5,
+          "frozen_previous_list": [
+            {
+              "code": "000678",
+              "name": "襄阳轴承",
+              "previous_board_count": 4,
+              "current_table_status": "failed",
+              "close": 12.24,
+              "quote_time": "20261008161445",
+              "reported_upper": 14.18,
+              "data_missing": false
+            }
+          ],
+          "total_previous_samples": 1,
+          "active_verified_price_count": 1,
+          "promoted": 0,
+          "failed_to_promote": 1,
+          "reported_suspended": 0,
+          "missing": 0,
+          "promotion_ratio_active": 0.0,
+          "ratio_with_all_previous_samples": 0.0,
+          "previous_market_date": "2026-09-30",
+          "feedback_date": "2026-10-08",
+          "denominator_frozen_at": "2026-10-08T19:45:52+00:00",
+          "previous_source": "https://www.dabanke.com/index-20260930.html",
+          "feedback_source": "https://www.dabanke.com/index-20261008.html",
+          "scope": "已公开前日列表中沪深主板股票，剔除20%/30%；历史完整证券状态仍未全量交叉核实，属于可见列表市场观察，不是策略胜率。"
+        },
+        {
+          "from_board": 7,
+          "to_board": 8,
+          "frozen_previous_list": [
+            {
+              "code": "600825",
+              "name": "新华传媒",
+              "previous_board_count": 7,
+              "current_table_status": "success",
+              "close": 11.39,
+              "quote_time": "20261008161458",
+              "reported_upper": 11.39,
+              "data_missing": false
+            }
+          ],
+          "total_previous_samples": 1,
+          "active_verified_price_count": 1,
+          "promoted": 1,
+          "failed_to_promote": 0,
+          "reported_suspended": 0,
+          "missing": 0,
+          "promotion_ratio_active": 1.0,
+          "ratio_with_all_previous_samples": 1.0,
+          "previous_market_date": "2026-09-30",
+          "feedback_date": "2026-10-08",
+          "denominator_frozen_at": "2026-10-08T19:45:52+00:00",
+          "previous_source": "https://www.dabanke.com/index-20260930.html",
+          "feedback_source": "https://www.dabanke.com/index-20261008.html",
+          "scope": "已公开前日列表中沪深主板股票，剔除20%/30%；历史完整证券状态仍未全量交叉核实，属于可见列表市场观察，不是策略胜率。"
+        }
+      ],
+      "statistics": {
+        "definitions": "触发/封板/盈利/成交分别统计；空仓不是交易，回封子标签与二板重叠；市场历史观察不并入策略样本。",
+        "date_range": [
+          "2026-10-08",
+          "2026-10-09"
+        ],
+        "v1": {
+          "frozen_candidates": 1,
+          "planned_first_board": 0,
+          "planned_second_board": 1,
+          "planned_reseal_subtag": 1,
+          "entry_day_assessed": 1,
+          "not_triggered": 1,
+          "verified_entries": 0,
+          "verified_exits": 0,
+          "pending_next_day_price_observations": 1,
+          "holiday_cohort": 1
+        },
+        "v2": {
+          "decision_rounds": 1,
+          "cash_decisions": 1,
+          "frozen_candidates": 0,
+          "verified_entries": 0,
+          "verified_exits": 0,
+          "first_board_samples": 0,
+          "second_board_samples": 0,
+          "reseal_samples": 0
+        },
+        "metrics": {
+          "seal_rate": null,
+          "broken_rate": null,
+          "t_plus_1_observation_mean_pct": null,
+          "t_plus_1_observation_median_pct": null,
+          "executable_net_mean_pct": null,
+          "executable_net_median_pct": null,
+          "payoff_ratio": null,
+          "worst_net_return_pct": null,
+          "tail_5pct_net_return_pct": null,
+          "maximum_adverse_excursion_pct": null
+        },
+        "cost": {
+          "provisional_round_trip_bps": 20,
+          "real_cost_calibrated": false,
+          "usable_for_executable_returns": false
+        },
+        "status": "待验证"
+      },
+      "report_path": "docs/research/limitup-single-2026-10-09.md",
+      "evidence_path": "docs/research/limitup-single-2026-10-09-evidence.json"
     }
   ]
 }

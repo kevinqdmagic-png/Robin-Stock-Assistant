@@ -688,6 +688,33 @@
         "combined-pair-20261008-601872-close-v1",
         "combined-pair-20261008-002074-close-v1"
       ]
+    },
+    {
+      "id": "limitup-single-20261009-scheduled-192350-completed",
+      "run_id": "limitup-single-20261009-scheduled-192350",
+      "task_id": "limitup_single",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-08T19:23:50+00:00",
+      "completed_at": "2026-10-08T19:45:52+00:00",
+      "recorded_at": "2026-10-08T19:45:52+00:00",
+      "status": "completed",
+      "summary": "已完成独立v2盘前研究：258只有限池、空仓裁决；追加龙溪v1未触发结果，保留缺分钟/公告原文等缺项；归档准备完成，生产上线另按真实部署与API证据核验。",
+      "report_ids": [
+        "limitup-single-20261009-review-v2"
+      ],
+      "recommendation_ids": [],
+      "tracked_recommendation_ids": [
+        "limitup-single-20261008-600592-v1"
+      ],
+      "sources": [
+        "https://www.dabanke.com/index-20261008.html",
+        "https://q.stock.sohu.com/hisHq?code=cn_600592&start=20260929&end=20261008&stat=1&order=A&period=d",
+        "https://data.10jqka.com.cn/market/longhu/"
+      ],
+      "research_rule_version": "limitup_single_v2",
+      "completion_scope": "research_and_archive_preparation",
+      "data_cutoff_at": "2026-10-08T19:40:19+00:00"
     }
   ]
 }
