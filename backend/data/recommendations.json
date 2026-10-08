@@ -132,6 +132,86 @@
           "note": "真实盘前检查点，仅冻结条件；未观察到今日竞价、盘口或成交。"
         }
       ]
+    },
+    {
+      "date": "2026-10-08",
+      "published_at": "2026-10-08T14:51:45+08:00",
+      "group": "1440",
+      "strategy": "late_pair",
+      "task_id": "late_pair",
+      "model": "late_pair_volume_price_v1",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://robin-stock-api-production.up.railway.app/api/candidates",
+        "https://robin-stock-api-production.up.railway.app/api/signals",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601872",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,130,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601872,day,,,130,qfq",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-08T14:40:00+08:00",
+      "reference_price_market_date": "2026-10-08",
+      "planned_entry_date": "2026-10-08",
+      "earliest_legal_exit_date_if_bought": "2026-10-09",
+      "current_stage": "frozen_conditional_observation",
+      "results": [],
+      "report_ids": [
+        "late-pair-2026-10-08-1440"
+      ],
+      "rule_version": "late_pair_volume_price_v1",
+      "execution_note": "reference_price is an observed quote, not an assumed fill; actual execution requires broker fill evidence",
+      "id": "late-pair-20261008-300450-v1",
+      "code": "300450",
+      "name": "先导智能",
+      "reference_price": 36.87,
+      "reference_price_time": "2026-10-08T14:40:00+08:00",
+      "reference_price_source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+      "reason": "14:40独立扫描：近20日突破附近，成交额约48.41亿元，盘中量比约2.50，日量相对5/10/20日均量约2.37/2.91/3.73倍；尾盘仍有承接且未封死，优先于近涨停但难成交的强势票。既有研究自选身份不计分。",
+      "trigger": "仅把36.80—36.95元附近作为14:40观察区；须价格不持续跌破36.60、锂电设备方向未同步转弱且连续成交承接存在。没有券商成交回报则记未确认成交。",
+      "invalid": "跌破36.60后5分钟不能收回，或放量跌破36.30，或板块同步转弱且跌回当日均价下方，均放弃。"
+    },
+    {
+      "date": "2026-10-08",
+      "published_at": "2026-10-08T14:51:45+08:00",
+      "group": "1440",
+      "strategy": "late_pair",
+      "task_id": "late_pair",
+      "model": "late_pair_volume_price_v1",
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://robin-stock-api-production.up.railway.app/api/candidates",
+        "https://robin-stock-api-production.up.railway.app/api/signals",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601872",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,130,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601872,day,,,130,qfq",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-08T14:40:00+08:00",
+      "reference_price_market_date": "2026-10-08",
+      "planned_entry_date": "2026-10-08",
+      "earliest_legal_exit_date_if_bought": "2026-10-09",
+      "current_stage": "frozen_conditional_observation",
+      "results": [],
+      "report_ids": [
+        "late-pair-2026-10-08-1440"
+      ],
+      "rule_version": "late_pair_volume_price_v1",
+      "execution_note": "reference_price is an observed quote, not an assumed fill; actual execution requires broker fill evidence",
+      "id": "late-pair-20261008-601872-v1",
+      "code": "601872",
+      "name": "招商轮船",
+      "reference_price": 22.02,
+      "reference_price_time": "2026-10-08T14:40:00+08:00",
+      "reference_price_source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601872",
+      "reason": "14:40独立扫描：成交额约47.46亿元、换手约2.69%，盘中量比约2.28，日量相对5/10/20日均量约2.17/1.57/1.52倍；CLV约0.853，尾盘靠近日内高位，低换手高成交额有利于研究T+1退出质量。",
+      "trigger": "21.95—22.05元附近仅作14:40观察区；须保持21.90上方且航运/能源运输板块同向强度未快速消失。没有券商成交回报则记未确认成交。",
+      "invalid": "跌破21.90后不能快速收回，或放量跌破21.75，或尾盘放量却无法重新靠近日内高位，均放弃。"
     }
   ],
   "legacy_audit": [

@@ -464,6 +464,36 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/limitup-single-v2-market-context.md"
       ]
+    },
+    {
+      "id": "late-pair-20261008-1440-completed",
+      "run_id": "late-pair-2026-10-08-scheduled",
+      "task_id": "late_pair",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-08T14:37:53+08:00",
+      "recorded_at": "2026-10-08T14:51:45+08:00",
+      "completed_at": "2026-10-08T14:51:45+08:00",
+      "status": "completed",
+      "summary": "完成14:40条件筛选：广泛池120只、深筛20只、分钟复核10只，冻结先导智能与招商轮船两只观察样本；市场宽度为部分覆盖，未虚构全A统计。",
+      "report_ids": [
+        "late-pair-2026-10-08-1440"
+      ],
+      "recommendation_ids": [
+        "late-pair-20261008-300450-v1",
+        "late-pair-20261008-601872-v1"
+      ],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://robin-stock-api-production.up.railway.app/api/candidates",
+        "https://robin-stock-api-production.up.railway.app/api/signals",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601872",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,130,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601872,day,,,130,qfq",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ]
     }
   ]
 }
