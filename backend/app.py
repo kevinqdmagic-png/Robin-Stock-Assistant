@@ -40,6 +40,7 @@ _market_lock = threading.Lock()
 _market_cache = {"payload": None, "saved_at": 0.0, "refreshing": False}
 _minute_lock = threading.Lock()
 _minute_cache = {}
+_minute_inflight = {}
 
 SIGNAL_CACHE_TTL = 75
 DAILY_CACHE_TTL = 600
@@ -952,40 +953,52 @@ def stock_minute(code: str):
     now = time.time()
     with _minute_lock:
         cached = _minute_cache.get(code)
-    if cached and now - cached["saved_at"] < 20:
-        return dict(cached["payload"])
+        if cached and now - cached["saved_at"] < 30:
+            return dict(cached["payload"])
+        # Single-flight: concurrent requests for the same symbol share a refresh.
+        flight = _minute_inflight.get(code)
+        if flight is None:
+            flight = threading.Event()
+            _minute_inflight[code] = flight
+            owner = True
+        else:
+            owner = False
 
-    bars, source, errors = _eastmoney_minute(code)
-    if not bars:
-        if cached:
-            result = dict(cached["payload"])
-            result["status"] = "stale"
-            result["stale"] = True
-            result["errors"] = errors
+    if not owner:
+        flight.wait(timeout=13)
+        with _minute_lock:
+            refreshed = _minute_cache.get(code)
+        if refreshed:
+            result = dict(refreshed["payload"])
+            if time.time() - refreshed["saved_at"] >= 30:
+                result["status"] = "stale"
+                result["stale"] = True
             return result
-        return {
-            "ok": False,
-            "status": "minute_data_temporarily_unavailable",
-            "time_cn": now_cn(),
-            "code": code,
-            "source": source,
-            "errors": errors,
-            "count": 0,
-            "bars": [],
-        }
+        return {"ok": False, "status": "minute_data_temporarily_unavailable",
+                "time_cn": now_cn(), "code": code, "bars": [], "errors": ["refresh_in_progress"]}
 
-    payload = {
-        "ok": True,
-        "status": "ok",
-        "time_cn": now_cn(),
-        "code": code,
-        "source": source,
-        "count": len(bars),
-        "bars": bars,
-    }
-    with _minute_lock:
-        _minute_cache[code] = {"saved_at": now, "payload": payload}
-    return payload
+    try:
+        bars, source, errors = _eastmoney_minute(code)
+        if not bars:
+            if cached:
+                result = dict(cached["payload"])
+                result["status"] = "stale"
+                result["stale"] = True
+                result["errors"] = errors
+                return result
+            return {"ok": False, "status": "minute_data_temporarily_unavailable",
+                    "time_cn": now_cn(), "code": code, "source": source,
+                    "errors": errors, "count": 0, "bars": []}
+
+        payload = {"ok": True, "status": "ok", "time_cn": now_cn(),
+                   "code": code, "source": source, "count": len(bars), "bars": bars}
+        with _minute_lock:
+            _minute_cache[code] = {"saved_at": time.time(), "payload": payload}
+        return payload
+    finally:
+        with _minute_lock:
+            _minute_inflight.pop(code, None)
+            flight.set()
 
 
 def _eastmoney_daily(code, limit=120, adjust="1"):
