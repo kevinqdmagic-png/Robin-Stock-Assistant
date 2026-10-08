@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "validation_status": "awaiting_original_prices_and_sources",
+  "validation_status": "forward_samples_frozen_awaiting_next_session",
   "items": [
     {
       "date": "2026-09-29",
@@ -34,6 +34,105 @@
         "金辰股份"
       ],
       "eligible_for_model_statistics": false
+    },
+    {
+      "id": "volume-price-20261008-close-v1-cohort",
+      "date": "2026-10-08",
+      "task_id": "volume_price",
+      "report_ids": [
+        "volume-price-20261008-close-v1"
+      ],
+      "rule_version": "volume_price_close_v1",
+      "frozen_at": "2026-10-09T01:37:26.659+08:00",
+      "data_cutoff_at": "2026-10-08T15:00:00+08:00",
+      "provenance": "contemporaneous_close_research",
+      "broad_pool_count": 100,
+      "deep_screen_count": 24,
+      "eligible_for_model_statistics": true,
+      "samples": [
+        {
+          "code": "601872",
+          "name": "招商轮船",
+          "close": 22.03,
+          "pct": 9.33,
+          "turnover_pct": 2.82,
+          "intraday_volume_ratio_1440": 2.28,
+          "relative_volume_5d": 2.17,
+          "relative_volume_10d": 1.57,
+          "relative_volume_20d": 1.52,
+          "clv_1440": 0.853,
+          "label": "低换手放量+板块共振+触板回落",
+          "next_session_status": "pending"
+        },
+        {
+          "code": "300450",
+          "name": "先导智能",
+          "close": 37.59,
+          "pct": 7.58,
+          "turnover_pct": 9.21,
+          "intraday_volume_ratio_1440": 2.5,
+          "relative_volume_5d": 2.37,
+          "relative_volume_10d": 2.91,
+          "relative_volume_20d": 3.73,
+          "clv_1440": 0.716,
+          "label": "放量突破且价格推进",
+          "next_session_status": "pending"
+        },
+        {
+          "code": "002074",
+          "name": "国轩高科",
+          "close": 31.3,
+          "pct": 6.1,
+          "turnover_pct": 6.87,
+          "intraday_volume_ratio_1440": null,
+          "relative_volume_5d": null,
+          "relative_volume_10d": null,
+          "relative_volume_20d": null,
+          "clv_1440": null,
+          "label": "启动后分歧承接",
+          "next_session_status": "pending",
+          "missing": "同源5/10/20日量与分钟CLV"
+        },
+        {
+          "code": "002580",
+          "name": "圣阳股份",
+          "close": 21.36,
+          "pct": 9.43,
+          "turnover_pct": 26.89,
+          "intraday_volume_ratio_1440": null,
+          "relative_volume_5d": null,
+          "relative_volume_10d": null,
+          "relative_volume_20d": null,
+          "clv_1440": null,
+          "label": "高换手冲板未封",
+          "next_session_status": "pending"
+        },
+        {
+          "code": "688498",
+          "name": "源杰科技",
+          "close": null,
+          "pct": -20,
+          "turnover_pct": null,
+          "intraday_volume_ratio_1440": null,
+          "relative_volume_5d": null,
+          "relative_volume_10d": null,
+          "relative_volume_20d": null,
+          "clv_1440": null,
+          "label": "板块同步放量下跌风险对照",
+          "next_session_status": "pending",
+          "missing": "同源收盘价与完整量价序列"
+        }
+      ],
+      "statistics": {
+        "completed_forward_samples": 0,
+        "win_rate": null,
+        "mean_net_return_pct": null,
+        "median_net_return_pct": null,
+        "profit_loss_ratio": null,
+        "mean_mfe_pct": null,
+        "mean_mae_pct": null
+      },
+      "note": "统计只在后续真实时点/可成交证据追加后计算；未触发、涨跌停无法成交和失败样本均保留。"
     }
   ]
 }

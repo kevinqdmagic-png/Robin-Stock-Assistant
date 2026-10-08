@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T08:28:25+00:00",
+  "updated_at": "2026-10-09T01:37:26.659+08:00",
   "source": "confirmed_automation_configuration",
   "items": [
     {
@@ -86,35 +86,60 @@
       "id": "low_position",
       "title": "低位启动30天研究",
       "track": "low_position",
-      "summary": "低位启动及30交易日验证；全部原研究要求由综合双标执行，仍单独保存报告、样本与验证回执。",
-      "schedule_text": "独立调度暂停 · 随综合双标完整执行 · 奥克兰22:30起",
+      "summary": "低位启动及30交易日验证；由低位启动＋龙虎榜联合任务完整执行，原task_id/track、样本与回执分别保留；缺失时综合双标兜底。",
+      "schedule_text": "联合任务成员 · 工作日21:50 · 奥克兰 · 缺失时综合双标完整补做",
       "schedule": "BEGIN:VEVENT\nDTSTART:20260925T091000Z\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=21;BYMINUTE=10;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
       "enabled": false,
       "one_time": false,
       "dependencies": [],
-      "configuration_confirmed_at": "2026-10-08T08:07:14.444511+00:00",
-      "executor_task_id": "combined_pair",
-      "execution_mode": "shared",
+      "configuration_confirmed_at": "2026-10-09T01:37:26.659+08:00",
+      "executor_task_id": "low_dragon",
+      "execution_mode": "joint_member",
       "effective_enabled": true
     },
     {
       "id": "dragon_tiger",
       "title": "龙虎榜超短研究",
       "track": "dragon_tiger",
-      "summary": "龙虎榜资金结构与反例；独立报告与样本保留，综合双标仅在同日完整报告缺失时补做。",
-      "schedule_text": "已启用独立任务 · 工作日21:50 · 奥克兰",
+      "summary": "龙虎榜资金结构与反例；由低位启动＋龙虎榜联合任务完整执行，原task_id/track、样本与回执分别保留；缺失时综合双标兜底。",
+      "schedule_text": "联合任务成员 · 工作日21:50 · 奥克兰 · 缺失时综合双标完整补做",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261008T215000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=21;BYMINUTE=50;BYSECOND=0\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "exact_schedule",
+      "enabled": false,
+      "one_time": false,
+      "dependencies": [],
+      "configuration_confirmed_at": "2026-10-09T01:37:26.659+08:00",
+      "executor_task_id": "low_dragon",
+      "execution_mode": "joint_member",
+      "effective_enabled": true
+    },
+    {
+      "id": "low_dragon",
+      "title": "低位启动＋龙虎榜联合研究",
+      "track": "market_review",
+      "summary": "工作日21:50一次运行完整执行低位与龙虎榜两套原研究；分别写入low_position/dragon_tiger报告、样本与真实回执，联合编排摘要不替代组件成果。",
+      "schedule_text": "已启用联合任务 · 工作日21:50 · 奥克兰",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261009T215000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=21;BYMINUTE=50;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
       "dependencies": [],
-      "configuration_confirmed_at": "2026-10-08T08:02:51.873284+00:00",
-      "executor_task_id": "combined_pair",
-      "execution_mode": "independent_with_fallback",
-      "effective_enabled": true
+      "member_task_ids": [
+        "low_position",
+        "dragon_tiger"
+      ],
+      "produces_component_reports": [
+        "low_position",
+        "dragon_tiger"
+      ],
+      "execution_mode": "joint_orchestrator",
+      "effective_enabled": true,
+      "include_legacy_reports": false,
+      "configuration_confirmed_at": "2026-10-09T01:37:26.659+08:00"
     },
     {
       "id": "combined_pair",

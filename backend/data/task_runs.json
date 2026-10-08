@@ -595,6 +595,99 @@
       "timestamp_disputes": [
         "market-review-20261008-scheduled-close-v1-completed"
       ]
+    },
+    {
+      "id": "market-review-20261008-fallback-corrected-v2-completed",
+      "run_id": "market-review-20261008-fallback-corrected-v2",
+      "task_id": "market_review",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T01:34:10+08:00",
+      "recorded_at": "2026-10-09T01:37:26.659+08:00",
+      "completed_at": "2026-10-09T01:37:26.659+08:00",
+      "status": "completed",
+      "summary": "按真实时钟完整重做10月8日复盘并追加收盘源更正；覆盖100只高成交额广泛池、深筛24只，保留旧档和时钟审计。",
+      "report_ids": [
+        "market-review-20261008-source-corrected-v2"
+      ],
+      "recommendation_ids": [
+        "market-review-20261008-601872-close-v2-correction",
+        "market-review-20261008-002074-close-v2-correction"
+      ]
+    },
+    {
+      "id": "quant-research-20261008-fallback-v1-completed",
+      "run_id": "quant-research-20261008-fallback-v1",
+      "task_id": "quant_research",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T01:34:10+08:00",
+      "recorded_at": "2026-10-09T01:37:26.659+08:00",
+      "completed_at": "2026-10-09T01:37:26.659+08:00",
+      "status": "completed",
+      "summary": "完成10月8日量化痕迹独立研究：100只广泛池中冻结16只代表样本；前推统计尚未成熟，未虚构胜率。",
+      "report_ids": [
+        "quant-research-20261008-close-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "volume-price-20261008-fallback-v1-completed",
+      "run_id": "volume-price-20261008-fallback-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T01:34:10+08:00",
+      "recorded_at": "2026-10-09T01:37:26.659+08:00",
+      "completed_at": "2026-10-09T01:37:26.659+08:00",
+      "status": "completed",
+      "summary": "完成10月8日量价独立研究：覆盖100只广泛池、完整审阅24只深筛池，冻结5只前推样本并保留反例。",
+      "report_ids": [
+        "volume-price-20261008-close-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "dragon-tiger-20261008-fallback-v1-completed",
+      "run_id": "dragon-tiger-20261008-fallback-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T01:34:10+08:00",
+      "recorded_at": "2026-10-09T01:37:26.659+08:00",
+      "completed_at": "2026-10-09T01:37:26.659+08:00",
+      "status": "completed",
+      "summary": "完成10月8日龙虎榜独立研究：交叉核对66只上榜股，冻结5只观察样本，并以净买下跌样本校正席位误读。",
+      "report_ids": [
+        "dragon-tiger-20261008-close-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "combined-pair-20261008-close-v1-completed",
+      "run_id": "combined-pair-20261008-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-08",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T01:30:39+08:00",
+      "recorded_at": "2026-10-09T01:37:26.659+08:00",
+      "completed_at": "2026-10-09T01:37:26.659+08:00",
+      "status": "completed",
+      "summary": "五份同日完整研究齐备后完成综合裁决；条件观察招商轮船、国轩高科，10月9日须二次确认，若买入最早10月12日卖。",
+      "report_ids": [
+        "combined-pair-20261008-close-v1"
+      ],
+      "prerequisite_report_ids": [
+        "market-review-20261008-source-corrected-v2",
+        "quant-research-20261008-close-v1",
+        "volume-price-20261008-close-v1",
+        "low-position-20261008-review-v1",
+        "dragon-tiger-20261008-close-v1"
+      ],
+      "recommendation_ids": [
+        "combined-pair-20261008-601872-close-v1",
+        "combined-pair-20261008-002074-close-v1"
+      ]
     }
   ]
 }
