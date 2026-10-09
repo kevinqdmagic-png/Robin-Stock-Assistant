@@ -14,7 +14,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from analytics import backtest_daily, recommendation_performance
 from research_archive import archive_page, load_document
 from trading_calendar import completed_bars, session_state
-from market_insights import overview as market_overview
+from market_insights import overview as market_overview, stamp as quote_stamp
+from quote_providers import stock_symbol, tencent_quotes
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 
@@ -568,7 +569,7 @@ def _eastmoney_quotes(codes, timeout=(1.2, 1.8)):
         "secids": secids,
         "fltt": "2",
         "invt": "2",
-        "fields": "f2,f3,f8,f10,f12,f14",
+        "fields": "f2,f3,f8,f10,f12,f14,f124",
     }
     response = requests.get(
         "https://push2.eastmoney.com/api/qt/ulist.np/get",
@@ -600,11 +601,38 @@ def _eastmoney_quotes(codes, timeout=(1.2, 1.8)):
                 "pct": round(pct, 2),
                 "volume_ratio": round(_num(item.get("f10"), 0.0), 2),
                 "turnover": round(_num(item.get("f8"), 0.0), 2),
+                "as_of": quote_stamp(item.get("f124")),
+                "source": "eastmoney_public",
             }
         )
     if not quotes:
         raise ValueError("batch_quote_invalid")
     return quotes
+
+
+def _fetch_quote_batch(codes, timeout=(1.2, 1.8)):
+    """Fill missing stocks from an independent provider, including partial batches."""
+    errors = []
+    by_code = {}
+    sources = []
+    try:
+        rows = _eastmoney_quotes(codes, timeout=timeout)
+        by_code.update({row["code"]: row for row in rows if row["code"] in codes})
+        if by_code:
+            sources.append("eastmoney_batch_quote")
+    except Exception as exc:
+        errors.append("eastmoney_batch:" + type(exc).__name__)
+    missing = [code for code in codes if code not in by_code]
+    if missing:
+        try:
+            rows = tencent_quotes([stock_symbol(code) for code in missing])
+            by_code.update({row["code"]: row for row in rows if row["code"] in missing})
+            if rows:
+                sources.append("tencent_batch_quote")
+        except Exception as exc:
+            errors.append("tencent_batch:" + type(exc).__name__)
+    source = "mixed_batch_quote" if len(sources) > 1 else sources[0] if sources else None
+    return [by_code[code] for code in codes if code in by_code], source, errors
 
 
 def _eastmoney_quote(code):
@@ -651,29 +679,13 @@ def _quote_with_cache(code):
 
 def _refresh_quote_set(codes):
     try:
-        errors = []
-        try:
-            batch_rows = _eastmoney_quotes(codes, timeout=(2.0, 4.0))
-            saved_at = time.time()
-            with _quote_lock:
-                for row in batch_rows:
-                    _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
-            return
-        except Exception as exc:
-            errors.append(f"batch:{type(exc).__name__}")
-            logger.warning("Background batch quote refresh failed: %s", exc)
-
-        workers = min(8, len(codes))
-        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="quote-bg") as pool:
-            futures = {pool.submit(_eastmoney_quote, code): code for code in codes}
-            for future in as_completed(futures):
-                code = futures[future]
-                try:
-                    row = future.result()
-                    with _quote_lock:
-                        _quote_cache[code] = {"saved_at": time.time(), "quote": row}
-                except Exception as exc:
-                    errors.append(f"{code}:{type(exc).__name__}")
+        rows, _, errors = _fetch_quote_batch(codes, timeout=(2.0, 4.0))
+        saved_at = time.time()
+        with _quote_lock:
+            for row in rows:
+                _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
+        if not rows:
+            logger.warning("Background quote providers unavailable: %s", errors)
     finally:
         with _quote_lock:
             _quote_refreshing_codes.difference_update(codes)
@@ -743,29 +755,35 @@ def quotes(codes: str = ""):
             "items": [cached_rows[code] for code in requested],
             "cache_age_sec": max_age,
             "refreshing": max_age > QUOTE_CACHE_TTL,
+            "stale": max_age > QUOTE_CACHE_TTL * 4,
             "provider_errors": [],
         }
 
     errors = []
     try:
-        batch_rows = _eastmoney_quotes(requested)
+        batch_rows, source, errors = _fetch_quote_batch(requested)
         saved_at = time.time()
         with _quote_lock:
             for row in batch_rows:
                 _quote_cache[row["code"]] = {"saved_at": saved_at, "quote": row}
-        by_code = {row["code"]: row for row in batch_rows}
+        by_code = {**cached_rows, **{row["code"]: row for row in batch_rows}}
         ordered = [by_code[code] for code in requested if code in by_code]
-        if ordered:
+        if batch_rows:
+            fresh_codes = {row["code"] for row in batch_rows}
+            refresh_needed = len(fresh_codes) < len(requested)
+            if refresh_needed:
+                _kick_quote_refresh(requested)
             return {
                 "ok": True,
                 "status": "ok" if len(ordered) == len(requested) else "partial",
                 "time_cn": now_cn(),
-                "source": "eastmoney_batch_quote",
+                "source": source,
                 "count": len(ordered),
                 "items": ordered,
-                "cache_age_sec": 0,
-                "refreshing": False,
-                "provider_errors": [],
+                "cache_age_sec": max((age for code, age in cache_ages.items()
+                                      if code not in fresh_codes), default=0),
+                "refreshing": refresh_needed,
+                "provider_errors": errors,
             }
     except Exception as exc:
         errors.append(f"batch:{type(exc).__name__}")
