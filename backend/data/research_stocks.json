@@ -78,6 +78,30 @@
           ],
           "task_id": "high_elasticity_once",
           "strategy": "long_term_industry_growth_research"
+        },
+        {
+          "id": "research-stock-300450-20261009-combined-volume-v1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "title": "10月9日量价新核验与综合观察条件",
+          "reason": "10/9放量但价格收跌、低CLV与午后回吐构成短线承接反证；保留原高弹性产业研究，等待独立的缩量承接再转强。",
+          "evidence_status": "verified_quote_daily_price_points; strategy_unvalidated",
+          "fact_note": "收36.73、-2.29%，RVOL20=3.66、CLV=0.131；正规收盘数据核对，分钟只价格点。",
+          "validation": [
+            "10/12竞价、开盘、9:45/10:30承接再验证",
+            "新增判断仅追加，保留所有原理由与来源",
+            "入场当日不能卖，条件失败/不可成交保留"
+          ],
+          "risk": "放量不能恢复价格推进、弱板块继续下跌和20%波动；没有真实成交不能计算净收益。",
+          "report_ids": [
+            "quant-research-20261009-close-v1",
+            "volume-price-20261009-close-v1"
+          ],
+          "sources": [
+            "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450"
+          ]
         }
       ]
     },
@@ -234,6 +258,30 @@
           ],
           "task_id": "high_elasticity_once",
           "strategy": "long_term_industry_growth_research"
+        },
+        {
+          "id": "research-stock-688498-20261009-combined-volume-v1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "title": "10月9日量价新核验与综合观察条件",
+          "reason": "10/9继续收跌并低于20/60日均线，放量下跌风险仍在；不把原光通信成长研究改成抄底指令，等待价格和板块止跌证据。",
+          "evidence_status": "verified_quote_daily_price_points; strategy_unvalidated",
+          "fact_note": "收1206.01、-6.54%，RVOL20=2.27、CLV=0.544；正规收盘数据核对，分钟只价格点。",
+          "validation": [
+            "10/12竞价、开盘、9:45/10:30承接再验证",
+            "新增判断仅追加，保留所有原理由与来源",
+            "入场当日不能卖，条件失败/不可成交保留"
+          ],
+          "risk": "放量不能恢复价格推进、弱板块继续下跌和20%波动；没有真实成交不能计算净收益。",
+          "report_ids": [
+            "quant-research-20261009-close-v1",
+            "volume-price-20261009-close-v1"
+          ],
+          "sources": [
+            "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688498,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh688498"
+          ]
         }
       ]
     },
@@ -883,6 +931,74 @@
             "https://www.china-nea.cn/site/content/53351.html",
             "https://qt.gtimg.cn/q=sh688639,sh688065,sh605016,sz300829,sh605077,sz301206,sz002286,sz002166,sh600873,sh688089,sh603011,sz300092,sz002438,sz000777,sz002318,sz300470,sh603699,sh603169,sz002255,sz000969,sz300286,sz002322,sz300880,sz300360,sh603050",
             "https://hq.sinajs.cn/list=sh688639,sh688065,sh605016,sz300829,sh605077,sz301206,sz002286,sz002166,sh600873,sh688089,sh603011,sz300092,sz002438,sz000777,sz002318,sz300470,sh603699,sh603169,sz002255,sz000969,sz300286,sz002322,sz300880,sz300360,sh603050"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "300058",
+      "name": "蓝色光标",
+      "sector": "传媒/AI应用",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-300058-20261009-combined-volume-v1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "title": "10月9日量价新核验与综合观察条件",
+          "reason": "午后量价推进和传媒容量承接优于一字/20cm首板与高换手冲板回落；RVOL20仅1.02、MA20未越和缺席位证据构成反对项，不机械复制复盘候选。",
+          "evidence_status": "verified_quote_daily_price_points; strategy_unvalidated",
+          "fact_note": "收12.87、+6.80%，RVOL20=1.02、CLV=0.851；正规收盘数据核对，分钟只价格点。",
+          "validation": [
+            "10/12竞价、开盘、9:45/10:30承接再验证",
+            "新增判断仅追加，保留所有原理由与来源",
+            "入场当日不能卖，条件失败/不可成交保留"
+          ],
+          "risk": "开盘不在12.68—13.19；高开超过13.38；一字或排队无成交；放量跌破12.40；回踩失守12.55且不能重新取得承接；13.04突破失败/传媒两个容量核心同时低于-2%；9:45—10:30未满足全部条件即本日未触发，不临时改为尾盘追涨。",
+          "report_ids": [
+            "quant-research-20261009-close-v1",
+            "volume-price-20261009-close-v1",
+            "combined-pair-20261009-close-v1"
+          ],
+          "sources": [
+            "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "000420",
+      "name": "吉林化纤",
+      "sector": "化纤/材料",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-000420-20261009-combined-volume-v1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "title": "10月9日量价新核验与综合观察条件",
+          "reason": "120日位置16.9%、RVOL20=5.38、CLV1及公开榜单净买共振，优于高位航运、20cm单日加速和巨量未封；缺同口径化纤板块广度，次日封板不可成交是重要反对项。",
+          "evidence_status": "verified_quote_daily_price_points; strategy_unvalidated",
+          "fact_note": "收3.81、+10.12%，RVOL20=5.38、CLV=1.000；正规收盘数据核对，分钟只价格点。",
+          "validation": [
+            "10/12竞价、开盘、9:45/10:30承接再验证",
+            "新增判断仅追加，保留所有原理由与来源",
+            "入场当日不能卖，条件失败/不可成交保留"
+          ],
+          "risk": "开盘不在3.77—3.92；开盘超过3.96；一字/无可成交报价或封板排队；放量失守3.70；回封后反复开板、板块集体兑现；9:45—10:30未满足全部条件即未触发，不为凑两只另追高。",
+          "report_ids": [
+            "quant-research-20261009-close-v1",
+            "volume-price-20261009-close-v1",
+            "combined-pair-20261009-close-v1"
+          ],
+          "sources": [
+            "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000420"
           ]
         }
       ]

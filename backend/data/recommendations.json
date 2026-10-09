@@ -501,6 +501,83 @@
           "trigger_status": "not_observable_before_auction",
           "entry_fill_status": "not_verified",
           "executable_net_return_pct": null
+        },
+        {
+          "code": "601872",
+          "name": "招商轮船",
+          "signal_date": "2026-10-08",
+          "as_of": "2026-10-09",
+          "origin_report_id": "combined-pair-20261008-close-v1",
+          "price_basis": "10/8 closing reference / 10/9 ordinary-session prices",
+          "reference_price": 22.03,
+          "reference_recovered_at": "2026-10-09T19:38:01.624+08:00",
+          "reference_verified_against_current_daily_series": true,
+          "open": 22.47,
+          "high": 22.65,
+          "low": 20.65,
+          "close": 22.07,
+          "open_return_pct": 1.997,
+          "maximum_price_excursion_pct": 2.814,
+          "minimum_price_excursion_pct": -6.264,
+          "close_return_pct": 0.182,
+          "minute_price_observations": {
+            "0930": {
+              "price": 22.47,
+              "return_from_reference_pct": 1.997
+            },
+            "0945": {
+              "price": 21.47,
+              "return_from_reference_pct": -2.542
+            },
+            "1030": {
+              "price": 21.16,
+              "return_from_reference_pct": -3.949
+            },
+            "1130": {
+              "price": 21.04,
+              "return_from_reference_pct": -4.494
+            },
+            "1400": {
+              "price": 21.85,
+              "return_from_reference_pct": -0.817
+            },
+            "1440": {
+              "price": 22.1,
+              "return_from_reference_pct": 0.318
+            },
+            "1500": {
+              "price": 22.07,
+              "return_from_reference_pct": 0.182
+            }
+          },
+          "auction_0925": null,
+          "observation_type": "price_observation",
+          "executed_trade": false,
+          "entry_fill_status": "not_verified",
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "roundtrip_cost_if_future_trade_bps": 20,
+          "not_execution_reason": "minute price points have no verified OHLC, bid/ask or broker fill; earliest legal exit for 10/9 purchase is 10/12, still pending",
+          "earliest_legal_exit_date_if_bought": "2026-10-12",
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601872,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601872"
+          ],
+          "id": "combined-pair-20261008-601872-close-v1-20261009-validation",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "horizon": 1,
+          "source": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+          "original_reference_price": 22.03,
+          "trigger_status": "confirmation_not_seen_in_verified_window",
+          "invalidation_price_observed": true,
+          "operational_invalid_price": 21.75,
+          "trigger_detail": "9:45—10:30价格点21.10—21.51均低于22.17；9:45已跌破21.75；无完整OHLC/成交不推断中途成交",
+          "net_return_status": "not_computable_without_entry_fill_and_legal_exit",
+          "source_report_ids": [
+            "combined-pair-20261009-close-v1",
+            "volume-price-20261009-close-v1"
+          ]
         }
       ]
     },
@@ -567,6 +644,83 @@
           "trigger_status": "not_observable_before_auction",
           "entry_fill_status": "not_verified",
           "executable_net_return_pct": null
+        },
+        {
+          "code": "002074",
+          "name": "国轩高科",
+          "signal_date": "2026-10-08",
+          "as_of": "2026-10-09",
+          "origin_report_id": "combined-pair-20261008-close-v1",
+          "price_basis": "10/8 closing reference / 10/9 ordinary-session prices",
+          "reference_price": 31.3,
+          "reference_recovered_at": "2026-10-09T19:38:01.624+08:00",
+          "reference_verified_against_current_daily_series": true,
+          "open": 30.36,
+          "high": 32.0,
+          "low": 29.85,
+          "close": 30.41,
+          "open_return_pct": -3.003,
+          "maximum_price_excursion_pct": 2.236,
+          "minimum_price_excursion_pct": -4.633,
+          "close_return_pct": -2.843,
+          "minute_price_observations": {
+            "0930": {
+              "price": 30.36,
+              "return_from_reference_pct": -3.003
+            },
+            "0945": {
+              "price": 30.55,
+              "return_from_reference_pct": -2.396
+            },
+            "1030": {
+              "price": 30.11,
+              "return_from_reference_pct": -3.802
+            },
+            "1130": {
+              "price": 31.59,
+              "return_from_reference_pct": 0.927
+            },
+            "1400": {
+              "price": 30.56,
+              "return_from_reference_pct": -2.364
+            },
+            "1440": {
+              "price": 30.76,
+              "return_from_reference_pct": -1.725
+            },
+            "1500": {
+              "price": 30.41,
+              "return_from_reference_pct": -2.843
+            }
+          },
+          "auction_0925": null,
+          "observation_type": "price_observation",
+          "executed_trade": false,
+          "entry_fill_status": "not_verified",
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "roundtrip_cost_if_future_trade_bps": 20,
+          "not_execution_reason": "minute price points have no verified OHLC, bid/ask or broker fill; earliest legal exit for 10/9 purchase is 10/12, still pending",
+          "earliest_legal_exit_date_if_bought": "2026-10-12",
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002074"
+          ],
+          "id": "combined-pair-20261008-002074-close-v1-20261009-validation",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "horizon": 1,
+          "source": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+          "original_reference_price": 31.3,
+          "trigger_status": "opening_necessary_condition_failed",
+          "invalidation_price_observed": true,
+          "operational_invalid_price": 30.45,
+          "trigger_detail": "开盘30.36不在冻结30.99—32.08；禁止事后改条件",
+          "net_return_status": "not_computable_without_entry_fill_and_legal_exit",
+          "source_report_ids": [
+            "combined-pair-20261009-close-v1",
+            "volume-price-20261009-close-v1"
+          ]
         }
       ]
     },
@@ -643,6 +797,342 @@
       "trigger": "10月12日竞价/开盘12.68—13.19；第一次回踩守12.55，重新站稳13.04，且传媒至少两只容量核心不低于-2%。",
       "invalid": "高开超过约+4%（13.38以上）不追；跌破12.40不能快速收回、板块首板批量低开兑现或13.04附近放量不进均放弃。",
       "results": []
+    },
+    {
+      "id": "combined-pair-20261009-300058-close-v1",
+      "date": "2026-10-09",
+      "published_at": "2026-10-09T19:38:01.624+08:00",
+      "code": "300058",
+      "name": "蓝色光标",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "task_id": "combined_pair",
+      "model": "combined_limitup_watch_v2",
+      "model_label": "低位修复＋板块共振，分歧后再确认",
+      "reason": "午后量价推进和传媒容量承接优于一字/20cm首板与高换手冲板回落；RVOL20仅1.02、MA20未越和缺席位证据构成反对项，不机械复制复盘候选。",
+      "reference_price": 12.87,
+      "reference_price_time": "2026-10-09T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-09",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz300058",
+      "trigger": "10月12日9:25—9:30可核验竞价/开盘12.68—13.19；第一次回踩守12.55且5分钟回踩量低于首次上冲同长窗口；9:45—10:30重新站13.04，连续5个一分钟价格点不低于13.04、上冲成交量大于回踩窗口；中文在线/芒果超媒均不低于-2%且至少一只上涨。仅在真实可成交的13.05—13.22研究入场，13.19的MA20也需重新验证。",
+      "invalid": "开盘不在12.68—13.19；高开超过13.38；一字或排队无成交；放量跌破12.40；回踩失守12.55且不能重新取得承接；13.04突破失败/传媒两个容量核心同时低于-2%；9:45—10:30未满足全部条件即本日未触发，不临时改为尾盘追涨。",
+      "reference_entry_range": [
+        13.05,
+        13.22
+      ],
+      "operational_invalid_price": 12.4,
+      "structural_invalid_price": 11.9,
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=50&sort=changepercent&asc=0&node=hs_a&symbol=&_s_r_a=page",
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://data.10jqka.com.cn/market/lhbgg/code/000420/",
+        "https://data.10jqka.com.cn/market/longhu/",
+        "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+        "https://static.cninfo.com.cn/finalpage/2026-10-09/1225597540.PDF",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-09T15:00:00+08:00",
+      "planned_entry_date": "2026-10-12",
+      "earliest_legal_exit_date_if_bought": "2026-10-13",
+      "report_ids": [
+        "combined-pair-20261009-close-v1"
+      ],
+      "evidence_snapshot": {
+        "code": "300058",
+        "name": "蓝色光标",
+        "date": "2026-10-09",
+        "sector": "传媒/AI应用",
+        "label": "低位修复/午后放量推进",
+        "open": 12.01,
+        "close": 12.87,
+        "high": 13.04,
+        "low": 11.9,
+        "previous_close": 12.05,
+        "daily_change_pct": 6.8,
+        "amount_cny": 2851944683.59,
+        "volume_provider_units": 2289040.0,
+        "volume_unit": "lots_100_shares",
+        "turnover_pct": 6.58,
+        "provider_volume_ratio_at_close": 1.49,
+        "relative_volume_denominator": "mean of previous N completed sessions; T excluded",
+        "rvol": {
+          "5": 1.489,
+          "10": 1.143,
+          "20": 1.021
+        },
+        "ma": {
+          "5": 12.576,
+          "10": 12.991,
+          "20": 13.19,
+          "60": 13.507
+        },
+        "range_position_pct": {
+          "20": 31.29,
+          "60": 30.339,
+          "120": 18.646
+        },
+        "prior20_high": 15.0,
+        "clv": 0.851,
+        "amplitude_pct": 9.461,
+        "upper_shadow_fraction_of_range": 0.149,
+        "turnover_acceleration_3d": null,
+        "turnover_acceleration_5d": null,
+        "turnover_change_from_prior_day_pp": null,
+        "tail_return_1400_to_1500_pct": 4.126,
+        "tail_volume_share_1400_to_1500_pct": 48.142,
+        "regular_session_minute_points": 242,
+        "ohlc_verified": false,
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 12.01,
+            "cumulative_volume_provider_units": 4678.0,
+            "cumulative_amount_cny": 5618278.0
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 12.08,
+            "cumulative_volume_provider_units": 208353.0,
+            "cumulative_amount_cny": 250286995.97
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 12.06,
+            "cumulative_volume_provider_units": 527776.0,
+            "cumulative_amount_cny": 635926909.18
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 12.04,
+            "cumulative_volume_provider_units": 763944.0,
+            "cumulative_amount_cny": 921224630.02
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 12.36,
+            "cumulative_volume_provider_units": 1187044.0,
+            "cumulative_amount_cny": 1440347748.99
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 12.83,
+            "cumulative_volume_provider_units": 2019423.0,
+            "cumulative_amount_cny": 2505071072.56
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 12.87,
+            "cumulative_volume_provider_units": 2289040.0,
+            "cumulative_amount_cny": 2851944683.59
+          }
+        },
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
+          "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
+        ],
+        "evidence_status": "verified_daily_and_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "tick_order_book",
+          "point_in_time_historical_turnover",
+          "complete_sector_breadth",
+          "verified_fill"
+        ]
+      },
+      "exit_plan": "若10/12实际买入，最早10/13可卖。10/13弱开、失守12.40或板块兑现，在首个有流动性的时点优先退出；强势且成交允许，13.40—13.90分批观察。若10/12已涨停，不能兑现当日浮盈；10/13只依据真实竞价、成交和冲高后是否跌破前日收盘安排减仓，不假定涨停能卖。跌停/停牌无法成交延后并记失败，后续每个交易日优先核验退出。",
+      "limitup_path_hypothesis": "假设路径：守12.55→重站13.04/13.19→板块换手晋级→价格向13.40—13.90推进；只有进一步持续放量才可能向10/12理论20%上限15.44靠近，门槛很高，不给概率。反例：传媒一日高潮、MA20压制、午后单段放量不能延续或蓝色仅反抽。",
+      "roundtrip_cost_assumption_bps": 20,
+      "execution_note": "盘后候选需竞价后再验证；无成交则未触发，不默认一字可以买。T+1入场当日不能卖；净收益只按真实可执行证据计算。",
+      "results": [
+        {
+          "id": "combined-pair-20261009-300058-close-v1-frozen",
+          "as_of": "2026-10-09",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "market_date": "2026-10-12",
+          "status": "pending_auction_revalidation",
+          "trigger_status": "not_observable_before_auction",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null
+        }
+      ]
+    },
+    {
+      "id": "combined-pair-20261009-000420-close-v1",
+      "date": "2026-10-09",
+      "published_at": "2026-10-09T19:38:01.624+08:00",
+      "code": "000420",
+      "name": "吉林化纤",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "task_id": "combined_pair",
+      "model": "combined_limitup_watch_v2",
+      "model_label": "低位首次有效放量＋榜单共振，首板后承接",
+      "reason": "120日位置16.9%、RVOL20=5.38、CLV1及公开榜单净买共振，优于高位航运、20cm单日加速和巨量未封；缺同口径化纤板块广度，次日封板不可成交是重要反对项。",
+      "reference_price": 3.81,
+      "reference_price_time": "2026-10-09T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-09",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz000420",
+      "trigger": "10月12日9:25—9:30可核验竞价/开盘3.77—3.92；非一字，第一次分歧回踩守3.70且5分钟回踩量低于首次上冲同长窗口；9:45—10:30重新站回3.81，连续5个一分钟价格点不低于3.81、上冲成交量大于回踩窗口；化纤同口径可核验板块非集体下跌，中简科技/光威复材作为材料风险对照至少一只不低于-2%，对照本身不是推荐。只在真实可成交3.82—3.94研究入场。",
+      "invalid": "开盘不在3.77—3.92；开盘超过3.96；一字/无可成交报价或封板排队；放量失守3.70；回封后反复开板、板块集体兑现；9:45—10:30未满足全部条件即未触发，不为凑两只另追高。",
+      "reference_entry_range": [
+        3.82,
+        3.94
+      ],
+      "operational_invalid_price": 3.7,
+      "structural_invalid_price": 3.53,
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=50&sort=changepercent&asc=0&node=hs_a&symbol=&_s_r_a=page",
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://data.10jqka.com.cn/market/lhbgg/code/000420/",
+        "https://data.10jqka.com.cn/market/longhu/",
+        "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+        "https://static.cninfo.com.cn/finalpage/2026-10-09/1225597540.PDF",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000420"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-09T15:00:00+08:00",
+      "planned_entry_date": "2026-10-12",
+      "earliest_legal_exit_date_if_bought": "2026-10-13",
+      "report_ids": [
+        "combined-pair-20261009-close-v1"
+      ],
+      "evidence_snapshot": {
+        "code": "000420",
+        "name": "吉林化纤",
+        "date": "2026-10-09",
+        "sector": "化纤/材料",
+        "label": "低位首次显著放量",
+        "open": 3.53,
+        "close": 3.81,
+        "high": 3.81,
+        "low": 3.53,
+        "previous_close": 3.46,
+        "daily_change_pct": 10.12,
+        "amount_cny": 893374863.3,
+        "volume_provider_units": 2399179.0,
+        "volume_unit": "lots_100_shares",
+        "turnover_pct": 9.76,
+        "provider_volume_ratio_at_close": 6.73,
+        "relative_volume_denominator": "mean of previous N completed sessions; T excluded",
+        "rvol": {
+          "5": 6.727,
+          "10": 7.207,
+          "20": 5.383
+        },
+        "ma": {
+          "5": 3.53,
+          "10": 3.546,
+          "20": 3.587,
+          "60": 3.673
+        },
+        "range_position_pct": {
+          "20": 71.186,
+          "60": 71.186,
+          "120": 16.935
+        },
+        "prior20_high": 3.98,
+        "clv": 1.0,
+        "amplitude_pct": 8.092,
+        "upper_shadow_fraction_of_range": 0.0,
+        "turnover_acceleration_3d": null,
+        "turnover_acceleration_5d": null,
+        "turnover_change_from_prior_day_pp": null,
+        "tail_return_1400_to_1500_pct": 0.0,
+        "tail_volume_share_1400_to_1500_pct": 2.517,
+        "regular_session_minute_points": 242,
+        "ohlc_verified": false,
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 3.53,
+            "cumulative_volume_provider_units": 14385.0,
+            "cumulative_amount_cny": 5077905.0
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 3.66,
+            "cumulative_volume_provider_units": 711380.0,
+            "cumulative_amount_cny": 258096856.39
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 3.68,
+            "cumulative_volume_provider_units": 1503444.0,
+            "cumulative_amount_cny": 554849083.02
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 3.68,
+            "cumulative_volume_provider_units": 1616201.0,
+            "cumulative_amount_cny": 596229794.0
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 3.81,
+            "cumulative_volume_provider_units": 2338792.0,
+            "cumulative_amount_cny": 870367416.23
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 3.81,
+            "cumulative_volume_provider_units": 2374049.0,
+            "cumulative_amount_cny": 883800333.28
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 3.81,
+            "cumulative_volume_provider_units": 2399179.0,
+            "cumulative_amount_cny": 893374863.3
+          }
+        },
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
+          "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000420"
+        ],
+        "evidence_status": "verified_daily_and_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "tick_order_book",
+          "point_in_time_historical_turnover",
+          "complete_sector_breadth",
+          "verified_fill"
+        ]
+      },
+      "exit_plan": "若10/12实际买入，最早10/13可卖。10/13弱开/失守3.70/板块退潮在首个可成交时点优先退出；10/12未封板时，10/13的4.05—4.19为分批观察区。若10/12封4.19，10/13出现可成交的延续冲高时观察4.30—4.50，若冲高后失守前日收盘优先减/退出；不假定封板有卖出流动性。停牌或跌停无成交不能按计划价算已止损，延后记录。",
+      "limitup_path_hypothesis": "假设路径：首板后可成交分歧→3.70上方缩量承接→重站3.81→换手晋级，10/12理论涨停价约4.19（当日交易所价需再核验）；若10/12收4.19，10/13才可能进一步加速。反例：首次异常放量只是一日换手、化纤广度不足、榜单净买次日兑现或一字完全买不到。",
+      "roundtrip_cost_assumption_bps": 20,
+      "execution_note": "盘后候选需竞价后再验证；无成交则未触发，不默认一字可以买。T+1入场当日不能卖；净收益只按真实可执行证据计算。",
+      "results": [
+        {
+          "id": "combined-pair-20261009-000420-close-v1-frozen",
+          "as_of": "2026-10-09",
+          "recorded_at": "2026-10-09T19:38:01.624+08:00",
+          "market_date": "2026-10-12",
+          "status": "pending_auction_revalidation",
+          "trigger_status": "not_observable_before_auction",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null
+        }
+      ]
     }
   ],
   "legacy_audit": [

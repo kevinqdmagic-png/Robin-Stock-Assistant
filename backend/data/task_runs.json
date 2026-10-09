@@ -820,6 +820,64 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
       ]
+    },
+    {
+      "id": "quant-research-20261009-fallback-112150z-completed",
+      "run_id": "quant-research-20261009-fallback-112150z",
+      "task_id": "quant_research",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T11:21:50.800508+00:00",
+      "completed_at": "2026-10-09T19:38:01.623+08:00",
+      "recorded_at": "2026-10-09T19:38:01.623+08:00",
+      "status": "completed",
+      "summary": "完成独立量化痕迹完整研究及16只上一批验证；20只原样本已冻结，成交与净收益未伪造。",
+      "report_ids": [
+        "quant-research-20261009-close-v1"
+      ],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json"
+      ]
+    },
+    {
+      "id": "volume-price-20261009-fallback-112150z-completed",
+      "run_id": "volume-price-20261009-fallback-112150z",
+      "task_id": "volume_price",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T11:21:50.800508+00:00",
+      "completed_at": "2026-10-09T19:38:01.623+08:00",
+      "recorded_at": "2026-10-09T19:38:01.623+08:00",
+      "status": "completed",
+      "summary": "完成独立量价完整研究、30只新深筛与上一批24+5关联验证；研究完成，发布另待CI及线上核验。",
+      "report_ids": [
+        "volume-price-20261009-close-v1"
+      ],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261009-scheduled-111218z-completed",
+      "run_id": "combined-pair-20261009-scheduled-111218z",
+      "task_id": "combined_pair",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T11:12:18+00:00",
+      "completed_at": "2026-10-09T19:38:01.624+08:00",
+      "recorded_at": "2026-10-09T19:38:01.624+08:00",
+      "status": "completed",
+      "summary": "完成综合盘后裁决与前组真实条件验证；两只为10/12条件观察，发布待CI/准确SHA/生产接口检查。",
+      "report_ids": [
+        "combined-pair-20261009-close-v1"
+      ],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json"
+      ],
+      "recommendation_ids": [
+        "combined-pair-20261009-300058-close-v1",
+        "combined-pair-20261009-000420-close-v1"
+      ]
     }
   ]
 }
