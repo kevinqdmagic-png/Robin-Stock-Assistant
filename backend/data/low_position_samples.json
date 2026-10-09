@@ -3,7 +3,7 @@
   "track": "low_position",
   "research_version": "low_position_30d_v1",
   "created_at": "2026-10-08T08:15:08.201Z",
-  "updated_at": "2026-10-08T08:15:08.201Z",
+  "updated_at": "2026-10-09T08:56:30.720Z",
   "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
   "milestones_calendar_days": [
     1,
@@ -39,6 +39,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 16,
+          "trading_day": 6,
+          "close": 37.66,
+          "open": 36.5,
+          "high": 37.96,
+          "low": 35.55,
+          "daily_change_pct": 2.56,
+          "change_from_day0_pct": 0.21,
+          "maximum_price_excursion_pct": 5.08,
+          "minimum_price_excursion_pct": -5.4,
+          "volume_shares": 196416,
+          "relative_volume_20": 0.83,
+          "clv": 0.876,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,160,qfq"
         }
       ]
     },
@@ -61,6 +84,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 16,
+          "trading_day": 6,
+          "close": 17.7,
+          "open": 17.41,
+          "high": 17.78,
+          "low": 17.17,
+          "daily_change_pct": 1.84,
+          "change_from_day0_pct": -3.49,
+          "maximum_price_excursion_pct": 1.04,
+          "minimum_price_excursion_pct": -6.38,
+          "volume_shares": 118513,
+          "relative_volume_20": 0.93,
+          "clv": 0.869,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,160,qfq"
         }
       ]
     },
@@ -92,6 +138,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 11,
+          "trading_day": 4,
+          "close": 10.13,
+          "open": 9.87,
+          "high": 10.17,
+          "low": 9.86,
+          "daily_change_pct": 2.32,
+          "change_from_day0_pct": 3.47,
+          "maximum_price_excursion_pct": 4.49,
+          "minimum_price_excursion_pct": -5.41,
+          "volume_shares": 240471,
+          "relative_volume_20": 1.32,
+          "clv": 0.871,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,160,qfq"
         }
       ]
     },
@@ -114,6 +183,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 11,
+          "trading_day": 4,
+          "close": 8.43,
+          "open": 7.84,
+          "high": 8.5,
+          "low": 7.79,
+          "daily_change_pct": 6.84,
+          "change_from_day0_pct": 13.31,
+          "maximum_price_excursion_pct": 14.25,
+          "minimum_price_excursion_pct": -4.7,
+          "volume_shares": 664108,
+          "relative_volume_20": 3.23,
+          "clv": 0.901,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,160,qfq"
         }
       ]
     },
@@ -144,6 +236,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 11,
+          "trading_day": 4,
+          "close": 30.5,
+          "open": 29.51,
+          "high": 30.75,
+          "low": 29.05,
+          "daily_change_pct": 3.01,
+          "change_from_day0_pct": 0.53,
+          "maximum_price_excursion_pct": 10.02,
+          "minimum_price_excursion_pct": -4.32,
+          "volume_shares": 248260,
+          "relative_volume_20": 1.94,
+          "clv": 0.853,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,160,qfq"
         }
       ]
     },
@@ -174,6 +289,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 11,
+          "trading_day": 4,
+          "close": 15.02,
+          "open": 15.9,
+          "high": 15.9,
+          "low": 15.02,
+          "daily_change_pct": -10.01,
+          "change_from_day0_pct": 1.76,
+          "maximum_price_excursion_pct": 14.77,
+          "minimum_price_excursion_pct": -8.33,
+          "volume_shares": 218946,
+          "relative_volume_20": 1.43,
+          "clv": 0,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,160,qfq"
         }
       ]
     },
@@ -220,6 +358,29 @@
           "executed_trade": false,
           "executable_net_return": null,
           "day0_comparison_only": true
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": 30.41,
+          "open": 30.36,
+          "high": 32,
+          "low": 29.85,
+          "daily_change_pct": -2.84,
+          "change_from_day0_pct": 6.03,
+          "maximum_price_excursion_pct": 12.06,
+          "minimum_price_excursion_pct": -5.16,
+          "volume_shares": 1122613,
+          "relative_volume_20": 3.52,
+          "clv": 0.26,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,160,qfq"
         }
       ]
     },
@@ -251,6 +412,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": 8.73,
+          "open": 8.85,
+          "high": 8.96,
+          "low": 8.36,
+          "daily_change_pct": -4.9,
+          "change_from_day0_pct": 4.93,
+          "maximum_price_excursion_pct": 12.14,
+          "minimum_price_excursion_pct": -9.86,
+          "volume_shares": 950525,
+          "relative_volume_20": 4.33,
+          "clv": 0.617,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,160,qfq"
         }
       ]
     },
@@ -282,6 +466,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": 18.32,
+          "open": 18.41,
+          "high": 20.45,
+          "low": 17.48,
+          "daily_change_pct": -1.45,
+          "change_from_day0_pct": 19.27,
+          "maximum_price_excursion_pct": 33.14,
+          "minimum_price_excursion_pct": -7.16,
+          "volume_shares": 763279,
+          "relative_volume_20": 9.42,
+          "clv": 0.283,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,160,qfq"
         }
       ]
     },
@@ -313,6 +520,29 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": 10.15,
+          "open": 10.22,
+          "high": 10.55,
+          "low": 10.01,
+          "daily_change_pct": -0.59,
+          "change_from_day0_pct": 7.29,
+          "maximum_price_excursion_pct": 11.52,
+          "minimum_price_excursion_pct": -9.51,
+          "volume_shares": 644196,
+          "relative_volume_20": 1.27,
+          "clv": 0.259,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,160,qfq"
         }
       ]
     },
@@ -344,7 +574,194 @@
           "close": null,
           "status": "pending_verified_closing_quote",
           "reason": "缺乏同一数据源可复核的2026-10-08完整收盘价"
+        },
+        {
+          "as_of": "2026-10-09",
+          "calendar_day": 10,
+          "trading_day": 3,
+          "close": 7.85,
+          "open": 7.47,
+          "high": 7.94,
+          "low": 7.14,
+          "daily_change_pct": 5.23,
+          "change_from_day0_pct": -0.25,
+          "maximum_price_excursion_pct": 4.19,
+          "minimum_price_excursion_pct": -12.83,
+          "volume_shares": 438254,
+          "relative_volume_20": 1.53,
+          "clv": 0.887,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,160,qfq"
         }
+      ]
+    },
+    {
+      "id": "low-position-20261009-000420",
+      "date": "2026-10-09",
+      "code": "000420",
+      "name": "吉林化纤",
+      "sector": "化纤/低位材料",
+      "day0_close": 3.81,
+      "invalid_close_below": 3.53,
+      "initial_invalidation_basis": "收盘跌破信号日低点/最近平台低点",
+      "primary_model": "底部首次有效放量＋龙虎榜共振",
+      "tags": [
+        "底部放量启动",
+        "板块/龙虎榜共振"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 10.12,
+      "day0_turnover_pct": 9.76,
+      "day0_amount_yi": 8.9337,
+      "day0_rvol5": 6.73,
+      "day0_rvol10": 7.21,
+      "day0_rvol20": 5.38,
+      "day0_clv": 1,
+      "day0_amplitude_pct": 8.09,
+      "day0_range_position_pct": {
+        "20": 71.2,
+        "60": 71.2,
+        "120": 16.9
+      },
+      "day0_moving_averages": {
+        "ma5": 3.53,
+        "ma10": 3.55,
+        "ma20": 3.59
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261009-300821",
+      "date": "2026-10-09",
+      "code": "300821",
+      "name": "东岳硅材",
+      "sector": "有机硅/新能源材料",
+      "day0_close": 17.15,
+      "invalid_close_below": 15.3,
+      "initial_invalidation_basis": "收盘跌破信号日低点/最近平台低点",
+      "primary_model": "低位首次爆量突破",
+      "tags": [
+        "底部放量启动",
+        "事件/板块共振启动"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 20.01,
+      "day0_turnover_pct": 12.56,
+      "day0_amount_yi": 24.8809,
+      "day0_rvol5": 5.18,
+      "day0_rvol10": 4.24,
+      "day0_rvol20": 3.99,
+      "day0_clv": 1,
+      "day0_amplitude_pct": 12.95,
+      "day0_range_position_pct": {
+        "20": 100,
+        "60": 20.1,
+        "120": 21.8
+      },
+      "day0_moving_averages": {
+        "ma5": 14.97,
+        "ma10": 15.31,
+        "ma20": 15.14
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,160,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261009-600547",
+      "date": "2026-10-09",
+      "code": "600547",
+      "name": "山东黄金",
+      "sector": "黄金",
+      "day0_close": 27.17,
+      "invalid_close_below": 25.36,
+      "initial_invalidation_basis": "收盘跌破信号日低点/最近平台低点",
+      "primary_model": "低位放量修复＋板块共振",
+      "tags": [
+        "趋势反转启动",
+        "板块共振启动"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 2.8,
+      "day0_turnover_pct": 3.26,
+      "day0_amount_yi": 31.7198,
+      "day0_rvol5": 1.21,
+      "day0_rvol10": 1.34,
+      "day0_rvol20": 1.5,
+      "day0_clv": 0.757,
+      "day0_amplitude_pct": 4.35,
+      "day0_range_position_pct": {
+        "20": 13.5,
+        "60": 25.9,
+        "120": 27.6
+      },
+      "day0_moving_averages": {
+        "ma5": 26.71,
+        "ma10": 29,
+        "ma20": 32.18
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,160,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261009-300058",
+      "date": "2026-10-09",
+      "code": "300058",
+      "name": "蓝色光标",
+      "sector": "AI应用/营销",
+      "day0_close": 12.87,
+      "invalid_close_below": 11.9,
+      "initial_invalidation_basis": "收盘跌破信号日低点/最近平台低点",
+      "primary_model": "低位修复＋尾盘承接",
+      "tags": [
+        "底部吸筹后试盘",
+        "板块共振启动"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 6.8,
+      "day0_turnover_pct": 6.58,
+      "day0_amount_yi": 28.5194,
+      "day0_rvol5": 1.49,
+      "day0_rvol10": 1.14,
+      "day0_rvol20": 1.02,
+      "day0_clv": 0.851,
+      "day0_amplitude_pct": 9.46,
+      "day0_range_position_pct": {
+        "20": 31.3,
+        "60": 30.3,
+        "120": 18.6
+      },
+      "day0_moving_averages": {
+        "ma5": 12.58,
+        "ma10": 12.99,
+        "ma20": 13.19
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq"
       ]
     }
   ],

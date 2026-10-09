@@ -744,6 +744,82 @@
         "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
       ]
+    },
+    {
+      "id": "low-position-20261009-joint-084903z-completed",
+      "run_id": "low-position-20261009-joint-084903z",
+      "task_id": "low_position",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T08:49:03.000Z",
+      "recorded_at": "2026-10-09T08:56:30.720Z",
+      "completed_at": "2026-10-09T08:56:30.720Z",
+      "status": "completed",
+      "summary": "完成低位启动完整研究：11只历史样本全量验证、新增4只、到期0只；量价反例与长期节点均保留。",
+      "report_ids": [
+        "low-position-20261009-close-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
+        "https://data.10jqka.com.cn/market/longhu/",
+        "https://finance.sina.com.cn/money/fund/etf/2026-10-09/doc-iniurfei2955484.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261009-joint-084903z-completed",
+      "run_id": "dragon-tiger-20261009-joint-084903z",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T08:49:03.000Z",
+      "recorded_at": "2026-10-09T08:56:30.720Z",
+      "completed_at": "2026-10-09T08:56:30.720Z",
+      "status": "completed",
+      "summary": "完成龙虎榜完整研究：深市35只不同上榜股、上一批5只T+1验证、5只观察/反例样本；公开缺失市场已标注。",
+      "report_ids": [
+        "dragon-tiger-20261009-close-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://data.10jqka.com.cn/market/longhu/",
+        "https://data.eastmoney.com/stock/lhb.html",
+        "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300364,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300369,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300413,day,,,160,qfq",
+        "https://finance.sina.com.cn/money/fund/etf/2026-10-09/doc-iniurfei2955484.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ]
+    },
+    {
+      "id": "low-dragon-20261009-scheduled-084903z-completed",
+      "run_id": "low-dragon-20261009-scheduled-084903z",
+      "task_id": "low_dragon",
+      "date": "2026-10-09",
+      "trigger": "scheduled",
+      "started_at": "2026-10-09T08:49:03.000Z",
+      "recorded_at": "2026-10-09T08:56:30.720Z",
+      "completed_at": "2026-10-09T08:56:30.720Z",
+      "status": "completed",
+      "summary": "联合编排两个成员模块均完成；摘要仅关联原报告和运行，不重复候选或收益。",
+      "report_ids": [
+        "low-dragon-20261009-execution-summary-v1"
+      ],
+      "recommendation_ids": [],
+      "component_report_ids": [
+        "low-position-20261009-close-v1",
+        "dragon-tiger-20261009-close-v1"
+      ],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ]
     }
   ]
 }
