@@ -363,7 +363,28 @@
         "market-review-20261008-source-corrected-v2"
       ],
       "supersedes_fact_in_recommendation_id": "market-review-20261008-601872-close-v1",
-      "results": []
+      "results": [
+        {
+          "id": "market-review-20261008-601872-t1-20261009",
+          "recorded_at": "2026-10-09T16:09:55.971+08:00",
+          "market_date": "2026-10-09",
+          "status": "condition_invalidated_no_verified_fill",
+          "trigger_status": "invalid_level_breached; minute ordering unavailable",
+          "entry_fill_status": "not_verified",
+          "price_observation": {
+            "open": 22.47,
+            "high": 22.65,
+            "low": 20.65,
+            "close": 22.07,
+            "open_pct": 2,
+            "mfe_pct": 2.81,
+            "mae_pct": -6.26,
+            "close_pct": 0.18
+          },
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/"
+        }
+      ]
     },
     {
       "id": "market-review-20261008-002074-close-v2-correction",
@@ -403,7 +424,28 @@
         "market-review-20261008-source-corrected-v2"
       ],
       "supersedes_fact_in_recommendation_id": "market-review-20261008-002074-close-v1",
-      "results": []
+      "results": [
+        {
+          "id": "market-review-20261008-002074-t1-20261009",
+          "recorded_at": "2026-10-09T16:09:55.971+08:00",
+          "market_date": "2026-10-09",
+          "status": "not_triggered",
+          "trigger_status": "open below frozen auction/acceptance range and 30.80 support",
+          "entry_fill_status": "not_verified",
+          "price_observation": {
+            "open": 30.36,
+            "high": 32,
+            "low": 29.85,
+            "close": 30.41,
+            "open_pct": -3,
+            "mfe_pct": 2.24,
+            "mae_pct": -4.63,
+            "close_pct": -2.84
+          },
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/"
+        }
+      ]
     },
     {
       "id": "combined-pair-20261008-601872-close-v1",
@@ -527,6 +569,80 @@
           "executable_net_return_pct": null
         }
       ]
+    },
+    {
+      "date": "2026-10-09",
+      "published_at": "2026-10-09T16:09:55.971+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-09T16:03:31+08:00",
+      "planned_entry_date": "2026-10-12",
+      "earliest_legal_exit_date_if_bought": "2026-10-13",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261009-close-v1"
+      ],
+      "sources": [
+        "https://www.dabanke.com/index-20261009.html",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://robin-stock-api-production.up.railway.app/api/overview",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ],
+      "id": "market-review-20261009-600026-close-v1",
+      "code": "600026",
+      "name": "中远海能",
+      "model": "first_divergence_capacity_v1",
+      "reason": "航运板块分化中收近高位，成交35.83亿元、换手4.07%、CLV0.92，RVOL5/10/20约2.96/2.18/2.05；流动性支持退出，但高位与同板块分化是反证。",
+      "reference_price": 23.49,
+      "reference_price_time": "2026-10-09T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-09",
+      "reference_price_source": "https://qt.gtimg.cn/",
+      "trigger": "10月12日竞价/开盘23.25—23.95；首次回踩不放量跌破23.00，9:45—10:30重新站稳23.60，且招商轮船/招商南油至少一只不弱于-1%。",
+      "invalid": "高开超过约+4%（24.43以上）不追；放量跌破22.90、航运同向转弱或23.60上方量大价不进均放弃。",
+      "results": []
+    },
+    {
+      "date": "2026-10-09",
+      "published_at": "2026-10-09T16:09:55.971+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-09T16:03:31+08:00",
+      "planned_entry_date": "2026-10-12",
+      "earliest_legal_exit_date_if_bought": "2026-10-13",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261009-close-v1"
+      ],
+      "sources": [
+        "https://www.dabanke.com/index-20261009.html",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://robin-stock-api-production.up.railway.app/api/overview",
+        "https://robin-stock-api-production.up.railway.app/api/market",
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
+      ],
+      "id": "market-review-20261009-300058-close-v1",
+      "code": "300058",
+      "name": "蓝色光标",
+      "model": "low_position_event_sector_resonance_v1",
+      "reason": "短剧/AI营销广度强，收12.87、成交28.52亿元、换手6.58%、CLV0.85；RVOL5约1.49但RVOL20仅1.02，定位为低位共振反弹而非确认突破。",
+      "reference_price": 12.87,
+      "reference_price_time": "2026-10-09T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-09",
+      "reference_price_source": "https://qt.gtimg.cn/",
+      "trigger": "10月12日竞价/开盘12.68—13.19；第一次回踩守12.55，重新站稳13.04，且传媒至少两只容量核心不低于-2%。",
+      "invalid": "高开超过约+4%（13.38以上）不追；跌破12.40不能快速收回、板块首板批量低开兑现或13.04附近放量不进均放弃。",
+      "results": []
     }
   ],
   "legacy_audit": [
