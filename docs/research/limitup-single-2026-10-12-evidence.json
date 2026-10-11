@@ -1,0 +1,1364 @@
+{
+  "id": "limitup-single-20261012-source-audit-v2",
+  "recorded_at": "2026-10-11T19:53:50+00:00",
+  "data_cutoff_at": "2026-10-11T19:48:41+00:00",
+  "research_day": "2026-10-12",
+  "latest_completed_trading_day": "2026-10-09",
+  "research_rule_version": "limitup_single_v2",
+  "coverage": {
+    "full_a_scan": false,
+    "public_T_active_pool_unique_codes": 188,
+    "sina_turnover_ranking_rows": 100,
+    "overlap": 5,
+    "union_before_tracker": 283,
+    "additional_old_tracker_code": "600592",
+    "requested_unique_codes": 284,
+    "verified_quote_count": 284,
+    "provider_quote_market_dates": [
+      "20261009"
+    ],
+    "provider_quote_time_min": "20261009153542",
+    "provider_quote_time_max": "20261009161500",
+    "public_topic_label_count": 12,
+    "public_topic_labels": [
+      "短剧游戏",
+      "AI营销",
+      "种业",
+      "新媒体营销",
+      "快手",
+      "华为鲸鸿",
+      "AI语料",
+      "态势感知",
+      "kimi",
+      "爱奇艺",
+      "知识产权",
+      "即梦AI"
+    ],
+    "topic_labels_overlap": true,
+    "eastmoney_universe_metadata_total": 5922,
+    "eastmoney_rows_returned": 100,
+    "eastmoney_full_a_complete": false,
+    "daily_history_requested": 24,
+    "daily_history_success": 24,
+    "limitations": [
+      "有限观察池不能冒称全市场逐股扫描。",
+      "无Level-2、完整逐笔、排队次序、D日竞价或D日证券状态。",
+      "腾讯分时是累计量额价格点，不能重建逐笔排队或回封成交顺序。"
+    ]
+  },
+  "source_request_manifest": [
+    {
+      "key": "ztgc_1009",
+      "url": "https://www.dabanke.com/ztgc.html?date=2026-10-09",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 89925,
+      "sha256": "934cac7aadc24533b8d7d00080b779eda7f551773548ed043ce708d3a7127918",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:40:58+00:00"
+    },
+    {
+      "key": "dabanke_1009",
+      "url": "https://www.dabanke.com/index-20261009.html",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 530581,
+      "sha256": "d1302c3cf48ee754ff673d41f0aaba2b61200572d72287d60ff16f191cd73d46",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:40:59+00:00"
+    },
+    {
+      "key": "dabanke_1008",
+      "url": "https://www.dabanke.com/index-20261008.html",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 501361,
+      "sha256": "18874afe5f64618969dc0dae6af1cbee83e448826f12b108557dce834adc3022",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:40:59+00:00"
+    },
+    {
+      "key": "sina_top",
+      "url": "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=100&sort=amount&asc=0&node=hs_a&symbol=&_s_r_a=setlen",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 38716,
+      "sha256": "67db71eaca8903758de81bfa5bed3afee0a5d3b956c74036f2af7acf7fdaaca3",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:04+00:00"
+    },
+    {
+      "key": "sohu_longxi",
+      "url": "https://q.stock.sohu.com/hisHq?code=cn_600592&start=20260929&end=20261009&stat=1&order=A&period=d",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 534,
+      "sha256": "8278957e3e9cf1da3337a662473fe0d7dde26666759f8042212d62ab7a19fa99",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:04+00:00"
+    },
+    {
+      "key": "minute_longxi",
+      "url": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600592",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 10315,
+      "sha256": "fccd5d3efdea3bbbb4ff138c346d1265f7595ed06abc75e4ce5e5d532e8ff6bb",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:05+00:00"
+    },
+    {
+      "key": "ths_lhb",
+      "url": "https://data.10jqka.com.cn/market/longhu/",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 894339,
+      "sha256": "3536fe5ff8525b9de0f5130a685b2aecccb54eb2cb1be85fd14c0f07253ba621",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:05+00:00"
+    },
+    {
+      "key": "em_all",
+      "url": "https://push2delay.eastmoney.com/api/qt/clist/get?pn=1&pz=6000&po=1&np=1&fltt=2&invt=2&fid=f6&fs=m%3A0%2Bt%3A6%2Cm%3A0%2Bt%3A80%2Cm%3A1%2Bt%3A2%2Cm%3A1%2Bt%3A23%2Cm%3A0%2Bt%3A81%2Bs%3A2048&fields=f2%2Cf3%2Cf5%2Cf6%2Cf8%2Cf10%2Cf12%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf124",
+      "started_at": "2026-10-11T19:40:54+00:00",
+      "status": 200,
+      "bytes": 17870,
+      "sha256": "e8c6b650adf95a6293240d360c44d67a86cc58e0a7cd4535d52498a13061af74",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:09+00:00"
+    },
+    {
+      "key": "tencent_2",
+      "url": "https://qt.gtimg.cn/q=sh600373,sh600400,sh600408,sh600418,sh600478,sh600487,sh600513,sh600519,sh600522,sh600547,sh600556,sh600584,sh600592,sh600601,sh600617,sh600621,sh600629,sh600640,sh600641,sh600663,sh600664,sh600715,sh600722,sh600785,sh600812,sh600825,sh600831,sh600843,sh600865,sh600880,sh600882,sh600892,sh600900,sh600986,sh600988,sh601069,sh601086,sh601118,sh601138,sh601208,sh601318,sh601360,sh601398,sh601519,sh601566,sh601595,sh601811,sh601858,sh601869,sh601872,sh601899,sh601929,sh601956,sh601975,sh601999,sh603002,sh603067,sh603068,sh603073,sh603083,sh603096,sh603101,sh603103,sh603127,sh603137,sh603138,sh603155,sh603171,sh603186,sh603200,sh603216,sh603228,sh603232,sh603259,sh603533,sh603598,sh603626,sh603630,sh603636,sh603721",
+      "started_at": "2026-10-11T19:41:09+00:00",
+      "status": 200,
+      "bytes": 40889,
+      "sha256": "af52bc7be4e7be4a30d14111c1a3f639a30dc18ea90463f3f78e36af4754d039",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:14+00:00"
+    },
+    {
+      "key": "tencent_3",
+      "url": "https://qt.gtimg.cn/q=sh603788,sh603810,sh603863,sh603888,sh603906,sh603928,sh603986,sh603999,sh605058,sh605136,sh605168,sh605177,sh605188,sh605287,sh605298,sh605303,sh605378,sh605399,sh605577,sh688008,sh688012,sh688041,sh688048,sh688072,sh688095,sh688099,sh688152,sh688196,sh688244,sh688256,sh688313,sh688347,sh688361,sh688498,sh688521,sh688525,sh688561,sh688692,sh688825,sh688981,bj920021,bj920087,bj920403,bj920627",
+      "started_at": "2026-10-11T19:41:09+00:00",
+      "status": 200,
+      "bytes": 22959,
+      "sha256": "00599e65aa4f9807f2fb360185fa5e43b5bc1fe3d66e9cb5a47e165eecd43828",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:15+00:00"
+    },
+    {
+      "key": "tencent_1",
+      "url": "https://qt.gtimg.cn/q=sz300059,sz300063,sz300071,sz300111,sz300133,sz300182,sz300188,sz300189,sz300207,sz300223,sz300226,sz300274,sz300285,sz300291,sz300308,sz300340,sz300364,sz300369,sz300394,sz300408,sz300413,sz300418,sz300426,sz300450,sz300454,sz300459,sz300475,sz300476,sz300489,sz300502,sz300522,sz300528,sz300530,sz300548,sz300570,sz300579,sz300604,sz300612,sz300659,sz300684,sz300750,sz300757,sz300768,sz300770,sz300781,sz300785,sz300788,sz300805,sz300821,sz300857,sz300981,sz300987,sz301025,sz301052,sz301171,sz301205,sz301231,sz301262,sz301308,sz301511,sz301551,sz301697,sh600026,sh600030,sh600036,sh600088,sh600105,sh600127,sh600130,sh600150,sh600176,sh600183,sh600206,sh600207,sh600241,sh600276,sh600310,sh600313,sh600354,sh600371",
+      "started_at": "2026-10-11T19:41:09+00:00",
+      "status": 200,
+      "bytes": 41116,
+      "sha256": "9e6b4363efc500f851fc1f0015d48b74eb3b0311a0c89c4466ca5851c9fa0acb",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:15+00:00"
+    },
+    {
+      "key": "tencent_0",
+      "url": "https://qt.gtimg.cn/q=sz000333,sz000338,sz000420,sz000546,sz000636,sz000676,sz000681,sz000710,sz000713,sz000725,sz000736,sz000802,sz000839,sz000869,sz000892,sz000938,sz000977,sz000988,sz001246,sz001300,sz001309,sz001318,sz001330,sz001336,sz002008,sz002041,sz002044,sz002058,sz002074,sz002083,sz002105,sz002156,sz002181,sz002212,sz002242,sz002281,sz002285,sz002292,sz002317,sz002343,sz002349,sz002354,sz002371,sz002384,sz002388,sz002400,sz002407,sz002428,sz002436,sz002463,sz002475,sz002480,sz002487,sz002490,sz002565,sz002594,sz002636,sz002675,sz002687,sz002692,sz002696,sz002702,sz002709,sz002712,sz002733,sz002774,sz002805,sz002811,sz002813,sz002851,sz002860,sz002866,sz002869,sz002912,sz002916,sz002951,sz002979,sz002995,sz300045,sz300058",
+      "started_at": "2026-10-11T19:41:09+00:00",
+      "status": 200,
+      "bytes": 39900,
+      "sha256": "5fce669423e4d3fbc0ea69243e346f27ca7ef678509f260877c61baed7627c3f",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:15+00:00"
+    },
+    {
+      "key": "history_000420",
+      "url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420%2Cday%2C%2C%2C80%2Cqfq",
+      "started_at": "2026-10-11T19:41:15+00:00",
+      "status": 200,
+      "bytes": 6393,
+      "sha256": "1e696fafb8994c1e903e4842d60ecdff48946f86be1de5d5a27be4e61ef5a8ae",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:20+00:00"
+    },
+    {
+      "key": "history_603096",
+      "url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603096%2Cday%2C%2C%2C80%2Cqfq",
+      "started_at": "2026-10-11T19:41:15+00:00",
+      "status": 200,
+      "bytes": 6616,
+      "sha256": "59d206cb2118e17b3e91ebb87f395f4c6f95d1136eb7a676e2a1206ec4672fb3",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:21+00:00"
+    },
+    {
+      "key": "history_601929",
+      "url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601929%2Cday%2C%2C%2C80%2Cqfq",
+      "started_at": "2026-10-11T19:41:21+00:00",
+      "status": 200,
+      "bytes": 6433,
+      "sha256": "c67dd40ea5e81cb827347d4af1519cde90dc1a10ba73fdc39d54e71c19c327b1",
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:41:26+00:00"
+    },
+    {
+      "key": "em_limitup_1009",
+      "url": "https://push2ex.eastmoney.com/getTopicZTPool?ut=7eea3edcaed734bea9cbfc24409ed989&dpt=wz.ztzt&Pageindex=0&pagesize=500&sort=fbt%3Aasc&date=20261009",
+      "started_at": "2026-10-11T19:48:19+00:00",
+      "status": 200,
+      "bytes": 18297,
+      "sha256": "8521267e2e20149fd59bad5d8b4c850d2d9bacd94ef6f185fc72c10235b9249e",
+      "attempt": 1,
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:48:26+00:00"
+    },
+    {
+      "key": "em_broken_1009",
+      "url": "https://push2ex.eastmoney.com/getTopicZBPool?ut=7eea3edcaed734bea9cbfc24409ed989&dpt=wz.ztzt&Pageindex=0&pagesize=500&sort=fbt%3Aasc&date=20261009",
+      "started_at": "2026-10-11T19:48:26+00:00",
+      "status": 200,
+      "bytes": 3916,
+      "sha256": "046dd76895a122489e1d1c8db3180bfb8e832761880a1bcff01d11cab63f300d",
+      "attempt": 1,
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:48:31+00:00"
+    },
+    {
+      "key": "em_limitdown_1009",
+      "url": "https://push2ex.eastmoney.com/getTopicDTPool?ut=7eea3edcaed734bea9cbfc24409ed989&dpt=wz.ztzt&Pageindex=0&pagesize=500&sort=fbt%3Aasc&date=20261009",
+      "started_at": "2026-10-11T19:48:31+00:00",
+      "status": 200,
+      "bytes": 92,
+      "sha256": "9c8a025b20a1cf251e11eb36d26952e73a401579d28a8115e6a54d10f9357740",
+      "attempt": 1,
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:48:35+00:00"
+    },
+    {
+      "key": "dabanke_0930",
+      "url": "https://www.dabanke.com/index-20260930.html",
+      "started_at": "2026-10-11T19:48:35+00:00",
+      "status": 200,
+      "bytes": 456690,
+      "sha256": "47093545bb39d3a701e9b4c79cbd7590456f389343d28030f35dd2473f0cf6e8",
+      "attempt": 1,
+      "ok": true,
+      "retrieved_at": "2026-10-11T19:48:41+00:00"
+    }
+  ],
+  "market_emotion_three_completed_sessions": [
+    {
+      "date": "2026-09-30",
+      "ecosystem_closed_limitups": 52,
+      "ecosystem_touched_total": 66,
+      "ecosystem_failed_to_close": 14,
+      "ecosystem_seal_rate_pct": 78.8,
+      "market_width_limitups": 56,
+      "market_width_limitdowns": 13,
+      "turnover_trillion_cny": 1.45,
+      "rising": 2567,
+      "flat": 170,
+      "falling": 2824,
+      "source": "https://www.dabanke.com/index-20260930.html",
+      "definition": "同页生态封住数/触板总数与全市场宽度涨跌停分别保留；未封触板=触板总数-封住数。"
+    },
+    {
+      "date": "2026-10-08",
+      "ecosystem_closed_limitups": 43,
+      "ecosystem_touched_total": 80,
+      "ecosystem_failed_to_close": 37,
+      "ecosystem_seal_rate_pct": 53.8,
+      "market_width_limitups": 45,
+      "market_width_limitdowns": 16,
+      "turnover_trillion_cny": 1.7,
+      "rising": 1698,
+      "flat": 111,
+      "falling": 3748,
+      "source": "https://www.dabanke.com/index-20261008.html",
+      "definition": "同页生态封住数/触板总数与全市场宽度涨跌停分别保留；未封触板=触板总数-封住数。"
+    },
+    {
+      "date": "2026-10-09",
+      "ecosystem_closed_limitups": 69,
+      "ecosystem_touched_total": 88,
+      "ecosystem_failed_to_close": 19,
+      "ecosystem_seal_rate_pct": 78.4,
+      "market_width_limitups": 72,
+      "market_width_limitdowns": 11,
+      "turnover_trillion_cny": 1.92,
+      "rising": 3297,
+      "flat": 117,
+      "falling": 2145,
+      "source": "https://www.dabanke.com/index-20261009.html",
+      "definition": "同页生态封住数/触板总数与全市场宽度涨跌停分别保留；未封触板=触板总数-封住数。"
+    }
+  ],
+  "cross_source_2026_10_09": {
+    "eastmoney_choice": {
+      "limitups": 72,
+      "touched_but_unsealed": 20,
+      "seal_rate_pct": 78.26,
+      "turnover_trillion_cny": 1.9
+    },
+    "eastmoney_pool_endpoint": {
+      "closed_limitups": 69,
+      "broken_pool": 14
+    },
+    "note": "各源状态过滤不同，不平均、不拼分母。"
+  },
+  "market_classification": {
+    "label": "修复，但分歧未消",
+    "positive": [
+      "封板率、上涨家数和成交额较10月8日修复",
+      "最高板从8进9，两个4板都进5板",
+      "传媒/内容方向出现多只首板"
+    ],
+    "negative": [
+      "普通主板2进3为0/3",
+      "普通主板3进4仅1/4，另3只均炸板",
+      "最高/部分次高为一字形态，低位与高位可交易性分化"
+    ]
+  },
+  "normal_mainboard_height": {
+    "scope": "公开页面可见的沪深普通主板正常10%涨跌幅、连续涨停口径；非无缺口官方全A梯队。",
+    "counts_by_exact_board": {
+      "1": 51,
+      "2": 7,
+      "3": 0,
+      "4": 1,
+      "5": 2,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 1
+    },
+    "counts_1_2_3_4_5plus": {
+      "1": 51,
+      "2": 7,
+      "3": 0,
+      "4": 1,
+      "5_plus": 3
+    },
+    "stocks_by_exact_board": {
+      "1": [
+        {
+          "code": "601929",
+          "name": "吉视传媒",
+          "market": "沪主板"
+        },
+        {
+          "code": "000420",
+          "name": "吉林化纤",
+          "market": "深主板"
+        },
+        {
+          "code": "002480",
+          "name": "新筑股份",
+          "market": "深主板"
+        },
+        {
+          "code": "002696",
+          "name": "百洋股份",
+          "market": "深主板"
+        },
+        {
+          "code": "603101",
+          "name": "汇嘉时代",
+          "market": "沪主板"
+        },
+        {
+          "code": "002212",
+          "name": "天融信",
+          "market": "深主板"
+        },
+        {
+          "code": "600865",
+          "name": "百大集团",
+          "market": "沪主板"
+        },
+        {
+          "code": "000710",
+          "name": "贝瑞基因",
+          "market": "深主板"
+        },
+        {
+          "code": "600621",
+          "name": "华鑫股份",
+          "market": "沪主板"
+        },
+        {
+          "code": "603096",
+          "name": "新经典",
+          "market": "沪主板"
+        },
+        {
+          "code": "605399",
+          "name": "晨光新材",
+          "market": "沪主板"
+        },
+        {
+          "code": "002912",
+          "name": "中新赛克",
+          "market": "深主板"
+        },
+        {
+          "code": "600207",
+          "name": "安彩高科",
+          "market": "沪主板"
+        },
+        {
+          "code": "600354",
+          "name": "敦煌种业",
+          "market": "沪主板"
+        },
+        {
+          "code": "605136",
+          "name": "丽人丽妆",
+          "market": "沪主板"
+        },
+        {
+          "code": "605188",
+          "name": "国光连锁",
+          "market": "沪主板"
+        },
+        {
+          "code": "002317",
+          "name": "众生药业",
+          "market": "深主板"
+        },
+        {
+          "code": "600629",
+          "name": "华建集团",
+          "market": "沪主板"
+        },
+        {
+          "code": "601086",
+          "name": "国芳集团",
+          "market": "沪主板"
+        },
+        {
+          "code": "603067",
+          "name": "振华股份",
+          "market": "沪主板"
+        },
+        {
+          "code": "605168",
+          "name": "三人行",
+          "market": "沪主板"
+        },
+        {
+          "code": "600127",
+          "name": "金健米业",
+          "market": "沪主板"
+        },
+        {
+          "code": "600715",
+          "name": "文投控股",
+          "market": "沪主板"
+        },
+        {
+          "code": "601595",
+          "name": "上海电影",
+          "market": "沪主板"
+        },
+        {
+          "code": "603216",
+          "name": "梦天家居",
+          "market": "沪主板"
+        },
+        {
+          "code": "605058",
+          "name": "澳弘电子",
+          "market": "沪主板"
+        },
+        {
+          "code": "002979",
+          "name": "雷赛智能",
+          "market": "深主板"
+        },
+        {
+          "code": "600371",
+          "name": "万向德农",
+          "market": "沪主板"
+        },
+        {
+          "code": "600882",
+          "name": "妙可蓝多",
+          "market": "沪主板"
+        },
+        {
+          "code": "601811",
+          "name": "新华文轩",
+          "market": "沪主板"
+        },
+        {
+          "code": "603533",
+          "name": "掌阅科技",
+          "market": "沪主板"
+        },
+        {
+          "code": "605177",
+          "name": "东亚药业",
+          "market": "沪主板"
+        },
+        {
+          "code": "605287",
+          "name": "德才股份",
+          "market": "沪主板"
+        },
+        {
+          "code": "000892",
+          "name": "欢瑞世纪",
+          "market": "深主板"
+        },
+        {
+          "code": "002675",
+          "name": "东诚药业",
+          "market": "深主板"
+        },
+        {
+          "code": "002811",
+          "name": "郑中设计",
+          "market": "深主板"
+        },
+        {
+          "code": "601069",
+          "name": "西部黄金",
+          "market": "沪主板"
+        },
+        {
+          "code": "601118",
+          "name": "海南橡胶",
+          "market": "沪主板"
+        },
+        {
+          "code": "601566",
+          "name": "九牧王",
+          "market": "沪主板"
+        },
+        {
+          "code": "603155",
+          "name": "新亚强",
+          "market": "沪主板"
+        },
+        {
+          "code": "605577",
+          "name": "龙版传媒",
+          "market": "沪主板"
+        },
+        {
+          "code": "603232",
+          "name": "格尔软件",
+          "market": "沪主板"
+        },
+        {
+          "code": "002181",
+          "name": "粤 传 媒",
+          "market": "深主板"
+        },
+        {
+          "code": "002343",
+          "name": "慈文传媒",
+          "market": "深主板"
+        },
+        {
+          "code": "600843",
+          "name": "上工申贝",
+          "market": "沪主板"
+        },
+        {
+          "code": "601519",
+          "name": "大智慧",
+          "market": "沪主板"
+        },
+        {
+          "code": "001330",
+          "name": "博纳影业",
+          "market": "深主板"
+        },
+        {
+          "code": "002692",
+          "name": "远程股份",
+          "market": "深主板"
+        },
+        {
+          "code": "000736",
+          "name": "中交发展",
+          "market": "深主板"
+        },
+        {
+          "code": "000546",
+          "name": "金圆股份",
+          "market": "深主板"
+        },
+        {
+          "code": "600478",
+          "name": "科力远",
+          "market": "沪主板"
+        }
+      ],
+      "2": [
+        {
+          "code": "600812",
+          "name": "华北制药",
+          "market": "沪主板"
+        },
+        {
+          "code": "001336",
+          "name": "楚环科技",
+          "market": "深主板"
+        },
+        {
+          "code": "002805",
+          "name": "丰元股份",
+          "market": "深主板"
+        },
+        {
+          "code": "002733",
+          "name": "雄韬股份",
+          "market": "深主板"
+        },
+        {
+          "code": "001300",
+          "name": "三柏硕",
+          "market": "深主板"
+        },
+        {
+          "code": "600400",
+          "name": "红豆股份",
+          "market": "沪主板"
+        },
+        {
+          "code": "600408",
+          "name": "安泰集团",
+          "market": "沪主板"
+        }
+      ],
+      "3": [],
+      "4": [
+        {
+          "code": "002058",
+          "name": "紫竹高科",
+          "market": "深主板"
+        }
+      ],
+      "5": [
+        {
+          "code": "002242",
+          "name": "九阳股份",
+          "market": "深主板"
+        },
+        {
+          "code": "600241",
+          "name": "时代万恒",
+          "market": "沪主板"
+        }
+      ],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [
+        {
+          "code": "600825",
+          "name": "新华传媒",
+          "market": "沪主板"
+        }
+      ]
+    },
+    "highest": [
+      {
+        "code": "600825",
+        "name": "新华传媒",
+        "boards": 9,
+        "shape": "one_price_limit_up"
+      }
+    ],
+    "second_highest": [
+      {
+        "code": "002242",
+        "name": "九阳股份",
+        "boards": 5,
+        "shape": "turnover_and_six_openings",
+        "turnover_pct": 18.28
+      },
+      {
+        "code": "600241",
+        "name": "时代万恒",
+        "boards": 5,
+        "shape": "one_price_limit_up"
+      }
+    ],
+    "media_line_visible_height": 9,
+    "media_line_structure": "新华传媒9板；低位传媒首板活跃，但连续2—8板为空，重组高标不能自动确认低位补涨角色。"
+  },
+  "space_board": {
+    "definition": "尝试或确认突破本轮连板高度上限；与高度板同股去重。",
+    "prior_20_actual_sessions": {
+      "start": "2026-09-03",
+      "end": "2026-10-08",
+      "closed_date": "2026-09-25",
+      "count": 20
+    },
+    "prior_window_visible_max": 8,
+    "prior_window_max_code": "600825",
+    "T_observation": {
+      "code": "600825",
+      "name": "新华传媒",
+      "boards": 9,
+      "status": "closed_one_board_breakthrough_9_gt_8",
+      "tradability": "one-price limit-up; excluded"
+    },
+    "stock_specific_continuous_series_start": "2026-09-21",
+    "market_emotion_cycle_start": null,
+    "market_emotion_cycle_peak": null,
+    "note": "个股九连板序列起点可见；全市场情绪周期起点/高点仍未知，不能把滚动窗口直接当周期。"
+  },
+  "promotion_layers": [
+    {
+      "from_board": 1,
+      "to_board": 2,
+      "previous_market_date": "2026-10-08",
+      "feedback_market_date": "2026-10-09",
+      "scope": "普通沪深主板正常10%口径；分母从T-1已封住的对应层逐股冻结。",
+      "frozen_previous_list": [
+        {
+          "code": "002687",
+          "name": "乔治白",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 1.95,
+          "market": "深主板"
+        },
+        {
+          "code": "002702",
+          "name": "海欣食品",
+          "previous_board_count": 1,
+          "current_status": "opened",
+          "current_pct": 4.05,
+          "market": "深主板"
+        },
+        {
+          "code": "600812",
+          "name": "华北制药",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 10.04,
+          "market": "沪主板"
+        },
+        {
+          "code": "000869",
+          "name": "张 裕Ａ",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 3.3,
+          "market": "深主板"
+        },
+        {
+          "code": "600400",
+          "name": "红豆股份",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 9.94,
+          "market": "沪主板"
+        },
+        {
+          "code": "001300",
+          "name": "三柏硕",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 9.99,
+          "market": "深主板"
+        },
+        {
+          "code": "001336",
+          "name": "楚环科技",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 10.02,
+          "market": "深主板"
+        },
+        {
+          "code": "002733",
+          "name": "雄韬股份",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 10.01,
+          "market": "深主板"
+        },
+        {
+          "code": "002805",
+          "name": "丰元股份",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 10.02,
+          "market": "深主板"
+        },
+        {
+          "code": "600026",
+          "name": "中远海能",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 3.85,
+          "market": "沪主板"
+        },
+        {
+          "code": "603863",
+          "name": "松炀资源",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 1.91,
+          "market": "沪主板"
+        },
+        {
+          "code": "600513",
+          "name": "联环药业",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -1.93,
+          "market": "沪主板"
+        },
+        {
+          "code": "603073",
+          "name": "彩蝶实业",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -10.01,
+          "market": "沪主板"
+        },
+        {
+          "code": "603137",
+          "name": "恒尚节能",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -4.65,
+          "market": "沪主板"
+        },
+        {
+          "code": "002869",
+          "name": "金溢科技",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 1.62,
+          "market": "深主板"
+        },
+        {
+          "code": "600617",
+          "name": "国新能源",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -0.53,
+          "market": "沪主板"
+        },
+        {
+          "code": "605298",
+          "name": "必得科技",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -4.83,
+          "market": "沪主板"
+        },
+        {
+          "code": "605378",
+          "name": "野马电池",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 4.69,
+          "market": "沪主板"
+        },
+        {
+          "code": "002490",
+          "name": "山东墨龙",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -2.24,
+          "market": "深主板"
+        },
+        {
+          "code": "002774",
+          "name": "快意电梯",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -1.1,
+          "market": "深主板"
+        },
+        {
+          "code": "002951",
+          "name": "金时科技",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -3.03,
+          "market": "深主板"
+        },
+        {
+          "code": "600722",
+          "name": "金牛化工",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 4.26,
+          "market": "沪主板"
+        },
+        {
+          "code": "603788",
+          "name": "宁波高发",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -5.6,
+          "market": "沪主板"
+        },
+        {
+          "code": "600310",
+          "name": "广西能源",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -2.41,
+          "market": "沪主板"
+        },
+        {
+          "code": "601956",
+          "name": "东贝集团",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -3.62,
+          "market": "沪主板"
+        },
+        {
+          "code": "601975",
+          "name": "招商南油",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": -3.82,
+          "market": "沪主板"
+        },
+        {
+          "code": "002565",
+          "name": "顺灏股份",
+          "previous_board_count": 1,
+          "current_status": "failed",
+          "current_pct": 1.72,
+          "market": "深主板"
+        },
+        {
+          "code": "600408",
+          "name": "安泰集团",
+          "previous_board_count": 1,
+          "current_status": "success",
+          "current_pct": 9.88,
+          "market": "沪主板"
+        }
+      ],
+      "total_previous_samples": 28,
+      "promoted": 7,
+      "opened_not_closed": 1,
+      "failed_without_limit_touch": 20,
+      "suspended": 0,
+      "missing": 0,
+      "promotion_ratio": 0.25
+    },
+    {
+      "from_board": 2,
+      "to_board": 3,
+      "previous_market_date": "2026-10-08",
+      "feedback_market_date": "2026-10-09",
+      "scope": "普通沪深主板正常10%口径；分母从T-1已封住的对应层逐股冻结。",
+      "frozen_previous_list": [
+        {
+          "code": "603928",
+          "name": "兴业股份",
+          "previous_board_count": 2,
+          "current_status": "failed",
+          "current_pct": -4.8,
+          "market": "沪主板"
+        },
+        {
+          "code": "600663",
+          "name": "陆家嘴",
+          "previous_board_count": 2,
+          "current_status": "failed",
+          "current_pct": -8.72,
+          "market": "沪主板"
+        },
+        {
+          "code": "603906",
+          "name": "龙蟠科技",
+          "previous_board_count": 2,
+          "current_status": "failed",
+          "current_pct": 2.05,
+          "market": "沪主板"
+        }
+      ],
+      "total_previous_samples": 3,
+      "promoted": 0,
+      "opened_not_closed": 0,
+      "failed_without_limit_touch": 3,
+      "suspended": 0,
+      "missing": 0,
+      "promotion_ratio": 0.0
+    },
+    {
+      "from_board": 3,
+      "to_board": 4,
+      "previous_market_date": "2026-10-08",
+      "feedback_market_date": "2026-10-09",
+      "scope": "普通沪深主板正常10%口径；分母从T-1已封住的对应层逐股冻结。",
+      "frozen_previous_list": [
+        {
+          "code": "605303",
+          "name": "园林股份",
+          "previous_board_count": 3,
+          "current_status": "opened",
+          "current_pct": 2.16,
+          "market": "沪主板"
+        },
+        {
+          "code": "002058",
+          "name": "紫竹高科",
+          "previous_board_count": 3,
+          "current_status": "success",
+          "current_pct": 9.99,
+          "market": "深主板"
+        },
+        {
+          "code": "002866",
+          "name": "传艺科技",
+          "previous_board_count": 3,
+          "current_status": "opened",
+          "current_pct": -1.45,
+          "market": "深主板"
+        },
+        {
+          "code": "603200",
+          "name": "上海洗霸",
+          "previous_board_count": 3,
+          "current_status": "opened",
+          "current_pct": 9.57,
+          "market": "沪主板"
+        }
+      ],
+      "total_previous_samples": 4,
+      "promoted": 1,
+      "opened_not_closed": 3,
+      "failed_without_limit_touch": 0,
+      "suspended": 0,
+      "missing": 0,
+      "promotion_ratio": 0.25
+    },
+    {
+      "from_board": 4,
+      "to_board": 5,
+      "previous_market_date": "2026-10-08",
+      "feedback_market_date": "2026-10-09",
+      "scope": "普通沪深主板正常10%口径；分母从T-1已封住的对应层逐股冻结。",
+      "frozen_previous_list": [
+        {
+          "code": "002242",
+          "name": "九阳股份",
+          "previous_board_count": 4,
+          "current_status": "success",
+          "current_pct": 10.04,
+          "market": "深主板"
+        },
+        {
+          "code": "600241",
+          "name": "时代万恒",
+          "previous_board_count": 4,
+          "current_status": "success",
+          "current_pct": 10.01,
+          "market": "沪主板"
+        }
+      ],
+      "total_previous_samples": 2,
+      "promoted": 2,
+      "opened_not_closed": 0,
+      "failed_without_limit_touch": 0,
+      "suspended": 0,
+      "missing": 0,
+      "promotion_ratio": 1.0
+    },
+    {
+      "from_board": 8,
+      "to_board": 9,
+      "previous_market_date": "2026-10-08",
+      "feedback_market_date": "2026-10-09",
+      "scope": "普通沪深主板正常10%口径；分母从T-1已封住的对应层逐股冻结。",
+      "frozen_previous_list": [
+        {
+          "code": "600825",
+          "name": "新华传媒",
+          "previous_board_count": 8,
+          "current_status": "success",
+          "current_pct": 10.01,
+          "market": "沪主板"
+        }
+      ],
+      "total_previous_samples": 1,
+      "promoted": 1,
+      "opened_not_closed": 0,
+      "failed_without_limit_touch": 0,
+      "suspended": 0,
+      "missing": 0,
+      "promotion_ratio": 1.0
+    }
+  ],
+  "other_price_limit_regimes": {
+    "20pct_first_to_second": {
+      "denominator": 4,
+      "promoted": 1,
+      "codes_promoted": [
+        "300530"
+      ]
+    },
+    "30pct_first_to_second": {
+      "denominator": 1,
+      "promoted": 0,
+      "opened": 1,
+      "codes_opened": [
+        "920627"
+      ]
+    },
+    "risk_warning": "未混入普通主板统计。"
+  },
+  "previous_linked_and_broken_feedback": {
+    "ordinary_mainboard_prior_2plus_denominator": 10,
+    "promoted": 4,
+    "failed_or_opened": 6,
+    "failed_or_opened_codes_and_T_pct": [
+      {
+        "code": "603200",
+        "pct": 9.57
+      },
+      {
+        "code": "605303",
+        "pct": 2.16
+      },
+      {
+        "code": "002866",
+        "pct": -1.45
+      },
+      {
+        "code": "603906",
+        "pct": 2.05
+      },
+      {
+        "code": "603928",
+        "pct": -4.8
+      },
+      {
+        "code": "600663",
+        "pct": -8.72
+      }
+    ],
+    "mean_pct": -0.19833333333333333,
+    "median_pct": 0.3,
+    "tail_pct": -8.72,
+    "note": "市场观察，不是策略成交收益。"
+  },
+  "alternatives": [
+    {
+      "code": "601929",
+      "name": "吉视传媒",
+      "role": "传媒/电视广播；当前1板、若入选计划2板；低位跟随/补涨待确认",
+      "reference_market_date": "2026-10-09",
+      "reference_close": 2.5,
+      "verified_T_limit_up": 2.5,
+      "turnover_pct": 5.72,
+      "amount_10k_cny": 47503.0,
+      "first_seal_hhmmss": "135625",
+      "last_seal_hhmmss": "135625",
+      "open_count": 0,
+      "sealed_fund_cny": 78261497,
+      "continuous_board_count": 1,
+      "recent_limitup_days": {
+        "days": 1,
+        "ct": 1
+      },
+      "rejection": "同题材可见高度9但2—8板断层；13:56:25才封，RVOL20仅1.483，D竞价与真实二板上限未发生。",
+      "daily_shape": {
+        "market_date": "2026-10-09",
+        "rvol20": 1.482912123885487,
+        "prior_20_session_high": 2.72,
+        "prior_20_session_close_return_pct": -8.467741935483875,
+        "close_vs_ma20_pct": 2.564102564102555,
+        "position_in_available_80_session_range": 0.6507936507936507,
+        "basis": "Tencent forward-adjusted daily research series; not an order/fill record"
+      }
+    },
+    {
+      "code": "000420",
+      "name": "吉林化纤",
+      "role": "化纤；当前1板、若入选计划2板；独立启动待确认",
+      "reference_market_date": "2026-10-09",
+      "reference_close": 3.81,
+      "verified_T_limit_up": 3.81,
+      "turnover_pct": 9.76,
+      "amount_10k_cny": 89337.0,
+      "first_seal_hhmmss": "131539",
+      "last_seal_hhmmss": "135809",
+      "open_count": 1,
+      "sealed_fund_cny": 78581250,
+      "continuous_board_count": 1,
+      "recent_limitup_days": {
+        "days": 1,
+        "ct": 1
+      },
+      "rejection": "行业可见高度1；5.38倍量且13:15后有一次开板，可能是供给释放，板块接力证据不足。",
+      "daily_shape": {
+        "market_date": "2026-10-09",
+        "rvol20": 5.383353574563925,
+        "prior_20_session_high": 3.98,
+        "prior_20_session_close_return_pct": -6.233062330623307,
+        "close_vs_ma20_pct": 6.3948617704551625,
+        "position_in_available_80_session_range": 0.4038461538461539,
+        "basis": "Tencent forward-adjusted daily research series; not an order/fill record"
+      }
+    },
+    {
+      "code": "603096",
+      "name": "新经典",
+      "role": "出版/传媒；当前1板、若入选计划2板；低位补涨待确认",
+      "reference_market_date": "2026-10-09",
+      "reference_close": 17.33,
+      "verified_T_limit_up": 17.33,
+      "turnover_pct": 2.8,
+      "amount_10k_cny": 7071.0,
+      "first_seal_hhmmss": "140035",
+      "last_seal_hhmmss": "140035",
+      "open_count": 0,
+      "sealed_fund_cny": 48801280,
+      "continuous_board_count": 1,
+      "recent_limitup_days": {
+        "days": 1,
+        "ct": 1
+      },
+      "rejection": "14:00:35才封、成交仅0.707亿元，流动性和隔夜可退出证据弱。",
+      "daily_shape": {
+        "market_date": "2026-10-09",
+        "rvol20": 2.006875186067282,
+        "prior_20_session_high": 16.95,
+        "prior_20_session_close_return_pct": 2.941176470588225,
+        "close_vs_ma20_pct": 10.424365999745122,
+        "position_in_available_80_session_range": 1.0,
+        "basis": "Tencent forward-adjusted daily research series; not an order/fill record"
+      }
+    },
+    {
+      "code": "601811",
+      "name": "新华文轩",
+      "role": "出版；连续口径当前1板、10日7板；高位反复活跃股",
+      "reference_market_date": "2026-10-09",
+      "reference_close": 20.91,
+      "verified_T_limit_up": 20.91,
+      "turnover_pct": 7.47,
+      "amount_10k_cny": 117287.0,
+      "first_seal_hhmmss": "093159",
+      "last_seal_hhmmss": "141314",
+      "open_count": 3,
+      "sealed_fund_cny": 45790809,
+      "continuous_board_count": 1,
+      "recent_limitup_days": {
+        "days": 10,
+        "ct": 7
+      },
+      "rejection": "09:31:59首次封、14:13:14末次封、开板3次；N日M板不等于连续M板，按高位与反复开板否决。"
+    }
+  ],
+  "dragon_tiger_postclose_available": [
+    {
+      "code": "601929",
+      "name": "吉视传媒",
+      "turnover_cny": 227000000,
+      "buy_cny": 167000000,
+      "sell_cny": 60337700,
+      "net_cny": 106000000
+    },
+    {
+      "code": "000420",
+      "name": "吉林化纤",
+      "turnover_cny": 289000000,
+      "buy_cny": 234000000,
+      "sell_cny": 55135500,
+      "net_cny": 178000000
+    },
+    {
+      "code": "603096",
+      "name": "新经典",
+      "turnover_cny": 54485300,
+      "buy_cny": 38748100,
+      "sell_cny": 15737200,
+      "net_cny": 23010900
+    }
+  ],
+  "previous_candidate_followup": {
+    "candidate_id": "limitup-single-20261008-600592-v1",
+    "market_date": "2026-10-09",
+    "daily_unadjusted": {
+      "open": 15.43,
+      "close": 15.32,
+      "change": -0.23,
+      "pct": -1.48,
+      "low": 14.74,
+      "high": 15.51,
+      "volume_lots": 207240,
+      "amount_10k_cny": 31265.81,
+      "turnover_pct": 5.19
+    },
+    "minute_price_point_count": 267,
+    "selected_minute_price_points": [
+      {
+        "time": "09:30",
+        "price": 15.43,
+        "cumulative_volume": 3636,
+        "cumulative_amount": 5610348.0
+      },
+      {
+        "time": "09:35",
+        "price": 15.29,
+        "cumulative_volume": 20935,
+        "cumulative_amount": 32197674.47
+      },
+      {
+        "time": "09:45",
+        "price": 15.01,
+        "cumulative_volume": 53559,
+        "cumulative_amount": 81333767.17
+      },
+      {
+        "time": "10:30",
+        "price": 14.91,
+        "cumulative_volume": 102501,
+        "cumulative_amount": 154895439.1
+      },
+      {
+        "time": "11:30",
+        "price": 14.82,
+        "cumulative_volume": 137305,
+        "cumulative_amount": 206565266.41
+      },
+      {
+        "time": "14:00",
+        "price": 15.11,
+        "cumulative_volume": 168501,
+        "cumulative_amount": 253534815.12
+      },
+      {
+        "time": "14:50",
+        "price": 15.25,
+        "cumulative_volume": 193723,
+        "cumulative_amount": 292019229.59
+      },
+      {
+        "time": "15:00",
+        "price": 15.32,
+        "cumulative_volume": 207240,
+        "cumulative_amount": 312658428.74
+      }
+    ],
+    "relative_to_2026_10_08_close_pct": {
+      "open": -0.7717041800643143,
+      "close": -1.4790996784565968
+    },
+    "relative_to_original_reference_16_20_pct": {
+      "open": -4.7530864197530835,
+      "close": -5.432098765432092
+    },
+    "entry_fill_status": "no_entry_under_frozen_v1",
+    "exit_status": "not_applicable_no_strategy_position",
+    "executable_return_pct": null,
+    "note": "价格观察不等于策略收益；一分钟价格点不能证明逐笔可成交性。"
+  }
+}
