@@ -61,6 +61,27 @@ class MarketRefreshPolicyTest {
         assertFalse(holiday.refreshCandidates)
     }
 
+    @Test fun stalePreviousDaySessionRecoversQuotesAtNextOpen() {
+        val decision = MarketRefreshPolicy.decide(
+            dayOfWeek = 2, hour = 9, minute = 31,
+            currentDate = "2026-10-13", sessionDate = "2026-10-12",
+            sessionCode = "trading", serverSaysLive = false, refreshTick = 1,
+        )
+        assertTrue(decision.refreshOverview)
+        assertTrue(decision.refreshMarket)
+        assertTrue(decision.refreshCandidates)
+    }
+
+    @Test fun confirmedClosedCurrentDateDoesNotPollOnHoliday() {
+        val decision = MarketRefreshPolicy.decide(
+            dayOfWeek = 4, hour = 10, minute = 0,
+            currentDate = "2026-10-01", sessionDate = "2026-10-01",
+            sessionCode = "closed", serverSaysLive = false, refreshTick = 0,
+        )
+        assertFalse(decision.refreshCandidates)
+        assertFalse(decision.refreshMarket)
+    }
+
     @Test fun breadthMoodUsesCoveredUniverseOnly() {
         assertEquals("偏热", MarketRefreshPolicy.breadthMood(75, 20, 5).label)
         assertEquals("偏冷", MarketRefreshPolicy.breadthMood(20, 75, 5).label)
