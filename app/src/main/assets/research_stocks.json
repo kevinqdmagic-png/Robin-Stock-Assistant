@@ -102,6 +102,36 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,160,qfq",
             "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450"
           ]
+        },
+        {
+          "id": "research-stock-300450-20261012-combined-v1",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-13T02:14:47.394+08:00",
+          "title": "10月12日放量修复与综合条件观察",
+          "reason": "10月9日高量低CLV回落后，10月12日仍有相对放量、CLV改善和尾盘价格推进；只在10月13日回踩承接并突破38.50/38.99后作短线条件观察，不替换原长期产业研究。",
+          "evidence_status": "verified_daily_and_minute_price_points; conditional_strategy_unvalidated",
+          "fact_note": "10月12日收37.88、+3.13%，RVOL20=2.588、CLV=0.738、14:00至15:00价格+4.095%；分钟为价格点及累计量额，不含盘口、逐笔或真实成交。",
+          "validation": [
+            "10月13日竞价/开盘、36.80回踩和38.50/38.99突破条件",
+            "若真实入场，10月14日起核验T+1可执行退出、成本、MFE/MAE",
+            "与阳光电源/国轩高科及创业板同步性前推，不用自选身份加分"
+          ],
+          "risk": "市场普跌与创业板弱、38.99压力、尾盘拉抬反例、20%波动；T+1买入当日不能卖，涨跌停/停牌可能无流动性。",
+          "report_ids": [
+            "quant-research-20261012-close-v1",
+            "volume-price-20261012-close-v1",
+            "combined-pair-20261012-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+            "https://qt.gtimg.cn/q=sz002487,sz300364,sz300413,sz300450,sz300821,sz300274,sh601127,sz300133,sh603533,sh601118,sh600036,sh600519,sz300418,sh600900,sh601288,sh601398,sh601988,sz002027,sz300182,sh688072,sh688361,sh688012,sz002080,sz002074,sh600737,sz002938,sz002531,sh603232,sh600026,sh601872,sh601975,sz300058,sz000420,sz002709,sz002866,sz002580,sz002805,sz300530,sh600547,sh601899,sh600988,sz301205,sh600487,sh688498,sh688048,sz002384,sh688578,sz000503,sh600127,sz300369,sz002242,sz300394",
+            "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+            "https://static.cninfo.com.cn/finalpage/2026-10-08/1225595993.PDF",
+            "docs/research/combined-pair-2026-10-12-evidence.json"
+          ],
+          "task_id": "combined_pair",
+          "strategy": "combined_limitup_watch"
         }
       ]
     },

@@ -1066,6 +1066,30 @@
           "entry_fill_status": "not_verified",
           "executed_trade": false,
           "executable_net_return_pct": null
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-t1-20261012",
+          "as_of": "2026-10-12",
+          "recorded_at": "2026-10-13T02:14:47.394+08:00",
+          "market_date": "2026-10-12",
+          "status": "not_triggered",
+          "trigger_status": "failed_confirmation",
+          "entry_fill_status": "no_valid_entry",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "reason": "Open 12.70 was inside the frozen range, but the low 12.48 broke the 12.55 hold level and the high 12.96 never reached the required 13.04 reclaim; no legal entry.",
+          "price_observation": {
+            "open": 12.7,
+            "high": 12.96,
+            "low": 12.48,
+            "close": 12.59,
+            "reference_price": 12.87,
+            "close_return_pct": -2.18
+          },
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
+          ]
         }
       ]
     },
@@ -1234,6 +1258,30 @@
           "entry_fill_status": "not_verified",
           "executed_trade": false,
           "executable_net_return_pct": null
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-t1-20261012",
+          "as_of": "2026-10-12",
+          "recorded_at": "2026-10-13T02:14:47.394+08:00",
+          "market_date": "2026-10-12",
+          "status": "not_triggered",
+          "trigger_status": "opening_outside_range",
+          "entry_fill_status": "no_valid_entry",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "reason": "Open 4.10 exceeded both the frozen 3.77-3.92 opening range and the 3.96 no-chase ceiling; the setup was invalid at the open and no entry is recorded.",
+          "price_observation": {
+            "open": 4.1,
+            "high": 4.19,
+            "low": 3.81,
+            "close": 3.81,
+            "reference_price": 3.81,
+            "close_return_pct": 0.0
+          },
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000420"
+          ]
         }
       ]
     },
@@ -1326,6 +1374,179 @@
       "exit_plan": "若10月13日真实买入，最早10月14日卖；弱开失守23.30优先退出，强势观察24.98、25.60分批。",
       "roundtrip_cost_assumption_bps": 20,
       "results": []
+    },
+    {
+      "id": "combined-pair-20261012-300450-close-v1",
+      "date": "2026-10-12",
+      "published_at": "2026-10-13T02:14:47.394+08:00",
+      "code": "300450",
+      "name": "先导智能",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "task_id": "combined_pair",
+      "model": "combined_limitup_watch_v3",
+      "model_label": "放量分歧后的承接与再转强＋平台突破确认",
+      "reason": "弱市中RVOL20=2.588、CLV0.738且14点后价格推进；相较高波动修复、高位传媒及封板品种，可等待普通成交确认。市场弱、无龙虎榜增量和38.50/38.99压力均为反对项。",
+      "reference_price": 37.88,
+      "reference_price_time": "2026-10-12T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-12",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz300450",
+      "trigger": "10月13日开盘37.30-38.45且有普通连续成交；第一次回踩守36.80并缩量；9:45-10:30重站38.50且连续5个一分钟价格点不低于38.50，对38.99上冲放量；阳光电源/国轩不同时低于-2%且至少一只上涨。全部成立后只在38.55-38.95研究入场。",
+      "invalid": "开盘超出37.30-38.45；冲到39.02以上才可见；一字/排队无成交；放量跌破36.80；未完成38.50五点确认；38.99放量不进；实际成交价超过39.20；同方向对照同时弱于-2%。任一发生即未触发。",
+      "reference_entry_range": [
+        38.55,
+        38.95
+      ],
+      "operational_invalid_price": 36.1,
+      "structural_invalid_price": 34.6,
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://www.dabanke.com/index-20261012.html",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-12/",
+        "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+        "https://static.cninfo.com.cn/finalpage/2026-10-08/1225595993.PDF",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-12-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,160,qfq",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+        "https://qt.gtimg.cn/q=sz002487,sz300364,sz300413,sz300450,sz300821,sz300274,sh601127,sz300133,sh603533,sh601118,sh600036,sh600519,sz300418,sh600900,sh601288,sh601398,sh601988,sz002027,sz300182,sh688072,sh688361,sh688012,sz002080,sz002074,sh600737,sz002938,sz002531,sh603232,sh600026,sh601872,sh601975,sz300058,sz000420,sz002709,sz002866,sz002580,sz002805,sz300530,sh600547,sh601899,sh600988,sz301205,sh600487,sh688498,sh688048,sz002384,sh688578,sz000503,sh600127,sz300369,sz002242,sz300394"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-12T15:00:00+08:00",
+      "planned_entry_date": "2026-10-13",
+      "earliest_legal_exit_date_if_bought": "2026-10-14",
+      "report_ids": [
+        "combined-pair-20261012-close-v1"
+      ],
+      "evidence_snapshot": {
+        "code": "300450",
+        "name": "先导智能",
+        "date": "2026-10-12",
+        "sector": "锂电设备",
+        "label": "放量平台突破",
+        "open": 36.98,
+        "close": 37.88,
+        "high": 38.5,
+        "low": 36.13,
+        "previous_close": 36.73,
+        "daily_change_pct": 3.13,
+        "amount_cny": 4742828472.81,
+        "volume_provider_units": 1266868.0,
+        "volume_unit": "lots_100_shares",
+        "turnover_pct": 8.12,
+        "provider_volume_ratio_at_close": 1.18,
+        "relative_volume_denominator": "mean of previous N completed sessions; T excluded",
+        "rvol": {
+          "5": 1.18,
+          "10": 1.88,
+          "20": 2.588
+        },
+        "ma": {
+          "5": 36.18,
+          "10": 34.135,
+          "20": 32.59,
+          "60": 33.251
+        },
+        "range_position_pct": {
+          "20": 88.867,
+          "60": 88.867,
+          "120": 29.333
+        },
+        "prior20_high": 38.99,
+        "clv": 0.738,
+        "amplitude_pct": 6.452,
+        "upper_shadow_fraction_of_range": 0.262,
+        "turnover_acceleration_3d": null,
+        "turnover_acceleration_5d": null,
+        "turnover_change_from_prior_day_pp": null,
+        "tail_return_1400_to_1500_pct": 4.095,
+        "tail_volume_share_1400_to_1500_pct": 18.226,
+        "regular_session_minute_points": 242,
+        "ohlc_verified": false,
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 36.98,
+            "cumulative_volume_provider_units": 19272.0,
+            "cumulative_amount_cny": 71267856.0
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 38.08,
+            "cumulative_volume_provider_units": 404283.0,
+            "cumulative_amount_cny": 1524652018.97
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 37.23,
+            "cumulative_volume_provider_units": 739234.0,
+            "cumulative_amount_cny": 2787387599.13
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 37.15,
+            "cumulative_volume_provider_units": 918820.0,
+            "cumulative_amount_cny": 3450790666.3
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 36.39,
+            "cumulative_volume_provider_units": 1035972.0,
+            "cumulative_amount_cny": 3878973851.69
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 37.02,
+            "cumulative_volume_provider_units": 1150841.0,
+            "cumulative_amount_cny": 4305933367.18
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 37.88,
+            "cumulative_volume_provider_units": 1266868.0,
+            "cumulative_amount_cny": 4742828472.81
+          }
+        },
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,160,qfq",
+          "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300450",
+          "https://qt.gtimg.cn/q=sz002487,sz300364,sz300413,sz300450,sz300821,sz300274,sh601127,sz300133,sh603533,sh601118,sh600036,sh600519,sz300418,sh600900,sh601288,sh601398,sh601988,sz002027,sz300182,sh688072,sh688361,sh688012,sz002080,sz002074,sh600737,sz002938,sz002531,sh603232,sh600026,sh601872,sh601975,sz300058,sz000420,sz002709,sz002866,sz002580,sz002805,sz300530,sh600547,sh601899,sh600988,sz301205,sh600487,sh688498,sh688048,sz002384,sh688578,sz000503,sh600127,sz300369,sz002242,sz300394"
+        ],
+        "evidence_status": "verified_daily_and_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "tick_order_book",
+          "point_in_time_historical_turnover",
+          "complete_sector_breadth",
+          "verified_fill"
+        ],
+        "signal_at": "2026-10-12T15:00:00+08:00",
+        "initial_invalid_reference": 36.13,
+        "frozen_at": "2026-10-13T02:14:47.394+08:00"
+      },
+      "exit_plan": "若10/13实际买入，最早10/14可卖。10/14弱开、跌破36.10或板块退潮，在首个有流动性时点优先退出；保持38.99上方时，39.80-41.20为分批止盈观察区。涨跌停/停牌无成交不得按计划价算退出。",
+      "limitup_path_hypothesis": "守36.80→重站38.50/38.99→新能源设备同步→40-42成交推进，才可能接近10/13理论20%上限约45.46。反例是尾盘拉抬、38.99放量不进、创业板/板块转弱或炸板扩散。",
+      "roundtrip_cost_assumption_bps": 20,
+      "execution_note": "盘后候选不是开盘即买；T+1入场当日不能卖，跌破失效只记录持仓风险。无真实成交则策略收益N/A。",
+      "results": [
+        {
+          "id": "combined-pair-20261012-300450-close-v1-frozen",
+          "as_of": "2026-10-12",
+          "recorded_at": "2026-10-13T02:14:47.394+08:00",
+          "market_date": "2026-10-13",
+          "status": "pending_auction_revalidation",
+          "trigger_status": "not_observable_before_auction",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null
+        }
+      ]
     }
   ],
   "legacy_audit": [

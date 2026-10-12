@@ -994,6 +994,74 @@
       "sources": [
         "https://data.10jqka.com.cn/market/longhu/date/2026-10-12/"
       ]
+    },
+    {
+      "id": "quant-research-20261012-fallback-175403z-completed",
+      "run_id": "quant-research-20261012-fallback-175403z",
+      "task_id": "quant_research",
+      "date": "2026-10-12",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T17:54:03Z",
+      "recorded_at": "2026-10-12T18:14:47.394Z",
+      "completed_at": "2026-10-12T18:14:47.394Z",
+      "status": "completed",
+      "summary": "补做并完成10月12日量化痕迹全报告：20只代表样本及10月9日20只全量前推验证。",
+      "report_ids": [
+        "quant-research-20261012-close-v1"
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "docs/research/combined-pair-2026-10-12-evidence.json"
+      ]
+    },
+    {
+      "id": "volume-price-20261012-fallback-175403z-completed",
+      "run_id": "volume-price-20261012-fallback-175403z",
+      "task_id": "volume_price",
+      "date": "2026-10-12",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T17:54:03Z",
+      "recorded_at": "2026-10-12T18:14:47.394Z",
+      "completed_at": "2026-10-12T18:14:47.394Z",
+      "status": "completed",
+      "summary": "补做并完成10月12日量价全报告：26只深筛完整台账及10月9日30只全量前推验证。",
+      "report_ids": [
+        "volume-price-20261012-close-v1"
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "docs/research/combined-pair-2026-10-12-evidence.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261012-scheduled-180500z-completed",
+      "run_id": "combined-pair-20261012-scheduled-180500z",
+      "task_id": "combined_pair",
+      "date": "2026-10-12",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T18:05:00Z",
+      "recorded_at": "2026-10-12T18:14:47.394Z",
+      "completed_at": "2026-10-12T18:14:47.394Z",
+      "status": "completed",
+      "summary": "五项同日完整研究齐备后独立裁决：弱市不凑数，综合盘后组仅冻结先导智能一只条件观察。",
+      "report_ids": [
+        "combined-pair-20261012-close-v1"
+      ],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
+        "https://www.dabanke.com/index-20261012.html",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-12/",
+        "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+        "https://static.cninfo.com.cn/finalpage/2026-10-08/1225595993.PDF",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-12-evidence.json"
+      ]
     }
   ]
 }
