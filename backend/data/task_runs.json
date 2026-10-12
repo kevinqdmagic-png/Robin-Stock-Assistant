@@ -1101,6 +1101,32 @@
       "research_rule_version": "limitup_single_v2",
       "delivery_status": "pending_exact_sha_release",
       "execution_note": "Initial quote batch session ended without its aggregate result; retained chunks were recovered, remaining requests completed. The wall-clock interval is not claimed to be continuous active research."
+    },
+    {
+      "id": "limitup-single-20261013-scheduled-192417-delivery-blocked",
+      "run_id": "limitup-single-20261013-scheduled-192417",
+      "task_id": "limitup_single",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T19:24:17+00:00",
+      "recorded_at": "2026-10-12T23:52:52+00:00",
+      "completed_at": "2026-10-12T23:52:52+00:00",
+      "status": "blocked",
+      "summary": "研究、归档、64项测试与真实容器检查已完成，但现有Railway最终accept_deploy返回Cancelled — the user did not approve this action. No changes were made. 因平台强制审批，准确SHA168a68776bdf28bcbda53a90f721b4441323b02c未部署；不能称APP同步。保留报告与下一次任务，不换通道绕过审批。",
+      "report_ids": [
+        "limitup-single-20261013-review-v2"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/168a68776bdf28bcbda53a90f721b4441323b02c",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/38324231202",
+        "https://robin-stock-api-production.up.railway.app/health"
+      ],
+      "research_rule_version": "limitup_single_v2",
+      "research_status": "completed",
+      "delivery_status": "blocked_platform_approval",
+      "attempted_commit_sha": "168a68776bdf28bcbda53a90f721b4441323b02c",
+      "tool_error_code": "INVALID_ARGUMENT"
     }
   ]
 }
