@@ -961,8 +961,8 @@ class MainActivity : AppCompatActivity() {
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性", "app_development" to "APK打磨")
-        recommendationCard()
         taskCenterCard()
+        recommendationCard()
         if (researchCode.isNotBlank()) {
             card("${researchStockName} $researchCode · 关联研究").apply {
                 addView(label("以下全文包含这只股票的研究来源。", 12f))
