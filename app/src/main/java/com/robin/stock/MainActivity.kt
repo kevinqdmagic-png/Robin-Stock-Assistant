@@ -961,6 +961,7 @@ class MainActivity : AppCompatActivity() {
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性", "app_development" to "APK打磨")
+        recommendationCard()
         taskCenterCard()
         if (researchCode.isNotBlank()) {
             card("${researchStockName} $researchCode · 关联研究").apply {
@@ -972,7 +973,6 @@ class MainActivity : AppCompatActivity() {
             val selection = card("当前任务：$researchTaskTitle")
             selection.addView(action("查看全部研究") { researchTask = ""; researchTaskTitle = ""; showTab(3) })
         }
-        recommendationCard()
         backtestCard()
         val archive = card("研究历史")
         val day = EditText(this).apply { hint = "按日期查看：2026-09-30"; textSize = 14f; isSingleLine = true }
@@ -1103,86 +1103,39 @@ class MainActivity : AppCompatActivity() {
         load()
     }
     private fun recommendationCard() {
-        val parent = card("每日双标 · 表现记录")
-        parent.addView(label("原始推荐保留，后续结果追加；按交易日跟踪。", 12f))
-        val status = label("正在读取推荐记录…", 12f); parent.addView(status)
-        val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }; parent.addView(box)
-        var offset = 0
-        var requestId = 0
-        var loading = false
-        val more = action("加载更早推荐") { }.apply { visibility = View.GONE }
-        fun load(append: Boolean = false) {
-        if (loading) return
-        if (!append) {
-            offset = 0
-            box.removeAllViews()
-            more.visibility = View.GONE
-        }
-        val requestedOffset = offset
-        val id = ++requestId
-        loading = true; more.isEnabled = false
-        fetch("/api/recommendations?limit=12&offset=$requestedOffset") { data, _ ->
-            if (id != requestId) return@fetch
-            loading = false
-            more.isEnabled = true
-            if (data == null || !data.optBoolean("ok")) {
-                status.text = "推荐记录暂不可用，请稍后刷新。"; return@fetch
-            }
-            val rows = data.optJSONArray("items") ?: JSONArray()
-            val total = data.optInt("total", rows.length())
-            val loaded = requestedOffset + rows.length()
-            status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
-                "已显示 $loaded / $total 条"
-            if (rows.length() == 0 && requestedOffset == 0) box.addView(label("历史推荐正在补证。缺少当时价格或时间的记录不计算收益。", 13f))
-            val groups = mapOf("close" to "盘后组", "0950" to "早盘9:50", "1440" to "尾盘14:40")
-            for (i in 0 until rows.length()) {
-                val row = rows.getJSONObject(i)
-                val code = row.optString("code")
-                val groupLabel = if (row.optString("strategy") == "combined_limitup_watch") "综合盘后组"
-                    else groups[row.optString("group")] ?: row.optString("group")
-                box.addView(label("${row.optString("date")} · $groupLabel", 12f))
-                box.addView(label("${row.optString("name")}  $code", 16f, true).apply {
-                    setOnClickListener { selectedCode = code; showTab(2) }
-                })
-                box.addView(label(row.optString("reason"), 13f))
-                if (row.optString("trigger").isNotBlank()) box.addView(label("介入条件：${row.optString("trigger")}", 12f))
-                if (row.optString("invalid").isNotBlank()) box.addView(label("失效条件：${row.optString("invalid")}", 12f))
-                val performance = label("查询原始参考价后1/3/5/10/20/30交易日价格表现", 12f); box.addView(performance)
-                val check = action("查询后续表现") { }
-                check.setOnClickListener {
-                    check.isEnabled = false; performance.text = "正在核查后续行情…"
-                    val recordId = java.net.URLEncoder.encode(row.optString("id"), "UTF-8")
-                    fetch("/api/recommendations/$recordId/performance") { result, _ ->
-                        check.isEnabled = true
-                        if (result == null || !result.optBoolean("ok")) {
-                            performance.text = "后续行情暂不可用。"; return@fetch
-                        }
-                        val points = result.optJSONArray("points") ?: JSONArray()
-                        if (points.length() == 0) {
-                            performance.text = result.optString("note", "等待原始记录或后续交易日数据。")
-                        } else {
-                            performance.text = (0 until points.length()).joinToString("\n") { j ->
-                                val p = points.getJSONObject(j)
-                                "${p.optInt("horizon")}交易日：" +
-                                    if (p.optString("status") == "pending") "等待后续数据"
-                                    else "收盘 ${pctText(p.optDouble("close_pct"))} · 最大浮盈 ${pctText(p.optDouble("mfe_pct"))} · 最大不利 ${pctText(p.optDouble("mae_pct"))}"
-                            } + "\n" + result.optString("note")
-                        }
-                    }
+        val parent = card("每日双标 · 当前有效候选")
+        parent.addView(label("置顶显示最新盘后综合双标；T+2交易日起自动移出。历史数据永久保留用于验证。", 12f))
+        val status = label("正在核对有效交易日与候选…", 12f)
+        parent.addView(status)
+        val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        parent.addView(box)
+        fun load() {
+            fetch("/api/recommendations/active") { data, _ ->
+                box.removeAllViews()
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "有效推荐暂不可用，未使用过期数据替代。"
+                    return@fetch
                 }
-                box.addView(check)
+                val rows = data.optJSONArray("items") ?: JSONArray()
+                status.text = (if (data.optBoolean("_offline")) "离线缓存（请联网核对有效期） · " else "") +
+                    if (rows.length() == 0) "当前没有有效的盘后双标 · 不强行推荐" else "当前有效 ${rows.length()} 只 · T+2自动下架"
+                for (i in 0 until rows.length()) {
+                    val row = rows.getJSONObject(i)
+                    val code = row.optString("code")
+                    box.addView(label("${row.optString("date")} · T+1条件观察", 12f))
+                    box.addView(label("${row.optString("name")}  $code", 17f, true).apply {
+                        setOnClickListener { selectedCode = code; showTab(2) }
+                    })
+                    box.addView(label("理由：${row.optString("reason")}", 13f))
+                    if (row.optString("trigger").isNotBlank())
+                        box.addView(label("介入条件：${row.optString("trigger")}", 12f))
+                    if (row.optString("invalid").isNotBlank())
+                        box.addView(label("失效条件：${row.optString("invalid")}", 12f))
+                }
             }
-            val audit = data.optJSONArray("legacy_audit") ?: JSONArray()
-            if (audit.length() > 0 && requestedOffset == 0) box.addView(label("待补证历史关注："+
-                (0 until audit.length()).joinToString("、") { audit.optJSONObject(it)?.optString("name").orEmpty() }, 12f))
-            offset = loaded
-            more.visibility = if (data.optBoolean("has_more")) View.VISIBLE else View.GONE
         }
-        }
-        parent.addView(action("刷新推荐记录") { load(false) })
-        more.setOnClickListener { load(true) }
-        parent.addView(more)
-        load(false)
+        parent.addView(action("刷新当前双标") { load() })
+        load()
     }
     private fun backtestCard() {
         val parent = card("最近30交易日 · 历史验证")
