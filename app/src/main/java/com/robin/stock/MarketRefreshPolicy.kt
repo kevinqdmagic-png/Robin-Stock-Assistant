@@ -26,7 +26,7 @@ object MarketRefreshPolicy {
         val changedDay = sessionDate.isNotBlank() && sessionDate != currentDate
         val enteringTrading = clockOpen && sessionCode in setOf("before_open", "lunch", "")
         // A cached previous-day "trading" status must not suppress the first quote request.
-        val staleDayProbe = clockOpen && changedDay && refreshTick % 3 == 0
+        val staleDayProbe = clockOpen && changedDay
         val leavingTrading = !clockOpen && sessionCode == "trading"
         val periodicOverview = clockOpen && serverSaysLive && refreshTick % 3 == 2
         val refreshCandidates = clockOpen && (serverSaysLive || enteringTrading || staleDayProbe)
