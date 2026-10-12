@@ -1062,6 +1062,45 @@
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-12-evidence.json"
       ]
+    },
+    {
+      "id": "limitup-single-20261013-scheduled-192417-completed",
+      "run_id": "limitup-single-20261013-scheduled-192417",
+      "task_id": "limitup_single",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T19:24:17+00:00",
+      "recorded_at": "2026-10-12T23:47:49+00:00",
+      "completed_at": "2026-10-12T23:47:49+00:00",
+      "status": "completed",
+      "summary": "独立v2研究完成：5572来源节点报价、34只深查，使用此前冻结主板名单核验晋级与新停牌事实后裁决空仓。无新候选、无待完成股票结果；研究归档完成，生产交付仍须准确SHA和API核验。",
+      "report_ids": [
+        "limitup-single-20261013-review-v2"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.dabanke.com/index-20261008.html",
+        "https://www.dabanke.com/index-20261009.html",
+        "https://www.dabanke.com/index-20261012.html",
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20260915_10832273.shtml",
+        "https://finance.eastmoney.com/a/202610123892713535.html",
+        "https://data.eastmoney.com/notices/detail/600825/AN202610121830370963.html",
+        "https://pdf.dfcfw.com/pdf/H2_AN202610121830370963_1.pdf?1791832516000.pdf",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-12/",
+        "https://research.10jqka.com.cn/20261012/c680590719.shtml",
+        "https://finance.eastmoney.com/a/202610123892692249.html",
+        "https://push2ex.eastmoney.com/getTopicZTPool?date=20261012",
+        "https://push2ex.eastmoney.com/getTopicZBPool?date=20261012",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeStockCount?node=hs_a",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=100&sort=symbol&asc=1&node=hs_a",
+        "https://qt.gtimg.cn/q=sh600825,sz002242,sh600241,sz001300,sz001336,sh600812,sz002531,sz002576,sh603528,sh601929",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://www.cninfo.com.cn/new/hisAnnouncement/query"
+      ],
+      "research_rule_version": "limitup_single_v2",
+      "delivery_status": "pending_exact_sha_release",
+      "execution_note": "Initial quote batch session ended without its aggregate result; retained chunks were recovered, remaining requests completed. The wall-clock interval is not claimed to be continuous active research."
     }
   ]
 }
