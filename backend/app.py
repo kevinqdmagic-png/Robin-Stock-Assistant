@@ -142,6 +142,55 @@ def recommendations(limit: int = 20, offset: int = 0):
         return {"ok": False, "status": "recommendation_data_unavailable", "items": []}
 
 
+@app.get("/api/recommendations/active")
+def active_recommendations():
+    """Display only the latest combined T+1 selections until the T+2 trading day.
+
+    Historical recommendations remain untouched in recommendations.json and in
+    /api/recommendations for audit and performance verification.
+    """
+    from datetime import date, timedelta
+    from trading_calendar import CLOSURES_2026
+
+    try:
+        document = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")
+        today = datetime.now(CN_TZ).date()
+        rows = [r for r in document["items"] if r.get("strategy") == "combined_limitup_watch"
+                and r.get("date") and r.get("provenance") == "contemporaneous"]
+        def is_session(day):
+            stamp = day.isoformat()
+            return day.year == 2026 and day.weekday() < 5 and not any(
+                start <= stamp <= end for start, end in CLOSURES_2026)
+        def t_plus_two(raw_date):
+            day = date.fromisoformat(raw_date)
+            count = 0
+            while count < 2:
+                day += timedelta(days=1)
+                if is_session(day):
+                    count += 1
+                if day.year != 2026:
+                    return None
+            return day
+        active = []
+        for row in rows:
+            try:
+                expiry = t_plus_two(row["date"])
+            except ValueError:
+                continue
+            if expiry is not None and date.fromisoformat(row["date"]) <= today < expiry:
+                active.append(row)
+        if active:
+            newest = max(row["date"] for row in active)
+            active = [row for row in active if row["date"] == newest]
+        active.sort(key=lambda r: (r.get("published_at", ""), r.get("id", "")), reverse=True)
+        return {"ok": True, "time_cn": now_cn(), "items": active[:2],
+                "total": len(active[:2]), "visibility": "until_T_plus_2",
+                "history_preserved": True, "calendar_year": 2026}
+    except (OSError, ValueError, TypeError) as exc:
+        logger.warning("Active recommendations unavailable: %s", exc)
+        return {"ok": False, "status": "recommendation_data_unavailable", "items": []}
+
+
 @app.get("/api/recommendations/{record_id}/performance")
 def performance(record_id: str):
     try:
