@@ -935,6 +935,65 @@
         "https://www.sse.com.cn/disclosure/dealinstruc/closed/",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research-contract.md"
       ]
+    },
+    {
+      "id": "low-position-20261012-joint-085111z-completed",
+      "run_id": "low-position-20261012-joint-085111z",
+      "task_id": "low_position",
+      "date": "2026-10-12",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T08:51:11.000Z",
+      "recorded_at": "2026-10-12T09:01:52Z",
+      "completed_at": "2026-10-12T09:01:52Z",
+      "status": "completed",
+      "summary": "完整验证15只历史低位样本并新增3只；30日到期0只。",
+      "report_ids": [
+        "low-position-20261012-close-v1"
+      ],
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261012-joint-085111z-completed",
+      "run_id": "dragon-tiger-20261012-joint-085111z",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-12",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T08:51:11.000Z",
+      "recorded_at": "2026-10-12T09:01:52Z",
+      "completed_at": "2026-10-12T09:01:52Z",
+      "status": "completed",
+      "summary": "完整核对50条龙虎榜原因记录、验证上一批5只并形成4只观察和1只反例。",
+      "report_ids": [
+        "dragon-tiger-20261012-close-v1"
+      ],
+      "sources": [
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-12/"
+      ]
+    },
+    {
+      "id": "low-dragon-20261012-scheduled-085111z-completed",
+      "run_id": "low-dragon-20261012-scheduled-085111z",
+      "task_id": "low_dragon",
+      "date": "2026-10-12",
+      "trigger": "scheduled",
+      "started_at": "2026-10-12T08:51:11.000Z",
+      "recorded_at": "2026-10-12T09:01:52Z",
+      "completed_at": "2026-10-12T09:01:52Z",
+      "status": "completed",
+      "summary": "低位启动与龙虎榜两个独立成员模块均完整完成并可核验。",
+      "report_ids": [
+        "low-dragon-20261012-execution-summary-v1"
+      ],
+      "component_report_ids": [
+        "low-position-20261012-close-v1",
+        "dragon-tiger-20261012-close-v1"
+      ],
+      "sources": [
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-12/"
+      ]
     }
   ]
 }

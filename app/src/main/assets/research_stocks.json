@@ -966,6 +966,28 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
             "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
           ]
+        },
+        {
+          "id": "research-stock-300058-20261012-low-position-validation-v1",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-12T17:01:52+08:00",
+          "title": "10月12日原条件未触发验证",
+          "reason": "10月12日开盘虽进入原范围，但随后跌破12.55承接位且最高12.96未站上13.04，原条件未触发；收盘回落确认短期修复尚未完成，但未跌破11.90长期样本失效位。",
+          "evidence_status": "verified_daily_price_observation; original_trigger_not_met; long_horizon_pending",
+          "fact_note": "开12.70、高12.96、低12.48、收12.59（-2.18%）；无法从日线反推分钟触发顺序，结合冻结价位只能确认未同时满足条件。",
+          "validation": [
+            "继续按11.90失效位和长期节点跟踪",
+            "重新站稳13.04并有传媒容量共振才可提升",
+            "未触发样本保留，不反推有利成交"
+          ],
+          "risk": "传媒高潮后兑现、跌破11.90、放量不涨或板块容量股同步走弱。",
+          "report_ids": [
+            "low-position-20261012-close-v1"
+          ],
+          "sources": [
+            "https://qt.gtimg.cn/q=sz300058",
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq"
+          ]
         }
       ]
     },
@@ -999,6 +1021,29 @@
             "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/combined-pair-2026-10-09-evidence.json",
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
             "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000420"
+          ]
+        },
+        {
+          "id": "research-stock-000420-20261012-low-position-validation-v1",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-12T17:01:52+08:00",
+          "title": "10月12日高开涨停回落验证",
+          "reason": "10月9日低位巨量启动后，10月12日开盘已超过冻结上限，盘中涨停但收回平盘；成交继续极度放大而价格未保持，新增证据下调短线承接判断，但保留30天样本继续跟踪。",
+          "evidence_status": "verified_daily_price_observation; original_trigger_not_met; long_horizon_pending",
+          "fact_note": "开4.10（较10月9日+7.61%）、高4.19、低/收3.81；RVOL20约5.64、CLV=0。原开盘上限3.96未满足，未核定交易成交。",
+          "validation": [
+            "继续按原3.53失效位和5/10/20交易日、30自然日节点跟踪",
+            "若后续缩量守住3.53并二次放量推进，再验证供给是否消化",
+            "不把盘中涨停视为已实现收益"
+          ],
+          "risk": "高开拥挤、巨量不推进、次日跌破3.53或材料板块退潮；公开席位不能证明锁仓。",
+          "report_ids": [
+            "low-position-20261012-close-v1",
+            "dragon-tiger-20261012-close-v1"
+          ],
+          "sources": [
+            "https://qt.gtimg.cn/q=sz000420",
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq"
           ]
         }
       ]

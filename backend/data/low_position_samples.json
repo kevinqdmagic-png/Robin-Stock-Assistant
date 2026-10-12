@@ -3,7 +3,7 @@
   "track": "low_position",
   "research_version": "low_position_30d_v1",
   "created_at": "2026-10-08T08:15:08.201Z",
-  "updated_at": "2026-10-09T08:56:30.720Z",
+  "updated_at": "2026-10-12T09:01:52Z",
   "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
   "milestones_calendar_days": [
     1,
@@ -62,6 +62,29 @@
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 19,
+          "trading_day": 7,
+          "close": 36.0,
+          "open": 37.49,
+          "high": 37.55,
+          "low": 35.9,
+          "daily_change_pct": -4.41,
+          "change_from_day0_pct": -4.2,
+          "maximum_price_excursion_pct": 5.08,
+          "minimum_price_excursion_pct": -5.4,
+          "volume_shares": 128261.0,
+          "relative_volume_20": 0.53,
+          "clv": 0.061,
+          "initial_invalidation_triggered": true,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002472",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,160,qfq"
         }
       ]
     },
@@ -106,6 +129,29 @@
           "executable_net_return": null,
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 19,
+          "trading_day": 7,
+          "close": 17.69,
+          "open": 17.63,
+          "high": 17.83,
+          "low": 17.6,
+          "daily_change_pct": -0.06,
+          "change_from_day0_pct": -3.54,
+          "maximum_price_excursion_pct": 1.04,
+          "minimum_price_excursion_pct": -6.38,
+          "volume_shares": 92147.0,
+          "relative_volume_20": 0.71,
+          "clv": 0.391,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sh600845",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,160,qfq"
         }
       ]
@@ -161,6 +207,29 @@
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 14,
+          "trading_day": 5,
+          "close": 10.03,
+          "open": 10.13,
+          "high": 10.18,
+          "low": 10.0,
+          "daily_change_pct": -0.99,
+          "change_from_day0_pct": 2.45,
+          "maximum_price_excursion_pct": 4.49,
+          "minimum_price_excursion_pct": -5.41,
+          "volume_shares": 153232.0,
+          "relative_volume_20": 0.81,
+          "clv": 0.167,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sh600380",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,160,qfq"
         }
       ]
     },
@@ -205,6 +274,29 @@
           "executable_net_return": null,
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 14,
+          "trading_day": 5,
+          "close": 7.86,
+          "open": 8.35,
+          "high": 8.35,
+          "low": 7.83,
+          "daily_change_pct": -6.76,
+          "change_from_day0_pct": 5.65,
+          "maximum_price_excursion_pct": 14.25,
+          "minimum_price_excursion_pct": -4.7,
+          "volume_shares": 502064.0,
+          "relative_volume_20": 2.19,
+          "clv": 0.058,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz000503",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,160,qfq"
         }
       ]
@@ -259,6 +351,29 @@
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 14,
+          "trading_day": 5,
+          "close": 30.46,
+          "open": 30.25,
+          "high": 30.99,
+          "low": 29.88,
+          "daily_change_pct": -0.13,
+          "change_from_day0_pct": 0.4,
+          "maximum_price_excursion_pct": 10.02,
+          "minimum_price_excursion_pct": -4.32,
+          "volume_shares": 166734.0,
+          "relative_volume_20": 1.2,
+          "clv": 0.523,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz000513",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,160,qfq"
         }
       ]
     },
@@ -311,6 +426,29 @@
           "executable_net_return": null,
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 14,
+          "trading_day": 5,
+          "close": 13.53,
+          "open": 14.83,
+          "high": 14.87,
+          "low": 13.52,
+          "daily_change_pct": -9.92,
+          "change_from_day0_pct": -8.33,
+          "maximum_price_excursion_pct": 14.77,
+          "minimum_price_excursion_pct": -8.4,
+          "volume_shares": 434572.0,
+          "relative_volume_20": 2.7,
+          "clv": 0.007,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002962",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,160,qfq"
         }
       ]
@@ -381,6 +519,29 @@
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 13,
+          "trading_day": 4,
+          "close": 30.49,
+          "open": 30.0,
+          "high": 31.16,
+          "low": 29.66,
+          "daily_change_pct": 0.26,
+          "change_from_day0_pct": 6.31,
+          "maximum_price_excursion_pct": 12.06,
+          "minimum_price_excursion_pct": -5.16,
+          "volume_shares": 817693.0,
+          "relative_volume_20": 2.21,
+          "clv": 0.553,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002074",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,160,qfq"
         }
       ]
     },
@@ -434,6 +595,29 @@
           "executable_net_return": null,
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 13,
+          "trading_day": 4,
+          "close": 8.45,
+          "open": 8.59,
+          "high": 9.2,
+          "low": 8.42,
+          "daily_change_pct": -3.21,
+          "change_from_day0_pct": 1.56,
+          "maximum_price_excursion_pct": 12.14,
+          "minimum_price_excursion_pct": -9.86,
+          "volume_shares": 746077.0,
+          "relative_volume_20": 2.85,
+          "clv": 0.038,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sh600152",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,160,qfq"
         }
       ]
@@ -489,6 +673,29 @@
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 13,
+          "trading_day": 4,
+          "close": 19.15,
+          "open": 17.82,
+          "high": 19.5,
+          "low": 17.82,
+          "daily_change_pct": 4.53,
+          "change_from_day0_pct": 24.67,
+          "maximum_price_excursion_pct": 33.14,
+          "minimum_price_excursion_pct": -7.16,
+          "volume_shares": 667861.0,
+          "relative_volume_20": 5.71,
+          "clv": 0.792,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002866",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,160,qfq"
         }
       ]
     },
@@ -542,6 +749,29 @@
           "executable_net_return": null,
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 13,
+          "trading_day": 4,
+          "close": 9.93,
+          "open": 10.12,
+          "high": 10.14,
+          "low": 9.73,
+          "daily_change_pct": -2.17,
+          "change_from_day0_pct": 4.97,
+          "maximum_price_excursion_pct": 11.52,
+          "minimum_price_excursion_pct": -9.51,
+          "volume_shares": 463732.0,
+          "relative_volume_20": 0.9,
+          "clv": 0.488,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sz002244",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,160,qfq"
         }
       ]
@@ -597,6 +827,29 @@
           "day0_comparison_only": true,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
           "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,160,qfq"
+        },
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 13,
+          "trading_day": 4,
+          "close": 7.85,
+          "open": 7.86,
+          "high": 8.07,
+          "low": 7.61,
+          "daily_change_pct": 0.0,
+          "change_from_day0_pct": -0.25,
+          "maximum_price_excursion_pct": 4.19,
+          "minimum_price_excursion_pct": -12.83,
+          "volume_shares": 499636.0,
+          "relative_volume_20": 1.64,
+          "clv": 0.522,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "https://qt.gtimg.cn/q=sh603636",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,160,qfq"
         }
       ]
     },
@@ -635,7 +888,31 @@
         "ma10": 3.55,
         "ma20": 3.59
       },
-      "observations": [],
+      "observations": [
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 3,
+          "trading_day": 1,
+          "close": 3.81,
+          "open": 4.1,
+          "high": 4.19,
+          "low": 3.81,
+          "daily_change_pct": 0.0,
+          "change_from_day0_pct": 0.0,
+          "maximum_price_excursion_pct": 9.97,
+          "minimum_price_excursion_pct": -7.35,
+          "volume_shares": 3059162.0,
+          "relative_volume_20": 5.64,
+          "clv": 0.0,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": false,
+          "source": "https://qt.gtimg.cn/q=sz000420",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq"
+        }
+      ],
       "sources": [
         "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq"
@@ -676,7 +953,31 @@
         "ma10": 15.31,
         "ma20": 15.14
       },
-      "observations": [],
+      "observations": [
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 3,
+          "trading_day": 1,
+          "close": 17.99,
+          "open": 17.8,
+          "high": 18.49,
+          "low": 17.1,
+          "daily_change_pct": 4.9,
+          "change_from_day0_pct": 4.9,
+          "maximum_price_excursion_pct": 7.81,
+          "minimum_price_excursion_pct": -10.79,
+          "volume_shares": 2249225.0,
+          "relative_volume_20": 5.21,
+          "clv": 0.64,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": false,
+          "source": "https://qt.gtimg.cn/q=sz300821",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,160,qfq"
+        }
+      ],
       "sources": [
         "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,160,qfq"
@@ -717,7 +1018,31 @@
         "ma10": 29,
         "ma20": 32.18
       },
-      "observations": [],
+      "observations": [
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 3,
+          "trading_day": 1,
+          "close": 26.54,
+          "open": 27.17,
+          "high": 27.5,
+          "low": 26.4,
+          "daily_change_pct": -2.32,
+          "change_from_day0_pct": -2.32,
+          "maximum_price_excursion_pct": 1.21,
+          "minimum_price_excursion_pct": -3.2,
+          "volume_shares": 798766.0,
+          "relative_volume_20": 1.01,
+          "clv": 0.127,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": false,
+          "source": "https://qt.gtimg.cn/q=sh600547",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,160,qfq"
+        }
+      ],
       "sources": [
         "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,160,qfq"
@@ -758,10 +1083,157 @@
         "ma10": 12.99,
         "ma20": 13.19
       },
-      "observations": [],
+      "observations": [
+        {
+          "as_of": "2026-10-12",
+          "calendar_day": 3,
+          "trading_day": 1,
+          "close": 12.59,
+          "open": 12.7,
+          "high": 12.96,
+          "low": 12.48,
+          "daily_change_pct": -2.18,
+          "change_from_day0_pct": -2.18,
+          "maximum_price_excursion_pct": 1.32,
+          "minimum_price_excursion_pct": -7.54,
+          "volume_shares": 1748177.0,
+          "relative_volume_20": 0.78,
+          "clv": 0.229,
+          "initial_invalidation_triggered": false,
+          "status": "verified_close_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": false,
+          "source": "https://qt.gtimg.cn/q=sz300058",
+          "kline_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq"
+        }
+      ],
       "sources": [
         "https://qt.gtimg.cn/q=sz002074,sz002580,sz002805,sz002866,sh603906,sz002472,sh600845,sh600380,sz000503,sz000513,sz002962,sh600152,sz002244,sh603636",
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261012-002531",
+      "date": "2026-10-12",
+      "code": "002531",
+      "name": "天顺风能",
+      "sector": "风电设备",
+      "day0_close": 8.27,
+      "invalid_close_below": 7.5,
+      "initial_invalidation_basis": "收盘跌破信号日低点或最近平台支撑",
+      "primary_model": "低位分歧后缩量反包",
+      "tags": [
+        "平台突破",
+        "板块共振启动"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 9.97,
+      "day0_turnover_pct": 5.85,
+      "day0_amount_yi": 8.3993,
+      "day0_rvol5": 0.61,
+      "day0_rvol10": 0.68,
+      "day0_rvol20": 0.74,
+      "day0_clv": 1.0,
+      "day0_amplitude_pct": 10.24,
+      "day0_range_position_pct": {
+        "20": 86.9,
+        "60": 88.5,
+        "120": 33.2
+      },
+      "day0_moving_averages": {
+        "ma5": 7.95,
+        "ma10": 7.72,
+        "ma20": 7.44
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002531",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002531,day,,,160,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261012-002027",
+      "date": "2026-10-12",
+      "code": "002027",
+      "name": "分众传媒",
+      "sector": "广告传媒",
+      "day0_close": 5.1,
+      "invalid_close_below": 4.72,
+      "initial_invalidation_basis": "收盘跌破信号日低点或最近平台支撑",
+      "primary_model": "低位放量平台突破",
+      "tags": [
+        "底部放量启动",
+        "板块共振启动"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 3.87,
+      "day0_turnover_pct": 3.32,
+      "day0_amount_yi": 24.4362,
+      "day0_rvol5": 3.19,
+      "day0_rvol10": 3.83,
+      "day0_rvol20": 3.93,
+      "day0_clv": 0.56,
+      "day0_amplitude_pct": 5.09,
+      "day0_range_position_pct": {
+        "20": 81.0,
+        "60": 49.0,
+        "120": 38.0
+      },
+      "day0_moving_averages": {
+        "ma5": 4.83,
+        "ma10": 4.77,
+        "ma20": 4.77
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sz002027",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002027,day,,,160,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261012-603232",
+      "date": "2026-10-12",
+      "code": "603232",
+      "name": "格尔软件",
+      "sector": "网络安全",
+      "day0_close": 18.68,
+      "invalid_close_below": 16.9,
+      "initial_invalidation_basis": "收盘跌破信号日低点或最近平台支撑",
+      "primary_model": "事件催化＋箱体突破",
+      "tags": [
+        "箱体突破",
+        "事件催化启动"
+      ],
+      "original_snapshot_provenance": "contemporaneous_tencent_quote_and_daily_kline",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_change_pct": 10.01,
+      "day0_turnover_pct": 18.07,
+      "day0_amount_yi": 7.4435,
+      "day0_rvol5": 2.4,
+      "day0_rvol10": 2.05,
+      "day0_rvol20": 2.74,
+      "day0_clv": 1.0,
+      "day0_amplitude_pct": 10.37,
+      "day0_range_position_pct": {
+        "20": 100.0,
+        "60": 100.0,
+        "120": 53.1
+      },
+      "day0_moving_averages": {
+        "ma5": 16.78,
+        "ma10": 16.52,
+        "ma20": 15.93
+      },
+      "observations": [],
+      "sources": [
+        "https://qt.gtimg.cn/q=sh603232",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603232,day,,,160,qfq"
       ]
     }
   ],
