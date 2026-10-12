@@ -25,13 +25,15 @@ object MarketRefreshPolicy {
             (minutes in 570 until 690 || minutes in 780 until 900)
         val changedDay = sessionDate.isNotBlank() && sessionDate != currentDate
         val enteringTrading = clockOpen && sessionCode in setOf("before_open", "lunch", "")
+        // A cached previous-day "trading" status must not suppress the first quote request.
+        val staleDayProbe = clockOpen && changedDay && refreshTick % 3 == 0
         val leavingTrading = !clockOpen && sessionCode == "trading"
         val periodicOverview = clockOpen && serverSaysLive && refreshTick % 3 == 2
-        val refreshCandidates = clockOpen && (serverSaysLive || enteringTrading)
+        val refreshCandidates = clockOpen && (serverSaysLive || enteringTrading || staleDayProbe)
         return MarketRefreshDecision(
             clockOpen = clockOpen,
             refreshOverview = changedDay || enteringTrading || leavingTrading || periodicOverview,
-            refreshMarket = refreshCandidates && (enteringTrading || periodicOverview),
+            refreshMarket = refreshCandidates && (enteringTrading || staleDayProbe || periodicOverview),
             refreshCandidates = refreshCandidates,
         )
     }
