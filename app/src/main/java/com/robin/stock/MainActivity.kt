@@ -984,7 +984,12 @@ class MainActivity : AppCompatActivity() {
                 return@fetch
             }
             val rows = data.optJSONArray("signals") ?: JSONArray()
-            val time = data.optString("time_cn")
+            val time = data.optString("time_cn") + " · 北京时间"
+            if (data.optBoolean("stale")) {
+                status.text = "观察信号数据已过期 · $time"
+                box.addView(label("旧信号已停止展示，请刷新后再判断买点。", 12f))
+                return@fetch
+            }
             if (rows.length() == 0) {
                 status.text = "当前暂无符合条件的观察信号"
                 box.addView(label("模型已接通 · 扫描 ${data.optInt("scanned")} 只候选 · $time", 12f))
@@ -1038,7 +1043,8 @@ class MainActivity : AppCompatActivity() {
                 homeMarketStatus?.text = "候选刷新失败，仍显示上次结果；请稍后重试。"
                 return@fetch
             }
-            renderCandidates(box, data.optJSONArray("candidates") ?: JSONArray(), data.optString("time_cn"))
+            renderCandidates(box, if (data.optBoolean("stale")) JSONArray() else data.optJSONArray("candidates") ?: JSONArray(), data.optString("time_cn"))
+            if (data.optBoolean("stale")) box.addView(label("候选行情已过期，暂停展示旧候选。", 12f))
             if (data.optString("status") == "fallback_market_cache")
                 box.addView(label("备用缓存 · ${data.optInt("cache_age_sec")} 秒前，请核对数据时间。", 11f))
         }
