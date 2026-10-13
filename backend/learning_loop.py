@@ -331,3 +331,15 @@ def verify_append_only(before, after):
     current = after.get("runs", [])
     if current[:len(original)] != original:
         raise ValueError("published_learning_snapshot_mutated_or_deleted")
+
+
+def load_ledger():
+    """Persisted snapshots, optionally mounted on a production volume."""
+    import os
+    import json
+    from pathlib import Path
+    override = os.environ.get("ROBIN_LEARNING_FILE")
+    path = Path(override) if override else Path(__file__).resolve().parent / "data" / "learning.json"
+    with path.open(encoding="utf-8") as file:
+        document = json.load(file)
+    return validate_learning_archive(document)
