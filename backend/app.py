@@ -19,8 +19,9 @@ from quote_providers import stock_symbol, tencent_quotes
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
+from learning_loop import load_ledger
 
-API_VERSION = "0.8.0"
+API_VERSION = "0.9.0"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 app.add_middleware(
     CORSMiddleware,
@@ -102,6 +103,28 @@ def research_stock(code: str):
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Stock rationale unavailable: %s", exc)
         return {"ok": False, "status": "research_stock_data_unavailable"}
+
+
+@app.get("/api/learning")
+def learning(limit: int = 7):
+    """Read published, immutable daily evidence snapshots (not live AI training)."""
+    try:
+        archive = load_ledger()
+        runs = archive["runs"]
+        latest = runs[-1] if runs else None
+        history = [{k: r.get(k) for k in (
+            "id", "date", "recorded_at", "status", "sample_count", "status_counts")}
+                   for r in reversed(runs[-max(1, min(30, limit)):])]
+        return {
+            "ok": True, "time_cn": now_cn(), "snapshot_count": len(runs),
+            "latest": latest, "history": history, "automatic_training": False,
+            "selection_rules_auto_updated": False,
+            "mode": "chronological_shadow_learning",
+            "message": "真实交易收益须有可验证的成交依据；目前仅是历史信号日线前推与规则影子验证。",
+        }
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Learning archive unavailable: %s", exc)
+        return {"ok": False, "status": "learning_archive_unavailable"}
 
 
 @app.get("/api/research-knowledge")
