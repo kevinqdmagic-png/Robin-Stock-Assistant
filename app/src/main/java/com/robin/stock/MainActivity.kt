@@ -580,7 +580,7 @@ class MainActivity : AppCompatActivity() {
         settings.addView(updateStatus)
         settings.addView(action("检查更新") { checkForUpdate(updateStatus) })
         settings.addView(label("更新包由 Android 系统验证签名。首次从旧测试签名迁移到固定正式签名时，可能需要一次重新安装。", 11f))
-        market.addView(label("交易时段自动更新：候选约30秒，指数和买点约90秒；以数据时间为准。", 11f))
+        market.addView(label("全App时间统一为北京时间（UTC+8）；交易时段候选约30秒、指数和买点约90秒刷新，以行情源时间为准。", 11f))
         loadMarket(status, candidates); loadOverview(indices); loadSignals(signalStatus, signalItems)
         startHomeAutoRefresh()
     }
