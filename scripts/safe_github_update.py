@@ -12,6 +12,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+import time
 
 
 def request(method, url, token, payload=None):
@@ -42,6 +43,7 @@ def safe_update(repo, path, proposed, base_sha, token, branch="main", message="S
                 raise
             if attempt == 2:
                 raise RuntimeError("BRANCH_CONFLICT: safe retries exhausted") from error
+            time.sleep(0.2 * (2 ** attempt))
     raise RuntimeError("BRANCH_CONFLICT")
 
 
