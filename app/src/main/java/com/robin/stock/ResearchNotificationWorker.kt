@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -79,7 +80,7 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
         val canNotify = Build.VERSION.SDK_INT < 33 ||
             applicationContext.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) ==
                 PackageManager.PERMISSION_GRANTED
-        if (changed.isNotEmpty() && !canNotify) return Result.success()
+        if (changed.isNotEmpty() && (!canNotify || !NotificationManagerCompat.from(applicationContext).areNotificationsEnabled())) return Result.success()
         if (!prefs.edit().putString("notified_research_versions", updated.toString()).commit()) {
             return Result.retry()
         }
