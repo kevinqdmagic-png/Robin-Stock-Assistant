@@ -65,5 +65,43 @@ class SafeGithubUpdateTests(unittest.TestCase):
                          ["GET", "PUT", "GET", "PUT", "GET", "PUT"])
 
 
+    def test_research_archive_rejects_deleted_history(self):
+        import json
+        old = {"schema_version": 1, "items": [{
+            "id": "historic", "date": "2026-10-01", "track": "market_review",
+            "title": "Old report", "body": "Immutable research"}]}
+        new = {"schema_version": 1, "items": []}
+        with self.assertRaisesRegex(ValueError, "historical_record_deleted"):
+            module.validate_archive_change(
+                "backend/data/research.json",
+                json.dumps(old).encode(), json.dumps(new).encode())
+
+    def test_research_archive_allows_append_only(self):
+        import json
+        old = {"schema_version": 1, "items": [{
+            "id": "historic", "date": "2026-10-01", "track": "market_review",
+            "title": "Old report", "body": "Immutable research"}]}
+        new = {"schema_version": 1, "items": old["items"] + [{
+            "id": "next", "date": "2026-10-02", "track": "volume_price",
+            "title": "Next report", "body": "New evidence"}]}
+        module.validate_archive_change(
+            "backend/data/research.json",
+            json.dumps(old).encode(), json.dumps(new).encode())
+
+    def test_archive_validation_blocks_put_before_network_write(self):
+        import base64
+        import json
+        old = {"schema_version": 1, "items": [{
+            "id": "historic", "date": "2026-10-01", "track": "market_review",
+            "title": "Old report", "body": "Immutable research"}]}
+        response = {"sha": "original", "content": base64.b64encode(json.dumps(old).encode()).decode()}
+        new = {"schema_version": 1, "items": []}
+        with patch.object(module, "request", return_value=response) as request:
+            with self.assertRaisesRegex(ValueError, "historical_record_deleted"):
+                module.safe_update("owner/repo", "backend/data/research.json",
+                                   json.dumps(new).encode(), "original", "token")
+        self.assertEqual(request.call_count, 1)
+
+
 if __name__ == "__main__":
     unittest.main()
