@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T01:37:26.659+08:00",
+  "updated_at": "2026-10-13T22:36:00+13:00",
   "source": "confirmed_automation_configuration",
   "items": [
     {
@@ -170,10 +170,10 @@
     },
     {
       "id": "early_pair",
-      "title": "早盘短线双标",
+      "title": "早盘9:50涨停潜力单股",
       "track": "market_review",
-      "summary": "早盘两只 · 独立实验组",
-      "schedule_text": "独立调度已暂停 · 工作日09:50 · 北京",
+      "summary": "最多推荐一只具备当日涨停潜力的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。",
+      "schedule_text": "APP独立调度待接入 · 工作日09:50 · 北京",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260930T095000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=9;BYMINUTE=50\nEND:VEVENT",
       "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
@@ -184,10 +184,10 @@
     },
     {
       "id": "late_pair",
-      "title": "尾盘短线双标",
+      "title": "下午14:40次日溢价单股",
       "track": "market_review",
-      "summary": "尾盘两只 · 独立实验组",
-      "schedule_text": "独立调度已暂停 · 工作日14:40 · 北京",
+      "summary": "最多推荐一只争取下一交易日溢价的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。",
+      "schedule_text": "APP独立调度待接入 · 工作日14:40 · 北京",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260929T144000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=14;BYMINUTE=40\nEND:VEVENT",
       "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
