@@ -21,9 +21,12 @@ object MarketRefreshPolicy {
         refreshTick: Int,
     ): MarketRefreshDecision {
         val minutes = hour * 60 + minute
-        val clockOpen = dayOfWeek in 1..5 &&
+        val withinTradingHours = dayOfWeek in 1..5 &&
             (minutes in 570 until 690 || minutes in 780 until 900)
         val changedDay = sessionDate.isNotBlank() && sessionDate != currentDate
+        // A current-day confirmed holiday/closed session must not be polled as live.
+        val confirmedClosed = sessionCode == "closed" && !changedDay && !serverSaysLive
+        val clockOpen = withinTradingHours && !confirmedClosed
         val enteringTrading = clockOpen && sessionCode in setOf("before_open", "lunch", "")
         // A cached previous-day "trading" status must not suppress the first quote request.
         val staleDayProbe = clockOpen && changedDay
