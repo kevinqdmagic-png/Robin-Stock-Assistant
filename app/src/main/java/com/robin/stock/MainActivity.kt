@@ -1069,6 +1069,7 @@ class MainActivity : AppCompatActivity() {
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "quant_research" to "量化研究", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
         taskCenterCard()
         recommendationCard()
+        learningCard()
         capitalBehaviorCard()
         if (researchCode.isNotBlank()) {
             card("${researchStockName} $researchCode · 关联研究").apply {
@@ -1140,6 +1141,66 @@ class MainActivity : AppCompatActivity() {
         // Keep history prominent; move the optional 30-day validation below it.
         backtestCard()
     }
+    private fun learningCard() {
+        val panel = card("每日学习验证 · T+1 / T+2 / T+5 / T+10")
+        panel.addView(label("自动核对历史推荐与收盘后的真实日线，保留失败样本并按时间前推验证；不把参考价涨跌当作实盘盈利。", 12f))
+        val status = label("正在检查学习记录…", 12f)
+        val history = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        panel.addView(status)
+        panel.addView(history)
+        fun render() {
+            fetch("/api/learning?limit=7") { data, error ->
+                history.removeAllViews()
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "学习归档暂不可用。" + (error?.let { "\n" + it } ?: "")
+                    return@fetch
+                }
+                val latest = data.optJSONObject("latest")
+                if (latest == null) {
+                    status.text = "学习流程已配置 · 尚无收盘后的实际执行记录"
+                    history.addView(label("每日研究结果必须经过行情核验后才能加入训练样本；不会自动把未验证规则投入实盘。", 12f))
+                    return@fetch
+                }
+                status.text = "最近核验 " + latest.optString("date") + " · 累积执行 " +
+                    data.optInt("snapshot_count") + " 次 · 信号 " + latest.optInt("sample_count") + " 条"
+                val validation = latest.optJSONObject("validation")
+                history.addView(label("验证阶段：" + (validation?.optString("status") ?: "待核验") +
+                    " · 样本外统计：" + (validation?.optInt("total_mature_t2_featured") ?: 0) + " 条", 13f, true))
+                history.addView(label("模型权重没有自动改动；只有足够数量的独立样本通过样本外检验，才可能形成待审核的新规则。", 12f))
+                val counts = latest.optJSONObject("status_counts")
+                if (counts != null) {
+                    history.addView(label("状态：已观察 " + counts.optInt("observed") +
+                        " · 等待到期 " + counts.optInt("pending") +
+                        " · 其他或待核验 " +
+                        (latest.optInt("sample_count") - counts.optInt("observed") - counts.optInt("pending")).coerceAtLeast(0), 12f))
+                }
+                val rows = latest.optJSONArray("evaluations") ?: JSONArray()
+                val mature = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }
+                    .filter { it.optString("status") == "observed" }.take(8)
+                if (mature.isNotEmpty()) history.addView(label("最近快照中的已成熟T+2价格观察", 13f, true))
+                for (item in mature) {
+                    val points = item.optJSONArray("horizons") ?: continue
+                    val t2 = (0 until points.length()).mapNotNull { points.optJSONObject(it) }
+                        .firstOrNull { it.optInt("h") == 2 && it.optString("status") == "observed" }
+                    if (t2 != null) history.addView(label(
+                        item.optString("code") + " · " + item.optString("strategy") +
+                        " · T+2参考收盘 " + pctText(t2.optDouble("close_pct")) +
+                        " · 区间MAE " + pctText(t2.optDouble("mae_pct")), 12f))
+                }
+                val proposals = validation?.optJSONArray("rule_proposals") ?: JSONArray()
+                for (i in 0 until proposals.length()) {
+                    val item = proposals.optJSONObject(i) ?: continue
+                    history.addView(label("影子规则 " + item.optString("rule") +
+                        " ≥ " + item.optInt("threshold") +
+                        " · 样本外提升 " + item.optString("holdout_uplift_pct_points") +
+                        "个百分点（未自动启用）", 12f))
+                }
+            }
+        }
+        panel.addView(action("刷新每日学习记录") { render() })
+        render()
+    }
+
     private fun capitalBehaviorCard() {
         val panel = card("主力行为识别 · 研究测试")
         panel.addView(label("按已完成日线分析吸筹、整理尾声、突破和派发的代理信号；不是主力账户数据，也不代表已经验证胜率。", 12f))
