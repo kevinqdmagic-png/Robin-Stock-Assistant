@@ -1060,8 +1060,12 @@ class MainActivity : AppCompatActivity() {
                 status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
                     "${rows.length()}项任务 · 最近记录以实际执行回执为准\n安排更新：${data.optString("configuration_updated_at")}"
                 box.removeAllViews()
-                for (i in 0 until rows.length()) {
-                    val task = rows.getJSONObject(i)
+                val priority = listOf("market_review", "volume_price", "low_dragon", "combined_pair", "limitup_single", "early_pair", "late_pair")
+                val ordered = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.sortedBy { task ->
+                    val index = priority.indexOf(task.optString("id"))
+                    if (index < 0) 100 else index
+                }
+                for (task in ordered) {
                     val taskId = task.optString("id")
                     val title = task.optString("title")
                     val wrapper = LinearLayout(this).apply {
