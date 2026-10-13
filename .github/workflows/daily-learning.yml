@@ -1,0 +1,40 @@
+name: Daily forward learning
+on:
+  schedule:
+    # Beijing 18:00 / Auckland 23:00 during NZ daylight saving.
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: forward-learning-ledger
+  cancel-in-progress: false
+jobs:
+  learn:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r backend/requirements.txt
+      - name: Run observational forward tracker (no real trade claims)
+        id: run
+        run: |
+          python scripts/run_daily_learning.py > learning-status.json
+          cat learning-status.json
+          python -c "import json,os; v=json.load(open('learning-status.json'));open(os.environ['GITHUB_OUTPUT'],'a').write('changed='+str(v['changed']).lower()+'\n')"
+      - name: Commit one snapshot with concurrency/append-only protections
+        if: steps.run.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ORIGINAL_BLOB=$(git rev-parse HEAD:backend/data/learning.json)
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            backend/data/learning.json backend/data/learning.json \
+            --base-sha "$ORIGINAL_BLOB" \
+            --message "data: append daily immutable forward-learning snapshot"
