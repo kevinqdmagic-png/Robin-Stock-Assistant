@@ -1135,6 +1135,38 @@ class MainActivity : AppCompatActivity() {
                         box.addView(label("介入条件：${row.optString("trigger")}", 12f))
                     if (row.optString("invalid").isNotBlank())
                         box.addView(label("失效条件：${row.optString("invalid")}", 12f))
+                    val recordId = row.optString("id")
+                    if (recordId.isNotBlank()) {
+                        val follow = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+                        box.addView(action("查看T+1 / T+2 / T+3 / T+5 / T+10卖出跟踪") {
+                            follow.removeAllViews()
+                            follow.addView(label("正在核验历史日线…", 12f))
+                            fetch("/api/recommendations/$recordId/performance") { performance, _ ->
+                                follow.removeAllViews()
+                                if (performance == null || !performance.optBoolean("ok")) {
+                                    follow.addView(label("跟踪数据暂不可用，请稍后重试。", 12f))
+                                    return@fetch
+                                }
+                                if (performance.optString("status") != "price_observation") {
+                                    follow.addView(label("暂不计算收益：${performance.optString("note", performance.optString("status"))}", 12f))
+                                    return@fetch
+                                }
+                                follow.addView(label("以下是参考价后的价格观察，不代表实际买入或可实现收益。", 12f))
+                                val points = performance.optJSONArray("points") ?: JSONArray()
+                                for (j in 0 until points.length()) {
+                                    val point = points.optJSONObject(j) ?: continue
+                                    val horizon = point.optInt("horizon")
+                                    if (horizon !in listOf(1, 2, 3, 5, 10)) continue
+                                    if (point.optString("status") != "observed") {
+                                        follow.addView(label("T+$horizon · 尚未到期", 12f))
+                                    } else {
+                                        follow.addView(label("T+$horizon · ${point.optString("date")} · 收盘 ${pctText(point.optDouble("close_pct"))} · 区间最高 ${pctText(point.optDouble("mfe_pct"))} · 区间最低 ${pctText(point.optDouble("mae_pct"))}", 12f))
+                                    }
+                                }
+                            }
+                        })
+                        box.addView(follow)
+                    }
                 }
             }
         }
