@@ -57,6 +57,12 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
         val old = try { JSONObject(previous ?: "{}") } catch (_: Exception) { JSONObject() }
         val updated = JSONObject()
         val changed = mutableListOf<String>()
+        // Preserve versions for tasks absent from a partial server response.
+        val keys = old.keys()
+        while (keys.hasNext()) {
+            val key = keys.next()
+            updated.put(key, old.optString(key))
+        }
         for (i in 0 until rows.length()) {
             val task = rows.optJSONObject(i) ?: continue
             val id = task.optString("id")
@@ -64,7 +70,7 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
             val reportId = task.optJSONObject("latest_report")?.optString("id").orEmpty()
             if (reportId.isBlank()) continue
             updated.put(id, reportId)
-            if (previous != null && old.has(id) && old.optString(id) != reportId) {
+            if (previous != null && old.optString(id) != reportId) {
                 changed.add(task.optString("title", id))
             }
         }
@@ -77,7 +83,13 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
         if (!prefs.edit().putString("notified_research_versions", updated.toString()).commit()) {
             return Result.retry()
         }
-        if (changed.isNotEmpty()) notifyResearch(changed)
+        if (changed.isNotEmpty()) {
+            try {
+                notifyResearch(changed)
+            } catch (_: SecurityException) {
+                return Result.retry()
+            }
+        }
         return Result.success()
     }
 
