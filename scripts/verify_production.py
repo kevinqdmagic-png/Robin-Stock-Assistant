@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
 from task_center import data_revision
 from research_archive import verify_append_only
 from research_stocks import validate_catalog, verify_catalog_history
+from learning_loop import validate_learning_archive
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--base", default="https://robin-stock-api-production.up.railway.app")
@@ -67,6 +68,18 @@ while True:
         reports = all_rows("/api/research")
         receipts = all_rows("/api/task-runs")
         recommendations = all_rows("/api/recommendations")
+        online_learning = get("/api/learning")
+        repo_learning = validate_learning_archive(json.loads(
+            (root / "backend/data/learning.json").read_text(encoding="utf-8")))
+        if online_learning.get("snapshot_count", 0):
+            last = online_learning.get("latest") or {}
+            if repo_learning["runs"] and last.get("date", "") < repo_learning["runs"][-1]["date"]:
+                raise RuntimeError("daily learning data not yet deployed")
+        elif repo_learning["runs"]:
+            raise RuntimeError("daily learning archive not yet deployed")
+        if online_learning.get("automatic_training") is not False:
+            raise RuntimeError("unverified training claim")
+
         stock_catalog = get("/api/research-stocks")
         validate_catalog(stock_catalog, reports)
         verify_catalog_history(expected["research_stocks.json"], stock_catalog)
