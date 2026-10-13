@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T07:20:00+13:00",
+  "updated_at": "2026-10-14T12:00:00+08:00",
   "source": "repository_task_registry_app_only_modules",
   "items": [
     {
@@ -35,7 +35,7 @@
       "id": "market_review",
       "title": "A股每日复盘",
       "track": "market_review",
-      "summary": "市场、情绪、板块复盘与候选证据；已恢复独立调度，全部原研究规则保留。已有同日完整报告时去重，缺失时综合双标完整補做，独立保存报告、样本和验证回执。",
+      "summary": "市场、情绪、板块复盘与候选证据；已恢复独立调度，全部原研究规则保留。已有同日完整报告时去重，缺失时综合双标完整補做，独立保存报告、样本和验证回执。 每日复盘新增下一交易日上证、深证、创业板、科创板指数的方向/区间情景预测；必须记录预测时点、依据、次日实际结果及误差，滚动校准，不可宣称保证准确。",
       "schedule_text": "已恢复独立任务 · 工作日21:00 · 奥克兰 · 缺失时综合双标完整补做",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261009T210000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=21;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
@@ -52,8 +52,8 @@
       "id": "quant_research",
       "title": "A股量化痕迹复盘",
       "track": "quant_research",
-      "summary": "量化痕迹及样本验证；全部原研究要求由综合双标执行，仍单独保存报告、样本与验证回执。",
-      "schedule_text": "独立调度暂停 · 随综合双标完整执行 · 奥克兰22:30起",
+      "summary": "用户已停止量化痕迹研究：不再跟踪或生成新研究；历史报告和样本仅供审计保留。",
+      "schedule_text": "已停用 · 不再跟踪 · 历史归档保留",
       "schedule": "BEGIN:VEVENT\nDTSTART:20260925T074500Z\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=18;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
@@ -62,8 +62,9 @@
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-04T04:12:01.433855+00:00",
       "executor_task_id": "combined_pair",
-      "execution_mode": "shared",
-      "effective_enabled": true
+      "execution_mode": "historical_only",
+      "effective_enabled": false,
+      "include_legacy_reports": false
     },
     {
       "id": "volume_price",
@@ -161,7 +162,7 @@
       "id": "combined_pair",
       "title": "盘后综合双标",
       "track": "market_review",
-      "summary": "仅核对复盘、量化、量价的真实同日研究结果；不再将低位启动及龙虎榜作为每日依赖或缺失补做。确认信号、风控与可成交性后最多两只，资料不足可以空仓。",
+      "summary": "仅核对复盘、量价的真实同日研究结果；不再将低位启动及龙虎榜作为每日依赖或缺失补做。确认信号、风控与可成交性后最多两只，资料不足可以空仓。",
       "schedule_text": "已启用 · 22:30起检查，23:30/00:30/06:30复查 · 奥克兰",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T223000\nRRULE:FREQ=DAILY;BYHOUR=0,6,22,23;BYMINUTE=30\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
