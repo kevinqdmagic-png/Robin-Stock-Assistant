@@ -13,6 +13,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'backend'))
+from research_archive import validate_document, verify_append_only
 
 
 def request(method, url, token, payload=None):
@@ -27,6 +31,15 @@ def request(method, url, token, payload=None):
         return json.load(response)
 
 
+def validate_archive_change(path, old_bytes, new_bytes):
+    kind = {'backend/data/research.json': 'research', 'backend/data/recommendations.json': 'recommendations'}.get(path)
+    if kind:
+        old = json.loads(old_bytes.decode('utf-8'))
+        new = json.loads(new_bytes.decode('utf-8'))
+        validate_document(new, kind)
+        verify_append_only(old, new, kind)
+
+
 def safe_update(repo, path, proposed, base_sha, token, branch="main", message="Safe update"):
     encoded_path = "/".join(urllib.parse.quote(p, safe="") for p in path.split("/"))
     url = f"https://api.github.com/repos/{repo}/contents/{encoded_path}"
@@ -34,6 +47,8 @@ def safe_update(repo, path, proposed, base_sha, token, branch="main", message="S
         current = request("GET", url + "?" + urllib.parse.urlencode({"ref": branch}), token)
         if current["sha"] != base_sha:
             raise RuntimeError("CONCURRENT_FILE_CHANGE: stop and reconcile, never overwrite")
+        old_bytes = base64.b64decode(current['content'].replace('\\n', ''))
+        validate_archive_change(path, old_bytes, proposed)
         try:
             return request("PUT", url, token, {
                 "message": message, "branch": branch, "sha": base_sha,
