@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
 from research_archive import validate_document, verify_append_only
+from learning_loop import validate_learning_archive, verify_append_only as verify_learning_append_only
 from task_center import validate_registry, validate_runs, checked_receipt
 from research_stocks import validate_catalog, verify_catalog_history
 
@@ -18,6 +19,14 @@ for filename, kind in (("research.json", "research"), ("recommendations.json", "
         previous = subprocess.run(["git", "show", base + ":" + path], capture_output=True, text=True)
         if previous.returncode == 0:
             verify_append_only(json.loads(previous.stdout), after, kind)
+learning_path = "backend/data/learning.json"
+after_learning = validate_learning_archive(json.loads((root / learning_path).read_text(encoding="utf-8")))
+if base:
+    previous_learning = subprocess.run(["git", "show", base + ":" + learning_path], capture_output=True, text=True)
+    if previous_learning.returncode == 0:
+        verify_learning_append_only(
+            validate_learning_archive(json.loads(previous_learning.stdout)), after_learning)
+
 tasks = json.loads((root / "backend/data/tasks.json").read_text(encoding="utf-8"))
 runs = json.loads((root / "backend/data/task_runs.json").read_text(encoding="utf-8"))
 reports = json.loads((root / "backend/data/research.json").read_text(encoding="utf-8"))

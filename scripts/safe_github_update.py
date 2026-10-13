@@ -17,6 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'backend'))
 from research_archive import validate_document, verify_append_only
+from learning_loop import validate_learning_archive, verify_append_only as verify_learning_append_only
 
 
 def request(method, url, token, payload=None):
@@ -32,6 +33,10 @@ def request(method, url, token, payload=None):
 
 
 def validate_archive_change(path, old_bytes, new_bytes):
+    if path == 'backend/data/learning.json':
+        old = validate_learning_archive(json.loads(old_bytes.decode('utf-8')))
+        updated = validate_learning_archive(json.loads(new_bytes.decode('utf-8')))
+        verify_learning_append_only(old, updated)
     kind = {'backend/data/research.json': 'research', 'backend/data/recommendations.json': 'recommendations'}.get(path)
     if kind:
         old = json.loads(old_bytes.decode('utf-8'))
@@ -47,7 +52,7 @@ def safe_update(repo, path, proposed, base_sha, token, branch="main", message="S
         current = request("GET", url + "?" + urllib.parse.urlencode({"ref": branch}), token)
         if current["sha"] != base_sha:
             raise RuntimeError("CONCURRENT_FILE_CHANGE: stop and reconcile, never overwrite")
-        if path in ('backend/data/research.json', 'backend/data/recommendations.json'):
+        if path in ('backend/data/research.json', 'backend/data/recommendations.json', 'backend/data/learning.json'):
             old_bytes = base64.b64decode(current['content'].replace('\\n', ''))
             validate_archive_change(path, old_bytes, proposed)
         try:
