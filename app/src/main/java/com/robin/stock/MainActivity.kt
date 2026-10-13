@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.pm.PackageManager
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import android.content.Intent
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
@@ -258,7 +259,7 @@ class MainActivity : AppCompatActivity() {
             val permissionGranted = Build.VERSION.SDK_INT < 33 ||
                 checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
             // Keep changed report IDs pending until Android permits notifications.
-            if (changed.isNotEmpty() && !permissionGranted) return@execute
+            if (changed.isNotEmpty() && (!permissionGranted || !NotificationManagerCompat.from(this).areNotificationsEnabled())) return@execute
             if (!prefs.edit().putString("notified_research_versions", updated.toString()).commit()) return@execute
             if (changed.isNotEmpty()) runOnUiThread {
                 if (!isDestroyed) showResearchNotification(changed)
