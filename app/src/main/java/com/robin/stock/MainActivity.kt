@@ -1072,8 +1072,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
-            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "quant_research" to "量化研究", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
+            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
         taskCenterCard()
+        nextDayIndexForecastCard()
         recommendationCard()
         learningCard()
         capitalBehaviorCard()
@@ -1117,6 +1118,7 @@ class MainActivity : AppCompatActivity() {
                 if (rows.length() == 0 && !append) items.addView(label("该日期或栏目暂无已归档记录。", 13f))
                 for (i in 0 until rows.length()) {
                     val x = rows.getJSONObject(i)
+                    if (x.optString("track") == "quant_research") continue
                     val wrapper = LinearLayout(this).apply {
                         orientation = LinearLayout.VERTICAL; setPadding(0, dp(12), 0, dp(16))
                     }
@@ -1146,6 +1148,41 @@ class MainActivity : AppCompatActivity() {
         more.setOnClickListener { load(true) }; archive.addView(more); load()
         // Keep history prominent; move the optional 30-day validation below it.
         backtestCard()
+    }
+    private fun nextDayIndexForecastCard() {
+        val panel = card("大盘每日复盘 · 下一交易日指数情景预测")
+        val status = label("正在读取指数收盘数据…", 12f)
+        panel.addView(status)
+        panel.addView(label("仅为基于当日涨跌幅的实验性情景推演，不是已训练预测模型；未完成历史样本外验证，不作为买卖依据。", 12f))
+        fun refresh() {
+            fetch("/api/overview") { data, _ ->
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "指数数据不可用，暂不预测。"; return@fetch
+                }
+                val session = data.optJSONObject("session")
+                if (session?.optBoolean("is_live") == true || data.optBoolean("stale")) {
+                    status.text = "交易尚未收盘或数据过期，等待有效收盘数据后再推演。"; return@fetch
+                }
+                val rows = data.optJSONArray("indices") ?: JSONArray()
+                val results = mutableListOf<String>()
+                for (i in 0 until rows.length()) {
+                    val x = rows.optJSONObject(i) ?: continue
+                    if (x.optString("code") !in setOf("000001", "399001", "399006", "000688")) continue
+                    val close = x.optDouble("price", Double.NaN)
+                    val pct = x.optDouble("pct", Double.NaN)
+                    if (!close.isFinite() || close <= 0 || !pct.isFinite() || pct <= -99) continue
+                    // Scenario width, not a calibrated confidence interval.
+                    val width = maxOf(1.0, kotlin.math.abs(pct) * 1.5)
+                    val low = close * (1.0 - width / 100)
+                    val high = close * (1.0 + width / 100)
+                    results.add("${x.optString("name")}：参考收盘 ${numText(close)} 点；次日情景区间 ${numText(low)}–${numText(high)} 点（±${numText(width, 1)}%，未校准）")
+                }
+                status.text = if (results.isEmpty()) "缺少可核验的指数收盘数据，暂不预测。" else
+                    "数据时间（北京时间）：${data.optString("time_cn", "待核验")}\\n" + results.joinToString("\\n")
+            }
+        }
+        panel.addView(action("刷新次日指数情景") { refresh() })
+        refresh()
     }
     private fun learningCard() {
         val panel = card("每日学习验证 · T+1 / T+2 / T+5 / T+10")
@@ -1306,13 +1343,14 @@ class MainActivity : AppCompatActivity() {
                 status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
                     "${rows.length()}项任务 · 最近记录以实际执行回执为准\n安排更新：${data.optString("configuration_updated_at")}"
                 box.removeAllViews()
-                val priority = listOf("market_review", "volume_price", "quant_research", "combined_pair", "limitup_single", "early_pair", "late_pair", "capital_behavior", "low_position", "dragon_tiger", "low_dragon")
+                val priority = listOf("market_review", "volume_price", "combined_pair", "limitup_single", "early_pair", "late_pair", "capital_behavior", "low_position", "dragon_tiger", "low_dragon")
                 val ordered = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.sortedBy { task ->
                     val index = priority.indexOf(task.optString("id"))
                     if (index < 0) 100 else index
                 }
                 for (task in ordered) {
                     val taskId = task.optString("id")
+                    if (taskId == "quant_research") continue
                     val title = task.optString("title")
                     val wrapper = LinearLayout(this).apply {
                         orientation = LinearLayout.VERTICAL; setPadding(0, dp(10), 0, dp(16))
