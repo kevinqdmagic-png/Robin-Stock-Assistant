@@ -1034,7 +1034,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun taskCenterCard() {
         val parent = card("定时任务中心")
-        parent.addView(label("查看安排、执行记录和研究成果。", 12f))
+        parent.addView(label("优先显示五项核心研究任务，随后是早盘9:50和下午14:40荐股。任务执行以真实报告与回执为准；未发布的推荐不会显示为完成。", 12f))
         val status = label("正在读取任务…", 12f); parent.addView(status)
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
         val toggle = action("展开任务安排") { }
