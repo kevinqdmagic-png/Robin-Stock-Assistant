@@ -1545,6 +1545,54 @@
           "entry_fill_status": "not_verified",
           "executed_trade": false,
           "executable_net_return_pct": null
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-t1-20261013-partial",
+          "as_of": "2026-10-13",
+          "market_date": "2026-10-13",
+          "recorded_at": "2026-10-13T18:09:03+08:00",
+          "horizon": 1,
+          "status": "not_triggered",
+          "trigger_status": "opening_necessary_condition_failed_in_public_quotes",
+          "entry_fill_status": "no_valid_strategy_entry",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "reason": "CFI开36.21/Investing开36.18均低于冻结37.30下限，原必要开盘条件失败；精确OHLC仍有来源差异，未伪称已统一核验。",
+          "source_report_ids": [
+            "combined-pair-20261013-evidence-gap-v1"
+          ],
+          "source_urls": [
+            "https://quote.cfi.cn/300450.html",
+            "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data"
+          ],
+          "price_observation": {
+            "open": 36.21,
+            "high": 36.4,
+            "low": 33.33,
+            "close": 34.25,
+            "previous_close": 37.88
+          },
+          "price_observation_status": "single_provider_closed_daily_pending_crosscheck",
+          "price_observation_only": true,
+          "reference_price": 37.88,
+          "open_return_pct": -4.409,
+          "close_return_pct": -9.583,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "quote_discrepancy": {
+            "CFI_1500": {
+              "open": 36.21,
+              "high": 36.4,
+              "low": 33.33,
+              "close": 34.25
+            },
+            "Investing_1457": {
+              "open": 36.18,
+              "high": 36.18,
+              "low": 33.4,
+              "last": 34.3
+            }
+          }
         }
       ]
     }

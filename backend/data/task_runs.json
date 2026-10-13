@@ -1127,6 +1127,173 @@
       "delivery_status": "blocked_platform_approval",
       "attempted_commit_sha": "168a68776bdf28bcbda53a90f721b4441323b02c",
       "tool_error_code": "INVALID_ARGUMENT"
+    },
+    {
+      "id": "market-review-20261013-fallback-095053z-blocked",
+      "run_id": "market-review-20261013-fallback-095053z",
+      "task_id": "market_review",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-13T09:50:53Z",
+      "recorded_at": "2026-10-13T10:09:03+00:00",
+      "status": "blocked",
+      "summary": "完整研究兜底已尝试，受原始全量数据/分钟或榜单取证缺口阻碍；仅保存部分验证，非completed。",
+      "report_ids": [
+        "market-review-20261013-evidence-gap-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.cls.cn/detail/2503504",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://quote.cfi.cn/300450.html",
+        "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-13/",
+        "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "completed_at": "2026-10-13T10:09:03+00:00"
+    },
+    {
+      "id": "quant-research-20261013-fallback-095053z-blocked",
+      "run_id": "quant-research-20261013-fallback-095053z",
+      "task_id": "quant_research",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-13T09:50:53Z",
+      "recorded_at": "2026-10-13T10:09:03+00:00",
+      "status": "blocked",
+      "summary": "完整研究兜底已尝试，受原始全量数据/分钟或榜单取证缺口阻碍；仅保存部分验证，非completed。",
+      "report_ids": [
+        "quant-research-20261013-evidence-gap-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.cls.cn/detail/2503504",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://quote.cfi.cn/300450.html",
+        "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-13/",
+        "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "completed_at": "2026-10-13T10:09:03+00:00"
+    },
+    {
+      "id": "volume-price-20261013-fallback-095053z-blocked",
+      "run_id": "volume-price-20261013-fallback-095053z",
+      "task_id": "volume_price",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-13T09:50:53Z",
+      "recorded_at": "2026-10-13T10:09:03+00:00",
+      "status": "blocked",
+      "summary": "完整研究兜底已尝试，受原始全量数据/分钟或榜单取证缺口阻碍；仅保存部分验证，非completed。",
+      "report_ids": [
+        "volume-price-20261013-evidence-gap-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.cls.cn/detail/2503504",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://quote.cfi.cn/300450.html",
+        "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-13/",
+        "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "completed_at": "2026-10-13T10:09:03+00:00"
+    },
+    {
+      "id": "low-position-20261013-fallback-095053z-blocked",
+      "run_id": "low-position-20261013-fallback-095053z",
+      "task_id": "low_position",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-13T09:50:53Z",
+      "recorded_at": "2026-10-13T10:09:03+00:00",
+      "status": "blocked",
+      "summary": "完整研究兜底已尝试，受原始全量数据/分钟或榜单取证缺口阻碍；仅保存部分验证，非completed。",
+      "report_ids": [
+        "low-position-20261013-evidence-gap-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.cls.cn/detail/2503504",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://quote.cfi.cn/300450.html",
+        "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-13/",
+        "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "completed_at": "2026-10-13T10:09:03+00:00"
+    },
+    {
+      "id": "dragon-tiger-20261013-fallback-095053z-blocked",
+      "run_id": "dragon-tiger-20261013-fallback-095053z",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-13T09:50:53Z",
+      "recorded_at": "2026-10-13T10:09:03+00:00",
+      "status": "blocked",
+      "summary": "完整研究兜底已尝试，受原始全量数据/分钟或榜单取证缺口阻碍；仅保存部分验证，非completed。",
+      "report_ids": [
+        "dragon-tiger-20261013-evidence-gap-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.cls.cn/detail/2503504",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://quote.cfi.cn/300450.html",
+        "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-13/",
+        "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "completed_at": "2026-10-13T10:09:03+00:00"
+    },
+    {
+      "id": "combined-pair-20261013-fallback-095053z-waiting",
+      "run_id": "combined-pair-20261013-fallback-095053z",
+      "task_id": "combined_pair",
+      "date": "2026-10-13",
+      "trigger": "scheduled",
+      "started_at": "2026-10-13T09:50:53Z",
+      "recorded_at": "2026-10-13T10:09:03+00:00",
+      "status": "waiting",
+      "summary": "五项同日完整前置未齐，未形成综合裁决/未发候选；部分验证另存，不把取证审计当完整日报。",
+      "report_ids": [
+        "combined-pair-20261013-evidence-gap-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://www.cls.cn/detail/2503504",
+        "https://stock.10jqka.com.cn/fupan/",
+        "https://quote.cfi.cn/300450.html",
+        "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-13/",
+        "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false
     }
   ]
 }

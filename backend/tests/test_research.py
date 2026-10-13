@@ -89,6 +89,8 @@ class DailyValidationTests(unittest.TestCase):
         self.assertEqual(result["points"][0]["status"], "observed")
         self.assertEqual([point["status"] for point in result["points"]],
                          ["observed", "observed", "pending", "pending", "pending", "pending", "pending"])
+        self.assertEqual(result["points"][1]["date"], rows[22]["date"])
+        self.assertAlmostEqual(result["points"][1]["close_pct"], (11.3 / 11 - 1) * 100, places=3)
 
     def test_corporate_action_requires_review(self):
         rows = fixture()

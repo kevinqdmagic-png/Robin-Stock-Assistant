@@ -132,6 +132,32 @@
           ],
           "task_id": "combined_pair",
           "strategy": "combined_limitup_watch"
+        },
+        {
+          "id": "research-stock-300450-20261013-conditional-invalidation-v1",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-13T18:09:03+08:00",
+          "title": "10月13日原开盘条件否决，精确OHLC待统一补证",
+          "reason": "原10月13日开盘观察37.30—38.45未满足；公开开盘36.21/36.18均低于下限。未形成策略入场，不因下跌回改昨日规则或把长期产业研究改成短线交易。",
+          "evidence_status": "opening_condition_failed_in_available_public_quotes; exact_OHLC_crosscheck_pending",
+          "fact_note": "CFI带10月13日15:00快照收34.25、开36.21；Investing页面仍有14:57及不同OHLC，差异保留，不称完全成交数据。",
+          "validation": [
+            "补齐统一当日日线/分钟、竞价与成交证据",
+            "从新全A入口及五项齐备证据重新裁决，不默认重复入选",
+            "原长期产业订单/收入/现金流跟踪继续保留"
+          ],
+          "risk": "电池/风电退潮与指数修复可同时发生；昨日高CLV/尾盘强不保证T+1承接。无成交不计算策略收益。",
+          "report_ids": [
+            "combined-pair-20261013-evidence-gap-v1",
+            "quant-research-20261013-evidence-gap-v1",
+            "volume-price-20261013-evidence-gap-v1"
+          ],
+          "sources": [
+            "https://quote.cfi.cn/300450.html",
+            "https://cn.investing.com/equities/wuxi-lead-auto-equipment-co-ltd-historical-data",
+            "docs/research/combined-pair-2026-10-13-evidence-gap.json"
+          ],
+          "task_id": "combined_pair"
         }
       ]
     },
