@@ -47,8 +47,9 @@ def safe_update(repo, path, proposed, base_sha, token, branch="main", message="S
         current = request("GET", url + "?" + urllib.parse.urlencode({"ref": branch}), token)
         if current["sha"] != base_sha:
             raise RuntimeError("CONCURRENT_FILE_CHANGE: stop and reconcile, never overwrite")
-        old_bytes = base64.b64decode(current['content'].replace('\\n', ''))
-        validate_archive_change(path, old_bytes, proposed)
+        if path in ('backend/data/research.json', 'backend/data/recommendations.json'):
+            old_bytes = base64.b64decode(current['content'].replace('\\n', ''))
+            validate_archive_change(path, old_bytes, proposed)
         try:
             return request("PUT", url, token, {
                 "message": message, "branch": branch, "sha": base_sha,
