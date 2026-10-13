@@ -38,6 +38,18 @@ object MarketRefreshPolicy {
         )
     }
 
+    /** Check provider quote time independently of HTTP retrieval time. */
+    fun quoteTimestampStale(
+        asOf: String?,
+        nowEpochSeconds: Long = System.currentTimeMillis() / 1000L,
+        maxAgeSeconds: Long = 300L,
+    ): Boolean {
+        val quotedAt = runCatching {
+            java.time.OffsetDateTime.parse(asOf.orEmpty()).toEpochSecond()
+        }.getOrNull() ?: return true
+        return quotedAt > nowEpochSeconds + 120L || nowEpochSeconds - quotedAt > maxAgeSeconds
+    }
+
     fun breadthMood(advance: Int, decline: Int, flat: Int): BreadthMood {
         val total = advance + decline + flat
         if (total <= 0) return BreadthMood("待核验", null)
