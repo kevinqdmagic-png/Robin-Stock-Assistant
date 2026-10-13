@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     private var updatePollTask: Runnable? = null
     private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
-    private val notifyTaskIds = setOf("market_review", "volume_price", "low_dragon", "combined_pair", "limitup_single", "early_pair", "late_pair")
+    private val notifyTaskIds = setOf("market_review", "volume_price", "combined_pair", "limitup_single", "early_pair", "late_pair", "low_position", "dragon_tiger", "capital_behavior")
     private val red = Color.rgb(218, 45, 61)
     private val green = Color.rgb(20, 143, 102)
     private var overviewBox: LinearLayout? = null
@@ -1066,9 +1066,10 @@ class MainActivity : AppCompatActivity() {
     }
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
-            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
+            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "quant_research" to "量化研究", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
         taskCenterCard()
         recommendationCard()
+        capitalBehaviorCard()
         if (researchCode.isNotBlank()) {
             card("${researchStockName} $researchCode · 关联研究").apply {
                 addView(label("以下全文包含这只股票的研究来源。", 12f))
@@ -1139,9 +1140,80 @@ class MainActivity : AppCompatActivity() {
         // Keep history prominent; move the optional 30-day validation below it.
         backtestCard()
     }
+    private fun capitalBehaviorCard() {
+        val panel = card("主力行为识别 · 研究测试")
+        panel.addView(label("按已完成日线分析吸筹、整理尾声、突破和派发的代理信号；不是主力账户数据，也不代表已经验证胜率。", 12f))
+        val codeField = EditText(this).apply {
+            hint = "输入6位股票代码，例如 002472"
+            textSize = 15f
+            isSingleLine = true
+            inputType = android.text.InputType.TYPE_CLASS_NUMBER
+            if (selectedCode.matches(Regex("[0-9]{6}"))) setText(selectedCode)
+        }
+        panel.addView(codeField)
+        val status = label("选择股票后可按需分析，不占用每日研究任务。", 12f)
+        panel.addView(status)
+        val details = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        panel.addView(details)
+        panel.addView(action("分析吸筹 / 启动 / 派发迹象") {
+            val code = codeField.text.toString().trim()
+            if (!code.matches(Regex("[0-9]{6}"))) {
+                codeField.error = "请输入6位股票代码"
+                return@action
+            }
+            status.text = "正在读取已完成日线..."
+            details.removeAllViews()
+            fetch("/api/stocks/" + code + "/capital-behavior") { data, error ->
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "日线不足或行情暂不可用，不生成猜测结论。" +
+                        (error?.let { "\\n" + it } ?: "")
+                    return@fetch
+                }
+                status.text = "数据日期 " + data.optString("as_of") +
+                    " · 交易日线 " + data.optInt("daily_bars") +
+                    " · 来源 " + data.optString("source")
+                details.addView(label(data.optString("stage_title") +
+                    " · 探索性得分 " + data.optInt("exploratory_score") + "/100", 17f, true))
+                details.addView(label("得分尚未校准为上涨概率；不能识别具体主力的真实仓位。", 12f))
+                val obs = data.optJSONObject("observations")
+                if (obs != null) {
+                    details.addView(label(
+                        "近20日量比 " + obs.optString("relative_volume20") +
+                        " · 20日涨跌幅 " + obs.optString("return20_pct") + "%" +
+                        " · 近60日价格位置 " + obs.optString("price_location60"), 12f))
+                }
+                val evidence = data.optJSONArray("evidence") ?: JSONArray()
+                for (i in 0 until evidence.length()) details.addView(label("依据 · " + evidence.optString(i), 13f))
+                val risks = data.optJSONArray("risks") ?: JSONArray()
+                for (i in 0 until risks.length()) details.addView(label("风险 · " + risks.optString(i), 12f))
+                details.addView(label("下一步 · " + data.optString("next_step"), 12f))
+            }
+        })
+        val knowledge = label("", 12f)
+        panel.addView(action("检查后台研究积累与学习状态") {
+            knowledge.text = "正在检查归档..."
+            fetch("/api/research-knowledge") { data, _ ->
+                if (data == null || !data.optBoolean("ok")) {
+                    knowledge.text = "研究档案状态暂不可用。"
+                    return@fetch
+                }
+                val counts = data.optJSONObject("archive_report_counts")
+                val total = counts?.let { obj ->
+                    val keys = obj.keys()
+                    var sum = 0
+                    while (keys.hasNext()) sum += obj.optInt(keys.next())
+                    sum
+                } ?: 0
+                knowledge.text = "已有历史报告 " + total + " 篇（按存档统计）" +
+                    "\\n研究结论目前没有自动用历史盈亏训练模型；历史样本和验证状态保留，用于后续严谨回测。"
+            }
+        })
+        panel.addView(knowledge)
+    }
+
     private fun taskCenterCard() {
         val parent = card("定时任务中心")
-        parent.addView(label("优先显示五项核心研究任务，随后是早盘9:50和下午14:40荐股。任务执行以真实报告与回执为准；未发布的推荐不会显示为完成。", 12f))
+        parent.addView(label("每日研究与App独立研究分开显示；低位启动、龙虎榜、主力行为研究不占用每日自动调度。历史报告不等于本次任务已执行。", 12f))
         val status = label("正在读取任务…", 12f); parent.addView(status)
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
         val toggle = action("展开任务安排") { }
@@ -1167,7 +1239,7 @@ class MainActivity : AppCompatActivity() {
                 status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
                     "${rows.length()}项任务 · 最近记录以实际执行回执为准\n安排更新：${data.optString("configuration_updated_at")}"
                 box.removeAllViews()
-                val priority = listOf("market_review", "volume_price", "low_dragon", "combined_pair", "limitup_single", "early_pair", "late_pair")
+                val priority = listOf("market_review", "volume_price", "quant_research", "combined_pair", "limitup_single", "early_pair", "late_pair", "capital_behavior", "low_position", "dragon_tiger", "low_dragon")
                 val ordered = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.sortedBy { task ->
                     val index = priority.indexOf(task.optString("id"))
                     if (index < 0) 100 else index
@@ -1178,7 +1250,8 @@ class MainActivity : AppCompatActivity() {
                     val wrapper = LinearLayout(this).apply {
                         orientation = LinearLayout.VERTICAL; setPadding(0, dp(10), 0, dp(16))
                     }
-                    wrapper.addView(label(title + if (task.optBoolean("one_time")) " · 一次性" else "", 16f, true))
+                    val appOnly = task.optString("execution_mode") == "app_only_on_demand"
+                    wrapper.addView(label(title + (if (appOnly) " · App独立研究" else if (task.optBoolean("one_time")) " · 一次性" else ""), 16f, true))
                     wrapper.addView(label(task.optString("schedule_text"), 12f))
                     wrapper.addView(label(task.optString("summary"), 13f))
                     val latest = task.optJSONObject("last_run")
