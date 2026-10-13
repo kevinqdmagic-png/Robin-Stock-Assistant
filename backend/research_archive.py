@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent / "data"
-TRACKS = {"market_review", "dragon_tiger", "low_position", "quant_research", "volume_price", "high_elasticity", "app_development"}
+TRACKS = {"market_review", "dragon_tiger", "low_position", "quant_research", "volume_price", "high_elasticity", "app_development", "capital_behavior"}
 GROUPS = {"close", "0950", "1440"}
 FROZEN = ("id", "date", "published_at", "code", "name", "group", "strategy", "task_id", "model", "reason",
           "reference_price", "trigger", "invalid", "sources", "provenance")

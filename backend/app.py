@@ -18,8 +18,9 @@ from market_insights import overview as market_overview, stamp as quote_stamp
 from quote_providers import stock_symbol, tencent_quotes
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
+from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
 
-API_VERSION = "0.7.4"
+API_VERSION = "0.8.0"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 app.add_middleware(
     CORSMiddleware,
@@ -101,6 +102,30 @@ def research_stock(code: str):
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Stock rationale unavailable: %s", exc)
         return {"ok": False, "status": "research_stock_data_unavailable"}
+
+
+@app.get("/api/research-knowledge")
+def research_knowledge():
+    try:
+        return {"time_cn": now_cn(), **capital_archive_context()}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Research history status unavailable: %s", exc)
+        return {"ok": False, "status": "research_history_unavailable"}
+
+
+@app.get("/api/stocks/{code}/capital-behavior")
+def capital_behavior(code: str):
+    if len(code) != 6 or not code.isascii() or not code.isdigit():
+        return {"ok": False, "status": "invalid_code"}
+    try:
+        bars, source, errors = _get_daily(code)
+        result = classify_capital_behavior(completed_bars(bars))
+        return {**result, "code": code, "source": source,
+                "provider_errors": errors, "time_cn": now_cn()}
+    except (OSError, ValueError, TypeError) as exc:
+        logger.warning("Capital behavior data unavailable: %s", exc)
+        return {"ok": False, "status": "capital_behavior_data_unavailable",
+                "note": "须有至少61根已完成的日线及有效成交量，不以旧数据冒充最新信号"}
 
 
 @app.get("/api/tasks")
