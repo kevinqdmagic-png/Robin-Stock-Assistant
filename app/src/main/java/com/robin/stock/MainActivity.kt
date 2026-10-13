@@ -76,6 +76,9 @@ class MainActivity : AppCompatActivity() {
     private var homeRefreshTask: Runnable? = null
     private var homeMarketStatus: TextView? = null
     private var homeCandidatesBox: LinearLayout? = null
+    private var homeSignalStatus: TextView? = null
+    private var homeSignalItems: LinearLayout? = null
+    private var homeRefreshCounter = 0
     private val validCode = Regex("[0-9]{6}")
     private fun dp(n: Int) = (n * resources.displayMetrics.density).toInt()
     private fun label(value: String, size: Float = 15f, bold: Boolean = false) = TextView(this).apply {
@@ -210,7 +213,15 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         isForeground = true
         requestResearchNotificationPermission()
-        if (currentTab == 0) overviewBox?.let { loadOverview(it) }
+        if (currentTab == 0) {
+            overviewBox?.let { loadOverview(it) }
+            val status = homeMarketStatus
+            val candidates = homeCandidatesBox
+            if (status != null && candidates != null) loadMarket(status, candidates)
+            val signalStatus = homeSignalStatus
+            val signalItems = homeSignalItems
+            if (signalStatus != null && signalItems != null) loadSignals(signalStatus, signalItems)
+        }
         if (currentTab == 1 && WatchlistQuotePolicy.shouldRefreshOnResume(
                 watchlistLastRequestElapsedMs, SystemClock.elapsedRealtime()
             )) watchlistRefreshAction?.invoke()
@@ -310,6 +321,8 @@ class MainActivity : AppCompatActivity() {
         watchlistRefreshAction = null
         homeMarketStatus = null
         homeCandidatesBox = null
+        homeSignalStatus = null
+        homeSignalItems = null
         overviewBox = null
         sectorBox = null
         currentTab = index; pageGeneration++; root.removeAllViews(); nav.removeAllViews(); scroller.scrollTo(0, 0)
@@ -553,6 +566,7 @@ class MainActivity : AppCompatActivity() {
         val signalCard = card("买点观察")
         val signalStatus = label("正在扫描观察信号…", 16f, true)
         val signalItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        homeSignalStatus = signalStatus; homeSignalItems = signalItems
         signalCard.addView(signalStatus)
         signalCard.addView(label("低位首次启动 · 分歧转一致 · 超跌转强", 12f))
         signalCard.addView(signalItems)
@@ -650,13 +664,20 @@ class MainActivity : AppCompatActivity() {
                     serverSaysLive = homeIsLive,
                     refreshTick = refreshTick,
                 )
-                if (decision.refreshOverview) overviewBox?.let { loadOverview(it) }
-                if (decision.refreshCandidates) {
-                    if (!homeIsLive) status.text = "交易时段切换中，正在恢复实时行情…"
+                homeRefreshCounter++
+                if (decision.clockOpen) {
                     loadLiveCandidates(box)
-                    refreshTick = (refreshTick + 1) % 3
+                    if (homeRefreshCounter % 3 == 0) {
+                        overviewBox?.let { loadOverview(it) }
+                        loadMarket(status, box)
+                        val signalStatus = homeSignalStatus
+                        val signalItems = homeSignalItems
+                        if (signalStatus != null && signalItems != null) loadSignals(signalStatus, signalItems)
+                    }
+                } else if (decision.refreshOverview) {
+                    overviewBox?.let { loadOverview(it) }
+                    loadMarket(status, box)
                 }
-                if (decision.refreshMarket) loadMarket(status, box)
                 homeRefreshHandler.postDelayed(this, autoRefreshMs)
             }
         }
