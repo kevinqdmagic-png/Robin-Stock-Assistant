@@ -243,12 +243,17 @@ class MainActivity : AppCompatActivity() {
                 val reportId = report.optString("id")
                 if (reportId.isBlank()) continue
                 observed[id] = reportId
-                if (previous != null && old.optString(id).isNotBlank() && old.optString(id) != reportId) {
+                if (previous != null && old.optString(id) != reportId) {
                     changed.add(task.optString("title", id))
                 }
             }
             if (observed.isEmpty()) return@execute
             val updated = JSONObject()
+            val oldKeys = old.keys()
+            while (oldKeys.hasNext()) {
+                val id = oldKeys.next()
+                updated.put(id, old.optString(id))
+            }
             for ((id, reportId) in observed) updated.put(id, reportId)
             prefs.edit().putString("notified_research_versions", updated.toString()).apply()
             if (changed.isNotEmpty()) runOnUiThread {
