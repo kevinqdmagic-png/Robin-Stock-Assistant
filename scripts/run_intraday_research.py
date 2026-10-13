@@ -23,8 +23,22 @@ def validate_feed(feed, now):
     """Check snapshot format and recency; never treat it as proof of a trade."""
     if not isinstance(feed, dict) or not isinstance(feed.get("quotes"), list):
         return "invalid_feed"
-    if not str(feed.get("source", "")).startswith("https://"):
+    source = feed.get("source")
+    if not isinstance(source, str) or not source.startswith("https://"):
         return "missing_source"
+    # Explicitly reject illustrative, loopback and reserved documentation hosts.
+    # An HTTPS URL alone never proves the market quote is genuine.
+    from urllib.parse import urlparse
+    from ipaddress import ip_address
+    host = urlparse(source).hostname
+    if not host or host == "localhost" or host.endswith((".localhost", ".example", ".test", ".invalid")) or host in ("example.com", "example.org", "example.net"):
+        return "untrusted_source"
+    try:
+        address = ip_address(host)
+        if not address.is_global:
+            return "untrusted_source"
+    except ValueError:
+        pass
     try:
         timestamp = datetime.fromisoformat(feed["as_of"])
     except (KeyError, TypeError, ValueError):
