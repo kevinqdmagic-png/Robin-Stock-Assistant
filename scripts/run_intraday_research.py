@@ -36,14 +36,29 @@ def validate_feed(feed, now):
         return "stale_or_future_snapshot"
     if not feed["quotes"]:
         return "empty_quotes"
+    seen = set()
     for quote in feed["quotes"]:
         if not isinstance(quote, dict) or not isinstance(quote.get("code"), str) or not (
             len(quote["code"]) == 6 and quote["code"].isdigit()
         ):
             return "invalid_code"
+        code = quote["code"]
+        if code in seen:
+            return "duplicate_quote_code"
+        seen.add(code)
         price = quote.get("price")
         if isinstance(price, bool) or not isinstance(price, (int, float)) or not 0 < price < 100000:
             return "invalid_price"
+        # A single price is not enough to assess limit-up eligibility or
+        # next-session premium. These fields must be present for later screening.
+        if quote.get("market") not in ("SH", "SZ", "BJ"):
+            return "missing_exchange"
+        if not isinstance(quote.get("name"), str) or not quote["name"].strip():
+            return "missing_security_name"
+        for key in ("previous_close", "volume", "turnover"):
+            value = quote.get(key)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
+                return "missing_market_evidence"
     return None
 
 
