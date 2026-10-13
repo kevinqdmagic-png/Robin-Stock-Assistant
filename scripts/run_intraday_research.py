@@ -19,7 +19,35 @@ CN_TZ = ZoneInfo("Asia/Shanghai")
 SLOTS = {"early_pair": (9, 50), "late_pair": (14, 40)}
 
 
-def evaluate(slot, now=None):
+def validate_feed(feed, now):
+    """Check snapshot format and recency; never treat it as proof of a trade."""
+    if not isinstance(feed, dict) or not isinstance(feed.get("quotes"), list):
+        return "invalid_feed"
+    if not str(feed.get("source", "")).startswith("https://"):
+        return "missing_source"
+    try:
+        timestamp = datetime.fromisoformat(feed["as_of"])
+    except (KeyError, TypeError, ValueError):
+        return "invalid_timestamp"
+    if timestamp.tzinfo is None:
+        return "missing_timezone"
+    age = (now - timestamp.astimezone(CN_TZ)).total_seconds()
+    if timestamp.astimezone(CN_TZ).date() != now.date() or not 0 <= age <= 300:
+        return "stale_or_future_snapshot"
+    if not feed["quotes"]:
+        return "empty_quotes"
+    for quote in feed["quotes"]:
+        if not isinstance(quote, dict) or not isinstance(quote.get("code"), str) or not (
+            len(quote["code"]) == 6 and quote["code"].isdigit()
+        ):
+            return "invalid_code"
+        price = quote.get("price")
+        if isinstance(price, bool) or not isinstance(price, (int, float)) or not 0 < price < 100000:
+            return "invalid_price"
+    return None
+
+
+def evaluate(slot, now=None, feed=None):
     if slot not in SLOTS:
         raise ValueError("invalid_intraday_slot")
     now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
@@ -36,8 +64,13 @@ def evaluate(slot, now=None):
     elif not 0 <= minutes_late <= 25:
         outcome.update(status="skipped", reason="outside_intraday_execution_window")
     else:
+        feed_issue = validate_feed(feed, now) if feed is not None else "no_live_feed_supplied"
         outcome.update(status="insufficient_evidence",
-                       reason="no_verified_live_market_data_adapter_configured")
+                       reason=feed_issue or "snapshot_only_no_verified_selection_model")
+        if feed_issue is None:
+            outcome["snapshot"] = {"source": feed["source"], "as_of": feed["as_of"],
+                                   "quote_count": len(feed["quotes"]),
+                                   "validation": "format_and_freshness_only"}
     return outcome
 
 
@@ -45,8 +78,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--slot", required=True, choices=sorted(SLOTS))
     parser.add_argument("--output", default="intraday_outcome.json")
+    parser.add_argument("--feed-file", help="Optional externally supplied quote snapshot")
     args = parser.parse_args()
-    result = evaluate(args.slot)
+    feed = json.loads(Path(args.feed_file).read_text(encoding="utf-8")) if args.feed_file else None
+    result = evaluate(args.slot, feed=feed)
     Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False))
     return 0
