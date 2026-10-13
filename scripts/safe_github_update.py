@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Safely update one GitHub file without overwriting concurrent changes.
+
+Example:
+  GITHUB_TOKEN=... python scripts/safe_github_update.py owner/repo path local.txt --base-sha ORIGINAL_BLOB_SHA
+"""
+import argparse
+import base64
+import json
+import os
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+
+
+def request(method, url, token, payload=None):
+    data = json.dumps(payload).encode() if payload is not None else None
+    req = urllib.request.Request(url, data=data, method=method, headers={
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+    })
+    with urllib.request.urlopen(req, timeout=30) as response:
+        return json.load(response)
+
+
+def safe_update(repo, path, proposed, base_sha, token, branch="main", message="Safe update"):
+    encoded_path = "/".join(urllib.parse.quote(p, safe="") for p in path.split("/"))
+    url = f"https://api.github.com/repos/{repo}/contents/{encoded_path}"
+    for attempt in range(3):
+        current = request("GET", url + "?" + urllib.parse.urlencode({"ref": branch}), token)
+        if current["sha"] != base_sha:
+            raise RuntimeError("CONCURRENT_FILE_CHANGE: stop and reconcile, never overwrite")
+        try:
+            return request("PUT", url, token, {
+                "message": message, "branch": branch, "sha": base_sha,
+                "content": base64.b64encode(proposed).decode("ascii")})
+        except urllib.error.HTTPError as error:
+            if error.code not in (409, 422):
+                raise
+            if attempt == 2:
+                raise RuntimeError("BRANCH_CONFLICT: safe retries exhausted") from error
+    raise RuntimeError("BRANCH_CONFLICT")
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("repo")
+    parser.add_argument("path")
+    parser.add_argument("source_file")
+    parser.add_argument("--base-sha", required=True)
+    parser.add_argument("--branch", default="main")
+    parser.add_argument("--message", default="Safe file update")
+    args = parser.parse_args()
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        parser.error("GITHUB_TOKEN is required")
+    try:
+        with open(args.source_file, "rb") as file:
+            proposed = file.read()
+        result = safe_update(args.repo, args.path, proposed, args.base_sha,
+                             token, args.branch, args.message)
+    except (RuntimeError, urllib.error.HTTPError) as error:
+        print(f"Safe update stopped: {error}", file=sys.stderr)
+        return 1
+    print(result["commit"]["sha"])
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
