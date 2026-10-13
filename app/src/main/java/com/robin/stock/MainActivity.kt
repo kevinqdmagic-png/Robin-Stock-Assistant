@@ -1,6 +1,11 @@
 package com.robin.stock
 
 import android.app.DownloadManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.pm.PackageManager
+import androidx.core.app.NotificationCompat
 import android.content.Intent
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
@@ -36,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private var updatePollTask: Runnable? = null
     private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
+    private val notifyTaskIds = setOf("market_review", "volume_price", "low_dragon", "combined_pair", "limitup_single", "early_pair", "late_pair")
     private val red = Color.rgb(218, 45, 61)
     private val green = Color.rgb(20, 143, 102)
     private var overviewBox: LinearLayout? = null
@@ -188,7 +194,12 @@ class MainActivity : AppCompatActivity() {
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime())
             view.setPadding(bars.left, bars.top, bars.right, bars.bottom); insets
         }
-        showTab(savedInstanceState?.getInt("tab") ?: 0)
+        showTab(if (intent.getBooleanExtra("open_research", false)) 3 else savedInstanceState?.getInt("tab") ?: 0)
+    }
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        if (intent.getBooleanExtra("open_research", false)) showTab(3)
     }
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("tab", currentTab); outState.putString("code", selectedCode); super.onSaveInstanceState(outState)
@@ -201,8 +212,62 @@ class MainActivity : AppCompatActivity() {
                 watchlistLastRequestElapsedMs, SystemClock.elapsedRealtime()
             )) watchlistRefreshAction?.invoke()
         taskRefreshAction?.invoke()
+        checkNewResearchReports()
         resumePendingUpdateIfReady()
         startHomeAutoRefresh()
+    }
+    // Only check while opening or returning to the app. Background push requires a separate worker.
+    private fun checkNewResearchReports() {
+        executor.execute {
+            val response = runCatching { request("/api/tasks") }.getOrNull() ?: return@execute
+            if (!response.optBoolean("ok")) return@execute
+            val rows = response.optJSONArray("items") ?: return@execute
+            val observed = mutableMapOf<String, String>()
+            val changed = mutableListOf<String>()
+            val previous = prefs.getString("notified_research_versions", null)
+            val old = runCatching { JSONObject(previous.orEmpty()) }.getOrElse { JSONObject() }
+            for (i in 0 until rows.length()) {
+                val task = rows.optJSONObject(i) ?: continue
+                val id = task.optString("id")
+                if (id !in notifyTaskIds) continue
+                val report = task.optJSONObject("latest_report") ?: continue
+                val reportId = report.optString("id")
+                if (reportId.isBlank()) continue
+                observed[id] = reportId
+                if (previous != null && old.optString(id).isNotBlank() && old.optString(id) != reportId) {
+                    changed.add(task.optString("title", id))
+                }
+            }
+            if (observed.isEmpty()) return@execute
+            val updated = JSONObject()
+            for ((id, reportId) in observed) updated.put(id, reportId)
+            prefs.edit().putString("notified_research_versions", updated.toString()).apply()
+            if (changed.isNotEmpty()) runOnUiThread {
+                if (!isDestroyed) showResearchNotification(changed)
+            }
+        }
+    }
+    private fun showResearchNotification(changed: List<String>) {
+        if (Build.VERSION.SDK_INT >= 33 &&
+            checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) return
+        val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        val channel = "robin_research_updates"
+        if (Build.VERSION.SDK_INT >= 26) {
+            manager.createNotificationChannel(NotificationChannel(channel, "股票研究报告更新", NotificationManager.IMPORTANCE_DEFAULT))
+        }
+        val target = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra("open_research", true)
+        }
+        val pending = PendingIntent.getActivity(this, 991, target,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val detail = changed.distinct().joinToString("、")
+        manager.notify(991, NotificationCompat.Builder(this, channel)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle("股票助手有新研究报告")
+            .setContentText(detail)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(detail))
+            .setContentIntent(pending).setAutoCancel(true).build())
     }
     override fun onPause() {
         isForeground = false
