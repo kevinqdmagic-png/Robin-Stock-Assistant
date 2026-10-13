@@ -1146,7 +1146,7 @@ class MainActivity : AppCompatActivity() {
         parent.addView(label("日线放量突破代理模型 · 与盘中三模型分别验证", 12f))
         val input = codeInput(); input.setText(selectedCode); parent.addView(input)
         val holding = Spinner(this)
-        val horizons = listOf(1, 3, 5)
+        val horizons = listOf(1, 2, 3, 5, 10)
         holding.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,
             horizons.map { "买入后第${it}个交易日开盘退出" })
         holding.setSelection(1); parent.addView(holding)
