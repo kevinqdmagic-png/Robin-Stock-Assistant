@@ -49,5 +49,21 @@ class SafeGithubUpdateTests(unittest.TestCase):
         self.assertEqual([call.args[0] for call in request.call_args_list], ["GET", "PUT", "GET"])
 
 
+    def test_repeated_branch_conflicts_fail_without_force_push(self):
+        conflict = urllib.error.HTTPError("https://api.github.com", 409, "Conflict", {}, None)
+        responses = [{"sha": "original"}, conflict, {"sha": "original"}, conflict,
+                     {"sha": "original"}, conflict]
+        def fake_request(*args, **kwargs):
+            value = responses.pop(0)
+            if isinstance(value, Exception):
+                raise value
+            return value
+        with patch.object(module, "request", side_effect=fake_request) as request, patch.object(module.time, "sleep"):
+            with self.assertRaisesRegex(RuntimeError, "BRANCH_CONFLICT"):
+                module.safe_update("owner/repo", "file.txt", b"new", "original", "token")
+        self.assertEqual([call.args[0] for call in request.call_args_list],
+                         ["GET", "PUT", "GET", "PUT", "GET", "PUT"])
+
+
 if __name__ == "__main__":
     unittest.main()
