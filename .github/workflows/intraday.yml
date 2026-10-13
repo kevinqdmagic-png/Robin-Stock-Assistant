@@ -1,0 +1,43 @@
+name: Intraday research evidence gate
+on:
+  schedule:
+    # GitHub cron uses UTC. Beijing 09:50 / 14:40 (UTC+8).
+    - cron: '50 1 * * 1-5'
+    - cron: '40 6 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Research window'
+        type: choice
+        required: true
+        options:
+          - early_pair
+          - late_pair
+permissions:
+  contents: read
+concurrency:
+  group: intraday-research-${{ github.event.schedule || inputs.slot || github.run_id }}
+  cancel-in-progress: false
+jobs:
+  evidence-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check market calendar and source readiness
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_SLOT: ${{ inputs.slot }}
+        run: |
+          if [ "$SCHEDULE" = "50 1 * * 1-5" ]; then SLOT=early_pair
+          elif [ "$SCHEDULE" = "40 6 * * 1-5" ]; then SLOT=late_pair
+          else SLOT="$INPUT_SLOT"; fi
+          python scripts/run_intraday_research.py --slot "$SLOT" --output intraday_outcome.json
+      - name: Keep auditable outcome, without changing frozen archives
+        uses: actions/upload-artifact@v4
+        with:
+          name: intraday-evidence-${{ github.run_id }}
+          path: intraday_outcome.json
+          retention-days: 90
