@@ -44,8 +44,8 @@ class LearningTests(unittest.TestCase):
     def test_observation_proxy_never_claims_trades(self):
         bars = fixture()
         by = {x["date"]: x for x in bars}
-        by["2026-09-28"]["close"] = 10.4
-        by["2026-09-29"]["close"] = 9.6
+        by["2026-09-28"].update(high=10.5, close=10.4)
+        by["2026-09-29"].update(low=9.5, close=9.6)
         result = evaluate(signal(), bars, "test_public_daily", as_of=date(2026, 9, 30))
         self.assertFalse(result["executed_trade"])
         self.assertIsNone(result["executable_net_return_pct"])
@@ -73,7 +73,7 @@ class LearningTests(unittest.TestCase):
         bars = fixture()
         for b in bars:
             b["pct"] = 0
-        next(r for r in bars if r["date"] == "2026-09-29")["close"] = 2
+        next(r for r in bars if r["date"] == "2026-09-29").update(low=1.5, close=2)
         result = evaluate(signal(), bars, "source", as_of=date(2026, 9, 30))
         self.assertEqual(result["status"], "quarantine_corporate_action_or_price_disagreement")
 
