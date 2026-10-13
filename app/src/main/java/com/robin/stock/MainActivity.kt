@@ -207,6 +207,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         isForeground = true
+        requestResearchNotificationPermission()
         if (currentTab == 0) overviewBox?.let { loadOverview(it) }
         if (currentTab == 1 && WatchlistQuotePolicy.shouldRefreshOnResume(
                 watchlistLastRequestElapsedMs, SystemClock.elapsedRealtime()
@@ -215,6 +216,13 @@ class MainActivity : AppCompatActivity() {
         checkNewResearchReports()
         resumePendingUpdateIfReady()
         startHomeAutoRefresh()
+    }
+    private fun requestResearchNotificationPermission() {
+        if (Build.VERSION.SDK_INT < 33) return
+        if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) return
+        if (prefs.getBoolean("research_notification_permission_asked", false)) return
+        prefs.edit().putBoolean("research_notification_permission_asked", true).apply()
+        requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1002)
     }
     // Only check while opening or returning to the app. Background push requires a separate worker.
     private fun checkNewResearchReports() {
