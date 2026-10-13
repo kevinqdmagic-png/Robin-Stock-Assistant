@@ -960,7 +960,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
-            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "high_elasticity" to "高弹性", "app_development" to "APK打磨")
+            "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "quant_research" to "量化研究", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
         taskCenterCard()
         recommendationCard()
         if (researchCode.isNotBlank()) {
@@ -973,7 +973,6 @@ class MainActivity : AppCompatActivity() {
             val selection = card("当前任务：$researchTaskTitle")
             selection.addView(action("查看全部研究") { researchTask = ""; researchTaskTitle = ""; showTab(3) })
         }
-        backtestCard()
         val archive = card("研究历史")
         val day = EditText(this).apply { hint = "按日期查看：2026-09-30"; textSize = 14f; isSingleLine = true }
         archive.addView(day)
@@ -1031,6 +1030,7 @@ class MainActivity : AppCompatActivity() {
         }
         archive.addView(action("按日期筛选 / 刷新") { load() })
         more.setOnClickListener { load(true) }; archive.addView(more); load()
+        backtestCard()
     }
     private fun taskCenterCard() {
         val parent = card("定时任务中心")
