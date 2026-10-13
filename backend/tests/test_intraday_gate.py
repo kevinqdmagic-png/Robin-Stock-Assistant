@@ -31,6 +31,31 @@ class IntradayGateTests(unittest.TestCase):
         result = module.evaluate("early_pair", datetime(2026, 10, 13, 10, 30, tzinfo=TZ))
         self.assertEqual(result["status"], "skipped")
 
+    def test_recent_snapshot_is_still_not_a_recommendation(self):
+        now = datetime(2026, 10, 13, 9, 50, tzinfo=TZ)
+        feed = {"source": "https://example.org/market", "as_of": now.isoformat(),
+                "quotes": [{"code": "600000", "price": 12.5}]}
+        result = module.evaluate("early_pair", now, feed)
+        self.assertEqual(result["status"], "insufficient_evidence")
+        self.assertEqual(result["reason"], "snapshot_only_no_verified_selection_model")
+        self.assertEqual(result["recommendations"], [])
+        self.assertEqual(result["snapshot"]["quote_count"], 1)
+
+    def test_stale_snapshot_rejected(self):
+        now = datetime(2026, 10, 13, 14, 40, tzinfo=TZ)
+        feed = {"source": "https://example.org/market",
+                "as_of": "2026-10-13T14:20:00+08:00",
+                "quotes": [{"code": "600000", "price": 12.5}]}
+        result = module.evaluate("late_pair", now, feed)
+        self.assertEqual(result["reason"], "stale_or_future_snapshot")
+        self.assertNotIn("snapshot", result)
+
+    def test_invalid_quote_rejected(self):
+        now = datetime(2026, 10, 13, 9, 50, tzinfo=TZ)
+        feed = {"source": "https://example.org/market", "as_of": now.isoformat(),
+                "quotes": [{"code": "bad", "price": -1}]}
+        self.assertEqual(module.evaluate("early_pair", now, feed)["reason"], "invalid_code")
+
     def test_invalid_slot_rejected(self):
         with self.assertRaises(ValueError):
             module.evaluate("unregistered", datetime(2026, 10, 13, 9, 50, tzinfo=TZ))
