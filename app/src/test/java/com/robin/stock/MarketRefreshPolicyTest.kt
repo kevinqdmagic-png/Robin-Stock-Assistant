@@ -88,4 +88,14 @@ class MarketRefreshPolicyTest {
         assertEquals("均衡", MarketRefreshPolicy.breadthMood(50, 45, 5).label)
         assertNull(MarketRefreshPolicy.breadthMood(0, 0, 0).advancePct)
     }
+    @Test fun providerTimestampRejectsMissingMalformedOldAndFutureQuotes() {
+        val now = java.time.OffsetDateTime.parse("2026-10-14T10:00:00+08:00").toEpochSecond()
+        assertTrue(MarketRefreshPolicy.quoteTimestampStale(null, now))
+        assertTrue(MarketRefreshPolicy.quoteTimestampStale("not-a-date", now))
+        assertTrue(MarketRefreshPolicy.quoteTimestampStale("2026-10-14T09:54:59+08:00", now))
+        assertTrue(MarketRefreshPolicy.quoteTimestampStale("2026-10-14T10:02:01+08:00", now))
+        assertFalse(MarketRefreshPolicy.quoteTimestampStale("2026-10-14T09:55:00+08:00", now))
+        assertFalse(MarketRefreshPolicy.quoteTimestampStale("2026-10-14T10:00:00+08:00", now))
+    }
+
 }
