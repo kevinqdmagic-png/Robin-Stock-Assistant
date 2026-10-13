@@ -3,7 +3,7 @@ import math
 from statistics import mean, median
 
 MODEL_VERSION = "daily_breakout_v1"
-HORIZONS = (1, 3, 5, 10, 20, 30)
+HORIZONS = (1, 2, 3, 5, 10, 20, 30)
 
 
 def number(value):
