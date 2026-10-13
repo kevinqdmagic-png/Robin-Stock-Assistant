@@ -34,7 +34,7 @@ class IntradayGateTests(unittest.TestCase):
     def test_recent_snapshot_is_still_not_a_recommendation(self):
         now = datetime(2026, 10, 13, 9, 50, tzinfo=TZ)
         feed = {"source": "https://example.org/market", "as_of": now.isoformat(),
-                "quotes": [{"code": "600000", "price": 12.5}]}
+                "quotes": [{"code": "600000", "price": 12.5, "market": "SH", "name": "浦发银行", "previous_close": 12.3, "volume": 100000, "turnover": 1200000}]}
         result = module.evaluate("early_pair", now, feed)
         self.assertEqual(result["status"], "insufficient_evidence")
         self.assertEqual(result["reason"], "snapshot_only_no_verified_selection_model")
@@ -55,6 +55,23 @@ class IntradayGateTests(unittest.TestCase):
         feed = {"source": "https://example.org/market", "as_of": now.isoformat(),
                 "quotes": [{"code": "bad", "price": -1}]}
         self.assertEqual(module.evaluate("early_pair", now, feed)["reason"], "invalid_code")
+
+    def test_duplicate_code_is_rejected(self):
+        now = datetime(2026, 10, 13, 9, 50, tzinfo=TZ)
+        quote = {"code": "600000", "price": 12.5, "market": "SH",
+                 "name": "浦发银行", "previous_close": 12.3,
+                 "volume": 100000, "turnover": 1200000}
+        feed = {"source": "https://example.org/market", "as_of": now.isoformat(),
+                "quotes": [quote, dict(quote)]}
+        self.assertEqual(module.evaluate("early_pair", now, feed)["reason"],
+                         "duplicate_quote_code")
+
+    def test_price_only_quote_cannot_pass_evidence_gate(self):
+        now = datetime(2026, 10, 13, 14, 40, tzinfo=TZ)
+        feed = {"source": "https://example.org/market", "as_of": now.isoformat(),
+                "quotes": [{"code": "600000", "price": 12.5}]}
+        self.assertEqual(module.evaluate("late_pair", now, feed)["reason"],
+                         "missing_exchange")
 
     def test_invalid_slot_rejected(self):
         with self.assertRaises(ValueError):
