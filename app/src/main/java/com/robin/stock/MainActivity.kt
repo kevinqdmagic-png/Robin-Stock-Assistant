@@ -182,6 +182,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadBundledCatalog()
+        ResearchNotificationWorker.schedule(applicationContext)
         selectedCode = savedInstanceState?.getString("code") ?: prefs.getString("selected", prefs.getString("watch", "")).orEmpty()
         val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(Color.rgb(245, 247, 250)) }
         root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(16)) }
@@ -224,7 +225,7 @@ class MainActivity : AppCompatActivity() {
         prefs.edit().putBoolean("research_notification_permission_asked", true).apply()
         requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1002)
     }
-    // Only check while opening or returning to the app. Background push requires a separate worker.
+    // Immediate foreground check; WorkManager also polls periodically in background.
     private fun checkNewResearchReports() {
         executor.execute {
             val response = runCatching { request("/api/tasks") }.getOrNull() ?: return@execute
