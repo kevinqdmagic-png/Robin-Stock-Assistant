@@ -85,9 +85,9 @@ class DailyValidationTests(unittest.TestCase):
                   "provenance": "contemporaneous"}
         result = recommendation_performance(record, rows)
         self.assertEqual(result["status"], "price_observation")
-        self.assertEqual(len(result["points"]), 6)
+        self.assertEqual([point["horizon"] for point in result["points"]], [1, 2, 3, 5, 10, 20, 30])
         self.assertEqual(result["points"][0]["status"], "observed")
-        self.assertEqual(result["points"][1]["status"], "pending")
+        self.assertTrue(all(point["status"] == "pending" for point in result["points"][1:]))
 
     def test_corporate_action_requires_review(self):
         rows = fixture()
