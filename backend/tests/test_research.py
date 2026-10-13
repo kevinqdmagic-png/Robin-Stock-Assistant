@@ -87,7 +87,8 @@ class DailyValidationTests(unittest.TestCase):
         self.assertEqual(result["status"], "price_observation")
         self.assertEqual([point["horizon"] for point in result["points"]], [1, 2, 3, 5, 10, 20, 30])
         self.assertEqual(result["points"][0]["status"], "observed")
-        self.assertTrue(all(point["status"] == "pending" for point in result["points"][1:]))
+        self.assertEqual([point["status"] for point in result["points"]],
+                         ["observed", "observed", "pending", "pending", "pending", "pending", "pending"])
 
     def test_corporate_action_requires_review(self):
         rows = fixture()
