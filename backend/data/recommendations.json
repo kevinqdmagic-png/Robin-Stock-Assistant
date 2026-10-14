@@ -1328,7 +1328,31 @@
       "invalid": "高开49.00以上不追；跌破45.60、48.13量大价不进或板块转弱放弃。",
       "exit_plan": "若10月13日真实买入，最早10月14日卖；弱开/失守45.60在首个可成交时点优先退出，强势观察48.80—51.00分批。",
       "roundtrip_cost_assumption_bps": 20,
-      "results": []
+      "results": [
+        {
+          "id": "market-review-20261012-002487-close-v1-dplus1-observation-20261013",
+          "as_of": "2026-10-13T15:00:00+08:00",
+          "recorded_at": "2026-10-14T16:39:41+08:00",
+          "market_date": "2026-10-13",
+          "horizon": "planned entry day price observation",
+          "status": "price_observation_only",
+          "trigger_status": "unverified_missing_full_minute_path",
+          "entry_fill_status": "unverified_no_strategy_fill_claimed",
+          "executable_net_return_pct": null,
+          "observed_open": 44.88,
+          "observed_high": 46.49,
+          "observed_low": 42.39,
+          "observed_close": 42.39,
+          "reference_observation_open_pct": -4.713375796178343,
+          "reference_observation_mfe_pct": -1.295116772823779,
+          "reference_observation_mae_pct": -9.999999999999998,
+          "reference_observation_close_pct": -9.999999999999998,
+          "price_basis": "unadjusted public daily OHLC; not actual fills",
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+          "report_id": "market-review-20261014-close-v1",
+          "note": "缺完整分钟路径，不能确认原触发先后或可成交；仅价格观察，不计策略收益。"
+        }
+      ]
     },
     {
       "date": "2026-10-12",
@@ -1373,7 +1397,31 @@
       "invalid": "高开25.10以上不追；跌破23.30、传媒批量炸板或24.25量大价不进放弃。",
       "exit_plan": "若10月13日真实买入，最早10月14日卖；弱开失守23.30优先退出，强势观察24.98、25.60分批。",
       "roundtrip_cost_assumption_bps": 20,
-      "results": []
+      "results": [
+        {
+          "id": "market-review-20261012-300413-close-v1-dplus1-observation-20261013",
+          "as_of": "2026-10-13T15:00:00+08:00",
+          "recorded_at": "2026-10-14T16:39:41+08:00",
+          "market_date": "2026-10-13",
+          "horizon": "planned entry day price observation",
+          "status": "price_observation_only",
+          "trigger_status": "unverified_missing_full_minute_path",
+          "entry_fill_status": "unverified_no_strategy_fill_claimed",
+          "executable_net_return_pct": null,
+          "observed_open": 23.46,
+          "observed_high": 24.5,
+          "observed_low": 22.21,
+          "observed_close": 24.0,
+          "reference_observation_open_pct": -2.897350993377479,
+          "reference_observation_mfe_pct": 1.407284768211925,
+          "reference_observation_mae_pct": -8.071192052980125,
+          "reference_observation_close_pct": -0.6622516556291425,
+          "price_basis": "unadjusted public daily OHLC; not actual fills",
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+          "report_id": "market-review-20261014-close-v1",
+          "note": "缺完整分钟路径，不能确认原触发先后或可成交；仅价格观察，不计策略收益。"
+        }
+      ]
     },
     {
       "id": "combined-pair-20261012-300450-close-v1",
@@ -1595,6 +1643,96 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-10-14",
+      "published_at": "2026-10-14T16:39:41+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-14T15:35:45+08:00",
+      "planned_entry_date": "2026-10-15",
+      "earliest_legal_exit_date_if_bought": "2026-10-16",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261014-close-v1"
+      ],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://finance.eastmoney.com/a/202610143895439823.html",
+        "https://www.stcn.com/article/detail/4217433.html",
+        "https://www.dabanke.com/index-20261014.html",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "docs/research/market-review-2026-10-14-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "id": "market-review-20261014-600316-close-v1",
+      "code": "600316",
+      "name": "洪都航空",
+      "model": "platform_breakout_sector_resonance_v4",
+      "reason": "收35.56，换手5.44%，RVOL20 3.44，CLV0.804，突破前20日高34.94；航空军工局部同步，但大盘退潮。",
+      "reference_price": 35.56,
+      "reference_price_time": "2026-10-14T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-14",
+      "reference_price_source": "https://qt.gtimg.cn/q=sh600316",
+      "reference_entry_range": [
+        35.2,
+        35.8
+      ],
+      "operational_invalid_price": 34.9,
+      "trigger": "10月15日竞价不高于+3%，回踩34.94—35.20缩量守住后重新站35.80，且军工/航空广度不恶化。",
+      "invalid": "高开36.60以上不追；跌破34.90不能迅速收回或板块同步转弱放弃。",
+      "exit_plan": "若10月15日真实买入，最早10月16日卖；弱开或失守34.90优先退出，强势观察36.20、37.50分批。"
+    },
+    {
+      "date": "2026-10-14",
+      "published_at": "2026-10-14T16:39:41+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-14T15:35:45+08:00",
+      "planned_entry_date": "2026-10-15",
+      "earliest_legal_exit_date_if_bought": "2026-10-16",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261014-close-v1"
+      ],
+      "sources": [
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml",
+        "https://finance.eastmoney.com/a/202610143895439823.html",
+        "https://www.stcn.com/article/detail/4217433.html",
+        "https://www.dabanke.com/index-20261014.html",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "docs/research/market-review-2026-10-14-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "id": "market-review-20261014-002727-close-v1",
+      "code": "002727",
+      "name": "一心堂",
+      "model": "low_position_volume_breakout_v4",
+      "reason": "收12.46，换手8.33%，RVOL20 5.37，CLV0.857，越过11.98的20日压力；医药局部同步但临近12.71的60日压力。",
+      "reference_price": 12.46,
+      "reference_price_time": "2026-10-14T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-14",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz002727",
+      "reference_entry_range": [
+        12.15,
+        12.48
+      ],
+      "operational_invalid_price": 11.98,
+      "trigger": "10月15日竞价-1%至+3%，12.00—12.15回踩缩量并重新站12.45，且医药广度未明显转负。",
+      "invalid": "高开12.85以上不追；跌破11.98或冲12.60—12.71后放量快速回落放弃。",
+      "exit_plan": "若10月15日真实买入，最早10月16日卖；弱开失守11.98优先退出，强势观察12.71、13.20分批。"
     }
   ],
   "legacy_audit": [
