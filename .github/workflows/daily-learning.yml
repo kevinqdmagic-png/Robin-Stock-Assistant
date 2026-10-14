@@ -1,8 +1,10 @@
 name: Daily forward learning
 on:
   schedule:
-    # Beijing 18:00 / Auckland 23:00 during NZ daylight saving.
-    - cron: '0 10 * * 1-5'
+    # Beijing 19:47 and retry 20:47, after the last 19:17 research attempt.
+    # Same-date snapshots are immutable: retry fills only a missing snapshot.
+    - cron: '47 11 * * 1-5'
+    - cron: '47 12 * * 1-5'
   workflow_dispatch:
 permissions:
   contents: write
