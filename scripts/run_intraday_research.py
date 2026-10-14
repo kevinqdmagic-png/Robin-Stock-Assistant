@@ -158,7 +158,11 @@ def evaluate(slot, now=None, feed=None):
                                    "coverage": feed.get("scope", "unknown"),
                                    "full_market_coverage": False,
                                    "requested_count": feed.get("requested_count"),
-                                   "provider_errors": feed.get("provider_errors", [])}
+                                   "provider_errors": feed.get("provider_errors", []),
+                                   "provider_quote_counts": feed.get("provider_quote_counts", {}),
+                                   "corroborated_count": feed.get("corroborated_count", 0),
+                                   "provider_disagreements": feed.get("provider_disagreements", 0),
+                                   "fresh_coverage_pct": feed.get("fresh_coverage_pct", 0)}
     return outcome
 
 

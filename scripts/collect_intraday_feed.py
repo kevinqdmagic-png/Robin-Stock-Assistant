@@ -9,6 +9,7 @@ A partial universe is NEVER advertised as a whole-market scan.
 import argparse
 from datetime import datetime
 import json
+import math
 from pathlib import Path
 import re
 import sys
@@ -137,6 +138,85 @@ def parse_tencent(raw, symbols):
     return rows
 
 
+
+def parse_eastmoney(records, requested, url):
+    """Live Eastmoney quote: field f124 is the provider's Unix timestamp.
+
+    f5=hands (100 shares), f6=CNY, f8=turnover percentage, f18=previous close.
+    Never substitute response/collection time for an absent quote timestamp.
+    """
+    rows = []
+    for item in records:
+        if not isinstance(item, dict):
+            continue
+        code = str(item.get("f12") or "")
+        if code not in requested or not re.fullmatch(r"\d{6}", code):
+            continue
+        name = str(item.get("f14") or "").strip()
+        if not name or "ST" in name.upper() or "退" in name:
+            continue
+        try:
+            price, prev, pct, amount, lots, turnover = [
+                float(item[k]) for k in ("f2", "f18", "f3", "f6", "f5", "f8")]
+            stamp = datetime.fromtimestamp(int(item["f124"]), CN)
+            vr = None
+            try:
+                vr = float(item.get("f10"))
+                if not 0 <= vr <= 1000:
+                    vr = None
+            except (ValueError, TypeError):
+                pass
+        except (KeyError, ValueError, TypeError, OverflowError, OSError):
+            continue
+        if not all(math.isfinite(z) for z in (price, prev, pct, amount, lots, turnover)):
+            continue
+        if not (0 < price < 100000 and 0 < prev < 100000
+                and amount > 0 and lots > 0 and 0 <= turnover <= 100):
+            continue
+        if abs((price / prev - 1) * 100 - pct) > 0.4:
+            continue
+        symbol = stock_symbol(code)
+        secid = ("1." if symbol.startswith("sh") else "0.") + code
+        rows.append({
+            "code": code, "name": name, "market": symbol[:2].upper(),
+            "price": round(price, 3), "previous_close": round(prev, 3),
+            "volume": lots * 100, "turnover": amount,
+            "turnover_ratio": round(turnover, 2), "pct": round(pct, 2),
+            "volume_ratio": vr, "as_of": stamp.isoformat(timespec="seconds"),
+            "source": url + "?secids=" + secid,
+        })
+    return rows
+
+
+def eastmoney_batch(client, codes):
+    """Fallback across main and delayed endpoints; no synthesized quotes."""
+    params = {
+        "secids": ",".join(("1." if stock_symbol(c).startswith("sh") else "0.") + c for c in codes),
+        "fltt": 2, "invt": 2,
+        "fields": "f2,f3,f5,f6,f8,f10,f12,f14,f18,f124",
+    }
+    failures = []
+    for endpoint in EASTMONEY:
+        url = endpoint.replace("/clist/get", "/ulist.np/get")
+        try:
+            response = client.get(url, params=params,
+                  headers={"User-Agent": "Mozilla/5.0", "Referer": "https://quote.eastmoney.com/"},
+                  timeout=(3, 5))
+            response.raise_for_status()
+            data = response.json().get("data") or {}
+            records = data.get("diff") or []
+            if isinstance(records, dict):
+                records = list(records.values())
+            if not isinstance(records, list):
+                raise ValueError("wrong_quote_schema")
+            rows = parse_eastmoney(records, set(codes), url)
+            if rows:
+                return rows
+            raise ValueError("eastmoney_quote_empty")
+        except (requests.RequestException, ValueError, TypeError, AttributeError) as exc:
+            failures.append(type(exc).__name__)
+    raise ValueError("eastmoney_quote_unavailable:" + ",".join(failures))
+
 def gather(now=None, client=requests, root=ROOT):
     now = (now or datetime.now(CN)).astimezone(CN)
     errors = []
@@ -157,37 +237,64 @@ def gather(now=None, client=requests, root=ROOT):
         errors.append("sina_discovery:" + type(exc).__name__)
     codes = codes[:180]
     symbols = [stock_symbol(code) for code in codes]
-    rows = []
+    by_code, corroborated, conflicts = {}, set(), set()
+    source_counts = {"tencent": 0, "eastmoney": 0}
     for i in range(0, len(symbols), 60):
         batch = symbols[i:i+60]
+        codes_batch = [s[-6:] for s in batch]
+        feeds = {}
         try:
             response = client.get(SOURCE + ",".join(batch), headers={
                 "User-Agent": "Mozilla/5.0", "Referer": "https://gu.qq.com/"
             }, timeout=(4, 7))
             response.raise_for_status()
             response.encoding = "gb18030"
-            rows.extend(parse_tencent(response.text, batch))
+            feeds["tencent"] = parse_tencent(response.text, batch)
         except (requests.RequestException, ValueError) as exc:
             errors.append("tencent_batch:" + type(exc).__name__)
-    # Every row is independently time-checked, not just the freshest quote.
-    fresh = []
-    for row in rows:
-        asof = datetime.fromisoformat(row["as_of"])
-        age = (now - asof).total_seconds()
-        if asof.date() == now.date() and 0 <= age <= 300:
-            fresh.append(row)
-    # No optimistic use of a partially stale basket.
-    unique = {row["code"]: row for row in fresh}
-    filtered = list(unique.values())
+        try:
+            feeds["eastmoney"] = eastmoney_batch(client, codes_batch)
+        except (requests.RequestException, ValueError) as exc:
+            errors.append("eastmoney_quote_batch:" + type(exc).__name__)
+
+        fresh = {}
+        for provider, values in feeds.items():
+            for q in values:
+                asof = datetime.fromisoformat(q["as_of"])
+                seconds = (now - asof).total_seconds()
+                if asof.date() == now.date() and 0 <= seconds <= 300:
+                    fresh.setdefault(q["code"], {})[provider] = q
+        for code, witnesses in fresh.items():
+            t, e = witnesses.get("tencent"), witnesses.get("eastmoney")
+            if t and e:
+                separation = abs((datetime.fromisoformat(t["as_of"]) -
+                                  datetime.fromisoformat(e["as_of"])).total_seconds())
+                if separation <= 30:
+                    difference = abs(t["price"] - e["price"]) / max(t["price"], e["price"])
+                    if difference > 0.006:
+                        conflicts.add(code)
+                        continue
+                    corroborated.add(code)
+            # Choose the newest independently timestamped quote in the allowed window.
+            chosen = max(witnesses.values(), key=lambda q: q["as_of"])
+            chosen["cross_checked"] = code in corroborated
+            by_code[code] = chosen
+            source_counts["tencent" if chosen["source"].startswith(SOURCE) else "eastmoney"] += 1
+
+    # Exclude conflicting same-time quotes, never claim complete market coverage.
+    valid = [q for code, q in by_code.items() if code not in conflicts]
     return {
-        "source": SOURCE + ",".join(symbols[:60]), "as_of": max(
-            (r["as_of"] for r in filtered), default=now.isoformat(timespec="seconds")),
-        "quotes": filtered,
-        "scope": "research_watchlist_plus_optional_eastmoney_and_sina_turnover_leaders",
+        "source": valid[0]["source"] if valid else SOURCE,
+        "as_of": max((q["as_of"] for q in valid), default=now.isoformat(timespec="seconds")),
+        "quotes": valid, "scope": "research_watchlist_plus_optional_eastmoney_and_sina_turnover_leaders",
         "discovery_sources": discovery_sources,
         "local_universe_count": local_count, "requested_count": len(codes),
-        "fresh_count": len(filtered), "full_market_coverage": False,
-        "provider_errors": errors,
+        "fresh_count": len(valid),
+        "fresh_coverage_pct": round(len(valid) * 100 / len(codes), 1) if codes else 0,
+        "corroborated_count": len(corroborated),
+        "provider_quote_counts": source_counts,
+        "provider_disagreements": len(conflicts),
+        "full_market_coverage": False, "provider_errors": errors,
         "collection_checked_at": now.isoformat(timespec="seconds")
     }
 

@@ -54,6 +54,29 @@ class TestIntradayEvidence(unittest.TestCase):
                 "quotes":[row]}
         self.assertEqual(gate.evaluate("late_pair",now,feed)["reason"], "missing_market_evidence")
 
+    def test_eastmoney_quote_requires_real_provider_timestamp(self):
+        now = datetime(2026, 10, 14, 14, 40, tzinfo=CN)
+        record = {"f12": "600001", "f14": "样本证券",
+                  "f2": 10.5, "f18": 10.0, "f3": 5.0,
+                  "f5": 100000, "f6": 152000000, "f8": 10,
+                  "f10": 2.1, "f124": int(now.timestamp())}
+        url = "https://push2.eastmoney.com/api/qt/ulist.np/get"
+        rows = collect.parse_eastmoney([record], {"600001"}, url)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["as_of"], now.isoformat(timespec="seconds"))
+        self.assertEqual(rows[0]["turnover"], 152000000)
+        self.assertEqual(rows[0]["volume"], 10000000)
+        record.pop("f124")
+        self.assertEqual(collect.parse_eastmoney([record], {"600001"}, url), [])
+
+    def test_eastmoney_wrong_pct_rejected(self):
+        now = datetime(2026, 10, 14, 14, 40, tzinfo=CN)
+        record = {"f12": "600001", "f14": "样本证券", "f2": 10.5,
+                  "f18": 10.0, "f3": -3, "f5": 100000,
+                  "f6": 152000000, "f8": 10, "f124": int(now.timestamp())}
+        self.assertEqual(collect.parse_eastmoney([record], {"600001"},
+             "https://push2.eastmoney.com/api/qt/ulist.np/get"), [])
+
     def test_live_tencent_quote_parses_source_timestamp_and_amount(self):
         f = [""] * 72
         for idx, value in {1:"样本证券",2:"600001",3:"10.50",4:"10.00",

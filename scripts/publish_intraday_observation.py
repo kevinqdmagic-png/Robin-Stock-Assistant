@@ -32,8 +32,12 @@ def append_observation(archive, outcome, run_id):
     lines = [
         "【非荐股／不可直接交易】北京时间 " + checked_at + " 的盘中部分股票池观察。",
         "覆盖：" + str(snapshot.get("quote_count")) + "只当时有效报价，"
-        + str(snapshot.get("requested_count")) + "只请求；仅自选研究池及可获取的新浪成交额榜单，不是A股全市场扫描。",
+        + str(snapshot.get("requested_count")) + "只请求；仅既有研究池、东方财富及新浪可访问的成交活跃股票，不是A股全市场扫描。",
         "数据源：" + str(snapshot.get("source")) + "；有效性仅检验源格式、报价时间、昨收、成交量和成交额。",
+        "报价源分布：" + str(snapshot.get("provider_quote_counts", {}))
+        + "；两家源同时点复核" + str(snapshot.get("corroborated_count", 0))
+        + "只；冲突剔除" + str(snapshot.get("provider_disagreements", 0))
+        + "只；采集覆盖率" + str(snapshot.get("fresh_coverage_pct", 0)) + "%。",
         "筛选逻辑：排除ST/BJ；一定涨幅区间、成交额≥0.8亿元、换手2%至35%；仅为启发式排序，"
         "尚未验证龙虎榜、板块同步、盘口承接、封板概率、隔日溢价或T+1可行性。",
     ]
