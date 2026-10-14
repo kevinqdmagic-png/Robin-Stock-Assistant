@@ -5,8 +5,8 @@ import re
 from datetime import datetime, timedelta, timezone
 from research_archive import load_document
 
-STATUSES = {"running", "waiting", "completed", "blocked", "failed"}
-TERMINAL = {"completed", "blocked", "failed"}
+STATUSES = {"running", "waiting", "completed", "partial", "blocked", "failed"}
+TERMINAL = {"completed", "partial", "blocked", "failed"}
 ID = re.compile(r"[a-z][a-z0-9_]*")
 
 
