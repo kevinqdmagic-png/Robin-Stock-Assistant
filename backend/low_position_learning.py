@@ -13,7 +13,7 @@ import re
 
 CN = ZoneInfo("Asia/Shanghai")
 MODEL = "low_position_shape_proxy_v1"
-METRIC_HORIZONS = (1, 2, 5, 10)
+METRIC_HORIZONS = (1, 2, 5, 10, 30)
 MAX_AGE_DAYS = 70
 
 
