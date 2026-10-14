@@ -58,7 +58,7 @@ class PublisherTests(unittest.TestCase):
         index = {t["id"]: t for t in tasks}
         self.assertNotIn("quant_research", index["combined_pair"]["dependencies"])
         self.assertTrue(index["early_pair"]["enabled"])
-        self.assertEqual(index["early_pair"]["execution_mode"], "live_partial_unvalidated_screen")
+        self.assertEqual(index["early_pair"]["execution_mode"], "railway_resident_partial_observation")
 
 
 if __name__ == "__main__":
