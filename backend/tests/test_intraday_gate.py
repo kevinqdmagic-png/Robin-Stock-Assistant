@@ -34,10 +34,10 @@ class IntradayGateTests(unittest.TestCase):
     def test_recent_snapshot_is_still_not_a_recommendation(self):
         now = datetime(2026, 10, 13, 9, 50, tzinfo=TZ)
         feed = {"source": "https://market-data.vendor.cn/quotes", "as_of": now.isoformat(),
-                "quotes": [{"code": "600000", "price": 12.5, "market": "SH", "name": "浦发银行", "previous_close": 12.3, "volume": 100000, "turnover": 1200000}]}
+                "quotes": [{"code": "600000", "price": 12.5, "market": "SH", "name": "浦发银行", "previous_close": 12.3, "volume": 100000, "turnover": 1200000, "pct": 1.63, "turnover_ratio": 1.0, "as_of": now.isoformat()}]}
         result = module.evaluate("early_pair", now, feed)
         self.assertEqual(result["status"], "insufficient_evidence")
-        self.assertEqual(result["reason"], "snapshot_only_no_verified_selection_model")
+        self.assertEqual(result["reason"], "screened_watch_not_validated_strategy")
         self.assertEqual(result["recommendations"], [])
         self.assertEqual(result["snapshot"]["quote_count"], 1)
 
@@ -60,7 +60,7 @@ class IntradayGateTests(unittest.TestCase):
         now = datetime(2026, 10, 13, 9, 50, tzinfo=TZ)
         quote = {"code": "600000", "price": 12.5, "market": "SH",
                  "name": "浦发银行", "previous_close": 12.3,
-                 "volume": 100000, "turnover": 1200000}
+                 "volume": 100000, "turnover": 1200000, "pct": 1.63, "turnover_ratio": 1.0, "as_of": now.isoformat()}
         feed = {"source": "https://market-data.vendor.cn/quotes", "as_of": now.isoformat(),
                 "quotes": [quote, dict(quote)]}
         self.assertEqual(module.evaluate("early_pair", now, feed)["reason"],
