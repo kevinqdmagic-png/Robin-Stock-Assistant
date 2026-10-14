@@ -96,6 +96,7 @@ def scan(now=None, pool=None, loader=None, workers=6):
     state = session_state(now)
     if state["code"] != "after_close" or (now.hour, now.minute) < (15, 10):
         return {**run_base, "status": "skipped", "note": "非已确认的交易日收盘后时段"}
+    supplied_pool = pool is not None
     if pool is None:
         pool, origins, discovery_errors = universe()
     else:
@@ -122,7 +123,7 @@ def scan(now=None, pool=None, loader=None, workers=6):
     selected = qualifying[:TOP]
     # Names are security metadata, not trading evidence; never substitute
     # a quote's price for the completed K-line analysis.
-    if selected and pool is not None:
+    if selected and not supplied_pool:
         known_names = {}
         for filename in ("research_stocks.json", "recommendations.json"):
             try:
