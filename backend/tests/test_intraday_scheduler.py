@@ -57,6 +57,14 @@ class IntradaySchedulerTests(unittest.TestCase):
         self.assertEqual(o["status"],"blocked")
         self.assertEqual(o["reason_code"],"insufficient_fresh_quotes")
 
+    def test_volume_parent_precreated_and_atomic_write_probe(self):
+        with tempfile.TemporaryDirectory() as folder:
+            location=Path(folder)/"nested"/"intraday.json"
+            with patch.object(module, "STORE", location):
+                self.assertTrue(module.storage_ready())
+                self.assertTrue(location.parent.is_dir())
+                self.assertEqual(list(location.parent.iterdir()), [])
+
     def test_persist_atomic_and_historical_record_protected(self):
         now=datetime(2026,10,14,14,40,tzinfo=CN)
         with tempfile.TemporaryDirectory() as folder, patch.object(module, "STORE", Path(folder)/"runs.json"):

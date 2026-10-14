@@ -12,6 +12,7 @@ import logging
 import math
 import os
 import re
+import tempfile
 import threading
 import time
 
@@ -29,6 +30,21 @@ MAX_AGE = 180
 _guard = threading.RLock()
 _running = set()
 _started = False
+
+
+def storage_ready():
+    """Probe write access without creating fake trades or research receipts."""
+    try:
+        STORE.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=STORE.parent,
+                                         prefix=".storage-probe-", delete=False) as sample:
+            sample.write("probe\n")
+            name = sample.name
+        os.unlink(name)
+        return True
+    except OSError as exc:
+        log.warning("INTRADAY_STORE_NOT_WRITABLE %s: %s", STORE.parent, exc)
+        return False
 
 
 def _store():
@@ -99,7 +115,8 @@ def latest(slot=None, limit=20, now=None):
         "latest": item, "items": rows[:max(1, min(limit, 100))],
         "total": len(rows), "storage": "railway_persistent_volume",
         "scheduler_started": _started,
-        "store_writable": os.access(STORE.parent, os.W_OK),
+        "store_writable": storage_ready(),
+        "volume_mount_detected": os.path.ismount(STORE.parent),
         "publication": "original_time_stamped_partial_universe",
         "strategy_validated": False, "recommendation_executable": False,
     }
@@ -344,6 +361,8 @@ def start_scheduler():
         if _started:
             return
         _started = True
+    if not storage_ready():
+        log.error("INTRADAY_PERSISTENCE_UNAVAILABLE store=%s", STORE)
     def loop():
         log.warning("INTRADAY_SCHEDULER_STARTED Beijing 09:50/14:40, store=%s", STORE)
         while True:
