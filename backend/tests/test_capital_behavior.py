@@ -73,6 +73,40 @@ class CapitalBehaviorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "volume"):
             classify(data)
 
+    def test_independent_tencent_daily_fallback_when_eastmoney_is_offline(self):
+        api._daily_cache.clear()
+        with patch("app._eastmoney_daily", return_value=([], None, ["HTTPError"])), \
+             patch("app.tencent_daily", return_value=samples(85)) as alternative, \
+             patch("app.completed_bars", side_effect=lambda bars: bars):
+            result = api.capital_behavior("002068")
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["source"], "tencent_qfq_daily")
+        self.assertEqual(result["completed_bars"], 85)
+        self.assertIn("HTTPError", result["provider_errors"])
+        alternative.assert_called_once_with("002068", limit=120, adjust="1")
+        api._daily_cache.clear()
+
+    def test_both_daily_providers_unavailable_are_explained(self):
+        api._daily_cache.clear()
+        with patch("app._eastmoney_daily", return_value=([], None, ["HTTPError"])), \
+             patch("app.tencent_daily", side_effect=ValueError("offline")):
+            result = api.capital_behavior("002068")
+        self.assertFalse(result["ok"])
+        self.assertEqual(result["status"], "daily_history_incomplete")
+        self.assertEqual(result["completed_bars"], 0)
+        self.assertEqual(result["required_bars"], 61)
+        self.assertIn("tencent_daily:ValueError", result["provider_errors"])
+        api._daily_cache.clear()
+
+    def test_short_eastmoney_history_uses_longer_tencent_history(self):
+        api._daily_cache.clear()
+        with patch("app._eastmoney_daily", return_value=(samples(10), "eastmoney_kline", [])), \
+             patch("app.tencent_daily", return_value=samples(80)):
+            rows, source, _ = api._get_daily("002068")
+        self.assertEqual(len(rows), 80)
+        self.assertEqual(source, "tencent_qfq_daily")
+        api._daily_cache.clear()
+
     def test_archived_sample_counts_do_not_claim_auto_training(self):
         result = archive_context()
         self.assertTrue(result["research_history_available"])

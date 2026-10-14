@@ -16,6 +16,7 @@ from research_archive import archive_page, load_document
 from trading_calendar import completed_bars, session_state
 from market_insights import overview as market_overview, stamp as quote_stamp
 from quote_providers import stock_symbol, tencent_quotes
+from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
@@ -142,13 +143,26 @@ def capital_behavior(code: str):
         return {"ok": False, "status": "invalid_code"}
     try:
         bars, source, errors = _get_daily(code)
-        result = classify_capital_behavior(completed_bars(bars))
+        complete = completed_bars(bars)
+        if len(complete) < 61:
+            return {
+                "ok": False, "status": "daily_history_incomplete",
+                "code": code, "time_cn": now_cn(), "source": source,
+                "provider_errors": errors,
+                "bars_received": len(bars), "completed_bars": len(complete),
+                "required_bars": 61,
+                "note": "目前只取得" + str(len(complete)) +
+                        "根已完成的有效日线（至少需61根）。已尝试东方财富和腾讯，行情不足不能推测主力行为。",
+            }
+        result = classify_capital_behavior(complete)
         return {**result, "code": code, "source": source,
-                "provider_errors": errors, "time_cn": now_cn()}
+                "provider_errors": errors, "time_cn": now_cn(),
+                "bars_received": len(bars), "completed_bars": len(complete)}
     except (OSError, ValueError, TypeError) as exc:
         logger.warning("Capital behavior data unavailable: %s", exc)
         return {"ok": False, "status": "capital_behavior_data_unavailable",
-                "note": "须有至少61根已完成的日线及有效成交量，不以旧数据冒充最新信号"}
+                "code": code, "time_cn": now_cn(), "reason_code": str(exc),
+                "note": "日线校验失败（包括成交量、历史连续性或字段异常），不能据此推测主力行为。"}
 
 
 @app.get("/api/tasks")
@@ -1334,13 +1348,25 @@ def _get_daily(code, adjust="1"):
         return cached["bars"], cached["source"], cached["errors"]
 
     bars, source, errors = _eastmoney_daily(code, adjust=adjust)
-    if bars:
+    # Even HTTP 200 may contain a truncated history; capital study needs 61
+    # completed sessions, so try an independent day-K source when too short.
+    if len(bars) < 62:
+        try:
+            alternate = tencent_daily(code, limit=120, adjust=adjust)
+            if len(alternate) > len(bars):
+                bars, source = alternate, ("tencent_qfq_daily" if adjust == "1"
+                                          else "tencent_unadjusted_daily")
+            elif not bars:
+                errors.append("tencent_daily_insufficient_history")
+        except (requests.RequestException, OSError, ValueError, TypeError, KeyError) as exc:
+            errors.append("tencent_daily:" + type(exc).__name__)
+            logger.warning("Independent daily K fallback failed for %s: %s", code, exc)
+    # Never pin an incomplete snapshot in the 10-minute cache.
+    if len(bars) >= 62:
         with _daily_lock:
             _daily_cache[cache_key] = {
                 "saved_at": now,
-                "bars": bars,
-                "source": source,
-                "errors": errors,
+                "bars": bars, "source": source, "errors": errors,
             }
     elif cached:
         return cached["bars"], cached["source"], errors + ["stale_cache"]
