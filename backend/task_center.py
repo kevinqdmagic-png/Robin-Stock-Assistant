@@ -44,7 +44,7 @@ def validate_runs(document, tasks):
         recorded = instant(row["recorded_at"])
         if recorded < started or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", row.get("date", "")):
             raise ValueError("invalid_receipt_time")
-        if row.get("trigger") not in {"scheduled", "manual"}:
+        if row.get("trigger") not in {"scheduled", "manual", "manual_backfill"}:
             raise ValueError("invalid_receipt_trigger")
         if row["status"] in TERMINAL and not started <= instant(row["completed_at"]) <= recorded:
             raise ValueError("invalid_completion_time")
