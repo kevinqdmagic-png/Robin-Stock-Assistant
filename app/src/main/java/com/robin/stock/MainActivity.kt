@@ -1151,7 +1151,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun learningCard() {
         val panel = card("每日学习验证 · T+1 / T+2 / T+5 / T+10")
-        panel.addView(label("自动核对历史推荐与收盘后的真实日线，保留失败样本并按时间前推验证；不把参考价涨跌当作实盘盈利。", 12f))
+        panel.addView(label("把历史荐股与低位启动形态观察分开追踪：T+1/T+2/T+5/T+10的参考价变化只代表日线代理表现，不是成交收益，也不自动调整交易规则。", 12f))
         val status = label("正在检查学习记录…", 12f)
         val history = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         panel.addView(status)
@@ -1181,6 +1181,38 @@ class MainActivity : AppCompatActivity() {
                         " · 等待到期 " + counts.optInt("pending") +
                         " · 其他或待核验 " +
                         (latest.optInt("sample_count") - counts.optInt("observed") - counts.optInt("pending")).coerceAtLeast(0), 12f))
+                }
+                val low = latest.optJSONObject("low_position_summary")
+                if (low != null) {
+                    history.addView(label("低位启动 · 独立前瞻样本（非荐股）", 13f, true))
+                    history.addView(label("已冻结观察 " + low.optInt("sample_count") + " 只次；独立信号日期 " +
+                        low.optInt("unique_signal_dates") + " 天。观察池有限，不是全A抽样，也尚未经过样本外胜率验证。", 12f))
+                    val horizons = low.optJSONObject("horizons")
+                    for (h in listOf(1, 2, 5, 10)) {
+                        val stats = horizons?.optJSONObject(h.toString()) ?: continue
+                        val n = stats.optInt("matured_count")
+                        if (n > 0) {
+                            history.addView(label("T+" + h + " · 到期样本 " + n +
+                                " · 平均收盘涨跌 " + pctText(stats.optDouble("mean_close_pct")) +
+                                " · 正收益占比 " + stats.optString("positive_close_rate_pct") +
+                                "% · 中位不利波动 " + pctText(stats.optDouble("median_intraperiod_mae_pct")), 12f))
+                        } else {
+                            history.addView(label("T+" + h + " · 暂无有效成熟样本", 12f))
+                        }
+                    }
+                    val shapeRows = latest.optJSONArray("low_position_evaluations") ?: JSONArray()
+                    for (i in 0 until minOf(5, shapeRows.length())) {
+                        val sample = shapeRows.optJSONObject(i) ?: continue
+                        val hz = sample.optJSONArray("horizons") ?: JSONArray()
+                        val t2 = (0 until hz.length()).mapNotNull { hz.optJSONObject(it) }
+                            .firstOrNull { it.optInt("h") == 2 && it.optString("status") == "observed" }
+                        if (t2 != null) {
+                            history.addView(label("样本 " + sample.optString("code") +
+                                " · T+2 " + pctText(t2.optDouble("close_pct")) +
+                                " · MAE " + pctText(t2.optDouble("mae_pct")), 12f))
+                        }
+                    }
+                    history.addView(label("指标是信号日收盘到后续交易日收盘的价格代理；没有验证次日可买入、滑点、手续费或涨停排队，因此不能当作策略实际收益。", 12f))
                 }
                 val rows = latest.optJSONArray("evaluations") ?: JSONArray()
                 val mature = (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }
