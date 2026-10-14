@@ -25,7 +25,7 @@ from trading_calendar import session_state, completed_bars
 
 CN = ZoneInfo("Asia/Shanghai")
 INDEXES = ("sh000001", "sz399001", "sz399006", "sh000688")
-TASKS = ("market_review", "volume_price", "limitup_single", "combined_pair")
+TASKS = ("market_review", "volume_price", "limitup_single", "combined_pair", "low_position")
 DAILY_URL = "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
 QUOTE_URL = "https://qt.gtimg.cn/"
 MIN_SAMPLE = 12
@@ -69,6 +69,8 @@ def analyze_one(code, now, provider=tencent_daily):
         "relative_volume20": round(recent["volume"] / vol, 2),
         "close_location": round((recent["close"] - recent["low"]) / day_range, 3) if day_range > 0 else None,
         "distance_ma20_pct": round((recent["close"] / ma20 - 1) * 100, 2),
+        "distance_60d_low_pct": round((recent["close"] / min(b["low"] for b in bars[-60:]) - 1) * 100, 2),
+        "distance_60d_high_pct": round((recent["close"] / max(b["high"] for b in bars[-60:]) - 1) * 100, 2),
         "adjustment": "qfq", "provider": "tencent_daily",
     }
 
@@ -125,6 +127,11 @@ def build_reports(snapshot, now):
               r["close_location"] is not None and r["close_location"] >= .75 and
               0 <= r["distance_ma20_pct"] <= 15]
     weak = [r for r in rows if r["close_location"] is not None and r["close_location"] <= .25]
+    low_launch = [r for r in rows if 0 <= r.get("distance_60d_low_pct", 999) <= 25
+                  and 1.5 <= r["relative_volume20"] <= 5
+                  and 0 <= r["distance_ma20_pct"] <= 15
+                  and r["close_location"] is not None and r["close_location"] >= .7]
+    low_launch.sort(key=lambda x: (x["distance_60d_low_pct"], -x["relative_volume20"], x["code"]))
     strong.sort(key=lambda x: (-x["relative_volume20"], x["code"]))
     weak.sort(key=lambda x: (x["close_location"], x["code"]))
     fmt = lambda x: f"{x['code']} 日变动{x['day_pct_proxy']:+.2f}% 量比{x['relative_volume20']:.2f} 收盘位置{x['close_location']} 距MA20{x['distance_ma20_pct']:+.2f}%"
@@ -157,6 +164,15 @@ def build_reports(snapshot, now):
              + str(sum(x["day_pct_proxy"] >= 9.7 for x in rows))
              + "。不同板块涨跌停幅度、ST与新股规则不同，前复权收益率不等于交易所核验的涨停；"
              + "代理样本不得被称为实际涨停。无法检查空间板、进阶板、封单与炸板，正式打板候选=0，策略成功率未知。",
+             fresh >= MIN_SAMPLE),
+        pack("low_position", "low_position", f"{day} 低位启动30日跟踪：当日样本筛查",
+             f"已有研究池{fresh}只同日有效日线中，满足低位放量形态代理{len(low_launch)}只。尚未完成全市场低位启动扫描。",
+             meta + "\n筛选条件（仅供待检验样本观察）：距离近60根日线最低点0%~25%、日量比1.5~5、"
+             + "高于MA20 0%~15%、收盘落当日区间上30%；不代表主力吸筹事实、已成交或有效预测。"
+             + "\n满足代理条件的观察名单：\n"
+             + ("\n".join(fmt(x) + f" 距60日最低点{x['distance_60d_low_pct']:+.2f}%" for x in low_launch[:10]) or "无")
+             + "\n30个交易日跟踪尚未完整接通；T+1/T+2/T+5/T+10真实结果、除权及停牌验证需按信号冻结时间逐日取证。"
+             + "代理样本不能作为新荐股，亦不能从研究池推广至全A胜率。",
              fresh >= MIN_SAMPLE),
         {"task_id": "combined_pair", "track": "market_review",
          "title": f"{day} 综合双标前置审核",
