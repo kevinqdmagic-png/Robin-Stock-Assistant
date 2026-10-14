@@ -37,6 +37,18 @@ class APITests(unittest.TestCase):
         self.assertEqual(response["status"], "partial_live_watchlist")
         self.assertIn("eastmoney_candidate:ValueError", response["provider_errors"])
 
+    def test_resident_intraday_endpoint_does_not_claim_verified_trade_pick(self):
+        with patch("app.intraday_status", return_value={
+                "ok": True, "slot": "late_pair", "current_status": "observed",
+                "latest": {"date": "2026-10-14", "status": "observed",
+                           "candidates": [{"code": "600000", "signal_validated": False}]},
+                "strategy_validated": False,
+                "recommendation_executable": False,
+        }):
+            result = api.intraday_live("late_pair")
+        self.assertTrue(result["ok"])
+        self.assertFalse(result["recommendation_executable"])
+
     def test_partial_breadth_and_st_exclusion_are_distinct(self):
         rows = pd.DataFrame([
             {"code": "600000", "name": "A", "price": 10, "pct": 1, "amount": 1e8},

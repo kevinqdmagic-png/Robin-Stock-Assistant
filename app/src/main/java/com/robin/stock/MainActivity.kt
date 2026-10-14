@@ -1073,6 +1073,7 @@ class MainActivity : AppCompatActivity() {
     private fun research() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
+        intradayAutoCard()
         taskCenterCard()
         nextDayIndexForecastCard()
         recommendationCard()
@@ -1242,6 +1243,65 @@ class MainActivity : AppCompatActivity() {
         }
         panel.addView(action("刷新每日学习记录") { render() })
         render()
+    }
+
+    private fun intradayAutoCard() {
+        val panel = card("14:40 / 09:50 · 自动盘中研究")
+        panel.addView(label("由Railway常驻执行器按北京时间检查。仅展示当时验证的部分研究池观察候选；不是已验证的T+1买点。", 12f))
+        val output = label("正在读取盘中自动执行记录…", 12f)
+        val rows = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        panel.addView(output)
+        panel.addView(rows)
+        val slots = listOf("late_pair" to "14:40", "early_pair" to "09:50")
+        val refresh: () -> Unit = {
+            output.text = "正在读取服务器执行记录…"
+            rows.removeAllViews()
+            for ((slot, title) in slots) {
+                fetch("/api/intraday-live?slot=" + slot) { data, error ->
+                    if (data == null || !data.optBoolean("ok")) {
+                        rows.addView(label(title + " 数据暂不可用" +
+                            (error?.let { "：" + it } ?: ""), 12f))
+                        return@fetch
+                    }
+                    val current = data.optString("current_status")
+                    val item = data.optJSONObject("latest")
+                    val state = when(current) {
+                        "observed" -> "已发布观察候选"
+                        "no_signal" -> "当时没有符合条件的候选"
+                        "blocked" -> "行情或历史证据不足"
+                        "scheduled" -> "等待指定时间"
+                        "missed" -> "本日未成功执行"
+                        "closed" -> "非交易时段"
+                        else -> "尚无执行记录"
+                    }
+                    val date = item?.optString("date") ?: ""
+                    val matchesToday = data.optString("time_cn").take(10) == date
+                    rows.addView(label(title + " · " + state +
+                        if (date.isNotBlank()) "（" + date + (if (matchesToday) "，当日" else "，历史") + "）" else "", 14f, true))
+                    if (item != null) {
+                        rows.addView(label("检查 " + item.optInt("scanned") + " 只；时效合格报价 " +
+                            item.optInt("fresh_quotes") + " 只；日线检查 " +
+                            item.optInt("daily_checked") + " 只；原因：" +
+                            item.optString("reason_code") + "。", 12f))
+                        val candidates = item.optJSONArray("candidates") ?: JSONArray()
+                        if (candidates.length() == 0) {
+                            rows.addView(label("未形成可发布的盘中观察候选，不强行凑数。", 12f))
+                        }
+                        for (i in 0 until candidates.length()) {
+                            val c = candidates.optJSONObject(i) ?: continue
+                            rows.addView(label((i + 1).toString() + ". " +
+                                c.optString("name") + "（" + c.optString("code") +
+                                "） · 涨幅 " + c.optString("pct") + "% · 观察分 " +
+                                c.optString("score") + "\n报价时间：" + c.optString("as_of") +
+                                "\n风险：" + c.optString("risk"), 12f))
+                        }
+                    }
+                }
+            }
+            output.text = "最新记录以北京时间显示；失败与空名单均保留。"
+        }
+        panel.addView(action("刷新14:40 / 09:50执行结果") { refresh() })
+        refresh()
     }
 
     private fun capitalBehaviorCard() {

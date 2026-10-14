@@ -16,6 +16,7 @@ from research_archive import archive_page, load_document
 from trading_calendar import completed_bars, session_state
 from market_insights import overview as market_overview, stamp as quote_stamp
 from quote_providers import stock_symbol, tencent_quotes
+from intraday_scheduler import latest as intraday_status, start_scheduler as start_intraday_scheduler
 from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
@@ -25,6 +26,9 @@ from learning_loop import load_ledger
 
 API_VERSION = "0.9.0"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
+# A single persistent Railway application replica drives the Beijing time windows.
+# This runs irrespective of GitHub Actions' best-effort schedule delays.
+app.add_event_handler("startup", start_intraday_scheduler)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -182,6 +186,22 @@ def capital_watch(limit: int = 10):
         logger.warning("Capital watch archive unavailable: %s", exc)
         return {"ok": False, "status": "capital_watch_archive_unavailable",
                 "time_cn": now_cn(), "latest": None, "history": []}
+
+
+@app.get("/api/intraday-live")
+def intraday_live(slot: str = "late_pair", limit: int = 20):
+    """Time-stamped server-side research observations, not guaranteed trade picks.
+
+    The persistent Railway record is the primary 09:50 / 14:40 execution source;
+    delayed GitHub Actions remain a separate audit/evidence mechanism.
+    """
+    try:
+        return intraday_status(slot=slot, limit=limit)
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Intraday live ledger unavailable: %s", exc)
+        return {"ok": False, "status": "intraday_ledger_unavailable",
+                "time_cn": now_cn(), "slot": slot, "latest": None,
+                "items": [], "strategy_validated": False}
 
 
 @app.get("/api/tasks")

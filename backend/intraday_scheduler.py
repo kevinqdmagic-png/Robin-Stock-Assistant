@@ -199,7 +199,7 @@ def _candidate(q, day, now):
     bars = tencent_daily(code, limit=90, adjust="1")
     complete = completed_bars(bars, now)
     if len(complete) < 61 or complete[-1]["date"] >= day:
-        return None
+        raise ValueError("daily_history_stale_or_incomplete")
     if any(b.get("volume", 0) <= 0 for b in complete[-61:]):
         return None
     prior = complete[-20:]
@@ -259,18 +259,25 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
         short = sorted(quotes, key=lambda q: float(q.get("pct", 0)), reverse=True)
         short = [q for q in short if 2 <= float(q.get("pct", 0)) <= 19][:18]
         results = []
-        good_count = 0
+        attempted = 0
+        daily_failures = 0
         with ThreadPoolExecutor(max_workers=4) as executor:
             futures = {executor.submit(candidate_loader or _candidate, q, date, now): q for q in short}
             for future in as_completed(futures):
-                good_count += 1
+                attempted += 1
                 try:
                     item = future.result()
                     if item:
                         results.append(item)
                 except (requests.RequestException, ValueError, TypeError, KeyError) as exc:
+                    daily_failures += 1
                     base["provider_errors"].append("daily_validation:" + type(exc).__name__)
-        base["daily_checked"] = good_count
+        base["daily_checked"] = max(0, attempted - daily_failures)
+        base["daily_attempted"] = attempted
+        if attempted and daily_failures == attempted:
+            base["status"] = "blocked"
+            base["reason_code"] = "daily_validation_unavailable"
+            return base
         results.sort(key=lambda x: (-x["score"], x["code"]))
         base["candidates"] = results[:2]
         base["status"] = "observed" if results else "no_signal"

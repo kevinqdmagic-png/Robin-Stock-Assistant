@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T06:30:00+08:00",
+  "updated_at": "2026-10-14T15:15:00+08:00",
   "source": "repository_task_registry_app_only_modules",
   "items": [
     {
@@ -185,8 +185,8 @@
       "id": "early_pair",
       "title": "早盘9:50涨停潜力单股",
       "track": "market_review",
-      "summary": "最多推荐一只具备当日涨停潜力的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。 当前已接入自动运行与失败回执，但行情及可验证选股模型未就绪，不可声称已完成荐股。 新增腾讯真实时间戳行情与部分股票池观察报告；尚无回测、未形成交易荐股。",
-      "schedule_text": "北京时间09:50 · 部分股票池实时报价观察，未通过策略验证，不提供自动买点",
+      "summary": "Railway常驻服务独立于GitHub延迟调度，盘中按指定北京时间启动、行情中断重试，利用实际时间戳腾讯报价及已完成前复权日线进行部分研究池初筛；最多两只待复核观察股，APP显示来源与风险，不承诺每天有可靠荐股，不把未经验证策略当买入信号。",
+      "schedule_text": "北京时间09:50 · Railway驻留自动扫描（18分钟容错窗口） · 历史留档，未回测验证不产生正式买入指令",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260930T095000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=9;BYMINUTE=50\nEND:VEVENT",
       "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
@@ -194,15 +194,15 @@
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-04T04:12:10.686841+00:00",
-      "execution_mode": "live_partial_unvalidated_screen",
-      "effective_enabled": false
+      "execution_mode": "railway_resident_partial_observation",
+      "effective_enabled": true
     },
     {
       "id": "late_pair",
       "title": "下午14:40次日溢价单股",
       "track": "market_review",
-      "summary": "最多推荐一只争取下一交易日溢价的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。 当前已接入自动运行与失败回执，但行情及可验证选股模型未就绪，不可声称已完成荐股。 新增腾讯真实时间戳行情与部分股票池观察报告；尚无回测、未形成交易荐股。",
-      "schedule_text": "北京时间14:40 · 部分股票池实时报价观察，未通过策略验证，不提供自动买点",
+      "summary": "Railway常驻服务独立于GitHub延迟调度，盘中按指定北京时间启动、行情中断重试，利用实际时间戳腾讯报价及已完成前复权日线进行部分研究池初筛；最多两只待复核观察股，APP显示来源与风险，不承诺每天有可靠荐股，不把未经验证策略当买入信号。",
+      "schedule_text": "北京时间14:40 · Railway驻留自动扫描（18分钟容错窗口） · 历史留档，未回测验证不产生正式买入指令",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260929T144000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=14;BYMINUTE=40\nEND:VEVENT",
       "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
@@ -210,8 +210,8 @@
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-08T06:56:51.457997+00:00",
-      "execution_mode": "live_partial_unvalidated_screen",
-      "effective_enabled": false
+      "execution_mode": "railway_resident_partial_observation",
+      "effective_enabled": true
     },
     {
       "id": "high_elasticity_other_once",
