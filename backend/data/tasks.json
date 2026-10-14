@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T18:18:50.594Z",
+  "updated_at": "2026-10-14T19:01:58.328Z",
   "source": "repository_task_registry_app_only_modules",
   "items": [
     {
@@ -8,7 +8,7 @@
       "title": "上午打磨股票 APK",
       "track": "app_development",
       "summary": "界面、行情、历史记录、验证工具与安装检查",
-      "schedule_text": "独立调度已暂停 · 每周一09:00 · 奥克兰",
+      "schedule_text": "已暂停 · 历史界面打磨任务（不再定时执行；App仅显示北京时间）",
       "schedule": "BEGIN:VEVENT\nDTSTART:20260930T200000Z\nRRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
@@ -22,7 +22,7 @@
       "title": "高弹性一次性深度研究",
       "track": "high_elasticity",
       "summary": "保留先导、柯力、源杰等原研究，深入验证订单、利润、竞争与估值",
-      "schedule_text": "独立调度已暂停 · 10月1日20:00左右 · 奥克兰 · 一次性",
+      "schedule_text": "已暂停 · 历史一次性研究：北京时间10月1日约15:00",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T200000\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "flexible_schedule",
@@ -224,7 +224,7 @@
       "title": "其他板块高弹性双股研究",
       "track": "high_elasticity",
       "summary": "从其他板块筛选两只高弹性成长股；排除电池、AI、医药、航空航天及机器人。检验未来几年50/100倍的极端情景，核查成长依据、估值、风险和验证节点，完成后同步报告与个股研究理由。",
-      "schedule_text": "独立调度已暂停 · 10月6日07:30启动 · 09:00前提交 · 奥克兰 · 一次性",
+      "schedule_text": "已暂停 · 历史一次性研究：北京时间10月6日02:30启动、04:00前提交",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261006T073000\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
