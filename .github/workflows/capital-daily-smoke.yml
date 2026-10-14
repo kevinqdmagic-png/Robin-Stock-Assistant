@@ -1,0 +1,30 @@
+name: Capital behavior live day-K smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/daily_providers.py'
+      - 'backend/app.py'
+      - '.github/workflows/capital-daily-smoke.yml'
+      - 'scripts/smoke_daily_provider.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-live:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify 002068 live historical-data failover on deployed backend
+        run: |
+          python scripts/smoke_daily_provider.py --sha "${{ github.sha }}" --wait 240
+      - name: Store public status evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capital-daily-smoke-${{ github.run_id }}
+          path: capital-daily-smoke.json
+          retention-days: 30
