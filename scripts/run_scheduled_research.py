@@ -29,6 +29,8 @@ TASKS = ("market_review", "volume_price", "limitup_single", "combined_pair", "lo
 DAILY_URL = "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
 QUOTE_URL = "https://qt.gtimg.cn/"
 MIN_SAMPLE = 12
+MAX_UNIVERSE = 120
+LOW_POSITION_METHOD = "low_position_shape_proxy_v1"
 
 
 def eligible(now):
@@ -49,7 +51,26 @@ def candidates():
             code = str(row.get("code") or "")
             if len(code) == 6 and code.isdigit() and code.startswith(("00", "30", "60", "68")):
                 pool.append(code)
-    return list(dict.fromkeys(pool))[:90]
+    return list(dict.fromkeys(pool))[:MAX_UNIVERSE]
+
+
+def discover_candidates():
+    """Best-effort public activity leaders plus frozen catalog; never a full market census."""
+    local = candidates()
+    sources = ["local_research_catalog"]
+    errors = []
+    try:
+        # The existing intraday scanner already validates public turnover rankings.
+        from intraday_scheduler import target_universe
+        discovered, _names, failures = target_universe()
+        pool = list(dict.fromkeys([*local, *discovered]))[:MAX_UNIVERSE]
+        errors.extend(failures)
+        if len(pool) > len(local):
+            sources.append("eastmoney_public_turnover_ranking_best_effort")
+    except (ImportError, OSError, ValueError, TypeError) as exc:
+        pool = local
+        errors.append("universe_discovery:" + type(exc).__name__)
+    return pool, sources, errors
 
 
 def analyze_one(code, now, provider=tencent_daily):
@@ -78,10 +99,14 @@ def analyze_one(code, now, provider=tencent_daily):
 def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6):
     if not eligible(now):
         return {"eligible": False, "day": now.date().isoformat(), "reason": session_state(now)["code"]}
-    pool = list(dict.fromkeys(candidates() if pool is None else pool))[:90]
+    if pool is None:
+        pool, sources, discovery_errors = discover_candidates()
+    else:
+        sources, discovery_errors = ["explicit_supplied_universe"], []
+    pool = list(dict.fromkeys(pool))[:MAX_UNIVERSE]
     day_provider = day_provider or tencent_daily
     quote_provider = quote_provider or tencent_quotes
-    errors = Counter()
+    errors = Counter(discovery_errors)
     indexes = []
     try:
         quotes = quote_provider(INDEXES)
@@ -106,7 +131,8 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6):
     return {
         "eligible": True, "day": now.date().isoformat(), "indexes": indexes,
         "checked": len(pool), "fresh": len(observations), "observations": observations,
-        "errors": dict(errors), "universe": "existing_watchlist_and_archived_recommendations_only",
+        "errors": dict(errors), "universe": "research_catalog_plus_discoverable_public_turnover_leaders",
+        "universe_sources": sources,
         "full_a_share_coverage": False, "minute_orderflow_verified": False,
         "limit_up_board_verified": False, "strategy_validated": False,
     }
@@ -120,7 +146,7 @@ def build_reports(snapshot, now):
     rows = snapshot["observations"]
     sources = [QUOTE_URL, DAILY_URL]
     meta = (f"证据日期（北京时间）：{day}；实际扫描已关注研究池{snapshot['checked']}只；"
-            f"同日有效日线{fresh}只；并非全A扫描。数据错误：{snapshot['errors']}。"
+            f"同日有效日线{fresh}只；并非全A扫描。样本来源：{snapshot.get('universe_sources', [])}。数据错误：{snapshot['errors']}。"
             "样本范围、存活偏差与供应商不可用均可能影响判断。")
     ix = "；".join(f"{r['name'] or r['code']} {r['price']}（{r['pct']:+.2f}%）" for r in snapshot["indexes"])
     strong = [r for r in rows if r["relative_volume20"] >= 1.5 and
@@ -185,6 +211,21 @@ def build_reports(snapshot, now):
          "validation_status": "blocked_by_incomplete_dependencies", "run_status": "waiting",
          "analysis_completed": False, "eligible_for_integrated_research": False},
     ]
+    # Freeze contemporaneously observed features as machine-readable, immutable
+    # proxy signals. Forward outcomes are computed later without retroactive picks.
+    low_report = next(row for row in result if row["task_id"] == "low_position")
+    low_report["shape_method_version"] = LOW_POSITION_METHOD
+    low_report["signal_observations"] = [
+        {"code": row["code"], "date": day, "close_qfq": row["close"],
+         "day_pct_proxy": row["day_pct_proxy"],
+         "relative_volume20": row["relative_volume20"],
+         "close_location": row["close_location"],
+         "distance_ma20_pct": row["distance_ma20_pct"],
+         "distance_60d_low_pct": row["distance_60d_low_pct"],
+         "source": "tencent_qfq_daily", "eligible_for_trading": False}
+        for row in low_launch[:10]
+    ] if low_report["run_status"] == "partial" else []
+    low_report["security_st_and_listing_status_verified"] = False
     return result
 
 
