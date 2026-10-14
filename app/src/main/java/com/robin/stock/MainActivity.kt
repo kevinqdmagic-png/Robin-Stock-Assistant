@@ -1269,13 +1269,34 @@ class MainActivity : AppCompatActivity() {
             details.removeAllViews()
             fetch("/api/stocks/" + code + "/capital-behavior") { data, error ->
                 if (data == null || !data.optBoolean("ok")) {
-                    status.text = "日线不足或行情暂不可用，不生成猜测结论。" +
-                        (error?.let { "\\n" + it } ?: "")
+                    val available = data?.optInt("completed_bars", -1) ?: -1
+                    val minimum = data?.optInt("required_bars", 61) ?: 61
+                    val note = data?.optString("note") ?: ""
+                    val issues = data?.optJSONArray("provider_errors")
+                    val providers = (0 until (issues?.length() ?: 0))
+                        .map { i -> issues?.optString(i) ?: "" }
+                        .filter { it.isNotBlank() }.take(4).joinToString("、")
+                    val info = mutableListOf("未能完成 " + code + " 的主力行为分析。")
+                    if (available >= 0) info.add("已取得 " + available + " 根已完成日线，至少需要 " + minimum + " 根。")
+                    if (note.isNotBlank()) info.add(note)
+                    if (providers.isNotBlank()) info.add("数据源异常：" + providers)
+                    if (!error.isNullOrBlank()) info.add("网络问题：" + error)
+                    info.add("证据不足，不生成猜测结论；可稍后重试。")
+                    status.text = info.joinToString("\n")
                     return@fetch
                 }
+                val sourceName = when (data.optString("source")) {
+                    "tencent_qfq_daily" -> "腾讯财经 · 前复权日线"
+                    "tencent_unadjusted_daily" -> "腾讯财经 · 不复权日线"
+                    "eastmoney_kline" -> "东方财富 · 日线"
+                    else -> data.optString("source")
+                }
+                val sourceProblems = data.optJSONArray("provider_errors")
+                val fallbackNote = if (data.optString("source") == "tencent_qfq_daily" &&
+                    sourceProblems != null && sourceProblems.length() > 0) " · 已自动切换备用接口" else ""
                 status.text = "数据日期 " + data.optString("as_of") +
-                    " · 交易日线 " + data.optInt("daily_bars") +
-                    " · 来源 " + data.optString("source")
+                    " · 已完成日线 " + data.optInt("daily_bars") +
+                    " · 来源 " + sourceName + fallbackNote
                 details.addView(label(data.optString("stage_title") +
                     " · 探索性得分 " + data.optInt("exploratory_score") + "/100", 17f, true))
                 details.addView(label("得分尚未校准为上涨概率；不能识别具体主力的真实仓位。", 12f))
