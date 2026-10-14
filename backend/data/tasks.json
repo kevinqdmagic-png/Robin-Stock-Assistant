@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T18:15:39.391Z",
+  "updated_at": "2026-10-14T18:18:50.594Z",
   "source": "repository_task_registry_app_only_modules",
   "items": [
     {
@@ -107,17 +107,19 @@
       "id": "low_position",
       "title": "低位启动30天研究",
       "track": "low_position",
-      "summary": "低位启动与30交易日样本独立归档；App内单独查询研究和历史验证。新样本需经真实数据研究流程发布；目前无自动研究执行器。",
-      "schedule_text": "App独立研究模块 · 按需查看或分析 · 不参与每日定时任务",
-      "schedule": "APP_ON_DEMAND",
-      "timezone": "Pacific/Auckland",
+      "summary": "独立低位启动研究：从已有研究池自动识别60日低位放量启动的代理形态并留档。全A扫描、主力身份推断和30交易日完整跟踪尚未接通，不将形态样本直接认定可买入。",
+      "schedule_text": "北京时间17:17 / 18:17 / 19:17 · 独立低位启动研究池观察及失败重试（只完成部分取证）",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
-      "enabled": false,
+      "enabled": true,
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-09T01:37:26.659+08:00",
-      "execution_mode": "app_only_on_demand",
-      "effective_enabled": false
+      "execution_mode": "github_scheduled_partial_evidence",
+      "effective_enabled": false,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml"
     },
     {
       "id": "dragon_tiger",
