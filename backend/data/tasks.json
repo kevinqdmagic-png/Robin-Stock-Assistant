@@ -185,8 +185,8 @@
       "id": "early_pair",
       "title": "早盘9:50涨停潜力单股",
       "track": "market_review",
-      "summary": "最多推荐一只具备当日涨停潜力的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。 当前已接入自动运行与失败回执，但行情及可验证选股模型未就绪，不可声称已完成荐股。",
-      "schedule_text": "北京时间09:50 · GitHub自动取证检查已接入；未实现可核验的自动荐股，受阻会写入APP",
+      "summary": "最多推荐一只具备当日涨停潜力的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。 当前已接入自动运行与失败回执，但行情及可验证选股模型未就绪，不可声称已完成荐股。 新增腾讯真实时间戳行情与部分股票池观察报告；尚无回测、未形成交易荐股。",
+      "schedule_text": "北京时间09:50 · 部分股票池实时报价观察，未通过策略验证，不提供自动买点",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260930T095000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=9;BYMINUTE=50\nEND:VEVENT",
       "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
@@ -194,15 +194,15 @@
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-04T04:12:10.686841+00:00",
-      "execution_mode": "evidence_gate_only",
+      "execution_mode": "live_partial_unvalidated_screen",
       "effective_enabled": false
     },
     {
       "id": "late_pair",
       "title": "下午14:40次日溢价单股",
       "track": "market_review",
-      "summary": "最多推荐一只争取下一交易日溢价的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。 当前已接入自动运行与失败回执，但行情及可验证选股模型未就绪，不可声称已完成荐股。",
-      "schedule_text": "北京时间14:40 · GitHub自动取证检查已接入；未实现可核验的自动荐股，受阻会写入APP",
+      "summary": "最多推荐一只争取下一交易日溢价的股票；无高质量机会则空仓。记录行情时间、买点、失效条件及T+1至T+10卖出跟踪。 当前已接入自动运行与失败回执，但行情及可验证选股模型未就绪，不可声称已完成荐股。 新增腾讯真实时间戳行情与部分股票池观察报告；尚无回测、未形成交易荐股。",
+      "schedule_text": "北京时间14:40 · 部分股票池实时报价观察，未通过策略验证，不提供自动买点",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20260929T144000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=14;BYMINUTE=40\nEND:VEVENT",
       "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
@@ -210,7 +210,7 @@
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-08T06:56:51.457997+00:00",
-      "execution_mode": "evidence_gate_only",
+      "execution_mode": "live_partial_unvalidated_screen",
       "effective_enabled": false
     },
     {

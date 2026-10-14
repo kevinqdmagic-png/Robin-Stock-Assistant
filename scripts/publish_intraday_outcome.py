@@ -44,6 +44,7 @@ def record_outcome(ledger, outcome, run_id, recorded_at=None):
     explanations = {
         "no_live_feed_supplied": "未接入合规且经核验的当时行情，不能产生真实荐股",
         "snapshot_only_no_verified_selection_model": "行情快照存在但缺乏经验证的选股模型，不能冒充荐股完成",
+        "screened_watch_not_validated_strategy": "已获得真实时间戳行情并进行观察候选筛选，但尚无样本外策略验证；不是交易推荐",
         "outside_intraday_execution_window": "GitHub定时调度延迟，已错过有效选股窗口",
         "not_a_verified_trading_session": "非已核验的交易时段，未运行选股",
     }
@@ -54,12 +55,16 @@ def record_outcome(ledger, outcome, run_id, recorded_at=None):
     existing = next((row for row in original if row.get("id") == receipt_id), None)
     if existing is not None:
         return ledger, False
+    report_id = outcome.get("observation_report_id")
+    if report_id is not None and (not isinstance(report_id, str) or
+                                  not report_id.startswith("intraday-watch-" + day.replace("-", "") + "-")):
+        raise ValueError("unverified_report_link")
     receipt = {
         "id": receipt_id, "run_id": "github-actions-" + str(run_id),
         "task_id": slot, "date": day, "trigger": "scheduled",
         "started_at": started_at.isoformat(), "recorded_at": now.isoformat(),
         "status": event_status, "summary": summary,
-        "report_ids": [], "recommendation_ids": [],
+        "report_ids": [report_id] if report_id else [], "recommendation_ids": [],
         "sources": [source], "analysis_completed": False,
         "eligible_for_integrated_research": False,
         "reason_code": reason,

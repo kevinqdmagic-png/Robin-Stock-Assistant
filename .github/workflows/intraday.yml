@@ -30,6 +30,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install quote HTTP client
+        run: python -m pip install requests
+      - name: Collect timestamped public-market observations
+        run: python scripts/collect_intraday_feed.py --output intraday_feed.json
       - name: Evaluate market readiness, without fabricated picks
         env:
           SCHEDULE: ${{ github.event.schedule }}
@@ -38,7 +42,21 @@ jobs:
           if [ "$SCHEDULE" = "50 1 * * 1-5" ]; then SLOT=early_pair
           elif [ "$SCHEDULE" = "40 6 * * 1-5" ]; then SLOT=late_pair
           else SLOT="$INPUT_SLOT"; fi
-          python scripts/run_intraday_research.py --slot "$SLOT" --output intraday_outcome.json
+          python scripts/run_intraday_research.py --slot "$SLOT" --feed-file intraday_feed.json --output intraday_outcome.json
+      - name: Publish explicitly non-actionable observations
+        env:
+          GH_RUN_ID: ${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ORIGINAL_RESEARCH_BLOB=$(git rev-parse HEAD:backend/data/research.json)
+          python scripts/publish_intraday_observation.py --outcome intraday_outcome.json --run-id "$GH_RUN_ID"
+          if grep -q 'observation_report_id' intraday_outcome.json; then
+            python scripts/safe_github_update.py \
+              "${{ github.repository }}" \
+              backend/data/research.json backend/data/research.json \
+              --base-sha "$ORIGINAL_RESEARCH_BLOB" \
+              --message "data: archive non-actionable intraday observation"
+          fi
       - name: Append verified, honest task status to the APP ledger
         id: record
         env:
@@ -58,6 +76,7 @@ jobs:
         with:
           name: intraday-evidence-${{ github.run_id }}
           path: |
+            intraday_feed.json
             intraday_outcome.json
             intraday_publish_status.json
           retention-days: 90

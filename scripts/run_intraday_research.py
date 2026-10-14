@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Intraday research execution gate. No unsupported stock picks or archive writes.
+"""Intraday research execution gate. Live observed candidates, not trading picks.
 
 Runs in GitHub Actions at 09:50/14:40 Beijing time. Produces an auditable
 JSON outcome; actual selection requires a separately verified market-data
@@ -73,7 +73,50 @@ def validate_feed(feed, now):
             value = quote.get(key)
             if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
                 return "missing_market_evidence"
+        try:
+            qt = datetime.fromisoformat(quote["as_of"])
+        except (KeyError, TypeError, ValueError):
+            return "invalid_quote_timestamp"
+        if qt.tzinfo is None:
+            return "invalid_quote_timestamp"
+        delta = (now - qt.astimezone(CN_TZ)).total_seconds()
+        if not 0 <= delta <= 300 or qt.astimezone(CN_TZ).date() != now.date():
+            return "stale_or_future_snapshot"
     return None
+
+
+def watch_candidates(quotes):
+    """Explicit reproducible heuristic, never represented as a validated alpha model."""
+    eligible = []
+    for q in quotes:
+        code = q["code"]
+        if code.startswith(("4", "8", "92")):  # BSE: different limit/liquidity rules
+            continue
+        pct = q["pct"]
+        board_max = 20 if code.startswith(("30", "68")) else 10
+        minimum = 3 if board_max == 10 else 4
+        maximum = board_max - 1.0
+        if not minimum <= pct <= maximum:
+            continue
+        if (q["turnover"] < 80000000 or q.get("turnover_ratio", 0) < 2 or
+                q.get("turnover_ratio", 0) > 35):
+            continue
+        vr = q.get("volume_ratio")
+        if vr is not None and vr < 1.1:
+            continue
+        ranked = round(pct * 2 + min(q["turnover"] / 100000000, 50) * 0.3 +
+                       min(q.get("turnover_ratio") or 0, 30) * 0.2 +
+                       min(vr or 0, 10) * 1.5, 2)
+        eligible.append({
+            "code": code, "name": q["name"], "price": q["price"],
+            "pct": pct, "amount_yi": round(q["turnover"] / 1e8, 2),
+            "turnover_ratio": q.get("turnover_ratio"), "volume_ratio": vr,
+            "as_of": q["as_of"], "source": q["source"],
+            "heuristic_score": ranked,
+            "note": "部分股票池中涨幅、成交额及换手筛选，仅为观察候选；未核验板块情绪、盘口承接、涨停价、可成交性或样本外胜率，禁止视为买点。",
+        })
+    eligible.sort(key=lambda r: (-r["heuristic_score"], r["code"]))
+    return eligible[:5]
 
 
 def evaluate(slot, now=None, feed=None):
@@ -97,9 +140,15 @@ def evaluate(slot, now=None, feed=None):
         outcome.update(status="insufficient_evidence",
                        reason=feed_issue or "snapshot_only_no_verified_selection_model")
         if feed_issue is None:
+            outcome["candidate_watch"] = watch_candidates(feed["quotes"])
+            outcome["reason"] = "screened_watch_not_validated_strategy"
             outcome["snapshot"] = {"source": feed["source"], "as_of": feed["as_of"],
                                    "quote_count": len(feed["quotes"]),
-                                   "validation": "format_and_freshness_only"}
+                                   "validation": "format_and_freshness_only",
+                                   "coverage": feed.get("scope", "unknown"),
+                                   "full_market_coverage": False,
+                                   "requested_count": feed.get("requested_count"),
+                                   "provider_errors": feed.get("provider_errors", [])}
     return outcome
 
 
