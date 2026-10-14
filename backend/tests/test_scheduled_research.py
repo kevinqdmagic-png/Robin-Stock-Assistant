@@ -56,15 +56,15 @@ class ScheduledResearchTests(unittest.TestCase):
         self.assertFalse(snapshot["full_a_share_coverage"])
         reports, runs, info = mod.stage(self.reports, self.runs, self.registry, snapshot, "12345", self.now)
         self.assertEqual(info["statuses"], {"market_review": "partial", "volume_price": "partial",
-                                             "limitup_single": "partial", "combined_pair": "waiting"})
-        self.assertEqual(len(reports["items"]), 4)
-        self.assertEqual(len(runs["items"]), 4)
+                                             "limitup_single": "partial", "combined_pair": "waiting", "low_position": "partial"})
+        self.assertEqual(len(reports["items"]), 5)
+        self.assertEqual(len(runs["items"]), 5)
         self.assertTrue(all(not r["analysis_completed"] for r in runs["items"]))
         self.assertTrue(all(not r["eligible_for_integrated_research"] for r in runs["items"]))
         self.assertTrue(all(not r["report_ids"] == [] for r in runs["items"]))
         self.assertEqual(mod.stage(reports, runs, self.registry, snapshot, "12345", self.now)[2]["changed_reports"], False)
         more = mod.stage(reports, runs, self.registry, snapshot, "12346", self.now)[1]
-        self.assertEqual(len(more["items"]), 8)
+        self.assertEqual(len(more["items"]), 10)
 
     def test_provider_outage_creates_blocked_evidence_not_fake_picks(self):
         snapshot = {"eligible": True, "day": "2026-10-15", "indexes": [],
@@ -74,6 +74,7 @@ class ScheduledResearchTests(unittest.TestCase):
         _, runs, info = mod.stage(self.reports, self.runs, self.registry, snapshot, "12347", self.now)
         self.assertEqual(info["statuses"]["volume_price"], "blocked")
         self.assertEqual(info["statuses"]["combined_pair"], "waiting")
+        self.assertEqual(info["statuses"]["low_position"], "blocked")
         self.assertFalse(any(row["status"] == "completed" for row in runs["items"]))
 
 
