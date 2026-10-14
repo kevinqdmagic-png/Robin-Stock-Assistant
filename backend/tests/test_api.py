@@ -9,6 +9,34 @@ import market_insights
 
 
 class APITests(unittest.TestCase):
+    def test_tencent_fallback_uses_only_fresh_timestamped_partial_watchlist(self):
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        now = datetime(2026, 10, 14, 14, 40, tzinfo=ZoneInfo("Asia/Shanghai"))
+        one = {"code": "300450", "name": "先导智能", "price": 37.88, "pct": 4.8,
+               "turnover": 10.2, "volume_ratio": 1.5,
+               "as_of": now.isoformat(), "source": "tencent_public"}
+        stale = dict(one, code="603662", as_of="2026-10-14T14:20:00+08:00")
+        with patch("app.load_document", side_effect=[
+                {"items": [{"code": "300450"}, {"code": "603662"}]},
+                {"items": []}]), patch("app.tencent_quotes", return_value=[one, stale]):
+            response = api._tencent_watchlist_candidates(now=now)
+        self.assertTrue(response["ok"])
+        self.assertEqual(response["candidate_count"], 1)
+        self.assertIsNone(response["candidates"][0]["amount"])
+        self.assertFalse(response["breadth_complete"])
+        self.assertFalse(response["selection_validated"])
+        self.assertEqual(response["source"], "tencent_timestamped_watchlist")
+
+    def test_candidate_endpoint_transparently_falls_back_to_tencent(self):
+        expected = {"ok": True, "status": "partial_live_watchlist", "candidates": [],
+                    "source": "tencent_timestamped_watchlist"}
+        with patch("app._eastmoney_candidate_frame", side_effect=ValueError("502")), \
+             patch("app._tencent_watchlist_candidates", return_value=dict(expected)):
+            response = api.live_candidates()
+        self.assertEqual(response["status"], "partial_live_watchlist")
+        self.assertIn("eastmoney_candidate:ValueError", response["provider_errors"])
+
     def test_partial_breadth_and_st_exclusion_are_distinct(self):
         rows = pd.DataFrame([
             {"code": "600000", "name": "A", "price": 10, "pct": 1, "amount": 1e8},

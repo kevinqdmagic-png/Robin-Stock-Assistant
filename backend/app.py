@@ -330,7 +330,12 @@ def _eastmoney_spot():
         logger.warning("Eastmoney first page failed: %s", exc)
         return pd.DataFrame(), None, False, [f"eastmoney_direct:{type(exc).__name__}"]
 
-    pages = max(1, (total + page_size - 1) // page_size)
+    intended_pages = max(1, (total + page_size - 1) // page_size)
+    # Public endpoint has repeatedly rejected most of ~60-page bursts.
+    # Bound concurrent load and explicitly label the dataset partial instead.
+    pages = min(12, intended_pages)
+    if pages < intended_pages:
+        errors.append(f"eastmoney_pagination_capped:{pages}/{intended_pages}")
     all_items = list(first)
     failed_pages = []
 
@@ -375,7 +380,7 @@ def _eastmoney_spot():
         return pd.DataFrame(), None, False, errors + ["eastmoney_direct:empty"]
 
     unique_codes = frame["code"].astype(str).nunique()
-    complete = not failed_pages and (total <= 0 or unique_codes >= int(total * 0.97))
+    complete = pages == intended_pages and not failed_pages and (total <= 0 or unique_codes >= int(total * 0.97))
     source = "eastmoney_direct_parallel" if complete else "eastmoney_partial"
     return frame, source, complete, errors
 
@@ -913,6 +918,63 @@ def quotes(codes: str = ""):
         "provider_errors": errors,
     }
 
+
+
+def _tencent_watchlist_candidates(limit=20, now=None):
+    """Independent APP fallback over a disclosed watchlist, never full-market.
+
+    Tencent quotes carry their own market timestamps but do not provide our
+    complete independent full-market amount/breadth snapshot. Do not fabricate
+    an amount or imply that this is a trade-ready selection signal.
+    """
+    now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
+    if session_state(now)["code"] != "trading":
+        raise ValueError("watchlist_live_data_only_during_market_session")
+    codes = []
+    for filename, env in (("research_stocks.json", "ROBIN_RESEARCH_STOCKS_FILE"),
+                          ("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")):
+        for item in load_document(filename, env)["items"]:
+            code = str(item.get("code") or "")
+            if len(code) == 6 and code.isascii() and code.isdigit() and code not in codes:
+                codes.append(code)
+    if not codes:
+        raise ValueError("watchlist_candidate_universe_empty")
+    quotes = tencent_quotes([stock_symbol(code) for code in codes[:60]])
+    candidates = []
+    for q in quotes:
+        try:
+            stamp = datetime.fromisoformat(q["as_of"])
+            age = (now - stamp.astimezone(CN_TZ)).total_seconds()
+            price, pct = float(q["price"]), float(q["pct"])
+        except (KeyError, ValueError, TypeError):
+            continue
+        if stamp.tzinfo is None or not 0 <= age <= 300 or price <= 0:
+            continue
+        turnover = _num(q.get("turnover"))
+        vr = _num(q.get("volume_ratio"))
+        # Transparent observation ranking, with no fabricated成交额/成交量.
+        score = round(max(0, min(100, 40 + pct * 3 +
+                      min(turnover or 0, 25) * 0.7 +
+                      min(vr or 0, 10) * 2)), 1)
+        candidates.append({
+            "code": q["code"], "name": q["name"], "price": price,
+            "pct": pct, "amount": None, "amount_verified": False,
+            "volume_ratio": vr, "turnover": turnover, "score": score,
+            "as_of": q["as_of"], "source": q.get("source", "tencent_public"),
+            "signal_verified": False,
+        })
+    candidates.sort(key=lambda x: (-x["score"], x["code"]))
+    if not candidates:
+        raise ValueError("no_fresh_watchlist_quotes")
+    return {
+        "ok": True, "status": "partial_live_watchlist", "time_cn": now.isoformat(),
+        "source": "tencent_timestamped_watchlist", "scanned": len(candidates),
+        "requested": len(codes[:60]), "candidate_count": min(limit, len(candidates)),
+        "candidates": candidates[:limit], "breadth_complete": False,
+        "selection_validated": False, "universe": "research_watchlist_only",
+        "warning": "仅观察研究池，成交额缺失且未验证交易信号；不是全市场行情或荐股",
+    }
+
 @app.get("/api/candidates")
 def live_candidates(limit: int = 20):
     limit = max(1, min(50, int(limit)))
@@ -936,7 +998,13 @@ def live_candidates(limit: int = 20):
             "provider_errors": errors,
         }
     except Exception as exc:
-        logger.warning("Live candidate refresh failed: %s", exc)
+        logger.warning("Eastmoney live candidate refresh failed: %s", exc)
+        try:
+            fallback = _tencent_watchlist_candidates(limit)
+            fallback["provider_errors"] = ["eastmoney_candidate:" + type(exc).__name__]
+            return fallback
+        except Exception as fallback_exc:
+            logger.warning("Tencent watchlist candidate fallback failed: %s", fallback_exc)
         with _market_lock:
             cached = _market_cache["payload"]
             age = time.time() - _market_cache["saved_at"] if cached else None
