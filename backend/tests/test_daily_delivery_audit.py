@@ -16,7 +16,7 @@ CN = ZoneInfo("Asia/Shanghai")
 
 class DeadlineAuditTests(unittest.TestCase):
     def setUp(self):
-        self.now = datetime(2026, 10, 14, 19, 5, tzinfo=CN)
+        self.now = datetime(2026, 10, 14, 20, 45, tzinfo=CN)
         self.tasks = {"items": [{"id": "market_review", "enabled": True},
                                 {"id": "quant_research", "enabled": False},
                                 {"id": "early_pair", "enabled": True}]}
@@ -39,7 +39,7 @@ class DeadlineAuditTests(unittest.TestCase):
     def test_reject_before_deadline(self):
         with self.assertRaises(ValueError):
             audit.audit_day(self.ledger, self.tasks, self.reports,
-                            datetime(2026, 10, 14, 18, 59, tzinfo=CN))
+                            datetime(2026, 10, 14, 20, 39, tzinfo=CN))
 
     def test_disabled_quant_not_required(self):
         updated, _ = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
