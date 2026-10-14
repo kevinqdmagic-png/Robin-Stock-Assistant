@@ -56,9 +56,24 @@ class DailyCapitalWatchTests(unittest.TestCase):
                              pool=codes,loader=lambda *args,**kw: bars())
         self.assertEqual(result["scanned"],6)
         self.assertEqual(result["valid_daily"],6)
-        self.assertEqual(result["status"],"completed")
+        self.assertEqual(result["status"],"no_matches")
+        self.assertEqual(result["candidates"], [])
+
+    def test_more_than_five_scored_observations_are_capped(self):
+        from unittest.mock import patch
+        codes = [f"60{i:04d}" for i in range(9)]
+        def fake_assess(code, day, now, loader):
+            return "examined", {
+                "code": code, "as_of": day, "stage": "accumulation_candidate",
+                "score": 65, "source": "tencent_qfq_daily",
+                "evidence": ["完整日线代理"], "risk": ["不是主力账户识别"],
+            }
+        with patch.object(module, "assess", side_effect=fake_assess):
+            result = module.scan(now=datetime(2026,10,13,18,10,tzinfo=CN),
+                                 pool=codes, loader=lambda *args, **kwargs: [])
+        self.assertEqual(result["status"], "completed")
         self.assertEqual(len(result["candidates"]), 5)
-        self.assertTrue(all(x["signal_identity_verified"] is False for x in result["candidates"]))
+        self.assertEqual(result["matching_before_limit"], 9)
 
     def test_zero_matches_still_not_fabricated(self):
         from unittest.mock import patch
