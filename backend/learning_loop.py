@@ -92,7 +92,7 @@ def _corporate_action_issues(bars, anchor, end):
     return False
 
 
-def evaluate(record, raw_bars, source, *, as_of):
+def evaluate(record, raw_bars, source, *, as_of, horizons=HORIZONS):
     """Price-observation cohorts only. Never claim filled orders or executable return."""
     anchor_str = record.get("date")
     output = {
@@ -134,7 +134,7 @@ def evaluate(record, raw_bars, source, *, as_of):
             return {**output, "status": "quarantine_corporate_action_or_price_disagreement"}
         output.update(anchor_date=anchor.isoformat(), anchor_close=round(base["close"], 4),
                       feature_snapshot=_features_before_anchor(bars, anchor))
-        for horizon in HORIZONS:
+        for horizon in horizons:
             maturity = nth_session_after(anchor, horizon)
             if maturity is None:
                 output["horizons"].append({"h": horizon, "status": "unknown_calendar"})
@@ -286,7 +286,8 @@ def build_snapshot(recommendations, fetch_daily, *, now, low_position_observatio
     for record in shape_signals:
         raw, source, errors = cache[record["code"]]
         completed = [r for r in raw if r.get("date", "") <= as_of.isoformat()]
-        item = evaluate(record, completed, source, as_of=as_of)
+        item = evaluate(record, completed, source, as_of=as_of,
+                        horizons=(1, 2, 5, 10, 30))
         item["provider_errors"] = errors
         item["is_recommendation"] = False
         item["signal_source_report_id"] = record.get("signal_source_report_id")
