@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     private var updatePollTask: Runnable? = null
     private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
-    private val notifyTaskIds = setOf("market_review", "volume_price", "combined_pair", "limitup_single", "early_pair", "late_pair", "low_position", "dragon_tiger", "capital_behavior")
+    private val notifyTaskIds = setOf("market_review", "volume_price", "combined_pair", "limitup_single", "early_pair", "late_pair", "low_position", "dragon_tiger", "capital_behavior", "capital_watch_daily")
     private val red = Color.rgb(218, 45, 61)
     private val green = Color.rgb(20, 143, 102)
     private var overviewBox: LinearLayout? = null

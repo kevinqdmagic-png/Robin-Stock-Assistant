@@ -75,6 +75,41 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
                 changed.add(task.optString("title", id))
             }
         }
+        // A separate append-only archive drives daily accumulation observations.
+        // Check it independently of /api/tasks: it is not a legacy research report.
+        // This is best-effort Android polling, not guaranteed realtime server push.
+        try {
+            val url = URL("https://robin-stock-api-production.up.railway.app/api/capital-watch")
+            val conn = (url.openConnection() as HttpURLConnection).apply {
+                connectTimeout = 8000
+                readTimeout = 8000
+                requestMethod = "GET"
+            }
+            val text = try {
+                if (conn.responseCode in 200..299)
+                    conn.inputStream.bufferedReader().use { it.readText() } else ""
+            } finally {
+                conn.disconnect()
+            }
+            if (text.isNotBlank()) {
+                val watch = JSONObject(text)
+                val latest = watch.optJSONObject("latest")
+                if (watch.optBoolean("ok") && latest != null &&
+                    latest.optString("status") == "completed") {
+                    val id = latest.optString("id")
+                    val count = latest.optJSONArray("candidates")?.length() ?: 0
+                    if (id.isNotBlank() && count > 0) {
+                        updated.put("capital_watch_daily", id)
+                        if (previous != null && old.optString("capital_watch_daily") != id) {
+                            changed.add("每日疑似吸筹观察名单更新：" + count + "只")
+                        }
+                    }
+                }
+            }
+        } catch (_: Exception) {
+            // Keep prior versions; quote-provider failures must not suppress
+            // the other research notifications or reset the last-notified ID.
+        }
         if (updated.length() == 0) return Result.success()
         // Don't silently consume updates while notifications are disallowed.
         val canNotify = Build.VERSION.SDK_INT < 33 ||
