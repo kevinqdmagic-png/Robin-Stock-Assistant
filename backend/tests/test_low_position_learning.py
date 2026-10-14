@@ -80,6 +80,8 @@ class LowPositionForwardTests(unittest.TestCase):
         self.assertEqual(snap["low_position_summary"]["sample_count"], 1)
         self.assertEqual(snap["low_position_summary"]["horizons"]["2"]["matured_count"], 1)
         self.assertEqual(snap["low_position_summary"]["horizons"]["10"]["matured_count"], 0)
+        self.assertEqual(snap["low_position_summary"]["horizons"]["30"]["matured_count"], 0)
+        self.assertIn(30, [p["h"] for p in snap["low_position_evaluations"][0]["horizons"]])
         self.assertFalse(snap["low_position_summary"]["selection_rules_changed"])
         self.assertFalse(snap["trade_execution_verified"])
         low = snap["low_position_evaluations"][0]
