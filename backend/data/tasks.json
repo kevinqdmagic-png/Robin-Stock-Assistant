@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T19:01:58.328Z",
-  "source": "repository_task_registry_app_only_modules",
+  "updated_at": "2026-10-14T19:35:54+00:00",
+  "source": "repository_task_registry_app_and_external_research_snapshot",
   "items": [
     {
       "id": "apk_polish",
@@ -239,10 +239,10 @@
       "id": "limitup_single",
       "title": "每日打板一股",
       "track": "market_review",
-      "summary": "独立打板一股原计划在奥克兰08:00执行。现先接入北京时间盘后局部数据核验；未取得高度板/晋级板/封单及可成交证据，盘前计划仍未接通，不发布正式打板指令。",
-      "schedule_text": "北京时间17:17 / 18:17 / 19:17 · GitHub盘后局部证据研究和补偿重试（可能延迟）；完整任务尚待接通",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
-      "timezone": "Asia/Shanghai",
+      "summary": "独立盘前打板一股完整研究：先核验上一交易日情绪、高度、空间和逐层晋级，再给最多一只条件候选或空仓；当前仅模拟前推。",
+      "schedule_text": "北京时间03:00（新西兰夏令时）/04:00（冬令时）· 工作日；按Pacific/Auckland 08:00锚定",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261008T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
@@ -250,11 +250,12 @@
       "include_legacy_reports": false,
       "research_rule_version": "limitup_single_v2",
       "research_rule_effective_scope": "下一轮新候选起；2026-10-08已冻结v1候选保持原条件",
-      "configuration_confirmed_at": "2026-10-07T21:57:47.323830+00:00",
-      "execution_mode": "github_scheduled_partial_evidence",
-      "effective_enabled": false,
+      "configuration_confirmed_at": "2026-10-14T19:35:54+00:00",
+      "execution_mode": "external_scheduled_full_research_with_github_partial_fallback",
+      "effective_enabled": true,
       "partial_executor_enabled": true,
-      "executor_workflow": ".github/workflows/scheduled-research.yml"
+      "executor_workflow": ".github/workflows/scheduled-research.yml",
+      "full_executor_enabled": true
     },
     {
       "id": "capital_watch_daily",

@@ -1502,6 +1502,37 @@
       "backfill_recorded_at": "2026-10-14T15:18:40.396Z",
       "original_deadline_met": false,
       "retrospective_only": true
+    },
+    {
+      "id": "limitup-single-20261015-scheduled-192654-completed",
+      "run_id": "limitup-single-20261015-scheduled-192654",
+      "task_id": "limitup_single",
+      "date": "2026-10-15",
+      "trigger": "scheduled",
+      "started_at": "2026-10-14T19:26:54+00:00",
+      "recorded_at": "2026-10-14T19:35:54+00:00",
+      "completed_at": "2026-10-14T19:35:54+00:00",
+      "status": "completed",
+      "summary": "完成T=10月14日情绪、高度、空间、逐层晋级及6只真实备选复核；退潮与可成交证据不足，今日空仓。",
+      "report_ids": [
+        "limitup-single-20261015-review-v2"
+      ],
+      "recommendation_ids": [],
+      "research_rule_version": "limitup_single_v2",
+      "analysis_completed": true,
+      "delivery_status": "repository_pending",
+      "sources": [
+        "docs/research/market-review-2026-10-14-evidence.json",
+        "https://www.dabanke.com/index-20261012.html",
+        "https://www.dabanke.com/index-20261013.html",
+        "https://www.dabanke.com/index-20261014.html",
+        "https://push2ex.eastmoney.com/getTopicZTPool?date=20261014",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-14/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://qt.gtimg.cn/",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/market-review-2026-10-14-evidence.json",
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml"
+      ]
     }
   ]
 }

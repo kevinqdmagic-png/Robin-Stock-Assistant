@@ -1,5 +1,11 @@
 # Robin stock assistant: research contract and holiday progress
 
+## 2026-10-15：当前执行规则覆盖旧编排
+
+`docs/current-execution.md`记录当前有效编排。量化痕迹`quant_research`已取消，不再研究、跟踪或作为综合前置；历史记录只作审计保留。盘后综合决策只要求同一已完成交易日的`market_review`、`volume_price`、`low_position`和`dragon_tiger`四份完整报告及完成回执。自动扫描、局部证据、历史验证和`eligible_for_integrated_research=false`报告不能替代完整研究。低位与龙虎榜分别归档，联合只表示编排；量价必须独立完成。
+
+`limitup_single`保持独立`limitup_single_v2`前推实验，最多一只条件候选，证据不足必须空仓。APP只展示归档与统计，不内置大模型或自动权重训练。任务与生产状态以真实回执、CI、明确测试SHA、Railway终态及公开API读回为准；定时到点、waiting、partial或提交代码均不等于APP已同步。本节覆盖下文早期“五项前置”、量化模块及旧执行编排，但不删除历史说明。
+
 ## 0.6.0：自选股研究理由与历史
 
 用户要求把此前高弹性及AI产业链研究股加入自选，并点开查看理由。`backend/data/research_stocks.json`是研究观察档案，和可执行每日双标的`recommendations.json`分开。
