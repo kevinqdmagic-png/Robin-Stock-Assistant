@@ -1,4 +1,4 @@
-name: Intraday research evidence gate
+name: Intraday research and auditable result
 on:
   schedule:
     # GitHub cron uses UTC. Beijing 09:50 / 14:40 (UTC+8).
@@ -14,19 +14,23 @@ on:
           - early_pair
           - late_pair
 permissions:
-  contents: read
+  contents: write
 concurrency:
-  group: intraday-research-${{ github.event.schedule || inputs.slot || github.run_id }}
+  # Two slots share a single append-only receipt ledger; never race writes.
+  group: intraday-receipt-writer
   cancel-in-progress: false
 jobs:
-  evidence-gate:
+  evidence-and-receipt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Check market calendar and source readiness
+      - name: Evaluate market readiness, without fabricated picks
         env:
           SCHEDULE: ${{ github.event.schedule }}
           INPUT_SLOT: ${{ inputs.slot }}
@@ -35,9 +39,28 @@ jobs:
           elif [ "$SCHEDULE" = "40 6 * * 1-5" ]; then SLOT=late_pair
           else SLOT="$INPUT_SLOT"; fi
           python scripts/run_intraday_research.py --slot "$SLOT" --output intraday_outcome.json
-      - name: Keep auditable outcome, without changing frozen archives
+      - name: Append verified, honest task status to the APP ledger
+        id: record
+        env:
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          ORIGINAL_BLOB=$(git rev-parse HEAD:backend/data/task_runs.json)
+          python scripts/publish_intraday_outcome.py --outcome intraday_outcome.json --run-id "$GH_RUN_ID"
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            backend/data/task_runs.json backend/data/task_runs.json \
+            --base-sha "$ORIGINAL_BLOB" \
+            --message "ops: publish audited intraday task outcome"
+      - name: Upload evidence even when subsequent steps fail
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: intraday-evidence-${{ github.run_id }}
-          path: intraday_outcome.json
+          path: |
+            intraday_outcome.json
+            intraday_publish_status.json
           retention-days: 90
+      - name: Fail the workflow when stock research was not completed
+        if: steps.record.outcome == 'success'
+        run: |
+          python -c 'import json,sys; result=json.load(open("intraday_outcome.json")); sys.exit(0 if result["status"] == "skipped" and result.get("reason") == "not_a_verified_trading_session" else 1)'

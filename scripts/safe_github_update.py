@@ -33,6 +33,14 @@ def request(method, url, token, payload=None):
 
 
 def validate_archive_change(path, old_bytes, new_bytes):
+    if path == 'backend/data/task_runs.json':
+        from task_center import validate_runs
+        from research_archive import load_document
+        tasks = load_document('tasks.json', 'ROBIN_TASKS_FILE')
+        old = json.loads(old_bytes.decode('utf-8'))
+        new = json.loads(new_bytes.decode('utf-8'))
+        validate_runs(new, tasks)
+        verify_append_only(old, new, 'task_runs')
     if path == 'backend/data/learning.json':
         old = validate_learning_archive(json.loads(old_bytes.decode('utf-8')))
         updated = validate_learning_archive(json.loads(new_bytes.decode('utf-8')))
