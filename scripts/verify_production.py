@@ -73,7 +73,14 @@ while True:
                result.get("strategy_validated") is not False or
                result.get("recommendation_executable") is not False
                for result in (live_1440, live_0950)):
-            raise RuntimeError("resident intraday scheduler or persistent store not ready")
+            raise RuntimeError("resident intraday scheduler or persistent store not ready: " +
+                               repr({"1440_started":live_1440.get("scheduler_started"),
+                                     "1440_writable":live_1440.get("store_writable"),
+                                     "1440_storage":live_1440.get("storage"),
+                                     "1440_backtest":live_1440.get("strategy_validated"),
+                                     "1440_executable":live_1440.get("recommendation_executable"),
+                                     "0950_started":live_0950.get("scheduler_started"),
+                                     "0950_writable":live_0950.get("store_writable")}))
         if live_1440.get("slot") != "late_pair" or live_0950.get("slot") != "early_pair":
             raise RuntimeError("resident intraday slot mismatch")
         reports = all_rows("/api/research")
