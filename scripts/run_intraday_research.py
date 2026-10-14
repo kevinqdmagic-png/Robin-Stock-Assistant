@@ -7,6 +7,7 @@ adapter, which is intentionally not fabricated here.
 """
 import argparse
 from datetime import datetime
+import math
 import json
 from pathlib import Path
 import sys
@@ -71,8 +72,17 @@ def validate_feed(feed, now):
             return "missing_security_name"
         for key in ("previous_close", "volume", "turnover"):
             value = quote.get(key)
-            if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
                 return "missing_market_evidence"
+        for key in ("pct", "turnover_ratio"):
+            value = quote.get(key)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                return "missing_market_evidence"
+        if not -35 <= quote["pct"] <= 35 or not 0 <= quote["turnover_ratio"] <= 100:
+            return "incompatible_market_evidence"
+        actual_pct = (price / quote["previous_close"] - 1) * 100
+        if abs(actual_pct - quote["pct"]) > 0.4:
+            return "incompatible_market_evidence"
         try:
             qt = datetime.fromisoformat(quote["as_of"])
         except (KeyError, TypeError, ValueError):

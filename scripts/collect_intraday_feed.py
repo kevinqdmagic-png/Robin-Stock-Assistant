@@ -2,7 +2,7 @@
 """Fetch a timestamped partial A-share candidate universe; no simulated prices.
 
 Universe consists of versioned app research/watch stocks + recent historical
-recommendation codes, optionally supplemented by Sina turnover leaders.
+recommendation codes, supplemented by Eastmoney and Sina turnover leaders.
 Independent Tencent spot quotes are required to validate every observed row.
 A partial universe is NEVER advertised as a whole-market scan.
 """
@@ -12,7 +12,6 @@ import json
 from pathlib import Path
 import re
 import sys
-from urllib.parse import urlencode
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +22,10 @@ import requests
 CN = ZoneInfo("Asia/Shanghai")
 SOURCE = "https://qt.gtimg.cn/q="
 SINA = "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData"
+EASTMONEY = ("https://push2.eastmoney.com/api/qt/clist/get",
+             "https://push2delay.eastmoney.com/api/qt/clist/get")
+MARKET_SCOPE = "m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23,m:0+t:81+s:2048"
+
 
 
 def local_universe(root=ROOT):
@@ -37,6 +40,41 @@ def local_universe(root=ROOT):
             if re.fullmatch(r"[0-9]{6}", code) and code not in codes:
                 codes.append(code)
     return codes
+
+
+def eastmoney_leaders(client=requests, limit=100):
+    """Discovery candidates only; no Eastmoney price is used without fresh Tencent verification.
+
+    The public website endpoints can return HTTP 502 or IP-based throttling.
+    We only request one page from a preferred and a failover hostname.
+    """
+    params = {
+        "pn": 1, "pz": limit, "po": 1, "np": 1, "ut": "bd1d9ddb04089700cf9c27f6f7426281",
+        "fltt": 2, "invt": 2, "fid": "f6", "fs": MARKET_SCOPE,
+        "fields": "f12,f14,f6",
+    }
+    failures = []
+    for url in EASTMONEY:
+        try:
+            response = client.get(url, params=params, headers={
+                "User-Agent": "Mozilla/5.0",
+                "Referer": "https://quote.eastmoney.com/",
+            }, timeout=(3, 4))
+            response.raise_for_status()
+            data = response.json().get("data") or {}
+            records = data.get("diff") or []
+            if isinstance(records, dict):
+                records = list(records.values())
+            if not isinstance(records, list) or not records:
+                raise ValueError("eastmoney_no_candidate_rows")
+            codes = [str(item.get("f12") or "") for item in records if isinstance(item, dict)]
+            selected = list(dict.fromkeys(c for c in codes if re.fullmatch(r"[0-9]{6}", c)))
+            if selected:
+                return selected, url
+            raise ValueError("eastmoney_no_valid_codes")
+        except (requests.RequestException, ValueError, TypeError, AttributeError) as exc:
+            failures.append(type(exc).__name__)
+    raise ValueError("eastmoney_unavailable:" + ",".join(failures))
 
 
 def sina_leaders(client=requests, limit=80):
@@ -104,12 +142,20 @@ def gather(now=None, client=requests, root=ROOT):
     errors = []
     codes = local_universe(root)
     local_count = len(codes)
+    discovery_sources = ["versioned_stock_research_and_prior_recommendations"]
+    try:
+        eastmoney, discovery_host = eastmoney_leaders(client)
+        codes.extend(code for code in eastmoney if code not in codes)
+        discovery_sources.append(discovery_host)
+    except (requests.RequestException, ValueError, TypeError) as exc:
+        errors.append("eastmoney_discovery:" + type(exc).__name__)
     try:
         leaders = sina_leaders(client)
+        discovery_sources.append(SINA)
         codes.extend(code for code in leaders if code not in codes)
     except (requests.RequestException, ValueError, TypeError) as exc:
         errors.append("sina_discovery:" + type(exc).__name__)
-    codes = codes[:140]
+    codes = codes[:180]
     symbols = [stock_symbol(code) for code in codes]
     rows = []
     for i in range(0, len(symbols), 60):
@@ -137,7 +183,8 @@ def gather(now=None, client=requests, root=ROOT):
         "source": SOURCE + ",".join(symbols[:60]), "as_of": max(
             (r["as_of"] for r in filtered), default=now.isoformat(timespec="seconds")),
         "quotes": filtered,
-        "scope": "research_watchlist_plus_optional_sina_turnover_leaders",
+        "scope": "research_watchlist_plus_optional_eastmoney_and_sina_turnover_leaders",
+        "discovery_sources": discovery_sources,
         "local_universe_count": local_count, "requested_count": len(codes),
         "fresh_count": len(filtered), "full_market_coverage": False,
         "provider_errors": errors,
