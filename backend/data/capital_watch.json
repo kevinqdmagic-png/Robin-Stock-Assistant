@@ -1,4 +1,130 @@
 {
   "schema_version": 1,
-  "items": []
+  "items": [
+    {
+      "date": "2026-10-14",
+      "as_of": "2026-10-14T18:37:49+08:00",
+      "model": "capital_behavior_daily_v1",
+      "scanned": 110,
+      "valid_daily": 105,
+      "candidates": [
+        {
+          "code": "002080",
+          "name": "中材科技",
+          "as_of": "2026-10-14",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 70,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "供给代理：最近5日平均成交量下降"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.0,
+          "price_location60": 0.189,
+          "relative_volume20": 1.03,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "600519",
+          "name": "贵州茅台",
+          "as_of": "2026-10-14",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 69,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.964,
+          "price_location60": 0.53,
+          "relative_volume20": 0.905,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "601318",
+          "name": "中国平安",
+          "as_of": "2026-10-14",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 58,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.432,
+          "price_location60": 0.354,
+          "relative_volume20": 1.504,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "600026",
+          "name": "中远海能",
+          "as_of": "2026-10-14",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 55,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "波动：近10日平均日内波幅相对上一组10日收窄",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.715,
+          "price_location60": 0.961,
+          "relative_volume20": 1.113,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        }
+      ],
+      "universe": "historical_research_plus_public_activity_leaders",
+      "universe_sources": [
+        "historical_research_codes",
+        "https://push2.eastmoney.com/api/qt/clist/get",
+        "sina_turnover_leaders"
+      ],
+      "provider_errors": {
+        "ValueError": 5
+      },
+      "coverage": "partial_universe_not_a_share_full_market",
+      "status": "completed",
+      "note": "只代表量价模型观察候选，非真实主力持仓、非已验证交易策略",
+      "matching_before_limit": 4,
+      "id": "capital-watch-20261014-38550888566",
+      "run_id": "github-actions-38550888566",
+      "published_at": "2026-10-14T18:38:13+08:00",
+      "timezone": "Asia/Shanghai",
+      "research_only": true,
+      "selection_validated": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/38550888566"
+      ]
+    }
+  ]
 }
