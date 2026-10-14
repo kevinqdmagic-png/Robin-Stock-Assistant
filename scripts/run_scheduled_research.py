@@ -90,8 +90,9 @@ def analyze_one(code, now, provider=tencent_daily):
         "relative_volume20": round(recent["volume"] / vol, 2),
         "close_location": round((recent["close"] - recent["low"]) / day_range, 3) if day_range > 0 else None,
         "distance_ma20_pct": round((recent["close"] / ma20 - 1) * 100, 2),
-        "distance_60d_low_pct": round((recent["close"] / min(b["low"] for b in bars[-60:]) - 1) * 100, 2),
-        "distance_60d_high_pct": round((recent["close"] / max(b["high"] for b in bars[-60:]) - 1) * 100, 2),
+        # Do not call a shorter listing history a real 60-session range.
+        "distance_60d_low_pct": round((recent["close"] / min(b["low"] for b in bars[-60:]) - 1) * 100, 2) if len(bars) >= 60 else None,
+        "distance_60d_high_pct": round((recent["close"] / max(b["high"] for b in bars[-60:]) - 1) * 100, 2) if len(bars) >= 60 else None,
         "adjustment": "qfq", "provider": "tencent_daily",
     }
 
@@ -153,7 +154,8 @@ def build_reports(snapshot, now):
               r["close_location"] is not None and r["close_location"] >= .75 and
               0 <= r["distance_ma20_pct"] <= 15]
     weak = [r for r in rows if r["close_location"] is not None and r["close_location"] <= .25]
-    low_launch = [r for r in rows if 0 <= r.get("distance_60d_low_pct", 999) <= 25
+    low_launch = [r for r in rows if r.get("distance_60d_low_pct") is not None
+                  and 0 <= r["distance_60d_low_pct"] <= 25
                   and 1.5 <= r["relative_volume20"] <= 5
                   and 0 <= r["distance_ma20_pct"] <= 15
                   and r["close_location"] is not None and r["close_location"] >= .7]
