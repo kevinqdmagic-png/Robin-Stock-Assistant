@@ -1363,6 +1363,57 @@
         "docs/research/market-review-2026-10-14-evidence.json"
       ],
       "completed_at": "2026-10-14T08:39:41+00:00"
+    },
+    {
+      "id": "deadline-audit-20261014-limitup_single",
+      "run_id": "github-actions-deadline-audit",
+      "task_id": "limitup_single",
+      "date": "2026-10-14",
+      "trigger": "scheduled",
+      "started_at": "2026-10-14T19:25:57+08:00",
+      "completed_at": "2026-10-14T19:25:57+08:00",
+      "recorded_at": "2026-10-14T19:25:57+08:00",
+      "status": "blocked",
+      "summary": "北京时间19:00交付审计：未找到当日可核验的完整任务回执/关联研究报告。此回执仅证明未交付，不代表曾经执行研究；检查定时器、数据源和发布流程。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "deadline-audit-20261014-volume_price",
+      "run_id": "github-actions-deadline-audit",
+      "task_id": "volume_price",
+      "date": "2026-10-14",
+      "trigger": "scheduled",
+      "started_at": "2026-10-14T19:25:57+08:00",
+      "completed_at": "2026-10-14T19:25:57+08:00",
+      "recorded_at": "2026-10-14T19:25:57+08:00",
+      "status": "blocked",
+      "summary": "北京时间19:00交付审计：未找到当日可核验的完整任务回执/关联研究报告。此回执仅证明未交付，不代表曾经执行研究；检查定时器、数据源和发布流程。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "deadline-audit-20261014-combined_pair",
+      "run_id": "github-actions-deadline-audit",
+      "task_id": "combined_pair",
+      "date": "2026-10-14",
+      "trigger": "scheduled",
+      "started_at": "2026-10-14T19:25:57+08:00",
+      "completed_at": "2026-10-14T19:25:57+08:00",
+      "recorded_at": "2026-10-14T19:25:57+08:00",
+      "status": "blocked",
+      "summary": "北京时间19:00交付审计：未找到当日可核验的完整任务回执/关联研究报告。此回执仅证明未交付，不代表曾经执行研究；检查定时器、数据源和发布流程。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "missing_delivery_evidence"
     }
   ]
 }
