@@ -66,6 +66,41 @@ class ScheduledResearchTests(unittest.TestCase):
         more = mod.stage(reports, runs, self.registry, snapshot, "12346", self.now)[1]
         self.assertEqual(len(more["items"]), 10)
 
+    def test_only_sixty_observed_bars_can_generate_sixty_day_low_signal(self):
+        from learning_loop import is_session
+        def full_daily(code, limit=125, adjust="1"):
+            day = datetime(2026, 5, 1, tzinfo=CN).date()
+            end = self.now.date()
+            result = []
+            while day <= end:
+                if is_session(day):
+                    current = day == end
+                    result.append({
+                        "date": day.isoformat(), "open": 10.0,
+                        "close": 10.18 if current else 10.0,
+                        "high": 10.2, "low": 9.9,
+                        "volume": 400 if current else 200,
+                    })
+                day += timedelta(days=1)
+            return result
+        one = mod.analyze_one("600001", self.now, provider=full_daily)
+        self.assertGreaterEqual(one["distance_60d_low_pct"], 0)
+        snapshot = mod.collect(self.now, pool=["600001"] * 12,
+                               day_provider=full_daily, quote_provider=self.quotes)
+        # Insufficient breadth cannot become an apparently verified signal.
+        rows = mod.build_reports(snapshot, self.now)
+        low = next(x for x in rows if x["task_id"] == "low_position")
+        self.assertEqual(low["signal_observations"], [])
+        pool = [str(600001 + i) for i in range(12)]
+        more = mod.collect(self.now, pool=pool,
+                           day_provider=full_daily, quote_provider=self.quotes, workers=2)
+        row = next(x for x in mod.build_reports(more, self.now)
+                   if x["task_id"] == "low_position")
+        self.assertEqual(row["shape_method_version"], "low_position_shape_proxy_v1")
+        self.assertEqual(len(row["signal_observations"]), 10)
+        self.assertFalse(row["signal_observations"][0]["eligible_for_trading"])
+        self.assertEqual(row["signal_observations"][0]["date"], "2026-10-15")
+
     def test_provider_outage_creates_blocked_evidence_not_fake_picks(self):
         snapshot = {"eligible": True, "day": "2026-10-15", "indexes": [],
                     "checked": 14, "fresh": 0, "observations": [],
