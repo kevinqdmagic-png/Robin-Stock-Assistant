@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T15:15:00+08:00",
+  "updated_at": "2026-10-14T18:15:39.391Z",
   "source": "repository_task_registry_app_only_modules",
   "items": [
     {
@@ -35,18 +35,19 @@
       "id": "market_review",
       "title": "A股每日复盘",
       "track": "market_review",
-      "summary": "市场、情绪、板块复盘与候选证据；已恢复独立调度，全部原研究规则保留。已有同日完整报告时去重，缺失时综合双标完整補做，独立保存报告、样本和验证回执。 每日复盘新增下一交易日上证、深证、创业板、科创板指数的方向/区间情景预测；必须记录预测时点、依据、次日实际结果及误差，滚动校准，不可宣称保证准确。 当前只存在任务配置或历史归档，尚未核验持续自动执行程序。",
-      "schedule_text": "已恢复独立任务 · 工作日21:00 · 奥克兰 · 缺失时综合双标完整补做",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261009T210000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=21;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
-      "timezone": "Pacific/Auckland",
+      "summary": "市场、情绪、板块复盘。现已接入同日指数和历史研究池的部分自动证据扫描；全市场广度、题材和主力数据未覆盖，不能认定完整复盘已按时完成。",
+      "schedule_text": "北京时间17:17 / 18:17 / 19:17 · GitHub盘后局部证据研究和补偿重试（可能延迟）；完整任务尚待接通",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
       "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-08T08:28:25+00:00",
-      "executor_task_id": "combined_pair",
-      "execution_mode": "configured_unwired",
-      "effective_enabled": false
+      "execution_mode": "github_scheduled_partial_evidence",
+      "effective_enabled": false,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml"
     },
     {
       "id": "quant_research",
@@ -70,18 +71,19 @@
       "id": "volume_price",
       "title": "量价研究与每日验证",
       "track": "volume_price",
-      "summary": "量价假设、样本与失败归因；独立报告与样本保留，综合双标仅在同日完整报告缺失时补做。 当前只存在任务配置或历史归档，尚未核验持续自动执行程序。",
-      "schedule_text": "已启用独立任务 · 工作日22:00 · 奥克兰",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261008T220000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=22;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
-      "timezone": "Pacific/Auckland",
-      "timing_mode": "flexible_schedule",
+      "summary": "量价假设、样本与失败归因。已接通既有研究池日线观察与定时记录，尚无全A独立扫描和盘口承接，因此只标部分取证，不宣称完成全任务。",
+      "schedule_text": "北京时间17:17 / 18:17 / 19:17 · GitHub盘后局部证据研究和补偿重试（可能延迟）；完整任务尚待接通",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
       "dependencies": [],
       "configuration_confirmed_at": "2026-10-08T06:44:00.883311+00:00",
-      "executor_task_id": "combined_pair",
-      "execution_mode": "configured_unwired",
-      "effective_enabled": false
+      "execution_mode": "github_scheduled_partial_evidence",
+      "effective_enabled": false,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml"
     },
     {
       "id": "capital_behavior",
@@ -162,11 +164,11 @@
       "id": "combined_pair",
       "title": "盘后综合双标",
       "track": "market_review",
-      "summary": "仅核对复盘、量价的真实同日研究结果；不再将低位启动及龙虎榜作为每日依赖或缺失补做。确认信号、风控与可成交性后最多两只，资料不足可以空仓。 已取消对量化痕迹研究的依赖。",
-      "schedule_text": "已配置提醒，但尚未接通实际自动研究执行器；APP须显示待接入",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T223000\nRRULE:FREQ=DAILY;BYHOUR=0,6,22,23;BYMINUTE=30\nEND:VEVENT",
-      "timezone": "Pacific/Auckland",
-      "timing_mode": "condition_watch",
+      "summary": "盘后综合双标保留复盘、量价真实前置依赖。现在自动审计前置是否完整，证据不齐可空仓；实际双标研究和可成交性核验尚未完全自动化。",
+      "schedule_text": "北京时间17:17 / 18:17 / 19:17 · GitHub盘后局部证据研究和补偿重试（可能延迟）；完整任务尚待接通",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
       "dependencies": [
@@ -178,8 +180,10 @@
         "market_review",
         "volume_price"
       ],
-      "execution_mode": "configured_unwired",
-      "effective_enabled": false
+      "execution_mode": "github_scheduled_partial_evidence",
+      "effective_enabled": false,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml"
     },
     {
       "id": "early_pair",
@@ -233,11 +237,11 @@
       "id": "limitup_single",
       "title": "每日打板一股",
       "track": "market_review",
-      "summary": "独立打板一股前推模拟；v2新增情绪/高度/空间/分层晋级必查。旧v1继续原规则追踪；最多一只，证据不足空仓。 当前只存在任务配置或历史归档，尚未核验持续自动执行程序。",
-      "schedule_text": "已启用独立任务 · 工作日08:00 · 奥克兰",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261008T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\nEND:VEVENT",
-      "timezone": "Pacific/Auckland",
-      "timing_mode": "flexible_schedule",
+      "summary": "独立打板一股原计划在奥克兰08:00执行。现先接入北京时间盘后局部数据核验；未取得高度板/晋级板/封单及可成交证据，盘前计划仍未接通，不发布正式打板指令。",
+      "schedule_text": "北京时间17:17 / 18:17 / 19:17 · GitHub盘后局部证据研究和补偿重试（可能延迟）；完整任务尚待接通",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
       "enabled": true,
       "one_time": false,
       "dependencies": [],
@@ -245,8 +249,10 @@
       "research_rule_version": "limitup_single_v2",
       "research_rule_effective_scope": "下一轮新候选起；2026-10-08已冻结v1候选保持原条件",
       "configuration_confirmed_at": "2026-10-07T21:57:47.323830+00:00",
-      "execution_mode": "configured_unwired",
-      "effective_enabled": false
+      "execution_mode": "github_scheduled_partial_evidence",
+      "effective_enabled": false,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml"
     },
     {
       "id": "capital_watch_daily",
