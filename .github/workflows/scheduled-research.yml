@@ -1,0 +1,87 @@
+name: After-close research evidence and retry
+on:
+  # China: 17:17 / 18:17 / 19:17 on weekdays. Each retry is audited.
+  schedule:
+    - cron: '17 9 * * 1-5'
+    - cron: '17 10 * * 1-5'
+    - cron: '17 11 * * 1-5'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/run_scheduled_research.py'
+      - '.github/workflows/scheduled-research.yml'
+permissions:
+  contents: write
+concurrency:
+  group: scheduled-task-ledger-writer
+  cancel-in-progress: false
+jobs:
+  collect-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install requests
+      - name: Capture initial archive hashes
+        id: bases
+        run: |
+          echo "reports=$(git rev-parse HEAD:backend/data/research.json)" >> "$GITHUB_OUTPUT"
+          echo "runs=$(git rev-parse HEAD:backend/data/task_runs.json)" >> "$GITHUB_OUTPUT"
+      - name: Collect verified same-day evidence and stage explicit partial receipts
+        id: study
+        continue-on-error: true
+        env:
+          GH_RUN_ID: ${{ github.run_id }}
+        run: python scripts/run_scheduled_research.py --run-id "$GH_RUN_ID" --result scheduled_research_status.json
+      - name: Publish research archive first, then linked receipts
+        if: always() && steps.bases.outcome == 'success' && steps.study.outcome != 'skipped'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          test -f scheduled_research_status.json
+          python - <<'PY'
+          import json
+          j = json.load(open("scheduled_research_status.json"))
+          with open("publish-env", "w") as f:
+              f.write("REPORTS=" + ("true" if j["changed_reports"] else "false") + "\n")
+              f.write("RUNS=" + ("true" if j["changed_runs"] else "false") + "\n")
+          PY
+          source publish-env
+          if [ "$REPORTS" = "true" ]; then
+            python scripts/safe_github_update.py \
+              "${{ github.repository }}" \
+              backend/data/research.json backend/data/research.json \
+              --base-sha "${{ steps.bases.outputs.reports }}" \
+              --message "research: append timestamped after-close partial evidence"
+          fi
+          if [ "$RUNS" = "true" ]; then
+            python scripts/safe_github_update.py \
+              "${{ github.repository }}" \
+              backend/data/task_runs.json backend/data/task_runs.json \
+              --base-sha "${{ steps.bases.outputs.runs }}" \
+              --message "ops: append scheduled research receipts with scope labels"
+          fi
+      - name: Preserve debugging evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: after-close-research-evidence-${{ github.run_id }}
+          path: scheduled_research_status.json
+          retention-days: 90
+      - name: Surface outages instead of claiming delivery
+        if: always()
+        run: |
+          test -f scheduled_research_status.json
+          python - <<'PY'
+          import json,sys
+          j=json.load(open("scheduled_research_status.json"))
+          print(j)
+          sys.exit(0 if j["status"] == "skipped" or (j.get("fresh_daily",0) >= 12 and j.get("index_count",0) >= 3) else 1)
+          PY
