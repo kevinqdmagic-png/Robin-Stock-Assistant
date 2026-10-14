@@ -26,7 +26,7 @@ jobs:
           ORIGINAL_BLOB=$(git rev-parse HEAD:backend/data/task_runs.json)
           echo "original_blob=$ORIGINAL_BLOB" >> "$GITHUB_OUTPUT"
           python scripts/audit_task_deliveries.py --output deadline_audit_status.json
-          python -c 'import json,os; r=json.load(open("deadline_audit_status.json")); open(os.environ["GITHUB_OUTPUT"],"a").write("changed="+str(r["changed"]).lower()+"\\n")'
+          python -c 'import json,os; r=json.load(open("deadline_audit_status.json")); open(os.environ["GITHUB_OUTPUT"],"a").write("changed="+str(r["changed"]).lower()+"\n")'
       - name: Publish missing-delivery receipts to APP
         if: steps.audit.outputs.changed == 'true'
         env:

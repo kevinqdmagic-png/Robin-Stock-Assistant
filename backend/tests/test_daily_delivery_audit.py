@@ -47,8 +47,13 @@ class DeadlineAuditTests(unittest.TestCase):
 
     def test_complete_receipt_with_report_passes(self):
         self.reports["items"] = [{"id": "r1", "task_id": "market_review", "date": "2026-10-14"}]
-        self.ledger["items"] = [{"id": "old", "task_id": "market_review", "date": "2026-10-14",
-                                 "status": "completed", "report_ids": ["r1"]}]
+        self.ledger["items"] = [{"id": "old", "run_id": "test-real-run",
+                                 "task_id": "market_review", "date": "2026-10-14",
+                                 "trigger": "scheduled", "status": "completed",
+                                 "started_at": "2026-10-14T18:00:00+08:00",
+                                 "completed_at": "2026-10-14T18:30:00+08:00",
+                                 "recorded_at": "2026-10-14T18:35:00+08:00",
+                                 "report_ids": ["r1"]}]
         updated, s = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
         self.assertEqual(s["unfulfilled"], ["early_pair"])
         self.assertEqual(len(updated["items"]), 2)
