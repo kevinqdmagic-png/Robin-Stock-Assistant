@@ -1188,7 +1188,7 @@ class MainActivity : AppCompatActivity() {
                     history.addView(label("已冻结观察 " + low.optInt("sample_count") + " 只次；独立信号日期 " +
                         low.optInt("unique_signal_dates") + " 天。观察池有限，不是全A抽样，也尚未经过样本外胜率验证。", 12f))
                     val horizons = low.optJSONObject("horizons")
-                    for (h in listOf(1, 2, 5, 10)) {
+                    for (h in listOf(1, 2, 5, 10, 30)) {
                         val stats = horizons?.optJSONObject(h.toString()) ?: continue
                         val n = stats.optInt("matured_count")
                         if (n > 0) {
