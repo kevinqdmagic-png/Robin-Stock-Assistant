@@ -65,6 +65,17 @@ while True:
                       "executor_task_id", "effective_enabled", "executes_missing_tasks")
             if any(actual_tasks[task["id"]].get(key) != task.get(key) for key in fields):
                 raise RuntimeError("task configuration not yet deployed: " + task["id"])
+        live_1440 = get("/api/intraday-live?slot=late_pair")
+        live_0950 = get("/api/intraday-live?slot=early_pair")
+        if any(result.get("scheduler_started") is not True or
+               result.get("store_writable") is not True or
+               result.get("storage") != "railway_persistent_volume" or
+               result.get("strategy_validated") is not False or
+               result.get("recommendation_executable") is not False
+               for result in (live_1440, live_0950)):
+            raise RuntimeError("resident intraday scheduler or persistent store not ready")
+        if live_1440.get("slot") != "late_pair" or live_0950.get("slot") != "early_pair":
+            raise RuntimeError("resident intraday slot mismatch")
         reports = all_rows("/api/research")
         receipts = all_rows("/api/task-runs")
         recommendations = all_rows("/api/recommendations")
@@ -114,6 +125,9 @@ while True:
                           "recommendations": len(recommendations["items"]),
                           "research_stocks": len(stock_catalog["items"]),
                           "data_revision_matches": health.get("data_revision") == expected_revision,
+                          "intraday_scheduler_running": live_1440.get("scheduler_started"),
+                          "intraday_storage_writable": live_1440.get("store_writable"),
+                          "late_pair_status": live_1440.get("current_status"),
                           "base": args.base}, ensure_ascii=False))
         break
     except Exception as exc:
