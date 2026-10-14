@@ -20,6 +20,7 @@ from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
+from capital_watch import page as capital_watch_page
 from learning_loop import load_ledger
 
 API_VERSION = "0.9.0"
@@ -163,6 +164,24 @@ def capital_behavior(code: str):
         return {"ok": False, "status": "capital_behavior_data_unavailable",
                 "code": code, "time_cn": now_cn(), "reason_code": str(exc),
                 "note": "日线校验失败（包括成交量、历史连续性或字段异常），不能据此推测主力行为。"}
+
+
+
+@app.get("/api/capital-watch")
+def capital_watch(limit: int = 10):
+    """Read-only daily research candidates; distinct from manual per-code analysis."""
+    try:
+        payload = capital_watch_page(limit)
+        latest = payload["latest"]
+        current_day = datetime.now(CN_TZ).date().isoformat()
+        status = ("not_yet_published" if latest is None
+                  else "latest_trade_day" if latest["date"] == current_day
+                  else "previous_research_day")
+        return {"ok": True, "status": status, "time_cn": now_cn(), **payload}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Capital watch archive unavailable: %s", exc)
+        return {"ok": False, "status": "capital_watch_archive_unavailable",
+                "time_cn": now_cn(), "latest": None, "history": []}
 
 
 @app.get("/api/tasks")

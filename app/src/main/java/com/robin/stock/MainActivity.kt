@@ -1254,6 +1254,72 @@ class MainActivity : AppCompatActivity() {
             inputType = android.text.InputType.TYPE_CLASS_NUMBER
             if (selectedCode.matches(Regex("[0-9]{6}"))) setText(selectedCode)
         }
+        val autoSummary = label("正在读取每日疑似吸筹观察名单（北京时间18:10后更新）...", 12f)
+        val autoItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        panel.addView(label("每日疑似吸筹观察名单 · 自动筛选（非交易推荐）", 15f, true))
+        panel.addView(label("仅统计研究池及部分活跃股；量价代理无法确认实际主力建仓，评分未验证胜率。最多5只，无符合条件则空名单。", 12f))
+        panel.addView(autoSummary)
+        panel.addView(autoItems)
+        val refreshCapitalWatch: () -> Unit = {
+            autoSummary.text = "正在读取已发布的研究名单..."
+            autoItems.removeAllViews()
+            fetch("/api/capital-watch") { data, error ->
+                if (data == null || !data.optBoolean("ok")) {
+                    autoSummary.text = "每日名单暂不可用，请稍后刷新。" +
+                        (error?.let { " " + it } ?: "")
+                } else {
+                    val latest = data.optJSONObject("latest")
+                    if (latest == null) {
+                        autoSummary.text = "自动扫描任务已配置，尚无成功发布的每日研究记录。"
+                    } else {
+                        val date = latest.optString("date")
+                        val state = latest.optString("status")
+                        val scanned = latest.optInt("scanned")
+                        val valid = latest.optInt("valid_daily")
+                        val published = latest.optString("published_at")
+                        val freshness = if (data.optString("status") == "latest_trade_day") "当日" else "上一研究日"
+                        autoSummary.text = freshness + " " + date +
+                            " · 请求分析 " + scanned + " 只 · 同日有效 " + valid +
+                            " 只 · 发布 " + published.substringAfter("T").take(5) + " 北京时间"
+                        val picks = latest.optJSONArray("candidates") ?: JSONArray()
+                        if (picks.length() == 0) {
+                            val note = latest.optString("note")
+                            autoItems.addView(label("本次未发布符合要求的候选。" +
+                                (if (note.isNotBlank()) "\n" + note else ""), 12f))
+                        } else {
+                            for (i in 0 until picks.length()) {
+                                val row = picks.optJSONObject(i) ?: continue
+                                val code = row.optString("code")
+                                val name = row.optString("name").takeIf { it.isNotBlank() && it != "null" } ?: "证券"
+                                val stage = row.optString("stage_title")
+                                autoItems.addView(label((i + 1).toString() + ". " + name +
+                                    " " + code + " · " + stage + " · 观察分 " + row.optInt("score"), 14f, true))
+                                val reasons = row.optJSONArray("evidence")
+                                if (reasons != null) {
+                                    for (j in 0 until minOf(3, reasons.length())) {
+                                        autoItems.addView(label("依据 · " + reasons.optString(j), 12f))
+                                    }
+                                }
+                                val risks = row.optJSONArray("risk")
+                                if (risks != null && risks.length() > 0)
+                                    autoItems.addView(label("风险 · " + risks.optString(0), 12f))
+                                autoItems.addView(action("填入 " + code + " 并自行核验") {
+                                    codeField.setText(code)
+                                    codeField.setSelection(code.length)
+                                })
+                            }
+                        }
+                        val errors = latest.optJSONObject("provider_errors")
+                        if (state == "blocked" || (errors != null && errors.length() > 0)) {
+                            autoItems.addView(label("部分行情源不可用，实际覆盖范围有限；具体状态：" + state, 12f))
+                        }
+                    }
+                }
+            }
+        }
+        panel.addView(action("刷新每日自动观察名单") { refreshCapitalWatch() })
+        refreshCapitalWatch()
+        panel.addView(label("手动输入股票代码 · 随时查询", 15f, true))
         panel.addView(codeField)
         val status = label("选择股票后可按需分析，不占用每日研究任务。", 12f)
         panel.addView(status)

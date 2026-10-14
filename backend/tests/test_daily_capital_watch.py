@@ -56,6 +56,16 @@ class DailyCapitalWatchTests(unittest.TestCase):
                              pool=codes,loader=lambda *args,**kw: bars())
         self.assertEqual(result["scanned"],6)
         self.assertEqual(result["valid_daily"],6)
+        self.assertEqual(result["status"],"completed")
+        self.assertEqual(len(result["candidates"]), 5)
+        self.assertTrue(all(x["signal_identity_verified"] is False for x in result["candidates"]))
+
+    def test_zero_matches_still_not_fabricated(self):
+        from unittest.mock import patch
+        codes = [f"60{i:04d}" for i in range(6)]
+        with patch.object(module, "classify", return_value={"stage": "unconfirmed", "exploratory_score": 10}):
+            result = module.scan(now=datetime(2026,10,13,18,10,tzinfo=CN),
+                                 pool=codes, loader=lambda *args,**kw: bars())
         self.assertEqual(result["status"],"no_matches")
         self.assertEqual(result["candidates"],[])
 

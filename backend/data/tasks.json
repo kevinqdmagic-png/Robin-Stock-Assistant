@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T03:16:56.438Z",
+  "updated_at": "2026-10-14T06:30:00+08:00",
   "source": "repository_task_registry_app_only_modules",
   "items": [
     {
@@ -247,6 +247,24 @@
       "configuration_confirmed_at": "2026-10-07T21:57:47.323830+00:00",
       "execution_mode": "configured_unwired",
       "effective_enabled": false
+    },
+    {
+      "id": "capital_watch_daily",
+      "title": "每日疑似吸筹观察名单",
+      "track": "capital_behavior",
+      "summary": "每个A股交易日收盘后自动筛选部分研究股及公开成交活跃股，最多展示5只疑似吸筹或整理尾声候选；需要当日61根以上已完成前复权日线。无符合条件或行情中断可空名单。并行保留原来按代码查询。模型未完成样本外验证，非买卖建议。",
+      "schedule_text": "北京时间18:10 · 交易日自动扫描 · GitHub Actions · 结果入库并同步APP（实际可能延迟）",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261014T181000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=18;BYMINUTE=10\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "effective_enabled": true,
+      "one_time": false,
+      "dependencies": [],
+      "execution_mode": "scheduled_archive_scan",
+      "research_rule_version": "capital_behavior_daily_v1",
+      "validation_status": "experimental_uncalibrated",
+      "include_legacy_reports": false
     }
   ]
 }

@@ -26,7 +26,7 @@ if version_match is None:
 version = version_match[1]
 expected_revision = data_revision()
 expected = {name: json.loads((root / "backend/data" / name).read_text(encoding="utf-8"))
-            for name in ("tasks.json", "task_runs.json", "research.json", "recommendations.json", "research_stocks.json")}
+            for name in ("tasks.json", "task_runs.json", "research.json", "recommendations.json", "research_stocks.json", "capital_watch.json")}
 
 
 def get(path):
@@ -80,6 +80,19 @@ while True:
         if online_learning.get("automatic_training") is not False:
             raise RuntimeError("unverified training claim")
 
+        from capital_watch import verify_append_only as verify_watch_append_only
+        capital_watch = get("/api/capital-watch")
+        if capital_watch.get("selection_validated") is not False or capital_watch.get("manual_query_available") is not True:
+            raise RuntimeError("capital watch manual query / validation flags incorrect")
+        # A newer production scan can have more immutable records than this commit.
+        capital_items = []
+        for summary in capital_watch.get("history", []):
+            if not isinstance(summary, dict) or not summary.get("date"):
+                raise RuntimeError("capital watch history schema invalid")
+        if expected["capital_watch.json"]["items"]:
+            latest_expected = expected["capital_watch.json"]["items"][-1]
+            if capital_watch.get("latest") is None or capital_watch["latest"]["date"] < latest_expected["date"]:
+                raise RuntimeError("daily capital watch archive not yet deployed")
         stock_catalog = get("/api/research-stocks")
         validate_catalog(stock_catalog, reports)
         verify_catalog_history(expected["research_stocks.json"], stock_catalog)
