@@ -128,7 +128,11 @@ class CapitalBehaviorTests(unittest.TestCase):
         doc = json.loads((ROOT / "data" / "tasks.json").read_text(encoding="utf-8"))
         validate_registry(doc)
         by_id = {r["id"]: r for r in doc["items"]}
-        for key in ("low_position", "dragon_tiger", "capital_behavior"):
+        self.assertEqual(by_id["low_position"]["execution_mode"], "github_scheduled_partial_evidence")
+        self.assertTrue(by_id["low_position"]["enabled"])
+        self.assertTrue(by_id["low_position"]["partial_executor_enabled"])
+        self.assertFalse(by_id["low_position"]["effective_enabled"])
+        for key in ("dragon_tiger", "capital_behavior"):
             self.assertEqual(by_id[key]["execution_mode"], "app_only_on_demand")
             self.assertFalse(by_id[key]["enabled"])
         self.assertFalse(by_id["low_dragon"]["enabled"])
