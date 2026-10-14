@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Record undelivered scheduled research without pretending it ran.
 
-The 19:00 Beijing audit is an independent inspection of immutable task receipts.
+The 20:40 Beijing audit is an independent inspection of immutable task receipts.
 It never generates research, recommendations, market observations or trade claims.
 """
 import argparse
@@ -19,7 +19,7 @@ from trading_calendar import session_state
 
 CN_TZ = ZoneInfo("Asia/Shanghai")
 AUDIT_TASKS = ("limitup_single", "market_review", "volume_price",
-               "combined_pair", "early_pair", "late_pair")
+               "combined_pair", "early_pair", "late_pair", "low_position")
 
 
 def audit_day(ledger, tasks, reports, now=None, day=None, audit_id=None):
@@ -29,7 +29,7 @@ def audit_day(ledger, tasks, reports, now=None, day=None, audit_id=None):
         date = datetime.strptime(day, "%Y-%m-%d").date()
     except ValueError:
         raise ValueError("invalid_audit_date")
-    if date > now.date() or (date == now.date() and now.time() < time(19, 0)):
+    if date > now.date() or (date == now.date() and now.time() < time(20, 40)):
         raise ValueError("audit_before_research_deadline")
     observation = datetime.combine(date, time(14, 0), CN_TZ)
     if session_state(observation)["code"] != "trading":
@@ -64,7 +64,7 @@ def audit_day(ledger, tasks, reports, now=None, day=None, audit_id=None):
             "task_id": task_id, "date": day, "trigger": "scheduled",
             "started_at": stamp, "completed_at": stamp, "recorded_at": stamp,
             "status": "blocked",
-            "summary": "北京时间19:00交付审计：未找到当日可核验的完整任务回执/关联研究报告。此回执仅证明未交付，不代表曾经执行研究；检查定时器、数据源和发布流程。",
+            "summary": "北京时间20:40交付审计：未找到当日可核验的完整任务回执/关联研究报告。此回执仅证明未交付，不代表曾经执行研究；检查定时器、数据源和发布流程。",
             "report_ids": [], "recommendation_ids": [],
             "analysis_completed": False, "eligible_for_integrated_research": False,
             "reason_code": "missing_delivery_evidence",
