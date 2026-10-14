@@ -254,7 +254,7 @@ def evaluate_shadow_rules(evaluations):
     return info
 
 
-def build_snapshot(recommendations, fetch_daily, *, now):
+def build_snapshot(recommendations, fetch_daily, *, now, low_position_observations=()):
     now = now.astimezone(CN)
     if now.year != 2026:
         return {"status": "calendar_unverified", "date": now.date().isoformat()}
@@ -266,7 +266,11 @@ def build_snapshot(recommendations, fetch_daily, *, now):
     rows = []
     cache = {}
     eligible = [r for r in recommendations if r.get("code") and r.get("id")]
-    for code in sorted({r["code"] for r in eligible}):
+    # Non-recommendation forward observations form a SEPARATE performance cohort.
+    shape_signals = [r for r in low_position_observations if r.get("code") and r.get("id")
+                     and r.get("is_recommendation") is False
+                     and r.get("task_id") == "low_position"]
+    for code in sorted({r["code"] for r in [*eligible, *shape_signals]}):
         try:
             cache[code] = fetch_daily(code)
         except Exception:
@@ -278,7 +282,19 @@ def build_snapshot(recommendations, fetch_daily, *, now):
         item = evaluate(record, raw, source, as_of=as_of)
         item["provider_errors"] = errors
         rows.append(item)
-    scores = evaluate_shadow_rules(rows)
+    low_rows = []
+    for record in shape_signals:
+        raw, source, errors = cache[record["code"]]
+        completed = [r for r in raw if r.get("date", "") <= as_of.isoformat()]
+        item = evaluate(record, completed, source, as_of=as_of)
+        item["provider_errors"] = errors
+        item["is_recommendation"] = False
+        item["signal_source_report_id"] = record.get("signal_source_report_id")
+        item["frozen_signal_features"] = record.get("frozen_features")
+        low_rows.append(item)
+    from low_position_learning import horizon_statistics
+    scores = evaluate_shadow_rules(rows)  # formal recommendations only
+    low_summary = horizon_statistics(low_rows)
     counts = dict(Counter(item["status"] for item in rows))
     return {
         "id": "forward-learning-" + as_of.isoformat(),
@@ -289,6 +305,9 @@ def build_snapshot(recommendations, fetch_daily, *, now):
         "version": VERSION, "sample_count": len(rows), "status_counts": counts,
         "provider_count": len(cache), "evaluations": rows,
         "validation": scores,
+        "low_position_evaluations": low_rows,
+        "low_position_summary": low_summary,
+        "low_position_observations_are_recommendations": False,
         "training_stage": "shadow_only",
         "source_scope": "public_unadjusted_daily_candles",
         "trade_execution_verified": False,
@@ -299,6 +318,7 @@ def build_snapshot(recommendations, fetch_daily, *, now):
             "Missing session bars, corporate actions and unknown calendars are quarantined.",
             "Real strategy P&L and next-open execution require time-stamped order and fill evidence.",
             "Shadow threshold proposals never modify live stock-selection rules automatically.",
+            "Low-position shape observations are separate from recommendation success metrics.",
         ],
     }
 
