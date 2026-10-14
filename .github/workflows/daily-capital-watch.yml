@@ -1,5 +1,10 @@
 name: Daily accumulation-shape watch (non-actionable)
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/run_daily_capital_watch.py'
+      - '.github/workflows/daily-capital-watch.yml'
   schedule:
     # Beijing 18:10 on weekdays, may start late with GitHub Actions scheduling.
     - cron: '10 10 * * 1-5'

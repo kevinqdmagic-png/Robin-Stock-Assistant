@@ -22,6 +22,7 @@ from capital_behavior import classify
 from capital_watch import STAGES, validate_archive, verify_append_only
 from daily_providers import tencent_daily
 from research_archive import load_document
+from quote_providers import tencent_quotes, stock_symbol
 from trading_calendar import session_state, completed_bars
 
 CN = ZoneInfo("Asia/Shanghai")
@@ -119,6 +120,29 @@ def scan(now=None, pool=None, loader=None, workers=6):
     # No fallback to prior trading days and no synthetic filler candidates.
     qualifying.sort(key=lambda row: (-row["score"], row["code"]))
     selected = qualifying[:TOP]
+    # Names are security metadata, not trading evidence; never substitute
+    # a quote's price for the completed K-line analysis.
+    if selected and pool is not None:
+        known_names = {}
+        for filename in ("research_stocks.json", "recommendations.json"):
+            try:
+                doc = load_document(filename)
+                known_names.update({str(x["code"]): str(x["name"]) for x in doc["items"]
+                                    if x.get("code") and x.get("name")})
+            except (OSError, ValueError, TypeError, KeyError):
+                pass
+        try:
+            rows = tencent_quotes([stock_symbol(x["code"]) for x in selected])
+            known_names.update({str(x["code"]): str(x["name"]) for x in rows
+                                if x.get("code") and x.get("name")})
+        except (requests.RequestException, ValueError, TypeError) as exc:
+            failures["security_name_lookup:" + type(exc).__name__] += 1
+        for item in selected:
+            item["name"] = known_names.get(item["code"])
+        # Unknown or risk-label/security-special-treatment names cannot be
+        # presented as fully checked, independently researched candidates.
+        selected = [x for x in selected if x.get("name") and
+                    "ST" not in x["name"].upper() and "退" not in x["name"]]
     if len(results) < MIN_FRESH:
         status = "blocked"
         note = "同日有效日线不足5只，不能形成可核验的自动观察名单"
