@@ -1414,6 +1414,94 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "manual-backfill-20261013-market_review-retrospective",
+      "run_id": "manual-backfill-20261013-market_review-retrospective",
+      "task_id": "market_review",
+      "date": "2026-10-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-14T15:18:40.396Z",
+      "completed_at": "2026-10-14T15:18:40.396Z",
+      "recorded_at": "2026-10-14T15:18:40.396Z",
+      "status": "blocked",
+      "summary": "13日历史指标及旧样本交叉补证已入库；当日原全A独立扫描、分时及榜单缺失，原任务不改为completed。",
+      "report_ids": [
+        "market-review-20261013-retro-crossday-v2"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json"
+      ],
+      "backfill_recorded_at": "2026-10-14T15:18:40.396Z",
+      "original_deadline_met": false,
+      "retrospective_only": true
+    },
+    {
+      "id": "manual-backfill-20261014-volume_price-retrospective",
+      "run_id": "manual-backfill-20261014-volume_price-retrospective",
+      "task_id": "volume_price",
+      "date": "2026-10-14",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-14T15:18:40.396Z",
+      "completed_at": "2026-10-14T15:18:40.396Z",
+      "recorded_at": "2026-10-14T15:18:40.396Z",
+      "status": "blocked",
+      "summary": "已补存同日已冻结28只量价深筛的独立分层与反例，缺少独立原始全A复扫及当日完整分钟，不能冒充按时完成。",
+      "report_ids": [
+        "volume-price-20261014-retro-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json"
+      ],
+      "backfill_recorded_at": "2026-10-14T15:18:40.396Z",
+      "original_deadline_met": false,
+      "retrospective_only": true
+    },
+    {
+      "id": "manual-backfill-20261014-limitup_single-retrospective",
+      "run_id": "manual-backfill-20261014-limitup_single-retrospective",
+      "task_id": "limitup_single",
+      "date": "2026-10-14",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-14T15:18:40.396Z",
+      "completed_at": "2026-10-14T15:18:40.396Z",
+      "recorded_at": "2026-10-14T15:18:40.396Z",
+      "status": "blocked",
+      "summary": "已补存14日完整涨停生态/高度/晋级风控复盘，因无单股级盘口和可买验证新候选0，原08:00定时交付缺席仍为blocked。",
+      "report_ids": [
+        "limitup-single-20261014-retro-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json"
+      ],
+      "backfill_recorded_at": "2026-10-14T15:18:40.396Z",
+      "original_deadline_met": false,
+      "retrospective_only": true
+    },
+    {
+      "id": "manual-backfill-20261014-combined_pair-retrospective",
+      "run_id": "manual-backfill-20261014-combined_pair-retrospective",
+      "task_id": "combined_pair",
+      "date": "2026-10-14",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-14T15:18:40.396Z",
+      "completed_at": "2026-10-14T15:18:40.396Z",
+      "recorded_at": "2026-10-14T15:18:40.396Z",
+      "status": "waiting",
+      "summary": "盘后依赖缺失事实已审计并入库；原市场复盘两只候选未复制成新综合推荐，等待独立前置完整证据。",
+      "report_ids": [
+        "combined-pair-20261014-retro-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json"
+      ],
+      "backfill_recorded_at": "2026-10-14T15:18:40.396Z",
+      "original_deadline_met": false,
+      "retrospective_only": true
     }
   ]
 }
