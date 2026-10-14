@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - 'backend/data/learning.json'
+      - 'backend/data/**'
   pull_request:
     branches: [ main ]
 permissions:
