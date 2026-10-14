@@ -1438,10 +1438,14 @@ class MainActivity : AppCompatActivity() {
         }
         parent.addView(toggle); parent.addView(box)
         val states = mapOf("running" to "执行中", "waiting" to "等待研究齐备",
-            "completed" to "已完成", "blocked" to "遇到阻碍", "failed" to "执行失败",
+            "completed" to "已完成", "partial" to "完成部分取证", "blocked" to "遇到阻碍", "failed" to "执行失败",
             "report_missing" to "报告待发布")
         fun renderEvent(event: JSONObject): String {
-            val source = if (event.optString("trigger") == "manual") "本次人工工作" else "定时执行"
+            val source = when (event.optString("trigger")) {
+                "manual" -> "本次人工工作"
+                "manual_backfill" -> "事后补录（非准点执行）"
+                else -> "定时执行"
+            }
             return "$source · ${states[event.optString("status")] ?: "状态待核验"}\n" +
                 event.optString("recorded_at") + "\n" + event.optString("summary")
         }
