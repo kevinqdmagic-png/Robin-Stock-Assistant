@@ -1,0 +1,50 @@
+name: Verify delivery of daily stock research
+on:
+  schedule:
+    # UTC 11:00 = Beijing 19:00; may run late due to GitHub Actions scheduler.
+    - cron: '0 11 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: scheduled-task-ledger-writer
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check today's delivered reports and immutable receipts
+        id: audit
+        run: |
+          ORIGINAL_BLOB=$(git rev-parse HEAD:backend/data/task_runs.json)
+          echo "original_blob=$ORIGINAL_BLOB" >> "$GITHUB_OUTPUT"
+          python scripts/audit_task_deliveries.py --output deadline_audit_status.json
+          python -c 'import json,os; r=json.load(open("deadline_audit_status.json")); open(os.environ["GITHUB_OUTPUT"],"a").write("changed="+str(r["changed"]).lower()+"\\n")'
+      - name: Publish missing-delivery receipts to APP
+        if: steps.audit.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            backend/data/task_runs.json backend/data/task_runs.json \
+            --base-sha "${{ steps.audit.outputs.original_blob }}" \
+            --message "ops: audit undelivered daily stock tasks"
+      - name: Save audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-task-audit-${{ github.run_id }}
+          path: deadline_audit_status.json
+          retention-days: 90
+      - name: Report missing daily delivery as failure
+        if: steps.audit.outcome == 'success'
+        run: |
+          python -c 'import json,sys; s=json.load(open("deadline_audit_status.json")); sys.exit(1 if s["unfulfilled"] else 0)'

@@ -1294,6 +1294,26 @@
       ],
       "analysis_completed": false,
       "eligible_for_integrated_research": false
+    },
+    {
+      "id": "early_pair-20261014-gh-38499593332",
+      "run_id": "github-actions-38499593332",
+      "task_id": "early_pair",
+      "date": "2026-10-14",
+      "trigger": "scheduled",
+      "started_at": "2026-10-14T10:10:02.856237+08:00",
+      "completed_at": "2026-10-14T10:10:07+08:00",
+      "recorded_at": "2026-10-14T03:21:32.302Z",
+      "status": "blocked",
+      "summary": "北京时间9:50计划因GitHub调度延迟于10:10执行；执行原始结果为 insufficient_evidence / no_live_feed_supplied，无当时实时行情输入，推荐0只，不可记为成功。原始 GitHub Actions 日志可追溯。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/38499593332"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "no_live_feed_supplied"
     }
   ]
 }

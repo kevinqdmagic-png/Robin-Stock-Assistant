@@ -17,7 +17,7 @@ permissions:
   contents: write
 concurrency:
   # Two slots share a single append-only receipt ledger; never race writes.
-  group: intraday-receipt-writer
+  group: scheduled-task-ledger-writer
   cancel-in-progress: false
 jobs:
   evidence-and-receipt:
@@ -43,6 +43,7 @@ jobs:
         id: record
         env:
           GH_RUN_ID: ${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ORIGINAL_BLOB=$(git rev-parse HEAD:backend/data/task_runs.json)
           python scripts/publish_intraday_outcome.py --outcome intraday_outcome.json --run-id "$GH_RUN_ID"
