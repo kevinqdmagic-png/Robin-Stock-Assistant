@@ -98,6 +98,8 @@ def latest(slot=None, limit=20, now=None):
         "slot": slot, "current_status": current_status,
         "latest": item, "items": rows[:max(1, min(limit, 100))],
         "total": len(rows), "storage": "railway_persistent_volume",
+        "scheduler_started": _started,
+        "store_writable": os.access(STORE.parent, os.W_OK),
         "publication": "original_time_stamped_partial_universe",
         "strategy_validated": False, "recommendation_executable": False,
     }
@@ -172,7 +174,7 @@ def _fresh_quotes(codes, now):
                     age = (now - stamp.astimezone(CN_TZ)).total_seconds()
                     if stamp.tzinfo is None or stamp.astimezone(CN_TZ).date() != now.date():
                         continue
-                    if not 0 <= age <= MAX_AGE:
+                    if not -45 <= age <= MAX_AGE:
                         continue
                     if "ST" in q["name"].upper() or "退" in q["name"]:
                         continue
@@ -343,7 +345,7 @@ def start_scheduler():
             return
         _started = True
     def loop():
-        log.info("INTRADAY_SCHEDULER_STARTED Beijing 09:50/14:40, store=%s", STORE)
+        log.warning("INTRADAY_SCHEDULER_STARTED Beijing 09:50/14:40, store=%s", STORE)
         while True:
             try:
                 _run_if_due()

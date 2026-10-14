@@ -110,6 +110,40 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
             // Keep prior versions; quote-provider failures must not suppress
             // the other research notifications or reset the last-notified ID.
         }
+        // Best-effort notification for new, actually archived 09:50/14:40
+        // observations. An empty/blocked slot does not trigger a stock alert.
+        for (slot in listOf("late_pair", "early_pair")) {
+            try {
+                val link = "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=" + slot
+                val conn = (URL(link).openConnection() as HttpURLConnection).apply {
+                    connectTimeout = 7000
+                    readTimeout = 7000
+                    requestMethod = "GET"
+                }
+                val text = try {
+                    if (conn.responseCode in 200..299)
+                        conn.inputStream.bufferedReader().use { it.readText() } else ""
+                } finally { conn.disconnect() }
+                if (text.isBlank()) continue
+                val data = JSONObject(text)
+                val item = data.optJSONObject("latest") ?: continue
+                if (!data.optBoolean("ok") || item.optString("status") != "observed") continue
+                if (item.optString("date") != data.optString("time_cn").take(10)) continue
+                val count = item.optJSONArray("candidates")?.length() ?: 0
+                if (count == 0) continue
+                val key = "resident_intraday_" + slot
+                val value = item.optString("date") + "_" + item.optString("started_at")
+                if (value.isBlank()) continue
+                updated.put(key, value)
+                if (previous != null && old.optString(key) != value) {
+                    changed.add((if (slot == "late_pair") "14:40" else "09:50") +
+                        "盘中研究新观察候选：" + count + "只")
+                }
+            } catch (_: Exception) {
+                // One delayed provider must not suppress notifications from
+                // other completed research tracks.
+            }
+        }
         if (updated.length() == 0) return Result.success()
         // Don't silently consume updates while notifications are disallowed.
         val canNotify = Build.VERSION.SDK_INT < 33 ||
