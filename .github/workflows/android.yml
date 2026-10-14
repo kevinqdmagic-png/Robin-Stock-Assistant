@@ -3,8 +3,16 @@ on:
   workflow_dispatch:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'backend/data/**'
+    # Publishing new backend data/research code does not require rebuilding
+    # the APK, which reads that data dynamically over HTTP.
+    paths:
+      - 'app/**'
+      - 'gradle/**'
+      - 'build.gradle.kts'
+      - 'settings.gradle.kts'
+      - 'gradle.properties'
+      - 'docs/apk-release-notes.md'
+      - '.github/workflows/android.yml'
   pull_request:
     branches: [ main ]
 permissions:
