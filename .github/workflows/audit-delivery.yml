@@ -1,8 +1,8 @@
 name: Verify delivery of daily stock research
 on:
   schedule:
-    # UTC 11:00 = Beijing 19:00; may run late due to GitHub Actions scheduler.
-    - cron: '0 11 * * 1-5'
+    # UTC 12:40 = Beijing 20:40; after 17:17/18:17/19:17 partial evidence attempts.
+    - cron: '40 12 * * 1-5'
   workflow_dispatch:
 permissions:
   contents: write
