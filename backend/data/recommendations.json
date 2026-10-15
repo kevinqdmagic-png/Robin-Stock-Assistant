@@ -1670,7 +1670,34 @@
         "docs/research/market-review-2026-10-14-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261014-600316-close-v1-entry-observation-20261015",
+          "as_of": "2026-10-15T15:00:00+08:00",
+          "recorded_at": "2026-10-15T17:07:08+08:00",
+          "market_date": "2026-10-15",
+          "horizon": "planned entry day trigger verification",
+          "status": "trigger_path_observed_exit_pending",
+          "trigger_status": "minute_path_satisfied_with_prompt_recovery",
+          "entry_fill_status": "simulated_reference_fill_at_09:42_reclaim",
+          "executed_trade": false,
+          "strategy_sample_activated": true,
+          "simulated_reference_entry": 35.85,
+          "simulated_entry_time": "2026-10-15T09:42:00+08:00",
+          "earliest_legal_exit_date": "2026-10-16",
+          "executable_net_return_pct": null,
+          "observed_open": 34.98,
+          "observed_high": 36.32,
+          "observed_low": 34.57,
+          "observed_close": 35.1,
+          "post_trigger_minute_point_mfe_pct": 0.781,
+          "post_trigger_minute_point_mae_pct": -2.65,
+          "post_trigger_close_mark_pct": -2.092,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600316",
+          "report_id": "market-review-20261015-close-v1",
+          "note": "条件触发仅作为模拟研究样本，不是实际交易；T+1下入场日不能卖，10月16日追加退出结果。"
+        }
+      ],
       "id": "market-review-20261014-600316-close-v1",
       "code": "600316",
       "name": "洪都航空",
@@ -1715,7 +1742,27 @@
         "docs/research/market-review-2026-10-14-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261014-002727-close-v1-entry-observation-20261015",
+          "as_of": "2026-10-15T15:00:00+08:00",
+          "recorded_at": "2026-10-15T17:07:08+08:00",
+          "market_date": "2026-10-15",
+          "horizon": "planned entry day trigger verification",
+          "status": "not_triggered",
+          "trigger_status": "required_pullback_zone_not_reached",
+          "entry_fill_status": "no_valid_strategy_entry",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "observed_open": 12.41,
+          "observed_high": 13.07,
+          "observed_low": 12.21,
+          "observed_close": 12.79,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002727",
+          "report_id": "market-review-20261015-close-v1",
+          "note": "冻结条件要求回踩12.00—12.15；当日最低12.21，未触发且不反推成交。"
+        }
+      ],
       "id": "market-review-20261014-002727-close-v1",
       "code": "002727",
       "name": "一心堂",
@@ -1733,6 +1780,94 @@
       "trigger": "10月15日竞价-1%至+3%，12.00—12.15回踩缩量并重新站12.45，且医药广度未明显转负。",
       "invalid": "高开12.85以上不追；跌破11.98或冲12.60—12.71后放量快速回落放弃。",
       "exit_plan": "若10月15日真实买入，最早10月16日卖；弱开失守11.98优先退出，强势观察12.71、13.20分批。"
+    },
+    {
+      "date": "2026-10-15",
+      "published_at": "2026-10-15T17:07:08+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-15T15:35:45+08:00",
+      "planned_entry_date": "2026-10-16",
+      "earliest_legal_exit_date_if_bought": "2026-10-19",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261015-close-v1"
+      ],
+      "sources": [
+        "https://m.cnfin.com/yw-lb//zixun/20261015/4481217_1.html",
+        "https://lianban.net/days/2026-10-15.html",
+        "https://biz.finance.sina.com.cn/data_reveal/index.php",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "docs/research/market-review-2026-10-15-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "id": "market-review-20261015-000973-close-v1",
+      "code": "000973",
+      "name": "佛塑科技",
+      "model": "platform_repair_volume_progress_v5",
+      "reason": "收12.19，换手8.28%，RVOL20 3.02，CLV0.987，距MA20仅+3.8%，14点后+2.01%；反证是12.38压力和冰点市场中的孤立尾盘拉升风险。",
+      "reference_price": 12.19,
+      "reference_price_time": "2026-10-15T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-15",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz000973",
+      "reference_entry_range": [
+        11.8,
+        12.2
+      ],
+      "operational_invalid_price": 11.45,
+      "trigger": "10月16日开盘11.90—12.45；回踩11.80—12.00缩量守住并重新站12.20，且PCB/新材料方向不出现批量大跌。",
+      "invalid": "高开12.65以上不追；跌破11.45，或12.38附近放量不进均放弃。",
+      "exit_plan": "若10月16日真实触发，最早10月19日卖；弱开失守11.45优先退出，强势观察12.38、12.80分批。"
+    },
+    {
+      "date": "2026-10-15",
+      "published_at": "2026-10-15T17:07:08+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-15T15:35:45+08:00",
+      "planned_entry_date": "2026-10-16",
+      "earliest_legal_exit_date_if_bought": "2026-10-19",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261015-close-v1"
+      ],
+      "sources": [
+        "https://m.cnfin.com/yw-lb//zixun/20261015/4481217_1.html",
+        "https://lianban.net/days/2026-10-15.html",
+        "https://biz.finance.sina.com.cn/data_reveal/index.php",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "docs/research/market-review-2026-10-15-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "id": "market-review-20261015-002812-close-v1",
+      "code": "002812",
+      "name": "恩捷股份",
+      "model": "low_position_volume_repair_v5",
+      "reason": "收48.39，成交27.04亿元，换手6.92%，RVOL20 3.02，CLV0.846，距MA20仅+2.8%；反证是MA20仍低于MA60且50元压力未突破。",
+      "reference_price": 48.39,
+      "reference_price_time": "2026-10-15T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-15",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz002812",
+      "reference_entry_range": [
+        47.4,
+        48.6
+      ],
+      "operational_invalid_price": 46.35,
+      "trigger": "10月16日开盘47.40—49.20；47.40—47.90回踩缩量守住并重新站48.60，且锂电材料方向不明显转弱。",
+      "invalid": "高开50.00以上不追；跌破46.35，或48.60上方量大价不进均放弃。",
+      "exit_plan": "若10月16日真实触发，最早10月19日卖；弱开失守46.35优先退出，强势观察50.00、51.00分批。"
     }
   ],
   "legacy_audit": [
