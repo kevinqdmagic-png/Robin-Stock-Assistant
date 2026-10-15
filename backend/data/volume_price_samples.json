@@ -10454,6 +10454,4198 @@
       "single_provider_daily_count": 25,
       "executable_sample_count": 0,
       "statistics": null
+    },
+    {
+      "id": "volume-price-20261012-validation-full-20261015-v1",
+      "date": "2026-10-15",
+      "kind": "forward_validation",
+      "task_id": "volume_price",
+      "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+      "origin_report_ids": [
+        "volume-price-20261012-close-v1"
+      ],
+      "report_ids": [
+        "volume-price-20261015-close-v1"
+      ],
+      "rule_version": "volume_price_close_v2",
+      "recorded_at": "2026-10-16T01:49:46.905+08:00",
+      "full_pool_summary": {
+        "expected_count": 26,
+        "verified_count": 26,
+        "positive_open_count": 2,
+        "positive_close_count": 13,
+        "mean_open_return_pct": -2.377,
+        "median_open_return_pct": -2.163,
+        "mean_close_return_pct": -0.263,
+        "median_close_return_pct": 0.047,
+        "mean_high_observation_pct": 2.375,
+        "mean_low_observation_pct": -4.525,
+        "executable_sample_count": 0,
+        "strategy_win_rate": null,
+        "mean_net_return_pct": null
+      },
+      "executable_sample_count": 0,
+      "full_pool_validations": [
+        {
+          "id": "volume-price-20261012-close-v1-cohort-002487-full-20261015",
+          "code": "002487",
+          "name": "002487",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 47.1,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 44.88,
+              "cumulative_volume_provider_units": 12504.0,
+              "cumulative_amount_cny": 56117952.0,
+              "return_vs_prior_close_pct": -4.713
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 45.21,
+              "cumulative_volume_provider_units": 226854.0,
+              "cumulative_amount_cny": 1016936380.44,
+              "return_vs_prior_close_pct": -4.013
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 43.83,
+              "cumulative_volume_provider_units": 478562.0,
+              "cumulative_amount_cny": 2134936530.0,
+              "return_vs_prior_close_pct": -6.943
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 43.85,
+              "cumulative_volume_provider_units": 558904.0,
+              "cumulative_amount_cny": 2484089607.69,
+              "return_vs_prior_close_pct": -6.9
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 44.29,
+              "cumulative_volume_provider_units": 667227.0,
+              "cumulative_amount_cny": 2963027771.71,
+              "return_vs_prior_close_pct": -5.966
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 42.97,
+              "cumulative_volume_provider_units": 765412.0,
+              "cumulative_amount_cny": 3388333155.62,
+              "return_vs_prior_close_pct": -8.769
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 42.39,
+              "cumulative_volume_provider_units": 873521.0,
+              "cumulative_amount_cny": 3847980347.04,
+              "return_vs_prior_close_pct": -10.0
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -4.713,
+            "0945": -4.013,
+            "1030": -6.943,
+            "1130": -6.9,
+            "1400": -5.966,
+            "1440": -8.769,
+            "1500": -10.0
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -4.713,
+          "daily_high_price_excursion_pct": -1.295,
+          "daily_low_price_excursion_pct": -10.0,
+          "close_return_pct": -10.0,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300364-full-20261015",
+          "code": "300364",
+          "name": "300364",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 25.41,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 24.92,
+              "cumulative_volume_provider_units": 21294.0,
+              "cumulative_amount_cny": 53064648.0,
+              "return_vs_prior_close_pct": -1.928
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 24.78,
+              "cumulative_volume_provider_units": 359140.0,
+              "cumulative_amount_cny": 880541350.48,
+              "return_vs_prior_close_pct": -2.479
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 24.62,
+              "cumulative_volume_provider_units": 639582.0,
+              "cumulative_amount_cny": 1573252899.73,
+              "return_vs_prior_close_pct": -3.109
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 25.26,
+              "cumulative_volume_provider_units": 771038.0,
+              "cumulative_amount_cny": 1898301077.27,
+              "return_vs_prior_close_pct": -0.59
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 25.85,
+              "cumulative_volume_provider_units": 1070871.0,
+              "cumulative_amount_cny": 2673684473.23,
+              "return_vs_prior_close_pct": 1.732
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 25.61,
+              "cumulative_volume_provider_units": 1170945.0,
+              "cumulative_amount_cny": 2931180030.54,
+              "return_vs_prior_close_pct": 0.787
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 25.69,
+              "cumulative_volume_provider_units": 1264175.0,
+              "cumulative_amount_cny": 3170250926.89,
+              "return_vs_prior_close_pct": 1.102
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -1.928,
+            "0945": -2.479,
+            "1030": -3.109,
+            "1130": -0.59,
+            "1400": 1.732,
+            "1440": 0.787,
+            "1500": 1.102
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -1.928,
+          "daily_high_price_excursion_pct": 3.384,
+          "daily_low_price_excursion_pct": -5.51,
+          "close_return_pct": 1.102,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300413-full-20261015",
+          "code": "300413",
+          "name": "300413",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 24.16,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 23.46,
+              "cumulative_volume_provider_units": 20652.0,
+              "cumulative_amount_cny": 48449592.0,
+              "return_vs_prior_close_pct": -2.897
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 23.22,
+              "cumulative_volume_provider_units": 359892.0,
+              "cumulative_amount_cny": 821798185.9,
+              "return_vs_prior_close_pct": -3.891
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 22.74,
+              "cumulative_volume_provider_units": 602385.0,
+              "cumulative_amount_cny": 1378505569.3,
+              "return_vs_prior_close_pct": -5.877
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 23.11,
+              "cumulative_volume_provider_units": 714892.0,
+              "cumulative_amount_cny": 1636046921.16,
+              "return_vs_prior_close_pct": -4.346
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 24.0,
+              "cumulative_volume_provider_units": 1002637.0,
+              "cumulative_amount_cny": 2322011584.37,
+              "return_vs_prior_close_pct": -0.662
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 23.6,
+              "cumulative_volume_provider_units": 1076330.0,
+              "cumulative_amount_cny": 2497314554.41,
+              "return_vs_prior_close_pct": -2.318
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 24.0,
+              "cumulative_volume_provider_units": 1175913.0,
+              "cumulative_amount_cny": 2733096219.17,
+              "return_vs_prior_close_pct": -0.662
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -2.897,
+            "0945": -3.891,
+            "1030": -5.877,
+            "1130": -4.346,
+            "1400": -0.662,
+            "1440": -2.318,
+            "1500": -0.662
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -2.897,
+          "daily_high_price_excursion_pct": 1.407,
+          "daily_low_price_excursion_pct": -8.071,
+          "close_return_pct": -0.662,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300450-full-20261015",
+          "code": "300450",
+          "name": "300450",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 37.88,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 36.21,
+              "cumulative_volume_provider_units": 9197.0,
+              "cumulative_amount_cny": 33302337.0,
+              "return_vs_prior_close_pct": -4.409
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 34.73,
+              "cumulative_volume_provider_units": 382920.0,
+              "cumulative_amount_cny": 1354987592.83,
+              "return_vs_prior_close_pct": -8.316
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 33.84,
+              "cumulative_volume_provider_units": 765244.0,
+              "cumulative_amount_cny": 2664670300.11,
+              "return_vs_prior_close_pct": -10.665
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 34.27,
+              "cumulative_volume_provider_units": 896281.0,
+              "cumulative_amount_cny": 3110359463.77,
+              "return_vs_prior_close_pct": -9.53
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 34.99,
+              "cumulative_volume_provider_units": 1073669.0,
+              "cumulative_amount_cny": 3730727302.41,
+              "return_vs_prior_close_pct": -7.629
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 34.26,
+              "cumulative_volume_provider_units": 1152969.0,
+              "cumulative_amount_cny": 4004706632.78,
+              "return_vs_prior_close_pct": -9.556
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 34.25,
+              "cumulative_volume_provider_units": 1252788.0,
+              "cumulative_amount_cny": 4346251281.07,
+              "return_vs_prior_close_pct": -9.583
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -4.409,
+            "0945": -8.316,
+            "1030": -10.665,
+            "1130": -9.53,
+            "1400": -7.629,
+            "1440": -9.556,
+            "1500": -9.583
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -4.409,
+          "daily_high_price_excursion_pct": -3.907,
+          "daily_low_price_excursion_pct": -12.012,
+          "close_return_pct": -9.583,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300821-full-20261015",
+          "code": "300821",
+          "name": "300821",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 17.99,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 17.63,
+              "cumulative_volume_provider_units": 28596.0,
+              "cumulative_amount_cny": 50414748.0,
+              "return_vs_prior_close_pct": -2.001
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 17.9,
+              "cumulative_volume_provider_units": 464732.0,
+              "cumulative_amount_cny": 823784800.45,
+              "return_vs_prior_close_pct": -0.5
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 18.04,
+              "cumulative_volume_provider_units": 1074266.0,
+              "cumulative_amount_cny": 1932407960.49,
+              "return_vs_prior_close_pct": 0.278
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 18.09,
+              "cumulative_volume_provider_units": 1314289.0,
+              "cumulative_amount_cny": 2360426215.6,
+              "return_vs_prior_close_pct": 0.556
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 19.66,
+              "cumulative_volume_provider_units": 1916812.0,
+              "cumulative_amount_cny": 3517292696.44,
+              "return_vs_prior_close_pct": 9.283
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 19.23,
+              "cumulative_volume_provider_units": 2111080.0,
+              "cumulative_amount_cny": 3888965766.45,
+              "return_vs_prior_close_pct": 6.893
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 19.25,
+              "cumulative_volume_provider_units": 2220295.0,
+              "cumulative_amount_cny": 4098792619.9,
+              "return_vs_prior_close_pct": 7.004
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -2.001,
+            "0945": -0.5,
+            "1030": 0.278,
+            "1130": 0.556,
+            "1400": 9.283,
+            "1440": 6.893,
+            "1500": 7.004
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -2.001,
+          "daily_high_price_excursion_pct": 14.397,
+          "daily_low_price_excursion_pct": -3.78,
+          "close_return_pct": 7.004,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300274-full-20261015",
+          "code": "300274",
+          "name": "300274",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 82.35,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 81.0,
+              "cumulative_volume_provider_units": 3769.0,
+              "cumulative_amount_cny": 30528900.0,
+              "return_vs_prior_close_pct": -1.639
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 79.36,
+              "cumulative_volume_provider_units": 92398.0,
+              "cumulative_amount_cny": 740235599.87,
+              "return_vs_prior_close_pct": -3.631
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 78.81,
+              "cumulative_volume_provider_units": 204441.0,
+              "cumulative_amount_cny": 1626792044.76,
+              "return_vs_prior_close_pct": -4.299
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 79.48,
+              "cumulative_volume_provider_units": 276477.0,
+              "cumulative_amount_cny": 2192365133.27,
+              "return_vs_prior_close_pct": -3.485
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 80.82,
+              "cumulative_volume_provider_units": 368558.0,
+              "cumulative_amount_cny": 2935051891.12,
+              "return_vs_prior_close_pct": -1.858
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 79.87,
+              "cumulative_volume_provider_units": 417511.0,
+              "cumulative_amount_cny": 3327868601.39,
+              "return_vs_prior_close_pct": -3.012
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 79.91,
+              "cumulative_volume_provider_units": 447025.0,
+              "cumulative_amount_cny": 3563660551.57,
+              "return_vs_prior_close_pct": -2.963
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -1.639,
+            "0945": -3.631,
+            "1030": -4.299,
+            "1130": -3.485,
+            "1400": -1.858,
+            "1440": -3.012,
+            "1500": -2.963
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -1.639,
+          "daily_high_price_excursion_pct": -1.032,
+          "daily_low_price_excursion_pct": -5.185,
+          "close_return_pct": -2.963,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-601127-full-20261015",
+          "code": "601127",
+          "name": "601127",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 51.24,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 51.0,
+              "cumulative_volume_provider_units": 16026.0,
+              "cumulative_amount_cny": 81732600.0,
+              "return_vs_prior_close_pct": -0.468
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 52.74,
+              "cumulative_volume_provider_units": 274777.0,
+              "cumulative_amount_cny": 1403863226.63,
+              "return_vs_prior_close_pct": 2.927
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 52.62,
+              "cumulative_volume_provider_units": 625975.0,
+              "cumulative_amount_cny": 3265375204.66,
+              "return_vs_prior_close_pct": 2.693
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 52.38,
+              "cumulative_volume_provider_units": 691701.0,
+              "cumulative_amount_cny": 3609026915.36,
+              "return_vs_prior_close_pct": 2.225
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 51.31,
+              "cumulative_volume_provider_units": 776815.0,
+              "cumulative_amount_cny": 4047720890.56,
+              "return_vs_prior_close_pct": 0.137
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 52.49,
+              "cumulative_volume_provider_units": 817478.0,
+              "cumulative_amount_cny": 4257835731.25,
+              "return_vs_prior_close_pct": 2.44
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 52.33,
+              "cumulative_volume_provider_units": 867560.0,
+              "cumulative_amount_cny": 4520313293.12,
+              "return_vs_prior_close_pct": 2.127
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -0.468,
+            "0945": 2.927,
+            "1030": 2.693,
+            "1130": 2.225,
+            "1400": 0.137,
+            "1440": 2.44,
+            "1500": 2.127
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -0.468,
+          "daily_high_price_excursion_pct": 5.386,
+          "daily_low_price_excursion_pct": -3.376,
+          "close_return_pct": 2.127,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300133-full-20261015",
+          "code": "300133",
+          "name": "300133",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 9.08,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 8.7,
+              "cumulative_volume_provider_units": 26019.0,
+              "cumulative_amount_cny": 22636530.0,
+              "return_vs_prior_close_pct": -4.185
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 8.9,
+              "cumulative_volume_provider_units": 392825.0,
+              "cumulative_amount_cny": 347442877.52,
+              "return_vs_prior_close_pct": -1.982
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 8.97,
+              "cumulative_volume_provider_units": 790990.0,
+              "cumulative_amount_cny": 701652383.85,
+              "return_vs_prior_close_pct": -1.211
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 9.16,
+              "cumulative_volume_provider_units": 984274.0,
+              "cumulative_amount_cny": 875568780.14,
+              "return_vs_prior_close_pct": 0.881
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 9.25,
+              "cumulative_volume_provider_units": 1373912.0,
+              "cumulative_amount_cny": 1236143767.58,
+              "return_vs_prior_close_pct": 1.872
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 9.17,
+              "cumulative_volume_provider_units": 1538979.0,
+              "cumulative_amount_cny": 1387820846.56,
+              "return_vs_prior_close_pct": 0.991
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 9.23,
+              "cumulative_volume_provider_units": 1679770.0,
+              "cumulative_amount_cny": 1517405928.26,
+              "return_vs_prior_close_pct": 1.652
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -4.185,
+            "0945": -1.982,
+            "1030": -1.211,
+            "1130": 0.881,
+            "1400": 1.872,
+            "1440": 0.991,
+            "1500": 1.652
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -4.185,
+          "daily_high_price_excursion_pct": 3.414,
+          "daily_low_price_excursion_pct": -4.185,
+          "close_return_pct": 1.652,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-603533-full-20261015",
+          "code": "603533",
+          "name": "603533",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 27.98,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 26.9,
+              "cumulative_volume_provider_units": 17458.0,
+              "cumulative_amount_cny": 46962020.0,
+              "return_vs_prior_close_pct": -3.86
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 27.48,
+              "cumulative_volume_provider_units": 222469.0,
+              "cumulative_amount_cny": 600867669.97,
+              "return_vs_prior_close_pct": -1.787
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 26.92,
+              "cumulative_volume_provider_units": 374145.0,
+              "cumulative_amount_cny": 1010927622.08,
+              "return_vs_prior_close_pct": -3.788
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 27.38,
+              "cumulative_volume_provider_units": 446371.0,
+              "cumulative_amount_cny": 1205822027.35,
+              "return_vs_prior_close_pct": -2.144
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 27.45,
+              "cumulative_volume_provider_units": 577079.0,
+              "cumulative_amount_cny": 1568800256.11,
+              "return_vs_prior_close_pct": -1.894
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 27.14,
+              "cumulative_volume_provider_units": 641091.0,
+              "cumulative_amount_cny": 1743314819.51,
+              "return_vs_prior_close_pct": -3.002
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 27.2,
+              "cumulative_volume_provider_units": 706201.0,
+              "cumulative_amount_cny": 1919989947.43,
+              "return_vs_prior_close_pct": -2.788
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -3.86,
+            "0945": -1.787,
+            "1030": -3.788,
+            "1130": -2.144,
+            "1400": -1.894,
+            "1440": -3.002,
+            "1500": -2.788
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -3.86,
+          "daily_high_price_excursion_pct": 1.858,
+          "daily_low_price_excursion_pct": -6.791,
+          "close_return_pct": -2.788,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-601118-full-20261015",
+          "code": "601118",
+          "name": "601118",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 7.46,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 7.1,
+              "cumulative_volume_provider_units": 67298.0,
+              "cumulative_amount_cny": 47781580.0,
+              "return_vs_prior_close_pct": -4.826
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 7.43,
+              "cumulative_volume_provider_units": 854680.0,
+              "cumulative_amount_cny": 620224408.47,
+              "return_vs_prior_close_pct": -0.402
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 7.43,
+              "cumulative_volume_provider_units": 1319985.0,
+              "cumulative_amount_cny": 961481227.15,
+              "return_vs_prior_close_pct": -0.402
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 7.25,
+              "cumulative_volume_provider_units": 1592975.0,
+              "cumulative_amount_cny": 1159230560.91,
+              "return_vs_prior_close_pct": -2.815
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 7.36,
+              "cumulative_volume_provider_units": 1835822.0,
+              "cumulative_amount_cny": 1336863325.77,
+              "return_vs_prior_close_pct": -1.34
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 7.3,
+              "cumulative_volume_provider_units": 2018687.0,
+              "cumulative_amount_cny": 1470707813.14,
+              "return_vs_prior_close_pct": -2.145
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 7.3,
+              "cumulative_volume_provider_units": 2222175.0,
+              "cumulative_amount_cny": 1618764167.19,
+              "return_vs_prior_close_pct": -2.145
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -4.826,
+            "0945": -0.402,
+            "1030": -0.402,
+            "1130": -2.815,
+            "1400": -1.34,
+            "1440": -2.145,
+            "1500": -2.145
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -4.826,
+          "daily_high_price_excursion_pct": 1.206,
+          "daily_low_price_excursion_pct": -7.239,
+          "close_return_pct": -2.145,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-600036-full-20261015",
+          "code": "600036",
+          "name": "600036",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 42.76,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 42.66,
+              "cumulative_volume_provider_units": 5174.0,
+              "cumulative_amount_cny": 22072284.0,
+              "return_vs_prior_close_pct": -0.234
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 42.72,
+              "cumulative_volume_provider_units": 154241.0,
+              "cumulative_amount_cny": 659820463.76,
+              "return_vs_prior_close_pct": -0.094
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 42.67,
+              "cumulative_volume_provider_units": 335210.0,
+              "cumulative_amount_cny": 1432453773.47,
+              "return_vs_prior_close_pct": -0.21
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 42.81,
+              "cumulative_volume_provider_units": 484942.0,
+              "cumulative_amount_cny": 2072810821.82,
+              "return_vs_prior_close_pct": 0.117
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 42.62,
+              "cumulative_volume_provider_units": 627628.0,
+              "cumulative_amount_cny": 2683161214.5,
+              "return_vs_prior_close_pct": -0.327
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 42.69,
+              "cumulative_volume_provider_units": 707281.0,
+              "cumulative_amount_cny": 3022552789.41,
+              "return_vs_prior_close_pct": -0.164
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 42.8,
+              "cumulative_volume_provider_units": 794213.0,
+              "cumulative_amount_cny": 3393864516.44,
+              "return_vs_prior_close_pct": 0.094
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -0.234,
+            "0945": -0.094,
+            "1030": -0.21,
+            "1130": 0.117,
+            "1400": -0.327,
+            "1440": -0.164,
+            "1500": 0.094
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -0.234,
+          "daily_high_price_excursion_pct": 0.444,
+          "daily_low_price_excursion_pct": -0.608,
+          "close_return_pct": 0.094,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-600519-full-20261015",
+          "code": "600519",
+          "name": "600519",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 1288.0,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 1287.0,
+              "cumulative_volume_provider_units": 201.0,
+              "cumulative_amount_cny": 25868700.0,
+              "return_vs_prior_close_pct": -0.078
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 1284.0,
+              "cumulative_volume_provider_units": 3896.0,
+              "cumulative_amount_cny": 500534724.6,
+              "return_vs_prior_close_pct": -0.311
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 1275.6,
+              "cumulative_volume_provider_units": 8980.0,
+              "cumulative_amount_cny": 1151845084.22,
+              "return_vs_prior_close_pct": -0.963
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 1279.23,
+              "cumulative_volume_provider_units": 12924.0,
+              "cumulative_amount_cny": 1655368364.45,
+              "return_vs_prior_close_pct": -0.681
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 1271.75,
+              "cumulative_volume_provider_units": 18326.0,
+              "cumulative_amount_cny": 2344575541.04,
+              "return_vs_prior_close_pct": -1.262
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 1274.22,
+              "cumulative_volume_provider_units": 22545.0,
+              "cumulative_amount_cny": 2880610995.37,
+              "return_vs_prior_close_pct": -1.07
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 1274.89,
+              "cumulative_volume_provider_units": 26573.0,
+              "cumulative_amount_cny": 3393346219.77,
+              "return_vs_prior_close_pct": -1.018
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -0.078,
+            "0945": -0.311,
+            "1030": -0.963,
+            "1130": -0.681,
+            "1400": -1.262,
+            "1440": -1.07,
+            "1500": -1.018
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -0.078,
+          "daily_high_price_excursion_pct": 0.037,
+          "daily_low_price_excursion_pct": -1.544,
+          "close_return_pct": -1.018,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300418-full-20261015",
+          "code": "300418",
+          "name": "300418",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 41.8,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 41.0,
+              "cumulative_volume_provider_units": 5821.0,
+              "cumulative_amount_cny": 23866100.0,
+              "return_vs_prior_close_pct": -1.914
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 40.61,
+              "cumulative_volume_provider_units": 116087.0,
+              "cumulative_amount_cny": 470226368.96,
+              "return_vs_prior_close_pct": -2.847
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 40.7,
+              "cumulative_volume_provider_units": 234757.0,
+              "cumulative_amount_cny": 956452288.75,
+              "return_vs_prior_close_pct": -2.632
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 41.21,
+              "cumulative_volume_provider_units": 301035.0,
+              "cumulative_amount_cny": 1225361187.04,
+              "return_vs_prior_close_pct": -1.411
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 41.75,
+              "cumulative_volume_provider_units": 434047.0,
+              "cumulative_amount_cny": 1782513621.64,
+              "return_vs_prior_close_pct": -0.12
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 41.31,
+              "cumulative_volume_provider_units": 479630.0,
+              "cumulative_amount_cny": 1971732845.62,
+              "return_vs_prior_close_pct": -1.172
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 41.4,
+              "cumulative_volume_provider_units": 514606.0,
+              "cumulative_amount_cny": 2116331169.24,
+              "return_vs_prior_close_pct": -0.957
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -1.914,
+            "0945": -2.847,
+            "1030": -2.632,
+            "1130": -1.411,
+            "1400": -0.12,
+            "1440": -1.172,
+            "1500": -0.957
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -1.914,
+          "daily_high_price_excursion_pct": 1.1,
+          "daily_low_price_excursion_pct": -4.33,
+          "close_return_pct": -0.957,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-600900-full-20261015",
+          "code": "600900",
+          "name": "600900",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 29.38,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 29.21,
+              "cumulative_volume_provider_units": 10518.0,
+              "cumulative_amount_cny": 30723078.5,
+              "return_vs_prior_close_pct": -0.579
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 29.24,
+              "cumulative_volume_provider_units": 161217.0,
+              "cumulative_amount_cny": 472604130.54,
+              "return_vs_prior_close_pct": -0.477
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 29.22,
+              "cumulative_volume_provider_units": 330215.0,
+              "cumulative_amount_cny": 966699471.32,
+              "return_vs_prior_close_pct": -0.545
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 29.19,
+              "cumulative_volume_provider_units": 436462.0,
+              "cumulative_amount_cny": 1277047660.96,
+              "return_vs_prior_close_pct": -0.647
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 29.1,
+              "cumulative_volume_provider_units": 636959.0,
+              "cumulative_amount_cny": 1861703975.35,
+              "return_vs_prior_close_pct": -0.953
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 29.08,
+              "cumulative_volume_provider_units": 770765.0,
+              "cumulative_amount_cny": 2250266154.0,
+              "return_vs_prior_close_pct": -1.021
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 29.15,
+              "cumulative_volume_provider_units": 869958.0,
+              "cumulative_amount_cny": 2538957578.13,
+              "return_vs_prior_close_pct": -0.783
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -0.579,
+            "0945": -0.477,
+            "1030": -0.545,
+            "1130": -0.647,
+            "1400": -0.953,
+            "1440": -1.021,
+            "1500": -0.783
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -0.579,
+          "daily_high_price_excursion_pct": 0.068,
+          "daily_low_price_excursion_pct": -1.361,
+          "close_return_pct": -0.783,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-601288-full-20261015",
+          "code": "601288",
+          "name": "601288",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 7.19,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 7.19,
+              "cumulative_volume_provider_units": 21763.0,
+              "cumulative_amount_cny": 15647597.0,
+              "return_vs_prior_close_pct": 0.0
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 7.24,
+              "cumulative_volume_provider_units": 725500.0,
+              "cumulative_amount_cny": 524575350.68,
+              "return_vs_prior_close_pct": 0.695
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 7.24,
+              "cumulative_volume_provider_units": 1376084.0,
+              "cumulative_amount_cny": 995086577.71,
+              "return_vs_prior_close_pct": 0.695
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 7.23,
+              "cumulative_volume_provider_units": 1870697.0,
+              "cumulative_amount_cny": 1353710480.93,
+              "return_vs_prior_close_pct": 0.556
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 7.21,
+              "cumulative_volume_provider_units": 2587647.0,
+              "cumulative_amount_cny": 1871603727.9,
+              "return_vs_prior_close_pct": 0.278
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 7.24,
+              "cumulative_volume_provider_units": 2978744.0,
+              "cumulative_amount_cny": 2153835468.92,
+              "return_vs_prior_close_pct": 0.695
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 7.25,
+              "cumulative_volume_provider_units": 3316369.0,
+              "cumulative_amount_cny": 2398263362.92,
+              "return_vs_prior_close_pct": 0.834
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": 0.0,
+            "0945": 0.695,
+            "1030": 0.695,
+            "1130": 0.556,
+            "1400": 0.278,
+            "1440": 0.695,
+            "1500": 0.834
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": 0.0,
+          "daily_high_price_excursion_pct": 1.113,
+          "daily_low_price_excursion_pct": 0.0,
+          "close_return_pct": 0.834,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-601398-full-20261015",
+          "code": "601398",
+          "name": "601398",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 8.44,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 8.45,
+              "cumulative_volume_provider_units": 33413.0,
+              "cumulative_amount_cny": 28233984.75,
+              "return_vs_prior_close_pct": 0.118
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 8.49,
+              "cumulative_volume_provider_units": 738629.0,
+              "cumulative_amount_cny": 626078751.0,
+              "return_vs_prior_close_pct": 0.592
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 8.49,
+              "cumulative_volume_provider_units": 1385692.0,
+              "cumulative_amount_cny": 1173907780.68,
+              "return_vs_prior_close_pct": 0.592
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 8.47,
+              "cumulative_volume_provider_units": 1977286.0,
+              "cumulative_amount_cny": 1676209947.14,
+              "return_vs_prior_close_pct": 0.355
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 8.44,
+              "cumulative_volume_provider_units": 2614185.0,
+              "cumulative_amount_cny": 2215353909.08,
+              "return_vs_prior_close_pct": 0.0
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 8.46,
+              "cumulative_volume_provider_units": 3023191.0,
+              "cumulative_amount_cny": 2560863713.4,
+              "return_vs_prior_close_pct": 0.237
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 8.49,
+              "cumulative_volume_provider_units": 3377819.0,
+              "cumulative_amount_cny": 2861461289.31,
+              "return_vs_prior_close_pct": 0.592
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": 0.118,
+            "0945": 0.592,
+            "1030": 0.592,
+            "1130": 0.355,
+            "1400": 0.0,
+            "1440": 0.237,
+            "1500": 0.592
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": 0.118,
+          "daily_high_price_excursion_pct": 0.948,
+          "daily_low_price_excursion_pct": -0.237,
+          "close_return_pct": 0.592,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-601988-full-20261015",
+          "code": "601988",
+          "name": "601988",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 6.97,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 6.99,
+              "cumulative_volume_provider_units": 29617.0,
+              "cumulative_amount_cny": 20702283.0,
+              "return_vs_prior_close_pct": 0.287
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 7.0,
+              "cumulative_volume_provider_units": 563992.0,
+              "cumulative_amount_cny": 393959992.48,
+              "return_vs_prior_close_pct": 0.43
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 7.03,
+              "cumulative_volume_provider_units": 1315496.0,
+              "cumulative_amount_cny": 920333957.82,
+              "return_vs_prior_close_pct": 0.861
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 7.03,
+              "cumulative_volume_provider_units": 2009538.0,
+              "cumulative_amount_cny": 1408910544.54,
+              "return_vs_prior_close_pct": 0.861
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 7.02,
+              "cumulative_volume_provider_units": 2751954.0,
+              "cumulative_amount_cny": 1931722500.08,
+              "return_vs_prior_close_pct": 0.717
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 7.06,
+              "cumulative_volume_provider_units": 3274890.0,
+              "cumulative_amount_cny": 2299645127.18,
+              "return_vs_prior_close_pct": 1.291
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 7.07,
+              "cumulative_volume_provider_units": 3578354.0,
+              "cumulative_amount_cny": 2513705329.7,
+              "return_vs_prior_close_pct": 1.435
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": 0.287,
+            "0945": 0.43,
+            "1030": 0.861,
+            "1130": 0.861,
+            "1400": 0.717,
+            "1440": 1.291,
+            "1500": 1.435
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": 0.287,
+          "daily_high_price_excursion_pct": 1.578,
+          "daily_low_price_excursion_pct": -0.143,
+          "close_return_pct": 1.435,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-002027-full-20261015",
+          "code": "002027",
+          "name": "002027",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 5.1,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 5.01,
+              "cumulative_volume_provider_units": 37733.0,
+              "cumulative_amount_cny": 18904233.0,
+              "return_vs_prior_close_pct": -1.765
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 5.12,
+              "cumulative_volume_provider_units": 746204.0,
+              "cumulative_amount_cny": 379212355.03,
+              "return_vs_prior_close_pct": 0.392
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 5.15,
+              "cumulative_volume_provider_units": 1813026.0,
+              "cumulative_amount_cny": 929351362.33,
+              "return_vs_prior_close_pct": 0.98
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 5.1,
+              "cumulative_volume_provider_units": 2434993.0,
+              "cumulative_amount_cny": 1247521861.3,
+              "return_vs_prior_close_pct": 0.0
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 5.11,
+              "cumulative_volume_provider_units": 2903560.0,
+              "cumulative_amount_cny": 1487375205.43,
+              "return_vs_prior_close_pct": 0.196
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 5.09,
+              "cumulative_volume_provider_units": 3167498.0,
+              "cumulative_amount_cny": 1622081383.28,
+              "return_vs_prior_close_pct": -0.196
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 5.1,
+              "cumulative_volume_provider_units": 3368592.0,
+              "cumulative_amount_cny": 1724638429.97,
+              "return_vs_prior_close_pct": 0.0
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -1.765,
+            "0945": 0.392,
+            "1030": 0.98,
+            "1130": 0.0,
+            "1400": 0.196,
+            "1440": -0.196,
+            "1500": 0.0
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -1.765,
+          "daily_high_price_excursion_pct": 1.961,
+          "daily_low_price_excursion_pct": -1.765,
+          "close_return_pct": 0.0,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-300182-full-20261015",
+          "code": "300182",
+          "name": "300182",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 5.66,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 5.53,
+              "cumulative_volume_provider_units": 42771.0,
+              "cumulative_amount_cny": 23652363.0,
+              "return_vs_prior_close_pct": -2.297
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 5.58,
+              "cumulative_volume_provider_units": 775402.0,
+              "cumulative_amount_cny": 425798851.7,
+              "return_vs_prior_close_pct": -1.413
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 5.66,
+              "cumulative_volume_provider_units": 1725539.0,
+              "cumulative_amount_cny": 964944686.55,
+              "return_vs_prior_close_pct": 0.0
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 5.76,
+              "cumulative_volume_provider_units": 2147809.0,
+              "cumulative_amount_cny": 1203717745.25,
+              "return_vs_prior_close_pct": 1.767
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 5.79,
+              "cumulative_volume_provider_units": 2739882.0,
+              "cumulative_amount_cny": 1546702639.98,
+              "return_vs_prior_close_pct": 2.297
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 5.73,
+              "cumulative_volume_provider_units": 3092760.0,
+              "cumulative_amount_cny": 1751164988.35,
+              "return_vs_prior_close_pct": 1.237
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 5.75,
+              "cumulative_volume_provider_units": 3334710.0,
+              "cumulative_amount_cny": 1889850732.07,
+              "return_vs_prior_close_pct": 1.59
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -2.297,
+            "0945": -1.413,
+            "1030": 0.0,
+            "1130": 1.767,
+            "1400": 2.297,
+            "1440": 1.237,
+            "1500": 1.59
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -2.297,
+          "daily_high_price_excursion_pct": 3.887,
+          "daily_low_price_excursion_pct": -4.77,
+          "close_return_pct": 1.59,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-688072-full-20261015",
+          "code": "688072",
+          "name": "688072",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 633.0,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 606.97,
+              "cumulative_volume_provider_units": 54264.0,
+              "cumulative_amount_cny": 32936620.0,
+              "return_vs_prior_close_pct": -4.112
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 617.71,
+              "cumulative_volume_provider_units": 1186670.0,
+              "cumulative_amount_cny": 737846642.0,
+              "return_vs_prior_close_pct": -2.415
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 643.63,
+              "cumulative_volume_provider_units": 3451915.0,
+              "cumulative_amount_cny": 2189485119.0,
+              "return_vs_prior_close_pct": 1.679
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 648.33,
+              "cumulative_volume_provider_units": 4281252.0,
+              "cumulative_amount_cny": 2720574302.0,
+              "return_vs_prior_close_pct": 2.422
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 661.47,
+              "cumulative_volume_provider_units": 6358523.0,
+              "cumulative_amount_cny": 4098614865.0,
+              "return_vs_prior_close_pct": 4.498
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 654.38,
+              "cumulative_volume_provider_units": 6937333.0,
+              "cumulative_amount_cny": 4479995090.0,
+              "return_vs_prior_close_pct": 3.378
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 654.23,
+              "cumulative_volume_provider_units": 7388586.0,
+              "cumulative_amount_cny": 4775633710.0,
+              "return_vs_prior_close_pct": 3.354
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -4.112,
+            "0945": -2.415,
+            "1030": 1.679,
+            "1130": 2.422,
+            "1400": 4.498,
+            "1440": 3.378,
+            "1500": 3.354
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -4.112,
+          "daily_high_price_excursion_pct": 6.427,
+          "daily_low_price_excursion_pct": -4.112,
+          "close_return_pct": 3.354,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-688361-full-20261015",
+          "code": "688361",
+          "name": "688361",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 345.65,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 338.64,
+              "cumulative_volume_provider_units": 37864.0,
+              "cumulative_amount_cny": 12822265.0,
+              "return_vs_prior_close_pct": -2.028
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 328.5,
+              "cumulative_volume_provider_units": 1626234.0,
+              "cumulative_amount_cny": 542264174.0,
+              "return_vs_prior_close_pct": -4.962
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 344.77,
+              "cumulative_volume_provider_units": 4436844.0,
+              "cumulative_amount_cny": 1500846375.0,
+              "return_vs_prior_close_pct": -0.255
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 348.51,
+              "cumulative_volume_provider_units": 5797444.0,
+              "cumulative_amount_cny": 1969564637.0,
+              "return_vs_prior_close_pct": 0.827
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 367.4,
+              "cumulative_volume_provider_units": 9089605.0,
+              "cumulative_amount_cny": 3167461665.0,
+              "return_vs_prior_close_pct": 6.292
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 366.43,
+              "cumulative_volume_provider_units": 10252129.0,
+              "cumulative_amount_cny": 3595301730.0,
+              "return_vs_prior_close_pct": 6.012
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 366.51,
+              "cumulative_volume_provider_units": 10970552.0,
+              "cumulative_amount_cny": 3858374729.0,
+              "return_vs_prior_close_pct": 6.035
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -2.028,
+            "0945": -4.962,
+            "1030": -0.255,
+            "1130": 0.827,
+            "1400": 6.292,
+            "1440": 6.012,
+            "1500": 6.035
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -2.028,
+          "daily_high_price_excursion_pct": 7.302,
+          "daily_low_price_excursion_pct": -5.685,
+          "close_return_pct": 6.035,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-688012-full-20261015",
+          "code": "688012",
+          "name": "688012",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 311.21,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 299.88,
+              "cumulative_volume_provider_units": 172148.0,
+              "cumulative_amount_cny": 51623742.0,
+              "return_vs_prior_close_pct": -3.641
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 298.94,
+              "cumulative_volume_provider_units": 2288797.0,
+              "cumulative_amount_cny": 688913959.0,
+              "return_vs_prior_close_pct": -3.943
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 302.75,
+              "cumulative_volume_provider_units": 5489230.0,
+              "cumulative_amount_cny": 1661128921.0,
+              "return_vs_prior_close_pct": -2.718
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 306.7,
+              "cumulative_volume_provider_units": 7414363.0,
+              "cumulative_amount_cny": 2243818674.0,
+              "return_vs_prior_close_pct": -1.449
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 310.44,
+              "cumulative_volume_provider_units": 10931728.0,
+              "cumulative_amount_cny": 3339186267.0,
+              "return_vs_prior_close_pct": -0.247
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 306.33,
+              "cumulative_volume_provider_units": 12263561.0,
+              "cumulative_amount_cny": 3749545332.0,
+              "return_vs_prior_close_pct": -1.568
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 307.69,
+              "cumulative_volume_provider_units": 13441342.0,
+              "cumulative_amount_cny": 4110915019.0,
+              "return_vs_prior_close_pct": -1.131
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -3.641,
+            "0945": -3.943,
+            "1030": -2.718,
+            "1130": -1.449,
+            "1400": -0.247,
+            "1440": -1.568,
+            "1500": -1.131
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -3.641,
+          "daily_high_price_excursion_pct": 1.218,
+          "daily_low_price_excursion_pct": -4.63,
+          "close_return_pct": -1.131,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-002080-full-20261015",
+          "code": "002080",
+          "name": "002080",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 52.01,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 50.0,
+              "cumulative_volume_provider_units": 5486.0,
+              "cumulative_amount_cny": 27430000.0,
+              "return_vs_prior_close_pct": -3.865
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 49.91,
+              "cumulative_volume_provider_units": 95589.0,
+              "cumulative_amount_cny": 482491307.31,
+              "return_vs_prior_close_pct": -4.038
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 50.98,
+              "cumulative_volume_provider_units": 175071.0,
+              "cumulative_amount_cny": 885093290.0,
+              "return_vs_prior_close_pct": -1.98
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 52.21,
+              "cumulative_volume_provider_units": 226485.0,
+              "cumulative_amount_cny": 1149805989.63,
+              "return_vs_prior_close_pct": 0.385
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 52.39,
+              "cumulative_volume_provider_units": 342346.0,
+              "cumulative_amount_cny": 1760540566.3,
+              "return_vs_prior_close_pct": 0.731
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 51.81,
+              "cumulative_volume_provider_units": 382224.0,
+              "cumulative_amount_cny": 1968135756.01,
+              "return_vs_prior_close_pct": -0.385
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 51.64,
+              "cumulative_volume_provider_units": 410259.0,
+              "cumulative_amount_cny": 2112839790.65,
+              "return_vs_prior_close_pct": -0.711
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -3.865,
+            "0945": -4.038,
+            "1030": -1.98,
+            "1130": 0.385,
+            "1400": 0.731,
+            "1440": -0.385,
+            "1500": -0.711
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -3.865,
+          "daily_high_price_excursion_pct": 2.48,
+          "daily_low_price_excursion_pct": -4.807,
+          "close_return_pct": -0.711,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-002074-full-20261015",
+          "code": "002074",
+          "name": "002074",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 30.49,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 29.4,
+              "cumulative_volume_provider_units": 7020.0,
+              "cumulative_amount_cny": 20638800.0,
+              "return_vs_prior_close_pct": -3.575
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 29.21,
+              "cumulative_volume_provider_units": 167668.0,
+              "cumulative_amount_cny": 493840047.8,
+              "return_vs_prior_close_pct": -4.198
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 28.31,
+              "cumulative_volume_provider_units": 451551.0,
+              "cumulative_amount_cny": 1306472433.4,
+              "return_vs_prior_close_pct": -7.15
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 28.45,
+              "cumulative_volume_provider_units": 538823.0,
+              "cumulative_amount_cny": 1552680465.78,
+              "return_vs_prior_close_pct": -6.691
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 28.67,
+              "cumulative_volume_provider_units": 658330.0,
+              "cumulative_amount_cny": 1897183915.32,
+              "return_vs_prior_close_pct": -5.969
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 28.32,
+              "cumulative_volume_provider_units": 716003.0,
+              "cumulative_amount_cny": 2061513922.68,
+              "return_vs_prior_close_pct": -7.117
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 28.33,
+              "cumulative_volume_provider_units": 789707.0,
+              "cumulative_amount_cny": 2270178501.69,
+              "return_vs_prior_close_pct": -7.084
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -3.575,
+            "0945": -4.198,
+            "1030": -7.15,
+            "1130": -6.691,
+            "1400": -5.969,
+            "1440": -7.117,
+            "1500": -7.084
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -3.575,
+          "daily_high_price_excursion_pct": -2.033,
+          "daily_low_price_excursion_pct": -8.134,
+          "close_return_pct": -7.084,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-600737-full-20261015",
+          "code": "600737",
+          "name": "600737",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 15.99,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 15.6,
+              "cumulative_volume_provider_units": 11053.0,
+              "cumulative_amount_cny": 17242680.0,
+              "return_vs_prior_close_pct": -2.439
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 16.08,
+              "cumulative_volume_provider_units": 316349.0,
+              "cumulative_amount_cny": 500477996.07,
+              "return_vs_prior_close_pct": 0.563
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 16.36,
+              "cumulative_volume_provider_units": 674782.0,
+              "cumulative_amount_cny": 1078753942.79,
+              "return_vs_prior_close_pct": 2.314
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 15.9,
+              "cumulative_volume_provider_units": 827551.0,
+              "cumulative_amount_cny": 1324618631.73,
+              "return_vs_prior_close_pct": -0.563
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 16.02,
+              "cumulative_volume_provider_units": 979228.0,
+              "cumulative_amount_cny": 1566094634.86,
+              "return_vs_prior_close_pct": 0.188
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 16.11,
+              "cumulative_volume_provider_units": 1050285.0,
+              "cumulative_amount_cny": 1679854604.1,
+              "return_vs_prior_close_pct": 0.75
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 16.29,
+              "cumulative_volume_provider_units": 1175193.0,
+              "cumulative_amount_cny": 1882146203.86,
+              "return_vs_prior_close_pct": 1.876
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -2.439,
+            "0945": 0.563,
+            "1030": 2.314,
+            "1130": -0.563,
+            "1400": 0.188,
+            "1440": 0.75,
+            "1500": 1.876
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -2.439,
+          "daily_high_price_excursion_pct": 3.189,
+          "daily_low_price_excursion_pct": -3.94,
+          "close_return_pct": 1.876,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        },
+        {
+          "id": "volume-price-20261012-close-v1-cohort-002938-full-20261015",
+          "code": "002938",
+          "name": "002938",
+          "date": "2026-10-13",
+          "reference_date": "2026-10-12",
+          "reference_close": 76.48,
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "origin_cohort_id": "volume-price-20261012-close-v1-cohort",
+          "report_ids": [
+            "volume-price-20261015-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "verified_daily_and_historical_minute_price_points",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 72.84,
+              "cumulative_volume_provider_units": 5356.0,
+              "cumulative_amount_cny": 39013104.0,
+              "return_vs_prior_close_pct": -4.759
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 73.35,
+              "cumulative_volume_provider_units": 80087.0,
+              "cumulative_amount_cny": 592852125.17,
+              "return_vs_prior_close_pct": -4.093
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 74.68,
+              "cumulative_volume_provider_units": 150678.0,
+              "cumulative_amount_cny": 1119475406.1,
+              "return_vs_prior_close_pct": -2.354
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 78.8,
+              "cumulative_volume_provider_units": 211697.0,
+              "cumulative_amount_cny": 1587336887.84,
+              "return_vs_prior_close_pct": 3.033
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 81.24,
+              "cumulative_volume_provider_units": 338009.0,
+              "cumulative_amount_cny": 2596929554.81,
+              "return_vs_prior_close_pct": 6.224
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 80.38,
+              "cumulative_volume_provider_units": 388953.0,
+              "cumulative_amount_cny": 3009371083.36,
+              "return_vs_prior_close_pct": 5.099
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 80.53,
+              "cumulative_volume_provider_units": 409343.0,
+              "cumulative_amount_cny": 3173575349.31,
+              "return_vs_prior_close_pct": 5.296
+            }
+          },
+          "checkpoint_returns_pct": {
+            "0930": -4.759,
+            "0945": -4.093,
+            "1030": -2.354,
+            "1130": 3.033,
+            "1400": 6.224,
+            "1440": 5.099,
+            "1500": 5.296
+          },
+          "trigger_status": "not_reconstructable_without_frozen_uniform_trigger",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query"
+          ],
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "fill",
+            "legal_exit"
+          ],
+          "open_return_pct": -4.759,
+          "daily_high_price_excursion_pct": 7.218,
+          "daily_low_price_excursion_pct": -5.426,
+          "close_return_pct": 5.296,
+          "price_observation_note": "完整日线与历史分钟价格点；不是触发后可执行收益。"
+        }
+      ],
+      "full_validation_completed": true,
+      "eligible_for_model_statistics": true
+    },
+    {
+      "id": "volume-price-20261015-close-v1-cohort",
+      "date": "2026-10-15",
+      "task_id": "volume_price",
+      "report_ids": [
+        "volume-price-20261015-close-v1"
+      ],
+      "rule_version": "volume_price_close_v3",
+      "frozen_at": "2026-10-16T01:49:46.905+08:00",
+      "data_cutoff_at": "2026-10-15T15:35:45+08:00",
+      "provenance": "contemporaneous_close_research",
+      "broad_pool_count": 120,
+      "deep_screen_count": 28,
+      "eligible_for_model_statistics": true,
+      "samples": [
+        {
+          "code": "000530",
+          "name": "冰山冷热",
+          "date": "2026-10-15",
+          "open": 6.92,
+          "close": 6.93,
+          "high": 6.93,
+          "low": 6.6,
+          "previous_close": 6.3,
+          "daily_change_pct": 10.0,
+          "amount_cny": 1697317801.0,
+          "turnover_pct": 41.05,
+          "rvol": {
+            "5": 11.247,
+            "10": 14.665,
+            "20": 16.994
+          },
+          "ma": {
+            "5": 5.9,
+            "10": 5.549,
+            "20": 5.361,
+            "60": 5.119
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 100.0,
+            "120": 100.0
+          },
+          "prior20_high": 6.3,
+          "clv": 1.0,
+          "amplitude_pct": 5.238,
+          "distance_ma20_pct": 29.279,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 3.49,
+          "minute_price_points": {
+            "0930": 6.92,
+            "0945": 6.85,
+            "1030": 6.93,
+            "1130": 6.93,
+            "1400": 6.93,
+            "1430": 6.93,
+            "1500": 6.93
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000530,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "002103",
+          "name": "广博股份",
+          "date": "2026-10-15",
+          "open": 6.71,
+          "close": 7.5,
+          "high": 7.5,
+          "low": 6.64,
+          "previous_close": 6.82,
+          "daily_change_pct": 9.971,
+          "amount_cny": 295004098.0,
+          "turnover_pct": 10.212,
+          "rvol": {
+            "5": 5.19,
+            "10": 5.46,
+            "20": 5.314
+          },
+          "ma": {
+            "5": 6.966,
+            "10": 6.816,
+            "20": 6.688,
+            "60": 6.6
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 100.0,
+            "120": 67.636
+          },
+          "prior20_high": 7.2,
+          "clv": 1.0,
+          "amplitude_pct": 12.61,
+          "distance_ma20_pct": 12.141,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 5.808,
+          "minute_price_points": {
+            "0930": 6.71,
+            "0945": 7.5,
+            "1030": 7.5,
+            "1130": 7.5,
+            "1400": 7.5,
+            "1430": 7.5,
+            "1500": 7.5
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002103,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "603329",
+          "name": "上海雅仕",
+          "date": "2026-10-15",
+          "open": 10.02,
+          "close": 11.33,
+          "high": 11.33,
+          "low": 10.0,
+          "previous_close": 10.3,
+          "daily_change_pct": 10.0,
+          "amount_cny": 230174353.0,
+          "turnover_pct": 10.368,
+          "rvol": {
+            "5": 4.16,
+            "10": 5.831,
+            "20": 7.116
+          },
+          "ma": {
+            "5": 10.396,
+            "10": 10.324,
+            "20": 10.155,
+            "60": 10.072
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 100.0,
+            "120": 85.08
+          },
+          "prior20_high": 10.98,
+          "clv": 1.0,
+          "amplitude_pct": 12.913,
+          "distance_ma20_pct": 11.571,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 10.473,
+          "minute_price_points": {
+            "0930": 10.02,
+            "0945": 10.22,
+            "1030": 10.13,
+            "1130": 10.67,
+            "1400": 11.33,
+            "1430": 11.33,
+            "1500": 11.33
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603329,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "300111",
+          "name": "向日葵",
+          "date": "2026-10-15",
+          "open": 3.06,
+          "close": 3.71,
+          "high": 3.71,
+          "low": 3.04,
+          "previous_close": 3.09,
+          "daily_change_pct": 20.065,
+          "amount_cny": 852999783.0,
+          "turnover_pct": 18.777,
+          "rvol": {
+            "5": 1.528,
+            "10": 2.507,
+            "20": 3.903
+          },
+          "ma": {
+            "5": 3.314,
+            "10": 3.141,
+            "20": 3.083,
+            "60": 3.014
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 100.0,
+            "120": 72.561
+          },
+          "prior20_high": 3.56,
+          "clv": 1.0,
+          "amplitude_pct": 21.683,
+          "distance_ma20_pct": 20.357,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 1.797,
+          "minute_price_points": {
+            "0930": 3.06,
+            "0945": 3.3,
+            "1030": 3.71,
+            "1130": 3.71,
+            "1400": 3.71,
+            "1430": 3.71,
+            "1500": 3.71
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300111,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "605189",
+          "name": "富春染织",
+          "date": "2026-10-15",
+          "open": 17.85,
+          "close": 17.85,
+          "high": 17.85,
+          "low": 17.35,
+          "previous_close": 16.23,
+          "daily_change_pct": 9.982,
+          "amount_cny": 724182159.0,
+          "turnover_pct": 17.102,
+          "rvol": {
+            "5": 5.157,
+            "10": 5.927,
+            "20": 6.273
+          },
+          "ma": {
+            "5": 15.344,
+            "10": 14.64,
+            "20": 14.301,
+            "60": 14.892
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 100.0,
+            "120": 67.449
+          },
+          "prior20_high": 16.23,
+          "clv": 1.0,
+          "amplitude_pct": 3.081,
+          "distance_ma20_pct": 24.816,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 1.308,
+          "minute_price_points": {
+            "0930": 17.85,
+            "0945": 17.85,
+            "1030": 17.85,
+            "1130": 17.85,
+            "1400": 17.85,
+            "1430": 17.85,
+            "1500": 17.85
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605189,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "002748",
+          "name": "世龙实业",
+          "date": "2026-10-15",
+          "open": 11.99,
+          "close": 13.65,
+          "high": 13.65,
+          "low": 11.91,
+          "previous_close": 12.41,
+          "daily_change_pct": 9.992,
+          "amount_cny": 404243347.0,
+          "turnover_pct": 13.2,
+          "rvol": {
+            "5": 2.356,
+            "10": 3.867,
+            "20": 5.029
+          },
+          "ma": {
+            "5": 12.666,
+            "10": 12.39,
+            "20": 12.263,
+            "60": 11.622
+          },
+          "range_position_pct": {
+            "20": 85.95,
+            "60": 92.931,
+            "120": 92.931
+          },
+          "prior20_high": 13.99,
+          "clv": 1.0,
+          "amplitude_pct": 14.021,
+          "distance_ma20_pct": 11.31,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 14.746,
+          "minute_price_points": {
+            "0930": 11.99,
+            "0945": 12.25,
+            "1030": 12.08,
+            "1130": 12.45,
+            "1400": 13.65,
+            "1430": 13.65,
+            "1500": 13.65
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002748,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "600668",
+          "name": "尖峰集团",
+          "date": "2026-10-15",
+          "open": 7.2,
+          "close": 7.99,
+          "high": 7.99,
+          "low": 7.15,
+          "previous_close": 7.26,
+          "daily_change_pct": 10.055,
+          "amount_cny": 269210913.0,
+          "turnover_pct": 8.303,
+          "rvol": {
+            "5": 9.693,
+            "10": 9.756,
+            "20": 9.456
+          },
+          "ma": {
+            "5": 7.478,
+            "10": 7.43,
+            "20": 7.351,
+            "60": 7.376
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 93.333,
+            "120": 24.324
+          },
+          "prior20_high": 7.6,
+          "clv": 1.0,
+          "amplitude_pct": 11.57,
+          "distance_ma20_pct": 8.685,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 3.609,
+          "minute_price_points": {
+            "0930": 7.2,
+            "0945": 7.35,
+            "1030": 7.99,
+            "1130": 7.99,
+            "1400": 7.99,
+            "1430": 7.99,
+            "1500": 7.99
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600668,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "002945",
+          "name": "华林证券",
+          "date": "2026-10-15",
+          "open": 13.82,
+          "close": 15.39,
+          "high": 15.39,
+          "low": 13.8,
+          "previous_close": 13.99,
+          "daily_change_pct": 10.007,
+          "amount_cny": 1226005804.0,
+          "turnover_pct": 3.011,
+          "rvol": {
+            "5": 8.406,
+            "10": 8.435,
+            "20": 6.415
+          },
+          "ma": {
+            "5": 14.322,
+            "10": 14.193,
+            "20": 14.232,
+            "60": 14.277
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 80.637,
+            "120": 74.92
+          },
+          "prior20_high": 15.35,
+          "clv": 1.0,
+          "amplitude_pct": 11.365,
+          "distance_ma20_pct": 8.137,
+          "tail_return_1400_to_1500_pct": 0.326,
+          "tail_volume_share_pct": 16.015,
+          "minute_price_points": {
+            "0930": 13.82,
+            "0945": 14.73,
+            "1030": 14.58,
+            "1130": 15.05,
+            "1400": 15.34,
+            "1430": 15.34,
+            "1500": 15.39
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002945,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "688648",
+          "name": "中邮科技",
+          "date": "2026-10-15",
+          "open": 25.51,
+          "close": 30.1,
+          "high": 32.03,
+          "low": 25.5,
+          "previous_close": 26.69,
+          "daily_change_pct": 12.776,
+          "amount_cny": 255586307.0,
+          "turnover_pct": 12.353,
+          "rvol": {
+            "5": 3.563,
+            "10": 4.643,
+            "20": 5.322
+          },
+          "ma": {
+            "5": 28.174,
+            "10": 28.268,
+            "20": 28.912,
+            "60": 30.552
+          },
+          "range_position_pct": {
+            "20": 70.444,
+            "60": 39.451,
+            "120": 13.439
+          },
+          "prior20_high": 32.7,
+          "clv": 0.704,
+          "amplitude_pct": 24.466,
+          "distance_ma20_pct": 4.109,
+          "tail_return_1400_to_1500_pct": -4.747,
+          "tail_volume_share_pct": 23.833,
+          "minute_price_points": {
+            "0930": 25.51,
+            "0945": 25.94,
+            "1030": 26.0,
+            "1130": 26.08,
+            "1400": 31.6,
+            "1430": 29.83,
+            "1500": 30.1
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688648,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "600812",
+          "name": "华北制药",
+          "date": "2026-10-15",
+          "open": 5.78,
+          "close": 6.57,
+          "high": 6.57,
+          "low": 5.71,
+          "previous_close": 5.97,
+          "daily_change_pct": 10.05,
+          "amount_cny": 2115357572.0,
+          "turnover_pct": 19.484,
+          "rvol": {
+            "5": 1.964,
+            "10": 3.296,
+            "20": 4.061
+          },
+          "ma": {
+            "5": 6.234,
+            "10": 5.625,
+            "20": 5.234,
+            "60": 4.994
+          },
+          "range_position_pct": {
+            "20": 97.235,
+            "60": 97.235,
+            "120": 97.619
+          },
+          "prior20_high": 6.63,
+          "clv": 1.0,
+          "amplitude_pct": 14.405,
+          "distance_ma20_pct": 25.513,
+          "tail_return_1400_to_1500_pct": 1.389,
+          "tail_volume_share_pct": 9.134,
+          "minute_price_points": {
+            "0930": 5.78,
+            "0945": 6.11,
+            "1030": 6.57,
+            "1130": 6.57,
+            "1400": 6.48,
+            "1430": 6.42,
+            "1500": 6.57
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600812,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "603535",
+          "name": "嘉诚国际",
+          "date": "2026-10-15",
+          "open": 6.09,
+          "close": 6.73,
+          "high": 6.73,
+          "low": 5.93,
+          "previous_close": 6.12,
+          "daily_change_pct": 9.967,
+          "amount_cny": 125921716.0,
+          "turnover_pct": 3.726,
+          "rvol": {
+            "5": 4.504,
+            "10": 5.665,
+            "20": 5.639
+          },
+          "ma": {
+            "5": 6.358,
+            "10": 6.265,
+            "20": 6.237,
+            "60": 6.275
+          },
+          "range_position_pct": {
+            "20": 100.0,
+            "60": 93.694,
+            "120": 33.227
+          },
+          "prior20_high": 6.57,
+          "clv": 1.0,
+          "amplitude_pct": 13.072,
+          "distance_ma20_pct": 7.913,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 8.623,
+          "minute_price_points": {
+            "0930": 6.09,
+            "0945": 6.0,
+            "1030": 5.95,
+            "1130": 6.73,
+            "1400": 6.73,
+            "1430": 6.73,
+            "1500": 6.73
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603535,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "688552",
+          "name": "航天南湖",
+          "date": "2026-10-15",
+          "open": 31.5,
+          "close": 34.13,
+          "high": 35.28,
+          "low": 30.75,
+          "previous_close": 31.78,
+          "daily_change_pct": 7.395,
+          "amount_cny": 485380229.0,
+          "turnover_pct": 4.265,
+          "rvol": {
+            "5": 3.139,
+            "10": 4.524,
+            "20": 4.466
+          },
+          "ma": {
+            "5": 29.842,
+            "10": 29.469,
+            "20": 30.361,
+            "60": 28.299
+          },
+          "range_position_pct": {
+            "20": 87.608,
+            "60": 90.785,
+            "120": 36.594
+          },
+          "prior20_high": 33.7,
+          "clv": 0.746,
+          "amplitude_pct": 14.254,
+          "distance_ma20_pct": 12.416,
+          "tail_return_1400_to_1500_pct": 0.059,
+          "tail_volume_share_pct": 12.832,
+          "minute_price_points": {
+            "0930": 31.5,
+            "0945": 33.29,
+            "1030": 34.08,
+            "1130": 33.9,
+            "1400": 34.11,
+            "1430": 33.9,
+            "1500": 34.13
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688552,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "低中位放量推进/待确认"
+        },
+        {
+          "code": "301025",
+          "name": "读客文化",
+          "date": "2026-10-15",
+          "open": 10.6,
+          "close": 11.73,
+          "high": 13.1,
+          "low": 10.49,
+          "previous_close": 10.92,
+          "daily_change_pct": 7.418,
+          "amount_cny": 710727961.0,
+          "turnover_pct": 21.072,
+          "rvol": {
+            "5": 3.398,
+            "10": 4.222,
+            "20": 3.382
+          },
+          "ma": {
+            "5": 10.928,
+            "10": 10.439,
+            "20": 10.21,
+            "60": 9.365
+          },
+          "range_position_pct": {
+            "20": 63.852,
+            "60": 76.091,
+            "120": 76.091
+          },
+          "prior20_high": 11.15,
+          "clv": 0.475,
+          "amplitude_pct": 23.901,
+          "distance_ma20_pct": 14.887,
+          "tail_return_1400_to_1500_pct": -0.424,
+          "tail_volume_share_pct": 12.227,
+          "minute_price_points": {
+            "0930": 10.6,
+            "0945": 13.1,
+            "1030": 11.96,
+            "1130": 11.94,
+            "1400": 11.78,
+            "1430": 11.77,
+            "1500": 11.73
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301025,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量冲高回落/承接不足"
+        },
+        {
+          "code": "301487",
+          "name": "盟固利",
+          "date": "2026-10-15",
+          "open": 16.21,
+          "close": 18.63,
+          "high": 19.51,
+          "low": 16.11,
+          "previous_close": 16.63,
+          "daily_change_pct": 12.026,
+          "amount_cny": 852749921.0,
+          "turnover_pct": 10.519,
+          "rvol": {
+            "5": 1.226,
+            "10": 1.696,
+            "20": 2.457
+          },
+          "ma": {
+            "5": 17.62,
+            "10": 16.913,
+            "20": 16.325,
+            "60": 16.103
+          },
+          "range_position_pct": {
+            "20": 82.15,
+            "60": 83.764,
+            "120": 34.672
+          },
+          "prior20_high": 18.58,
+          "clv": 0.741,
+          "amplitude_pct": 20.445,
+          "distance_ma20_pct": 14.123,
+          "tail_return_1400_to_1500_pct": 7.439,
+          "tail_volume_share_pct": 53.148,
+          "minute_price_points": {
+            "0930": 16.21,
+            "0945": 16.6,
+            "1030": 16.61,
+            "1130": 16.63,
+            "1400": 17.34,
+            "1430": 18.44,
+            "1500": 18.63
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301487,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "300410",
+          "name": "正业科技",
+          "date": "2026-10-15",
+          "open": 7.9,
+          "close": 9.17,
+          "high": 9.5,
+          "low": 7.87,
+          "previous_close": 8.17,
+          "daily_change_pct": 12.24,
+          "amount_cny": 597430427.0,
+          "turnover_pct": 18.195,
+          "rvol": {
+            "5": 2.793,
+            "10": 2.781,
+            "20": 2.568
+          },
+          "ma": {
+            "5": 8.49,
+            "10": 8.538,
+            "20": 8.628,
+            "60": 7.935
+          },
+          "range_position_pct": {
+            "20": 81.25,
+            "60": 90.833,
+            "120": 42.358
+          },
+          "prior20_high": 9.24,
+          "clv": 0.798,
+          "amplitude_pct": 19.951,
+          "distance_ma20_pct": 6.288,
+          "tail_return_1400_to_1500_pct": 0.219,
+          "tail_volume_share_pct": 19.482,
+          "minute_price_points": {
+            "0930": 7.9,
+            "0945": 8.11,
+            "1030": 9.14,
+            "1130": 8.96,
+            "1400": 9.15,
+            "1430": 9.21,
+            "1500": 9.17
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300410,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "300916",
+          "name": "朗特智能",
+          "date": "2026-10-15",
+          "open": 24.45,
+          "close": 28.52,
+          "high": 29.39,
+          "low": 24.36,
+          "previous_close": 25.17,
+          "daily_change_pct": 13.309,
+          "amount_cny": 255294107.0,
+          "turnover_pct": 9.052,
+          "rvol": {
+            "5": 3.408,
+            "10": 3.148,
+            "20": 3.102
+          },
+          "ma": {
+            "5": 26.29,
+            "10": 26.756,
+            "20": 26.086,
+            "60": 24.118
+          },
+          "range_position_pct": {
+            "20": 86.858,
+            "60": 93.15,
+            "120": 48.743
+          },
+          "prior20_high": 28.7,
+          "clv": 0.827,
+          "amplitude_pct": 19.984,
+          "distance_ma20_pct": 9.331,
+          "tail_return_1400_to_1500_pct": 0.0,
+          "tail_volume_share_pct": 24.354,
+          "minute_price_points": {
+            "0930": 24.45,
+            "0945": 24.92,
+            "1030": 25.21,
+            "1130": 25.56,
+            "1400": 28.52,
+            "1430": 28.46,
+            "1500": 28.52
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300916,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量涨停/加速后等分歧"
+        },
+        {
+          "code": "002058",
+          "name": "紫竹高科",
+          "date": "2026-10-15",
+          "open": 20.54,
+          "close": 23.74,
+          "high": 24.59,
+          "low": 20.12,
+          "previous_close": 22.35,
+          "daily_change_pct": 6.219,
+          "amount_cny": 590788773.0,
+          "turnover_pct": 18.776,
+          "rvol": {
+            "5": 1.643,
+            "10": 2.807,
+            "20": 4.133
+          },
+          "ma": {
+            "5": 23.72,
+            "10": 21.329,
+            "20": 19.067,
+            "60": 17.184
+          },
+          "range_position_pct": {
+            "20": 74.585,
+            "60": 76.978,
+            "120": 67.057
+          },
+          "prior20_high": 26.65,
+          "clv": 0.81,
+          "amplitude_pct": 20.0,
+          "distance_ma20_pct": 24.508,
+          "tail_return_1400_to_1500_pct": 16.487,
+          "tail_volume_share_pct": 41.747,
+          "minute_price_points": {
+            "0930": 20.54,
+            "0945": 20.99,
+            "1030": 21.04,
+            "1130": 20.67,
+            "1400": 20.38,
+            "1430": 23.72,
+            "1500": 23.74
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002058,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量推进/待后续承接"
+        },
+        {
+          "code": "002469",
+          "name": "三维化学",
+          "date": "2026-10-15",
+          "open": 6.97,
+          "close": 7.0,
+          "high": 7.28,
+          "low": 6.62,
+          "previous_close": 6.86,
+          "daily_change_pct": 2.041,
+          "amount_cny": 456688211.0,
+          "turnover_pct": 10.446,
+          "rvol": {
+            "5": 5.909,
+            "10": 8.141,
+            "20": 8.021
+          },
+          "ma": {
+            "5": 6.504,
+            "10": 6.285,
+            "20": 6.19,
+            "60": 6.085
+          },
+          "range_position_pct": {
+            "20": 80.142,
+            "60": 85.859,
+            "120": 50.595
+          },
+          "prior20_high": 6.86,
+          "clv": 0.576,
+          "amplitude_pct": 9.621,
+          "distance_ma20_pct": 13.095,
+          "tail_return_1400_to_1500_pct": 1.597,
+          "tail_volume_share_pct": 10.707,
+          "minute_price_points": {
+            "0930": 6.97,
+            "0945": 6.75,
+            "1030": 6.8,
+            "1130": 6.68,
+            "1400": 6.89,
+            "1430": 6.76,
+            "1500": 7.0
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002469,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "高量滞涨/分歧风险"
+        },
+        {
+          "code": "600199",
+          "name": "金种子酒",
+          "date": "2026-10-15",
+          "open": 7.1,
+          "close": 7.75,
+          "high": 7.98,
+          "low": 7.1,
+          "previous_close": 7.25,
+          "daily_change_pct": 6.897,
+          "amount_cny": 627251652.0,
+          "turnover_pct": 12.416,
+          "rvol": {
+            "5": 2.513,
+            "10": 2.985,
+            "20": 3.76
+          },
+          "ma": {
+            "5": 7.314,
+            "10": 7.116,
+            "20": 7.109,
+            "60": 7.324
+          },
+          "range_position_pct": {
+            "20": 80.992,
+            "60": 58.209,
+            "120": 51.471
+          },
+          "prior20_high": 7.72,
+          "clv": 0.739,
+          "amplitude_pct": 12.138,
+          "distance_ma20_pct": 9.017,
+          "tail_return_1400_to_1500_pct": 1.573,
+          "tail_volume_share_pct": 13.056,
+          "minute_price_points": {
+            "0930": 7.1,
+            "0945": 7.78,
+            "1030": 7.73,
+            "1130": 7.73,
+            "1400": 7.63,
+            "1430": 7.63,
+            "1500": 7.75
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600199,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量推进/待后续承接"
+        },
+        {
+          "code": "603096",
+          "name": "新经典",
+          "date": "2026-10-15",
+          "open": 21.86,
+          "close": 23.25,
+          "high": 24.21,
+          "low": 20.76,
+          "previous_close": 23.07,
+          "daily_change_pct": 0.78,
+          "amount_cny": 1001962167.0,
+          "turnover_pct": 28.711,
+          "rvol": {
+            "5": 4.542,
+            "10": 7.584,
+            "20": 11.409
+          },
+          "ma": {
+            "5": 20.736,
+            "10": 18.39,
+            "20": 16.919,
+            "60": 15.494
+          },
+          "range_position_pct": {
+            "20": 89.916,
+            "60": 91.527,
+            "120": 91.527
+          },
+          "prior20_high": 23.07,
+          "clv": 0.722,
+          "amplitude_pct": 14.954,
+          "distance_ma20_pct": 37.419,
+          "tail_return_1400_to_1500_pct": 0.172,
+          "tail_volume_share_pct": 13.6,
+          "minute_price_points": {
+            "0930": 21.86,
+            "0945": 23.56,
+            "1030": 22.36,
+            "1130": 23.01,
+            "1400": 23.21,
+            "1430": 22.8,
+            "1500": 23.25
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603096,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "高量滞涨/分歧风险"
+        },
+        {
+          "code": "000892",
+          "name": "欢瑞世纪",
+          "date": "2026-10-15",
+          "open": 5.22,
+          "close": 5.45,
+          "high": 5.64,
+          "low": 5.22,
+          "previous_close": 5.13,
+          "daily_change_pct": 6.238,
+          "amount_cny": 1493650431.0,
+          "turnover_pct": 37.898,
+          "rvol": {
+            "5": 1.558,
+            "10": 1.899,
+            "20": 2.008
+          },
+          "ma": {
+            "5": 5.182,
+            "10": 4.827,
+            "20": 4.702,
+            "60": 4.255
+          },
+          "range_position_pct": {
+            "20": 86.986,
+            "60": 79.811,
+            "120": 68.194
+          },
+          "prior20_high": 5.4,
+          "clv": 0.548,
+          "amplitude_pct": 8.187,
+          "distance_ma20_pct": 15.92,
+          "tail_return_1400_to_1500_pct": -3.369,
+          "tail_volume_share_pct": 19.535,
+          "minute_price_points": {
+            "0930": 5.22,
+            "0945": 5.64,
+            "1030": 5.64,
+            "1130": 5.64,
+            "1400": 5.64,
+            "1430": 5.61,
+            "1500": 5.45
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000892,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量冲高回落/承接不足"
+        },
+        {
+          "code": "002727",
+          "name": "一心堂",
+          "date": "2026-10-15",
+          "open": 12.41,
+          "close": 12.79,
+          "high": 13.07,
+          "low": 12.21,
+          "previous_close": 12.46,
+          "daily_change_pct": 2.648,
+          "amount_cny": 445722731.0,
+          "turnover_pct": 8.787,
+          "rvol": {
+            "5": 2.069,
+            "10": 3.378,
+            "20": 4.615
+          },
+          "ma": {
+            "5": 11.928,
+            "10": 11.303,
+            "20": 11.016,
+            "60": 11.232
+          },
+          "range_position_pct": {
+            "20": 89.497,
+            "60": 89.497,
+            "120": 92.739
+          },
+          "prior20_high": 12.6,
+          "clv": 0.674,
+          "amplitude_pct": 6.902,
+          "distance_ma20_pct": 16.104,
+          "tail_return_1400_to_1500_pct": 0.314,
+          "tail_volume_share_pct": 16.842,
+          "minute_price_points": {
+            "0930": 12.41,
+            "0945": 12.63,
+            "1030": 12.88,
+            "1130": 12.69,
+            "1400": 12.75,
+            "1430": 12.77,
+            "1500": 12.79
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002727,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "高量滞涨/分歧风险"
+        },
+        {
+          "code": "000823",
+          "name": "超声电子",
+          "date": "2026-10-15",
+          "open": 25.13,
+          "close": 25.87,
+          "high": 26.88,
+          "low": 24.17,
+          "previous_close": 24.55,
+          "daily_change_pct": 5.377,
+          "amount_cny": 5466007524.0,
+          "turnover_pct": 35.956,
+          "rvol": {
+            "5": 3.357,
+            "10": 1.995,
+            "20": 1.541
+          },
+          "ma": {
+            "5": 22.872,
+            "10": 23.141,
+            "20": 23.378,
+            "60": 17.469
+          },
+          "range_position_pct": {
+            "20": 83.107,
+            "60": 88.414,
+            "120": 78.536
+          },
+          "prior20_high": 27.74,
+          "clv": 0.627,
+          "amplitude_pct": 11.039,
+          "distance_ma20_pct": 10.662,
+          "tail_return_1400_to_1500_pct": -0.881,
+          "tail_volume_share_pct": 14.974,
+          "minute_price_points": {
+            "0930": 25.13,
+            "0945": 24.49,
+            "1030": 26.08,
+            "1130": 25.61,
+            "1400": 26.1,
+            "1430": 25.47,
+            "1500": 25.87
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000823,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量推进/待后续承接"
+        },
+        {
+          "code": "301041",
+          "name": "金百泽",
+          "date": "2026-10-15",
+          "open": 37.88,
+          "close": 41.06,
+          "high": 42.48,
+          "low": 37.31,
+          "previous_close": 39.01,
+          "daily_change_pct": 5.255,
+          "amount_cny": 984017527.0,
+          "turnover_pct": 30.987,
+          "rvol": {
+            "5": 2.1,
+            "10": 1.98,
+            "20": 2.127
+          },
+          "ma": {
+            "5": 37.798,
+            "10": 37.507,
+            "20": 36.096,
+            "60": 28.679
+          },
+          "range_position_pct": {
+            "20": 88.047,
+            "60": 94.195,
+            "120": 94.195
+          },
+          "prior20_high": 41.5,
+          "clv": 0.725,
+          "amplitude_pct": 13.253,
+          "distance_ma20_pct": 13.754,
+          "tail_return_1400_to_1500_pct": -0.677,
+          "tail_volume_share_pct": 15.974,
+          "minute_price_points": {
+            "0930": 37.88,
+            "0945": 37.79,
+            "1030": 41.5,
+            "1130": 40.5,
+            "1400": 41.34,
+            "1430": 40.72,
+            "1500": 41.06
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301041,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "放量推进/待后续承接"
+        },
+        {
+          "code": "300771",
+          "name": "智莱科技",
+          "date": "2026-10-15",
+          "open": 10.95,
+          "close": 11.73,
+          "high": 11.97,
+          "low": 10.83,
+          "previous_close": 11.12,
+          "daily_change_pct": 5.486,
+          "amount_cny": 155347368.0,
+          "turnover_pct": 7.131,
+          "rvol": {
+            "5": 2.802,
+            "10": 3.32,
+            "20": 3.606
+          },
+          "ma": {
+            "5": 11.472,
+            "10": 11.422,
+            "20": 11.351,
+            "60": 11.425
+          },
+          "range_position_pct": {
+            "20": 78.947,
+            "60": 66.787,
+            "120": 41.536
+          },
+          "prior20_high": 11.72,
+          "clv": 0.789,
+          "amplitude_pct": 10.252,
+          "distance_ma20_pct": 3.343,
+          "tail_return_1400_to_1500_pct": -0.17,
+          "tail_volume_share_pct": 21.418,
+          "minute_price_points": {
+            "0930": 10.95,
+            "0945": 10.91,
+            "1030": 10.95,
+            "1130": 11.49,
+            "1400": 11.75,
+            "1430": 11.63,
+            "1500": 11.73
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300771,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "低中位放量推进/待确认"
+        },
+        {
+          "code": "000973",
+          "name": "佛塑科技",
+          "date": "2026-10-15",
+          "open": 11.66,
+          "close": 12.19,
+          "high": 12.2,
+          "low": 11.45,
+          "previous_close": 11.35,
+          "daily_change_pct": 7.401,
+          "amount_cny": 1001325890.0,
+          "turnover_pct": 8.281,
+          "rvol": {
+            "5": 2.075,
+            "10": 2.831,
+            "20": 3.021
+          },
+          "ma": {
+            "5": 11.702,
+            "10": 11.61,
+            "20": 11.748,
+            "60": 12.473
+          },
+          "range_position_pct": {
+            "20": 86.232,
+            "60": 30.115,
+            "120": 11.534
+          },
+          "prior20_high": 12.38,
+          "clv": 0.987,
+          "amplitude_pct": 6.608,
+          "distance_ma20_pct": 3.758,
+          "tail_return_1400_to_1500_pct": 2.008,
+          "tail_volume_share_pct": 25.358,
+          "minute_price_points": {
+            "0930": 11.66,
+            "0945": 11.88,
+            "1030": 11.94,
+            "1130": 11.96,
+            "1400": 11.95,
+            "1430": 11.96,
+            "1500": 12.19
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "低中位放量推进/待确认"
+        },
+        {
+          "code": "002812",
+          "name": "恩捷股份",
+          "date": "2026-10-15",
+          "open": 46.62,
+          "close": 48.39,
+          "high": 49.0,
+          "low": 45.05,
+          "previous_close": 46.4,
+          "daily_change_pct": 4.289,
+          "amount_cny": 2704407069.0,
+          "turnover_pct": 6.916,
+          "rvol": {
+            "5": 1.503,
+            "10": 2.36,
+            "20": 3.023
+          },
+          "ma": {
+            "5": 46.78,
+            "10": 46.223,
+            "20": 47.085,
+            "60": 51.056
+          },
+          "range_position_pct": {
+            "20": 76.835,
+            "60": 33.23,
+            "120": 11.957
+          },
+          "prior20_high": 50.0,
+          "clv": 0.846,
+          "amplitude_pct": 8.513,
+          "distance_ma20_pct": 2.773,
+          "tail_return_1400_to_1500_pct": 0.729,
+          "tail_volume_share_pct": 19.957,
+          "minute_price_points": {
+            "0930": 46.62,
+            "0945": 47.25,
+            "1030": 48.5,
+            "1130": 47.78,
+            "1400": 48.04,
+            "1430": 47.98,
+            "1500": 48.39
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "低中位放量推进/待确认"
+        },
+        {
+          "code": "301069",
+          "name": "凯盛新材",
+          "date": "2026-10-15",
+          "open": 15.26,
+          "close": 16.71,
+          "high": 17.18,
+          "low": 15.0,
+          "previous_close": 15.85,
+          "daily_change_pct": 5.426,
+          "amount_cny": 357718141.0,
+          "turnover_pct": 5.16,
+          "rvol": {
+            "5": 2.071,
+            "10": 3.24,
+            "20": 4.083
+          },
+          "ma": {
+            "5": 16.322,
+            "10": 15.946,
+            "20": 15.939,
+            "60": 16.187
+          },
+          "range_position_pct": {
+            "20": 78.44,
+            "60": 66.866,
+            "120": 22.951
+          },
+          "prior20_high": 17.0,
+          "clv": 0.784,
+          "amplitude_pct": 13.754,
+          "distance_ma20_pct": 4.837,
+          "tail_return_1400_to_1500_pct": -0.713,
+          "tail_volume_share_pct": 13.975,
+          "minute_price_points": {
+            "0930": 15.26,
+            "0945": 15.36,
+            "1030": 15.23,
+            "1130": 16.28,
+            "1400": 16.83,
+            "1430": 16.72,
+            "1500": 16.71
+          },
+          "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301069,day,,,180,qfq",
+          "minute_source": "archived_market_review_same_day_evidence",
+          "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+          "missing": [
+            "auction_0925",
+            "verified_minute_OHLC",
+            "order_book",
+            "tick_sequence",
+            "verified_fill"
+          ],
+          "structure": "低中位放量推进/待确认"
+        }
+      ]
     }
   ]
 }

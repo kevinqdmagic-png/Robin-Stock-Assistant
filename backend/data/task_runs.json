@@ -1652,6 +1652,93 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "volume-price-20261015-scheduled-174946z-completed",
+      "run_id": "volume-price-20261015-scheduled-174946z",
+      "task_id": "volume_price",
+      "date": "2026-10-15",
+      "trigger": "scheduled",
+      "started_at": "2026-10-15T17:29:00+00:00",
+      "completed_at": "2026-10-15T17:49:46.905+00:00",
+      "recorded_at": "2026-10-15T17:49:46.905+00:00",
+      "status": "completed",
+      "summary": "完成全A入口、28只深筛量价留档及上一26只完整前推；执行样本N=0。",
+      "report_ids": [
+        "volume-price-20261015-close-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-15-evidence.json"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
+    },
+    {
+      "id": "low-position-20261015-scheduled-174946z-completed",
+      "run_id": "low-position-20261015-scheduled-174946z",
+      "task_id": "low_position",
+      "date": "2026-10-15",
+      "trigger": "scheduled",
+      "started_at": "2026-10-15T17:29:00+00:00",
+      "completed_at": "2026-10-15T17:49:46.905+00:00",
+      "recorded_at": "2026-10-15T17:49:46.905+00:00",
+      "status": "completed",
+      "summary": "完成18只历史样本全量节点并新增6只，30自然日到期0只。",
+      "report_ids": [
+        "low-position-20261015-close-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-15-evidence.json"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
+    },
+    {
+      "id": "dragon-tiger-20261015-scheduled-174946z-completed",
+      "run_id": "dragon-tiger-20261015-scheduled-174946z",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-15",
+      "trigger": "scheduled",
+      "started_at": "2026-10-15T17:29:00+00:00",
+      "completed_at": "2026-10-15T17:49:46.905+00:00",
+      "recorded_at": "2026-10-15T17:49:46.905+00:00",
+      "status": "completed",
+      "summary": "完成66条原因记录、公开席位结构与上一5只前推验证。",
+      "report_ids": [
+        "dragon-tiger-20261015-close-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-15-evidence.json"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
+    },
+    {
+      "id": "combined-pair-20261015-scheduled-174946z-completed",
+      "run_id": "combined-pair-20261015-scheduled-174946z",
+      "task_id": "combined_pair",
+      "date": "2026-10-15",
+      "trigger": "scheduled",
+      "started_at": "2026-10-15T17:29:00+00:00",
+      "completed_at": "2026-10-15T17:49:46.905+00:00",
+      "recorded_at": "2026-10-15T17:49:46.905+00:00",
+      "status": "completed",
+      "summary": "四份同日完整研究齐备；冻结佛塑科技、恩捷股份两只10月16日条件观察。",
+      "report_ids": [
+        "combined-pair-20261015-close-v1"
+      ],
+      "recommendation_ids": [
+        "combined-pair-20261015-000973-close-v1",
+        "combined-pair-20261015-002812-close-v1"
+      ],
+      "sources": [
+        "docs/research/combined-pair-2026-10-15-evidence.json"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
     }
   ]
 }

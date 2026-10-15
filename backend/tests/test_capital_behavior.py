@@ -124,21 +124,31 @@ class CapitalBehaviorTests(unittest.TestCase):
         self.assertTrue(result["ok"])
         self.assertEqual(result["source"], "synthetic_test")
 
-    def test_separate_app_tasks_do_not_consume_daily_dependencies(self):
+    def test_current_combined_dependencies_follow_four_report_contract(self):
         doc = json.loads((ROOT / "data" / "tasks.json").read_text(encoding="utf-8"))
         validate_registry(doc)
         by_id = {r["id"]: r for r in doc["items"]}
-        self.assertEqual(by_id["low_position"]["execution_mode"], "github_scheduled_partial_evidence")
-        self.assertTrue(by_id["low_position"]["enabled"])
-        self.assertTrue(by_id["low_position"]["partial_executor_enabled"])
-        self.assertFalse(by_id["low_position"]["effective_enabled"])
-        for key in ("dragon_tiger", "capital_behavior"):
-            self.assertEqual(by_id[key]["execution_mode"], "app_only_on_demand")
-            self.assertFalse(by_id[key]["enabled"])
+        for key in ("volume_price", "low_position", "dragon_tiger"):
+            self.assertEqual(
+                by_id[key]["execution_mode"],
+                "combined_pair_component_full_research_with_partial_fallback",
+            )
+            self.assertTrue(by_id[key]["enabled"])
+            self.assertTrue(by_id[key]["effective_enabled"])
+            self.assertEqual(by_id[key]["executor_task_id"], "combined_pair")
+        self.assertEqual(by_id["capital_behavior"]["execution_mode"], "app_only_on_demand")
+        self.assertFalse(by_id["capital_behavior"]["enabled"])
         self.assertFalse(by_id["low_dragon"]["enabled"])
-        for key in ("low_position", "dragon_tiger", "capital_behavior"):
-            self.assertNotIn(key, by_id["combined_pair"]["dependencies"])
-            self.assertNotIn(key, by_id["combined_pair"]["executes_missing_tasks"])
+        self.assertEqual(
+            by_id["combined_pair"]["dependencies"],
+            ["market_review", "volume_price", "low_position", "dragon_tiger"],
+        )
+        self.assertEqual(
+            by_id["combined_pair"]["executes_missing_tasks"],
+            ["market_review", "volume_price", "low_position", "dragon_tiger"],
+        )
+        self.assertFalse(by_id["quant_research"]["enabled"])
+        self.assertNotIn("quant_research", by_id["combined_pair"]["dependencies"])
 
 
 if __name__ == "__main__":

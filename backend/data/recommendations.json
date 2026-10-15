@@ -1641,6 +1641,34 @@
               "last": 34.3
             }
           }
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-d3-20261015",
+          "as_of": "2026-10-15",
+          "market_date": "2026-10-15",
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "horizon": 3,
+          "status": "not_triggered_price_observation",
+          "trigger_status": "opening_condition_failed_on_2026-10-13",
+          "entry_fill_status": "no_valid_strategy_entry",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "reason": "10月13日开盘低于冻结37.30元下界，原策略未入场；10月15日只追加3交易日价格观察。",
+          "source_report_ids": [
+            "combined-pair-20261015-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300450,day,,,180,qfq",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query?code=sz300450"
+          ],
+          "price_observation_only": true,
+          "reference_price": 37.88,
+          "open_return_pct": -19.588,
+          "close_return_pct": -14.599,
+          "daily_high_observation_pct": -12.724,
+          "daily_low_observation_pct": -20.776,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null
         }
       ]
     },
@@ -1868,6 +1896,232 @@
       "trigger": "10月16日开盘47.40—49.20；47.40—47.90回踩缩量守住并重新站48.60，且锂电材料方向不明显转弱。",
       "invalid": "高开50.00以上不追；跌破46.35，或48.60上方量大价不进均放弃。",
       "exit_plan": "若10月16日真实触发，最早10月19日卖；弱开失守46.35优先退出，强势观察50.00、51.00分批。"
+    },
+    {
+      "id": "combined-pair-20261015-000973-close-v1",
+      "date": "2026-10-15",
+      "published_at": "2026-10-16T01:49:46.905+08:00",
+      "code": "000973",
+      "name": "佛塑科技",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "task_id": "combined_pair",
+      "model": "combined_limitup_watch_v4",
+      "model_label": "事件催化＋低位放量推进＋平台确认",
+      "reason": "120日低位、RVOL20=3.02、CLV0.987、尾盘推进，并获同日晚间业绩预告催化；反证是一次性收益、冰点市场、12.38压力和高开买不到风险。",
+      "reference_price": 12.19,
+      "reference_price_time": "2026-10-15T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-15",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz000973",
+      "trigger": "10月16日开盘11.90—12.45且有普通连续成交；11.80—12.00缩量守住后重站12.20并放量通过12.38；恩捷/凯盛至少一只不弱且跌停不扩散。成立后只在12.20—12.38研究入场。",
+      "invalid": "一字或无普通成交；高开/可成交价高于12.65；开盘区间不符；放量破11.80或跌破11.45；12.38量大价不进；隔膜/新材料批量转弱。任一发生即未触发。",
+      "reference_entry_range": [
+        12.2,
+        12.38
+      ],
+      "operational_invalid_price": 11.45,
+      "sources": [
+        "docs/research/market-review-2026-10-15-evidence.json",
+        "docs/research/combined-pair-2026-10-15-evidence.json",
+        "https://static.cninfo.com.cn/finalpage/2026-10-15/1225604903.PDF",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/day/query",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-15/",
+        "https://www.stcn.com/article/detail/4220898.html"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-16T01:49:46.905+08:00",
+      "planned_entry_date": "2026-10-16",
+      "earliest_legal_exit_date_if_bought": "2026-10-19",
+      "report_ids": [
+        "combined-pair-20261015-close-v1"
+      ],
+      "evidence_snapshot": {
+        "code": "000973",
+        "name": "佛塑科技",
+        "date": "2026-10-15",
+        "open": 11.66,
+        "close": 12.19,
+        "high": 12.2,
+        "low": 11.45,
+        "previous_close": 11.35,
+        "daily_change_pct": 7.401,
+        "amount_cny": 1001325890.0,
+        "turnover_pct": 8.281,
+        "rvol": {
+          "5": 2.075,
+          "10": 2.831,
+          "20": 3.021
+        },
+        "ma": {
+          "5": 11.702,
+          "10": 11.61,
+          "20": 11.748,
+          "60": 12.473
+        },
+        "range_position_pct": {
+          "20": 86.232,
+          "60": 30.115,
+          "120": 11.534
+        },
+        "prior20_high": 12.38,
+        "clv": 0.987,
+        "amplitude_pct": 6.608,
+        "distance_ma20_pct": 3.758,
+        "tail_return_1400_to_1500_pct": 2.008,
+        "tail_volume_share_pct": 25.358,
+        "minute_price_points": {
+          "0930": 11.66,
+          "0945": 11.88,
+          "1030": 11.94,
+          "1130": 11.96,
+          "1400": 11.95,
+          "1430": 11.96,
+          "1500": 12.19
+        },
+        "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973,day,,,180,qfq",
+        "minute_source": "archived_market_review_same_day_evidence",
+        "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "order_book",
+          "tick_sequence",
+          "verified_fill"
+        ],
+        "structure": "低中位放量推进/待确认"
+      },
+      "exit_plan": "若10月16日真实触发，最早10月19日可卖。弱开或低于11.45时在首个有流动性时点优先退出；保持12.38上方时观察12.80与13.35—13.41分批。涨跌停/停牌无成交不得按计划价算退出。",
+      "limitup_path_hypothesis": "守11.80—12.00→重站12.20/12.38→隔膜方向扩散→12.80以上加速，才可能接近静态理论10%上限约13.41；公告兑现高开回落、一次性收益重估或高量滞涨为反例。",
+      "roundtrip_cost_assumption_bps": 20,
+      "execution_note": "盘后候选不是开盘即买；T+1入场当日不能卖。无真实成交则策略收益N/A。",
+      "results": [
+        {
+          "id": "combined-pair-20261015-000973-close-v1-frozen",
+          "as_of": "2026-10-15",
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "market_date": "2026-10-16",
+          "status": "pending_auction_revalidation",
+          "trigger_status": "not_observable_before_auction",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null
+        }
+      ]
+    },
+    {
+      "id": "combined-pair-20261015-002812-close-v1",
+      "date": "2026-10-15",
+      "published_at": "2026-10-16T01:49:46.905+08:00",
+      "code": "002812",
+      "name": "恩捷股份",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "task_id": "combined_pair",
+      "model": "combined_limitup_watch_v4",
+      "model_label": "低位容量修复＋平台确认",
+      "reason": "120日低位、RVOL20=3.02、CLV0.846、27.04亿元成交提供容量；反证是MA20仍低于MA60、50元压力、无同日公司级新公告且与佛塑主题相关。",
+      "reference_price": 48.39,
+      "reference_price_time": "2026-10-15T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-15",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz002812",
+      "trigger": "10月16日开盘47.40—49.20；47.40—47.90缩量守住后重站48.60，向49.00推进时量价同步；隔膜/锂电材料不弱且市场不继续系统性下杀。成立后只在48.60—49.20研究入场。",
+      "invalid": "高开/可成交价达到50.00以上；跌破46.35；48.60上方量大价不进；板块仅佛塑受公告刺激而恩捷无跟随；跌停扩散。任一发生即未触发。",
+      "reference_entry_range": [
+        48.6,
+        49.2
+      ],
+      "operational_invalid_price": 46.35,
+      "sources": [
+        "docs/research/market-review-2026-10-15-evidence.json",
+        "docs/research/combined-pair-2026-10-15-evidence.json",
+        "https://static.cninfo.com.cn/finalpage/2026-10-15/1225604903.PDF",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/day/query",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-15/",
+        "https://www.stcn.com/article/detail/4220898.html"
+      ],
+      "provenance": "contemporaneous",
+      "data_cutoff_at": "2026-10-16T01:49:46.905+08:00",
+      "planned_entry_date": "2026-10-16",
+      "earliest_legal_exit_date_if_bought": "2026-10-19",
+      "report_ids": [
+        "combined-pair-20261015-close-v1"
+      ],
+      "evidence_snapshot": {
+        "code": "002812",
+        "name": "恩捷股份",
+        "date": "2026-10-15",
+        "open": 46.62,
+        "close": 48.39,
+        "high": 49.0,
+        "low": 45.05,
+        "previous_close": 46.4,
+        "daily_change_pct": 4.289,
+        "amount_cny": 2704407069.0,
+        "turnover_pct": 6.916,
+        "rvol": {
+          "5": 1.503,
+          "10": 2.36,
+          "20": 3.023
+        },
+        "ma": {
+          "5": 46.78,
+          "10": 46.223,
+          "20": 47.085,
+          "60": 51.056
+        },
+        "range_position_pct": {
+          "20": 76.835,
+          "60": 33.23,
+          "120": 11.957
+        },
+        "prior20_high": 50.0,
+        "clv": 0.846,
+        "amplitude_pct": 8.513,
+        "distance_ma20_pct": 2.773,
+        "tail_return_1400_to_1500_pct": 0.729,
+        "tail_volume_share_pct": 19.957,
+        "minute_price_points": {
+          "0930": 46.62,
+          "0945": 47.25,
+          "1030": 48.5,
+          "1130": 47.78,
+          "1400": 48.04,
+          "1430": 47.98,
+          "1500": 48.39
+        },
+        "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812,day,,,180,qfq",
+        "minute_source": "archived_market_review_same_day_evidence",
+        "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "order_book",
+          "tick_sequence",
+          "verified_fill"
+        ],
+        "structure": "低中位放量推进/待确认"
+      },
+      "exit_plan": "若10月16日真实触发，最早10月19日可卖。弱开或低于46.35时在首个有流动性时点优先退出；保持50.00上方时观察50.00、51.00、52.80—53.20分批。",
+      "limitup_path_hypothesis": "守47.40→重站48.60/49.00→突破50→容量共振，才可能接近静态理论10%上限约53.23；50元放量不进、佛塑兑现拖累板块或指数破位为反例。",
+      "roundtrip_cost_assumption_bps": 20,
+      "execution_note": "盘后候选不是开盘即买；T+1入场当日不能卖。无真实成交则策略收益N/A。",
+      "results": [
+        {
+          "id": "combined-pair-20261015-002812-close-v1-frozen",
+          "as_of": "2026-10-15",
+          "recorded_at": "2026-10-16T01:49:46.905+08:00",
+          "market_date": "2026-10-16",
+          "status": "pending_auction_revalidation",
+          "trigger_status": "not_observable_before_auction",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null
+        }
+      ]
     }
   ],
   "legacy_audit": [
