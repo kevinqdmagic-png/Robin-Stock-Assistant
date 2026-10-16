@@ -2112,6 +2112,33 @@
       "analysis_completed_at": "2026-10-16T10:01:18+00:00",
       "delivery_phase_started_at": "2026-10-16T17:35:59+00:00",
       "delivery_status": "archive_prepared_ci_and_production_pending"
+    },
+    {
+      "id": "learning-review-20261016-scheduled-forward-v1-completed",
+      "run_id": "learning-review-20261016-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T19:17:36.820Z",
+      "recorded_at": "2026-10-16T19:17:36.820Z",
+      "completed_at": "2026-10-16T19:17:36.820Z",
+      "status": "completed",
+      "summary": "核对10月16日四份完整研究、线上forward-learning-v1快照与24条原始评价；完成成熟度、左尾失败归因和5项影子假设。未修改规则、阈值或模型权重。",
+      "report_ids": [
+        "learning-review-20261016-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/task_runs.json"
+      ],
+      "learning_snapshot_id": "forward-learning-2026-10-16",
+      "analysis_completed": true,
+      "model_weights_updated": false,
+      "strategy_active_rules_changed": false,
+      "eligible_for_integrated_research": false
     }
   ]
 }
