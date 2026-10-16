@@ -3,7 +3,7 @@
   "track": "low_position",
   "research_version": "low_position_30d_v1",
   "created_at": "2026-10-08T08:15:08.201Z",
-  "updated_at": "2026-10-16T01:49:46.905+08:00",
+  "updated_at": "2026-10-16T18:01:18+08:00",
   "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
   "milestones_calendar_days": [
     1,
@@ -186,6 +186,229 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260923-002472-002472-close-20261016",
+          "code": "002472",
+          "name": "双环传动",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-23",
+          "reference_close": 37.58,
+          "origin_cohort_id": "low-position-20260923-002472",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 33.16,
+            "high": 33.85,
+            "low": 32.31,
+            "close": 33.22,
+            "previous_close": 32.78
+          },
+          "open_return_pct": -11.762,
+          "daily_high_price_excursion_pct": -9.925,
+          "daily_low_price_excursion_pct": -14.023,
+          "close_return_pct": -11.602,
+          "clv": 0.591,
+          "elapsed_natural_days": 23,
+          "elapsed_trading_sessions": 11,
+          "invalid_close_below_original": 37,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -14.023,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": true,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260923-002472-natural_day-1",
+          "date": "2026-09-24",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-24",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 38.94,
+          "close_return_pct": 3.619,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -0.745,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-natural_day-3",
+          "date": "2026-09-24",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-26",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 38.94,
+          "close_return_pct": 3.619,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -0.745,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-natural_day-5",
+          "date": "2026-09-28",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-28",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 38.79,
+          "close_return_pct": 3.22,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -0.745,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-natural_day-10",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-03",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 38.09,
+          "close_return_pct": 1.357,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -0.745,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-natural_day-15",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 36.72,
+          "close_return_pct": -2.288,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -2.794,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-natural_day-20",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 20,
+          "horizon_type": "natural_day",
+          "close": 35.62,
+          "close_return_pct": -5.216,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -7.903,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-trading_session-5",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 36.72,
+          "close_return_pct": -2.288,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -2.794,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-002472-trading_session-10",
+          "date": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-15",
+          "horizon": 10,
+          "horizon_type": "trading_session",
+          "close": 32.78,
+          "close_return_pct": -12.773,
+          "path_mfe_pct": 5.082,
+          "path_mae_pct": -12.906,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -372,6 +595,229 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260923-600845-600845-close-20261016",
+          "code": "600845",
+          "name": "宝信软件",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-23",
+          "reference_close": 18.34,
+          "origin_cohort_id": "low-position-20260923-600845",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 16.98,
+            "high": 17.21,
+            "low": 16.78,
+            "close": 16.93,
+            "previous_close": 16.82
+          },
+          "open_return_pct": -7.415,
+          "daily_high_price_excursion_pct": -6.161,
+          "daily_low_price_excursion_pct": -8.506,
+          "close_return_pct": -7.688,
+          "clv": 0.349,
+          "elapsed_natural_days": 23,
+          "elapsed_trading_sessions": 11,
+          "invalid_close_below_original": 17.5,
+          "path_mfe_pct": 1.036,
+          "path_mae_pct": -8.942,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": true,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260923-600845-natural_day-1",
+          "date": "2026-09-24",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-24",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 18.26,
+          "close_return_pct": -0.436,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -0.6,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-natural_day-3",
+          "date": "2026-09-24",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-26",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 18.26,
+          "close_return_pct": -0.436,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -0.6,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-natural_day-5",
+          "date": "2026-09-28",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-28",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 18.01,
+          "close_return_pct": -1.799,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -3.053,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-natural_day-10",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-03",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 17.69,
+          "close_return_pct": -3.544,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -3.926,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-natural_day-15",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 17.38,
+          "close_return_pct": -5.234,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -5.507,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-natural_day-20",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 20,
+          "horizon_type": "natural_day",
+          "close": 17.33,
+          "close_return_pct": -5.507,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -6.489,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-trading_session-5",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 17.38,
+          "close_return_pct": -5.234,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -5.507,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260923-600845-trading_session-10",
+          "date": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-15",
+          "horizon": 10,
+          "horizon_type": "trading_session",
+          "close": 16.82,
+          "close_return_pct": -8.288,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -8.942,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -567,6 +1013,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260928-600380-600380-close-20261016",
+          "code": "600380",
+          "name": "健康元",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-28",
+          "reference_close": 9.79,
+          "origin_cohort_id": "low-position-20260928-600380",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 10.02,
+            "high": 10.3,
+            "low": 9.97,
+            "close": 10.08,
+            "previous_close": 10.02
+          },
+          "open_return_pct": 2.349,
+          "daily_high_price_excursion_pct": 5.209,
+          "daily_low_price_excursion_pct": 1.839,
+          "close_return_pct": 2.962,
+          "clv": 0.333,
+          "elapsed_natural_days": 18,
+          "elapsed_trading_sessions": 9,
+          "invalid_close_below_original": 9.2,
+          "path_mfe_pct": 5.209,
+          "path_mae_pct": -5.414,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260928-600380-natural_day-1",
+          "date": "2026-09-29",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-29",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 9.9,
+          "close_return_pct": 1.124,
+          "path_mfe_pct": 2.962,
+          "path_mae_pct": -1.839,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-600380-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-01",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 10.16,
+          "close_return_pct": 3.779,
+          "path_mfe_pct": 4.494,
+          "path_mae_pct": -1.839,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-600380-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-03",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 10.16,
+          "close_return_pct": 3.779,
+          "path_mfe_pct": 4.494,
+          "path_mae_pct": -1.839,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-600380-natural_day-10",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 9.9,
+          "close_return_pct": 1.124,
+          "path_mfe_pct": 4.494,
+          "path_mae_pct": -1.839,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-600380-natural_day-15",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 9.9,
+          "close_return_pct": 1.124,
+          "path_mfe_pct": 4.494,
+          "path_mae_pct": -1.839,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-600380-trading_session-5",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 10.03,
+          "close_return_pct": 2.451,
+          "path_mfe_pct": 4.494,
+          "path_mae_pct": -1.839,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -736,6 +1363,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260928-000503-000503-close-20261016",
+          "code": "000503",
+          "name": "国新健康",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-28",
+          "reference_close": 7.44,
+          "origin_cohort_id": "low-position-20260928-000503",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 8.1,
+            "high": 8.43,
+            "low": 7.69,
+            "close": 7.75,
+            "previous_close": 7.66
+          },
+          "open_return_pct": 8.871,
+          "daily_high_price_excursion_pct": 13.306,
+          "daily_low_price_excursion_pct": 3.36,
+          "close_return_pct": 4.167,
+          "clv": 0.081,
+          "elapsed_natural_days": 18,
+          "elapsed_trading_sessions": 9,
+          "invalid_close_below_original": 6.75,
+          "path_mfe_pct": 14.247,
+          "path_mae_pct": -4.704,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260928-000503-natural_day-1",
+          "date": "2026-09-29",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-29",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 7.72,
+          "close_return_pct": 3.763,
+          "path_mfe_pct": 6.855,
+          "path_mae_pct": -3.629,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000503-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-01",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 7.69,
+          "close_return_pct": 3.36,
+          "path_mfe_pct": 6.855,
+          "path_mae_pct": -3.629,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000503-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-03",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 7.69,
+          "close_return_pct": 3.36,
+          "path_mfe_pct": 6.855,
+          "path_mae_pct": -3.629,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000503-natural_day-10",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 7.89,
+          "close_return_pct": 6.048,
+          "path_mfe_pct": 8.199,
+          "path_mae_pct": -3.629,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000503-natural_day-15",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 8.1,
+          "close_return_pct": 8.871,
+          "path_mfe_pct": 14.247,
+          "path_mae_pct": -3.629,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000503-trading_session-5",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 7.86,
+          "close_return_pct": 5.645,
+          "path_mfe_pct": 14.247,
+          "path_mae_pct": -3.629,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -913,6 +1721,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260928-000513-000513-close-20261016",
+          "code": "000513",
+          "name": "丽珠集团",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-28",
+          "reference_close": 30.34,
+          "origin_cohort_id": "low-position-20260928-000513",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 28.27,
+            "high": 29.05,
+            "low": 27.61,
+            "close": 27.95,
+            "previous_close": 28.03
+          },
+          "open_return_pct": -6.823,
+          "daily_high_price_excursion_pct": -4.252,
+          "daily_low_price_excursion_pct": -8.998,
+          "close_return_pct": -7.877,
+          "clv": 0.236,
+          "elapsed_natural_days": 18,
+          "elapsed_trading_sessions": 9,
+          "invalid_close_below_original": 27.15,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": -8.998,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260928-000513-natural_day-1",
+          "date": "2026-09-29",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-29",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 32.23,
+          "close_return_pct": 6.229,
+          "path_mfe_pct": 8.734,
+          "path_mae_pct": 0.033,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000513-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-01",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 32.9,
+          "close_return_pct": 8.438,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": 0.033,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000513-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-03",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 32.9,
+          "close_return_pct": 8.438,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": 0.033,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000513-natural_day-10",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 29.61,
+          "close_return_pct": -2.406,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": -2.406,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000513-natural_day-15",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 29.43,
+          "close_return_pct": -2.999,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": -4.252,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-000513-trading_session-5",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 30.46,
+          "close_return_pct": 0.396,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": -4.252,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -1107,6 +2096,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260928-002962-002962-close-20261016",
+          "code": "002962",
+          "name": "五方光电",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-28",
+          "reference_close": 14.76,
+          "origin_cohort_id": "low-position-20260928-002962",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 13.31,
+            "high": 13.39,
+            "low": 12.6,
+            "close": 12.73,
+            "previous_close": 13.01
+          },
+          "open_return_pct": -9.824,
+          "daily_high_price_excursion_pct": -9.282,
+          "daily_low_price_excursion_pct": -14.634,
+          "close_return_pct": -13.753,
+          "clv": 0.165,
+          "elapsed_natural_days": 18,
+          "elapsed_trading_sessions": 9,
+          "invalid_close_below_original": 13.35,
+          "path_mfe_pct": 14.77,
+          "path_mae_pct": -14.905,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": true,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260928-002962-natural_day-1",
+          "date": "2026-09-29",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-29",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 14.7,
+          "close_return_pct": -0.407,
+          "path_mfe_pct": 2.642,
+          "path_mae_pct": -3.659,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-002962-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-01",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 16.17,
+          "close_return_pct": 9.553,
+          "path_mfe_pct": 9.553,
+          "path_mae_pct": -3.659,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-002962-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-03",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 16.17,
+          "close_return_pct": 9.553,
+          "path_mfe_pct": 9.553,
+          "path_mae_pct": -3.659,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-002962-natural_day-10",
+          "date": "2026-10-08",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-08",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 16.69,
+          "close_return_pct": 13.076,
+          "path_mfe_pct": 14.77,
+          "path_mae_pct": -3.659,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-002962-natural_day-15",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 14.25,
+          "close_return_pct": -3.455,
+          "path_mfe_pct": 14.77,
+          "path_mae_pct": -14.905,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260928-002962-trading_session-5",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 13.53,
+          "close_return_pct": -8.333,
+          "path_mfe_pct": 14.77,
+          "path_mae_pct": -8.401,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -1317,6 +2487,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260929-002074-002074-close-20261016",
+          "code": "002074",
+          "name": "国轩高科",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-29",
+          "reference_close": 28.68,
+          "origin_cohort_id": "low-position-20260929-002074",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 27.73,
+            "high": 28.14,
+            "low": 27.29,
+            "close": 27.78,
+            "previous_close": 28.16
+          },
+          "open_return_pct": -3.312,
+          "daily_high_price_excursion_pct": -1.883,
+          "daily_low_price_excursion_pct": -4.847,
+          "close_return_pct": -3.138,
+          "clv": 0.576,
+          "elapsed_natural_days": 17,
+          "elapsed_trading_sessions": 8,
+          "invalid_close_below_original": 26,
+          "path_mfe_pct": 12.064,
+          "path_mae_pct": -7.113,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260929-002074-natural_day-1",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-30",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 29.5,
+          "close_return_pct": 2.859,
+          "path_mfe_pct": 6.311,
+          "path_mae_pct": 0.697,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002074-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-02",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 29.5,
+          "close_return_pct": 2.859,
+          "path_mfe_pct": 6.311,
+          "path_mae_pct": 0.697,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002074-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-04",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 29.5,
+          "close_return_pct": 2.859,
+          "path_mfe_pct": 6.311,
+          "path_mae_pct": 0.697,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002074-natural_day-10",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-09",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 30.41,
+          "close_return_pct": 6.032,
+          "path_mfe_pct": 12.064,
+          "path_mae_pct": 0.697,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002074-natural_day-15",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 27.59,
+          "close_return_pct": -3.801,
+          "path_mfe_pct": 12.064,
+          "path_mae_pct": -4.184,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002074-trading_session-5",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 28.33,
+          "close_return_pct": -1.22,
+          "path_mfe_pct": 12.064,
+          "path_mae_pct": -2.336,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -1495,6 +2846,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260929-600152-600152-close-20261016",
+          "code": "600152",
+          "name": "维科技术",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-29",
+          "reference_close": 8.32,
+          "origin_cohort_id": "low-position-20260929-600152",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 7.93,
+            "high": 7.99,
+            "low": 7.38,
+            "close": 7.72,
+            "previous_close": 7.81
+          },
+          "open_return_pct": -4.688,
+          "daily_high_price_excursion_pct": -3.966,
+          "daily_low_price_excursion_pct": -11.298,
+          "close_return_pct": -7.212,
+          "clv": 0.557,
+          "elapsed_natural_days": 17,
+          "elapsed_trading_sessions": 8,
+          "invalid_close_below_original": 7.45,
+          "path_mfe_pct": 12.139,
+          "path_mae_pct": -11.298,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260929-600152-natural_day-1",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-30",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 8.48,
+          "close_return_pct": 1.923,
+          "path_mfe_pct": 9.014,
+          "path_mae_pct": 0.0,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-600152-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-02",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 8.48,
+          "close_return_pct": 1.923,
+          "path_mfe_pct": 9.014,
+          "path_mae_pct": 0.0,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-600152-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-04",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 8.48,
+          "close_return_pct": 1.923,
+          "path_mfe_pct": 9.014,
+          "path_mae_pct": 0.0,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-600152-natural_day-10",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-09",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 8.73,
+          "close_return_pct": 4.928,
+          "path_mfe_pct": 12.139,
+          "path_mae_pct": -0.962,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-600152-natural_day-15",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 8.4,
+          "close_return_pct": 0.962,
+          "path_mfe_pct": 12.139,
+          "path_mae_pct": -8.053,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-600152-trading_session-5",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 8.2,
+          "close_return_pct": -1.442,
+          "path_mfe_pct": 12.139,
+          "path_mae_pct": -8.053,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -1690,6 +3222,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260929-002866-002866-close-20261016",
+          "code": "002866",
+          "name": "传艺科技",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-29",
+          "reference_close": 15.36,
+          "origin_cohort_id": "low-position-20260929-002866",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 15.6,
+            "high": 16.14,
+            "low": 14.8,
+            "close": 15.43,
+            "previous_close": 16.18
+          },
+          "open_return_pct": 1.562,
+          "daily_high_price_excursion_pct": 5.078,
+          "daily_low_price_excursion_pct": -3.646,
+          "close_return_pct": 0.456,
+          "clv": 0.47,
+          "elapsed_natural_days": 17,
+          "elapsed_trading_sessions": 8,
+          "invalid_close_below_original": 13.65,
+          "path_mfe_pct": 33.138,
+          "path_mae_pct": -7.161,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260929-002866-natural_day-1",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-30",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 16.9,
+          "close_return_pct": 10.026,
+          "path_mfe_pct": 10.026,
+          "path_mae_pct": 6.12,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002866-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-02",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 16.9,
+          "close_return_pct": 10.026,
+          "path_mfe_pct": 10.026,
+          "path_mae_pct": 6.12,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002866-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-04",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 16.9,
+          "close_return_pct": 10.026,
+          "path_mfe_pct": 10.026,
+          "path_mae_pct": 6.12,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002866-natural_day-10",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-09",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 18.32,
+          "close_return_pct": 19.271,
+          "path_mfe_pct": 33.138,
+          "path_mae_pct": 5.339,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002866-natural_day-15",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 15.99,
+          "close_return_pct": 4.102,
+          "path_mfe_pct": 33.138,
+          "path_mae_pct": 3.19,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002866-trading_session-5",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 17.24,
+          "close_return_pct": 12.24,
+          "path_mfe_pct": 33.138,
+          "path_mae_pct": 5.339,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -1885,6 +3598,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260929-002244-002244-close-20261016",
+          "code": "002244",
+          "name": "滨江集团",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-29",
+          "reference_close": 9.46,
+          "origin_cohort_id": "low-position-20260929-002244",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 9.33,
+            "high": 10.2,
+            "low": 9.23,
+            "close": 9.76,
+            "previous_close": 9.31
+          },
+          "open_return_pct": -1.374,
+          "daily_high_price_excursion_pct": 7.822,
+          "daily_low_price_excursion_pct": -2.431,
+          "close_return_pct": 3.171,
+          "clv": 0.546,
+          "elapsed_natural_days": 17,
+          "elapsed_trading_sessions": 8,
+          "invalid_close_below_original": 8.45,
+          "path_mfe_pct": 11.522,
+          "path_mae_pct": -9.514,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260929-002244-natural_day-1",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-30",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 10.14,
+          "close_return_pct": 7.188,
+          "path_mfe_pct": 9.831,
+          "path_mae_pct": -9.514,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002244-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-02",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 10.14,
+          "close_return_pct": 7.188,
+          "path_mfe_pct": 9.831,
+          "path_mae_pct": -9.514,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002244-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-04",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 10.14,
+          "close_return_pct": 7.188,
+          "path_mfe_pct": 9.831,
+          "path_mae_pct": -9.514,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002244-natural_day-10",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-09",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 10.15,
+          "close_return_pct": 7.294,
+          "path_mfe_pct": 11.522,
+          "path_mae_pct": -9.514,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002244-natural_day-15",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 9.67,
+          "close_return_pct": 2.22,
+          "path_mfe_pct": 11.522,
+          "path_mae_pct": -9.514,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-002244-trading_session-5",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 9.82,
+          "close_return_pct": 3.805,
+          "path_mfe_pct": 11.522,
+          "path_mae_pct": -9.514,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -2080,6 +3974,187 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20260929-603636-603636-close-20261016",
+          "code": "603636",
+          "name": "南威软件",
+          "date": "2026-10-16",
+          "reference_date": "2026-09-29",
+          "reference_close": 7.87,
+          "origin_cohort_id": "low-position-20260929-603636",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": false,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 8.04,
+            "high": 8.04,
+            "low": 8.04,
+            "close": 8.04,
+            "previous_close": 7.31
+          },
+          "open_return_pct": 2.16,
+          "daily_high_price_excursion_pct": 2.16,
+          "daily_low_price_excursion_pct": 2.16,
+          "close_return_pct": 2.16,
+          "clv": null,
+          "elapsed_natural_days": 17,
+          "elapsed_trading_sessions": 8,
+          "invalid_close_below_original": 6.85,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -12.834,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20260929-603636-natural_day-1",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-09-30",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 7.67,
+          "close_return_pct": -2.541,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -2.795,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-603636-natural_day-3",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-02",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 7.67,
+          "close_return_pct": -2.541,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -2.795,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-603636-natural_day-5",
+          "date": "2026-09-30",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-04",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 7.67,
+          "close_return_pct": -2.541,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -2.795,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-603636-natural_day-10",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-09",
+          "horizon": 10,
+          "horizon_type": "natural_day",
+          "close": 7.85,
+          "close_return_pct": -0.254,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -9.276,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-603636-natural_day-15",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 15,
+          "horizon_type": "natural_day",
+          "close": 7.51,
+          "close_return_pct": -4.574,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -9.276,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20260929-603636-trading_session-5",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 7.88,
+          "close_return_pct": 0.127,
+          "path_mfe_pct": 4.193,
+          "path_mae_pct": -9.276,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ]
     },
@@ -2242,6 +4317,145 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261009-000420-000420-close-20261016",
+          "code": "000420",
+          "name": "吉林化纤",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-09",
+          "reference_close": 3.81,
+          "origin_cohort_id": "low-position-20261009-000420",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 3.6,
+            "high": 3.88,
+            "low": 3.51,
+            "close": 3.88,
+            "previous_close": 3.53
+          },
+          "open_return_pct": -5.512,
+          "daily_high_price_excursion_pct": 1.837,
+          "daily_low_price_excursion_pct": -7.874,
+          "close_return_pct": 1.837,
+          "clv": 1.0,
+          "elapsed_natural_days": 7,
+          "elapsed_trading_sessions": 5,
+          "invalid_close_below_original": 3.53,
+          "path_mfe_pct": 9.974,
+          "path_mae_pct": -7.874,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261009-000420-natural_day-1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-10",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 3.81,
+          "close_return_pct": 0.0,
+          "path_mfe_pct": null,
+          "path_mae_pct": null,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-000420-natural_day-3",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 3.81,
+          "close_return_pct": 0.0,
+          "path_mfe_pct": 9.974,
+          "path_mae_pct": 0.0,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-000420-natural_day-5",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 3.62,
+          "close_return_pct": -4.987,
+          "path_mfe_pct": 9.974,
+          "path_mae_pct": -5.249,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-000420-trading_session-5",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 3.88,
+          "close_return_pct": 1.837,
+          "path_mfe_pct": 9.974,
+          "path_mae_pct": -7.874,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -2408,6 +4622,145 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261009-300821-300821-close-20261016",
+          "code": "300821",
+          "name": "东岳硅材",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-09",
+          "reference_close": 17.15,
+          "origin_cohort_id": "low-position-20261009-300821",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 18.49,
+            "high": 18.85,
+            "low": 17.39,
+            "close": 17.66,
+            "previous_close": 18.32
+          },
+          "open_return_pct": 7.813,
+          "daily_high_price_excursion_pct": 9.913,
+          "daily_low_price_excursion_pct": 1.399,
+          "close_return_pct": 2.974,
+          "clv": 0.185,
+          "elapsed_natural_days": 7,
+          "elapsed_trading_sessions": 5,
+          "invalid_close_below_original": 15.3,
+          "path_mfe_pct": 20.0,
+          "path_mae_pct": -10.787,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261009-300821-natural_day-1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-10",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 17.15,
+          "close_return_pct": 0.0,
+          "path_mfe_pct": null,
+          "path_mae_pct": null,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-300821-natural_day-3",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 17.99,
+          "close_return_pct": 4.898,
+          "path_mfe_pct": 7.813,
+          "path_mae_pct": -0.292,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-300821-natural_day-5",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 18.01,
+          "close_return_pct": 5.015,
+          "path_mfe_pct": 20.0,
+          "path_mae_pct": -0.292,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-300821-trading_session-5",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 17.66,
+          "close_return_pct": 2.974,
+          "path_mfe_pct": 20.0,
+          "path_mae_pct": -0.641,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -2591,6 +4944,145 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261009-600547-600547-close-20261016",
+          "code": "600547",
+          "name": "山东黄金",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-09",
+          "reference_close": 27.17,
+          "origin_cohort_id": "low-position-20261009-600547",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 25.87,
+            "high": 26.83,
+            "low": 25.35,
+            "close": 26.37,
+            "previous_close": 25.41
+          },
+          "open_return_pct": -4.785,
+          "daily_high_price_excursion_pct": -1.251,
+          "daily_low_price_excursion_pct": -6.699,
+          "close_return_pct": -2.944,
+          "clv": 0.689,
+          "elapsed_natural_days": 7,
+          "elapsed_trading_sessions": 5,
+          "invalid_close_below_original": 25.36,
+          "path_mfe_pct": 1.215,
+          "path_mae_pct": -7.287,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261009-600547-natural_day-1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-10",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 27.17,
+          "close_return_pct": 0.0,
+          "path_mfe_pct": null,
+          "path_mae_pct": null,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-600547-natural_day-3",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 26.54,
+          "close_return_pct": -2.319,
+          "path_mfe_pct": 1.215,
+          "path_mae_pct": -2.834,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-600547-natural_day-5",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 26.01,
+          "close_return_pct": -4.269,
+          "path_mfe_pct": 1.215,
+          "path_mae_pct": -4.674,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-600547-trading_session-5",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 26.37,
+          "close_return_pct": -2.944,
+          "path_mfe_pct": 1.215,
+          "path_mae_pct": -7.287,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -2774,6 +5266,145 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261009-300058-300058-close-20261016",
+          "code": "300058",
+          "name": "蓝色光标",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-09",
+          "reference_close": 12.87,
+          "origin_cohort_id": "low-position-20261009-300058",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 12.61,
+            "high": 12.79,
+            "low": 11.82,
+            "close": 11.86,
+            "previous_close": 12.35
+          },
+          "open_return_pct": -2.02,
+          "daily_high_price_excursion_pct": -0.622,
+          "daily_low_price_excursion_pct": -8.159,
+          "close_return_pct": -7.848,
+          "clv": 0.041,
+          "elapsed_natural_days": 7,
+          "elapsed_trading_sessions": 5,
+          "invalid_close_below_original": 11.9,
+          "path_mfe_pct": 3.497,
+          "path_mae_pct": -8.159,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": true,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261009-300058-natural_day-1",
+          "date": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-10",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 12.87,
+          "close_return_pct": 0.0,
+          "path_mfe_pct": null,
+          "path_mae_pct": null,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-300058-natural_day-3",
+          "date": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-12",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 12.59,
+          "close_return_pct": -2.176,
+          "path_mfe_pct": 0.699,
+          "path_mae_pct": -3.03,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-300058-natural_day-5",
+          "date": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-14",
+          "horizon": 5,
+          "horizon_type": "natural_day",
+          "close": 12.85,
+          "close_return_pct": -0.155,
+          "path_mfe_pct": 3.497,
+          "path_mae_pct": -5.051,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261009-300058-trading_session-5",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 5,
+          "horizon_type": "trading_session",
+          "close": 11.86,
+          "close_return_pct": -7.848,
+          "path_mfe_pct": 3.497,
+          "path_mae_pct": -8.159,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -2934,6 +5565,103 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261012-002531-002531-close-20261016",
+          "code": "002531",
+          "name": "天顺风能",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-12",
+          "reference_close": 8.27,
+          "origin_cohort_id": "low-position-20261012-002531",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002531,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 6.83,
+            "high": 7.41,
+            "low": 6.73,
+            "close": 7.41,
+            "previous_close": 6.74
+          },
+          "open_return_pct": -17.412,
+          "daily_high_price_excursion_pct": -10.399,
+          "daily_low_price_excursion_pct": -18.622,
+          "close_return_pct": -10.399,
+          "clv": 1.0,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "invalid_close_below_original": 7.5,
+          "path_mfe_pct": 8.585,
+          "path_mae_pct": -19.226,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": true,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261012-002531-natural_day-1",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 8.02,
+          "close_return_pct": -3.023,
+          "path_mfe_pct": 8.585,
+          "path_mae_pct": -3.869,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002531,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261012-002531-natural_day-3",
+          "date": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-15",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 6.74,
+          "close_return_pct": -18.501,
+          "path_mfe_pct": 8.585,
+          "path_mae_pct": -19.226,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002531,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -3094,6 +5822,103 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261012-002027-002027-close-20261016",
+          "code": "002027",
+          "name": "分众传媒",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-12",
+          "reference_close": 5.1,
+          "origin_cohort_id": "low-position-20261012-002027",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002027,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 5.22,
+            "high": 5.34,
+            "low": 5.12,
+            "close": 5.16,
+            "previous_close": 5.23
+          },
+          "open_return_pct": 2.353,
+          "daily_high_price_excursion_pct": 4.706,
+          "daily_low_price_excursion_pct": 0.392,
+          "close_return_pct": 1.176,
+          "clv": 0.182,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "invalid_close_below_original": 4.72,
+          "path_mfe_pct": 4.706,
+          "path_mae_pct": -2.745,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261012-002027-natural_day-1",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 5.1,
+          "close_return_pct": 0.0,
+          "path_mfe_pct": 1.961,
+          "path_mae_pct": -1.765,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002027,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261012-002027-natural_day-3",
+          "date": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-15",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 5.23,
+          "close_return_pct": 2.549,
+          "path_mfe_pct": 4.314,
+          "path_mae_pct": -1.765,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002027,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -3254,6 +6079,103 @@
           "invalid_order_verified": false,
           "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
           "recorded_at": "2026-10-16T01:49:46.905+08:00"
+        },
+        {
+          "id": "low-position-20261012-603232-603232-close-20261016",
+          "code": "603232",
+          "name": "格尔软件",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-12",
+          "reference_close": 18.68,
+          "origin_cohort_id": "low-position-20261012-603232",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603232,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 17.8,
+            "high": 18.0,
+            "low": 16.92,
+            "close": 17.03,
+            "previous_close": 17.25
+          },
+          "open_return_pct": -4.711,
+          "daily_high_price_excursion_pct": -3.64,
+          "daily_low_price_excursion_pct": -9.422,
+          "close_return_pct": -8.833,
+          "clv": 0.102,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "invalid_close_below_original": 16.9,
+          "path_mfe_pct": 0.0,
+          "path_mae_pct": -10.064,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261012-603232-natural_day-1",
+          "date": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-13",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 17.88,
+          "close_return_pct": -4.283,
+          "path_mfe_pct": -1.231,
+          "path_mae_pct": -5.567,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603232,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        },
+        {
+          "id": "low-position-20261012-603232-natural_day-3",
+          "date": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-15",
+          "horizon": 3,
+          "horizon_type": "natural_day",
+          "close": 17.25,
+          "close_return_pct": -7.655,
+          "path_mfe_pct": -1.231,
+          "path_mae_pct": -10.064,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603232,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
         }
       ],
       "sources": [
@@ -3297,7 +6219,84 @@
         "ma10": 11.61,
         "ma20": 11.748
       },
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-20261015-000973-000973-close-20261016",
+          "code": "000973",
+          "name": "佛塑科技",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-15",
+          "reference_close": 12.19,
+          "origin_cohort_id": "low-position-20261015-000973",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 11.99,
+            "high": 12.05,
+            "low": 11.79,
+            "close": 11.96,
+            "previous_close": 12.19
+          },
+          "open_return_pct": -1.641,
+          "daily_high_price_excursion_pct": -1.148,
+          "daily_low_price_excursion_pct": -3.281,
+          "close_return_pct": -1.887,
+          "clv": 0.654,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "invalid_close_below_original": 11.45,
+          "path_mfe_pct": 0.082,
+          "path_mae_pct": -6.071,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261015-000973-natural_day-1",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 11.96,
+          "close_return_pct": -1.887,
+          "path_mfe_pct": -1.148,
+          "path_mae_pct": -3.281,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        }
+      ],
       "sources": [
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973,day,,,180,qfq",
         "docs/research/market-review-2026-10-15-evidence.json",
@@ -3341,7 +6340,84 @@
         "ma10": 46.223,
         "ma20": 47.085
       },
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-20261015-002812-002812-close-20261016",
+          "code": "002812",
+          "name": "恩捷股份",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-15",
+          "reference_close": 48.39,
+          "origin_cohort_id": "low-position-20261015-002812",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 48.99,
+            "high": 49.35,
+            "low": 45.71,
+            "close": 46.26,
+            "previous_close": 48.39
+          },
+          "open_return_pct": 1.24,
+          "daily_high_price_excursion_pct": 1.984,
+          "daily_low_price_excursion_pct": -5.538,
+          "close_return_pct": -4.402,
+          "clv": 0.151,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "invalid_close_below_original": 45.05,
+          "path_mfe_pct": 1.984,
+          "path_mae_pct": -6.902,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261015-002812-natural_day-1",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 46.26,
+          "close_return_pct": -4.402,
+          "path_mfe_pct": 1.984,
+          "path_mae_pct": -5.538,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        }
+      ],
       "sources": [
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812,day,,,180,qfq",
         "docs/research/market-review-2026-10-15-evidence.json",
@@ -3384,7 +6460,84 @@
         "ma10": 15.946,
         "ma20": 15.939
       },
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-20261015-301069-301069-close-20261016",
+          "code": "301069",
+          "name": "凯盛新材",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-15",
+          "reference_close": 16.71,
+          "origin_cohort_id": "low-position-20261015-301069",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301069,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 17.03,
+            "high": 17.07,
+            "low": 16.41,
+            "close": 16.65,
+            "previous_close": 16.71
+          },
+          "open_return_pct": 1.915,
+          "daily_high_price_excursion_pct": 2.154,
+          "daily_low_price_excursion_pct": -1.795,
+          "close_return_pct": -0.359,
+          "clv": 0.364,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "invalid_close_below_original": 15.0,
+          "path_mfe_pct": 2.813,
+          "path_mae_pct": -10.233,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261015-301069-natural_day-1",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 16.65,
+          "close_return_pct": -0.359,
+          "path_mfe_pct": 2.154,
+          "path_mae_pct": -1.795,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301069,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        }
+      ],
       "sources": [
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301069,day,,,180,qfq",
         "docs/research/market-review-2026-10-15-evidence.json",
@@ -3427,7 +6580,84 @@
         "ma10": 29.469,
         "ma20": 30.361
       },
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-20261015-688552-688552-close-20261016",
+          "code": "688552",
+          "name": "航天南湖",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-15",
+          "reference_close": 34.13,
+          "origin_cohort_id": "low-position-20261015-688552",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688552,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 34.86,
+            "high": 36.63,
+            "low": 34.13,
+            "close": 34.6,
+            "previous_close": 34.13
+          },
+          "open_return_pct": 2.139,
+          "daily_high_price_excursion_pct": 7.325,
+          "daily_low_price_excursion_pct": 0.0,
+          "close_return_pct": 1.377,
+          "clv": 0.188,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "invalid_close_below_original": 30.75,
+          "path_mfe_pct": 7.325,
+          "path_mae_pct": -9.903,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261015-688552-natural_day-1",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 34.6,
+          "close_return_pct": 1.377,
+          "path_mfe_pct": 7.325,
+          "path_mae_pct": 0.0,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688552,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        }
+      ],
       "sources": [
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688552,day,,,180,qfq",
         "docs/research/market-review-2026-10-15-evidence.json",
@@ -3470,7 +6700,84 @@
         "ma10": 11.422,
         "ma20": 11.351
       },
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-20261015-300771-300771-close-20261016",
+          "code": "300771",
+          "name": "智莱科技",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-15",
+          "reference_close": 11.73,
+          "origin_cohort_id": "low-position-20261015-300771",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300771,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 11.75,
+            "high": 12.13,
+            "low": 11.45,
+            "close": 11.59,
+            "previous_close": 11.73
+          },
+          "open_return_pct": 0.171,
+          "daily_high_price_excursion_pct": 3.41,
+          "daily_low_price_excursion_pct": -2.387,
+          "close_return_pct": -1.194,
+          "clv": 0.206,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "invalid_close_below_original": 10.83,
+          "path_mfe_pct": 3.41,
+          "path_mae_pct": -7.673,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261015-300771-natural_day-1",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 11.59,
+          "close_return_pct": -1.194,
+          "path_mfe_pct": 3.41,
+          "path_mae_pct": -2.387,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300771,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        }
+      ],
       "sources": [
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300771,day,,,180,qfq",
         "docs/research/market-review-2026-10-15-evidence.json",
@@ -3513,11 +6820,402 @@
         "ma10": 7.116,
         "ma20": 7.109
       },
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-20261015-600199-600199-close-20261016",
+          "code": "600199",
+          "name": "金种子酒",
+          "date": "2026-10-16",
+          "reference_date": "2026-10-15",
+          "reference_close": 7.75,
+          "origin_cohort_id": "low-position-20261015-600199",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "observation_type": "price_observation",
+          "evidence_status": "single_provider_closed_daily_with_path",
+          "full_validation_completed": true,
+          "eligible_for_model_statistics": true,
+          "reference_verified_against_current_provider": true,
+          "trigger_status": "not_verified",
+          "entry_fill_status": "not_verified",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600199,day,,,180,none"
+          ],
+          "missing": [
+            "independent_daily_crosscheck",
+            "historical_minute_OHLC",
+            "auction",
+            "fill",
+            "legal_exit"
+          ],
+          "price_observation": {
+            "open": 7.61,
+            "high": 8.46,
+            "low": 7.45,
+            "close": 8.12,
+            "previous_close": 7.75
+          },
+          "open_return_pct": -1.806,
+          "daily_high_price_excursion_pct": 9.161,
+          "daily_low_price_excursion_pct": -3.871,
+          "close_return_pct": 4.774,
+          "clv": 0.663,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "invalid_close_below_original": 7.1,
+          "path_mfe_pct": 9.161,
+          "path_mae_pct": -8.387,
+          "thirty_natural_days_matured": false,
+          "observed_close_below_original_invalid": false,
+          "invalid_order_verified": false,
+          "price_observation_note": "日线价格观察；不是触发后MFE/MAE或可执行策略收益。",
+          "recorded_at": "2026-10-16T18:01:18+08:00"
+        },
+        {
+          "id": "low-position-20261015-600199-natural_day-1",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "target_date": "2026-10-16",
+          "horizon": 1,
+          "horizon_type": "natural_day",
+          "close": 8.12,
+          "close_return_pct": 4.774,
+          "path_mfe_pct": 9.161,
+          "path_mae_pct": -3.871,
+          "observation_type": "price_observation",
+          "executable_net_return_pct": null,
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600199,day,,,180,none"
+          ],
+          "note": "自然日遇休市取不晚于目标日最近交易日；迟到录入不冒充当时已知。"
+        }
+      ],
       "sources": [
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600199,day,,,180,qfq",
         "docs/research/market-review-2026-10-15-evidence.json",
         "docs/research/combined-pair-2026-10-15-evidence.json"
+      ]
+    },
+    {
+      "id": "low-position-20261016-603334",
+      "date": "2026-10-16",
+      "recorded_at": "2026-10-16T18:01:18+08:00",
+      "code": "603334",
+      "name": "丰倍生物",
+      "sector": "生物基材料",
+      "primary_model": "低中位放量推进/平台确认",
+      "day0_close": 32.1,
+      "invalid_close_below": 30.16,
+      "initial_invalidation_basis": "收盘跌破信号日低点；不后移",
+      "original_snapshot_provenance": "contemporaneous_full_market_and_crosschecked_daily",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_rvol20": 3.506,
+      "day0_turnover_pct": 16.443,
+      "day0_amount_yi": 1.69400553,
+      "day0_clv": 0.735,
+      "day0_range_position_pct": {
+        "20": 48.381,
+        "60": 44.243,
+        "120": 10.962
+      },
+      "day0_moving_averages": {
+        "5": 32.114,
+        "10": 32.219,
+        "20": 31.631,
+        "60": 32.038
+      },
+      "snapshot": {
+        "code": "603334",
+        "name": "丰倍生物",
+        "date": "2026-10-16",
+        "open": 30.35,
+        "close": 32.1,
+        "high": 32.8,
+        "low": 30.16,
+        "previous_close": 29.82,
+        "daily_change_pct": 7.646,
+        "amount_cny": 169400553.0,
+        "turnover_pct": 16.443,
+        "rvol": {
+          "5": 2.624,
+          "10": 3.087,
+          "20": 3.506
+        },
+        "ma": {
+          "5": 32.114,
+          "10": 32.219,
+          "20": 31.631,
+          "60": 32.038
+        },
+        "range_position_pct": {
+          "20": 48.381,
+          "60": 44.243,
+          "120": 10.962
+        },
+        "prior20_high": 34.97,
+        "clv": 0.735,
+        "amplitude_pct": 8.853,
+        "distance_ma20_pct": 1.483,
+        "tail_return_1400_to_1500_pct": -2.134,
+        "tail_volume_share_pct": 43.146,
+        "minute_price_points": {
+          "0930": 30.35,
+          "0945": 31.47,
+          "1030": 31.68,
+          "1130": 32.8,
+          "1400": 32.8,
+          "1430": 32.28,
+          "1500": 32.1
+        },
+        "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603334,day,,,180,qfq",
+        "minute_source": "archived_market_review_same_day_evidence",
+        "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "order_book",
+          "tick_sequence",
+          "verified_fill"
+        ],
+        "structure": "放量冲高回落/承接不足",
+        "moving_average_alignment": "not_full_bullish_alignment",
+        "turnover_change_pct_points": null,
+        "intraday_volume_ratio": null,
+        "intraday_volume_ratio_note": "收盘RVOL与盘中量比分开；无同一时点量比快照",
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 30.35,
+            "cumulative_volume_provider_units": 9.0,
+            "cumulative_amount_cny": 27315.0,
+            "return_vs_prior_close_pct": 1.777
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 31.47,
+            "cumulative_volume_provider_units": 7419.0,
+            "cumulative_amount_cny": 23273762.0,
+            "return_vs_prior_close_pct": 5.533
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 31.68,
+            "cumulative_volume_provider_units": 11401.0,
+            "cumulative_amount_cny": 35803809.72,
+            "return_vs_prior_close_pct": 6.237
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 32.8,
+            "cumulative_volume_provider_units": 28157.0,
+            "cumulative_amount_cny": 90547882.85,
+            "return_vs_prior_close_pct": 9.993
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 32.8,
+            "cumulative_volume_provider_units": 29778.0,
+            "cumulative_amount_cny": 95864804.53,
+            "return_vs_prior_close_pct": 9.993
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 32.21,
+            "cumulative_volume_provider_units": 49572.0,
+            "cumulative_amount_cny": 160575018.85,
+            "return_vs_prior_close_pct": 8.015
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 32.1,
+            "cumulative_volume_provider_units": 52316.0,
+            "cumulative_amount_cny": 169401200.61,
+            "return_vs_prior_close_pct": 7.646
+          }
+        },
+        "daily_crosscheck": {
+          "source": "Sina archived full-market close versus Tencent unadjusted daily",
+          "max_ohlc_difference": 0.0
+        },
+        "prior5_high": 34.97,
+        "prior20_low": 29.41,
+        "board_limit_regime": "10%",
+        "calculated_upper_reference": 32.8,
+        "calculated_upper_verified_exchange_quote": false
+      },
+      "report_ids": [
+        "low-position-20261016-close-v1"
+      ],
+      "observations": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603334,day,,,180,qfq"
+      ]
+    },
+    {
+      "id": "low-position-20261016-600853",
+      "date": "2026-10-16",
+      "recorded_at": "2026-10-16T18:01:18+08:00",
+      "code": "600853",
+      "name": "龙建股份",
+      "sector": "基建/冰雪经济",
+      "primary_model": "低中位放量推进/平台确认",
+      "day0_close": 3.59,
+      "invalid_close_below": 3.32,
+      "initial_invalidation_basis": "收盘跌破信号日低点；不后移",
+      "original_snapshot_provenance": "contemporaneous_full_market_and_crosschecked_daily",
+      "original_snapshot_verified": true,
+      "eligible_for_model_statistics": true,
+      "day0_rvol20": 5.417,
+      "day0_turnover_pct": 9.422,
+      "day0_amount_yi": 3.43703203,
+      "day0_clv": 0.73,
+      "day0_range_position_pct": {
+        "20": 67.241,
+        "60": 74.324,
+        "120": 51.508
+      },
+      "day0_moving_averages": {
+        "5": 3.48,
+        "10": 3.387,
+        "20": 3.334,
+        "60": 3.288
+      },
+      "snapshot": {
+        "code": "600853",
+        "name": "龙建股份",
+        "date": "2026-10-16",
+        "open": 3.4,
+        "close": 3.59,
+        "high": 3.69,
+        "low": 3.32,
+        "previous_close": 3.35,
+        "daily_change_pct": 7.164,
+        "amount_cny": 343703203.0,
+        "turnover_pct": 9.422,
+        "rvol": {
+          "5": 2.081,
+          "10": 3.514,
+          "20": 5.417
+        },
+        "ma": {
+          "5": 3.48,
+          "10": 3.387,
+          "20": 3.334,
+          "60": 3.288
+        },
+        "range_position_pct": {
+          "20": 67.241,
+          "60": 74.324,
+          "120": 51.508
+        },
+        "prior20_high": 3.78,
+        "clv": 0.73,
+        "amplitude_pct": 11.045,
+        "distance_ma20_pct": 7.678,
+        "tail_return_1400_to_1500_pct": -0.554,
+        "tail_volume_share_pct": 12.134,
+        "minute_price_points": {
+          "0930": 3.4,
+          "0945": 3.37,
+          "1030": 3.69,
+          "1130": 3.66,
+          "1400": 3.61,
+          "1430": 3.58,
+          "1500": 3.59
+        },
+        "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600853,day,,,180,qfq",
+        "minute_source": "archived_market_review_same_day_evidence",
+        "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "order_book",
+          "tick_sequence",
+          "verified_fill"
+        ],
+        "structure": "低中位放量推进/待次日承接",
+        "moving_average_alignment": "MA5>MA20>MA60",
+        "turnover_change_pct_points": null,
+        "intraday_volume_ratio": null,
+        "intraday_volume_ratio_note": "收盘RVOL与盘中量比分开；无同一时点量比快照",
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 3.4,
+            "cumulative_volume_provider_units": 6162.0,
+            "cumulative_amount_cny": 2095080.0,
+            "return_vs_prior_close_pct": 1.493
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 3.37,
+            "cumulative_volume_provider_units": 70899.0,
+            "cumulative_amount_cny": 23858761.0,
+            "return_vs_prior_close_pct": 0.597
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 3.69,
+            "cumulative_volume_provider_units": 479847.0,
+            "cumulative_amount_cny": 171008299.83,
+            "return_vs_prior_close_pct": 10.149
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 3.66,
+            "cumulative_volume_provider_units": 648130.0,
+            "cumulative_amount_cny": 232891806.07,
+            "return_vs_prior_close_pct": 9.254
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 3.61,
+            "cumulative_volume_provider_units": 840063.0,
+            "cumulative_amount_cny": 302440188.41,
+            "return_vs_prior_close_pct": 7.761
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 3.56,
+            "cumulative_volume_provider_units": 890460.0,
+            "cumulative_amount_cny": 320452906.34,
+            "return_vs_prior_close_pct": 6.269
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 3.59,
+            "cumulative_volume_provider_units": 955068.0,
+            "cumulative_amount_cny": 343703116.63,
+            "return_vs_prior_close_pct": 7.164
+          }
+        },
+        "daily_crosscheck": {
+          "source": "Sina archived full-market close versus Tencent unadjusted daily",
+          "max_ohlc_difference": 0.0
+        },
+        "prior5_high": 3.78,
+        "prior20_low": 3.2,
+        "board_limit_regime": "10%",
+        "calculated_upper_reference": 3.69,
+        "calculated_upper_verified_exchange_quote": false
+      },
+      "report_ids": [
+        "low-position-20261016-close-v1"
+      ],
+      "observations": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600853,day,,,180,qfq"
       ]
     }
   ],

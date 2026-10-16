@@ -1879,6 +1879,239 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "volume-price-20261016-scheduled-093718z-completed",
+      "run_id": "volume-price-20261016-scheduled-093718z",
+      "task_id": "volume_price",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T10:01:18+00:00",
+      "completed_at": "2026-10-16T10:01:18+00:00",
+      "status": "completed",
+      "summary": "完整28只新快照及上一28/28验证；价格收盘中位-2.753%，执行样本N=0；冻结v4制度/均线口径修正。",
+      "report_ids": [
+        "volume-price-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档"
+    },
+    {
+      "id": "low-position-20261016-scheduled-093718z-completed",
+      "run_id": "low-position-20261016-scheduled-093718z",
+      "task_id": "low_position",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T10:01:18+00:00",
+      "completed_at": "2026-10-16T10:01:18+00:00",
+      "status": "completed",
+      "summary": "验证24/24，保留5只当前破原失效位；新增丰倍生物、龙建股份，30自然日到期0只。",
+      "report_ids": [
+        "low-position-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档"
+    },
+    {
+      "id": "dragon-tiger-20261016-scheduled-093718z-completed",
+      "run_id": "dragon-tiger-20261016-scheduled-093718z",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T10:01:18+00:00",
+      "completed_at": "2026-10-16T10:01:18+00:00",
+      "status": "completed",
+      "summary": "66条原因/59代码；5只席位按TRADE_ID及单日/三日区间核对，上一5只收盘中位-2.358%，无可执行胜率。",
+      "report_ids": [
+        "dragon-tiger-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档"
+    },
+    {
+      "id": "combined-pair-20261016-scheduled-093718z-completed",
+      "run_id": "combined-pair-20261016-scheduled-093718z",
+      "task_id": "combined_pair",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T10:01:18+00:00",
+      "completed_at": "2026-10-16T10:01:18+00:00",
+      "status": "completed",
+      "summary": "四份同T完整研究齐备；全A5570→120→28，只选中鼎股份1只用于10月19日竞价后二次验证，最早20日退出。",
+      "report_ids": [
+        "combined-pair-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [
+        "combined-pair-20261016-000887-close-v1"
+      ],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档"
+    },
+    {
+      "id": "limitup-single-20261016-retro-audit-blocked",
+      "run_id": "limitup-single-20261016-retro-audit",
+      "task_id": "limitup_single",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T10:01:18+00:00",
+      "completed_at": "2026-10-16T10:01:18+00:00",
+      "status": "blocked",
+      "summary": "D=10月16日事前报告缺失；已完成盘后v2补证审计，不能恢复当时冻结/盘口，不补造荐股或冒称按时完成。",
+      "report_ids": [
+        "limitup-single-20261016-retro-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json"
+      ]
+    },
+    {
+      "id": "volume-price-20261016-scheduled-093718z-late-archive-v1",
+      "run_id": "volume-price-20261016-scheduled-093718z",
+      "task_id": "volume_price",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T17:36:07+00:00",
+      "completed_at": "2026-10-16T17:36:07+00:00",
+      "status": "completed",
+      "summary": "迟到归档；原分析18:01完成，但21:16审计时尚未交付。完整28只新快照及上一28/28验证；价格收盘中位-2.753%，执行样本N=0；冻结v4制度/均线口径修正。本回执不声称CI或生产已核验。",
+      "report_ids": [
+        "volume-price-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "docs/research/combined-pair-20261016-delivery-evidence-v1.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档",
+      "analysis_completed_at": "2026-10-16T10:01:18+00:00",
+      "delivery_phase_started_at": "2026-10-16T17:35:59+00:00",
+      "delivery_status": "archive_prepared_ci_and_production_pending"
+    },
+    {
+      "id": "low-position-20261016-scheduled-093718z-late-archive-v1",
+      "run_id": "low-position-20261016-scheduled-093718z",
+      "task_id": "low_position",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T17:36:07+00:00",
+      "completed_at": "2026-10-16T17:36:07+00:00",
+      "status": "completed",
+      "summary": "迟到归档；原分析18:01完成，但21:16审计时尚未交付。验证24/24，保留5只当前破原失效位；新增丰倍生物、龙建股份，30自然日到期0只。本回执不声称CI或生产已核验。",
+      "report_ids": [
+        "low-position-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "docs/research/combined-pair-20261016-delivery-evidence-v1.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档",
+      "analysis_completed_at": "2026-10-16T10:01:18+00:00",
+      "delivery_phase_started_at": "2026-10-16T17:35:59+00:00",
+      "delivery_status": "archive_prepared_ci_and_production_pending"
+    },
+    {
+      "id": "dragon-tiger-20261016-scheduled-093718z-late-archive-v1",
+      "run_id": "dragon-tiger-20261016-scheduled-093718z",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T17:36:07+00:00",
+      "completed_at": "2026-10-16T17:36:07+00:00",
+      "status": "completed",
+      "summary": "迟到归档；原分析18:01完成，但21:16审计时尚未交付。66条原因/59代码；5只席位按TRADE_ID及单日/三日区间核对，上一5只收盘中位-2.358%，无可执行胜率。本回执不声称CI或生产已核验。",
+      "report_ids": [
+        "dragon-tiger-20261016-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "docs/research/combined-pair-20261016-delivery-evidence-v1.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档",
+      "analysis_completed_at": "2026-10-16T10:01:18+00:00",
+      "delivery_phase_started_at": "2026-10-16T17:35:59+00:00",
+      "delivery_status": "archive_prepared_ci_and_production_pending"
+    },
+    {
+      "id": "combined-pair-20261016-scheduled-093718z-late-archive-v1",
+      "run_id": "combined-pair-20261016-scheduled-093718z",
+      "task_id": "combined_pair",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T17:36:07+00:00",
+      "completed_at": "2026-10-16T17:36:07+00:00",
+      "status": "completed",
+      "summary": "迟到归档；原分析18:01完成，但21:16审计时尚未交付。四份同T完整研究齐备；全A5570→120→28，只选中鼎股份1只用于10月19日竞价后二次验证，最早20日退出。本回执不声称CI或生产已核验。",
+      "report_ids": [
+        "combined-pair-20261016-close-v1",
+        "combined-pair-20261016-delivery-addendum-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [
+        "combined-pair-20261016-000887-close-v1"
+      ],
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "docs/research/combined-pair-20261016-delivery-evidence-v1.json"
+      ],
+      "started_at_scope": "本次实际综合执行开始，含该模块读取、取证与分析；独立归档",
+      "analysis_completed_at": "2026-10-16T10:01:18+00:00",
+      "delivery_phase_started_at": "2026-10-16T17:35:59+00:00",
+      "delivery_status": "archive_prepared_ci_and_production_pending"
+    },
+    {
+      "id": "limitup-single-20261016-retro-audit-late-archive-v1",
+      "run_id": "limitup-single-20261016-retro-audit",
+      "task_id": "limitup_single",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T09:37:18+00:00",
+      "recorded_at": "2026-10-16T17:36:07+00:00",
+      "completed_at": "2026-10-16T17:36:07+00:00",
+      "status": "blocked",
+      "summary": "迟到归档；原分析18:01完成，但21:16审计时尚未交付。D=10月16日事前报告缺失；已完成盘后v2补证审计，不能恢复当时冻结/盘口，不补造荐股或冒称按时完成。本回执不声称CI或生产已核验。",
+      "report_ids": [
+        "limitup-single-20261016-retro-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "sources": [
+        "docs/research/combined-pair-2026-10-16-evidence.json",
+        "docs/research/combined-pair-20261016-delivery-evidence-v1.json"
+      ],
+      "analysis_completed_at": "2026-10-16T10:01:18+00:00",
+      "delivery_phase_started_at": "2026-10-16T17:35:59+00:00",
+      "delivery_status": "archive_prepared_ci_and_production_pending"
     }
   ]
 }

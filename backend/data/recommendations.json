@@ -764,6 +764,81 @@
             "combined-pair-20261009-close-v1",
             "volume-price-20261009-close-v1"
           ]
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-price-node-1-20261009",
+          "date": "2026-10-09",
+          "market_date": "2026-10-09",
+          "as_of": "2026-10-09",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "status": "price_observation_only",
+          "reference_price": 31.3,
+          "close": 30.41,
+          "close_return_pct": -2.843,
+          "daily_path_mfe_pct": 2.236,
+          "daily_path_mae_pct": -4.633,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-price-node-3-20261013",
+          "date": "2026-10-13",
+          "market_date": "2026-10-13",
+          "as_of": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 3,
+          "status": "price_observation_only",
+          "reference_price": 31.3,
+          "close": 28.33,
+          "close_return_pct": -9.489,
+          "daily_path_mfe_pct": 2.236,
+          "daily_path_mae_pct": -10.511,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-price-node-5-20261015",
+          "date": "2026-10-15",
+          "market_date": "2026-10-15",
+          "as_of": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 5,
+          "status": "price_observation_only",
+          "reference_price": 31.3,
+          "close": 28.16,
+          "close_return_pct": -10.032,
+          "daily_path_mfe_pct": 2.236,
+          "daily_path_mae_pct": -14.888,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
         }
       ]
     },
@@ -1090,6 +1165,81 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq",
             "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
           ]
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-price-node-1-20261012",
+          "date": "2026-10-12",
+          "market_date": "2026-10-12",
+          "as_of": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "status": "price_observation_only",
+          "reference_price": 12.87,
+          "close": 12.59,
+          "close_return_pct": -2.176,
+          "daily_path_mfe_pct": 0.699,
+          "daily_path_mae_pct": -3.03,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-price-node-3-20261014",
+          "date": "2026-10-14",
+          "market_date": "2026-10-14",
+          "as_of": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 3,
+          "status": "price_observation_only",
+          "reference_price": 12.87,
+          "close": 12.85,
+          "close_return_pct": -0.155,
+          "daily_path_mfe_pct": 3.497,
+          "daily_path_mae_pct": -5.051,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-price-node-5-20261016",
+          "date": "2026-10-16",
+          "market_date": "2026-10-16",
+          "as_of": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 5,
+          "status": "price_observation_only",
+          "reference_price": 12.87,
+          "close": 11.86,
+          "close_return_pct": -7.848,
+          "daily_path_mfe_pct": 3.497,
+          "daily_path_mae_pct": -8.159,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
         }
       ]
     },
@@ -1282,6 +1432,81 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq",
             "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000420"
           ]
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-price-node-1-20261012",
+          "date": "2026-10-12",
+          "market_date": "2026-10-12",
+          "as_of": "2026-10-12",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "status": "price_observation_only",
+          "reference_price": 3.81,
+          "close": 3.81,
+          "close_return_pct": 0.0,
+          "daily_path_mfe_pct": 9.974,
+          "daily_path_mae_pct": 0.0,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-price-node-3-20261014",
+          "date": "2026-10-14",
+          "market_date": "2026-10-14",
+          "as_of": "2026-10-14",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 3,
+          "status": "price_observation_only",
+          "reference_price": 3.81,
+          "close": 3.62,
+          "close_return_pct": -4.987,
+          "daily_path_mfe_pct": 9.974,
+          "daily_path_mae_pct": -5.249,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-price-node-5-20261016",
+          "date": "2026-10-16",
+          "market_date": "2026-10-16",
+          "as_of": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 5,
+          "status": "price_observation_only",
+          "reference_price": 3.81,
+          "close": 3.88,
+          "close_return_pct": 1.837,
+          "daily_path_mfe_pct": 9.974,
+          "daily_path_mae_pct": -7.874,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
         }
       ]
     },
@@ -1669,6 +1894,56 @@
           "daily_low_observation_pct": -20.776,
           "executable_mfe_pct": null,
           "executable_mae_pct": null
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-price-node-1-20261013",
+          "date": "2026-10-13",
+          "market_date": "2026-10-13",
+          "as_of": "2026-10-13",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "status": "price_observation_only",
+          "reference_price": 37.88,
+          "close": 34.25,
+          "close_return_pct": -9.583,
+          "daily_path_mfe_pct": -3.907,
+          "daily_path_mae_pct": -12.012,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-price-node-3-20261015",
+          "date": "2026-10-15",
+          "market_date": "2026-10-15",
+          "as_of": "2026-10-15",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 3,
+          "status": "price_observation_only",
+          "reference_price": 37.88,
+          "close": 32.35,
+          "close_return_pct": -14.599,
+          "daily_path_mfe_pct": -3.907,
+          "daily_path_mae_pct": -20.776,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
         }
       ]
     },
@@ -2070,6 +2345,121 @@
           "entry_fill_status": "not_verified",
           "executed_trade": false,
           "executable_net_return_pct": null
+        },
+        {
+          "code": "000973",
+          "reference_date": "2026-10-15",
+          "validation_date": "2026-10-16",
+          "reference_close": 12.19,
+          "open": 11.99,
+          "high": 12.05,
+          "low": 11.79,
+          "close": 11.96,
+          "open_return_pct": -1.641,
+          "high_observation_pct": -1.148,
+          "low_observation_pct": -3.281,
+          "close_return_pct": -1.887,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 11.99,
+              "cumulative_volume_provider_units": 12762.0,
+              "cumulative_amount_cny": 15301638.0,
+              "return_vs_prior_close_pct": -1.641
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 11.8,
+              "cumulative_volume_provider_units": 181253.0,
+              "cumulative_amount_cny": 215434091.33,
+              "return_vs_prior_close_pct": -3.199
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 11.9,
+              "cumulative_volume_provider_units": 286264.0,
+              "cumulative_amount_cny": 340301921.19,
+              "return_vs_prior_close_pct": -2.379
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 11.88,
+              "cumulative_volume_provider_units": 383431.0,
+              "cumulative_amount_cny": 455558769.82,
+              "return_vs_prior_close_pct": -2.543
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 11.92,
+              "cumulative_volume_provider_units": 453532.0,
+              "cumulative_amount_cny": 539134875.22,
+              "return_vs_prior_close_pct": -2.215
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 11.91,
+              "cumulative_volume_provider_units": 503856.0,
+              "cumulative_amount_cny": 599026157.2,
+              "return_vs_prior_close_pct": -2.297
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 11.96,
+              "cumulative_volume_provider_units": 567059.0,
+              "cumulative_amount_cny": 674534108.75,
+              "return_vs_prior_close_pct": -1.887
+            }
+          },
+          "trigger_status": "not_triggered_required_12_20_reclaim_absent",
+          "observation_type": "price_observation",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973,day,,,180,none",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query?code=sz000973"
+          ],
+          "minute_evidence_limit": "价格点不是OHLC；点间瞬时触发仍无逐笔证据，不认定成交",
+          "id": "combined-pair-20261015-000973-close-v1-t1-20261016",
+          "date": "2026-10-16",
+          "market_date": "2026-10-16",
+          "as_of": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "reference_price": 12.19,
+          "report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "price_observation_only": true,
+          "entry_fill_status": "no_verified_entry",
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "status": "not_triggered",
+          "invalidation_reached": false
+        },
+        {
+          "id": "combined-pair-20261015-000973-close-v1-price-node-1-20261016",
+          "date": "2026-10-16",
+          "market_date": "2026-10-16",
+          "as_of": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "status": "price_observation_only",
+          "reference_price": 12.19,
+          "close": 11.96,
+          "close_return_pct": -1.887,
+          "daily_path_mfe_pct": -1.148,
+          "daily_path_mae_pct": -3.281,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
         }
       ]
     },
@@ -2183,6 +2573,128 @@
           "entry_fill_status": "not_verified",
           "executed_trade": false,
           "executable_net_return_pct": null
+        },
+        {
+          "code": "002812",
+          "reference_date": "2026-10-15",
+          "validation_date": "2026-10-16",
+          "reference_close": 48.39,
+          "open": 48.99,
+          "high": 49.35,
+          "low": 45.71,
+          "close": 46.26,
+          "open_return_pct": 1.24,
+          "high_observation_pct": 1.984,
+          "low_observation_pct": -5.538,
+          "close_return_pct": -4.402,
+          "minute_checkpoints": {
+            "0930": {
+              "clock": "0930",
+              "price": 48.99,
+              "cumulative_volume_provider_units": 6592.0,
+              "cumulative_amount_cny": 32294208.0,
+              "return_vs_prior_close_pct": 1.24
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 47.04,
+              "cumulative_volume_provider_units": 136786.0,
+              "cumulative_amount_cny": 654915012.36,
+              "return_vs_prior_close_pct": -2.79
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 47.16,
+              "cumulative_volume_provider_units": 237664.0,
+              "cumulative_amount_cny": 1129356455.41,
+              "return_vs_prior_close_pct": -2.542
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 47.34,
+              "cumulative_volume_provider_units": 290323.0,
+              "cumulative_amount_cny": 1378237702.47,
+              "return_vs_prior_close_pct": -2.17
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 46.71,
+              "cumulative_volume_provider_units": 341685.0,
+              "cumulative_amount_cny": 1619400953.66,
+              "return_vs_prior_close_pct": -3.472
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 45.74,
+              "cumulative_volume_provider_units": 402348.0,
+              "cumulative_amount_cny": 1899892303.12,
+              "return_vs_prior_close_pct": -5.476
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 46.26,
+              "cumulative_volume_provider_units": 438310.0,
+              "cumulative_amount_cny": 2065266823.2,
+              "return_vs_prior_close_pct": -4.402
+            }
+          },
+          "trigger_status": "full_sequence_not_verified_minute_points_not_ohlc",
+          "observation_type": "price_observation",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812,day,,,180,none",
+            "https://web.ifzq.gtimg.cn/appstock/app/day/query?code=sz002812"
+          ],
+          "pullback_first_point": {
+            "clock": "0931",
+            "price": 47.88,
+            "cumulative_volume_provider_units": 25652.0,
+            "cumulative_amount_cny": 124964515.0
+          },
+          "max_price_after_pullback": 48.23,
+          "minute_evidence_limit": "价格点不是OHLC；点间瞬时触发仍无逐笔证据，不认定成交",
+          "id": "combined-pair-20261015-002812-close-v1-t1-20261016",
+          "date": "2026-10-16",
+          "market_date": "2026-10-16",
+          "as_of": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "reference_price": 48.39,
+          "report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "price_observation_only": true,
+          "entry_fill_status": "no_verified_entry",
+          "executable_mfe_pct": null,
+          "executable_mae_pct": null,
+          "status": "trigger_not_verified_in_available_price_points",
+          "invalidation_reached": true
+        },
+        {
+          "id": "combined-pair-20261015-002812-close-v1-price-node-1-20261016",
+          "date": "2026-10-16",
+          "market_date": "2026-10-16",
+          "as_of": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "horizon": 1,
+          "status": "price_observation_only",
+          "reference_price": 48.39,
+          "close": 46.26,
+          "close_return_pct": -4.402,
+          "daily_path_mfe_pct": 1.984,
+          "daily_path_mae_pct": -5.538,
+          "price_observation_only": true,
+          "trigger_status": "see_original_frozen_trigger_and_prior_results",
+          "entry_fill_status": "not_reconstructed_from_daily",
+          "executable_net_return_pct": null,
+          "source_report_ids": [
+            "combined-pair-20261016-close-v1"
+          ],
+          "source_urls": [
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+          ],
+          "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
         }
       ]
     },
@@ -2281,6 +2793,223 @@
       "trigger": "10月19日开盘3.48—3.66；回踩3.43—3.52缩量守住后重新站3.60，且地产/基建或冰雪方向至少两只同向强势。",
       "invalid": "高开3.75以上不追；跌破3.32、3.69—3.78放量回落或板块孤立均放弃。",
       "exit_plan": "若10月19日真实触发，最早10月20日卖；弱开失守3.32优先退出，强势观察3.69、3.78。"
+    },
+    {
+      "id": "combined-pair-20261016-000887-close-v1",
+      "date": "2026-10-16",
+      "published_at": "2026-10-16T18:01:18+08:00",
+      "task_id": "combined_pair",
+      "code": "000887",
+      "name": "中鼎股份",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "model": "combined_limitup_watch_v5",
+      "reason": "全28只重新裁决后仅保留中鼎；120日低中位、适度RVOL、11.17亿元容量、尾盘交换回收及金额已核对的多通道买方；MA20未收复、机构通道净卖和高开买不到为反证。",
+      "reference_price": 17.72,
+      "reference_price_time": "2026-10-16T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-16",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz000887",
+      "reference_price_cross_check": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000887,day,,,180,none",
+      "trigger": "10月19日9:25竞价及9:30开盘均在17.40—18.10；核验正常主板10%交易、无停牌/ST/除权变化及真实涨停价。09:45—10:30内，先有17.35—17.60普通成交回踩，回踩5分钟成交量低于此前等长上冲窗口，且不破17.30；再连续5个一分钟价格点不低于17.78并向17.90推进。中信海直000099与万丰奥威002085均不低于昨收-2%且至少一只上涨；同口径全A红盘不少于2800、普通主板跌停不多于14。全部成立且有真实普通成交后，仅在17.80—18.05研究入场。缺任一时点、量价、证券状态或成交证据，不认定触发或买入。",
+      "invalid": "竞价/开盘不在17.40—18.10；一字或只有排队报价；可见成交已高于18.30；回踩破17.30、跌破17.20、反复开板且量大价不进；对照或市场条件不成立；10:30仍未完成顺序确认；不能取得新鲜有效数据，均放弃。不得尾盘临时追入或换第二只。",
+      "exit_plan": "若10月19日真实买入，最早10月20日卖出。10月20日弱开或跌破17.20时，在首个可证明可成交的时点退出全部；否则在09:30后首个普通可成交时点退出50%，余下各25%分别在首次达到18.80、19.20的可成交时点退出，未达目标的余量10:30首个可成交时点退出；若先跌破17.72则余量优先退出。仅当完整数量、时序、成交、费用可核验才计算净收益；跌停无买盘、停牌或委托未成保留敞口，后续只追加最早可执行退出，不虚构止损价成交。",
+      "sources": [
+        "docs/research/market-review-2026-10-16-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/day/query",
+        "https://datacenter-web.eastmoney.com/api/data/v1/get",
+        "https://data.10jqka.com.cn/market/longhu/date/2026-10-16/",
+        "https://static.cninfo.com.cn/finalpage/2026-08-13/1225470157.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-08/1225591062.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-08-29/1225527759.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-13/1225601289.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-13/1225601803.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-16/1225607741.PDF",
+        "https://www.sse.com.cn/disclosure/announcement/general/c/c_20251222_10802507.shtml"
+      ],
+      "provenance": "contemporaneous",
+      "report_ids": [
+        "combined-pair-20261016-close-v1"
+      ],
+      "planned_entry_date": "2026-10-19",
+      "earliest_legal_exit_date_if_bought": "2026-10-20",
+      "entry_price_condition_range": [
+        17.8,
+        18.05
+      ],
+      "invalid_level": 17.2,
+      "rules": {
+        "version": "combined_limitup_watch_v5",
+        "frozen_at": "2026-10-16T18:01:18+08:00",
+        "entry_sequence_required": true,
+        "entry_window_cn": [
+          "09:45",
+          "10:30"
+        ],
+        "auction_open_range": [
+          17.4,
+          18.1
+        ],
+        "pullback_range": [
+          17.35,
+          17.6
+        ],
+        "pullback_floor": 17.3,
+        "reclaim": 17.78,
+        "hold_minute_price_points": 5,
+        "invalid_level": 17.2,
+        "peer_codes": [
+          "000099",
+          "002085"
+        ],
+        "peers_each_min_change_pct": -2,
+        "at_least_one_peer_positive": true,
+        "same_scope_advance_min": 2800,
+        "ordinary_mainboard_limit_down_max": 14,
+        "exit_weights_pct": [
+          50,
+          25,
+          25
+        ],
+        "remaining_exit_deadline_cn": "10:30",
+        "cost_assumption": {
+          "round_trip_bps": 20,
+          "calibrated": false,
+          "use_for_executable_statistics": false
+        }
+      },
+      "frozen_snapshot": {
+        "code": "000887",
+        "name": "中鼎股份",
+        "date": "2026-10-16",
+        "open": 16.38,
+        "close": 17.72,
+        "high": 17.72,
+        "low": 16.0,
+        "previous_close": 16.11,
+        "daily_change_pct": 9.994,
+        "amount_cny": 1117016917.0,
+        "turnover_pct": 4.911,
+        "rvol": {
+          "5": 3.183,
+          "10": 3.282,
+          "20": 2.963
+        },
+        "ma": {
+          "5": 16.974,
+          "10": 17.563,
+          "20": 18.464,
+          "60": 19.236
+        },
+        "range_position_pct": {
+          "20": 40.662,
+          "60": 22.367,
+          "120": 22.367
+        },
+        "prior20_high": 20.42,
+        "clv": 1.0,
+        "amplitude_pct": 10.677,
+        "distance_ma20_pct": -4.029,
+        "tail_return_1400_to_1500_pct": 0.0,
+        "tail_volume_share_pct": 45.018,
+        "minute_price_points": {
+          "0930": 16.38,
+          "0945": 16.27,
+          "1030": 16.52,
+          "1130": 17.72,
+          "1400": 17.72,
+          "1430": 17.72,
+          "1500": 17.72
+        },
+        "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000887,day,,,180,qfq",
+        "minute_source": "archived_market_review_same_day_evidence",
+        "evidence_status": "verified_same_day_daily_and_archived_minute_price_points",
+        "missing": [
+          "auction_0925",
+          "verified_minute_OHLC",
+          "order_book",
+          "tick_sequence",
+          "verified_fill"
+        ],
+        "structure": "封板观察/次日普通成交待核验",
+        "moving_average_alignment": "not_full_bullish_alignment",
+        "turnover_change_pct_points": null,
+        "intraday_volume_ratio": null,
+        "intraday_volume_ratio_note": "收盘RVOL与盘中量比分开；无同一时点量比快照",
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 16.38,
+            "cumulative_volume_provider_units": 594.0,
+            "cumulative_amount_cny": 972972.0,
+            "return_vs_prior_close_pct": 1.676
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 16.27,
+            "cumulative_volume_provider_units": 24248.0,
+            "cumulative_amount_cny": 39595581.0,
+            "return_vs_prior_close_pct": 0.993
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 16.52,
+            "cumulative_volume_provider_units": 93039.0,
+            "cumulative_amount_cny": 151346584.74,
+            "return_vs_prior_close_pct": 2.545
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 17.72,
+            "cumulative_volume_provider_units": 323895.0,
+            "cumulative_amount_cny": 550269486.65,
+            "return_vs_prior_close_pct": 9.994
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 17.72,
+            "cumulative_volume_provider_units": 355011.0,
+            "cumulative_amount_cny": 605407036.47,
+            "return_vs_prior_close_pct": 9.994
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 17.47,
+            "cumulative_volume_provider_units": 543483.0,
+            "cumulative_amount_cny": 938397985.57,
+            "return_vs_prior_close_pct": 8.442
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 17.72,
+            "cumulative_volume_provider_units": 645547.0,
+            "cumulative_amount_cny": 1117016986.56,
+            "return_vs_prior_close_pct": 9.994
+          }
+        },
+        "daily_crosscheck": {
+          "source": "Sina archived full-market close versus Tencent unadjusted daily",
+          "max_ohlc_difference": 0.0
+        },
+        "prior5_high": 17.77,
+        "prior20_low": 16.1,
+        "board_limit_regime": "10%",
+        "calculated_upper_reference": 17.72,
+        "calculated_upper_verified_exchange_quote": false
+      },
+      "results": [
+        {
+          "id": "combined-pair-20261016-000887-close-v1-frozen",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "market_date": "2026-10-19",
+          "status": "pending_auction_revalidation",
+          "trigger_status": "not_observable_before_entry_day",
+          "entry_fill_status": "not_entered",
+          "executed_trade": false,
+          "executable_net_return_pct": null
+        }
+      ]
     }
   ],
   "legacy_audit": [

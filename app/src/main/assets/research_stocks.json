@@ -1044,6 +1044,25 @@
             "https://qt.gtimg.cn/q=sz300058",
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058,day,,,160,qfq"
           ]
+        },
+        {
+          "id": "research-stock-300058-20261016-low-validation",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "title": "30天台账日线验证（非新推荐）",
+          "reason": "蓝色光标原样本保留，本次收盘相对初始参考-7.85%；不是成交策略收益。",
+          "evidence_status": "verified_daily_price_observation",
+          "fact_note": "原始快照、失效位与旧理由不改写；本轮仅日线补证。",
+          "validation": [
+            "继续原30自然日与5/10/20交易日节点；未到期不报成功率。"
+          ],
+          "risk": "不能从日线高低推断进出顺序、资金身份或可执行净收益。",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-16-evidence.json"
+          ]
         }
       ]
     },
@@ -1100,6 +1119,77 @@
           "sources": [
             "https://qt.gtimg.cn/q=sz000420",
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420,day,,,160,qfq"
+          ]
+        },
+        {
+          "id": "research-stock-000420-20261016-low-validation",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "title": "30天台账日线验证（非新推荐）",
+          "reason": "吉林化纤原样本保留，本次收盘相对初始参考+1.84%；不是成交策略收益。",
+          "evidence_status": "verified_daily_price_observation",
+          "fact_note": "原始快照、失效位与旧理由不改写；本轮仅日线补证。",
+          "validation": [
+            "继续原30自然日与5/10/20交易日节点；未到期不报成功率。"
+          ],
+          "risk": "不能从日线高低推断进出顺序、资金身份或可执行净收益。",
+          "report_ids": [
+            "low-position-20261016-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-16-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "000887",
+      "name": "中鼎股份",
+      "sector": "汽车零部件",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-000887-20261016-combined",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T18:01:18+08:00",
+          "title": "综合盘后组条件观察，不是长期买入结论",
+          "reason": "全28只重新裁决后仅保留中鼎；120日低中位、适度RVOL、11.17亿元容量、尾盘交换回收及金额已核对的多通道买方；MA20未收复、机构通道净卖和高开买不到为反证。",
+          "evidence_status": "verified_same_day_daily_seats_and_issuer_risk",
+          "fact_note": "参考17.72是收盘报价；10月19日顺序条件未发生，不代表已成交。",
+          "validation": [
+            "10月19日9:25竞价及9:30开盘均在17.40—18.10；核验正常主板10%交易、无停牌/ST/除权变化及真实涨停价。09:45—10:30内，先有17.35—17.60普通成交回踩，回踩5分钟成交量低于此前等长上冲窗口，且不破17.30；再连续5个一分钟价格点不低于17.78并向17.90推进。中信海直000099与万丰奥威002085均不低于昨收-2%且至少一只上涨；同口径全A红盘不少于2800、普通主板跌停不多于14。全部成立且有真实普通成交后，仅在17.80—18.05研究入场。缺任一时点、量价、证券状态或成交证据，不认定触发或买入。",
+            "最早10月20日合法退出；后续只追加触发、失败、成交/无法成交及价格节点。"
+          ],
+          "risk": "竞价/开盘不在17.40—18.10；一字或只有排队报价；可见成交已高于18.30；回踩破17.30、跌破17.20、反复开板且量大价不进；对照或市场条件不成立；10:30仍未完成顺序确认；不能取得新鲜有效数据，均放弃。不得尾盘临时追入或换第二只。 公司已明确腾讯云框架合作未产生收入；可转债与低于MA20风险保留。",
+          "report_ids": [
+            "combined-pair-20261016-close-v1",
+            "dragon-tiger-20261016-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-16-evidence.json",
+            "https://static.cninfo.com.cn/finalpage/2026-08-13/1225470157.PDF",
+            "https://static.cninfo.com.cn/finalpage/2026-10-08/1225591062.PDF"
+          ]
+        },
+        {
+          "id": "research-stock-000887-20261016-late-recheck",
+          "date": "2026-10-16",
+          "recorded_at": "2026-10-16T17:36:07+00:00",
+          "title": "晚间公告补查：不改变原条件",
+          "reason": "中鼎股份检索范围内最新公告仍为10月8日；未核实新的公司级催化，保留原10月19日严格条件而非新增推荐。",
+          "evidence_status": "issuer_notice_recheck_no_material_change_in_checked_scope",
+          "fact_note": "公告检索有范围限制；原冻结时间不等于线上交付时间。",
+          "validation": [
+            "10月19日竞价、证券状态、普通成交及先回踩后转强仍须重新核验；未满足不认定成交。"
+          ],
+          "risk": "周末消息、可转债、未收复MA20和高开兑现风险不因补查消除。",
+          "report_ids": [
+            "combined-pair-20261016-delivery-addendum-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-20261016-delivery-evidence-v1.json",
+            "https://www.cninfo.com.cn/new/hisAnnouncement/query"
           ]
         }
       ]
