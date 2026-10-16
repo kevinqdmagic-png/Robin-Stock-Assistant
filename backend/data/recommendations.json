@@ -1724,6 +1724,27 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600316",
           "report_id": "market-review-20261015-close-v1",
           "note": "条件触发仅作为模拟研究样本，不是实际交易；T+1下入场日不能卖，10月16日追加退出结果。"
+        },
+        {
+          "id": "market-review-20261014-600316-close-v1-exit-observation-20261016",
+          "as_of": "2026-10-16T15:00:00+08:00",
+          "recorded_at": "2026-10-16T16:53:20+08:00",
+          "market_date": "2026-10-16",
+          "horizon": "T+1 earliest legal exit observation",
+          "status": "exit_levels_observed_split_weight_unfrozen",
+          "executed_trade": false,
+          "strategy_sample_activated": true,
+          "observed_open": 35.12,
+          "observed_high": 38.61,
+          "observed_low": 35.12,
+          "observed_close": 37.66,
+          "simulated_reference_entry": 35.85,
+          "first_36_20_observed_at": "2026-10-16T09:41:00+08:00",
+          "first_37_50_observed_at": "2026-10-16T09:51:00+08:00",
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600316",
+          "report_id": "market-review-20261016-close-v1",
+          "note": "两个冻结观察位均出现，但原计划未冻结分批权重，故不事后制造单一净收益；退出质量良好。"
         }
       ],
       "id": "market-review-20261014-600316-close-v1",
@@ -1834,7 +1855,28 @@
         "docs/research/market-review-2026-10-15-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261015-000973-close-v1-trigger-result-20261016",
+          "as_of": "2026-10-16T15:00:00+08:00",
+          "recorded_at": "2026-10-16T16:53:20+08:00",
+          "market_date": "2026-10-16",
+          "horizon": "planned entry day trigger verification",
+          "status": "not_triggered",
+          "trigger_status": "support_reached_but_reclaim_absent",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 11.99,
+          "observed_high": 12.05,
+          "observed_low": 11.79,
+          "observed_close": 11.96,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000973",
+          "report_id": "market-review-20261016-close-v1",
+          "note": "09:45触及11.80，但全天未站上冻结的12.20，保留未触发样本。"
+        }
+      ],
       "id": "market-review-20261015-000973-close-v1",
       "code": "000973",
       "name": "佛塑科技",
@@ -1878,7 +1920,28 @@
         "docs/research/market-review-2026-10-15-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261015-002812-close-v1-trigger-result-20261016",
+          "as_of": "2026-10-16T15:00:00+08:00",
+          "recorded_at": "2026-10-16T16:53:20+08:00",
+          "market_date": "2026-10-16",
+          "horizon": "planned entry day trigger verification",
+          "status": "not_triggered_invalidated",
+          "trigger_status": "pullback_without_reclaim_then_invalidated",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 48.99,
+          "observed_high": 49.35,
+          "observed_low": 45.71,
+          "observed_close": 46.26,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002812",
+          "report_id": "market-review-20261016-close-v1",
+          "note": "09:31回踩47.88后未收复48.60，随后跌破46.35；顺序不满足，不能用开盘价倒推成交。"
+        }
+      ],
       "id": "market-review-20261015-002812-close-v1",
       "code": "002812",
       "name": "恩捷股份",
@@ -2122,6 +2185,102 @@
           "executable_net_return_pct": null
         }
       ]
+    },
+    {
+      "id": "market-review-20261016-300719-close-v1",
+      "date": "2026-10-16",
+      "published_at": "2026-10-16T16:53:20+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-16T15:35:45+08:00",
+      "planned_entry_date": "2026-10-19",
+      "earliest_legal_exit_date_if_bought": "2026-10-20",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261016-close-v1"
+      ],
+      "sources": [
+        "https://news.bjd.com.cn/2026/10/16/11997442.shtml",
+        "https://lianban.net/days/2026-10-16.html",
+        "https://www.dabanke.com/?_canonical_recover=20260920",
+        "https://biz.finance.sina.com.cn/data_reveal/index.php",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://www.sse.com.cn/assortment/stock/list/info/announcement/index.shtml?productId=603193",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/300719.phtml",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/600853.phtml",
+        "docs/research/market-review-2026-10-16-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "code": "300719",
+      "name": "安达维尔",
+      "model": "first_divergence_sector_resonance_v5",
+      "reason": "收12.40，换手10.83%，RVOL20 6.10，CLV0.721，距MA20 +4.2%；军工/低空共振，但尾盘-0.96%、中报亏损且有再融资风险。",
+      "reference_price": 12.4,
+      "reference_price_time": "2026-10-16T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-16",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz300719",
+      "reference_entry_range": [
+        11.75,
+        12.45
+      ],
+      "operational_invalid_price": 11.55,
+      "trigger": "10月19日开盘11.95—12.60；回踩11.75—12.05缩量守住后重新站12.45，且军工/低空经济非一字核心未批量转弱。",
+      "invalid": "高开12.90以上不追；跌破11.55、12.79附近放量不进或板块高标跌停均放弃。",
+      "exit_plan": "若10月19日真实触发，最早10月20日卖；弱开失守11.55优先退出，强势观察12.79、13.08。"
+    },
+    {
+      "id": "market-review-20261016-600853-close-v1",
+      "date": "2026-10-16",
+      "published_at": "2026-10-16T16:53:20+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-16T15:35:45+08:00",
+      "planned_entry_date": "2026-10-19",
+      "earliest_legal_exit_date_if_bought": "2026-10-20",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261016-close-v1"
+      ],
+      "sources": [
+        "https://news.bjd.com.cn/2026/10/16/11997442.shtml",
+        "https://lianban.net/days/2026-10-16.html",
+        "https://www.dabanke.com/?_canonical_recover=20260920",
+        "https://biz.finance.sina.com.cn/data_reveal/index.php",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://www.sse.com.cn/assortment/stock/list/info/announcement/index.shtml?productId=603193",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/300719.phtml",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/600853.phtml",
+        "docs/research/market-review-2026-10-16-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "code": "600853",
+      "name": "龙建股份",
+      "model": "failed_board_reclaim_infrastructure_v5",
+      "reason": "收3.59，换手9.42%，RVOL20 5.42，CLV0.730，距MA20 +8.0%；曾触板未封，需次日回踩后重新站稳验证。",
+      "reference_price": 3.59,
+      "reference_price_time": "2026-10-16T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-16",
+      "reference_price_source": "https://qt.gtimg.cn/q=sh600853",
+      "reference_entry_range": [
+        3.43,
+        3.6
+      ],
+      "operational_invalid_price": 3.32,
+      "trigger": "10月19日开盘3.48—3.66；回踩3.43—3.52缩量守住后重新站3.60，且地产/基建或冰雪方向至少两只同向强势。",
+      "invalid": "高开3.75以上不追；跌破3.32、3.69—3.78放量回落或板块孤立均放弃。",
+      "exit_plan": "若10月19日真实触发，最早10月20日卖；弱开失守3.32优先退出，强势观察3.69、3.78。"
     }
   ],
   "legacy_audit": [

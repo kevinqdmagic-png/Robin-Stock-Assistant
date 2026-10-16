@@ -1758,6 +1758,42 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "market-review-20261016-scheduled-close-v1-completed",
+      "run_id": "market-review-20261016-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-16",
+      "trigger": "scheduled",
+      "started_at": "2026-10-16T08:39:30+00:00",
+      "recorded_at": "2026-10-16T08:53:20+00:00",
+      "completed_at": "2026-10-16T08:53:20+00:00",
+      "status": "completed",
+      "summary": "完成10月16日全A有效5570只扫描、120只广泛池、28只深筛、上一池28只T+1价格验证、两只条件观察与10月19日指数三情景冻结。",
+      "report_ids": [
+        "market-review-20261016-close-v1"
+      ],
+      "recommendation_ids": [
+        "market-review-20261016-300719-close-v1",
+        "market-review-20261016-600853-close-v1"
+      ],
+      "research_rule_version": "market_review_close_v5",
+      "analysis_completed": true,
+      "delivery_status": "repository_pending",
+      "sources": [
+        "https://news.bjd.com.cn/2026/10/16/11997442.shtml",
+        "https://lianban.net/days/2026-10-16.html",
+        "https://www.dabanke.com/?_canonical_recover=20260920",
+        "https://biz.finance.sina.com.cn/data_reveal/index.php",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://www.sse.com.cn/assortment/stock/list/info/announcement/index.shtml?productId=603193",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/300719.phtml",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/600853.phtml",
+        "docs/research/market-review-2026-10-16-evidence.json"
+      ]
     }
   ]
 }
