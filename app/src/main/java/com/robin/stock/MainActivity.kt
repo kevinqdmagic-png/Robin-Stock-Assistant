@@ -284,8 +284,11 @@ class MainActivity : AppCompatActivity() {
                         val items = data.optJSONArray("assessments") ?: JSONArray()
                         for (i in 0 until items.length()) {
                             val item = items.optJSONObject(i) ?: continue
-                            val strength = if (item.optString("level") == "technical_confirmed")
-                                "量价与板块部分确认" else "达到观察价位"
+                            val strength = when (item.optString("level")) {
+                                "technical_confirmed" -> "量价与板块部分确认 · 非完整买入信号"
+                                "invalidated" -> "已触发失效条件 · 原计划取消"
+                                else -> "进入观察价位 · 其他条件待核验"
+                            }
                             panel.addView(label(item.optString("name") + " " +
                                 item.optString("code") + " · " + strength, 14f, true))
                             val gates = item.optJSONArray("gates") ?: JSONArray()
