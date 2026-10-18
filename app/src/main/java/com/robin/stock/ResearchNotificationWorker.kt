@@ -31,6 +31,7 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
     CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
         val prefs = applicationContext.getSharedPreferences("robin", Context.MODE_PRIVATE)
+        checkEntryAlertsInBackground(prefs)
         val connection = try {
             (URL("https://robin-stock-api-production.up.railway.app/api/tasks")
                 .openConnection() as HttpURLConnection).apply {
@@ -161,6 +162,59 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
             }
         }
         return Result.success()
+    }
+
+    private fun checkEntryAlertsInBackground(
+        prefs: android.content.SharedPreferences
+    ) {
+        val conn = try {
+            (URL("https://robin-stock-api-production.up.railway.app/api/entry-alerts")
+                .openConnection() as HttpURLConnection).apply {
+                connectTimeout = 8000
+                readTimeout = 12000
+            }
+        } catch (_: Exception) { return }
+        val payload = try {
+            if (conn.responseCode !in 200..299) return
+            JSONObject(conn.inputStream.bufferedReader().use { it.readText() })
+        } catch (_: Exception) { return }
+        finally { conn.disconnect() }
+
+        val previous = prefs.getString("entry_alert_seen_keys", null)
+        val alerts = EntryAlertPolicy.pending(payload, previous)
+        if (alerts.isEmpty()) return
+        if (Build.VERSION.SDK_INT >= 33 &&
+            applicationContext.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) return
+        if (!NotificationManagerCompat.from(applicationContext).areNotificationsEnabled()) return
+        val manager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val channel = "robin_entry_zone_alerts"
+        manager.createNotificationChannel(NotificationChannel(
+            channel, "荐股建仓观察价位", NotificationManager.IMPORTANCE_HIGH))
+        val intent = Intent(applicationContext, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra("open_research", true)
+        }
+        val pending = PendingIntent.getActivity(applicationContext, 992, intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val details = alerts.joinToString("、") {
+            it.optString("name") + "(" + it.optString("code") + ") ¥" +
+                it.optString("price")
+        }
+        try {
+            manager.notify(992, NotificationCompat.Builder(applicationContext, channel)
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setContentTitle("推荐股进入建仓观察价位 · 待核验")
+                .setContentText(details)
+                .setStyle(NotificationCompat.BigTextStyle().bigText(
+                    details + "；仅价位符合，其他冻结条件尚未确认。"))
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pending).setAutoCancel(true).build())
+            prefs.edit().putString("entry_alert_seen_keys",
+                EntryAlertPolicy.record(previous, alerts)).commit()
+        } catch (_: SecurityException) {
+            // Keep the alert pending until notification permission is restored.
+        }
     }
 
     private fun notifyResearch(titles: List<String>) {

@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
     private val executor = Executors.newFixedThreadPool(3)
     private val homeRefreshHandler = Handler(Looper.getMainLooper())
     private val updateHandler = Handler(Looper.getMainLooper())
+    private val entryAlertHandler = Handler(Looper.getMainLooper())
+    private var entryAlertTask: Runnable? = null
+    private var entryAlertChecking = false
+    private var entryAlertDialog: AlertDialog? = null
     private var updatePollTask: Runnable? = null
     private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
@@ -229,6 +233,7 @@ class MainActivity : AppCompatActivity() {
         checkNewResearchReports()
         resumePendingUpdateIfReady()
         startHomeAutoRefresh()
+        startEntryAlertPolling()
     }
     private fun requestResearchNotificationPermission() {
         if (Build.VERSION.SDK_INT < 33) return
@@ -237,6 +242,59 @@ class MainActivity : AppCompatActivity() {
         prefs.edit().putBoolean("research_notification_permission_asked", true).apply()
         requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1002)
     }
+    private fun startEntryAlertPolling() {
+        stopEntryAlertPolling()
+        val task = object : Runnable {
+            override fun run() {
+                if (!isForeground || isDestroyed) return
+                checkEntryAlerts()
+                entryAlertHandler.postDelayed(this, 60_000L)
+            }
+        }
+        entryAlertTask = task
+        entryAlertHandler.post(task)
+    }
+
+    private fun stopEntryAlertPolling() {
+        entryAlertTask?.let { entryAlertHandler.removeCallbacks(it) }
+        entryAlertTask = null
+    }
+
+    private fun checkEntryAlerts() {
+        if (entryAlertChecking) return
+        entryAlertChecking = true
+        executor.execute {
+            val data = runCatching { request("/api/entry-alerts") }.getOrNull()
+            runOnUiThread {
+                entryAlertChecking = false
+                if (!isForeground || isFinishing || isDestroyed || data == null) return@runOnUiThread
+                val old = prefs.getString("entry_alert_seen_keys", null)
+                val alerts = EntryAlertPolicy.pending(data, old)
+                if (alerts.isEmpty() || entryAlertDialog?.isShowing == true) return@runOnUiThread
+                val first = alerts.first()
+                val message = alerts.take(3).joinToString("\n\n") { item ->
+                    item.optString("name") + " " + item.optString("code") +
+                    " · ¥" + item.optString("price") +
+                    "（计划价位 ¥" + item.optString("range_low") + "—" +
+                    item.optString("range_high") + "）\n" +
+                    "北京时间报价：" + item.optString("as_of") + "\n" +
+                    item.optString("warning")
+                } + if (alerts.size > 3) "\n另有 " + (alerts.size - 3) + " 只" else ""
+                if (!prefs.edit().putString("entry_alert_seen_keys",
+                        EntryAlertPolicy.record(old, alerts)).commit()) return@runOnUiThread
+                entryAlertDialog = AlertDialog.Builder(this)
+                    .setTitle("推荐股触达建仓观察价位")
+                    .setMessage(message + "\n\n注意：不是全部介入条件成立或自动买入通知。")
+                    .setPositiveButton("查看首只股票") { _, _ ->
+                        selectedCode = first.optString("code")
+                        showTab(2)
+                    }
+                    .setNegativeButton("知道了", null)
+                    .create().also { it.show() }
+            }
+        }
+    }
+
     // Immediate foreground check; WorkManager also polls periodically in background.
     private fun checkNewResearchReports() {
         executor.execute {
@@ -301,11 +359,13 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onPause() {
         isForeground = false
+        stopEntryAlertPolling()
         stopHomeAutoRefresh()
         stopWatchlistFollowUp()
         super.onPause()
     }
     override fun onDestroy() {
+        stopEntryAlertPolling()
         stopHomeAutoRefresh()
         stopWatchlistFollowUp()
         updatePollTask?.let { updateHandler.removeCallbacks(it) }
@@ -1541,6 +1601,7 @@ class MainActivity : AppCompatActivity() {
     private fun recommendationCard() {
         val parent = card("每日双标 · 当前有效候选")
         parent.addView(label("置顶显示最新盘后综合双标；T+2交易日起自动移出。历史数据永久保留用于验证。", 12f))
+        parent.addView(label("新增建仓观察价位提醒：交易时段核验带时间戳的现价，进入计划区间时弹窗；复杂的回踩、量能和板块条件仍须自行逐项核验。", 12f))
         val status = label("正在核对有效交易日与候选…", 12f)
         parent.addView(status)
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }

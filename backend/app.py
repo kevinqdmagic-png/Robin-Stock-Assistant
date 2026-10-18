@@ -292,6 +292,40 @@ def active_recommendations():
         return {"ok": False, "status": "recommendation_data_unavailable", "items": []}
 
 
+
+@app.get("/api/entry-alerts")
+def entry_alerts():
+    """Poll currently valid recommendation entry *price zones* (not buy orders)."""
+    from entry_alerts import scheduled_recommendations, evaluate_entry_alerts
+
+    now = datetime.now(CN_TZ)
+    today = now.date().isoformat()
+    state = session_state()
+    base = {
+        "ok": True, "time_cn": now.isoformat(timespec="seconds"),
+        "date_cn": today, "session_live": bool(state.get("is_live")),
+        "level": "price_zone", "all_conditions_verified": False,
+        "model_status": "partial_conditions_only",
+        "alerts": [], "monitored": 0,
+    }
+    if not base["session_live"]:
+        return base
+    try:
+        document = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")
+        selected = scheduled_recommendations(document.get("items", []), today)
+        base["monitored"] = len(selected)
+        if not selected:
+            return base
+        quotes, source, errors = _fetch_quote_batch([r["code"] for r in selected],
+                                                      timeout=(1.5, 3.5))
+        base["source"] = source
+        base["provider_errors"] = errors
+        base["alerts"] = evaluate_entry_alerts(selected, quotes, now, session_live=True)
+        return base
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Entry price-zone check unavailable: %s", exc)
+        return {**base, "ok": False, "status": "entry_alert_unavailable"}
+
 @app.get("/api/recommendations/{record_id}/performance")
 def performance(record_id: str):
     try:
