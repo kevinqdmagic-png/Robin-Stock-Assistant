@@ -164,7 +164,27 @@ def assess(row, current_quote, minute, peer_quotes, market, now):
     add("auction", False, "", "9:25竞价成交价未留存可信快照")
     add("trade_validity", False, "", "停牌、风险警示、除权、真实涨停价与可成交性待核实")
 
+    # An observed hard stop or broken post-09:45 support cancels the planned
+    # intraday setup even when the price later returns to the buying range.
+    # Missing minute evidence stays unknown rather than inventing an invalidation.
+    disqualified = False
+    if bars:
+        try:
+            hard_stop = float(row.get("invalid_level", rules["pullback_floor"]))
+            support_floor = float(rules["pullback_floor"])
+            disqualified = (
+                min(b[3] for b in bars) < hard_stop or
+                any(b[0].time() >= time(9, 45) and b[3] < support_floor for b in bars)
+            )
+        except (ValueError, TypeError):
+            disqualified = False
+    gates.append({"key": "intraday_invalidation",
+                  "status": "failed" if disqualified else "unknown",
+                  "detail": "盘中已触及冻结失效价位" if disqualified
+                            else "盘中硬失效条件未触发或时序待核验"})
+
     # Technical *subset* only. Insufficient authority to claim buy/full signal.
-    subset = bool(opening and sequence and peers_ok and window_ok)
+    subset = bool(opening and sequence and peers_ok and window_ok and not disqualified)
     return {"supported": True, "technical_confirmed": subset,
+            "disqualified": disqualified,
             "all_conditions_verified": False, "gates": gates}

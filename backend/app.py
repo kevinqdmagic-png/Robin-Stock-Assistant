@@ -335,6 +335,14 @@ def entry_alerts():
                 stock_minute(row["code"]) if row.get("rules") else None,
                 [by_code[c] for c in peer_codes if c in by_code], market, now)
             alert["gates"] = proof["gates"]
+            if proof.get("disqualified"):
+                # A later rebound cannot resurrect a cancelled same-day plan.
+                result["assessments"].append({
+                    "id": row["id"], "code": row["code"], "name": row.get("name"),
+                    "level": "invalidated", "complete": False,
+                    "gates": proof["gates"],
+                })
+                continue
             if proof["technical_confirmed"]:
                 alert["level"] = "technical_confirmed"
                 alert["warning"] = ("分钟量价和板块对照部分确认；竞价、市场全量、证券状态"

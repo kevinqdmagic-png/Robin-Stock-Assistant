@@ -58,6 +58,13 @@ class ConfirmationTests(unittest.TestCase):
             row["volume"]=50
         self.assertFalse(self.check(m=bad)["technical_confirmed"])
 
+    def test_observed_intraday_stop_blocks_rebound(self):
+        bad=minute()
+        bad["bars"][16]["low"]=17.20
+        result=self.check(m=bad)
+        self.assertTrue(result["disqualified"])
+        self.assertFalse(result["technical_confirmed"])
+
     def test_unstructured_plan_not_machine_confirmable(self):
         result=assess({"trigger":"文字条件"},Q,minute(),P,{},NOW)
         self.assertFalse(result["technical_confirmed"])
