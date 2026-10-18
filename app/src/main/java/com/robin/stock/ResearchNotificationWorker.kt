@@ -197,6 +197,7 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
         }
         val pending = PendingIntent.getActivity(applicationContext, 992, intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val partial = alerts.any { it.optString("level") == "technical_confirmed" }
         val details = alerts.joinToString("、") {
             it.optString("name") + "(" + it.optString("code") + ") ¥" +
                 it.optString("price")
@@ -204,10 +205,10 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
         try {
             manager.notify(992, NotificationCompat.Builder(applicationContext, channel)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
-                .setContentTitle("推荐股进入建仓观察价位 · 待核验")
+                .setContentTitle(if (partial) "荐股量价与板块条件部分确认" else "推荐股进入建仓观察价位")
                 .setContentText(details)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(
-                    details + "；仅价位符合，其他冻结条件尚未确认。"))
+                    details + "；仅部分条件满足，竞价/证券状态/市场全量/可成交性仍需核验。"))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pending).setAutoCancel(true).build())
             prefs.edit().putString("entry_alert_seen_keys",

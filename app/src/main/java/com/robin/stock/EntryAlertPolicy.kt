@@ -15,7 +15,7 @@ object EntryAlertPolicy {
         val rows = payload.optJSONArray("alerts") ?: return emptyList()
         return (0 until rows.length()).mapNotNull { rows.optJSONObject(it) }.filter {
             it.optString("date_cn") == date &&
-            it.optString("level") == "price_zone" &&
+            (it.optString("level") == "price_zone" || it.optString("level") == "technical_confirmed") &&
             !it.optBoolean("all_conditions_verified") &&
             it.optString("id").isNotBlank() && it.optString("code").matches(Regex("[0-9]{6}")) &&
             key(it) !in existing

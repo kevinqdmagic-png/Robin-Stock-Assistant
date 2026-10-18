@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity() {
     private var entryAlertTask: Runnable? = null
     private var entryAlertChecking = false
     private var entryAlertDialog: AlertDialog? = null
+    private var homeEntryMonitorStatus: TextView? = null
+    private var homeEntryMonitorDetails: LinearLayout? = null
     private var updatePollTask: Runnable? = null
     private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
@@ -268,11 +270,41 @@ class MainActivity : AppCompatActivity() {
             runOnUiThread {
                 entryAlertChecking = false
                 if (!isForeground || isFinishing || isDestroyed || data == null) return@runOnUiThread
+                homeEntryMonitorStatus?.let { status ->
+                    status.text = if (!data.optBoolean("ok")) {
+                        "行情核验不可用，不发确认提醒"
+                    } else if (!data.optBoolean("session_live")) {
+                        "A股休市 · 不发建仓条件提醒"
+                    } else {
+                        "监控 " + data.optInt("monitored") + " 只推荐股 · 北京时间 " +
+                            data.optString("time_cn")
+                    }
+                    homeEntryMonitorDetails?.let { panel ->
+                        panel.removeAllViews()
+                        val items = data.optJSONArray("assessments") ?: JSONArray()
+                        for (i in 0 until items.length()) {
+                            val item = items.optJSONObject(i) ?: continue
+                            val strength = if (item.optString("level") == "technical_confirmed")
+                                "量价与板块部分确认" else "达到观察价位"
+                            panel.addView(label(item.optString("name") + " " +
+                                item.optString("code") + " · " + strength, 14f, true))
+                            val gates = item.optJSONArray("gates") ?: JSONArray()
+                            val pending = (0 until gates.length()).mapNotNull { gates.optJSONObject(it) }
+                                .filter { it.optString("status") != "passed" }.take(3)
+                                .joinToString("；") { it.optString("detail") }
+                            if (pending.isNotBlank())
+                                panel.addView(label("待核验：" + pending, 12f))
+                        }
+                        if (items.length() == 0)
+                            panel.addView(label("暂无进入建仓观察价位的当日有效推荐股票", 12f))
+                    }
+                }
                 val old = prefs.getString("entry_alert_seen_keys", null)
                 val alerts = EntryAlertPolicy.pending(data, old)
                 if (alerts.isEmpty() || entryAlertDialog?.isShowing == true) return@runOnUiThread
                 val first = alerts.first()
                 val message = alerts.take(3).joinToString("\n\n") { item ->
+                    (if (item.optString("level") == "technical_confirmed") "【量价与板块部分确认】" else "【触达观察价位】") +
                     item.optString("name") + " " + item.optString("code") +
                     " · ¥" + item.optString("price") +
                     "（计划价位 ¥" + item.optString("range_low") + "—" +
@@ -283,7 +315,8 @@ class MainActivity : AppCompatActivity() {
                 if (!prefs.edit().putString("entry_alert_seen_keys",
                         EntryAlertPolicy.record(old, alerts)).commit()) return@runOnUiThread
                 entryAlertDialog = AlertDialog.Builder(this)
-                    .setTitle("推荐股触达建仓观察价位")
+                    .setTitle(if (alerts.any { it.optString("level") == "technical_confirmed" })
+                        "推荐股条件核验进展" else "推荐股触达建仓观察价位")
                     .setMessage(message + "\n\n注意：不是全部介入条件成立或自动买入通知。")
                     .setPositiveButton("查看首只股票") { _, _ ->
                         selectedCode = first.optString("code")
@@ -383,6 +416,8 @@ class MainActivity : AppCompatActivity() {
         homeCandidatesBox = null
         homeSignalStatus = null
         homeSignalItems = null
+        homeEntryMonitorStatus = null
+        homeEntryMonitorDetails = null
         overviewBox = null
         sectorBox = null
         currentTab = index; pageGeneration++; root.removeAllViews(); nav.removeAllViews(); scroller.scrollTo(0, 0)
@@ -623,6 +658,15 @@ class MainActivity : AppCompatActivity() {
         sectors.addView(switcher)
         val sectorItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         sectors.addView(sectorItems); sectorItems.addView(label("正在读取板块…", 12f)); sectorBox = sectorItems
+        val monitorCard = card("推荐股建仓条件监控")
+        val monitorStatus = label("正在核验当日推荐股…", 13f)
+        val monitorDetails = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        homeEntryMonitorStatus = monitorStatus
+        homeEntryMonitorDetails = monitorDetails
+        monitorCard.addView(monitorStatus)
+        monitorCard.addView(monitorDetails)
+        monitorCard.addView(label("提醒分级：①价格区间 ②量价与板块部分确认。竞价、市场全量、证券状态及真实可成交性未核实前，不提示全部达成。", 12f))
+        monitorCard.addView(action("刷新建仓条件") { checkEntryAlerts() })
         val signalCard = card("买点观察")
         val signalStatus = label("正在扫描观察信号…", 16f, true)
         val signalItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
