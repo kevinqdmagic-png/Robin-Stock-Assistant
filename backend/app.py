@@ -295,36 +295,60 @@ def active_recommendations():
 
 @app.get("/api/entry-alerts")
 def entry_alerts():
-    """Poll currently valid recommendation entry *price zones* (not buy orders)."""
+    """Return per-recommendation evidence and no-trade notification levels."""
     from entry_alerts import scheduled_recommendations, evaluate_entry_alerts
+    from entry_confirmation import assess
 
     now = datetime.now(CN_TZ)
-    today = now.date().isoformat()
-    state = session_state()
-    base = {
+    state = session_state(now)
+    result = {
         "ok": True, "time_cn": now.isoformat(timespec="seconds"),
-        "date_cn": today, "session_live": bool(state.get("is_live")),
-        "level": "price_zone", "all_conditions_verified": False,
-        "model_status": "partial_conditions_only",
-        "alerts": [], "monitored": 0,
+        "date_cn": now.date().isoformat(), "session_live": bool(state["is_live"]),
+        "model_status": "no_fully_verified_order_signals",
+        "alerts": [], "assessments": [], "monitored": 0,
     }
-    if not base["session_live"]:
-        return base
+    if not state["is_live"]:
+        return result
     try:
-        document = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")
-        selected = scheduled_recommendations(document.get("items", []), today)
-        base["monitored"] = len(selected)
+        doc = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")
+        selected = scheduled_recommendations(doc.get("items", []), result["date_cn"])
+        result["monitored"] = len(selected)
         if not selected:
-            return base
-        quotes, source, errors = _fetch_quote_batch([r["code"] for r in selected],
-                                                      timeout=(1.5, 3.5))
-        base["source"] = source
-        base["provider_errors"] = errors
-        base["alerts"] = evaluate_entry_alerts(selected, quotes, now, session_live=True)
-        return base
+            return result
+        peer_codes = [code for row in selected for code in (row.get("rules") or {}).get("peer_codes", [])
+                      if isinstance(code, str) and len(code) == 6 and code.isascii() and code.isdigit()]
+        codes = list(dict.fromkeys([r["code"] for r in selected] + peer_codes))
+        quotes, source, errors = _fetch_quote_batch(codes, timeout=(1.5, 3.5))
+        result["source"], result["provider_errors"] = source, errors
+        by_code = {q["code"]: q for q in quotes}
+        zones = {a["id"]: a for a in evaluate_entry_alerts(selected, quotes, now, True)}
+        with _market_lock:
+            market = dict(_market_cache["payload"] or {})
+            if time.time() - _market_cache["saved_at"] > MARKET_CACHE_TTL * 2:
+                market = {}
+
+        for row in selected:
+            alert = zones.get(row["id"])
+            if not alert:
+                continue
+            proof = assess(row, by_code.get(row["code"]),
+                stock_minute(row["code"]) if row.get("rules") else None,
+                [by_code[c] for c in peer_codes if c in by_code], market, now)
+            alert["gates"] = proof["gates"]
+            if proof["technical_confirmed"]:
+                alert["level"] = "technical_confirmed"
+                alert["warning"] = ("分钟量价和板块对照部分确认；竞价、市场全量、证券状态"
+                                    "及真实可成交性尚未核实。不是已达成全部入场条件。")
+            result["alerts"].append(alert)
+            result["assessments"].append({
+                "id": row["id"], "code": row["code"], "name": row.get("name"),
+                "level": alert["level"], "complete": False, "gates": proof["gates"],
+            })
+        return result
     except (OSError, ValueError, TypeError, KeyError) as exc:
-        logger.warning("Entry price-zone check unavailable: %s", exc)
-        return {**base, "ok": False, "status": "entry_alert_unavailable"}
+        logger.warning("Entry monitor temporarily unavailable: %s", exc)
+        return {**result, "ok": False, "status": "entry_alert_unavailable", "alerts": []}
+
 
 @app.get("/api/recommendations/{record_id}/performance")
 def performance(record_id: str):
