@@ -404,6 +404,154 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/38888398501"
       ]
+    },
+    {
+      "date": "2026-10-19",
+      "as_of": "2026-10-19T18:37:54+08:00",
+      "model": "capital_behavior_daily_v1",
+      "scanned": 110,
+      "valid_daily": 105,
+      "candidates": [
+        {
+          "code": "002415",
+          "name": "海康威视",
+          "as_of": "2026-10-19",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 69,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.707,
+          "price_location60": 0.182,
+          "relative_volume20": 1.965,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "000032",
+          "name": "深桑达Ａ",
+          "as_of": "2026-10-19",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 59,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.837,
+          "price_location60": 0.32,
+          "relative_volume20": 2.664,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "300556",
+          "name": "丝路视觉",
+          "as_of": "2026-10-19",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 59,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "近10日多次出现放量弱收盘，需排除派发与流动性变化",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.796,
+          "price_location60": 0.688,
+          "relative_volume20": 2.542,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "300719",
+          "name": "安达维尔",
+          "as_of": "2026-10-19",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 59,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.708,
+          "price_location60": 0.703,
+          "relative_volume20": 3.495,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "600519",
+          "name": "贵州茅台",
+          "as_of": "2026-10-19",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 59,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.144,
+          "price_location60": 0.716,
+          "relative_volume20": 1.377,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        }
+      ],
+      "universe": "historical_research_plus_public_activity_leaders",
+      "universe_sources": [
+        "historical_research_codes",
+        "https://push2.eastmoney.com/api/qt/clist/get",
+        "sina_turnover_leaders"
+      ],
+      "provider_errors": {
+        "ValueError": 5
+      },
+      "coverage": "partial_universe_not_a_share_full_market",
+      "status": "completed",
+      "note": "只代表量价模型观察候选，非真实主力持仓、非已验证交易策略",
+      "matching_before_limit": 7,
+      "id": "capital-watch-20261019-39238810878",
+      "run_id": "github-actions-39238810878",
+      "published_at": "2026-10-19T18:38:17+08:00",
+      "timezone": "Asia/Shanghai",
+      "research_only": true,
+      "selection_validated": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39238810878"
+      ]
     }
   ]
 }
