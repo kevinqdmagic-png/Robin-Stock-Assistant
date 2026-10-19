@@ -2139,6 +2139,25 @@
       "model_weights_updated": false,
       "strategy_active_rules_changed": false,
       "eligible_for_integrated_research": false
+    },
+    {
+      "id": "late_pair-20261019-gh-39216144795",
+      "run_id": "github-actions-39216144795",
+      "task_id": "late_pair",
+      "date": "2026-10-19",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T15:28:13.611949+08:00",
+      "recorded_at": "2026-10-19T15:28:13.706256+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 15:28:13。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39216144795"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
