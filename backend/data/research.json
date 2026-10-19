@@ -30624,7 +30624,7 @@
               "CHANGE_TYPE": "137001002001001",
               "OPERATEDEPT_CODE_OLD": "80034727",
               "TOTAL_BUYRIO": 0.067659156142,
-              "TOTAL_SELLRIO": 7.9137566e-05,
+              "TOTAL_SELLRIO": 0.000079137566,
               "TRADE_ID": "100426636"
             },
             {
@@ -30646,7 +30646,7 @@
               "CHANGE_TYPE": "137001002001001",
               "OPERATEDEPT_CODE_OLD": "80032599",
               "TOTAL_BUYRIO": 0.053400342548,
-              "TOTAL_SELLRIO": 2.4694344e-05,
+              "TOTAL_SELLRIO": 0.000024694344,
               "TRADE_ID": "100426636"
             },
             {
@@ -33231,7 +33231,7 @@
               "TOTAL_BUYER_SALESTIMES_3DAY": null,
               "CHANGE_TYPE": "137001001",
               "OPERATEDEPT_CODE_OLD": "80453155",
-              "TOTAL_BUYRIO": 7.352603e-06,
+              "TOTAL_BUYRIO": 0.000007352603,
               "TOTAL_SELLRIO": 0.013393521649,
               "TRADE_ID": "100427384"
             },
@@ -33687,7 +33687,7 @@
               "TOTAL_BUYER_SALESTIMES_3DAY": 18,
               "CHANGE_TYPE": "137001001",
               "OPERATEDEPT_CODE_OLD": "80035535",
-              "TOTAL_BUYRIO": 5.7447703e-05,
+              "TOTAL_BUYRIO": 0.000057447703,
               "TOTAL_SELLRIO": 0.015857013822,
               "TRADE_ID": "100427402"
             },
@@ -34098,7 +34098,7 @@
               "CHANGE_TYPE": "137001002001002",
               "OPERATEDEPT_CODE_OLD": "80033263",
               "TOTAL_BUYRIO": 0.051387767382,
-              "TOTAL_SELLRIO": 3.5324592e-05,
+              "TOTAL_SELLRIO": 0.000035324592,
               "TRADE_ID": "100427371"
             },
             {
@@ -34501,6 +34501,47 @@
       "decision": "cash_no_qualified_candidate",
       "ladder_complete": false,
       "evidence_file": "docs/research/combined-pair-2026-10-19-evidence.json"
+    },
+    {
+      "id": "learning-review-20261019-forward-v1",
+      "date": "2026-10-19",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "run_id": "learning-review-20261019-scheduled-forward-v1",
+      "report_type": "learning_review",
+      "eligible_for_integrated_research": false,
+      "title": "每日学习复核｜2026-10-19 新快照、左尾延续与去聚类假设",
+      "summary": "学习快照增至27条；T+2成熟18条仅4个日期，T+5为1正12非正；低位与龙虎榜统一前推样本仍为0。冻结5项影子假设，不改规则与权重。",
+      "body": "一、复核范围与真实时间\n\n本轮按真实UTC换算北京时间，于2026-10-20凌晨复核最新已完成中国交易日T=2026-10-19。线上 /api/learning 与main中的 backend/data/learning.json 均显示最新快照 forward-learning-2026-10-19，记录时间为2026-10-19T20:13:13.664731+08:00；本报告生成时间为2026-10-20T03:45:46.862+08:00。\n\n同T四份完整研究及completed回执已逐一核对并复用：market-review-20261019-close-v1、volume-price-20261019-close-v1、low-position-20261019-close-v1、dragon-tiger-20261019-close-v1。四份均为full_daily_research且eligible_for_integrated_research=true；量价由volume_price独立归档。量化痕迹quant_research已经取消，本轮不研究、不跟踪，也不作为前置。自动观察、历史验证、blocked/waiting和eligible_for_integrated_research=false报告均未替代上述四份完整研究。\n\n二、快照增量、成熟度与样本边界\n\n最新快照包含27条评价：observed 18、pending 3、ineligible_retrospective 6，provider_count=18。相对10月16日快照，评价记录增加3条；当前T+2特征成熟18条，增加2条，覆盖4个不同成熟日期，增加1个日期。验证门槛仍为至少36条成熟样本和20个不同日期；当前仅达到18/36与4/20，promotion_authorized=false，rule_proposals为空，strategy_active_rules_changed=false。\n\n27条是价格代理评价记录，不是27笔真实交易。记录按task_id分布为market_review 16、combined_pair 8、late_pair 2、limitup_single 1；同一股票/日期可跨任务重复，样本并不独立。收益口径是信号日收盘为锚的未复权日线观察，不是T+1成交或可执行净收益；trade_execution_verified=false。当前没有足够的独立训练/留出划分，也没有全市场抽样证明，不能把这组小样本称为已验证策略。\n\n三、T+1/T+2/T+5/T+10描述性结果\n\n|周期|已观察|待成熟|收盘均值|收盘中位|正/非正|范围|最差区间MAE|\n|---|---:|---:|---:|---:|---:|---:|---:|\n|T+1|20|1|-1.386%|-0.590%|10/10|-10.002%至+7.293%|-10.002%|\n|T+2|18|3|-2.709%|-3.444%|7/11|-16.678%至+7.390%|-17.528%|\n|T+5|13|8|-10.486%|-8.648%|1/12|-17.580%至+2.100%|-20.165%|\n|T+10|0|21|N/A|N/A|0/0|N/A|N/A|\n\nT+5由10月16日的9条增至13条，首次出现1条正值，但12/13仍为非正，均值仍显著为负。由于这些评价高度重叠并共享少数市场日期，不能据此宣称固定持有或固定退出规则有效；T+10尚无成熟样本。\n\n四、失败归因与数据缺口\n\n1. 11条评价带有“T+2收盘代理亏损超过2%”，12条带有“T+2区间不利波动超过5%”，另有1条“收盘为正但途中深度回撤”；标签可重叠，不能相加成独立失败笔数。T+1、T+2、T+5均值为负且左尾较长，继续支持“路径风险和信号衰减需要单独审计”这一未验证假设。\n2. 9条评价记录ConnectionError，9条记录HTTPError；同一信号可同时记录两类错误，且备用源成功不等于主源从未失败。当前没有因这些错误伪造缺失价格。\n3. forward_learning_v1中的low_position_evaluations仍为0，low_position_summary的sample_count和unique_signal_dates均为0。10月19日低位栏目已完成独立研究，但它不能替代统一学习样本，因此低位形态胜率继续为N/A。\n4. 学习评价的task_id分布中没有dragon_tiger。10月19日龙虎榜研究虽完成80条原因/67个代码与5只席位勾稽，但未形成独立、事前冻结、可前推的龙虎榜学习样本，不能把净买或席位标签直接称为有效因子。\n5. APP只展示归档结果和统计，不内置大模型，不自行推理、不自动训练权重，也不会因使用次数增加自然提高胜率。\n\n五、下一轮影子测试假设（全部未经样本外验证）\n\nH1 市场状态分层：继续按事前冻结的红盘率、跌停数量、昨日涨停反馈和成交变化区间分层，比较相同信号的T+1/T+2左尾；在达到日期覆盖门槛前不设新交易阈值。\n\nH2 路径与退出节点：只对未来有真实触发及可成交证据的样本，事前冻结T+1开盘、10:00、14:40、收盘与T+2首个可成交点，比较固定退出；不得用日线最高/最低倒推出最优卖点。\n\nH3 低位统一映射：将low_position独立样本追加不可变signal_id、入池日、失效位及5/10/20/30节点，并保留“单日放量”与“连续2—3日守突破位后再放量”的预注册分组；统一学习样本出现前结果保持N/A。\n\nH4 龙虎榜×量价交叉：预注册“多通道净买+中低位置+适度换手+高CLV”和“净买但高换手/尾盘回落”两组，要求龙虎榜与volume_price各自保留原始证据；不以席位名称推断个人或量化身份。\n\nH5 重复样本去聚类：下一轮统计同时报告原始评价条数与按signal_date/股票聚类后的日期级结果，防止跨任务重复记录虚增置信度；达到36条和20个日期也只触发进一步留出验证，不自动改规则。\n\n六、结论\n\n本轮有新快照，27条评价中T+2成熟18条、仅4个成熟日期；T+10仍为0，低位统一学习样本为0，龙虎榜独立前推样本为0。相对上一快照虽有增量，但远不足以验证策略。现行选股规则、阈值和模型权重均未修改；automatic_training=false、selection_rules_auto_updated=false、model_weights_updated=false。",
+      "sources": [
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/task_runs.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/current-execution.md"
+      ],
+      "published_at": "2026-10-20T03:45:46.862+08:00",
+      "recorded_at": "2026-10-20T03:45:46.862+08:00",
+      "data_cutoff_at": "2026-10-19T20:13:13.664731+08:00",
+      "provenance": "post_snapshot_learning_review",
+      "learning_snapshot_id": "forward-learning-2026-10-19",
+      "learning_rule_version": "forward_learning_v1",
+      "sample_count": 27,
+      "mature_t2_featured": 18,
+      "mature_unique_cohort_dates": 4,
+      "minimum_samples": 36,
+      "minimum_unique_dates": 20,
+      "trade_execution_verified": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "automatic_training": false,
+      "hypothesis_status": "shadow_only_unvalidated",
+      "prerequisite_report_ids": [
+        "market-review-20261019-close-v1",
+        "volume-price-20261019-close-v1",
+        "low-position-20261019-close-v1",
+        "dragon-tiger-20261019-close-v1"
+      ]
     }
   ]
 }
