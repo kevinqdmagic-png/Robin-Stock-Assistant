@@ -2728,7 +2728,28 @@
         "docs/research/market-review-2026-10-16-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261016-300719-close-v1-trigger-result-20261019",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "recorded_at": "2026-10-19T16:50:24+08:00",
+          "market_date": "2026-10-19",
+          "horizon": "planned entry day trigger verification",
+          "status": "not_triggered",
+          "trigger_status": "pullback_reached_but_reclaim_absent",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 12.2,
+          "observed_high": 12.36,
+          "observed_low": 11.88,
+          "observed_close": 12.22,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300719",
+          "report_id": "market-review-20261019-close-v1",
+          "note": "09:38进入回踩区，但随后未站上冻结的12.45；保留未触发样本。"
+        }
+      ],
       "code": "300719",
       "name": "安达维尔",
       "model": "first_divergence_sector_resonance_v5",
@@ -2776,7 +2797,28 @@
         "docs/research/market-review-2026-10-16-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261016-600853-close-v1-trigger-result-20261019",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "recorded_at": "2026-10-19T16:50:24+08:00",
+          "market_date": "2026-10-19",
+          "horizon": "planned entry day trigger verification",
+          "status": "not_triggered",
+          "trigger_status": "required_pullback_reclaim_sequence_absent",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 3.62,
+          "observed_high": 3.76,
+          "observed_low": 3.52,
+          "observed_close": 3.54,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600853",
+          "report_id": "market-review-20261019-close-v1",
+          "note": "早盘高点先出现，最低分钟价3.53，未形成冻结的回踩区后重新站3.60顺序；不倒推成交。"
+        }
+      ],
       "code": "600853",
       "name": "龙建股份",
       "model": "failed_board_reclaim_infrastructure_v5",
@@ -3010,6 +3052,98 @@
           "executable_net_return_pct": null
         }
       ]
+    },
+    {
+      "id": "market-review-20261019-002683-close-v1",
+      "date": "2026-10-19",
+      "published_at": "2026-10-19T16:50:24+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-19T16:15:00+08:00",
+      "planned_entry_date": "2026-10-20",
+      "earliest_legal_exit_date_if_bought": "2026-10-21",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261019-close-v1"
+      ],
+      "sources": [
+        "https://lianban.net/days/2026-10-19.html",
+        "https://stock.eastmoney.com/a/cdpfx.html",
+        "https://news.caijingmobile.com/flash/list",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/002683.phtml",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/002903.phtml",
+        "docs/research/market-review-2026-10-19-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "code": "002683",
+      "name": "广东宏大",
+      "model": "sector_resonance_first_divergence_v6",
+      "reason": "收30.11，换手5.30%，RVOL20 4.94，CLV0.940，距MA20 +9.0%，14点后+0.87%；军工/低空共振但须次日回踩再转强确认。",
+      "reference_price": 30.11,
+      "reference_price_time": "2026-10-19T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-19",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz002683",
+      "reference_entry_range": [
+        29.3,
+        30.15
+      ],
+      "operational_invalid_price": 28.7,
+      "trigger": "10月20日开盘29.45—30.60；回踩29.30—29.75缩量守住后重新站30.15，且军工或低空至少两只非一字核心同向。",
+      "invalid": "高开31.10以上不追；跌破28.70、30.25—31.00放量不进或板块高标跌停均放弃。",
+      "exit_plan": "若10月20日真实触发，最早10月21日卖；弱开失守28.70优先退出，强势观察30.25、31.00。"
+    },
+    {
+      "id": "market-review-20261019-002903-close-v1",
+      "date": "2026-10-19",
+      "published_at": "2026-10-19T16:50:24+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-19T16:15:00+08:00",
+      "planned_entry_date": "2026-10-20",
+      "earliest_legal_exit_date_if_bought": "2026-10-21",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261019-close-v1"
+      ],
+      "sources": [
+        "https://lianban.net/days/2026-10-19.html",
+        "https://stock.eastmoney.com/a/cdpfx.html",
+        "https://news.caijingmobile.com/flash/list",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/002683.phtml",
+        "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/002903.phtml",
+        "docs/research/market-review-2026-10-19-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "code": "002903",
+      "name": "宇环数控",
+      "model": "low_position_reversal_robot_resonance_v6",
+      "reason": "收24.96，换手19.13%，RVOL20 2.31，CLV0.914，低于MA20约8.9%，14点后+2.09%；机器人方向低位反转但振幅与换手较高。",
+      "reference_price": 24.96,
+      "reference_price_time": "2026-10-19T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-19",
+      "reference_price_source": "https://qt.gtimg.cn/q=sz002903",
+      "reference_entry_range": [
+        23.95,
+        25.05
+      ],
+      "operational_invalid_price": 23.55,
+      "trigger": "10月20日开盘24.30—25.45；回踩23.95—24.45缩量守住后重新站25.05，且机器人换手核心未批量转弱。",
+      "invalid": "高开25.80以上不追；跌破23.55、25.22—26.00放量不进或板块孤立均放弃。",
+      "exit_plan": "若10月20日真实触发，最早10月21日卖；弱开失守23.55优先退出，强势观察25.22、26.00。"
     }
   ],
   "legacy_audit": [
