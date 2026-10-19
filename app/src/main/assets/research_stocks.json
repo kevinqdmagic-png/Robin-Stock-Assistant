@@ -158,6 +158,25 @@
             "docs/research/combined-pair-2026-10-13-evidence-gap.json"
           ],
           "task_id": "combined_pair"
+        },
+        {
+          "id": "research-stock-300450-20261019-combined-validation",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "综合组原样本后续验证，不反写原结论",
+          "reason": "先导智能新到期价格节点已追加，旧触发/未成交状态不变。",
+          "evidence_status": "verified_daily_price_observation",
+          "fact_note": "19日收30.34、相对原参考-19.905%，不是可执行收益。",
+          "validation": [
+            "原触发条件不后移；只追加到期1/3/5/10/20/30交易日与触发证据。"
+          ],
+          "risk": "未触发或缺两侧成交不能统计策略胜率；止损阈值不保证成交。",
+          "report_ids": [
+            "combined-pair-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
         }
       ]
     },
@@ -1063,6 +1082,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-16-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-300058-20261019-low-validation",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "30天台账全路径日线验证（非新推荐）",
+          "reason": "蓝色光标相对原收盘参考截至19日-7.23%；价格路径和原失效保留，不是成交收益。",
+          "evidence_status": "verified_daily_price_observation",
+          "fact_note": "新计算严格排除信号日收盘前极值，旧记录不改。",
+          "validation": [
+            "继续1/3/5/10/15/20/30自然日及5/10/20交易日节点；30天未成熟。"
+          ],
+          "risk": "日线极值不能推断成交、时序、资金身份或策略净收益。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
         }
       ]
     },
@@ -1139,6 +1177,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-16-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000420-20261019-low-validation",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "30天台账全路径日线验证（非新推荐）",
+          "reason": "吉林化纤相对原收盘参考截至19日+2.10%；价格路径和原失效保留，不是成交收益。",
+          "evidence_status": "verified_daily_price_observation",
+          "fact_note": "新计算严格排除信号日收盘前极值，旧记录不改。",
+          "validation": [
+            "继续1/3/5/10/15/20/30自然日及5/10/20交易日节点；30天未成熟。"
+          ],
+          "risk": "日线极值不能推断成交、时序、资金身份或策略净收益。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
         }
       ]
     },
@@ -1190,6 +1247,193 @@
           "sources": [
             "docs/research/combined-pair-20261016-delivery-evidence-v1.json",
             "https://www.cninfo.com.cn/new/hisAnnouncement/query"
+          ]
+        },
+        {
+          "id": "research-stock-000887-20261019-combined-validation",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "综合组原样本后续验证，不反写原结论",
+          "reason": "10月19日开17.12低于冻结开盘下界17.40；无需倒推后续高低顺序即可否决，全天高17.18亦低于17.78收复条件。",
+          "evidence_status": "verified_daily_and_frozen_condition_failure",
+          "fact_note": "19日收17.00、相对原参考-4.063%，不是可执行收益。",
+          "validation": [
+            "原触发条件不后移；只追加到期1/3/5/10/20/30交易日与触发证据。"
+          ],
+          "risk": "未触发或缺两侧成交不能统计策略胜率；止损阈值不保证成交。",
+          "report_ids": [
+            "combined-pair-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "300432",
+      "name": "富临精工",
+      "sector": "汽车零部件/锂电材料",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-300432-20261019-low-sample",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "独立30天低中位放量样本，不是综合短线指令",
+          "reason": "富临精工收13.48、RVOL20=2.049、120日位置9.9%、CLV0.990，达到原30天入池门槛；本次综合组空仓。",
+          "evidence_status": "verified_same_day_daily_and_issuer_notice_review",
+          "fact_note": "实际冻结于本次报告完成；未回填盘中推荐、买入或未实现收益。",
+          "validation": [
+            "后续收盘跌破原位12.47记失效；跟踪自然日及交易日节点，不删除失败。"
+          ],
+          "risk": "相对低位不等于绝对底部；公告、波动与中期均线风险见完整报告；不能认定资金身份。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "sector": "数字基础设施/工程服务",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-000032-20261019-low-sample",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "独立30天低中位放量样本，不是综合短线指令",
+          "reason": "深桑达Ａ收13.72、RVOL20=2.664、120日位置11.6%、CLV0.837，达到原30天入池门槛；本次综合组空仓。",
+          "evidence_status": "verified_same_day_daily_and_issuer_notice_review",
+          "fact_note": "实际冻结于本次报告完成；未回填盘中推荐、买入或未实现收益。",
+          "validation": [
+            "后续收盘跌破原位12.95记失效；跟踪自然日及交易日节点，不删除失败。"
+          ],
+          "risk": "相对低位不等于绝对底部；公告、波动与中期均线风险见完整报告；不能认定资金身份。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "688084",
+      "name": "晶品特装",
+      "sector": "军工电子/特种装备",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-688084-20261019-low-sample",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "独立30天低中位放量样本，不是综合短线指令",
+          "reason": "晶品特装收42.29、RVOL20=3.001、120日位置17.3%、CLV0.832，达到原30天入池门槛；本次综合组空仓。",
+          "evidence_status": "verified_same_day_daily_and_issuer_notice_review",
+          "fact_note": "实际冻结于本次报告完成；未回填盘中推荐、买入或未实现收益。",
+          "validation": [
+            "后续收盘跌破原位39.11记失效；跟踪自然日及交易日节点，不删除失败。"
+          ],
+          "risk": "相对低位不等于绝对底部；公告、波动与中期均线风险见完整报告；不能认定资金身份。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "002683",
+      "name": "广东宏大",
+      "sector": "民爆/军工",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-002683-20261019-low-sample",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "独立30天低中位放量样本，不是综合短线指令",
+          "reason": "广东宏大收30.11、RVOL20=4.938、120日位置31.8%、CLV0.940，达到原30天入池门槛；本次综合组空仓。",
+          "evidence_status": "verified_same_day_daily_and_issuer_notice_review",
+          "fact_note": "实际冻结于本次报告完成；未回填盘中推荐、买入或未实现收益。",
+          "validation": [
+            "后续收盘跌破原位27.92记失效；跟踪自然日及交易日节点，不删除失败。"
+          ],
+          "risk": "相对低位不等于绝对底部；公告、波动与中期均线风险见完整报告；不能认定资金身份。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "001233",
+      "name": "海安集团",
+      "sector": "轮胎",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-001233-20261019-low-sample",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "独立30天低中位放量样本，不是综合短线指令",
+          "reason": "海安集团收51.53、RVOL20=2.679、120日位置36.9%、CLV0.888，达到原30天入池门槛；本次综合组空仓。",
+          "evidence_status": "verified_same_day_daily_and_issuer_notice_review",
+          "fact_note": "实际冻结于本次报告完成；未回填盘中推荐、买入或未实现收益。",
+          "validation": [
+            "后续收盘跌破原位48.76记失效；跟踪自然日及交易日节点，不删除失败。"
+          ],
+          "risk": "相对低位不等于绝对底部；公告、波动与中期均线风险见完整报告；不能认定资金身份。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "300556",
+      "name": "丝路视觉",
+      "sector": "数字视觉",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-300556-20261019-low-sample",
+          "date": "2026-10-19",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "title": "独立30天低中位放量样本，不是综合短线指令",
+          "reason": "丝路视觉收17.14、RVOL20=2.542、120日位置37.6%、CLV0.796，达到原30天入池门槛；本次综合组空仓。",
+          "evidence_status": "verified_same_day_daily_and_issuer_notice_review",
+          "fact_note": "实际冻结于本次报告完成；未回填盘中推荐、买入或未实现收益。",
+          "validation": [
+            "后续收盘跌破原位15.58记失效；跟踪自然日及交易日节点，不删除失败。"
+          ],
+          "risk": "相对低位不等于绝对底部；公告、波动与中期均线风险见完整报告；不能认定资金身份。",
+          "report_ids": [
+            "low-position-20261019-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
         }
       ]

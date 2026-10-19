@@ -1,0 +1,27 @@
+{
+  "market_date": "2026-10-19",
+  "recorded_at": "2026-10-19T17:40:24+08:00",
+  "report_ids": [
+    "volume-price-20261019-close-v1",
+    "low-position-20261019-close-v1",
+    "dragon-tiger-20261019-close-v1",
+    "combined-pair-20261019-close-v1",
+    "limitup-single-20261019-retro-v2",
+    "limitup-single-20261020-review-v2"
+  ],
+  "changed_research_stock_codes": [
+    "300058",
+    "000420",
+    "000887",
+    "300450",
+    "300432",
+    "000032",
+    "688084",
+    "002683",
+    "001233",
+    "300556"
+  ],
+  "candidate_count": 0,
+  "decision_id": "combined-pair-20261019-close-v1",
+  "delivery_status": "not_yet_CI_or_production_verified"
+}

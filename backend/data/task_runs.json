@@ -2192,6 +2192,134 @@
         "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/002903.phtml",
         "docs/research/market-review-2026-10-19-evidence.json"
       ]
+    },
+    {
+      "id": "volume-price-20261019-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261019-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-19",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T09:17:20+00:00",
+      "recorded_at": "2026-10-19T09:40:24+00:00",
+      "completed_at": "2026-10-19T09:40:24+00:00",
+      "status": "completed",
+      "summary": "独立复算广泛池96/120、深筛28/28，上一28/28收盘均值-1.943%、中位-1.743%；v4策略成交N=0，不以净买或放量机械选股。",
+      "report_ids": [
+        "volume-price-20261019-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-19-evidence.json"
+      ],
+      "started_at_scope": "本次真实综合执行开始，包含读取、取证、分析；模块独立报告和回执。"
+    },
+    {
+      "id": "low-position-20261019-scheduled-close-v1-completed",
+      "run_id": "low-position-20261019-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-19",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T09:17:20+00:00",
+      "recorded_at": "2026-10-19T09:40:24+00:00",
+      "completed_at": "2026-10-19T09:40:24+00:00",
+      "status": "completed",
+      "summary": "完整验证26/26，当前6只收破原失效；新增6只独立30天研究样本，30自然日成熟0，价格路径剔除信号日收盘前极值。",
+      "report_ids": [
+        "low-position-20261019-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-19-evidence.json"
+      ],
+      "started_at_scope": "本次真实综合执行开始，包含读取、取证、分析；模块独立报告和回执。"
+    },
+    {
+      "id": "dragon-tiger-20261019-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261019-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-19",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T09:17:20+00:00",
+      "recorded_at": "2026-10-19T09:40:24+00:00",
+      "completed_at": "2026-10-19T09:40:24+00:00",
+      "status": "completed",
+      "summary": "80条原因/67代码（沪深A股59），5只席位精确区间金额勾稽；上一5/5收盘均值-4.290%，1只收涨，交易胜率仍N/A。",
+      "report_ids": [
+        "dragon-tiger-20261019-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-19-evidence.json"
+      ],
+      "started_at_scope": "本次真实综合执行开始，包含读取、取证、分析；模块独立报告和回执。"
+    },
+    {
+      "id": "combined-pair-20261019-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261019-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-19",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T09:17:20+00:00",
+      "recorded_at": "2026-10-19T09:40:24+00:00",
+      "completed_at": "2026-10-19T09:40:24+00:00",
+      "status": "completed",
+      "summary": "全A5568入口、120广泛池与完整28深筛重裁决：0只，不机械复制市场组；中鼎19日开17.12低于冻结下界，未触发，价格观察-4.063%不是策略亏损。",
+      "report_ids": [
+        "combined-pair-20261019-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-19-evidence.json"
+      ],
+      "started_at_scope": "本次真实综合执行开始，包含读取、取证、分析；模块独立报告和回执。"
+    },
+    {
+      "id": "limitup-single-20261019-retro-audit-v2-blocked",
+      "run_id": "limitup-single-20261019-retro-audit-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-19",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T09:17:20+00:00",
+      "recorded_at": "2026-10-19T09:40:24+00:00",
+      "completed_at": "2026-10-19T09:40:24+00:00",
+      "status": "blocked",
+      "summary": "完成D=19事后v2风险补证；无法补成当时事前冻结，原交付blocked，不补造荐股或算作按时空仓。",
+      "report_ids": [
+        "limitup-single-20261019-retro-v2"
+      ],
+      "analysis_completed": false,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-19-evidence.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261020-scheduled-v2-completed",
+      "run_id": "limitup-single-20261020-scheduled-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-19T09:17:20+00:00",
+      "recorded_at": "2026-10-19T09:40:24+00:00",
+      "completed_at": "2026-10-19T09:40:24+00:00",
+      "status": "completed",
+      "summary": "T=19、D=20事前冻结空仓；实际核三日环境及5只比较，宽度/尾部与梯队证据缺项触发否决，无候选、无成交。",
+      "report_ids": [
+        "limitup-single-20261020-review-v2"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/combined-pair-2026-10-19-evidence.json"
+      ]
     }
   ]
 }

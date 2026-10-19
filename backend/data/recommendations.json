@@ -621,6 +621,51 @@
             "combined-pair-20261009-close-v1",
             "volume-price-20261009-close-v1"
           ]
+        },
+        {
+          "id": "combined-pair-20261008-601872-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 18.18,
+          "observed_high": 18.34,
+          "observed_low": 17.61,
+          "observed_close": 17.85,
+          "close_price_observation_pct": -18.974,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-09",
+              "close": 22.07,
+              "close_return_pct": 0.182,
+              "mfe_price_observation_pct": 2.814,
+              "mae_price_observation_pct": -6.264
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-13",
+              "close": 21.31,
+              "close_return_pct": -3.268,
+              "mfe_price_observation_pct": 2.814,
+              "mae_price_observation_pct": -9.759
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-15",
+              "close": 19.33,
+              "close_return_pct": -12.256,
+              "mfe_price_observation_pct": 2.814,
+              "mae_price_observation_pct": -12.256
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -839,6 +884,51 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
           ],
           "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 27.46,
+          "observed_high": 28.09,
+          "observed_low": 27.06,
+          "observed_close": 27.37,
+          "close_price_observation_pct": -12.556,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-09",
+              "close": 30.41,
+              "close_return_pct": -2.843,
+              "mfe_price_observation_pct": 2.236,
+              "mae_price_observation_pct": -4.633
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-13",
+              "close": 28.33,
+              "close_return_pct": -9.489,
+              "mfe_price_observation_pct": 2.236,
+              "mae_price_observation_pct": -10.511
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-15",
+              "close": 28.16,
+              "close_return_pct": -10.032,
+              "mfe_price_observation_pct": 2.236,
+              "mae_price_observation_pct": -14.888
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -1240,6 +1330,51 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
           ],
           "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 11.71,
+          "observed_high": 12.09,
+          "observed_low": 11.66,
+          "observed_close": 11.94,
+          "close_price_observation_pct": -7.226,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-12",
+              "close": 12.59,
+              "close_return_pct": -2.176,
+              "mfe_price_observation_pct": 0.699,
+              "mae_price_observation_pct": -3.03
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-14",
+              "close": 12.85,
+              "close_return_pct": -0.155,
+              "mfe_price_observation_pct": 3.497,
+              "mae_price_observation_pct": -5.051
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-16",
+              "close": 11.86,
+              "close_return_pct": -7.848,
+              "mfe_price_observation_pct": 3.497,
+              "mae_price_observation_pct": -8.159
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -1507,6 +1642,51 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
           ],
           "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 3.82,
+          "observed_high": 3.97,
+          "observed_low": 3.78,
+          "observed_close": 3.89,
+          "close_price_observation_pct": 2.1,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-12",
+              "close": 3.81,
+              "close_return_pct": 0.0,
+              "mfe_price_observation_pct": 9.974,
+              "mae_price_observation_pct": 0.0
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-14",
+              "close": 3.62,
+              "close_return_pct": -4.987,
+              "mfe_price_observation_pct": 9.974,
+              "mae_price_observation_pct": -5.249
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-16",
+              "close": 3.88,
+              "close_return_pct": 1.837,
+              "mfe_price_observation_pct": 9.974,
+              "mae_price_observation_pct": -7.874
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -1944,6 +2124,51 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
           ],
           "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 30.81,
+          "observed_high": 31.55,
+          "observed_low": 30.02,
+          "observed_close": 30.34,
+          "close_price_observation_pct": -19.905,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-13",
+              "close": 34.25,
+              "close_return_pct": -9.583,
+              "mfe_price_observation_pct": -3.907,
+              "mae_price_observation_pct": -12.012
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-15",
+              "close": 32.35,
+              "close_return_pct": -14.599,
+              "mfe_price_observation_pct": -3.907,
+              "mae_price_observation_pct": -20.776
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-19",
+              "close": 30.34,
+              "close_return_pct": -19.905,
+              "mfe_price_observation_pct": -3.907,
+              "mae_price_observation_pct": -20.776
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -2460,6 +2685,35 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
           ],
           "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261015-000973-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 11.8,
+          "observed_high": 11.8,
+          "observed_low": 11.26,
+          "observed_close": 11.31,
+          "close_price_observation_pct": -7.219,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-16",
+              "close": 11.96,
+              "close_return_pct": -1.887,
+              "mfe_price_observation_pct": -1.148,
+              "mae_price_observation_pct": -3.281
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -2695,6 +2949,35 @@
             "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
           ],
           "note": "迟到补证用真实recorded_at；节点日不是推荐发布时间；日高低不推断成交顺序，成本和可执行净收益未知。"
+        },
+        {
+          "id": "combined-pair-20261015-002812-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 45.06,
+          "observed_high": 46.03,
+          "observed_low": 44.9,
+          "observed_close": 45.63,
+          "close_price_observation_pct": -5.704,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-16",
+              "close": 46.26,
+              "close_return_pct": -4.402,
+              "mfe_price_observation_pct": 1.984,
+              "mae_price_observation_pct": -5.538
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
         }
       ]
     },
@@ -3050,6 +3333,39 @@
           "entry_fill_status": "not_entered",
           "executed_trade": false,
           "executable_net_return_pct": null
+        },
+        {
+          "id": "combined-pair-20261016-000887-close-v1-daily-validation-20261019",
+          "recorded_at": "2026-10-19T17:40:24+08:00",
+          "as_of": "2026-10-19T15:00:00+08:00",
+          "market_date": "2026-10-19",
+          "observation_type": "price_observation",
+          "observed_open": 17.12,
+          "observed_high": 17.18,
+          "observed_low": 16.45,
+          "observed_close": 17.0,
+          "close_price_observation_pct": -4.063,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-19",
+              "close": 17.0,
+              "close_return_pct": -4.063,
+              "mfe_price_observation_pct": -3.047,
+              "mae_price_observation_pct": -7.167
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261019-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-19-evidence.json"
+          ],
+          "note": "10月19日开17.12低于冻结开盘下界17.40；无需倒推后续高低顺序即可否决，全天高17.18亦低于17.78收复条件。",
+          "status": "not_triggered",
+          "trigger_status": "not_triggered_open_below_frozen_lower_bound",
+          "entry_fill_status": "no_strategy_fill",
+          "strategy_sample_activated": false
         }
       ]
     },
