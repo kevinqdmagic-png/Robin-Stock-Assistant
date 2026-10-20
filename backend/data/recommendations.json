@@ -666,6 +666,61 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261008-601872-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 17.05,
+          "observed_high": 17.85,
+          "observed_low": 17.05,
+          "observed_close": 17.58,
+          "close_price_observation_pct": -20.2,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-09",
+              "close": 22.07,
+              "close_return_pct": 0.182,
+              "mfe_price_observation_pct": 2.814,
+              "mae_price_observation_pct": -6.264,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.05,
+              "excess_price_observation_pct_points": 0.132
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-13",
+              "close": 21.31,
+              "close_return_pct": -3.268,
+              "mfe_price_observation_pct": 2.814,
+              "mae_price_observation_pct": -9.759,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -0.29,
+              "excess_price_observation_pct_points": -2.978
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-15",
+              "close": 19.33,
+              "close_return_pct": -12.256,
+              "mfe_price_observation_pct": 2.814,
+              "mae_price_observation_pct": -12.256,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -2.739,
+              "excess_price_observation_pct_points": -9.517
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -929,6 +984,61 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 27.24,
+          "observed_high": 27.87,
+          "observed_low": 26.85,
+          "observed_close": 27.82,
+          "close_price_observation_pct": -11.118,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-09",
+              "close": 30.41,
+              "close_return_pct": -2.843,
+              "mfe_price_observation_pct": 2.236,
+              "mae_price_observation_pct": -4.633,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.05,
+              "excess_price_observation_pct_points": -2.893
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-13",
+              "close": 28.33,
+              "close_return_pct": -9.489,
+              "mfe_price_observation_pct": 2.236,
+              "mae_price_observation_pct": -10.511,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -0.29,
+              "excess_price_observation_pct_points": -9.199
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-15",
+              "close": 28.16,
+              "close_return_pct": -10.032,
+              "mfe_price_observation_pct": 2.236,
+              "mae_price_observation_pct": -14.888,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -2.739,
+              "excess_price_observation_pct_points": -7.293
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -1375,6 +1485,61 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 11.83,
+          "observed_high": 12.36,
+          "observed_low": 11.8,
+          "observed_close": 12.2,
+          "close_price_observation_pct": -5.206,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-12",
+              "close": 12.59,
+              "close_return_pct": -2.176,
+              "mfe_price_observation_pct": 0.699,
+              "mae_price_observation_pct": -3.03,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -0.434,
+              "excess_price_observation_pct_points": -1.742
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-14",
+              "close": 12.85,
+              "close_return_pct": -0.155,
+              "mfe_price_observation_pct": 3.497,
+              "mae_price_observation_pct": -5.051,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -1.221,
+              "excess_price_observation_pct_points": 1.066
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-16",
+              "close": 11.86,
+              "close_return_pct": -7.848,
+              "mfe_price_observation_pct": 3.497,
+              "mae_price_observation_pct": -8.159,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -2.557,
+              "excess_price_observation_pct_points": -5.291
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -1687,6 +1852,61 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 3.81,
+          "observed_high": 3.85,
+          "observed_low": 3.77,
+          "observed_close": 3.83,
+          "close_price_observation_pct": 0.525,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-12",
+              "close": 3.81,
+              "close_return_pct": 0.0,
+              "mfe_price_observation_pct": 9.974,
+              "mae_price_observation_pct": 0.0,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -0.434,
+              "excess_price_observation_pct_points": 0.434
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-14",
+              "close": 3.62,
+              "close_return_pct": -4.987,
+              "mfe_price_observation_pct": 9.974,
+              "mae_price_observation_pct": -5.249,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -1.221,
+              "excess_price_observation_pct_points": -3.766
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-16",
+              "close": 3.88,
+              "close_return_pct": 1.837,
+              "mfe_price_observation_pct": 9.974,
+              "mae_price_observation_pct": -7.874,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -2.557,
+              "excess_price_observation_pct_points": 4.394
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -2169,6 +2389,61 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 30.03,
+          "observed_high": 30.98,
+          "observed_low": 30.03,
+          "observed_close": 30.56,
+          "close_price_observation_pct": -19.324,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-13",
+              "close": 34.25,
+              "close_return_pct": -9.583,
+              "mfe_price_observation_pct": -3.907,
+              "mae_price_observation_pct": -12.012,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.095,
+              "excess_price_observation_pct_points": -9.678
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-15",
+              "close": 32.35,
+              "close_return_pct": -14.599,
+              "mfe_price_observation_pct": -3.907,
+              "mae_price_observation_pct": -20.776,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -2.364,
+              "excess_price_observation_pct_points": -12.235
+            },
+            {
+              "trading_horizon": 5,
+              "date": "2026-10-19",
+              "close": 30.34,
+              "close_return_pct": -19.905,
+              "mfe_price_observation_pct": -3.907,
+              "mae_price_observation_pct": -20.776,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": -1.747,
+              "excess_price_observation_pct_points": -18.158
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -2714,6 +2989,50 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261015-000973-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 11.17,
+          "observed_high": 11.44,
+          "observed_low": 11.03,
+          "observed_close": 11.38,
+          "close_price_observation_pct": -6.645,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-16",
+              "close": 11.96,
+              "close_return_pct": -1.887,
+              "mfe_price_observation_pct": -1.148,
+              "mae_price_observation_pct": -3.281,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.237,
+              "excess_price_observation_pct_points": -2.124
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-20",
+              "close": 11.38,
+              "close_return_pct": -6.645,
+              "mfe_price_observation_pct": -1.148,
+              "mae_price_observation_pct": -9.516,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.752,
+              "excess_price_observation_pct_points": -7.397
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -2978,6 +3297,50 @@
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ],
           "note": "旧未触发/缺成交结论保留；新日线价格不重建成交、触发顺序或策略净收益。"
+        },
+        {
+          "id": "combined-pair-20261015-002812-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 45.13,
+          "observed_high": 47.1,
+          "observed_low": 44.85,
+          "observed_close": 46.55,
+          "close_price_observation_pct": -3.802,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-16",
+              "close": 46.26,
+              "close_return_pct": -4.402,
+              "mfe_price_observation_pct": 1.984,
+              "mae_price_observation_pct": -5.538,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.237,
+              "excess_price_observation_pct_points": -4.639
+            },
+            {
+              "trading_horizon": 3,
+              "date": "2026-10-20",
+              "close": 46.55,
+              "close_return_pct": -3.802,
+              "mfe_price_observation_pct": 1.984,
+              "mae_price_observation_pct": -7.316,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.752,
+              "excess_price_observation_pct_points": -4.554
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
         }
       ]
     },
@@ -3366,6 +3729,42 @@
           "trigger_status": "not_triggered_open_below_frozen_lower_bound",
           "entry_fill_status": "no_strategy_fill",
           "strategy_sample_activated": false
+        },
+        {
+          "id": "combined-pair-20261016-000887-close-v1-daily-validation-20261020",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "as_of": "2026-10-20T15:00:00+08:00",
+          "market_date": "2026-10-20",
+          "observation_type": "price_observation",
+          "observed_open": 17.07,
+          "observed_high": 17.53,
+          "observed_low": 17.0,
+          "observed_close": 17.3,
+          "close_price_observation_pct": -2.37,
+          "completed_horizon_observations": [
+            {
+              "trading_horizon": 1,
+              "date": "2026-10-19",
+              "close": 17.0,
+              "close_return_pct": -4.063,
+              "mfe_price_observation_pct": -3.047,
+              "mae_price_observation_pct": -7.167,
+              "benchmark": "Shanghai Composite same raw-close dates",
+              "benchmark_return_pct": 0.394,
+              "excess_price_observation_pct_points": -4.457
+            }
+          ],
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "report_id": "combined-pair-20261020-close-v1",
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ],
+          "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
+          "note": "D19开17.12低于原17.40下限、全天高17.18；原未触发结论保留，T20不激活。",
+          "status": "not_triggered",
+          "entry_fill_status": "no_strategy_fill",
+          "strategy_sample_activated": false
         }
       ]
     },
@@ -3594,6 +3993,216 @@
       "trigger": "10月21日开盘11.10—11.85；回踩10.95—11.30守住后重新站11.60，且机器人换手核心延续、汽车方向不形成孤立拖累。",
       "invalid": "高开12.10以上不追；跌破10.75、12.00—12.20放量滞涨或机器人板块转弱均放弃。",
       "exit_plan": "若10月21日真实触发，最早10月22日卖；弱开失守10.75优先退出，强势观察12.06、12.40。"
+    },
+    {
+      "id": "combined-pair-20261020-300458-close-v1",
+      "date": "2026-10-20",
+      "published_at": "2026-10-21T01:46:10+08:00",
+      "task_id": "combined_pair",
+      "code": "300458",
+      "name": "全志科技",
+      "group": "close",
+      "group_label": "综合盘后组",
+      "strategy": "combined_limitup_watch",
+      "model": "combined_limitup_watch_v5",
+      "reason": "反弹推进与未经审计业绩预告共振；MA20/60未收回，只有次日严格回踩再转强且同伴/宽度一致才观察。",
+      "reference_price": 28.64,
+      "reference_price_time": "2026-10-20T15:00:00+08:00",
+      "reference_market_date": "2026-10-20",
+      "reference_price_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300458,day,,,180,none",
+      "crosscheck_source": "https://hq.sinajs.cn/list=sz300458",
+      "trigger": "唯一综合条件候选：300458 全志科技，模型combined_limitup_watch_v5（反弹推进/业绩与量价共振，非已确认主升）。T20原收盘参考28.64元，行情日15:00、报告冻结在下列真实时间；该参考不是买价，20%制度，T20涨11.27%不是涨停。\n\n为什么胜过替代：相较润建/长春/宁波的封板可买性与高乖离/公告风险，全志没有封20%板，CLV1、尾盘+2.18%、换手7.86%且含T的MA20下方约5.02%，未处大幅正乖离。10月12日业绩预告预计前三季归母6.4—6.7亿元（同比+129.85%—140.62%）、扣非6.1—6.3亿元，未经审计；上游成本涨价、研发费用增逾30%仍是风险。10月20日工商变更为激励股份归属相关，不是新订单。价在MA20/60下方、当天大涨后回吐与半导体板块分化是反证，不能称趋势已扭转。没有同日龙虎榜席位支持，不推断资金身份。\n\nT+1=10月21日事前冻结条件（全部同时满足，最多一次，不临时换股）：9:25核正常证券状态、复权/停牌、真实当日上限；竞价及实际开盘均须27.90—29.10。09:45—10:30先出现28.00—28.30普通成交回踩，最低不破27.85，回踩五分钟成交量小于紧前上攻五分钟，随后重站28.50并连续五个可核验一分钟价点不低于28.50、向28.70推进；只在28.55—28.85区间出现可验证普通成交时才可记触发，不用限价排队或日高代替成交。回踩区取T20下午约28元平台，27.70失效低于14点后最低价格点27.97及原平台，是事前风险假设非优化回测阈值。\n\n预定同伴002929润建股份、603341龙旗科技均较T20收盘不低于-2%，至少一只上涨、非一字且无高标跌停共振；同口径市场上涨≥2800、普通主板非ST跌停≤14。早盘量比只能用同一时点可比口径另核，不能把RVOL20=1.821套成盘中量比。任何数据缺失/公告风险新增、开盘超范围、价格先破27.85、追至29.30以上、板块/宽度不符或10:30仍未完成顺序，直接放弃，不尾盘补单。不允许用以后分时把当时缺失证据补成已买。\n\n初始失效27.70。若21日实际买入后跌破，A股T+1锁定使当天不能卖；记录实际数量/成交成本与无法卖出的敞口，不加仓摊低，不把止损位当成交保证。最早22日可执行退出：弱开低于实际买入均价或可核价跌破27.70，在首个能证明可成交的时点全部退出；否则50%在开盘首个可成交时点，25%观察30.15（含T MA20压力），25%观察31.20；开盘后若先跌破28.64，余仓在首个可成交时点退出，未成交余仓最迟10:30首个可成交时点退出。两侧数量与先后均留证，跌停无买盘/停牌/委托未成则保留未退出风险、下一交易日首个可成交时点延续，不伪填成交价。成本20bp仅未校准占位，真正净收益须实际费用/滑点与数量，不从观察价直接扣成利润。\n\n涨停路径假设：D先承接再收复29.30、30.15—30.50压力，若边缘AI/半导体同步扩散，才研究更高加速；D按T20昨收算20%上限参考34.37，仍以交易所实际状态为准。T+2上限取决D真实收盘，现在不可预填。反例是D高开后量大价不进、跌回28元平台、同伴下杀、MA20压制或公告风险变化；任一可使路径失败。D涨停若无普通成交不能默认买到，买到也只是浮盈；T+2涨停也不保证流动性或后续溢价。不给涨停概率和收益承诺。",
+      "invalid": "27.70为初始失效；入场前破27.85或任一共同条件失败直接放弃，10:30未完成不补单。",
+      "exit_plan": "最早22日；弱开/破27.70首个可成交全退，否则50%开盘、25%@30.15、25%@31.20；先破28.64退余仓，10:30退出余仓；无成交保留风险。",
+      "sources": [
+        "docs/research/combined-pair-2026-10-20-evidence.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300458,day,,,180,none",
+        "https://static.cninfo.com.cn/finalpage/2026-10-12/1225601760.PDF"
+      ],
+      "provenance": "contemporaneous",
+      "report_ids": [
+        "combined-pair-20261020-close-v1"
+      ],
+      "planned_entry_date": "2026-10-21",
+      "earliest_legal_exit_date_if_bought": "2026-10-22",
+      "entry_price_condition_range": [
+        28.55,
+        28.85
+      ],
+      "invalid_level": 27.7,
+      "rules": {
+        "version": "combined_limitup_watch_v5",
+        "entry_sequence_required": true,
+        "entry_window_cn": [
+          "09:45",
+          "10:30"
+        ],
+        "auction_open_range": [
+          27.9,
+          29.1
+        ],
+        "pullback_range": [
+          28.0,
+          28.3
+        ],
+        "pullback_floor": 27.85,
+        "reclaim": 28.5,
+        "hold_minute_price_points": 5,
+        "invalid_level": 27.7,
+        "no_chase_above": 29.3,
+        "peer_codes": [
+          "002929",
+          "603341"
+        ],
+        "peers_each_min_change_pct": -2,
+        "at_least_one_peer_positive": true,
+        "same_scope_advance_min": 2800,
+        "ordinary_mainboard_limit_down_max": 14,
+        "exit_weights_pct": [
+          50,
+          25,
+          25
+        ],
+        "exit_target_prices": [
+          null,
+          30.15,
+          31.2
+        ],
+        "remaining_exit_deadline_cn": "10:30",
+        "cost_assumption": {
+          "round_trip_bps": 20,
+          "calibrated": false,
+          "use_for_executable_statistics": false
+        }
+      },
+      "frozen_snapshot": {
+        "code": "300458",
+        "name": "全志科技",
+        "date": "2026-10-20",
+        "open": 25.74,
+        "close": 28.64,
+        "high": 28.64,
+        "low": 25.62,
+        "volume": 639570.0,
+        "previous_close": 25.74,
+        "daily_change_pct": 11.267,
+        "amount_cny": 1771628531.0,
+        "turnover_pct": 7.856,
+        "rvol": {
+          "5": 1.698,
+          "10": 1.902,
+          "20": 1.821
+        },
+        "ma": {
+          "5": 26.972,
+          "10": 28.515,
+          "20": 30.153,
+          "60": 32.603
+        },
+        "range_position_pct": {
+          "20": 38.11,
+          "60": 20.056,
+          "120": 19.856
+        },
+        "prior5_high": 28.36,
+        "prior20_high": 34.47,
+        "prior20_low": 25.05,
+        "clv": 1.0,
+        "amplitude_pct": 11.732999999999999,
+        "distance_ma20_pct": -5.018,
+        "volume_vs_previous_session": 2.58,
+        "intraday_volume_ratio": null,
+        "intraday_volume_ratio_note": "缺原时点盘中量比；RVOL分母不含T。",
+        "turnover_change_pct_points": null,
+        "moving_average_alignment": "not_full_bullish_alignment",
+        "minute_checkpoints": {
+          "0930": {
+            "clock": "0930",
+            "price": 25.74,
+            "cumulative_volume_provider_units": 1340.0,
+            "cumulative_amount_cny": 3449160.0,
+            "return_vs_prior_close_pct": 0.0
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 26.14,
+            "cumulative_volume_provider_units": 41025.0,
+            "cumulative_amount_cny": 106175099.05,
+            "return_vs_prior_close_pct": 1.554
+          },
+          "1030": {
+            "clock": "1030",
+            "price": 27.26,
+            "cumulative_volume_provider_units": 190342.0,
+            "cumulative_amount_cny": 506098069.44,
+            "return_vs_prior_close_pct": 5.905
+          },
+          "1130": {
+            "clock": "1130",
+            "price": 28.39,
+            "cumulative_volume_provider_units": 397032.0,
+            "cumulative_amount_cny": 1086789235.89,
+            "return_vs_prior_close_pct": 10.295
+          },
+          "1400": {
+            "clock": "1400",
+            "price": 28.03,
+            "cumulative_volume_provider_units": 503041.0,
+            "cumulative_amount_cny": 1384487782.93,
+            "return_vs_prior_close_pct": 8.897
+          },
+          "1440": {
+            "clock": "1440",
+            "price": 28.4,
+            "cumulative_volume_provider_units": 575650.0,
+            "cumulative_amount_cny": 1589142360.05,
+            "return_vs_prior_close_pct": 10.334
+          },
+          "1500": {
+            "clock": "1500",
+            "price": 28.64,
+            "cumulative_volume_provider_units": 639570.0,
+            "cumulative_amount_cny": 1771629860.18,
+            "return_vs_prior_close_pct": 11.267
+          }
+        },
+        "tail_return_1400_to_1500_pct": 2.176,
+        "tail_volume_share_pct": 21.347,
+        "daily_crosscheck": {
+          "source": "Tencent raw daily versus archived Sina scan",
+          "fields": [
+            "open",
+            "high",
+            "low",
+            "close"
+          ],
+          "differences": {
+            "open": 0.0,
+            "high": 0.0,
+            "low": 0.0,
+            "close": 0.0
+          },
+          "max_ohlc_difference": 0.0,
+          "max_available_field_difference": 0.0
+        },
+        "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300458,day,,,180,none",
+        "minute_source": "https://web.ifzq.gtimg.cn/appstock/app/day/query?code=sz300458",
+        "evidence_status": "dated_daily_history_with_explicit_crosscheck_scope",
+        "missing": [
+          "auction_0925",
+          "intraday_volume_ratio_snapshot",
+          "verified_minute_OHLC",
+          "order_book",
+          "ticks",
+          "verified_fill"
+        ],
+        "board_limit_regime": "20%",
+        "calculated_upper_reference": 30.89,
+        "calculated_upper_verified_exchange_quote": false,
+        "structure": "低中位放量推进/待次日承接",
+        "frozen_at": "2026-10-21T01:46:10+08:00"
+      },
+      "results": []
     }
   ],
   "legacy_audit": [

@@ -2515,6 +2515,118 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "volume-price-20261020-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261020-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:47:07+00:00",
+      "completed_at": "2026-10-20T17:47:07+00:00",
+      "status": "completed",
+      "summary": "120只报价、108只复权历史复算，28只深研含2只明确原价补充；前池28/28及累计56价格观察验证，策略成交N=0。",
+      "report_ids": [
+        "volume-price-20261020-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-20-evidence.json"
+      ],
+      "started_at_scope": "真实本轮读取、取证与完整研究开始；各模块分别留档，非按定时时刻虚构。"
+    },
+    {
+      "id": "low-position-20261020-scheduled-close-v1-completed",
+      "run_id": "low-position-20261020-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:47:07+00:00",
+      "completed_at": "2026-10-20T17:47:07+00:00",
+      "status": "completed",
+      "summary": "32/32原样本继续跟踪，当前4只、历史8只收破原位；新增首航新能、兆威机电、戴维医疗，30天成熟0，均非综合买入指令。",
+      "report_ids": [
+        "low-position-20261020-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-20-evidence.json"
+      ],
+      "started_at_scope": "真实本轮读取、取证与完整研究开始；各模块分别留档，非按定时时刻虚构。"
+    },
+    {
+      "id": "dragon-tiger-20261020-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261020-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:47:07+00:00",
+      "completed_at": "2026-10-20T17:47:07+00:00",
+      "status": "completed",
+      "summary": "82原因/67代码、沪深A58；5只精确区间金额勾稽，前5全部验证；润建单日净买18.86万元而非三日5024.54万元，机构身份与成交仍不可推断。",
+      "report_ids": [
+        "dragon-tiger-20261020-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-20-evidence.json"
+      ],
+      "started_at_scope": "真实本轮读取、取证与完整研究开始；各模块分别留档，非按定时时刻虚构。"
+    },
+    {
+      "id": "combined-pair-20261020-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261020-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:47:07+00:00",
+      "completed_at": "2026-10-20T17:47:07+00:00",
+      "status": "completed",
+      "summary": "四份同T完整研究齐备，综合盘后组仅全志科技300458条件观察；计划21日严格回踩再转强，最早22日卖出，上一组空仓，无成交收益可报。",
+      "report_ids": [
+        "combined-pair-20261020-close-v1"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [
+        "combined-pair-20261020-300458-close-v1"
+      ],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-20-evidence.json"
+      ],
+      "started_at_scope": "真实本轮读取、取证与完整研究开始；各模块分别留档，非按定时时刻虚构。"
+    },
+    {
+      "id": "limitup-single-20261021-scheduled-v2-completed",
+      "run_id": "limitup-single-20261021-scheduled-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:47:07+00:00",
+      "completed_at": "2026-10-20T17:47:07+00:00",
+      "status": "completed",
+      "summary": "T20、D21事前完整空仓裁决；三日市场、空间/晋级缺项与至少4只真实备选逐项否决，无候选无成交。",
+      "report_ids": [
+        "limitup-single-20261021-review-v2"
+      ],
+      "analysis_completed": true,
+      "recommendation_ids": [],
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-2026-10-20-evidence.json"
+      ],
+      "started_at_scope": "真实本轮读取、取证与完整研究开始；各模块分别留档，非按定时时刻虚构。"
     }
   ]
 }

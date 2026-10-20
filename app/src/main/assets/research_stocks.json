@@ -177,6 +177,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-300450-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收30.56、相对原参考-19.324%；旧触发/未成交状态保留，不因今日价格重新激活旧条件。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "combined-pair-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1101,6 +1120,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-300058-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收12.20、相对原参考-5.206%；旧触发/未成交状态保留，不因今日价格重新激活旧条件。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "combined-pair-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1196,6 +1234,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000420-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收3.83、相对原参考+0.525%；旧触发/未成交状态保留，不因今日价格重新激活旧条件。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "combined-pair-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1267,6 +1324,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000887-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收17.30、相对原参考-2.370%；旧触发/未成交状态保留，不因今日价格重新激活旧条件。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "combined-pair-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1294,6 +1370,25 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-300432-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收13.72，相对原参考+1.780%；曾收破原位=False，当前收破=False。原路径保留，30天未成熟。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
         }
       ]
@@ -1323,6 +1418,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000032-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收12.68，相对原参考-7.580%；曾收破原位=True，当前收破=True。原路径保留，30天未成熟。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1350,6 +1464,25 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-688084-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收42.69，相对原参考+0.946%；曾收破原位=False，当前收破=False。原路径保留，30天未成熟。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
         }
       ]
@@ -1379,6 +1512,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-002683-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收30.17，相对原参考+0.199%；曾收破原位=False，当前收破=False。原路径保留，30天未成熟。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1407,6 +1559,25 @@
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-001233-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收53.64，相对原参考+4.095%；曾收破原位=False，当前收破=False。原路径保留，30天未成熟。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
         }
       ]
     },
@@ -1434,6 +1605,137 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-19-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-300556-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "T20收17.71，相对原参考+3.326%；曾收破原位=False，当前收破=False。原路径保留，30天未成熟。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "301658",
+      "name": "首航新能",
+      "sector": "光伏逆变器/储能",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-301658-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "新增独立30天研究：收25.62、RVOL20=2.472、120日位置20.4%、初始失效24.32；公告风险见完整报告，不是综合短线指令。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "003021",
+      "name": "兆威机电",
+      "sector": "微型传动/机器人",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-003021-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "新增独立30天研究：收72.57、RVOL20=3.882、120日位置22.7%、初始失效67.51；公告风险见完整报告，不是综合短线指令。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "300314",
+      "name": "戴维医疗",
+      "sector": "医疗器械",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-300314-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "新增独立30天研究：收13.23、RVOL20=2.472、120日位置54.2%、初始失效12.28；公告风险见完整报告，不是综合短线指令。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "low-position-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "300458",
+      "name": "全志科技",
+      "sector": "边缘AI/芯片",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-300458-20261020-validation",
+          "date": "2026-10-20",
+          "recorded_at": "2026-10-21T01:46:10+08:00",
+          "title": "完整研究后新增核验与风险，不改写原理由",
+          "reason": "综合盘后组唯一条件观察：T20收28.64，D21仅28.55—28.85严格回踩再转强，27.70失效，最早22日卖出；MA20/60未收复与成本/研发风险并存。",
+          "evidence_status": "verified_daily_research_with_explicit_execution_gaps",
+          "fact_note": "真实完成时间录入；价格观察不是成交收益，原模型/失效和失败保留。",
+          "validation": [
+            "继续原节点及前推；只有事前冻结与真实条件/成交证据齐备才认定触发。"
+          ],
+          "risk": "公告、板块、T+1锁定及涨跌停/停牌约束见关联全文，日线极值不推断时序或净收益。",
+          "report_ids": [
+            "combined-pair-20261020-close-v1"
+          ],
+          "sources": [
+            "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
         }
       ]
