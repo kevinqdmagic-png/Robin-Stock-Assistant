@@ -2793,6 +2793,36 @@
       "strategy_active_rules_changed": false,
       "eligible_for_integrated_research": false,
       "delivery_status": "repository_pending"
+    },
+    {
+      "id": "learning-review-20261020-scheduled-forward-v1-delivery-blocked-railway-build-pause",
+      "run_id": "learning-review-20261020-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T19:28:19.212Z",
+      "recorded_at": "2026-10-20T19:28:19.212Z",
+      "completed_at": "2026-10-20T19:28:19.212Z",
+      "status": "blocked",
+      "summary": "10月20日新学习快照、四项前置、29条原始评价及独立复核报告已归档；Railway仍暂停新构建，准确SHA无法创建部署，公开APP仍为旧构建，尚未同步。",
+      "report_ids": [
+        "learning-review-20261020-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-20",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "blocked_transient_platform_build_outage",
+      "attempted_commit": "af45794b95c7c9ef2a9138c3e9725e6d5a4ce602",
+      "public_build_observed": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+      "reason_code": "railway_builds_temporarily_paused",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/af45794b95c7c9ef2a9138c3e9725e6d5a4ce602",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://robin-stock-api-production.up.railway.app/api/learning"
+      ]
     }
   ]
 }
