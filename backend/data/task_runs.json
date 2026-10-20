@@ -2764,6 +2764,35 @@
         "https://status.railway.com/incident/JUA1PC5H",
         "docs/research/combined-pair-20261020-delivery-blocked.json"
       ]
+    },
+    {
+      "id": "learning-review-20261020-scheduled-forward-v1-completed",
+      "run_id": "learning-review-20261020-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T19:26:48.785Z",
+      "recorded_at": "2026-10-20T19:26:48.785Z",
+      "completed_at": "2026-10-20T19:26:48.785Z",
+      "status": "completed",
+      "summary": "核对10月20日四份完整研究、main中的forward-learning-v1新快照与29条原始评价；识别线上旧快照为Railway发布受阻，完成成熟度、失败归因和5项影子假设。未修改规则、阈值或模型权重。",
+      "report_ids": [
+        "learning-review-20261020-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39430296900",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/research.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/task_runs.json"
+      ],
+      "learning_snapshot_id": "forward-learning-2026-10-20",
+      "analysis_completed": true,
+      "model_weights_updated": false,
+      "strategy_active_rules_changed": false,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_pending"
     }
   ]
 }
