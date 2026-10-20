@@ -2627,6 +2627,143 @@
         "docs/research/combined-pair-2026-10-20-evidence.json"
       ],
       "started_at_scope": "真实本轮读取、取证与完整研究开始；各模块分别留档，非按定时时刻虚构。"
+    },
+    {
+      "id": "volume-price-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+      "run_id": "volume-price-20261020-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:54:33+00:00",
+      "completed_at": "2026-10-20T17:54:33+00:00",
+      "status": "blocked",
+      "summary": "完整分析与原样本已归档，164项测试、research及容器核验通过；Railway全平台暂停新构建，准确SHA发布未创建新部署，APP尚未同步。",
+      "report_ids": [
+        "volume-price-20261020-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "blocked_transient_platform_build_outage",
+      "requested_commit": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "configured_source_commit_readback": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "observed_production_commit": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+      "deployment_id": null,
+      "tool_error": "Deploys have been paused temporarily",
+      "sources": [
+        "https://status.railway.com/incident/JUA1PC5H",
+        "docs/research/combined-pair-20261020-delivery-blocked.json"
+      ]
+    },
+    {
+      "id": "low-position-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+      "run_id": "low-position-20261020-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:54:33+00:00",
+      "completed_at": "2026-10-20T17:54:33+00:00",
+      "status": "blocked",
+      "summary": "完整分析与原样本已归档，164项测试、research及容器核验通过；Railway全平台暂停新构建，准确SHA发布未创建新部署，APP尚未同步。",
+      "report_ids": [
+        "low-position-20261020-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "blocked_transient_platform_build_outage",
+      "requested_commit": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "configured_source_commit_readback": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "observed_production_commit": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+      "deployment_id": null,
+      "tool_error": "Deploys have been paused temporarily",
+      "sources": [
+        "https://status.railway.com/incident/JUA1PC5H",
+        "docs/research/combined-pair-20261020-delivery-blocked.json"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+      "run_id": "dragon-tiger-20261020-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:54:33+00:00",
+      "completed_at": "2026-10-20T17:54:33+00:00",
+      "status": "blocked",
+      "summary": "完整分析与原样本已归档，164项测试、research及容器核验通过；Railway全平台暂停新构建，准确SHA发布未创建新部署，APP尚未同步。",
+      "report_ids": [
+        "dragon-tiger-20261020-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "blocked_transient_platform_build_outage",
+      "requested_commit": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "configured_source_commit_readback": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "observed_production_commit": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+      "deployment_id": null,
+      "tool_error": "Deploys have been paused temporarily",
+      "sources": [
+        "https://status.railway.com/incident/JUA1PC5H",
+        "docs/research/combined-pair-20261020-delivery-blocked.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+      "run_id": "combined-pair-20261020-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:54:33+00:00",
+      "completed_at": "2026-10-20T17:54:33+00:00",
+      "status": "blocked",
+      "summary": "完整分析与原样本已归档，164项测试、research及容器核验通过；Railway全平台暂停新构建，准确SHA发布未创建新部署，APP尚未同步。",
+      "report_ids": [
+        "combined-pair-20261020-close-v1"
+      ],
+      "recommendation_ids": [
+        "combined-pair-20261020-300458-close-v1"
+      ],
+      "analysis_completed": true,
+      "delivery_status": "blocked_transient_platform_build_outage",
+      "requested_commit": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "configured_source_commit_readback": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "observed_production_commit": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+      "deployment_id": null,
+      "tool_error": "Deploys have been paused temporarily",
+      "sources": [
+        "https://status.railway.com/incident/JUA1PC5H",
+        "docs/research/combined-pair-20261020-delivery-blocked.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261021-scheduled-v2-delivery-blocked-railway-build-pause",
+      "run_id": "limitup-single-20261021-scheduled-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T17:19:57+00:00",
+      "recorded_at": "2026-10-20T17:54:33+00:00",
+      "completed_at": "2026-10-20T17:54:33+00:00",
+      "status": "blocked",
+      "summary": "完整分析与原样本已归档，164项测试、research及容器核验通过；Railway全平台暂停新构建，准确SHA发布未创建新部署，APP尚未同步。",
+      "report_ids": [
+        "limitup-single-20261021-review-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "blocked_transient_platform_build_outage",
+      "requested_commit": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "configured_source_commit_readback": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+      "observed_production_commit": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+      "deployment_id": null,
+      "tool_error": "Deploys have been paused temporarily",
+      "sources": [
+        "https://status.railway.com/incident/JUA1PC5H",
+        "docs/research/combined-pair-20261020-delivery-blocked.json"
+      ]
     }
   ]
 }

@@ -1,0 +1,44 @@
+{
+  "recorded_at": "2026-10-20T17:54:33+00:00",
+  "time_cn": "2026-10-21T01:54:33+08:00",
+  "market_date": "2026-10-20",
+  "planned_entry_date": "2026-10-21",
+  "research_commit": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+  "research_workflow_run": 39469718401,
+  "research_job": "success",
+  "local_unit_tests": {
+    "passed": 164,
+    "failed": 0
+  },
+  "container_check": "success",
+  "production_check": "in_progress_waiting_for_new_release",
+  "delivery_status": "blocked",
+  "tool_error": "Deploys have been paused temporarily",
+  "tool_error_code": "INVALID_ARGUMENT",
+  "source_pin_readback": "2fdcd081781a0df535fffd1ea177430a4e81813a",
+  "deployment_id_returned": null,
+  "latest_successful_deployment": "928d0dd9-8fa3-4c75-8f71-9839d5f57388",
+  "observed_production_sha": "6d1c4fd870cff30c8694c79a9a88d146313f941e",
+  "production_health_time_cn": "2026-10-21T01:53:30+08:00",
+  "missing_live_report_ids": [
+    "volume-price-20261020-close-v1",
+    "low-position-20261020-close-v1",
+    "dragon-tiger-20261020-close-v1",
+    "combined-pair-20261020-close-v1",
+    "limitup-single-20261021-review-v2"
+  ],
+  "official_incident": "https://status.railway.com/incident/JUA1PC5H",
+  "official_latest_update_utc": "2026-10-20T17:18:00+00:00",
+  "incident_scope": "all workspaces: new builds paused; running services not affected",
+  "no_retry_or_bypass": true,
+  "existing_staged_source_changes_not_accepted": true,
+  "transient_failure_does_not_change_task_schedule_or_enabled_state": true,
+  "analysis_and_original_conditions_unchanged": true,
+  "receipt_ids": [
+    "volume-price-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+    "low-position-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+    "dragon-tiger-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+    "combined-pair-20261020-scheduled-close-v1-delivery-blocked-railway-build-pause",
+    "limitup-single-20261021-scheduled-v2-delivery-blocked-railway-build-pause"
+  ]
+}
