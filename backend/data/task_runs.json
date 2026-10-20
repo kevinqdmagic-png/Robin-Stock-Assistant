@@ -2417,6 +2417,36 @@
         "https://www.cninfo.com.cn/new/disclosure/stock?stockCode=300825",
         "docs/research/market-review-2026-10-20-evidence.json"
       ]
+    },
+    {
+      "id": "market-review-20261020-scheduled-close-v1-delivery-verified",
+      "run_id": "market-review-20261020-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-20",
+      "trigger": "scheduled",
+      "started_at": "2026-10-20T08:45:13+00:00",
+      "recorded_at": "2026-10-20T09:17:24.310Z",
+      "completed_at": "2026-10-20T09:17:24.310Z",
+      "status": "completed",
+      "summary": "10月20日market_review完整报告与两只条件样本已通过Research correctness、准确SHA Railway部署及公开API读回。",
+      "report_ids": [
+        "market-review-20261020-close-v1"
+      ],
+      "recommendation_ids": [
+        "market-review-20261020-300458-close-v1",
+        "market-review-20261020-300825-close-v1"
+      ],
+      "research_rule_version": "market_review_close_v7",
+      "analysis_completed": true,
+      "delivery_status": "production_verified",
+      "deployment_id": "0ab929ae-7545-4e14-b9c5-dd1f6dd9dccf",
+      "deployed_commit": "ec5b27a6f172897632824baf0a95b0b425d04ebc",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39397954699",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://robin-stock-api-production.up.railway.app/api/task-runs?task=market_review",
+        "https://robin-stock-api-production.up.railway.app/api/research?task=market_review"
+      ]
     }
   ]
 }
