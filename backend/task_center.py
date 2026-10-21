@@ -93,9 +93,11 @@ def checked_receipt(receipt, reports):
     row = dict(receipt)
     index = {r["id"]: r for r in reports["items"] if r.get("id")}
     linked = [index.get(key) for key in row.get("report_ids", [])]
-    if row["status"] == "completed" and (not linked or any(r is None or (r.get("task_id") != row["task_id"] or r.get("date") != row["date"]) for r in linked)):
+    if row["status"] == "completed" and (not linked or any(
+            r is None or r.get("status") in {"missing_original_report", "evidence_only"} or
+            r.get("task_id") != row["task_id"] or r.get("date") != row["date"] for r in linked)):
         row["status"] = "report_missing"
-        row["summary"] = "执行回执已有，关联报告尚未完整发布。"
+        row["summary"] = "执行回执已有，但关联原始报告缺失或仅有证据快照，不能认定完整交付。"
     return row
 
 
