@@ -15708,6 +15708,208 @@
       "source_files": [
         "docs/research/limitup-single-20261021-review-v2.md"
       ]
+    },
+    {
+      "id": "quant-research-20261012-close-v1",
+      "date": "2026-10-12",
+      "track": "market_review",
+      "task_id": "quant_research",
+      "title": "历史报告缺口标记（非完整研究）：quant-research-20261012-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-12\n原回执任务：quant_research\n\n**状态：missing_original_report。** 旧量化痕迹研究已取消；仅保留历史引用审计，不恢复或继续该研究。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "volume-price-20261012-close-v1",
+      "date": "2026-10-12",
+      "track": "volume_price",
+      "task_id": "volume_price",
+      "title": "历史报告缺口标记（非完整研究）：volume-price-20261012-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-12\n原回执任务：volume_price\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "limitup-single-20261013-review-v2",
+      "date": "2026-10-13",
+      "track": "market_review",
+      "task_id": "limitup_single",
+      "title": "历史报告缺口标记（非完整研究）：limitup-single-20261013-review-v2",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-13\n原回执任务：limitup_single\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "market-review-20261014-close-v1",
+      "date": "2026-10-14",
+      "track": "market_review",
+      "task_id": "market_review",
+      "title": "历史报告缺口标记（非完整研究）：market-review-20261014-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-14\n原回执任务：market_review\n\n**状态：evidence_only。** 只找到证据快照 docs/research/market-review-2026-10-14-evidence.json，没有找到该日期的完整独立市场复盘报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "evidence_only",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": [
+        "docs/research/market-review-2026-10-14-evidence.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261015-review-v2",
+      "date": "2026-10-15",
+      "track": "market_review",
+      "task_id": "limitup_single",
+      "title": "历史报告缺口标记（非完整研究）：limitup-single-20261015-review-v2",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-15\n原回执任务：limitup_single\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "market-review-20261015-close-v1",
+      "date": "2026-10-15",
+      "track": "market_review",
+      "task_id": "market_review",
+      "title": "历史报告缺口标记（非完整研究）：market-review-20261015-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-15\n原回执任务：market_review\n\n**状态：evidence_only。** 只找到证据快照 docs/research/market-review-2026-10-15-evidence.json，没有找到该日期的完整独立市场复盘报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "evidence_only",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": [
+        "docs/research/market-review-2026-10-15-evidence.json"
+      ]
+    },
+    {
+      "id": "volume-price-20261015-close-v1",
+      "date": "2026-10-15",
+      "track": "volume_price",
+      "task_id": "volume_price",
+      "title": "历史报告缺口标记（非完整研究）：volume-price-20261015-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-15\n原回执任务：volume_price\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "low-position-20261015-close-v1",
+      "date": "2026-10-15",
+      "track": "low_position",
+      "task_id": "low_position",
+      "title": "历史报告缺口标记（非完整研究）：low-position-20261015-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-15\n原回执任务：low_position\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "dragon-tiger-20261015-close-v1",
+      "date": "2026-10-15",
+      "track": "dragon_tiger",
+      "task_id": "dragon_tiger",
+      "title": "历史报告缺口标记（非完整研究）：dragon-tiger-20261015-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-15\n原回执任务：dragon_tiger\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "combined-pair-20261015-close-v1",
+      "date": "2026-10-15",
+      "track": "market_review",
+      "task_id": "combined_pair",
+      "title": "历史报告缺口标记（非完整研究）：combined-pair-20261015-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-15\n原回执任务：combined_pair\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "market-review-20261016-close-v1",
+      "date": "2026-10-16",
+      "track": "market_review",
+      "task_id": "market_review",
+      "title": "历史报告缺口标记（非完整研究）：market-review-20261016-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-16\n原回执任务：market_review\n\n**状态：evidence_only。** 只找到证据快照 docs/research/market-review-2026-10-16-evidence.json，没有找到该日期的完整独立市场复盘报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "evidence_only",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": [
+        "docs/research/market-review-2026-10-16-evidence.json"
+      ]
+    },
+    {
+      "id": "learning-review-20261016-forward-v1",
+      "date": "2026-10-16",
+      "track": "market_review",
+      "task_id": "learning_review",
+      "title": "历史报告缺口标记（非完整研究）：learning-review-20261016-forward-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-16\n原回执任务：learning_review\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "market-review-20261019-close-v1",
+      "date": "2026-10-19",
+      "track": "market_review",
+      "task_id": "market_review",
+      "title": "历史报告缺口标记（非完整研究）：market-review-20261019-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-19\n原回执任务：market_review\n\n**状态：evidence_only。** 只找到证据快照 docs/research/market-review-2026-10-19-evidence.json，没有找到该日期的完整独立市场复盘报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "evidence_only",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": [
+        "docs/research/market-review-2026-10-19-evidence.json"
+      ]
+    },
+    {
+      "id": "learning-review-20261019-forward-v1",
+      "date": "2026-10-19",
+      "track": "market_review",
+      "task_id": "learning_review",
+      "title": "历史报告缺口标记（非完整研究）：learning-review-20261019-forward-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-19\n原回执任务：learning_review\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
+    },
+    {
+      "id": "market-review-20261020-close-v1",
+      "date": "2026-10-20",
+      "track": "market_review",
+      "task_id": "market_review",
+      "title": "历史报告缺口标记（非完整研究）：market-review-20261020-close-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-20\n原回执任务：market_review\n\n**状态：evidence_only。** 只找到证据快照 docs/research/market-review-2026-10-20-evidence.json，没有找到该日期的完整独立市场复盘报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "evidence_only",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": [
+        "docs/research/market-review-2026-10-20-evidence.json"
+      ]
+    },
+    {
+      "id": "learning-review-20261020-forward-v1",
+      "date": "2026-10-20",
+      "track": "market_review",
+      "task_id": "learning_review",
+      "title": "历史报告缺口标记（非完整研究）：learning-review-20261020-forward-v1",
+      "body": "# 历史归档缺口标记（不是完整研究报告）\n\n交易日：2026-10-20\n原回执任务：learning_review\n\n**状态：missing_original_report。** 当前可恢复的归档与独立研究文件中没有该 ID 的完整原始报告。\n\n本条仅透明标记历史引用缺口，不重建原报告，不作为完整研究、荐股依据或历史绩效样本。原始回执的旧 completed 字段不代表当前完整报告已发布；任务接口应将其显示为 report_missing。\n\n相关股票历史台账（如适用）：先导智能。\n",
+      "status": "missing_original_report",
+      "eligible_for_integrated_research": false,
+      "provenance": "transparent_historical_archive_gap_marker_not_a_research_report",
+      "source_files": []
     }
   ]
 }
