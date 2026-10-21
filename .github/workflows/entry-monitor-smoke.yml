@@ -1,0 +1,54 @@
+name: Production entry monitor smoke
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'backend/**'
+      - '.github/workflows/entry-monitor-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - name: Check production HTTP endpoints, not only Docker health
+        run: |
+          python - <<'PY'
+          import json
+          import time
+          from urllib.request import Request, urlopen
+          from urllib.error import HTTPError, URLError
+
+          base = "https://robin-stock-api-production.up.railway.app"
+          last_error = ""
+          for attempt in range(1, 26):
+              try:
+                  payloads = {}
+                  for path in ("/health", "/api/entry-alerts", "/api/signals?limit=3"):
+                      request = Request(base + path, headers={"User-Agent": "robin-production-smoke/1.0"})
+                      with urlopen(request, timeout=25) as reply:
+                          assert reply.status == 200, f"{path}: HTTP {reply.status}"
+                          payloads[path] = json.load(reply)
+                  entry = payloads["/api/entry-alerts"]
+                  assert entry.get("ok") is True, f"entry monitor not ready: {entry.get('status')}"
+                  assert isinstance(entry.get("alerts"), list), "missing entry alert list"
+                  assert isinstance(entry.get("monitored"), int), "missing monitored count"
+                  assert entry.get("date_cn"), "missing Beijing trading date"
+                  signals = payloads["/api/signals?limit=3"]
+                  assert "signals" in signals, "signal scanner payload missing signals"
+                  print("PRODUCTION_SMOKE_PASS", {
+                      "date_cn": entry.get("date_cn"),
+                      "session_live": entry.get("session_live"),
+                      "monitored": entry.get("monitored"),
+                      "alerts": len(entry["alerts"]),
+                      "signal_status": signals.get("status"),
+                  })
+                  break
+              except (AssertionError, ValueError, HTTPError, URLError, TimeoutError, OSError) as exc:
+                  last_error = str(exc)
+                  print(f"Attempt {attempt}/25: {type(exc).__name__}: {last_error[:300]}", flush=True)
+                  if attempt == 25:
+                      raise SystemExit("PRODUCTION_SMOKE_FAILED: " + last_error)
+                  time.sleep(10)
+          PY
