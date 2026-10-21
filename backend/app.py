@@ -1716,7 +1716,12 @@ def _kick_signal_refresh():
 
 
 @app.get("/api/signals")
-def signals(limit: int = 8):
+def signals(limit: int = 8, wait_fresh: bool = False):
+    """Expose refresh state and optionally wait briefly for a *new* scan.
+
+    Cached results are not equivalent to fresh market evidence. A manual
+    refresh can wait up to 8 seconds, but must never relabel stale data as live.
+    """
     limit = max(1, min(12, int(limit)))
     with _signal_lock:
         cached = _signal_cache["payload"]
@@ -1726,11 +1731,25 @@ def signals(limit: int = 8):
     if cached is not None:
         if age is not None and age > SIGNAL_CACHE_TTL:
             _kick_signal_refresh()
+            if wait_fresh:
+                deadline = time.monotonic() + 8.0
+                while time.monotonic() < deadline:
+                    time.sleep(0.2)
+                    with _signal_lock:
+                        newer = _signal_cache["payload"]
+                        newer_at = _signal_cache["saved_at"]
+                    if newer is not None and newer_at > saved_at:
+                        cached, saved_at = newer, newer_at
+                        break
+        with _signal_lock:
+            refreshing = _signal_cache["refreshing"]
+        age = time.time() - saved_at
         result = dict(cached)
         result["signals"] = list(cached.get("signals") or [])[:limit]
         result["count"] = len(result["signals"])
-        result["cache_age_sec"] = int(age or 0)
-        result["stale"] = bool(age and age > SIGNAL_CACHE_TTL * 4)
+        result["cache_age_sec"] = int(age)
+        result["stale"] = age > SIGNAL_CACHE_TTL * 4
+        result["refreshing"] = bool(refreshing)
         return result
 
     _kick_signal_refresh()
