@@ -14,6 +14,14 @@ STRATEGY_RANK = {
     "market_review_conditional": 2,
     "late_pair": 3,
 }
+# A close-session research publication is contemporaneous for the next planned
+# entry day; do not misclassify it as historical or omit it from monitoring.
+ALLOWED_PROVENANCE = {
+    "combined_limitup_watch": {"contemporaneous"},
+    "limitup_single_v1": {"contemporaneous"},
+    "market_review_conditional": {"contemporaneous", "contemporaneous_close_research"},
+    "late_pair": {"contemporaneous"},
+}
 
 
 def _range(row):
@@ -38,8 +46,8 @@ def scheduled_recommendations(items, day):
         code = str(row.get("code", ""))
         if (len(code) != 6 or not code.isascii() or not code.isdigit()
                 or row.get("planned_entry_date") != day
-                or row.get("provenance") != "contemporaneous"
                 or row.get("strategy") not in STRATEGY_RANK
+                or row.get("provenance") not in ALLOWED_PROVENANCE.get(row.get("strategy"), set())
                 or not _range(row) or not row.get("id")):
             continue
         former = selected.get(code)
