@@ -2823,6 +2823,25 @@
         "https://robin-stock-api-production.up.railway.app/health",
         "https://robin-stock-api-production.up.railway.app/api/learning"
       ]
+    },
+    {
+      "id": "late_pair-20261021-gh-39561656298",
+      "run_id": "github-actions-39561656298",
+      "task_id": "late_pair",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T15:24:09.125385+08:00",
+      "recorded_at": "2026-10-21T15:24:09.270733+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 15:24:09。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39561656298"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
