@@ -2945,6 +2945,101 @@
         "docs/current-execution.md",
         "docs/research-contract.md"
       ]
+    },
+    {
+      "id": "scheduled-research-20261021-39594618501-market_review-receipt",
+      "run_id": "github-actions-39594618501",
+      "task_id": "market_review",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T19:48:02+08:00",
+      "recorded_at": "2026-10-21T19:48:02+08:00",
+      "completed_at": "2026-10-21T19:48:02+08:00",
+      "status": "partial",
+      "summary": "同日指数4/4，股票115/120只，暂未完成全市场复盘。【范围受限，未完成全部研究】",
+      "report_ids": [
+        "scheduled-research-20261021-39594618501-market_review-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "scheduled-research-20261021-39594618501-volume_price-receipt",
+      "run_id": "github-actions-39594618501",
+      "task_id": "volume_price",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T19:48:02+08:00",
+      "recorded_at": "2026-10-21T19:48:02+08:00",
+      "completed_at": "2026-10-21T19:48:02+08:00",
+      "status": "partial",
+      "summary": "完成115只有效样本量价核验；强量价形态1只、弱承接50只。【范围受限，未完成全部研究】",
+      "report_ids": [
+        "scheduled-research-20261021-39594618501-volume_price-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "scheduled-research-20261021-39594618501-limitup_single-receipt",
+      "run_id": "github-actions-39594618501",
+      "task_id": "limitup_single",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T19:48:02+08:00",
+      "recorded_at": "2026-10-21T19:48:02+08:00",
+      "completed_at": "2026-10-21T19:48:02+08:00",
+      "status": "partial",
+      "summary": "已有局部收盘涨幅代理；全市场涨停高度、封板时间、炸板率和可成交证据缺失，本轮不发布打板单股。【范围受限，未完成全部研究】",
+      "report_ids": [
+        "scheduled-research-20261021-39594618501-limitup_single-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "scheduled-research-20261021-39594618501-low_position-receipt",
+      "run_id": "github-actions-39594618501",
+      "task_id": "low_position",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T19:48:02+08:00",
+      "recorded_at": "2026-10-21T19:48:02+08:00",
+      "completed_at": "2026-10-21T19:48:02+08:00",
+      "status": "partial",
+      "summary": "已有研究池115只同日有效日线中，满足低位放量形态代理1只。尚未完成全市场低位启动扫描。【范围受限，未完成全部研究】",
+      "report_ids": [
+        "scheduled-research-20261021-39594618501-low_position-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "scheduled-research-20261021-39594618501-combined_pair-receipt",
+      "run_id": "github-actions-39594618501",
+      "task_id": "combined_pair",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T19:48:02+08:00",
+      "recorded_at": "2026-10-21T19:48:02+08:00",
+      "completed_at": "2026-10-21T19:48:02+08:00",
+      "status": "waiting",
+      "summary": "盘后自动核对显示全市场复盘与打板微观证据不齐；当日新综合双标0只。",
+      "report_ids": [
+        "scheduled-research-20261021-39594618501-combined_pair-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "historical_universe_partial"
     }
   ]
 }
