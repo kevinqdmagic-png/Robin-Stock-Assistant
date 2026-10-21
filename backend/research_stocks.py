@@ -24,13 +24,13 @@ def archive_gaps(document, reports):
         for entry in stock.get("history", []):
             for report_id in entry.get("report_ids", []):
                 report = report_map.get(report_id)
-                if report_id in LEGACY_MISSING_REPORTS and (
-                        report is None or report.get("status") in {"missing_original_report", "evidence_only"}):
+                if report is None or report.get("status") in {"missing_original_report", "evidence_only"}:
                     gaps.append({
                         "report_id": report_id, "stock_code": stock["code"],
                         "stock_name": stock["name"], "date": entry["date"],
                         "status": "missing_original_report",
-                        "note": LEGACY_MISSING_REPORTS[report_id],
+                        "note": LEGACY_MISSING_REPORTS.get(
+                            report_id, "关联的原始独立报告缺失或仅有证据快照；不得视为完整研究。"),
                     })
     return gaps
 
