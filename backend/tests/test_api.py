@@ -111,5 +111,37 @@ class APITests(unittest.TestCase):
         self.assertIn("600000", api._quote_cache)
 
 
+    def test_stale_signals_are_not_relabelled_fresh(self):
+        from time import time
+        old = {"ok": True, "status": "no_signal",
+               "time_cn": "2026-10-21T13:04:23+08:00",
+               "scanned": 16, "signals": []}
+        with patch.dict(api._signal_cache, {
+            "payload": old, "saved_at": time() - 900, "refreshing": True
+        }, clear=True), patch("app._kick_signal_refresh"):
+            result = api.signals()
+        self.assertTrue(result["stale"])
+        self.assertTrue(result["refreshing"])
+        self.assertGreater(result["cache_age_sec"], 300)
+
+    def test_manual_signal_refresh_waits_for_new_scan(self):
+        from time import time
+        earlier = time() - 900
+        old = {"ok": True, "status": "no_signal",
+               "time_cn": "2026-10-21T13:04:23+08:00", "signals": []}
+        fresh = dict(old, time_cn="2026-10-21T13:40:00+08:00", scanned=16)
+        def publish():
+            with api._signal_lock:
+                api._signal_cache.update(
+                    payload=fresh, saved_at=time(), refreshing=False)
+        with patch.dict(api._signal_cache, {
+            "payload": old, "saved_at": earlier, "refreshing": False
+        }, clear=True), patch("app._kick_signal_refresh", side_effect=publish):
+            response = api.signals(wait_fresh=True)
+        self.assertEqual(response["time_cn"], fresh["time_cn"])
+        self.assertFalse(response["stale"])
+        self.assertFalse(response["refreshing"])
+
+
 if __name__ == "__main__":
     unittest.main()
