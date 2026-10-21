@@ -3040,6 +3040,23 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "deadline-audit-20261021-early_pair",
+      "run_id": "github-actions-deadline-audit",
+      "task_id": "early_pair",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T21:20:04+08:00",
+      "completed_at": "2026-10-21T21:20:04+08:00",
+      "recorded_at": "2026-10-21T21:20:04+08:00",
+      "status": "blocked",
+      "summary": "北京时间20:40交付审计：未找到当日可核验的完整任务回执/关联研究报告。此回执仅证明未交付，不代表曾经执行研究；检查定时器、数据源和发布流程。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "missing_delivery_evidence"
     }
   ]
 }
