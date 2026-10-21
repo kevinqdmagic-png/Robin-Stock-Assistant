@@ -23,7 +23,9 @@ def archive_gaps(document, reports):
     for stock in document.get("items", []):
         for entry in stock.get("history", []):
             for report_id in entry.get("report_ids", []):
-                if report_id in LEGACY_MISSING_REPORTS and report_id not in report_map:
+                report = report_map.get(report_id)
+                if report_id in LEGACY_MISSING_REPORTS and (
+                        report is None or report.get("status") in {"missing_original_report", "evidence_only"}):
                     gaps.append({
                         "report_id": report_id, "stock_code": stock["code"],
                         "stock_name": stock["name"], "date": entry["date"],
