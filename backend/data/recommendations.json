@@ -1869,9 +1869,9 @@
               "trading_horizon": 1,
               "date": "2026-10-12",
               "close": 3.81,
-              "close_return_pct": 0.0,
+              "close_return_pct": 0,
               "mfe_price_observation_pct": 9.974,
-              "mae_price_observation_pct": 0.0,
+              "mae_price_observation_pct": 0,
               "benchmark": "Shanghai Composite same raw-close dates",
               "benchmark_return_pct": -0.434,
               "excess_price_observation_pct_points": 0.434
@@ -3738,14 +3738,14 @@
           "observation_type": "price_observation",
           "observed_open": 17.07,
           "observed_high": 17.53,
-          "observed_low": 17.0,
+          "observed_low": 17,
           "observed_close": 17.3,
           "close_price_observation_pct": -2.37,
           "completed_horizon_observations": [
             {
               "trading_horizon": 1,
               "date": "2026-10-19",
-              "close": 17.0,
+              "close": 17,
               "close_return_pct": -4.063,
               "mfe_price_observation_pct": -3.047,
               "mae_price_observation_pct": -7.167,
@@ -3930,7 +3930,40 @@
         "docs/research/market-review-2026-10-20-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261020-300458-close-v1-trigger-result-20261021",
+          "as_of": "2026-10-21T15:00:00+08:00",
+          "recorded_at": "2026-10-21T16:49:01+08:00",
+          "market_date": "2026-10-21",
+          "horizon": "planned entry day trigger verification",
+          "observation_type": "price_observation",
+          "status": "not_triggered",
+          "trigger_status": "required_pullback_range_not_reached",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 28.73,
+          "observed_high": 29.59,
+          "observed_low": 28.56,
+          "observed_close": 28.95,
+          "close_price_observation_pct": 1.0824,
+          "price_observation_mfe_pct": 3.317,
+          "price_observation_mae_pct": -0.2793,
+          "benchmark": "Shanghai Composite same close date",
+          "benchmark_return_pct": -0.6,
+          "excess_price_observation_pct_points": 1.6824,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300458",
+          "sources": [
+            "https://qt.gtimg.cn/q=sz300458",
+            "docs/research/combined-pair-20261020-close-v1.md",
+            "docs/research/market-review-2026-10-21-evidence.json"
+          ],
+          "report_id": "market-review-20261021-close-v1-blocked",
+          "note": "T21开盘28.73处于冻结的27.80—29.30范围，但日线最低28.56高于回踩上界28.05；未触发回踩后重站28.70的顺序。相对T20参考收盘28.64的价格观察+1.08%，高/低路径+3.32%/-0.28%；没有实际成交，策略收益不适用。Tencent同源成交量411319、成交额约11.959亿元，分别约为T20同源量/额的64.3%/67.5%；日线快照不能证明分钟序列或委托成交。"
+        }
+      ],
       "code": "300458",
       "name": "全志科技",
       "model": "low_position_edge_ai_reversal_v7",
@@ -4042,7 +4075,7 @@
           29.1
         ],
         "pullback_range": [
-          28.0,
+          28,
           28.3
         ],
         "pullback_floor": 27.85,
@@ -4083,10 +4116,10 @@
         "close": 28.64,
         "high": 28.64,
         "low": 25.62,
-        "volume": 639570.0,
+        "volume": 639570,
         "previous_close": 25.74,
         "daily_change_pct": 11.267,
-        "amount_cny": 1771628531.0,
+        "amount_cny": 1771628531,
         "turnover_pct": 7.856,
         "rvol": {
           "5": 1.698,
@@ -4107,7 +4140,7 @@
         "prior5_high": 28.36,
         "prior20_high": 34.47,
         "prior20_low": 25.05,
-        "clv": 1.0,
+        "clv": 1,
         "amplitude_pct": 11.732999999999999,
         "distance_ma20_pct": -5.018,
         "volume_vs_previous_session": 2.58,
@@ -4116,54 +4149,54 @@
         "turnover_change_pct_points": null,
         "moving_average_alignment": "not_full_bullish_alignment",
         "minute_checkpoints": {
-          "0930": {
-            "clock": "0930",
-            "price": 25.74,
-            "cumulative_volume_provider_units": 1340.0,
-            "cumulative_amount_cny": 3449160.0,
-            "return_vs_prior_close_pct": 0.0
-          },
-          "0945": {
-            "clock": "0945",
-            "price": 26.14,
-            "cumulative_volume_provider_units": 41025.0,
-            "cumulative_amount_cny": 106175099.05,
-            "return_vs_prior_close_pct": 1.554
-          },
           "1030": {
             "clock": "1030",
             "price": 27.26,
-            "cumulative_volume_provider_units": 190342.0,
+            "cumulative_volume_provider_units": 190342,
             "cumulative_amount_cny": 506098069.44,
             "return_vs_prior_close_pct": 5.905
           },
           "1130": {
             "clock": "1130",
             "price": 28.39,
-            "cumulative_volume_provider_units": 397032.0,
+            "cumulative_volume_provider_units": 397032,
             "cumulative_amount_cny": 1086789235.89,
             "return_vs_prior_close_pct": 10.295
           },
           "1400": {
             "clock": "1400",
             "price": 28.03,
-            "cumulative_volume_provider_units": 503041.0,
+            "cumulative_volume_provider_units": 503041,
             "cumulative_amount_cny": 1384487782.93,
             "return_vs_prior_close_pct": 8.897
           },
           "1440": {
             "clock": "1440",
             "price": 28.4,
-            "cumulative_volume_provider_units": 575650.0,
+            "cumulative_volume_provider_units": 575650,
             "cumulative_amount_cny": 1589142360.05,
             "return_vs_prior_close_pct": 10.334
           },
           "1500": {
             "clock": "1500",
             "price": 28.64,
-            "cumulative_volume_provider_units": 639570.0,
+            "cumulative_volume_provider_units": 639570,
             "cumulative_amount_cny": 1771629860.18,
             "return_vs_prior_close_pct": 11.267
+          },
+          "0930": {
+            "clock": "0930",
+            "price": 25.74,
+            "cumulative_volume_provider_units": 1340,
+            "cumulative_amount_cny": 3449160,
+            "return_vs_prior_close_pct": 0
+          },
+          "0945": {
+            "clock": "0945",
+            "price": 26.14,
+            "cumulative_volume_provider_units": 41025,
+            "cumulative_amount_cny": 106175099.05,
+            "return_vs_prior_close_pct": 1.554
           }
         },
         "tail_return_1400_to_1500_pct": 2.176,
@@ -4177,13 +4210,13 @@
             "close"
           ],
           "differences": {
-            "open": 0.0,
-            "high": 0.0,
-            "low": 0.0,
-            "close": 0.0
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
           },
-          "max_ohlc_difference": 0.0,
-          "max_available_field_difference": 0.0
+          "max_ohlc_difference": 0,
+          "max_available_field_difference": 0
         },
         "daily_source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300458,day,,,180,none",
         "minute_source": "https://web.ifzq.gtimg.cn/appstock/app/day/query?code=sz300458",
@@ -4202,7 +4235,40 @@
         "structure": "低中位放量推进/待次日承接",
         "frozen_at": "2026-10-21T01:46:10+08:00"
       },
-      "results": []
+      "results": [
+        {
+          "id": "combined-pair-20261020-300458-close-v1-trigger-result-20261021",
+          "as_of": "2026-10-21T15:00:00+08:00",
+          "recorded_at": "2026-10-21T16:49:01+08:00",
+          "market_date": "2026-10-21",
+          "horizon": "planned entry day trigger verification",
+          "observation_type": "price_observation",
+          "status": "not_triggered",
+          "trigger_status": "required_pullback_range_not_reached",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 28.73,
+          "observed_high": 29.59,
+          "observed_low": 28.56,
+          "observed_close": 28.95,
+          "close_price_observation_pct": 1.0824,
+          "price_observation_mfe_pct": 3.317,
+          "price_observation_mae_pct": -0.2793,
+          "benchmark": "Shanghai Composite same close date",
+          "benchmark_return_pct": -0.6,
+          "excess_price_observation_pct_points": 1.6824,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300458",
+          "sources": [
+            "https://qt.gtimg.cn/q=sz300458",
+            "docs/research/combined-pair-20261020-close-v1.md",
+            "docs/research/market-review-2026-10-21-evidence.json"
+          ],
+          "report_id": "combined-pair-20261021-close-v1-blocked",
+          "note": "T21开盘28.73处于冻结的27.90—29.10范围，但日线最低28.56高于回踩上界28.30；未触发回踩后重站28.50的顺序。相对T20参考收盘28.64的价格观察+1.08%，高/低路径+3.32%/-0.28%；没有实际成交，策略收益不适用。Tencent同源成交量411319、成交额约11.959亿元，分别约为T20同源量/额的64.3%/67.5%；日线快照不能证明分钟序列或委托成交。"
+        }
+      ]
     }
   ],
   "legacy_audit": [

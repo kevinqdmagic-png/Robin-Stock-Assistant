@@ -1,0 +1,1764 @@
+{
+  "schema_version": 1,
+  "id": "market-review-2026-10-21-evidence",
+  "date": "2026-10-21",
+  "track": "market_review",
+  "task_id": "market_review",
+  "started_at": "2026-10-21T08:44:00Z",
+  "completed_at": "2026-10-21T08:49:00Z",
+  "recorded_at": "2026-10-21T08:49:01Z",
+  "data_cutoff_at_beijing": "2026-10-21T16:14:15+08:00",
+  "status": "blocked_partial",
+  "eligible_for_integrated_research": false,
+  "source_reported_market_coverage": {
+    "valid": 5568,
+    "raw": 5576,
+    "source": "https://www.dabanke.com/index-20261021.html",
+    "independent_full_market_scan_by_this_run": false
+  },
+  "market_stats": {
+    "trade_date": "2026-10-21",
+    "indices": {
+      "shanghai": {
+        "close": 3713.03,
+        "pct": -0.6
+      },
+      "shenzhen": {
+        "close": 11704.35,
+        "pct": -0.82
+      },
+      "chinext": {
+        "close": 2694.71,
+        "pct": -1.62
+      },
+      "star_composite": {
+        "pct": -0.08
+      },
+      "beijing50": {
+        "pct": -0.72
+      }
+    },
+    "turnover_yi": 14294,
+    "turnover_previous_yi": 14561,
+    "turnover_change_yi": -267,
+    "turnover_change_pct": -1.8337,
+    "turnover_5d_avg_yi": 15022.8,
+    "turnover_vs_5d_pct": -4.8513,
+    "turnover_10d_avg_yi": 15722.2,
+    "turnover_vs_10d_pct": -9.084,
+    "turnover_20d_avg_yi": 16798.5,
+    "turnover_vs_20d_pct": -14.9091,
+    "breadth_primary": {
+      "source": "打板客网",
+      "effective": 5568,
+      "raw": 5576,
+      "advancers": 1981,
+      "decliners": 3364,
+      "flat": 223,
+      "red_ratio_pct": 35.6,
+      "limit_up": 50,
+      "limit_down": 5,
+      "limit_up_touched": 73,
+      "seal_rate_pct": 68.5
+    },
+    "breadth_crosscheck": {
+      "source": "新浪财经/Wind",
+      "advancers": 1979,
+      "decliners": 3360,
+      "flat": 231,
+      "stocks_up_more_than_9pct": 63,
+      "stocks_down_more_than_9pct": 16
+    },
+    "board_ladder": {
+      "highest_board": 4,
+      "highest_board_names": [
+        "大业股份",
+        "东安动力",
+        "海洋王"
+      ],
+      "sealed": 50,
+      "touched": 73,
+      "seal_rate_pct": 68.5,
+      "one_to_two": {
+        "advanced": 12,
+        "eligible": 40,
+        "pct": 30
+      },
+      "two_to_three": {
+        "advanced": 1,
+        "eligible": 8,
+        "pct": 12.5
+      },
+      "three_to_four": {
+        "advanced": 3,
+        "eligible": 5,
+        "pct": 60
+      },
+      "four_to_five": {
+        "advanced": 0,
+        "eligible": 1,
+        "pct": 0
+      },
+      "source": "打板客网"
+    }
+  },
+  "source_discrepancies": [
+    {
+      "metric": "breadth",
+      "source": "打板客网",
+      "values": {
+        "advancers": 1981,
+        "decliners": 3364,
+        "flat": 223,
+        "effective": 5568
+      }
+    },
+    {
+      "metric": "breadth",
+      "source": "新浪/Wind",
+      "values": {
+        "advancers": 1979,
+        "decliners": 3360,
+        "flat": 231,
+        "effective": 5570
+      }
+    },
+    {
+      "metric": "limit_down",
+      "source": "打板客网",
+      "value": 5
+    },
+    {
+      "metric": "limit_down",
+      "source": "爱看盘",
+      "value": 6
+    },
+    {
+      "metric": "failed_boards",
+      "source": "打板客网",
+      "value": "触板73/封住50，封板率68.5%；按此口径23只未封住"
+    },
+    {
+      "metric": "failed_boards",
+      "source": "其他公开榜单",
+      "value": "报告炸板19只；口径/范围不同，不与73只分母混算"
+    }
+  ],
+  "coverage": {
+    "broad_pool_target": {
+      "min": 80,
+      "max": 150
+    },
+    "broad_pool_unique": 121,
+    "broad_pool_cohorts": {
+      "limit_up": 50,
+      "active_sector": 30,
+      "negative_control": 19,
+      "prior_pool_pending": 22
+    },
+    "deep_review_target": {
+      "min": 20,
+      "max": 30
+    },
+    "deep_review_completed": 0,
+    "full_same_day_technical_rows": 0,
+    "full_market_scan_by_this_run": false,
+    "source_pool_is_not_a_full_market_scan": true
+  },
+  "candidate_pool": [
+    {
+      "code": "600293",
+      "name": "三峡新材",
+      "sector": "材料/电子元件",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603278",
+      "name": "大业股份",
+      "sector": "机器人/工业材料",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002724",
+      "name": "海洋王",
+      "sector": "照明/机器人",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002639",
+      "name": "雪人集团",
+      "sector": "冰雪/设备",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002181",
+      "name": "粤传媒",
+      "sector": "传媒",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "300296",
+      "name": "利亚德",
+      "sector": "显示/物理AI",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600178",
+      "name": "东安动力",
+      "sector": "汽车/低空",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002929",
+      "name": "润建股份",
+      "sector": "算力/AI应用",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603629",
+      "name": "利通电子",
+      "sector": "电子/算力",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002076",
+      "name": "星光股份",
+      "sector": "数据/电子",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002347",
+      "name": "泰尔股份",
+      "sector": "机器人",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "300006",
+      "name": "莱美药业",
+      "sector": "医药",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002313",
+      "name": "日海智能",
+      "sector": "通信/AI终端",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "sector": "商业航天/包装",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603138",
+      "name": "海量数据",
+      "sector": "数据要素",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "601999",
+      "name": "出版传媒",
+      "sector": "出版/AI语料",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002696",
+      "name": "百洋股份",
+      "sector": "农业/水产",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002835",
+      "name": "同为股份",
+      "sector": "物理AI/安防",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603636",
+      "name": "南威软件",
+      "sector": "数据要素/AI应用",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603999",
+      "name": "读者传媒",
+      "sector": "出版/AI语料",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002811",
+      "name": "郑中设计",
+      "sector": "建筑装饰",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "001216",
+      "name": "华瓷股份",
+      "sector": "材料/电子元件",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600271",
+      "name": "航天信息",
+      "sector": "AI财税/数据要素",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "601566",
+      "name": "九牧王",
+      "sector": "服装零售",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002112",
+      "name": "三变科技",
+      "sector": "电力设备",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002792",
+      "name": "通宇通讯",
+      "sector": "通信/天线",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603332",
+      "name": "苏州龙杰",
+      "sector": "化纤材料",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002368",
+      "name": "太极股份",
+      "sector": "数据要素/云",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "605388",
+      "name": "均瑶健康",
+      "sector": "消费/食品",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603696",
+      "name": "安记食品",
+      "sector": "食品消费",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002591",
+      "name": "恒大高新",
+      "sector": "算力/环保材料",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "000788",
+      "name": "北大医药",
+      "sector": "医药",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002238",
+      "name": "天威视讯",
+      "sector": "广播电视",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "301159",
+      "name": "三维天地",
+      "sector": "数据要素/检测",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002242",
+      "name": "九阳股份",
+      "sector": "家电/机器人",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "001201",
+      "name": "东瑞股份",
+      "sector": "生猪养殖",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603330",
+      "name": "天洋新材",
+      "sector": "新材料",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "002086",
+      "name": "东方海洋",
+      "sector": "农业/水产",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "001239",
+      "name": "永达股份",
+      "sector": "工程机械/机器人",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603721",
+      "name": "中广天择",
+      "sector": "广播电视/传媒",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "688500",
+      "name": "慧辰股份",
+      "sector": "数据分析/AI应用",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600252",
+      "name": "中恒集团",
+      "sector": "医药",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600715",
+      "name": "文投控股",
+      "sector": "文化传媒",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "301102",
+      "name": "兆讯传媒",
+      "sector": "户外传媒",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600202",
+      "name": "哈空调",
+      "sector": "工业设备",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "688286",
+      "name": "敏芯股份",
+      "sector": "传感器/电子",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "603236",
+      "name": "移远通信",
+      "sector": "物联网通信",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600838",
+      "name": "上海九百",
+      "sector": "零售",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "600802",
+      "name": "福建水泥",
+      "sector": "建材",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "000518",
+      "name": "四环生物",
+      "sector": "生物医药",
+      "cohort": "limit_up",
+      "source": "打板客网2026-10-21收盘涨停明细",
+      "current_day_evidence": "sealed_limit_up_list"
+    },
+    {
+      "code": "300138",
+      "name": "晨光生物",
+      "sector": "农业/植物提取",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "002100",
+      "name": "天康生物",
+      "sector": "农业/生猪",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "301486",
+      "name": "致尚科技",
+      "sector": "电子元件",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688150",
+      "name": "莱特光电",
+      "sector": "光电材料",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688007",
+      "name": "光峰科技",
+      "sector": "光学/显示",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300096",
+      "name": "易联众",
+      "sector": "数据/医疗信息",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688787",
+      "name": "海天瑞声",
+      "sector": "AI数据",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "920096",
+      "name": "嘉晨智能",
+      "sector": "工业控制",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "920641",
+      "name": "格利尔",
+      "sector": "照明/电源",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688004",
+      "name": "博汇科技",
+      "sector": "软件/音视频",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688608",
+      "name": "恒玄科技",
+      "sector": "芯片",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300466",
+      "name": "赛摩智能",
+      "sector": "智能制造",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300115",
+      "name": "长盈精密",
+      "sector": "消费电子/机器人",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300244",
+      "name": "迪安诊断",
+      "sector": "医疗服务",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688360",
+      "name": "德马科技",
+      "sector": "物流设备",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688507",
+      "name": "索辰科技",
+      "sector": "工业软件",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688322",
+      "name": "奥比中光",
+      "sector": "3D视觉/机器人",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300354",
+      "name": "东华测试",
+      "sector": "测试测量",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300007",
+      "name": "汉威科技",
+      "sector": "传感器",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300461",
+      "name": "田中精机",
+      "sector": "自动化设备",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688591",
+      "name": "泰凌微",
+      "sector": "芯片",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688686",
+      "name": "奥普特",
+      "sector": "机器视觉",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300638",
+      "name": "广和通",
+      "sector": "通信模组",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688626",
+      "name": "翔宇医疗",
+      "sector": "医疗器械",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688160",
+      "name": "步科股份",
+      "sector": "机器人/自动化",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688207",
+      "name": "格灵深瞳",
+      "sector": "AI视觉",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "301550",
+      "name": "斯菱智驱",
+      "sector": "汽车零部件",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688071",
+      "name": "华依科技",
+      "sector": "汽车测试",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "688689",
+      "name": "银河微电",
+      "sector": "半导体",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300720",
+      "name": "海川智能",
+      "sector": "智能装备",
+      "cohort": "active_sector",
+      "source": "2026-10-21公开板块/活跃股页面",
+      "current_day_evidence": "activity_or_sector_report; individual full OHLC not captured"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "sector": "电池/新能源反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "600241",
+      "name": "时代万恒",
+      "sector": "电池/新能源反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "002245",
+      "name": "蔚蓝锂芯",
+      "sector": "电池/新能源反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "001301",
+      "name": "尚太科技",
+      "sector": "电池/新能源反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "300450",
+      "name": "先导智能",
+      "sector": "电池设备反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "002058",
+      "name": "紫竹高科",
+      "sector": "新能源/工业反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "002028",
+      "name": "思源电气",
+      "sector": "电力设备反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "002679",
+      "name": "福建金森",
+      "sector": "林业/福建题材反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "000993",
+      "name": "闽东电力",
+      "sector": "电力/福建题材反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "301190",
+      "name": "善水科技",
+      "sector": "化工反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "301716",
+      "name": "粤芯半导体",
+      "sector": "半导体反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "600403",
+      "name": "大有能源",
+      "sector": "煤炭反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "601811",
+      "name": "新华文轩",
+      "sector": "出版/传媒反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "002416",
+      "name": "爱施德",
+      "sector": "消费电子/渠道反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "603105",
+      "name": "芯能科技",
+      "sector": "光伏/电力反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "000056",
+      "name": "*ST皇庭",
+      "sector": "ST风险反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "000909",
+      "name": "*ST数源",
+      "sector": "ST风险反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "300147",
+      "name": "*ST香雪",
+      "sector": "ST风险反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "002469",
+      "name": "三维化学",
+      "sector": "化工反例",
+      "cohort": "negative_control",
+      "source": "2026-10-21市场弱势/跌幅报道与榜单",
+      "current_day_evidence": "negative_control; individual full OHLC not captured"
+    },
+    {
+      "code": "600148",
+      "name": "长春一东",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "003029",
+      "name": "吉大正元",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "600860",
+      "name": "京城股份",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "000530",
+      "name": "冰山冷热",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "603341",
+      "name": "龙旗科技",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "603273",
+      "name": "天元智能",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "002917",
+      "name": "金奥博",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "002376",
+      "name": "新北洋",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "002088",
+      "name": "鲁阳节能",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "688836",
+      "name": "宇树科技",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "603366",
+      "name": "日出东方",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "001323",
+      "name": "慕思股份",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "300458",
+      "name": "全志科技",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "300709",
+      "name": "精研科技",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "002596",
+      "name": "海南瑞泽",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "300031",
+      "name": "宝通科技",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "002164",
+      "name": "宁波东力",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "300825",
+      "name": "阿尔特",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "001388",
+      "name": "信通电子",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "301378",
+      "name": "通达海",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "688795",
+      "name": "摩尔线程",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    },
+    {
+      "code": "603466",
+      "name": "风语筑",
+      "sector": "previous_frozen_deep_pool",
+      "cohort": "prior_pool_pending",
+      "source": "2026-10-20冻结深筛池",
+      "current_day_evidence": "T+1 outcome pending; no verified same-day quote except 300458"
+    }
+  ],
+  "previous_pool_validation": [
+    {
+      "code": "600148",
+      "name": "长春一东",
+      "T20_close": 19.7,
+      "T20_change_pct": 9.994,
+      "T20_amount_cny": 599953035,
+      "T20_turnover_pct": 21.9975,
+      "T20_rvol5": 11.082350176932552,
+      "T20_rvol10": 14.201817534831523,
+      "T20_rvol20": 14.476456650987377,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 1.494075218959301,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "003029",
+      "name": "吉大正元",
+      "T20_close": 26.61,
+      "T20_change_pct": 10.004,
+      "T20_amount_cny": 1124024246,
+      "T20_turnover_pct": 24.16365,
+      "T20_rvol5": 2.6172598389446895,
+      "T20_rvol10": 3.9087290985305634,
+      "T20_rvol20": 4.361432939600641,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002076",
+      "name": "星光股份",
+      "T20_close": 2.23,
+      "T20_change_pct": 9.852,
+      "T20_amount_cny": 421627412,
+      "T20_turnover_pct": 18.33964,
+      "T20_rvol5": 2.9982762291784195,
+      "T20_rvol10": 4.450853947888441,
+      "T20_rvol20": 5.627867163588959,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002929",
+      "name": "润建股份",
+      "T20_close": 51.04,
+      "T20_change_pct": 10,
+      "T20_amount_cny": 1609985726,
+      "T20_turnover_pct": 15.44763,
+      "T20_rvol5": 5.069274023983082,
+      "T20_rvol10": 5.690403961392746,
+      "T20_rvol20": 5.125578111155104,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 2.67551800442567,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "600860",
+      "name": "京城股份",
+      "T20_close": 9.57,
+      "T20_change_pct": 10,
+      "T20_amount_cny": 482250067,
+      "T20_turnover_pct": 11.48998,
+      "T20_rvol5": 6.517321547187165,
+      "T20_rvol10": 8.321459560670412,
+      "T20_rvol20": 7.758333865557208,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002696",
+      "name": "百洋股份",
+      "T20_close": 9.56,
+      "T20_change_pct": 10.012,
+      "T20_amount_cny": 867543886,
+      "T20_turnover_pct": 28.66645,
+      "T20_rvol5": 1.6079194988107597,
+      "T20_rvol10": 2.4710340077215136,
+      "T20_rvol20": 3.0130214957975956,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "000530",
+      "name": "冰山冷热",
+      "T20_close": 8.17,
+      "T20_change_pct": 4.744,
+      "T20_amount_cny": 2042838632,
+      "T20_turnover_pct": 44.41074,
+      "T20_rvol5": 1.7016854019390493,
+      "T20_rvol10": 3.1565669216993064,
+      "T20_rvol20": 5.5143765902649795,
+      "T20_clv": 0.8461538461538466,
+      "T20_tail_1400_close_pct": 4.743589743589749,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "603341",
+      "name": "龙旗科技",
+      "T20_close": 38.26,
+      "T20_change_pct": 10.006,
+      "T20_amount_cny": 978761327,
+      "T20_turnover_pct": 9.74118,
+      "T20_rvol5": 4.454280867596462,
+      "T20_rvol10": 4.068744142455483,
+      "T20_rvol20": 3.360620205444989,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "600241",
+      "name": "时代万恒",
+      "T20_close": 13.62,
+      "T20_change_pct": 6.907,
+      "T20_amount_cny": 1281306440,
+      "T20_turnover_pct": 32.87175,
+      "T20_rvol5": 1.0351533241854425,
+      "T20_rvol10": 1.5498287281152148,
+      "T20_rvol20": 2.8939897680612985,
+      "T20_clv": 0.8341708542713566,
+      "T20_tail_1400_close_pct": -1.3043478260869712,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002242",
+      "name": "九阳股份",
+      "T20_close": 20.56,
+      "T20_change_pct": 10.005,
+      "T20_amount_cny": 2391220325,
+      "T20_turnover_pct": 15.51611,
+      "T20_rvol5": 1.016835243929171,
+      "T20_rvol10": 1.3018708630333964,
+      "T20_rvol20": 2.060531975130609,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "603273",
+      "name": "天元智能",
+      "T20_close": 14.53,
+      "T20_change_pct": 6.213,
+      "T20_amount_cny": 140118796,
+      "T20_turnover_pct": 17.06407,
+      "T20_rvol5": 4.869330618477984,
+      "T20_rvol10": 5.140802682774781,
+      "T20_rvol20": 5.471580476699823,
+      "T20_clv": 0.6790123456790117,
+      "T20_tail_1400_close_pct": 0.1378359751895264,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002917",
+      "name": "金奥博",
+      "T20_close": 12.47,
+      "T20_change_pct": 4.09,
+      "T20_amount_cny": 586870494,
+      "T20_turnover_pct": 18.71999,
+      "T20_rvol5": 1.5938740764220893,
+      "T20_rvol10": 2.9534728252378857,
+      "T20_rvol20": 5.090872464377733,
+      "T20_clv": 0.9780219780219785,
+      "T20_tail_1400_close_pct": 1.547231270358318,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002376",
+      "name": "新北洋",
+      "T20_close": 7.32,
+      "T20_change_pct": 5.628,
+      "T20_amount_cny": 894084708,
+      "T20_turnover_pct": 15.35977,
+      "T20_rvol5": 3.964162411992315,
+      "T20_rvol10": 5.8478123288181205,
+      "T20_rvol20": 8.408476695413816,
+      "T20_clv": 0.642857142857143,
+      "T20_tail_1400_close_pct": -0.40816326530611624,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002088",
+      "name": "鲁阳节能",
+      "T20_close": 8.49,
+      "T20_change_pct": 9.974,
+      "T20_amount_cny": 97500658,
+      "T20_turnover_pct": 2.28514,
+      "T20_rvol5": 3.2128804214925637,
+      "T20_rvol10": 3.9626831909847415,
+      "T20_rvol20": 4.164550533265617,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "688836",
+      "name": "宇树科技",
+      "T20_close": 526.03,
+      "T20_change_pct": 6.072,
+      "T20_amount_cny": 4389383001,
+      "T20_turnover_pct": 28.0544,
+      "T20_rvol5": 2.76225221823056,
+      "T20_rvol10": 3.5113333490577165,
+      "T20_rvol20": 3.0722867918855785,
+      "T20_clv": 0.6206329113924047,
+      "T20_tail_1400_close_pct": 0.9480128192826509,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "603366",
+      "name": "日出东方",
+      "T20_close": 7.84,
+      "T20_change_pct": 9.958,
+      "T20_amount_cny": 553202130,
+      "T20_turnover_pct": 8.9917,
+      "T20_rvol5": 2.2011809982843853,
+      "T20_rvol10": 2.9067679552519268,
+      "T20_rvol20": 2.857062462739078,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "001323",
+      "name": "慕思股份",
+      "T20_close": 22.23,
+      "T20_change_pct": 9.995,
+      "T20_amount_cny": 129054552,
+      "T20_turnover_pct": 1.8707,
+      "T20_rvol5": 3.4737137266132114,
+      "T20_rvol10": 3.62156581017957,
+      "T20_rvol20": 4.058155865246225,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "603636",
+      "name": "南威软件",
+      "T20_close": 8.89,
+      "T20_change_pct": 10.025,
+      "T20_amount_cny": 664860357,
+      "T20_turnover_pct": 13.73193,
+      "T20_rvol5": 2.269146664388827,
+      "T20_rvol10": 1.822951085162639,
+      "T20_rvol20": 2.0271758837020624,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 7.1084337349397675,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "300458",
+      "name": "全志科技",
+      "T20_close": 28.64,
+      "T20_change_pct": 11.267,
+      "T20_amount_cny": 1771628531,
+      "T20_turnover_pct": 7.85566,
+      "T20_rvol5": 1.6977889482452704,
+      "T20_rvol10": 1.9016009162364373,
+      "T20_rvol20": 1.821342055453582,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 2.1762397431323466,
+      "T21_outcome_status": "verified_not_triggered",
+      "T21": {
+        "open": 28.73,
+        "high": 29.59,
+        "low": 28.56,
+        "close": 28.95,
+        "previous_close": 28.64,
+        "close_price_observation_pct": 1.0824,
+        "price_observation_mfe_pct": 3.317,
+        "price_observation_mae_pct": -0.2793,
+        "clv": 0.3786,
+        "volume_provider_units": 411319,
+        "volume_vs_T20_ratio": 0.6431,
+        "amount_cny": 1195931447,
+        "amount_vs_T20_ratio": 0.675,
+        "as_of": "2026-10-21T16:14:15+08:00",
+        "source": "https://qt.gtimg.cn/q=sz300458"
+      },
+      "trigger_result": "not_triggered_pullback_zone_not_reached"
+    },
+    {
+      "code": "300709",
+      "name": "精研科技",
+      "T20_close": 35.7,
+      "T20_change_pct": 9.008,
+      "T20_amount_cny": 720793271,
+      "T20_turnover_pct": 13.61008,
+      "T20_rvol5": 2.741925078491248,
+      "T20_rvol10": 3.2501808240478463,
+      "T20_rvol20": 3.138497703140528,
+      "T20_clv": 0.6203703703703708,
+      "T20_tail_1400_close_pct": 1.2478729438457403,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002596",
+      "name": "海南瑞泽",
+      "T20_close": 3.43,
+      "T20_change_pct": 9.936,
+      "T20_amount_cny": 254793289,
+      "T20_turnover_pct": 6.61869,
+      "T20_rvol5": 3.270724327865461,
+      "T20_rvol10": 3.3437863374814887,
+      "T20_rvol20": 3.055115510886828,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "300031",
+      "name": "宝通科技",
+      "T20_close": 26.27,
+      "T20_change_pct": 6.615,
+      "T20_amount_cny": 1596495939,
+      "T20_turnover_pct": 17.2083,
+      "T20_rvol5": 1.3711044041682203,
+      "T20_rvol10": 2.3539171421104936,
+      "T20_rvol20": 3.452856516499527,
+      "T20_clv": 0.7562724014336918,
+      "T20_tail_1400_close_pct": 1.506955177743441,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "002164",
+      "name": "宁波东力",
+      "T20_close": 16.16,
+      "T20_change_pct": 10.007,
+      "T20_amount_cny": 996590616,
+      "T20_turnover_pct": 12.98688,
+      "T20_rvol5": 1.6147547823671156,
+      "T20_rvol10": 1.5679063822912673,
+      "T20_rvol20": 1.8311669685901604,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "300825",
+      "name": "阿尔特",
+      "T20_close": 11.52,
+      "T20_change_pct": 9.402,
+      "T20_amount_cny": 659475437,
+      "T20_turnover_pct": 12.28867,
+      "T20_rvol5": 3.1887370079684816,
+      "T20_rvol10": 3.2033632109657852,
+      "T20_rvol20": 2.843470635938749,
+      "T20_clv": 0.7365853658536582,
+      "T20_tail_1400_close_pct": 0.6993006993007089,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "001388",
+      "name": "信通电子",
+      "T20_close": 20.37,
+      "T20_change_pct": 9.989,
+      "T20_amount_cny": 210835024,
+      "T20_turnover_pct": 8.43596,
+      "T20_rvol5": 4.134837622909076,
+      "T20_rvol10": 3.970059992853516,
+      "T20_rvol20": 2.751054940300414,
+      "T20_clv": 1,
+      "T20_tail_1400_close_pct": 0,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "301378",
+      "name": "通达海",
+      "T20_close": 27.65,
+      "T20_change_pct": 9.722,
+      "T20_amount_cny": 180658003,
+      "T20_turnover_pct": 10.87054,
+      "T20_rvol5": 1.83369445975669,
+      "T20_rvol10": 2.482139822838863,
+      "T20_rvol20": 2.7348781932180555,
+      "T20_clv": 0.9213114754098354,
+      "T20_tail_1400_close_pct": 1.6544117647058876,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "688795",
+      "name": "摩尔线程",
+      "T20_close": 363.2,
+      "T20_change_pct": 11.155,
+      "T20_amount_cny": 2289339292,
+      "T20_turnover_pct": 11.83751,
+      "T20_rvol5": 2.030250543456589,
+      "T20_rvol10": 2.01788116341104,
+      "T20_rvol20": 1.29757624149186,
+      "T20_clv": 0.938039389245408,
+      "T20_tail_1400_close_pct": 4.765201338410052,
+      "T21_outcome_status": "not_verified_quote_missing"
+    },
+    {
+      "code": "603466",
+      "name": "风语筑",
+      "T20_close": 14.23,
+      "T20_change_pct": 7.234,
+      "T20_amount_cny": 1985197244,
+      "T20_turnover_pct": 23.94695,
+      "T20_rvol5": 1.339158813609388,
+      "T20_rvol10": 1.9014603606850613,
+      "T20_rvol20": 1.9845521744633634,
+      "T20_clv": 0.7836257309941523,
+      "T20_tail_1400_close_pct": 1.570306923625986,
+      "T21_outcome_status": "not_verified_quote_missing"
+    }
+  ],
+  "current_verified_prior_candidate_result": {
+    "code": "300458",
+    "name": "全志科技",
+    "trigger_status": "not_triggered",
+    "entry_fill_status": "no_fill",
+    "executed_trade": false,
+    "reference_close": 28.64,
+    "observed_open": 28.73,
+    "observed_high": 29.59,
+    "observed_low": 28.56,
+    "observed_close": 28.95,
+    "close_price_observation_pct": 1.0824,
+    "price_observation_mfe_pct": 3.317,
+    "price_observation_mae_pct": -0.2793,
+    "clv": 0.3786,
+    "volume_provider_units": 411319,
+    "prior_volume_provider_units": 639570,
+    "volume_ratio": 0.6431,
+    "amount_cny": 1195931447,
+    "prior_amount_cny": 1771628531,
+    "amount_ratio": 0.675,
+    "source": "https://qt.gtimg.cn/q=sz300458",
+    "as_of": "2026-10-21T16:14:15+08:00",
+    "report_ids": [
+      "market-review-20261021-close-v1-blocked",
+      "combined-pair-20261021-close-v1-blocked"
+    ]
+  },
+  "rejected_alternatives": [
+    {
+      "code": "003029",
+      "name": "吉大正元",
+      "reason": "T21尝试4进5失败，收盘相对前收-3.57%；高位晋级失败反例，不追高。"
+    },
+    {
+      "code": "600860",
+      "name": "京城股份",
+      "reason": "T21尝试3进4失败，收盘-7.52%；高位断板风险反例。 "
+    },
+    {
+      "code": "600148",
+      "name": "长春一东",
+      "reason": "T21尝试3进4失败，收盘-8.98%；前一日强势封板也不代表隔夜可退出。 "
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "reason": "当日跌超12%，电池链弱势反例；不把产业长期叙事当作T+1买点。 "
+    },
+    {
+      "code": "300450",
+      "name": "先导智能",
+      "reason": "电池设备板块跌幅超过9%的报道中出现；需等待止跌和量价证据。 "
+    },
+    {
+      "code": "002245",
+      "name": "蔚蓝锂芯",
+      "reason": "电池链跌幅超过9%的报道中出现；作为负对照而非推荐。 "
+    }
+  ],
+  "repeat_audit": {
+    "last5_observed_trading_dates": [
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-14"
+    ],
+    "candidate_records": 27,
+    "unique_codes": 19,
+    "cross_date_repeats": [],
+    "last10_sessions_available_dates": [
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-09",
+      "2026-10-08"
+    ],
+    "note": "国庆假期使最近10个交易日窗口内当前归档仅有8个可用候选日期；按代码跨日期重复统计，不把同日跨任务引用当作重复。"
+  },
+  "low_position_cohort": {
+    "prior_report": "low-position-20261020-close-v1",
+    "records_in_sample_file": 35,
+    "prior_report_summary": "32 existing samples continued plus 3 new samples; no 30-natural-day mature samples",
+    "T21_outcomes_verified": 0,
+    "new_samples_added": 0
+  },
+  "dragon_tiger_cohort": {
+    "prior_report": "dragon-tiger-20261020-close-v1",
+    "prior_reasons": 82,
+    "prior_codes": 67,
+    "prior_exact_amount_reconciliations": 5,
+    "T21_full_entries_verified": 0
+  },
+  "tomorrow_scenarios": [
+    {
+      "case": "上行/修复",
+      "trigger": [
+        "上证守住3700并重新站上3735附近",
+        "创业板重新站稳2700",
+        "上涨家数回到2800以上",
+        "两市成交额回到约1.50万亿元",
+        "数据/AI、光通信/电子、农业至少两条线延续且高标没有集中断板"
+      ],
+      "invalidate": [
+        "创业板跌破2680且上涨家数低于2000"
+      ],
+      "probability": null
+    },
+    {
+      "case": "震荡/分化",
+      "trigger": [
+        "成交额约1.35—1.50万亿元",
+        "上涨家数约1800—2800",
+        "上证3700—3740、创业板2680—2720间反复",
+        "题材轮动但没有多板块同步扩散"
+      ],
+      "invalidate": [
+        "同时触发上行或下行情景条件"
+      ],
+      "probability": null
+    },
+    {
+      "case": "下行/风险扩散",
+      "trigger": [
+        "上证失守3700或创业板跌破2680",
+        "上涨家数低于1800",
+        "弱势中成交放大且电池/汽车/电力设备继续领跌",
+        "连板高位反馈进一步恶化"
+      ],
+      "invalidate": [
+        "上证重回3735附近、创业板站稳2700且上涨家数超过3000"
+      ],
+      "probability": null
+    }
+  ],
+  "sources": [
+    {
+      "name": "打板客网收盘复盘",
+      "url": "https://www.dabanke.com/index-20261021.html",
+      "observed_at": "2026-10-21T15:09:00+08:00",
+      "scope": "五大指数、有效行情覆盖、市场宽度、涨停生态、连板梯队"
+    },
+    {
+      "name": "打板客网涨停明细",
+      "url": "https://www.dabanke.com/ztgc.html?date=2026-10-21",
+      "observed_at": "2026-10-21T15:55:47+08:00",
+      "scope": "50只收盘封板名单与层级"
+    },
+    {
+      "name": "打板客网全阶晋级",
+      "url": "https://www.dabanke.com/jinji-20261021.html",
+      "observed_at": "2026-10-21T15:00:00+08:00",
+      "scope": "1进2至4进5晋级矩阵"
+    },
+    {
+      "name": "新浪财经/澎湃收盘报道",
+      "url": "https://finance.sina.com.cn/jjxw/2026-10-21/doc-inivynsm5433994.shtml",
+      "observed_at": "2026-10-21T15:34:00+08:00",
+      "scope": "指数、成交额、Wind宽度、强弱板块"
+    },
+    {
+      "name": "证券时报收盘报道",
+      "url": "https://finance.sina.com.cn/roll/2026-10-21/doc-inivynsm5424501.shtml",
+      "observed_at": "2026-10-21T16:05:00+08:00",
+      "scope": "缩量、行业资金方向与弱势板块"
+    },
+    {
+      "name": "连板网收盘摘要",
+      "url": "https://lianbanwang.com/days/2026-10-21.html",
+      "observed_at": "2026-10-21T15:15:00+08:00",
+      "scope": "成交额5/10/20日均额、宽度与涨停情绪；交叉参考"
+    },
+    {
+      "name": "同花顺数据中心",
+      "url": "https://data.10jqka.com.cn/index.html",
+      "observed_at": "2026-10-21T16:30:00+08:00",
+      "scope": "公开涨跌榜与题材活跃名称；未取得完整当日龙虎榜席位明细"
+    },
+    {
+      "name": "腾讯行情快照-全志科技",
+      "url": "https://qt.gtimg.cn/q=sz300458",
+      "observed_at": "2026-10-21T16:14:15+08:00",
+      "scope": "T+1日线开高低收与成交量额快照；非分钟成交序列"
+    },
+    {
+      "name": "前一交易日冻结候选池",
+      "url": "docs/research/market-review-2026-10-20-evidence.json",
+      "scope": "T20深筛28只的冻结条件与量价快照"
+    },
+    {
+      "name": "前一交易日综合条件报告",
+      "url": "docs/research/combined-pair-20261020-close-v1.md",
+      "scope": "全志科技T+1条件与执行约束"
+    },
+    {
+      "name": "前一交易日量价报告",
+      "url": "docs/research/volume-price-20261020-close-v1.md",
+      "scope": "T20深筛与历史样本口径"
+    },
+    {
+      "name": "前一交易日低位报告",
+      "url": "docs/research/low-position-20261020-close-v1.md",
+      "scope": "低位样本台账与30天跟踪口径"
+    },
+    {
+      "name": "前一交易日龙虎榜报告",
+      "url": "docs/research/dragon-tiger-20261020-close-v1.md",
+      "scope": "T20龙虎榜样本与席位勾稽"
+    }
+  ]
+}

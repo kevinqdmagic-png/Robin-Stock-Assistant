@@ -2842,6 +2842,109 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "market-review-20261021-scheduled-close-v1-blocked",
+      "run_id": "market-review-20261021-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T08:44:00Z",
+      "recorded_at": "2026-10-21T08:49:01Z",
+      "status": "blocked",
+      "completed_at": "2026-10-21T08:49:00Z",
+      "summary": "收盘事实与121名来源池已归档，但同日深筛及前池全量T+1验证缺项，不能作为综合双标前置。",
+      "report_ids": [
+        "market-review-20261021-close-v1-blocked"
+      ],
+      "sources": [
+        "https://www.dabanke.com/index-20261021.html",
+        "https://www.dabanke.com/ztgc.html?date=2026-10-21",
+        "https://www.dabanke.com/jinji-20261021.html",
+        "https://finance.sina.com.cn/jjxw/2026-10-21/doc-inivynsm5433994.shtml",
+        "https://finance.sina.com.cn/roll/2026-10-21/doc-inivynsm5424501.shtml",
+        "https://lianbanwang.com/days/2026-10-21.html",
+        "https://data.10jqka.com.cn/index.html",
+        "https://qt.gtimg.cn/q=sz300458"
+      ]
+    },
+    {
+      "id": "volume-price-20261021-scheduled-close-v1-blocked",
+      "run_id": "volume-price-20261021-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T08:44:00Z",
+      "recorded_at": "2026-10-21T08:49:01Z",
+      "status": "blocked",
+      "completed_at": "2026-10-21T08:49:00Z",
+      "summary": "前池28只仅核验全志科技1只未触发；其余27只缺同日行情，量价完整深筛未完成。",
+      "report_ids": [
+        "volume-price-20261021-close-v1-blocked"
+      ],
+      "sources": [
+        "https://www.dabanke.com/index-20261021.html",
+        "https://finance.sina.com.cn/jjxw/2026-10-21/doc-inivynsm5433994.shtml",
+        "https://lianbanwang.com/days/2026-10-21.html",
+        "https://qt.gtimg.cn/q=sz300458"
+      ]
+    },
+    {
+      "id": "low-position-20261021-scheduled-close-v1-blocked",
+      "run_id": "low-position-20261021-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T08:44:00Z",
+      "recorded_at": "2026-10-21T08:49:01Z",
+      "status": "blocked",
+      "completed_at": "2026-10-21T08:49:00Z",
+      "summary": "保留35条低位样本及原失效位；未取得T21同日行情，0/35结果核验、未新增样本。",
+      "report_ids": [
+        "low-position-20261021-close-v1-blocked"
+      ],
+      "sources": [
+        "docs/research/low-position-20261020-close-v1.md",
+        "https://www.dabanke.com/index-20261021.html"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261021-scheduled-close-v1-blocked",
+      "run_id": "dragon-tiger-20261021-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T08:44:00Z",
+      "recorded_at": "2026-10-21T08:49:01Z",
+      "status": "blocked",
+      "completed_at": "2026-10-21T08:49:00Z",
+      "summary": "未取得T21完整龙虎榜逐股席位与买卖额；不以涨停名单替代龙虎榜。",
+      "report_ids": [
+        "dragon-tiger-20261021-close-v1-blocked"
+      ],
+      "sources": [
+        "https://data.10jqka.com.cn/index.html",
+        "https://www.dabanke.com/index-20261021.html"
+      ]
+    },
+    {
+      "id": "combined-pair-20261021-scheduled-close-v1-blocked",
+      "run_id": "combined-pair-20261021-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-21",
+      "trigger": "scheduled",
+      "started_at": "2026-10-21T08:44:00Z",
+      "recorded_at": "2026-10-21T08:49:01Z",
+      "status": "blocked",
+      "completed_at": "2026-10-21T08:49:00Z",
+      "summary": "同T四份完整研究不齐；不生成综合双标或新推荐，明确记录缺项。",
+      "report_ids": [
+        "combined-pair-20261021-close-v1-blocked"
+      ],
+      "sources": [
+        "docs/current-execution.md",
+        "docs/research-contract.md"
+      ]
     }
   ]
 }
