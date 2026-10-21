@@ -51,7 +51,15 @@ def validate_archive_change(path, old_bytes, new_bytes):
         verify_learning_append_only(old, updated)
     kind = {'backend/data/research.json': 'research', 'backend/data/recommendations.json': 'recommendations'}.get(path)
     if kind:
-        old = json.loads(old_bytes.decode('utf-8'))
+        old_text = old_bytes.decode('utf-8').strip()
+        # A zero-byte research archive is the legacy uninitialized state, not
+        # valid JSON. Treat it as an empty append-only archive so the first
+        # evidence publication can initialize it safely. Do not apply this
+        # fallback to recommendations or any other archive.
+        if not old_text and path == 'backend/data/research.json':
+            old = {"schema_version": 1, "items": []}
+        else:
+            old = json.loads(old_text)
         new = json.loads(new_bytes.decode('utf-8'))
         validate_document(new, kind)
         verify_append_only(old, new, kind)
