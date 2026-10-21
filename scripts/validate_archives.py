@@ -18,7 +18,12 @@ for filename, kind in (("research.json", "research"), ("recommendations.json", "
     if base:
         previous = subprocess.run(["git", "show", base + ":" + path], capture_output=True, text=True)
         if previous.returncode == 0:
-            verify_append_only(json.loads(previous.stdout), after, kind)
+            previous_text = previous.stdout.strip()
+            if not previous_text and filename == "research.json":
+                previous_document = {"schema_version": 1, "items": []}
+            else:
+                previous_document = json.loads(previous_text)
+            verify_append_only(previous_document, after, kind)
 learning_path = "backend/data/learning.json"
 after_learning = validate_learning_archive(json.loads((root / learning_path).read_text(encoding="utf-8")))
 if base:
@@ -42,11 +47,24 @@ if base:
     previous = subprocess.run(["git", "show", base + ":" + catalog_path], capture_output=True, text=True)
     if previous.returncode == 0:
         verify_catalog_history(json.loads(previous.stdout), catalog)
+historical_gaps = []
+report_index = {row["id"]: row for row in reports["items"]}
 for event in runs["items"]:
-    if event["status"] == "completed" and checked_receipt(event, reports)["status"] != "completed":
-        raise ValueError("completed_receipt_report_missing_or_wrong_task")
+    if event["status"] != "completed":
+        continue
+    checked = checked_receipt(event, reports)
+    if checked["status"] == "completed":
+        continue
+    linked = [report_index.get(key) for key in event.get("report_ids", [])]
+    # Immutable historical receipts may outlive their original report files.
+    # Keep them visible as report_missing; only explicit archive-gap/evidence
+    # markers are allowed through this gate, never as a completed delivery.
+    if linked and all(row is not None and row.get("status") in {"missing_original_report", "evidence_only"} for row in linked):
+        historical_gaps.append({"receipt_id": event["id"], "report_ids": event["report_ids"]})
+        continue
+    raise ValueError("completed_receipt_report_missing_or_wrong_task")
 if base:
     previous = subprocess.run(["git", "show", base + ":backend/data/task_runs.json"], capture_output=True, text=True)
     if previous.returncode == 0:
         verify_append_only(json.loads(previous.stdout), runs, "task_runs")
-print("Archive schemas, task links, stock rationales, APK backup and historical integrity passed.")
+print(f"Archive schemas, task links, stock rationales, APK backup and historical integrity passed; {len(historical_gaps)} historical receipt(s) remain visibly marked report_missing.")
