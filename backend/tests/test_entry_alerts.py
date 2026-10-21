@@ -34,6 +34,18 @@ class EntryAlertTests(unittest.TestCase):
         self.assertEqual(evaluate_entry_alerts([BASE], [dict(quote, as_of="2026-10-19T09:50:00+08:00")], NOW, True), [])
         self.assertEqual(evaluate_entry_alerts([BASE], [dict(quote, as_of="2026-10-16T14:57:00+08:00")], NOW, True), [])
 
+    def test_contemporaneous_close_research_is_monitored_on_planned_day(self):
+        # Older publication with a valid planned entry day must not disappear
+        # just because it was labeled a close-session research recommendation.
+        close = dict(BASE, id="market-300825", code="300825",
+                     strategy="market_review_conditional",
+                     provenance="contemporaneous_close_research")
+        today = scheduled_recommendations([BASE, close], "2026-10-19")
+        self.assertEqual({row["code"] for row in today}, {"000887", "300825"})
+        # Only the market review strategy has this provenance contract.
+        inconsistent = dict(close, strategy="combined_limitup_watch")
+        self.assertEqual(scheduled_recommendations([inconsistent], "2026-10-19"), [])
+
     def test_outdated_and_unverifiable_recommendations_never_alert(self):
         self.assertEqual(scheduled_recommendations([dict(BASE, provenance="historical")], "2026-10-19"), [])
         self.assertEqual(scheduled_recommendations([dict(BASE, entry_price_condition_range=None)], "2026-10-19"), [])
