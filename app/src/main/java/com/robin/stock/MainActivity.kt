@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
     private val homeRefreshHandler = Handler(Looper.getMainLooper())
     private val updateHandler = Handler(Looper.getMainLooper())
     private val entryAlertHandler = Handler(Looper.getMainLooper())
+    private val signalRefreshHandler = Handler(Looper.getMainLooper())
+    private var signalFollowUpTask: Runnable? = null
     private var entryAlertTask: Runnable? = null
     private var entryAlertChecking = false
     private var entryAlertDialog: AlertDialog? = null
@@ -415,12 +417,14 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onPause() {
         isForeground = false
+        stopSignalFollowUp()
         stopEntryAlertPolling()
         stopHomeAutoRefresh()
         stopWatchlistFollowUp()
         super.onPause()
     }
     override fun onDestroy() {
+        stopSignalFollowUp()
         stopEntryAlertPolling()
         stopHomeAutoRefresh()
         stopWatchlistFollowUp()
@@ -431,6 +435,7 @@ class MainActivity : AppCompatActivity() {
     @Deprecated("Legacy back handling")
     override fun onBackPressed() { if (currentTab != 0) showTab(0) else super.onBackPressed() }
     private fun showTab(index: Int) {
+        stopSignalFollowUp()
         stopHomeAutoRefresh()
         stopWatchlistFollowUp()
         taskRefreshAction = null
@@ -700,7 +705,7 @@ class MainActivity : AppCompatActivity() {
         signalCard.addView(signalStatus)
         signalCard.addView(label("低位首次启动 · 分歧转一致 · 超跌转强", 12f))
         signalCard.addView(signalItems)
-        signalCard.addView(action("刷新买点观察") { loadSignals(signalStatus, signalItems) })
+        signalCard.addView(action("刷新买点观察") { loadSignals(signalStatus, signalItems, waitFresh = true) })
         val pool = card("动态候选")
         pool.addView(label("全市场入口 · 量价初筛 · 点击查看分时", 12f)); pool.addView(candidates)
         val settings = card("设置 / 关于")
@@ -1103,10 +1108,16 @@ class MainActivity : AppCompatActivity() {
         minute.addView(row); chartCard.addView(status); chartCard.addView(chart, LinearLayout.LayoutParams(-1, dp(320)))
         if (validCode.matches(selectedCode)) load(selectedCode) else renderStockReason(reasonBox, "")
     }
-    private fun loadSignals(status: TextView, box: LinearLayout) {
-        status.text = "正在扫描观察信号…"
+    private fun stopSignalFollowUp() {
+        signalFollowUpTask?.let { signalRefreshHandler.removeCallbacks(it) }
+        signalFollowUpTask = null
+    }
+    private fun loadSignals(status: TextView, box: LinearLayout, waitFresh: Boolean = false, followUps: Int = 0) {
+        stopSignalFollowUp()
+        status.text = if (waitFresh) "正在等待后台完成新一轮扫描…" else "正在扫描观察信号…"
         box.removeAllViews()
-        fetch("/api/signals?limit=8") { data, error ->
+        val endpoint = "/api/signals?limit=8" + if (waitFresh) "&wait_fresh=true" else ""
+        fetch(endpoint) { data, error ->
             box.removeAllViews()
             if (data == null || !data.optBoolean("ok")) {
                 status.text = "信号扫描暂不可用，请稍后刷新。"
@@ -1116,8 +1127,21 @@ class MainActivity : AppCompatActivity() {
             val rows = data.optJSONArray("signals") ?: JSONArray()
             val time = data.optString("time_cn") + " · 北京时间"
             if (data.optBoolean("stale")) {
+                val refreshing = data.optBoolean("refreshing")
                 status.text = "观察信号数据已过期 · $time"
-                box.addView(label("旧信号已停止展示，请刷新后再判断买点。", 12f))
+                box.addView(label(if (refreshing)
+                    "后台正在重新扫描；旧信号已停用，不作为买点。"
+                    else "旧信号已停用，本轮刷新未获得新数据，请稍后再试。", 12f))
+                if (refreshing && followUps < 2) {
+                    val generation = pageGeneration
+                    val task = Runnable {
+                        signalFollowUpTask = null
+                        if (isForeground && currentTab == 0 && generation == pageGeneration)
+                            loadSignals(status, box, followUps = followUps + 1)
+                    }
+                    signalFollowUpTask = task
+                    signalRefreshHandler.postDelayed(task, 6000L)
+                }
                 return@fetch
             }
             if (rows.length() == 0) {
