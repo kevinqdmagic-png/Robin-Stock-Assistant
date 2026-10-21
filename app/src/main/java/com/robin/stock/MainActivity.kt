@@ -266,17 +266,26 @@ class MainActivity : AppCompatActivity() {
         if (entryAlertChecking) return
         entryAlertChecking = true
         executor.execute {
-            val data = runCatching { request("/api/entry-alerts") }.getOrNull()
+            val result = runCatching { request("/api/entry-alerts") }
+            val data = result.getOrNull()
             runOnUiThread {
                 entryAlertChecking = false
-                if (!isForeground || isFinishing || isDestroyed || data == null) return@runOnUiThread
+                if (!isForeground || isFinishing || isDestroyed) return@runOnUiThread
+                if (data == null) {
+                    homeEntryMonitorStatus?.text = "建仓监控接口连接失败 · 未完成本次核验"
+                    homeEntryMonitorDetails?.apply {
+                        removeAllViews()
+                        addView(label("服务器请求失败；不能将接口故障当成没有信号。请稍后点击刷新。", 12f))
+                    }
+                    return@runOnUiThread
+                }
                 homeEntryMonitorStatus?.let { status ->
                     status.text = if (!data.optBoolean("ok")) {
-                        "行情核验不可用，不发确认提醒"
+                        "建仓监控暂不可用 · " + data.optString("status", "行情核验失败")
                     } else if (!data.optBoolean("session_live")) {
-                        "A股休市 · 不发建仓条件提醒"
+                        "A股当前不在连续竞价时段 · 暂停实时建仓提醒"
                     } else {
-                        "监控 " + data.optInt("monitored") + " 只推荐股 · 北京时间 " +
+                        "监控 " + data.optInt("monitored") + " 只有效推荐股 · 北京时间 " +
                             data.optString("time_cn")
                     }
                     homeEntryMonitorDetails?.let { panel ->
@@ -298,8 +307,19 @@ class MainActivity : AppCompatActivity() {
                             if (pending.isNotBlank())
                                 panel.addView(label("待核验：" + pending, 12f))
                         }
-                        if (items.length() == 0)
-                            panel.addView(label("暂无进入建仓观察价位的当日有效推荐股票", 12f))
+                        if (items.length() == 0) {
+                            val message = when {
+                                !data.optBoolean("ok") ->
+                                    "核验未完成：接口或行情不可用，不能判断是否触发建仓条件。"
+                                !data.optBoolean("session_live") ->
+                                    "非实时交易时段，等待下一个连续竞价时段重新核验。"
+                                data.optInt("monitored") == 0 ->
+                                    "今日暂无符合日期及来源要求的有效推荐记录。"
+                                else ->
+                                    "已完成本轮检查，暂未发现进入建仓观察价位的有效推荐股。"
+                            }
+                            panel.addView(label(message, 12f))
+                        }
                     }
                 }
                 val old = prefs.getString("entry_alert_seen_keys", null)
@@ -669,7 +689,10 @@ class MainActivity : AppCompatActivity() {
         monitorCard.addView(monitorStatus)
         monitorCard.addView(monitorDetails)
         monitorCard.addView(label("提醒分级：①价格区间 ②量价与板块部分确认。竞价、市场全量、证券状态及真实可成交性未核实前，不提示全部达成。", 12f))
-        monitorCard.addView(action("刷新建仓条件") { checkEntryAlerts() })
+        monitorCard.addView(action("刷新建仓条件") {
+            if (!entryAlertChecking) monitorStatus.text = "正在重新核验建仓条件…"
+            checkEntryAlerts()
+        })
         val signalCard = card("买点观察")
         val signalStatus = label("正在扫描观察信号…", 16f, true)
         val signalItems = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
