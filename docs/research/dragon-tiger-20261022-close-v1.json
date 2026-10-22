@@ -1,0 +1,27 @@
+{
+  "id": "dragon-tiger-20261022-close-v1",
+  "date": "2026-10-22",
+  "market_date": "2026-10-22",
+  "task_id": "dragon_tiger",
+  "track": "dragon_tiger",
+  "title": "龙虎榜完整研究｜10月22日机构净卖、资金价格背离与空仓结论",
+  "summary": "机构席位29股合计净卖4.90亿元，股通现身17股；强价与净买多处背离，D日不发布单股条件候选。",
+  "body": "一、榜单范围和市场背景\n\nT=2026-10-22。公开盘后汇总显示机构专用席位出现在29只个股，净买11只、净卖18只，合计净卖4.90亿元；深沪股通席位出现在17只。市场同期535涨、4998跌，属于风险扩散环境。席位名称只是公开交易通道，不等于具体账户身份、最终持仓或锁仓。\n\n二、机构和股通结构\n\n机构净买前三为云汉芯城+2630.64万元、百洋股份+2136.20万元、宇特光电+2008.92万元；净卖前三为华盛昌-10461.89万元、中新赛克-7154.55万元、万丰奥威-6973.85万元。净买并不等价于价格强：百洋股份当日-6.75%，宇特光电仅+1.58%；净卖也与高波动共振，显示退潮日席位信号分歧很大。\n\n股通净买前三为崇达技术+11551.13万元、海洋王+2637.54万元、粤传媒+1831.61万元；其中崇达技术和粤传媒当日均接近跌停，形成资金与价格背离。股通净卖前三为华盛昌-7126.31万元、金健米业-5006.91万元、万丰奥威-2175.13万元。\n\n三、与全市场深筛交叉\n\n同日28只深筛中，哈空调机构净卖1212.90万元、襄阳轴承净卖1352.68万元、冰山冷热净卖1770.39万元、北新路桥净卖3742.74万元，尽管价格涨停或接近涨停，机构通道并未同向；海洋王股通净买2637.54万元，但距MA20约+50.1%、已5连板，属于高乖离高标。云汉芯城机构净买且上涨16.16%，但新股/高波动制度与普通主板不能混算。\n\n四、结论与影子假设\n\n龙虎榜当日更支持“价格强不代表机构净买、净买不保证价格强”的反例框架。候选需同时满足非高乖离、量价承接、席位不过度集中、板块同步和次日普通成交证据；本日没有对象同时通过。冻结D=2026-10-23空仓，不发布龙虎榜单股条件推荐。机构29只和股通17只只是一个交易日样本，不能形成稳定胜率或自动权重。",
+  "sources": [
+    "https://finance.ifeng.com/c/8xREqNxTt6v",
+    "https://data.eastmoney.com/stock/lhb.html",
+    "https://www.sse.com.cn/disclosure/diclosure/public/",
+    "docs/research/completion-2026-10-22-evidence.json"
+  ],
+  "report_type": "full_daily_research",
+  "eligible_for_integrated_research": true,
+  "published_at": "2026-10-23T04:01:58+08:00",
+  "recorded_at": "2026-10-23T04:01:58+08:00",
+  "data_cutoff_at": "2026-10-23T04:01:58+08:00",
+  "run_id": "dragon-tiger-20261022-manual-completion-v1",
+  "evidence_file": "docs/research/completion-2026-10-22-evidence.json",
+  "provenance": "contemporaneous_post_close_public_disclosure",
+  "institution_appearance_count": 29,
+  "stock_connect_appearance_count": 17,
+  "candidate_count": 0
+}

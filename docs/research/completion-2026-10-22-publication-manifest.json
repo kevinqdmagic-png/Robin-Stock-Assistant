@@ -1,0 +1,17 @@
+{
+  "market_date": "2026-10-22",
+  "recorded_at": "2026-10-22T20:04:18+00:00",
+  "report_ids": [
+    "volume-price-20261022-close-v1",
+    "low-position-20261022-close-v1",
+    "dragon-tiger-20261022-close-v1",
+    "combined-pair-20261022-close-v1",
+    "learning-review-20261022-forward-v1"
+  ],
+  "reused_report_ids": [
+    "market-review-20261022-close-v1"
+  ],
+  "recommendation_ids": [],
+  "candidate_count": 0,
+  "delivery_status": "not_yet_CI_or_production_verified"
+}

@@ -1,0 +1,6690 @@
+{
+  "market_date": "2026-10-22",
+  "recorded_at": "2026-10-23T04:01:58+08:00",
+  "retrieved_at_utc": "2026-10-22T20:01:58+00:00",
+  "market_evidence_file": "docs/research/market-review-2026-10-22-evidence.json",
+  "market_evidence_scope": {
+    "full_scan": 5571,
+    "raw_records": 5576,
+    "page_errors": [],
+    "broad_pool": 120,
+    "deep_pool": 28
+  },
+  "volume_price": {
+    "previous_cohort_id": "volume-price-20261020-close-v1-cohort",
+    "previous_validation": [
+      {
+        "code": "600148",
+        "name": "长春一东",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 17.93,
+        "open": 17.27,
+        "high": 18.9,
+        "low": 16.46,
+        "close": 16.52,
+        "open_pct": -3.6809815950920255,
+        "mfe_pct": 5.409927495817057,
+        "mae_pct": -8.198549916341324,
+        "close_pct": -7.863915225878415,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh600148&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "003029",
+        "name": "吉大正元",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 25.66,
+        "open": 26.41,
+        "high": 27.71,
+        "low": 23.6,
+        "close": 23.7,
+        "open_pct": 2.9228371005455944,
+        "mfe_pct": 7.989088074824635,
+        "mae_pct": -8.02805923616523,
+        "close_pct": -7.638347622759156,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz003029&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002076",
+        "name": "星光股份",
+        "cohort": "limit_up",
+        "status": "verified_daily",
+        "prior_close": 2.45,
+        "open": 2.7,
+        "high": 2.7,
+        "low": 2.46,
+        "close": 2.7,
+        "open_pct": 10.20408163265305,
+        "mfe_pct": 10.20408163265305,
+        "mae_pct": 0.40816326530610514,
+        "close_pct": 10.20408163265305,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002076&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002929",
+        "name": "润建股份",
+        "cohort": "limit_up",
+        "status": "verified_daily",
+        "prior_close": 56.14,
+        "open": 60.0,
+        "high": 61.5,
+        "low": 56.23,
+        "close": 56.86,
+        "open_pct": 6.875667972924826,
+        "mfe_pct": 9.54755967224794,
+        "mae_pct": 0.16031350195937488,
+        "close_pct": 1.2825080156750879,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002929&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "600860",
+        "name": "京城股份",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 8.85,
+        "open": 8.71,
+        "high": 8.88,
+        "low": 7.97,
+        "close": 7.97,
+        "open_pct": -1.5819209039547921,
+        "mfe_pct": 0.3389830508474745,
+        "mae_pct": -9.943502824858752,
+        "close_pct": -9.943502824858752,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh600860&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002696",
+        "name": "百洋股份",
+        "cohort": "limit_up",
+        "status": "verified_daily",
+        "prior_close": 10.52,
+        "open": 11.28,
+        "high": 11.57,
+        "low": 9.63,
+        "close": 9.81,
+        "open_pct": 7.2243346007604625,
+        "mfe_pct": 9.980988593155903,
+        "mae_pct": -8.460076045627362,
+        "close_pct": -6.7490494296577825,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002696&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "000530",
+        "name": "冰山冷热",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 8.63,
+        "open": 8.84,
+        "high": 9.49,
+        "low": 8.84,
+        "close": 9.49,
+        "open_pct": 2.4333719582850355,
+        "mfe_pct": 9.965237543453064,
+        "mae_pct": 2.4333719582850355,
+        "close_pct": 9.965237543453064,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000530&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "603341",
+        "name": "龙旗科技",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 40.31,
+        "open": 40.85,
+        "high": 41.66,
+        "low": 39.8,
+        "close": 40.13,
+        "open_pct": 1.339617960803774,
+        "mfe_pct": 3.3490449020094237,
+        "mae_pct": -1.2651947407591346,
+        "close_pct": -0.44653932026792464,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh603341&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "600241",
+        "name": "时代万恒",
+        "cohort": "negative_control",
+        "status": "verified_daily",
+        "prior_close": 12.26,
+        "open": 11.77,
+        "high": 11.85,
+        "low": 11.03,
+        "close": 11.03,
+        "open_pct": -3.9967373572593834,
+        "mfe_pct": -3.344208809135396,
+        "mae_pct": -10.0326264274062,
+        "close_pct": -10.0326264274062,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh600241&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002242",
+        "name": "九阳股份",
+        "cohort": "limit_up",
+        "status": "verified_daily",
+        "prior_close": 22.62,
+        "open": 22.02,
+        "high": 22.08,
+        "low": 20.5,
+        "close": 21.71,
+        "open_pct": -2.652519893899208,
+        "mfe_pct": -2.3872679045092937,
+        "mae_pct": -9.372236958443859,
+        "close_pct": -4.0229885057471275,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002242&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "603273",
+        "name": "天元智能",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 14.76,
+        "open": 14.66,
+        "high": 15.36,
+        "low": 14.6,
+        "close": 14.89,
+        "open_pct": -0.6775067750677488,
+        "mfe_pct": 4.065040650406493,
+        "mae_pct": -1.084010840108407,
+        "close_pct": 0.880758807588089,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh603273&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002917",
+        "name": "金奥博",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 11.58,
+        "open": 11.48,
+        "high": 11.62,
+        "low": 10.64,
+        "close": 10.68,
+        "open_pct": -0.8635578583765069,
+        "mfe_pct": 0.3454231433505983,
+        "mae_pct": -8.117443868739205,
+        "close_pct": -7.772020725388606,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002917&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002376",
+        "name": "新北洋",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 7.49,
+        "open": 7.21,
+        "high": 8.23,
+        "low": 7.2,
+        "close": 7.58,
+        "open_pct": -3.738317757009346,
+        "mfe_pct": 9.87983978638185,
+        "mae_pct": -3.8718291054739673,
+        "close_pct": 1.2016021361815676,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002376&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002088",
+        "name": "鲁阳节能",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 8.41,
+        "open": 8.37,
+        "high": 8.44,
+        "low": 8.14,
+        "close": 8.26,
+        "open_pct": -0.47562425683711496,
+        "mfe_pct": 0.356718192627814,
+        "mae_pct": -3.210463733650415,
+        "close_pct": -1.7835909631391256,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002088&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "688836",
+        "name": "宇树科技",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 515.0,
+        "open": 521.3,
+        "high": 544.0,
+        "low": 510.24,
+        "close": 520.0,
+        "open_pct": 1.2233009708737752,
+        "mfe_pct": 5.631067961165059,
+        "mae_pct": -0.9242718446601961,
+        "close_pct": 0.9708737864077666,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh688836&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "603366",
+        "name": "日出东方",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 7.87,
+        "open": 7.93,
+        "high": 8.02,
+        "low": 7.49,
+        "close": 7.51,
+        "open_pct": 0.7623888182973326,
+        "mfe_pct": 1.9059720457433205,
+        "mae_pct": -4.828462515883103,
+        "close_pct": -4.574332909783996,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh603366&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "001323",
+        "name": "慕思股份",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 20.9,
+        "open": 20.91,
+        "high": 21.12,
+        "low": 18.81,
+        "close": 18.81,
+        "open_pct": 0.04784688995216335,
+        "mfe_pct": 1.0526315789473717,
+        "mae_pct": -9.999999999999998,
+        "close_pct": -9.999999999999998,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz001323&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "603636",
+        "name": "南威软件",
+        "cohort": "limit_up",
+        "status": "verified_daily",
+        "prior_close": 9.78,
+        "open": 9.48,
+        "high": 9.58,
+        "low": 8.8,
+        "close": 8.8,
+        "open_pct": -3.0674846625766805,
+        "mfe_pct": -2.0449897750511203,
+        "mae_pct": -10.020449897750494,
+        "close_pct": -10.020449897750494,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh603636&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "300458",
+        "name": "全志科技",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 28.95,
+        "open": 28.7,
+        "high": 29.44,
+        "low": 28.25,
+        "close": 28.26,
+        "open_pct": -0.8635578583765069,
+        "mfe_pct": 1.692573402417974,
+        "mae_pct": -2.4179620034542326,
+        "close_pct": -2.3834196891191595,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300458&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "300709",
+        "name": "精研科技",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 35.09,
+        "open": 35.02,
+        "high": 36.25,
+        "low": 34.56,
+        "close": 34.9,
+        "open_pct": -0.1994870333428378,
+        "mfe_pct": 3.305785123966931,
+        "mae_pct": -1.5104018238814465,
+        "close_pct": -0.5414648047877058,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300709&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002596",
+        "name": "海南瑞泽",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 3.44,
+        "open": 3.49,
+        "high": 3.49,
+        "low": 3.3,
+        "close": 3.3,
+        "open_pct": 1.4534883720930258,
+        "mfe_pct": 1.4534883720930258,
+        "mae_pct": -4.069767441860472,
+        "close_pct": -4.069767441860472,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002596&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "300031",
+        "name": "宝通科技",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 26.36,
+        "open": 25.88,
+        "high": 26.92,
+        "low": 24.9,
+        "close": 24.96,
+        "open_pct": -1.8209408194233667,
+        "mfe_pct": 2.124430955993928,
+        "mae_pct": -5.5386949924127515,
+        "close_pct": -5.31107738998482,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300031&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "002164",
+        "name": "宁波东力",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 15.58,
+        "open": 15.29,
+        "high": 17.13,
+        "low": 15.02,
+        "close": 16.6,
+        "open_pct": -1.861360718870353,
+        "mfe_pct": 9.94865211810012,
+        "mae_pct": -3.594351732991019,
+        "close_pct": 6.5468549422336375,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002164&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "300825",
+        "name": "阿尔特",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 11.8,
+        "open": 11.8,
+        "high": 12.11,
+        "low": 10.9,
+        "close": 10.92,
+        "open_pct": 0.0,
+        "mfe_pct": 2.627118644067794,
+        "mae_pct": -7.6271186440677985,
+        "close_pct": -7.457627118644073,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300825&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "001388",
+        "name": "信通电子",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 21.23,
+        "open": 20.95,
+        "high": 22.9,
+        "low": 20.57,
+        "close": 22.4,
+        "open_pct": -1.3188883655204986,
+        "mfe_pct": 7.866227037211493,
+        "mae_pct": -3.1088082901554404,
+        "close_pct": 5.511069241639177,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz001388&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "301378",
+        "name": "通达海",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 27.75,
+        "open": 27.38,
+        "high": 27.69,
+        "low": 26.12,
+        "close": 26.2,
+        "open_pct": -1.333333333333342,
+        "mfe_pct": -0.216216216216214,
+        "mae_pct": -5.873873873873869,
+        "close_pct": -5.585585585585584,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz301378&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "688795",
+        "name": "摩尔线程",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 361.5,
+        "open": 360.0,
+        "high": 363.86,
+        "low": 343.88,
+        "close": 344.99,
+        "open_pct": -0.4149377593360981,
+        "mfe_pct": 0.6528354080221233,
+        "mae_pct": -4.8741355463347125,
+        "close_pct": -4.567081604426004,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh688795&scale=240&ma=no&datalen=10"
+      },
+      {
+        "code": "603466",
+        "name": "风语筑",
+        "cohort": "prior_pool_pending",
+        "status": "verified_daily",
+        "prior_close": 14.47,
+        "open": 14.31,
+        "high": 14.83,
+        "low": 13.32,
+        "close": 13.35,
+        "open_pct": -1.1057360055286791,
+        "mfe_pct": 2.4879060124395336,
+        "mae_pct": -7.947477539737391,
+        "close_pct": -7.740152038700765,
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sh603466&scale=240&ma=no&datalen=10"
+      }
+    ],
+    "previous_statistics": {
+      "count": 28,
+      "positive_close_count": 8,
+      "mean_close_pct": -2.926,
+      "median_close_pct": -4.318,
+      "mean_mfe_pct": 3.721,
+      "mean_mae_pct": -5.033,
+      "mae_le_minus5_count": 13
+    },
+    "new_deep_pool": [
+      {
+        "symbol": "sz002076",
+        "code": "002076",
+        "name": "星光股份",
+        "trade": "2.700",
+        "pricechange": 0.25,
+        "changepercent": 10.204,
+        "buy": "2.700",
+        "sell": "0.000",
+        "settlement": "2.450",
+        "open": "2.700",
+        "high": "2.700",
+        "low": "2.460",
+        "volume": 367223640,
+        "amount": 987104557,
+        "ticktime": "15:36:00",
+        "per": -771.429,
+        "pb": 10.131,
+        "mktcap": 299463.61257,
+        "nmc": 281527.44264,
+        "turnoverratio": 35.21873,
+        "clv": 1.0,
+        "score": 59.368253682324784,
+        "bar_date": "2026-10-22",
+        "vol": 3672236.0,
+        "rvol5": 3.5255437648160286,
+        "rvol10": 5.758802898348449,
+        "rvol20": 8.340988211842943,
+        "ma20": 2.1265,
+        "high20": 2.45,
+        "low20": 1.95,
+        "ma60": 2.0841666666666665,
+        "high60": 2.45,
+        "low60": 1.78,
+        "ma120": 2.22675,
+        "high120": 2.83,
+        "low120": 1.74,
+        "dist_ma20": 26.969198213026104,
+        "tech_score": 79.36825368232479,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.11528157652141384,
+        "price_points": {
+          "0930": 2.7,
+          "0945": 2.7,
+          "1030": 2.7,
+          "1130": 2.7,
+          "1400": 2.7,
+          "1430": 2.7,
+          "1500": 2.7
+        }
+      },
+      {
+        "symbol": "sh600202",
+        "code": "600202",
+        "name": "哈空调",
+        "trade": "6.130",
+        "pricechange": 0.56,
+        "changepercent": 10.054,
+        "buy": "6.130",
+        "sell": "0.000",
+        "settlement": "5.570",
+        "open": "5.750",
+        "high": "6.130",
+        "low": "5.740",
+        "volume": 109115654,
+        "amount": 657021154,
+        "ticktime": "15:34:59",
+        "per": 320.942,
+        "pb": 2.977,
+        "mktcap": 234987.831936,
+        "nmc": 234987.831936,
+        "turnoverratio": 28.46441,
+        "clv": 1.0,
+        "score": 58.73504283484479,
+        "bar_date": "2026-10-22",
+        "vol": 1091157.0,
+        "rvol5": 1.9268043312425835,
+        "rvol10": 2.821853885206122,
+        "rvol20": 4.966615581458755,
+        "ma20": 5.2405,
+        "high20": 6.15,
+        "low20": 4.72,
+        "ma60": 5.022833333333334,
+        "high60": 6.15,
+        "low60": 4.16,
+        "ma120": 5.178333333333333,
+        "high120": 6.57,
+        "low120": 4.11,
+        "dist_ma20": 16.973571224119844,
+        "tech_score": 78.6015051606798,
+        "tail_1400_close_pct": 1.9966722129783676,
+        "tail_volume_share": 0.23131838187139056,
+        "price_points": {
+          "0930": 5.75,
+          "0945": 6.13,
+          "1030": 6.13,
+          "1130": 6.13,
+          "1400": 6.01,
+          "1430": 5.89,
+          "1500": 6.13
+        }
+      },
+      {
+        "symbol": "sh603330",
+        "code": "603330",
+        "name": "天洋新材",
+        "trade": "11.100",
+        "pricechange": 1.01,
+        "changepercent": 10.01,
+        "buy": "11.100",
+        "sell": "0.000",
+        "settlement": "10.090",
+        "open": "10.000",
+        "high": "11.100",
+        "low": "9.700",
+        "volume": 134527311,
+        "amount": 1389512285,
+        "ticktime": "15:34:59",
+        "per": -18.814,
+        "pb": 3.645,
+        "mktcap": 480267.75039,
+        "nmc": 480267.75039,
+        "turnoverratio": 31.0921,
+        "clv": 1.0,
+        "score": 59.22815230349127,
+        "bar_date": "2026-10-22",
+        "vol": 1345273.0,
+        "rvol5": 2.9421504701892696,
+        "rvol10": 3.8294452188759887,
+        "rvol20": 3.863704672970742,
+        "ma20": 9.3285,
+        "high20": 10.38,
+        "low20": 8.17,
+        "ma60": 9.175666666666666,
+        "high60": 12.93,
+        "low60": 5.9,
+        "ma120": 8.381833333333335,
+        "high120": 12.93,
+        "low120": 5.51,
+        "dist_ma20": 18.9901913490915,
+        "tech_score": 74.68297099537423,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.03827621415715341,
+        "price_points": {
+          "0930": 10.0,
+          "0945": 10.25,
+          "1030": 10.31,
+          "1130": 10.23,
+          "1400": 11.1,
+          "1430": 11.1,
+          "1500": 11.1
+        }
+      },
+      {
+        "symbol": "sz000530",
+        "code": "000530",
+        "name": "冰山冷热",
+        "trade": "9.490",
+        "pricechange": 0.86,
+        "changepercent": 9.965,
+        "buy": "9.490",
+        "sell": "0.000",
+        "settlement": "8.630",
+        "open": "8.840",
+        "high": "9.490",
+        "low": "8.840",
+        "volume": 272511479,
+        "amount": 2552115714,
+        "ticktime": "15:35:30",
+        "per": 135.571,
+        "pb": 2.521,
+        "mktcap": 800208.669143,
+        "nmc": 569510.772025,
+        "turnoverratio": 45.40975,
+        "clv": 1.0,
+        "score": 59.60892065086206,
+        "bar_date": "2026-10-22",
+        "vol": 2725115.0,
+        "rvol5": 1.1003545616756016,
+        "rvol10": 2.0218881486741056,
+        "rvol20": 3.7022621089599723,
+        "ma20": 5.943,
+        "high20": 8.87,
+        "low20": 5.01,
+        "ma60": 5.338333333333334,
+        "high60": 8.87,
+        "low60": 4.5,
+        "ma120": 5.467833333333333,
+        "high120": 8.87,
+        "low120": 4.47,
+        "dist_ma20": 59.683661450445925,
+        "tech_score": 74.41796908670194,
+        "tail_1400_close_pct": 0.3171247357293794,
+        "tail_volume_share": 0.07655751994224233,
+        "price_points": {
+          "0930": 8.84,
+          "0945": 9.49,
+          "1030": 9.34,
+          "1130": 9.26,
+          "1400": 9.46,
+          "1430": 9.41,
+          "1500": 9.49
+        }
+      },
+      {
+        "symbol": "sz002307",
+        "code": "002307",
+        "name": "北新路桥",
+        "trade": "3.390",
+        "pricechange": 0.31,
+        "changepercent": 10.065,
+        "buy": "3.390",
+        "sell": "0.000",
+        "settlement": "3.080",
+        "open": "3.390",
+        "high": "3.390",
+        "low": "3.250",
+        "volume": 206257293,
+        "amount": 697081307,
+        "ticktime": "15:35:45",
+        "per": -42.375,
+        "pb": 1.372,
+        "mktcap": 558936.099984,
+        "nmc": 552272.709543,
+        "turnoverratio": 12.66063,
+        "clv": 1.0,
+        "score": 52.01775668625741,
+        "bar_date": "2026-10-22",
+        "vol": 2062573.0,
+        "rvol5": 9.016925426873465,
+        "rvol10": 8.122188837652544,
+        "rvol20": 8.818490255218384,
+        "ma20": 2.9850000000000003,
+        "high20": 3.18,
+        "low20": 2.87,
+        "ma60": 3.0051666666666668,
+        "high60": 3.21,
+        "low60": 2.82,
+        "ma120": 3.3493333333333335,
+        "high120": 4.52,
+        "low120": 2.78,
+        "dist_ma20": 13.56783919597988,
+        "tech_score": 72.0177566862574,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.06408880868771366,
+        "price_points": {
+          "0930": 3.39,
+          "0945": 3.39,
+          "1030": 3.39,
+          "1130": 3.39,
+          "1400": 3.39,
+          "1430": 3.39,
+          "1500": 3.39
+        }
+      },
+      {
+        "symbol": "sh603138",
+        "code": "603138",
+        "name": "海量数据",
+        "trade": "16.920",
+        "pricechange": 1.54,
+        "changepercent": 10.013,
+        "buy": "16.920",
+        "sell": "0.000",
+        "settlement": "15.380",
+        "open": "16.920",
+        "high": "16.920",
+        "low": "15.950",
+        "volume": 59797828,
+        "amount": 995402435,
+        "ticktime": "15:34:59",
+        "per": -99.529,
+        "pb": 6.516,
+        "mktcap": 496789.32132,
+        "nmc": 487876.1022,
+        "turnoverratio": 20.73845,
+        "clv": 1.0,
+        "score": 56.62984515784141,
+        "bar_date": "2026-10-22",
+        "vol": 597978.0,
+        "rvol5": 4.939688969880006,
+        "rvol10": 4.855684242237724,
+        "rvol20": 3.3280951937031014,
+        "ma20": 14.375,
+        "high20": 16.3,
+        "low20": 12.44,
+        "ma60": 13.592666666666666,
+        "high60": 16.3,
+        "low60": 11.26,
+        "ma120": 14.983916666666666,
+        "high120": 22.0,
+        "low120": 10.8,
+        "dist_ma20": 17.704347826086963,
+        "tech_score": 69.94222593265381,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.015713554884593393,
+        "price_points": {
+          "0930": 16.92,
+          "0945": 16.92,
+          "1030": 16.92,
+          "1130": 16.92,
+          "1400": 16.92,
+          "1430": 16.92,
+          "1500": 16.92
+        }
+      },
+      {
+        "symbol": "sh603370",
+        "code": "603370",
+        "name": "华新精科",
+        "trade": "28.710",
+        "pricechange": 2.61,
+        "changepercent": 10,
+        "buy": "28.710",
+        "sell": "0.000",
+        "settlement": "26.100",
+        "open": "26.230",
+        "high": "28.710",
+        "low": "26.080",
+        "volume": 8435238,
+        "amount": 234397294,
+        "ticktime": "15:34:59",
+        "per": 25.407,
+        "pb": 2.573,
+        "mktcap": 502281.45,
+        "nmc": 242466.581313,
+        "turnoverratio": 9.988,
+        "clv": 1.0,
+        "score": 49.55931466859076,
+        "bar_date": "2026-10-22",
+        "vol": 84352.0,
+        "rvol5": 4.458256696475761,
+        "rvol10": 5.228991544546108,
+        "rvol20": 4.92908941103599,
+        "ma20": 27.077499999999997,
+        "high20": 28.85,
+        "low20": 25.0,
+        "ma60": 30.56683333333333,
+        "high60": 36.17,
+        "low60": 25.0,
+        "ma120": 35.57808333333333,
+        "high120": 48.215,
+        "low120": 25.0,
+        "dist_ma20": 6.0289908595697606,
+        "tech_score": 69.27567231273471,
+        "tail_1400_close_pct": 2.0981507823613077,
+        "tail_volume_share": 0.3888658572697661,
+        "price_points": {
+          "0930": 26.23,
+          "0945": 26.59,
+          "1030": 26.57,
+          "1130": 27.81,
+          "1400": 28.12,
+          "1430": 28.08,
+          "1500": 28.71
+        }
+      },
+      {
+        "symbol": "sz002724",
+        "code": "002724",
+        "name": "海洋王",
+        "trade": "11.210",
+        "pricechange": 1.02,
+        "changepercent": 10.01,
+        "buy": "11.210",
+        "sell": "0.000",
+        "settlement": "10.190",
+        "open": "11.210",
+        "high": "11.210",
+        "low": "10.700",
+        "volume": 114312501,
+        "amount": 1271013146,
+        "ticktime": "15:35:30",
+        "per": 78.556,
+        "pb": 3.187,
+        "mktcap": 864849.251274,
+        "nmc": 635022.161969,
+        "turnoverratio": 20.1795,
+        "clv": 1.0,
+        "score": 56.5071950764184,
+        "bar_date": "2026-10-22",
+        "vol": 1143125.0,
+        "rvol5": 3.600248556908572,
+        "rvol10": 3.3352619134315535,
+        "rvol20": 3.059604508394993,
+        "ma20": 7.468500000000001,
+        "high20": 10.19,
+        "low20": 6.4,
+        "ma60": 6.575333333333333,
+        "high60": 10.19,
+        "low60": 4.73,
+        "ma120": 6.005416666666666,
+        "high120": 10.19,
+        "low120": 4.66,
+        "dist_ma20": 50.097074379058704,
+        "tech_score": 68.74561310999837,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.6183897314587283,
+        "price_points": {
+          "0930": 11.21,
+          "0945": 11.21,
+          "1030": 11.21,
+          "1130": 11.21,
+          "1400": 11.21,
+          "1430": 11.21,
+          "1500": 11.21
+        }
+      },
+      {
+        "symbol": "sh600838",
+        "code": "600838",
+        "name": "上海九百",
+        "trade": "10.000",
+        "pricechange": 0.91,
+        "changepercent": 10.011,
+        "buy": "10.000",
+        "sell": "0.000",
+        "settlement": "9.090",
+        "open": "9.140",
+        "high": "10.000",
+        "low": "8.950",
+        "volume": 61376831,
+        "amount": 584719229,
+        "ticktime": "15:34:59",
+        "per": 88.417,
+        "pb": 2.579,
+        "mktcap": 400881.981,
+        "nmc": 400881.981,
+        "turnoverratio": 15.31045,
+        "clv": 1.0,
+        "score": 53.22435277720247,
+        "bar_date": "2026-10-22",
+        "vol": 613768.0,
+        "rvol5": 3.5510638125533003,
+        "rvol10": 3.5356297499180562,
+        "rvol20": 3.8179742780274637,
+        "ma20": 8.3395,
+        "high20": 9.09,
+        "low20": 7.56,
+        "ma60": 7.918066666666666,
+        "high60": 9.09,
+        "low60": 6.486,
+        "ma120": 7.998783333333334,
+        "high120": 9.866,
+        "low120": 6.486,
+        "dist_ma20": 19.911265663409083,
+        "tech_score": 68.49624988931232,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.01612643069528736,
+        "price_points": {
+          "0930": 9.14,
+          "0945": 9.27,
+          "1030": 9.53,
+          "1130": 10.0,
+          "1400": 10.0,
+          "1430": 10.0,
+          "1500": 10.0
+        }
+      },
+      {
+        "symbol": "sz000576",
+        "code": "000576",
+        "name": "甘化科工",
+        "trade": "10.280",
+        "pricechange": 0.55,
+        "changepercent": 5.653,
+        "buy": "10.280",
+        "sell": "10.290",
+        "settlement": "9.730",
+        "open": "9.400",
+        "high": "10.330",
+        "low": "9.210",
+        "volume": 101542430,
+        "amount": 1005104496,
+        "ticktime": "15:35:45",
+        "per": 60.471,
+        "pb": 2.661,
+        "mktcap": 448637.923992,
+        "nmc": 445962.088308,
+        "turnoverratio": 23.40684,
+        "clv": 0.9553571428571422,
+        "score": 48.591899331052325,
+        "bar_date": "2026-10-22",
+        "vol": 1015424.0,
+        "rvol5": 1.8611416589686065,
+        "rvol10": 3.099988917969467,
+        "rvol20": 4.91251275087197,
+        "ma20": 8.4575,
+        "high20": 10.09,
+        "low20": 7.7,
+        "ma60": 7.799,
+        "high60": 10.09,
+        "low60": 6.12,
+        "ma120": 7.727833333333334,
+        "high120": 10.09,
+        "low120": 5.9,
+        "dist_ma20": 21.548921075968064,
+        "tech_score": 68.2419503345402,
+        "tail_1400_close_pct": 3.1093279839518484,
+        "tail_volume_share": 0.15927877325372147,
+        "price_points": {
+          "0930": 9.4,
+          "0945": 9.56,
+          "1030": 10.12,
+          "1130": 10.04,
+          "1400": 9.97,
+          "1430": 10.11,
+          "1500": 10.28
+        }
+      },
+      {
+        "symbol": "sz002593",
+        "code": "002593",
+        "name": "日上集团",
+        "trade": "4.870",
+        "pricechange": 0.4,
+        "changepercent": 8.949,
+        "buy": "4.860",
+        "sell": "4.870",
+        "settlement": "4.470",
+        "open": "4.500",
+        "high": "4.920",
+        "low": "4.450",
+        "volume": 68028511,
+        "amount": 330432999,
+        "ticktime": "15:36:00",
+        "per": 34.786,
+        "pb": 1.577,
+        "mktcap": 391478.860123,
+        "nmc": 272965.608223,
+        "turnoverratio": 12.13702,
+        "clv": 0.893617021276596,
+        "score": 47.95154731188138,
+        "bar_date": "2026-10-22",
+        "vol": 680285.0,
+        "rvol5": 6.241799601059193,
+        "rvol10": 6.422975934316707,
+        "rvol20": 6.419966413105589,
+        "ma20": 4.5495,
+        "high20": 4.69,
+        "low20": 4.36,
+        "ma60": 4.4775,
+        "high60": 4.85,
+        "low60": 4.02,
+        "ma120": 4.5441666666666665,
+        "high120": 5.38,
+        "low120": 3.85,
+        "dist_ma20": 7.044730190130788,
+        "tech_score": 67.95154731188137,
+        "tail_1400_close_pct": -1.0162601626016232,
+        "tail_volume_share": 0.287156444090831,
+        "price_points": {
+          "0930": 4.5,
+          "0945": 4.72,
+          "1030": 4.92,
+          "1130": 4.92,
+          "1400": 4.92,
+          "1430": 4.92,
+          "1500": 4.87
+        }
+      },
+      {
+        "symbol": "sh603089",
+        "code": "603089",
+        "name": "正裕工业",
+        "trade": "10.810",
+        "pricechange": 0.98,
+        "changepercent": 9.969,
+        "buy": "10.810",
+        "sell": "0.000",
+        "settlement": "9.830",
+        "open": "9.620",
+        "high": "10.810",
+        "low": "9.550",
+        "volume": 19324026,
+        "amount": 203684881,
+        "ticktime": "15:00:00",
+        "per": 24.022,
+        "pb": 1.623,
+        "mktcap": 298052.488711,
+        "nmc": 298052.488711,
+        "turnoverratio": 7.00859,
+        "clv": 1.0,
+        "score": 47.745750328560014,
+        "bar_date": "2026-10-22",
+        "vol": 193240.0,
+        "rvol5": 3.6822628652441187,
+        "rvol10": 4.843763316338552,
+        "rvol20": 5.540082023259514,
+        "ma20": 9.4285,
+        "high20": 10.0,
+        "low20": 8.81,
+        "ma60": 9.423166666666667,
+        "high60": 11.8,
+        "low60": 7.71,
+        "ma120": 9.693833333333334,
+        "high120": 12.66,
+        "low120": 7.71,
+        "dist_ma20": 14.652383730179785,
+        "tech_score": 67.74575032856,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.10945973918443387,
+        "price_points": {
+          "0930": 9.62,
+          "0945": 9.88,
+          "1030": 10.81,
+          "1130": 10.81,
+          "1400": 10.81,
+          "1430": 10.81,
+          "1500": 10.81
+        }
+      },
+      {
+        "symbol": "sh601999",
+        "code": "601999",
+        "name": "出版传媒",
+        "trade": "8.580",
+        "pricechange": 0.78,
+        "changepercent": 10,
+        "buy": "8.580",
+        "sell": "0.000",
+        "settlement": "7.800",
+        "open": "8.250",
+        "high": "8.580",
+        "low": "7.960",
+        "volume": 93042945,
+        "amount": 785420171,
+        "ticktime": "15:34:59",
+        "per": 45.158,
+        "pb": 1.766,
+        "mktcap": 472684.8126,
+        "nmc": 472684.8126,
+        "turnoverratio": 16.88881,
+        "clv": 1.0,
+        "score": 54.30002919097124,
+        "bar_date": "2026-10-22",
+        "vol": 930429.0,
+        "rvol5": 2.25398662669825,
+        "rvol10": 2.90942993023402,
+        "rvol20": 2.7719388667103617,
+        "ma20": 7.1129999999999995,
+        "high20": 8.25,
+        "low20": 6.4,
+        "ma60": 6.554166666666666,
+        "high60": 8.25,
+        "low60": 5.46,
+        "ma120": 6.357166666666667,
+        "high120": 8.25,
+        "low120": 5.32,
+        "dist_ma20": 20.62420919443273,
+        "tech_score": 65.38778465781269,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.16551332918626052,
+        "price_points": {
+          "0930": 8.25,
+          "0945": 8.41,
+          "1030": 8.58,
+          "1130": 8.58,
+          "1400": 8.58,
+          "1430": 8.58,
+          "1500": 8.58
+        }
+      },
+      {
+        "symbol": "sh601091",
+        "code": "601091",
+        "name": "沈鼓集团",
+        "trade": "21.580",
+        "pricechange": 1.96,
+        "changepercent": 9.99,
+        "buy": "21.580",
+        "sell": "0.000",
+        "settlement": "19.620",
+        "open": "19.580",
+        "high": "21.580",
+        "low": "19.400",
+        "volume": 101877807,
+        "amount": 2170047505,
+        "ticktime": "15:34:59",
+        "per": 83,
+        "pb": 11.912,
+        "mktcap": 6711385.587062,
+        "nmc": 455690.146756,
+        "turnoverratio": 48.24601,
+        "clv": 1.0,
+        "score": 59.53464463414412,
+        "bar_date": "2026-10-22",
+        "vol": 1018778.0,
+        "rvol5": 2.167127698225844,
+        "rvol10": 1.954318450292521,
+        "rvol20": 1.213227075582134,
+        "ma20": 26.077368421052633,
+        "high20": 82.59,
+        "low20": 11.73,
+        "ma60": 26.077368421052633,
+        "high60": 82.59,
+        "low60": 11.73,
+        "ma120": 26.077368421052633,
+        "high120": 82.59,
+        "low120": 11.73,
+        "dist_ma20": -17.24625103437142,
+        "tech_score": 64.38755293647266,
+        "tail_1400_close_pct": 0.4655493482309092,
+        "tail_volume_share": 0.1413585057319159,
+        "price_points": {
+          "0930": 19.58,
+          "0945": 21.58,
+          "1030": 21.58,
+          "1130": 21.58,
+          "1400": 21.48,
+          "1430": 21.56,
+          "1500": 21.58
+        }
+      },
+      {
+        "symbol": "sz002520",
+        "code": "002520",
+        "name": "日发精机",
+        "trade": "6.100",
+        "pricechange": 0.44,
+        "changepercent": 7.774,
+        "buy": "6.090",
+        "sell": "6.100",
+        "settlement": "5.660",
+        "open": "5.690",
+        "high": "6.230",
+        "low": "5.670",
+        "volume": 103478936,
+        "amount": 636398005,
+        "ticktime": "15:36:00",
+        "per": -21.786,
+        "pb": 14.713,
+        "mktcap": 457649.55431,
+        "nmc": 430247.13431,
+        "turnoverratio": 14.67114,
+        "clv": 0.7678571428571417,
+        "score": 46.384096000023746,
+        "bar_date": "2026-10-22",
+        "vol": 1034789.0,
+        "rvol5": 5.535205737675104,
+        "rvol10": 5.032560252272653,
+        "rvol20": 4.363366726571533,
+        "ma20": 6.034000000000001,
+        "high20": 6.6,
+        "low20": 5.39,
+        "ma60": 6.0391666666666675,
+        "high60": 7.03,
+        "low60": 5.06,
+        "ma120": 6.2330000000000005,
+        "high120": 8.22,
+        "low120": 4.8,
+        "dist_ma20": 1.0938017898574515,
+        "tech_score": 63.83756290630988,
+        "tail_1400_close_pct": -1.1345218800648316,
+        "tail_volume_share": 0.13101674544070305,
+        "price_points": {
+          "0930": 5.69,
+          "0945": 6.23,
+          "1030": 6.23,
+          "1130": 6.11,
+          "1400": 6.17,
+          "1430": 6.08,
+          "1500": 6.1
+        }
+      },
+      {
+        "symbol": "sz002097",
+        "code": "002097",
+        "name": "山河智能",
+        "trade": "7.260",
+        "pricechange": 0.66,
+        "changepercent": 10,
+        "buy": "7.260",
+        "sell": "0.000",
+        "settlement": "6.600",
+        "open": "6.630",
+        "high": "7.260",
+        "low": "6.580",
+        "volume": 55152969,
+        "amount": 395478774,
+        "ticktime": "15:35:45",
+        "per": 92.72,
+        "pb": 1.69,
+        "mktcap": 780172.133664,
+        "nmc": 778998.39567,
+        "turnoverratio": 5.14007,
+        "clv": 1.0,
+        "score": 47.3018602224807,
+        "bar_date": "2026-10-22",
+        "vol": 551530.0,
+        "rvol5": 3.753135381805463,
+        "rvol10": 4.2609852499899565,
+        "rvol20": 3.7775393495109153,
+        "ma20": 6.828,
+        "high20": 7.33,
+        "low20": 6.39,
+        "ma60": 7.139666666666667,
+        "high60": 7.82,
+        "low60": 6.39,
+        "ma120": 7.773366666666666,
+        "high120": 10.437,
+        "low120": 6.39,
+        "dist_ma20": 6.326889279437609,
+        "tech_score": 62.41201762052436,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.07637991265583899,
+        "price_points": {
+          "0930": 6.63,
+          "0945": 7.26,
+          "1030": 7.26,
+          "1130": 7.26,
+          "1400": 7.26,
+          "1430": 7.26,
+          "1500": 7.26
+        }
+      },
+      {
+        "symbol": "sz002249",
+        "code": "002249",
+        "name": "大洋电机",
+        "trade": "7.060",
+        "pricechange": 0.64,
+        "changepercent": 9.969,
+        "buy": "7.060",
+        "sell": "0.000",
+        "settlement": "6.420",
+        "open": "6.450",
+        "high": "7.060",
+        "low": "6.430",
+        "volume": 87010350,
+        "amount": 606184006,
+        "ticktime": "15:35:15",
+        "per": 16.045,
+        "pb": 1.79,
+        "mktcap": 1747208.532426,
+        "nmc": 1321341.905306,
+        "turnoverratio": 4.64901,
+        "clv": 1.0,
+        "score": 47.300543552193936,
+        "bar_date": "2026-10-22",
+        "vol": 870104.0,
+        "rvol5": 3.4621910264368365,
+        "rvol10": 3.8079482951183565,
+        "rvol20": 3.6183647071127925,
+        "ma20": 6.354,
+        "high20": 6.75,
+        "low20": 6.04,
+        "ma60": 6.788333333333333,
+        "high60": 7.65,
+        "low60": 6.04,
+        "ma120": 7.5921666666666665,
+        "high120": 10.055,
+        "low120": 6.04,
+        "dist_ma20": 11.111111111111093,
+        "tech_score": 61.77400238064511,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.06466394644096145,
+        "price_points": {
+          "0930": 6.45,
+          "0945": 7.06,
+          "1030": 7.06,
+          "1130": 7.06,
+          "1400": 7.06,
+          "1430": 7.06,
+          "1500": 7.06
+        }
+      },
+      {
+        "symbol": "sz300045",
+        "code": "300045",
+        "name": "华力创通",
+        "trade": "14.320",
+        "pricechange": 0.98,
+        "changepercent": 7.346,
+        "buy": "14.310",
+        "sell": "14.320",
+        "settlement": "13.340",
+        "open": "13.290",
+        "high": "14.590",
+        "low": "13.050",
+        "volume": 111935779,
+        "amount": 1560315634,
+        "ticktime": "15:35:00",
+        "per": -143.2,
+        "pb": 6.355,
+        "mktcap": 948950.937952,
+        "nmc": 749706.310032,
+        "turnoverratio": 21.38064,
+        "clv": 0.8246753246753249,
+        "score": 50.33113702548551,
+        "bar_date": "2026-10-22",
+        "vol": 1119358.0,
+        "rvol5": 1.513199286117329,
+        "rvol10": 1.6716688687108268,
+        "rvol20": 2.806550836731542,
+        "ma20": 11.9175,
+        "high20": 14.0,
+        "low20": 10.55,
+        "ma60": 12.434666666666667,
+        "high60": 14.7,
+        "low60": 10.55,
+        "ma120": 15.90725,
+        "high120": 26.55,
+        "low120": 10.55,
+        "dist_ma20": 20.159429410530727,
+        "tech_score": 61.55734037241168,
+        "tail_1400_close_pct": 0.8450704225352101,
+        "tail_volume_share": 0.1855161908365407,
+        "price_points": {
+          "0930": 13.29,
+          "0945": 13.68,
+          "1030": 14.05,
+          "1130": 14.14,
+          "1400": 14.2,
+          "1430": 14.15,
+          "1500": 14.32
+        }
+      },
+      {
+        "symbol": "sh603728",
+        "code": "603728",
+        "name": "鸣志电器",
+        "trade": "54.470",
+        "pricechange": 4.95,
+        "changepercent": 9.996,
+        "buy": "54.470",
+        "sell": "0.000",
+        "settlement": "49.520",
+        "open": "49.330",
+        "high": "54.470",
+        "low": "49.330",
+        "volume": 19106989,
+        "amount": 1028039520,
+        "ticktime": "15:34:59",
+        "per": 373.338,
+        "pb": 7.679,
+        "mktcap": 2281652.9775,
+        "nmc": 2281652.9775,
+        "turnoverratio": 4.56142,
+        "clv": 1.0,
+        "score": 47.72199865831122,
+        "bar_date": "2026-10-22",
+        "vol": 191070.0,
+        "rvol5": 3.080224145268833,
+        "rvol10": 3.5274504953236865,
+        "rvol20": 3.3963109312259037,
+        "ma20": 48.862,
+        "high20": 53.36,
+        "low20": 43.43,
+        "ma60": 49.341,
+        "high60": 54.53,
+        "low60": 43.43,
+        "ma120": 55.331625,
+        "high120": 72.975,
+        "low120": 43.43,
+        "dist_ma20": 11.477221562768602,
+        "tech_score": 61.307242383214835,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.10338856248986361,
+        "price_points": {
+          "0930": 49.33,
+          "0945": 54.47,
+          "1030": 53.13,
+          "1130": 54.47,
+          "1400": 54.47,
+          "1430": 54.47,
+          "1500": 54.47
+        }
+      },
+      {
+        "symbol": "sh600698",
+        "code": "600698",
+        "name": "湖南天雁",
+        "trade": "7.590",
+        "pricechange": 0.69,
+        "changepercent": 10,
+        "buy": "7.590",
+        "sell": "0.000",
+        "settlement": "6.900",
+        "open": "6.850",
+        "high": "7.590",
+        "low": "6.750",
+        "volume": 78348107,
+        "amount": 574280572,
+        "ticktime": "15:34:59",
+        "per": -259.044,
+        "pb": 10.952,
+        "mktcap": 811096.038588,
+        "nmc": 630312.871419,
+        "turnoverratio": 9.4344,
+        "clv": 1.0,
+        "score": 49.955343423705116,
+        "bar_date": "2026-10-22",
+        "vol": 783481.0,
+        "rvol5": 1.689186829240738,
+        "rvol10": 2.497870302710327,
+        "rvol20": 2.629881447708482,
+        "ma20": 6.867,
+        "high20": 7.53,
+        "low20": 6.26,
+        "ma60": 6.996333333333333,
+        "high60": 8.38,
+        "low60": 5.55,
+        "ma120": 6.8135,
+        "high120": 8.38,
+        "low120": 5.45,
+        "dist_ma20": 10.528615115771078,
+        "tech_score": 60.47486921453904,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.08490507075847731,
+        "price_points": {
+          "0930": 6.85,
+          "0945": 6.9,
+          "1030": 7.03,
+          "1130": 7.59,
+          "1400": 7.59,
+          "1430": 7.59,
+          "1500": 7.59
+        }
+      },
+      {
+        "symbol": "sz301622",
+        "code": "301622",
+        "name": "英思特",
+        "trade": "35.620",
+        "pricechange": 2.65,
+        "changepercent": 8.038,
+        "buy": "35.610",
+        "sell": "35.620",
+        "settlement": "32.970",
+        "open": "32.780",
+        "high": "36.550",
+        "low": "32.720",
+        "volume": 5331332,
+        "amount": 186923846,
+        "ticktime": "15:35:45",
+        "per": 31.522,
+        "pb": 2.71,
+        "mktcap": 412949.35656,
+        "nmc": 230316.768552,
+        "turnoverratio": 8.24525,
+        "clv": 0.7571801566579635,
+        "score": 42.36112522793451,
+        "bar_date": "2026-10-22",
+        "vol": 53313.0,
+        "rvol5": 4.078661484790991,
+        "rvol10": 3.9268299868892065,
+        "rvol20": 4.517993415337941,
+        "ma20": 35.1575,
+        "high20": 38.5,
+        "low20": 31.77,
+        "ma60": 38.29183333333333,
+        "high60": 43.92,
+        "low60": 31.77,
+        "ma120": 45.482083333333335,
+        "high120": 61.64,
+        "low120": 31.77,
+        "dist_ma20": 1.3155087819099798,
+        "tech_score": 60.43309888928627,
+        "tail_1400_close_pct": -0.056116722783394746,
+        "tail_volume_share": 0.22745164192532613,
+        "price_points": {
+          "0930": 32.78,
+          "0945": 33.97,
+          "1030": 34.27,
+          "1130": 35.33,
+          "1400": 35.64,
+          "1430": 35.25,
+          "1500": 35.62
+        }
+      },
+      {
+        "symbol": "sz301666",
+        "code": "301666",
+        "name": "大普微",
+        "trade": "356.000",
+        "pricechange": 21,
+        "changepercent": 6.269,
+        "buy": "355.980",
+        "sell": "356.000",
+        "settlement": "335.000",
+        "open": "330.000",
+        "high": "388.120",
+        "low": "325.000",
+        "volume": 10722210,
+        "amount": 3764550616,
+        "ticktime": "15:35:45",
+        "per": -291.803,
+        "pb": 42.589,
+        "mktcap": 15529302.416,
+        "nmc": 1242344.2004,
+        "turnoverratio": 30.72503,
+        "clv": 0.4911280101394169,
+        "score": 48.08020773454056,
+        "bar_date": "2026-10-22",
+        "vol": 107222.0,
+        "rvol5": 1.5514417344800844,
+        "rvol10": 2.4761214159030445,
+        "rvol20": 3.054823108755885,
+        "ma20": 345.0995,
+        "high20": 426.99,
+        "low20": 257.43,
+        "ma60": 400.603,
+        "high60": 538.67,
+        "low60": 257.43,
+        "ma120": 493.5845,
+        "high120": 918.88,
+        "low120": 211.11,
+        "dist_ma20": 3.1586542431965237,
+        "tech_score": 60.2995001695641,
+        "tail_1400_close_pct": -1.1083641212255912,
+        "tail_volume_share": 0.23016331705134419,
+        "price_points": {
+          "0930": 330.0,
+          "0945": 344.8,
+          "1030": 355.0,
+          "1130": 346.66,
+          "1400": 359.99,
+          "1430": 369.99,
+          "1500": 356.0
+        }
+      },
+      {
+        "symbol": "sh605488",
+        "code": "605488",
+        "name": "福莱新材",
+        "trade": "34.680",
+        "pricechange": 1.77,
+        "changepercent": 5.378,
+        "buy": "34.670",
+        "sell": "34.680",
+        "settlement": "32.910",
+        "open": "32.480",
+        "high": "36.000",
+        "low": "32.480",
+        "volume": 45514824,
+        "amount": 1584296080,
+        "ticktime": "15:34:59",
+        "per": 123.857,
+        "pb": 4.618,
+        "mktcap": 1040369.478132,
+        "nmc": 1035123.954732,
+        "turnoverratio": 15.24894,
+        "clv": 0.6250000000000002,
+        "score": 41.24042242575411,
+        "bar_date": "2026-10-22",
+        "vol": 455148.0,
+        "rvol5": 3.144894490278181,
+        "rvol10": 4.423310164668563,
+        "rvol20": 4.746009434709889,
+        "ma20": 29.102999999999998,
+        "high20": 34.09,
+        "low20": 24.78,
+        "ma60": 28.301166666666667,
+        "high60": 34.09,
+        "low60": 22.25,
+        "ma120": 30.665000000000003,
+        "high120": 41.5,
+        "low120": 21.25,
+        "dist_ma20": 19.16297288939286,
+        "tech_score": 60.224460164593665,
+        "tail_1400_close_pct": -1.1965811965812034,
+        "tail_volume_share": 0.11919964166992354,
+        "price_points": {
+          "0930": 32.48,
+          "0945": 35.29,
+          "1030": 35.71,
+          "1130": 35.64,
+          "1400": 35.1,
+          "1430": 35.1,
+          "1500": 34.68
+        }
+      },
+      {
+        "symbol": "sh603278",
+        "code": "603278",
+        "name": "大业股份",
+        "trade": "14.510",
+        "pricechange": 1.32,
+        "changepercent": 10.008,
+        "buy": "14.510",
+        "sell": "0.000",
+        "settlement": "13.190",
+        "open": "14.500",
+        "high": "14.510",
+        "low": "14.200",
+        "volume": 47273000,
+        "amount": 684825820,
+        "ticktime": "15:34:59",
+        "per": -362.75,
+        "pb": 2.614,
+        "mktcap": 495892.877792,
+        "nmc": 495892.877792,
+        "turnoverratio": 13.83225,
+        "clv": 1.0,
+        "score": 52.528581727142566,
+        "bar_date": "2026-10-22",
+        "vol": 472730.0,
+        "rvol5": 2.4589106577935813,
+        "rvol10": 1.9047691958693267,
+        "rvol20": 1.8738934295206893,
+        "ma20": 9.9985,
+        "high20": 13.19,
+        "low20": 8.78,
+        "ma60": 9.429833333333333,
+        "high60": 13.19,
+        "low60": 8.06,
+        "ma120": 10.84975,
+        "high120": 18.25,
+        "low120": 7.38,
+        "dist_ma20": 45.121768265239794,
+        "tech_score": 60.024155445225325,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.023238651862158212,
+        "price_points": {
+          "0930": 14.5,
+          "0945": 14.51,
+          "1030": 14.51,
+          "1130": 14.51,
+          "1400": 14.51,
+          "1430": 14.51,
+          "1500": 14.51
+        }
+      },
+      {
+        "symbol": "sh688500",
+        "code": "688500",
+        "name": "慧辰股份",
+        "trade": "39.300",
+        "pricechange": 1.74,
+        "changepercent": 4.633,
+        "buy": "39.300",
+        "sell": "39.330",
+        "settlement": "37.560",
+        "open": "36.300",
+        "high": "40.880",
+        "low": "35.000",
+        "volume": 11678039,
+        "amount": 453600631,
+        "ticktime": "15:34:59",
+        "per": -71.455,
+        "pb": 4.199,
+        "mktcap": 298514.30334,
+        "nmc": 294622.03134,
+        "turnoverratio": 15.57748,
+        "clv": 0.7312925170068019,
+        "score": 39.72926670610598,
+        "bar_date": "2026-10-22",
+        "vol": 11678039.0,
+        "rvol5": 3.6442638081187613,
+        "rvol10": 4.498219823316617,
+        "rvol20": 5.207908600661974,
+        "ma20": 30.892000000000003,
+        "high20": 37.56,
+        "low20": 28.1,
+        "ma60": 33.350833333333334,
+        "high60": 40.18,
+        "low60": 28.1,
+        "ma120": 40.80758333333333,
+        "high120": 64.66,
+        "low120": 25.79,
+        "dist_ma20": 27.21740256377054,
+        "tech_score": 59.72926670610598,
+        "tail_1400_close_pct": 1.4717273431448463,
+        "tail_volume_share": 0.11541572334386295,
+        "price_points": {
+          "0930": 36.3,
+          "0945": 38.5,
+          "1030": 38.46,
+          "1130": 39.27,
+          "1400": 38.73,
+          "1430": 38.72,
+          "1500": 39.3
+        }
+      },
+      {
+        "symbol": "sz000678",
+        "code": "000678",
+        "name": "襄阳轴承",
+        "trade": "12.030",
+        "pricechange": 1.09,
+        "changepercent": 9.963,
+        "buy": "12.030",
+        "sell": "0.000",
+        "settlement": "10.940",
+        "open": "11.020",
+        "high": "12.030",
+        "low": "10.990",
+        "volume": 73290456,
+        "amount": 857281477,
+        "ticktime": "15:35:45",
+        "per": -109.364,
+        "pb": 7.112,
+        "mktcap": 552912.991791,
+        "nmc": 552912.991791,
+        "turnoverratio": 15.94617,
+        "clv": 1.0,
+        "score": 53.77231569230515,
+        "bar_date": "2026-10-22",
+        "vol": 732905.0,
+        "rvol5": 1.0286654500735037,
+        "rvol10": 0.9100326660882099,
+        "rvol20": 1.4415972213889947,
+        "ma20": 10.504000000000001,
+        "high20": 13.9,
+        "low20": 8.5,
+        "ma60": 9.391,
+        "high60": 13.9,
+        "low60": 7.55,
+        "ma120": 9.99575,
+        "high120": 13.9,
+        "low120": 7.32,
+        "dist_ma20": 14.5277989337395,
+        "tech_score": 59.538704577861125,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.025870650836899396,
+        "price_points": {
+          "0930": 11.02,
+          "0945": 11.36,
+          "1030": 12.03,
+          "1130": 12.03,
+          "1400": 12.03,
+          "1430": 12.03,
+          "1500": 12.03
+        }
+      },
+      {
+        "symbol": "sh603280",
+        "code": "603280",
+        "name": "南方路机",
+        "trade": "29.060",
+        "pricechange": 2.64,
+        "changepercent": 9.992,
+        "buy": "29.060",
+        "sell": "0.000",
+        "settlement": "26.420",
+        "open": "27.940",
+        "high": "29.060",
+        "low": "27.740",
+        "volume": 5674955,
+        "amount": 163581506,
+        "ticktime": "15:34:59",
+        "per": 33.402,
+        "pb": 2.287,
+        "mktcap": 315029.774302,
+        "nmc": 315029.774302,
+        "turnoverratio": 5.23488,
+        "clv": 1.0,
+        "score": 46.64710556390695,
+        "bar_date": "2026-10-22",
+        "vol": 56750.0,
+        "rvol5": 4.467941046797254,
+        "rvol10": 3.549981233579382,
+        "rvol20": 3.0746642249949887,
+        "ma20": 26.944,
+        "high20": 28.96,
+        "low20": 24.82,
+        "ma60": 26.312666666666665,
+        "high60": 29.55,
+        "low60": 23.0,
+        "ma120": 27.504416666666664,
+        "high120": 34.75,
+        "low120": 22.81,
+        "dist_ma20": 7.853325415676959,
+        "tech_score": 58.9457624638869,
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share": 0.029573917178940694,
+        "price_points": {
+          "0930": 27.94,
+          "0945": 29.06,
+          "1030": 29.06,
+          "1130": 29.06,
+          "1400": 29.06,
+          "1430": 29.06,
+          "1500": 29.06
+        }
+      },
+      {
+        "symbol": "sz002877",
+        "code": "002877",
+        "name": "智能自控",
+        "trade": "7.610",
+        "pricechange": 0.41,
+        "changepercent": 5.694,
+        "buy": "7.610",
+        "sell": "7.620",
+        "settlement": "7.200",
+        "open": "7.200",
+        "high": "7.920",
+        "low": "7.150",
+        "volume": 29951934,
+        "amount": 232453627,
+        "ticktime": "15:35:15",
+        "per": 115.303,
+        "pb": 2.216,
+        "mktcap": 270797.051895,
+        "nmc": 183031.650172,
+        "turnoverratio": 12.45327,
+        "clv": 0.5974025974025977,
+        "score": 38.6453246676722,
+        "bar_date": "2026-10-22",
+        "vol": 299519.0,
+        "rvol5": 7.2241142278285615,
+        "rvol10": 7.2336052706573355,
+        "rvol20": 6.726055805879704,
+        "ma20": 7.386,
+        "high20": 7.67,
+        "low20": 6.98,
+        "ma60": 7.310833333333333,
+        "high60": 7.74,
+        "low60": 6.46,
+        "ma120": 7.666291666666667,
+        "high120": 9.475,
+        "low120": 6.35,
+        "dist_ma20": 3.0327646899539706,
+        "tech_score": 58.6453246676722,
+        "tail_1400_close_pct": -3.9141414141414144,
+        "tail_volume_share": 0.3770309058140311,
+        "price_points": {
+          "0930": 7.2,
+          "0945": 7.29,
+          "1030": 7.22,
+          "1130": 7.92,
+          "1400": 7.92,
+          "1430": 7.61,
+          "1500": 7.61
+        }
+      }
+    ]
+  },
+  "low_position": {
+    "existing_count": 35,
+    "existing_validations": [
+      {
+        "id": "low-position-20260923-002472-close-20261022",
+        "code": "002472",
+        "name": "双环传动",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-23",
+        "reference_close": 37.58,
+        "origin_cohort_id": "low-position-20260923-002472",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 38.52,
+          "high": 39.87,
+          "low": 38.18,
+          "close": 38.27,
+          "volume": 26804956.0
+        },
+        "close_return_pct": 1.836,
+        "path_mfe_pct": 6.094,
+        "path_mae_pct": -14.023,
+        "max_close_to_close_drawdown_pct": -15.819,
+        "elapsed_natural_days": 29,
+        "elapsed_trading_sessions": 15,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002472&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260923-600845-close-20261022",
+        "code": "600845",
+        "name": "宝信软件",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-23",
+        "reference_close": 18.34,
+        "origin_cohort_id": "low-position-20260923-600845",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 17.46,
+          "high": 17.65,
+          "low": 17.11,
+          "close": 17.13,
+          "volume": 96367.0
+        },
+        "close_return_pct": -6.598,
+        "path_mfe_pct": 0.872,
+        "path_mae_pct": -8.942,
+        "max_close_to_close_drawdown_pct": -7.886,
+        "elapsed_natural_days": 29,
+        "elapsed_trading_sessions": 15,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600845,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260928-600380-close-20261022",
+        "code": "600380",
+        "name": "健康元",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-28",
+        "reference_close": 9.79,
+        "origin_cohort_id": "low-position-20260928-600380",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 9.31,
+          "high": 9.33,
+          "low": 9.12,
+          "close": 9.12,
+          "volume": 127250.0
+        },
+        "close_return_pct": -6.844,
+        "path_mfe_pct": 5.209,
+        "path_mae_pct": -6.844,
+        "max_close_to_close_drawdown_pct": -10.236,
+        "elapsed_natural_days": 24,
+        "elapsed_trading_sessions": 13,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600380,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260928-000503-close-20261022",
+        "code": "000503",
+        "name": "国新健康",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-28",
+        "reference_close": 7.44,
+        "origin_cohort_id": "low-position-20260928-000503",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 8.11,
+          "high": 8.12,
+          "low": 7.68,
+          "close": 7.7,
+          "volume": 33682855.0
+        },
+        "close_return_pct": 3.495,
+        "path_mfe_pct": 14.651,
+        "path_mae_pct": -3.629,
+        "max_close_to_close_drawdown_pct": -9.134,
+        "elapsed_natural_days": 24,
+        "elapsed_trading_sessions": 13,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000503&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260928-000513-close-20261022",
+        "code": "000513",
+        "name": "丽珠集团",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-28",
+        "reference_close": 30.34,
+        "origin_cohort_id": "low-position-20260928-000513",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 26.9,
+          "high": 26.92,
+          "low": 26.02,
+          "close": 26.02,
+          "volume": 9994879.0
+        },
+        "close_return_pct": -14.239,
+        "path_mfe_pct": 10.02,
+        "path_mae_pct": -14.239,
+        "max_close_to_close_drawdown_pct": -20.912,
+        "elapsed_natural_days": 24,
+        "elapsed_trading_sessions": 13,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000513&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260928-002962-close-20261022",
+        "code": "002962",
+        "name": "五方光电",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-28",
+        "reference_close": 14.76,
+        "origin_cohort_id": "low-position-20260928-002962",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 12.63,
+          "high": 12.72,
+          "low": 12.14,
+          "close": 12.17,
+          "volume": 11075160.0
+        },
+        "close_return_pct": -17.547,
+        "path_mfe_pct": 14.77,
+        "path_mae_pct": -18.496,
+        "max_close_to_close_drawdown_pct": -27.082,
+        "elapsed_natural_days": 24,
+        "elapsed_trading_sessions": 13,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002962&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260929-002074-close-20261022",
+        "code": "002074",
+        "name": "国轩高科",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-29",
+        "reference_close": 28.68,
+        "origin_cohort_id": "low-position-20260929-002074",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 25.79,
+          "high": 26.22,
+          "low": 25.28,
+          "close": 25.28,
+          "volume": 33719030.0
+        },
+        "close_return_pct": -11.855,
+        "path_mfe_pct": 12.064,
+        "path_mae_pct": -11.855,
+        "max_close_to_close_drawdown_pct": -19.233,
+        "elapsed_natural_days": 23,
+        "elapsed_trading_sessions": 12,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002074&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260929-600152-close-20261022",
+        "code": "600152",
+        "name": "维科技术",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-29",
+        "reference_close": 8.32,
+        "origin_cohort_id": "low-position-20260929-600152",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 7.05,
+          "high": 7.39,
+          "low": 6.67,
+          "close": 6.68,
+          "volume": 353950.0
+        },
+        "close_return_pct": -19.712,
+        "path_mfe_pct": 12.139,
+        "path_mae_pct": -19.832,
+        "max_close_to_close_drawdown_pct": -27.233,
+        "elapsed_natural_days": 23,
+        "elapsed_trading_sessions": 12,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600152,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260929-002866-close-20261022",
+        "code": "002866",
+        "name": "传艺科技",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-29",
+        "reference_close": 15.36,
+        "origin_cohort_id": "low-position-20260929-002866",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 14.38,
+          "high": 15.27,
+          "low": 13.99,
+          "close": 14.05,
+          "volume": 28239081.0
+        },
+        "close_return_pct": -8.529,
+        "path_mfe_pct": 33.138,
+        "path_mae_pct": -8.919,
+        "max_close_to_close_drawdown_pct": -26.632,
+        "elapsed_natural_days": 23,
+        "elapsed_trading_sessions": 12,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002866&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260929-002244-close-20261022",
+        "code": "002244",
+        "name": "滨江集团",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-29",
+        "reference_close": 9.46,
+        "origin_cohort_id": "low-position-20260929-002244",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 9.41,
+          "high": 9.55,
+          "low": 9.28,
+          "close": 9.31,
+          "volume": 19410319.0
+        },
+        "close_return_pct": -1.586,
+        "path_mfe_pct": 11.522,
+        "path_mae_pct": -9.514,
+        "max_close_to_close_drawdown_pct": -8.815,
+        "elapsed_natural_days": 23,
+        "elapsed_trading_sessions": 12,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002244&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20260929-603636-close-20261022",
+        "code": "603636",
+        "name": "南威软件",
+        "date": "2026-10-22",
+        "reference_date": "2026-09-29",
+        "reference_close": 7.87,
+        "origin_cohort_id": "low-position-20260929-603636",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": false,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 9.48,
+          "high": 9.58,
+          "low": 8.8,
+          "close": 8.8,
+          "volume": 905932.0
+        },
+        "close_return_pct": 11.817,
+        "path_mfe_pct": 24.269,
+        "path_mae_pct": -9.276,
+        "max_close_to_close_drawdown_pct": -10.02,
+        "elapsed_natural_days": 23,
+        "elapsed_trading_sessions": 12,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603636,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261009-000420-close-20261022",
+        "code": "000420",
+        "name": "吉林化纤",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-09",
+        "reference_close": 3.81,
+        "origin_cohort_id": "low-position-20261009-000420",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 3.82,
+          "high": 4.03,
+          "low": 3.78,
+          "close": 3.98,
+          "volume": 196068749.0
+        },
+        "close_return_pct": 4.462,
+        "path_mfe_pct": 9.974,
+        "path_mae_pct": -7.874,
+        "max_close_to_close_drawdown_pct": -7.349,
+        "elapsed_natural_days": 13,
+        "elapsed_trading_sessions": 9,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000420&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261009-300821-close-20261022",
+        "code": "300821",
+        "name": "东岳硅材",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-09",
+        "reference_close": 17.15,
+        "origin_cohort_id": "low-position-20261009-300821",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 17.4,
+          "high": 17.63,
+          "low": 15.66,
+          "close": 15.66,
+          "volume": 127724085.0
+        },
+        "close_return_pct": -8.688,
+        "path_mfe_pct": 20.0,
+        "path_mae_pct": -8.688,
+        "max_close_to_close_drawdown_pct": -18.649,
+        "elapsed_natural_days": 13,
+        "elapsed_trading_sessions": 9,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300821&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261009-600547-close-20261022",
+        "code": "600547",
+        "name": "山东黄金",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-09",
+        "reference_close": 27.17,
+        "origin_cohort_id": "low-position-20261009-600547",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 26.47,
+          "high": 26.54,
+          "low": 25.35,
+          "close": 25.7,
+          "volume": 540799.0
+        },
+        "close_return_pct": -5.41,
+        "path_mfe_pct": 1.215,
+        "path_mae_pct": -7.287,
+        "max_close_to_close_drawdown_pct": -5.854,
+        "elapsed_natural_days": 13,
+        "elapsed_trading_sessions": 9,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600547,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261009-300058-close-20261022",
+        "code": "300058",
+        "name": "蓝色光标",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-09",
+        "reference_close": 12.87,
+        "origin_cohort_id": "low-position-20261009-300058",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 12.15,
+          "high": 12.21,
+          "low": 11.71,
+          "close": 11.72,
+          "volume": 125658646.0
+        },
+        "close_return_pct": -8.936,
+        "path_mfe_pct": 3.497,
+        "path_mae_pct": -9.402,
+        "max_close_to_close_drawdown_pct": -10.123,
+        "elapsed_natural_days": 13,
+        "elapsed_trading_sessions": 9,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300058&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261012-002531-close-20261022",
+        "code": "002531",
+        "name": "天顺风能",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-12",
+        "reference_close": 8.27,
+        "origin_cohort_id": "low-position-20261012-002531",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 6.93,
+          "high": 6.96,
+          "low": 6.51,
+          "close": 6.52,
+          "volume": 81231731.0
+        },
+        "close_return_pct": -21.161,
+        "path_mfe_pct": 8.585,
+        "path_mae_pct": -21.282,
+        "max_close_to_close_drawdown_pct": -18.703,
+        "elapsed_natural_days": 10,
+        "elapsed_trading_sessions": 8,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002531&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261012-002027-close-20261022",
+        "code": "002027",
+        "name": "分众传媒",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-12",
+        "reference_close": 5.1,
+        "origin_cohort_id": "low-position-20261012-002027",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 5.11,
+          "high": 5.13,
+          "low": 4.93,
+          "close": 4.96,
+          "volume": 162328985.0
+        },
+        "close_return_pct": -2.745,
+        "path_mfe_pct": 5.098,
+        "path_mae_pct": -3.333,
+        "max_close_to_close_drawdown_pct": -6.061,
+        "elapsed_natural_days": 10,
+        "elapsed_trading_sessions": 8,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002027&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261012-603232-close-20261022",
+        "code": "603232",
+        "name": "格尔软件",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-12",
+        "reference_close": 18.68,
+        "origin_cohort_id": "low-position-20261012-603232",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 17.3,
+          "high": 17.81,
+          "low": 15.75,
+          "close": 15.76,
+          "volume": 233701.0
+        },
+        "close_return_pct": -15.632,
+        "path_mfe_pct": -1.231,
+        "path_mae_pct": -15.685,
+        "max_close_to_close_drawdown_pct": -11.857,
+        "elapsed_natural_days": 10,
+        "elapsed_trading_sessions": 8,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603232,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261015-000973-close-20261022",
+        "code": "000973",
+        "name": "佛塑科技",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-15",
+        "reference_close": 12.19,
+        "origin_cohort_id": "low-position-20261015-000973",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 10.98,
+          "high": 10.99,
+          "low": 10.16,
+          "close": 10.18,
+          "volume": 40319780.0
+        },
+        "close_return_pct": -16.489,
+        "path_mfe_pct": -1.148,
+        "path_mae_pct": -16.653,
+        "max_close_to_close_drawdown_pct": -14.883,
+        "elapsed_natural_days": 7,
+        "elapsed_trading_sessions": 5,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000973&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261015-002812-close-20261022",
+        "code": "002812",
+        "name": "恩捷股份",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-15",
+        "reference_close": 48.39,
+        "origin_cohort_id": "low-position-20261015-002812",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 43.55,
+          "high": 44.2,
+          "low": 42.65,
+          "close": 42.65,
+          "volume": 19995215.0
+        },
+        "close_return_pct": -11.862,
+        "path_mfe_pct": 1.984,
+        "path_mae_pct": -11.862,
+        "max_close_to_close_drawdown_pct": -8.378,
+        "elapsed_natural_days": 7,
+        "elapsed_trading_sessions": 5,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002812&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261015-301069-close-20261022",
+        "code": "301069",
+        "name": "凯盛新材",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-15",
+        "reference_close": 16.71,
+        "origin_cohort_id": "low-position-20261015-301069",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 17.1,
+          "high": 17.8,
+          "low": 16.85,
+          "close": 17.6,
+          "volume": 15891513.0
+        },
+        "close_return_pct": 5.326,
+        "path_mfe_pct": 6.523,
+        "path_mae_pct": -3.591,
+        "max_close_to_close_drawdown_pct": -0.402,
+        "elapsed_natural_days": 7,
+        "elapsed_trading_sessions": 5,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz301069&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261015-688552-close-20261022",
+        "code": "688552",
+        "name": "航天南湖",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-15",
+        "reference_close": 34.13,
+        "origin_cohort_id": "low-position-20261015-688552",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 35.47,
+          "high": 35.86,
+          "low": 34.01,
+          "close": 34.25,
+          "volume": 6353454.0
+        },
+        "close_return_pct": 0.352,
+        "path_mfe_pct": 7.325,
+        "path_mae_pct": -3.985,
+        "max_close_to_close_drawdown_pct": -2.892,
+        "elapsed_natural_days": 7,
+        "elapsed_trading_sessions": 5,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688552,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261015-300771-close-20261022",
+        "code": "300771",
+        "name": "智莱科技",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-15",
+        "reference_close": 11.73,
+        "origin_cohort_id": "low-position-20261015-300771",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 11.51,
+          "high": 11.64,
+          "low": 11.1,
+          "close": 11.12,
+          "volume": 4760900.0
+        },
+        "close_return_pct": -5.2,
+        "path_mfe_pct": 3.41,
+        "path_mae_pct": -5.456,
+        "max_close_to_close_drawdown_pct": -4.957,
+        "elapsed_natural_days": 7,
+        "elapsed_trading_sessions": 5,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300771&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261015-600199-close-20261022",
+        "code": "600199",
+        "name": "金种子酒",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-15",
+        "reference_close": 7.75,
+        "origin_cohort_id": "low-position-20261015-600199",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 7.39,
+          "high": 7.4,
+          "low": 6.81,
+          "close": 6.82,
+          "volume": 457208.0
+        },
+        "close_return_pct": -12.0,
+        "path_mfe_pct": 9.935,
+        "path_mae_pct": -12.129,
+        "max_close_to_close_drawdown_pct": -16.01,
+        "elapsed_natural_days": 7,
+        "elapsed_trading_sessions": 5,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600199,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261016-603334-close-20261022",
+        "code": "603334",
+        "name": "丰倍生物",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-16",
+        "reference_close": 32.1,
+        "origin_cohort_id": "low-position-20261016-603334",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 31.73,
+          "high": 31.73,
+          "low": 29.88,
+          "close": 30.13,
+          "volume": 19352.0
+        },
+        "close_return_pct": -6.137,
+        "path_mfe_pct": 4.891,
+        "path_mae_pct": -6.916,
+        "max_close_to_close_drawdown_pct": -7.292,
+        "elapsed_natural_days": 6,
+        "elapsed_trading_sessions": 4,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603334,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261016-600853-close-20261022",
+        "code": "600853",
+        "name": "龙建股份",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-16",
+        "reference_close": 3.59,
+        "origin_cohort_id": "low-position-20261016-600853",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 3.66,
+          "high": 3.75,
+          "low": 3.6,
+          "close": 3.64,
+          "volume": 593388.0
+        },
+        "close_return_pct": 1.393,
+        "path_mfe_pct": 4.735,
+        "path_mae_pct": -4.735,
+        "max_close_to_close_drawdown_pct": -1.695,
+        "elapsed_natural_days": 6,
+        "elapsed_trading_sessions": 4,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600853,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261019-300432-close-20261022",
+        "code": "300432",
+        "name": "富临精工",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-19",
+        "reference_close": 13.48,
+        "origin_cohort_id": "low-position-20261019-300432",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 13.38,
+          "high": 14.0,
+          "low": 13.29,
+          "close": 13.29,
+          "volume": 50836742.0
+        },
+        "close_return_pct": -1.409,
+        "path_mfe_pct": 3.858,
+        "path_mae_pct": -2.077,
+        "max_close_to_close_drawdown_pct": -3.134,
+        "elapsed_natural_days": 3,
+        "elapsed_trading_sessions": 3,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300432&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261019-000032-close-20261022",
+        "code": "000032",
+        "name": "深桑达Ａ",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-19",
+        "reference_close": 13.72,
+        "origin_cohort_id": "low-position-20261019-000032",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 12.5,
+          "high": 12.73,
+          "low": 11.88,
+          "close": 11.88,
+          "volume": 93128963.0
+        },
+        "close_return_pct": -13.411,
+        "path_mfe_pct": 1.676,
+        "path_mae_pct": -13.411,
+        "max_close_to_close_drawdown_pct": -10.0,
+        "elapsed_natural_days": 3,
+        "elapsed_trading_sessions": 3,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000032&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261019-688084-close-20261022",
+        "code": "688084",
+        "name": "晶品特装",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-19",
+        "reference_close": 42.29,
+        "origin_cohort_id": "low-position-20261019-688084",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 41.19,
+          "high": 42.44,
+          "low": 39.86,
+          "close": 39.86,
+          "volume": 2643267.0
+        },
+        "close_return_pct": -5.746,
+        "path_mfe_pct": 2.932,
+        "path_mae_pct": -5.746,
+        "max_close_to_close_drawdown_pct": -6.629,
+        "elapsed_natural_days": 3,
+        "elapsed_trading_sessions": 3,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688084,day,,,180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261019-002683-close-20261022",
+        "code": "002683",
+        "name": "广东宏大",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-19",
+        "reference_close": 30.11,
+        "origin_cohort_id": "low-position-20261019-002683",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 29.64,
+          "high": 30.39,
+          "low": 29.12,
+          "close": 29.2,
+          "volume": 11204979.0
+        },
+        "close_return_pct": -3.022,
+        "path_mfe_pct": 1.461,
+        "path_mae_pct": -3.321,
+        "max_close_to_close_drawdown_pct": -3.215,
+        "elapsed_natural_days": 3,
+        "elapsed_trading_sessions": 3,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002683&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261019-001233-close-20261022",
+        "code": "001233",
+        "name": "海安集团",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-19",
+        "reference_close": 51.53,
+        "origin_cohort_id": "low-position-20261019-001233",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 52.82,
+          "high": 54.8,
+          "low": 52.73,
+          "close": 53.5,
+          "volume": 4928770.0
+        },
+        "close_return_pct": 3.823,
+        "path_mfe_pct": 6.618,
+        "path_mae_pct": -0.912,
+        "max_close_to_close_drawdown_pct": -1.156,
+        "elapsed_natural_days": 3,
+        "elapsed_trading_sessions": 3,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz001233&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261019-300556-close-20261022",
+        "code": "300556",
+        "name": "丝路视觉",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-19",
+        "reference_close": 17.14,
+        "origin_cohort_id": "low-position-20261019-300556",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 17.82,
+          "high": 18.01,
+          "low": 17.07,
+          "close": 17.12,
+          "volume": 10891468.0
+        },
+        "close_return_pct": -0.117,
+        "path_mfe_pct": 7.935,
+        "path_mae_pct": -1.517,
+        "max_close_to_close_drawdown_pct": -5.623,
+        "elapsed_natural_days": 3,
+        "elapsed_trading_sessions": 3,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300556&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261020-301658-close-20261022",
+        "code": "301658",
+        "name": "首航新能",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-20",
+        "reference_close": 25.62,
+        "origin_cohort_id": "low-position-20261020-301658",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 25.66,
+          "high": 25.66,
+          "low": 23.79,
+          "close": 23.79,
+          "volume": 13657052.0
+        },
+        "close_return_pct": -7.143,
+        "path_mfe_pct": 3.084,
+        "path_mae_pct": -7.143,
+        "max_close_to_close_drawdown_pct": -8.182,
+        "elapsed_natural_days": 2,
+        "elapsed_trading_sessions": 2,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": true,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz301658&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261020-003021-close-20261022",
+        "code": "003021",
+        "name": "兆威机电",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-20",
+        "reference_close": 72.57,
+        "origin_cohort_id": "low-position-20261020-003021",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 80.0,
+          "high": 83.39,
+          "low": 80.0,
+          "close": 83.39,
+          "volume": 7546170.0
+        },
+        "close_return_pct": 14.91,
+        "path_mfe_pct": 14.91,
+        "path_mae_pct": -2.453,
+        "max_close_to_close_drawdown_pct": 0.0,
+        "elapsed_natural_days": 2,
+        "elapsed_trading_sessions": 2,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz003021&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      },
+      {
+        "id": "low-position-20261020-300314-close-20261022",
+        "code": "300314",
+        "name": "戴维医疗",
+        "date": "2026-10-22",
+        "reference_date": "2026-10-20",
+        "reference_close": 13.23,
+        "origin_cohort_id": "low-position-20261020-300314",
+        "report_ids": [
+          "low-position-20261022-close-v1"
+        ],
+        "observation_type": "price_observation",
+        "evidence_status": "single_provider_closed_daily_with_full_path",
+        "full_validation_completed": true,
+        "eligible_for_model_statistics": true,
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "price_observation": {
+          "date": "2026-10-22",
+          "open": 13.83,
+          "high": 14.15,
+          "low": 13.62,
+          "close": 13.79,
+          "volume": 16330195.0
+        },
+        "close_return_pct": 4.233,
+        "path_mfe_pct": 15.117,
+        "path_mae_pct": 1.587,
+        "max_close_to_close_drawdown_pct": -2.887,
+        "elapsed_natural_days": 2,
+        "elapsed_trading_sessions": 2,
+        "thirty_natural_days_matured": false,
+        "observed_close_below_original_invalid": false,
+        "source_urls": [
+          "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300314&scale=240&ma=no&datalen=180"
+        ],
+        "recorded_at": "2026-10-23T04:01:58+08:00",
+        "missing": [
+          "independent_daily_crosscheck",
+          "historical_minute_OHLC",
+          "auction",
+          "fill",
+          "legal_exit"
+        ]
+      }
+    ],
+    "new_proxy_samples": [
+      {
+        "code": "600900",
+        "name": "长江电力",
+        "date": "2026-10-22",
+        "open": 29.57,
+        "high": 29.98,
+        "low": 29.34,
+        "close": 29.82,
+        "volume": 1690183.0,
+        "previous_close": 29.57,
+        "daily_change_pct": 0.845,
+        "rvol": {
+          "5": 1.570696,
+          "10": 1.5527,
+          "20": 1.844812
+        },
+        "ma": {
+          "5": 29.6,
+          "10": 29.457,
+          "20": 28.9115,
+          "60": 28.527833
+        },
+        "range_position_pct": {
+          "20": 92.195,
+          "60": 93.522,
+          "120": 95.822
+        },
+        "clv": 0.75,
+        "distance_ma20_pct": 3.142,
+        "reported_proxy": {
+          "change_pct": 0.85,
+          "rvol20": 1.84,
+          "clv": 0.75,
+          "distance_ma20_pct": 3.14,
+          "distance_low60_pct": 8.4
+        },
+        "evidence_status": "same_day_closed_daily_recomputed_from_sina",
+        "missing": [
+          "auction",
+          "minute_OHLC",
+          "order_book",
+          "ticks",
+          "verified_fill"
+        ]
+      },
+      {
+        "code": "000420",
+        "name": "吉林化纤",
+        "date": "2026-10-22",
+        "open": 3.82,
+        "high": 4.03,
+        "low": 3.78,
+        "close": 3.98,
+        "volume": 196068749.0,
+        "previous_close": 3.86,
+        "daily_change_pct": 3.109,
+        "rvol": {
+          "5": 1.395149,
+          "10": 1.239889,
+          "20": 2.053333
+        },
+        "ma": {
+          "5": 3.888,
+          "10": 3.795,
+          "20": 3.6545,
+          "60": 3.6955
+        },
+        "range_position_pct": {
+          "20": 73.75,
+          "60": 73.75,
+          "120": 23.79
+        },
+        "clv": 0.8,
+        "distance_ma20_pct": 8.907,
+        "reported_proxy": {
+          "change_pct": 3.11,
+          "rvol20": 2.05,
+          "clv": 0.8,
+          "distance_ma20_pct": 8.91,
+          "distance_low60_pct": 17.4
+        },
+        "evidence_status": "same_day_closed_daily_recomputed_from_sina",
+        "missing": [
+          "auction",
+          "minute_OHLC",
+          "order_book",
+          "ticks",
+          "verified_fill"
+        ]
+      },
+      {
+        "code": "601288",
+        "name": "农业银行",
+        "date": "2026-10-22",
+        "open": 7.3,
+        "high": 7.43,
+        "low": 7.19,
+        "close": 7.4,
+        "volume": 4771820.0,
+        "previous_close": 7.29,
+        "daily_change_pct": 1.509,
+        "rvol": {
+          "5": 1.25303,
+          "10": 1.326126,
+          "20": 1.497563
+        },
+        "ma": {
+          "5": 7.366,
+          "10": 7.269,
+          "20": 7.0835,
+          "60": 6.873667
+        },
+        "range_position_pct": {
+          "20": 82.278,
+          "60": 88.136,
+          "120": 92.0
+        },
+        "clv": 0.875,
+        "distance_ma20_pct": 4.468,
+        "reported_proxy": {
+          "change_pct": 1.51,
+          "rvol20": 1.5,
+          "clv": 0.875,
+          "distance_ma20_pct": 6.22,
+          "distance_low60_pct": 18.78
+        },
+        "evidence_status": "same_day_closed_daily_recomputed_from_sina",
+        "missing": [
+          "auction",
+          "minute_OHLC",
+          "order_book",
+          "ticks",
+          "verified_fill"
+        ]
+      },
+      {
+        "code": "002520",
+        "name": "日发精机",
+        "date": "2026-10-22",
+        "open": 5.69,
+        "high": 6.23,
+        "low": 5.67,
+        "close": 6.1,
+        "volume": 103478936.0,
+        "previous_close": 5.66,
+        "daily_change_pct": 7.774,
+        "rvol": {
+          "5": 5.535203,
+          "10": 5.032561,
+          "20": 4.363367
+        },
+        "ma": {
+          "5": 5.718,
+          "10": 5.766,
+          "20": 6.036,
+          "60": 6.056167
+        },
+        "range_position_pct": {
+          "20": 58.678,
+          "60": 51.813,
+          "120": 38.012
+        },
+        "clv": 0.767857,
+        "distance_ma20_pct": 1.06,
+        "reported_proxy": {
+          "change_pct": 7.77,
+          "rvol20": 4.36,
+          "clv": 0.768,
+          "distance_ma20_pct": 1.06,
+          "distance_low60_pct": 19.61
+        },
+        "evidence_status": "same_day_closed_daily_recomputed_from_sina",
+        "missing": [
+          "auction",
+          "minute_OHLC",
+          "order_book",
+          "ticks",
+          "verified_fill"
+        ]
+      }
+    ],
+    "raw_histories": {
+      "000032": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000032&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-19",
+            "open": 13.1,
+            "high": 13.87,
+            "low": 12.95,
+            "close": 13.72,
+            "volume": 82858241.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 13.31,
+            "high": 13.31,
+            "low": 12.35,
+            "close": 12.68,
+            "volume": 92606601.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 13.95,
+            "high": 13.95,
+            "low": 13.0,
+            "close": 13.2,
+            "volume": 127285062.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 12.5,
+            "high": 12.73,
+            "low": 11.88,
+            "close": 11.88,
+            "volume": 93128963.0
+          }
+        ]
+      },
+      "000420": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000420&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-09",
+            "open": 3.53,
+            "high": 3.81,
+            "low": 3.53,
+            "close": 3.81,
+            "volume": 239917869.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 4.1,
+            "high": 4.19,
+            "low": 3.81,
+            "close": 3.81,
+            "volume": 305916212.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 3.8,
+            "high": 3.83,
+            "low": 3.69,
+            "close": 3.74,
+            "volume": 195554535.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 3.74,
+            "high": 3.81,
+            "low": 3.61,
+            "close": 3.62,
+            "volume": 102527125.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 3.54,
+            "high": 3.61,
+            "low": 3.52,
+            "close": 3.53,
+            "volume": 76771606.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 3.6,
+            "high": 3.88,
+            "low": 3.51,
+            "close": 3.88,
+            "volume": 170004166.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 3.82,
+            "high": 3.97,
+            "low": 3.78,
+            "close": 3.89,
+            "volume": 221828056.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 3.81,
+            "high": 3.85,
+            "low": 3.77,
+            "close": 3.83,
+            "volume": 131608180.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 3.83,
+            "high": 3.9,
+            "low": 3.82,
+            "close": 3.86,
+            "volume": 102468444.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 3.82,
+            "high": 4.03,
+            "low": 3.78,
+            "close": 3.98,
+            "volume": 196068749.0
+          }
+        ]
+      },
+      "000503": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000503&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-28",
+            "open": 7.22,
+            "high": 7.44,
+            "low": 7.09,
+            "close": 7.44,
+            "volume": 49139866.0
+          },
+          {
+            "date": "2026-09-29",
+            "open": 7.31,
+            "high": 7.95,
+            "low": 7.17,
+            "close": 7.72,
+            "volume": 88024237.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 7.46,
+            "high": 7.86,
+            "low": 7.36,
+            "close": 7.69,
+            "volume": 55401758.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 7.69,
+            "high": 8.05,
+            "low": 7.63,
+            "close": 7.89,
+            "volume": 53319155.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 7.84,
+            "high": 8.5,
+            "low": 7.79,
+            "close": 8.43,
+            "volume": 66410845.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 8.35,
+            "high": 8.35,
+            "low": 7.83,
+            "close": 7.86,
+            "volume": 50206398.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 7.81,
+            "high": 8.28,
+            "low": 7.6,
+            "close": 8.1,
+            "volume": 45305383.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 8.05,
+            "high": 8.05,
+            "low": 7.73,
+            "close": 7.77,
+            "volume": 27133287.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 7.64,
+            "high": 8.07,
+            "low": 7.6,
+            "close": 7.66,
+            "volume": 27073727.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 8.1,
+            "high": 8.43,
+            "low": 7.69,
+            "close": 7.75,
+            "volume": 61379754.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 7.64,
+            "high": 8.53,
+            "low": 7.55,
+            "close": 8.3,
+            "volume": 82717207.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 7.87,
+            "high": 8.05,
+            "low": 7.76,
+            "close": 7.95,
+            "volume": 64282713.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 8.03,
+            "high": 8.33,
+            "low": 7.86,
+            "close": 8.04,
+            "volume": 44301820.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 8.11,
+            "high": 8.12,
+            "low": 7.68,
+            "close": 7.7,
+            "volume": 33682855.0
+          }
+        ]
+      },
+      "000513": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000513&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-28",
+            "open": 29.44,
+            "high": 30.34,
+            "low": 29.03,
+            "close": 30.34,
+            "volume": 27942836.0
+          },
+          {
+            "date": "2026-09-29",
+            "open": 31.0,
+            "high": 32.99,
+            "low": 30.35,
+            "close": 32.23,
+            "volume": 63390618.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 31.65,
+            "high": 33.38,
+            "low": 31.17,
+            "close": 32.9,
+            "volume": 46168173.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 32.49,
+            "high": 32.74,
+            "low": 29.61,
+            "close": 29.61,
+            "volume": 34914637.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 29.51,
+            "high": 30.75,
+            "low": 29.05,
+            "close": 30.5,
+            "volume": 24825978.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 30.25,
+            "high": 30.99,
+            "low": 29.88,
+            "close": 30.46,
+            "volume": 16673375.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 30.08,
+            "high": 30.2,
+            "low": 29.27,
+            "close": 29.43,
+            "volume": 17888173.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 28.58,
+            "high": 28.61,
+            "low": 27.85,
+            "close": 28.01,
+            "volume": 13470420.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 27.64,
+            "high": 28.79,
+            "low": 27.64,
+            "close": 28.03,
+            "volume": 12229975.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 28.27,
+            "high": 29.05,
+            "low": 27.61,
+            "close": 27.95,
+            "volume": 14794998.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 27.6,
+            "high": 28.18,
+            "low": 27.45,
+            "close": 27.45,
+            "volume": 11894512.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 27.35,
+            "high": 27.6,
+            "low": 27.07,
+            "close": 27.24,
+            "volume": 8315178.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 27.5,
+            "high": 27.54,
+            "low": 26.9,
+            "close": 26.96,
+            "volume": 6708244.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 26.9,
+            "high": 26.92,
+            "low": 26.02,
+            "close": 26.02,
+            "volume": 9994879.0
+          }
+        ]
+      },
+      "000973": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000973&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-15",
+            "open": 11.66,
+            "high": 12.2,
+            "low": 11.45,
+            "close": 12.19,
+            "volume": 83784623.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 11.99,
+            "high": 12.05,
+            "low": 11.79,
+            "close": 11.96,
+            "volume": 56705855.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 11.8,
+            "high": 11.8,
+            "low": 11.26,
+            "close": 11.31,
+            "volume": 43778184.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 11.17,
+            "high": 11.44,
+            "low": 11.03,
+            "close": 11.38,
+            "volume": 30422440.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 11.28,
+            "high": 11.29,
+            "low": 11.0,
+            "close": 11.03,
+            "volume": 36372016.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 10.98,
+            "high": 10.99,
+            "low": 10.16,
+            "close": 10.18,
+            "volume": 40319780.0
+          }
+        ]
+      },
+      "001233": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz001233&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-19",
+            "open": 48.76,
+            "high": 51.88,
+            "low": 48.76,
+            "close": 51.53,
+            "volume": 6639166.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 51.5,
+            "high": 54.94,
+            "low": 51.06,
+            "close": 53.64,
+            "volume": 7406329.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 52.75,
+            "high": 53.9,
+            "low": 51.88,
+            "close": 53.02,
+            "volume": 5013654.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 52.82,
+            "high": 54.8,
+            "low": 52.73,
+            "close": 53.5,
+            "volume": 4928770.0
+          }
+        ]
+      },
+      "002027": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002027&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-12",
+            "open": 5.04,
+            "high": 5.21,
+            "low": 4.96,
+            "close": 5.1,
+            "volume": 479949947.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 5.01,
+            "high": 5.2,
+            "low": 5.01,
+            "close": 5.1,
+            "volume": 336859183.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 5.09,
+            "high": 5.32,
+            "low": 5.06,
+            "close": 5.25,
+            "volume": 376830634.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 5.17,
+            "high": 5.31,
+            "low": 5.16,
+            "close": 5.23,
+            "volume": 241061939.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 5.22,
+            "high": 5.34,
+            "low": 5.12,
+            "close": 5.16,
+            "volume": 265546924.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 5.12,
+            "high": 5.36,
+            "low": 5.1,
+            "close": 5.28,
+            "volume": 245440877.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 5.24,
+            "high": 5.28,
+            "low": 5.13,
+            "close": 5.18,
+            "volume": 184538614.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 5.17,
+            "high": 5.24,
+            "low": 5.11,
+            "close": 5.12,
+            "volume": 149479315.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 5.11,
+            "high": 5.13,
+            "low": 4.93,
+            "close": 4.96,
+            "volume": 162328985.0
+          }
+        ]
+      },
+      "002074": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002074&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-29",
+            "open": 27.5,
+            "high": 28.68,
+            "low": 27.2,
+            "close": 28.68,
+            "volume": 46143977.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 30.49,
+            "high": 30.49,
+            "low": 28.88,
+            "close": 29.5,
+            "volume": 119465719.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 29.87,
+            "high": 32.14,
+            "low": 29.47,
+            "close": 31.3,
+            "volume": 119387048.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 30.36,
+            "high": 32.0,
+            "low": 29.85,
+            "close": 30.41,
+            "volume": 112261313.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 30.0,
+            "high": 31.16,
+            "low": 29.66,
+            "close": 30.49,
+            "volume": 81769286.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 29.4,
+            "high": 29.87,
+            "low": 28.01,
+            "close": 28.33,
+            "volume": 78970721.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 28.35,
+            "high": 28.99,
+            "low": 27.48,
+            "close": 27.59,
+            "volume": 56386082.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 26.66,
+            "high": 28.75,
+            "low": 26.64,
+            "close": 28.16,
+            "volume": 68395365.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 27.73,
+            "high": 28.14,
+            "low": 27.29,
+            "close": 27.78,
+            "volume": 45385185.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 27.46,
+            "high": 28.09,
+            "low": 27.06,
+            "close": 27.37,
+            "volume": 36377608.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 27.24,
+            "high": 27.87,
+            "low": 26.85,
+            "close": 27.82,
+            "volume": 38730724.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 27.45,
+            "high": 27.78,
+            "low": 25.7,
+            "close": 25.89,
+            "volume": 61042192.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 25.79,
+            "high": 26.22,
+            "low": 25.28,
+            "close": 25.28,
+            "volume": 33719030.0
+          }
+        ]
+      },
+      "002244": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002244&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-29",
+            "open": 8.73,
+            "high": 9.46,
+            "low": 8.63,
+            "close": 9.46,
+            "volume": 83245778.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 8.99,
+            "high": 10.39,
+            "low": 8.56,
+            "close": 10.14,
+            "volume": 179234727.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 10.05,
+            "high": 10.5,
+            "low": 9.77,
+            "close": 10.21,
+            "volume": 103934764.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 10.22,
+            "high": 10.55,
+            "low": 10.01,
+            "close": 10.15,
+            "volume": 64419591.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 10.12,
+            "high": 10.14,
+            "low": 9.73,
+            "close": 9.93,
+            "volume": 46373218.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 9.85,
+            "high": 10.14,
+            "low": 9.68,
+            "close": 9.82,
+            "volume": 31285856.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 9.8,
+            "high": 9.86,
+            "low": 9.61,
+            "close": 9.67,
+            "volume": 26102004.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 9.55,
+            "high": 9.71,
+            "low": 9.21,
+            "close": 9.31,
+            "volume": 34759300.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 9.33,
+            "high": 10.2,
+            "low": 9.23,
+            "close": 9.76,
+            "volume": 51420268.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 9.65,
+            "high": 9.78,
+            "low": 9.5,
+            "close": 9.64,
+            "volume": 31327054.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 9.6,
+            "high": 9.72,
+            "low": 9.4,
+            "close": 9.53,
+            "volume": 23405319.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 9.55,
+            "high": 9.63,
+            "low": 9.39,
+            "close": 9.42,
+            "volume": 18172304.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 9.41,
+            "high": 9.55,
+            "low": 9.28,
+            "close": 9.31,
+            "volume": 19410319.0
+          }
+        ]
+      },
+      "002472": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002472&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-23",
+            "open": 37.74,
+            "high": 37.75,
+            "low": 37.07,
+            "close": 37.58,
+            "volume": 10359808.0
+          },
+          {
+            "date": "2026-09-24",
+            "open": 37.41,
+            "high": 39.49,
+            "low": 37.3,
+            "close": 38.94,
+            "volume": 37997824.0
+          },
+          {
+            "date": "2026-09-28",
+            "open": 39.04,
+            "high": 39.43,
+            "low": 38.47,
+            "close": 38.79,
+            "volume": 19394207.0
+          },
+          {
+            "date": "2026-09-29",
+            "open": 38.61,
+            "high": 39.05,
+            "low": 37.89,
+            "close": 38.7,
+            "volume": 17704623.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 38.57,
+            "high": 38.79,
+            "low": 38.02,
+            "close": 38.09,
+            "volume": 13164565.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 37.98,
+            "high": 38.24,
+            "low": 36.53,
+            "close": 36.72,
+            "volume": 13899294.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 36.5,
+            "high": 37.96,
+            "low": 35.55,
+            "close": 37.66,
+            "volume": 19641592.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 37.49,
+            "high": 37.55,
+            "low": 35.9,
+            "close": 36.0,
+            "volume": 12826128.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 35.37,
+            "high": 35.85,
+            "low": 34.61,
+            "close": 35.62,
+            "volume": 14054308.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 35.62,
+            "high": 35.62,
+            "low": 34.14,
+            "close": 34.43,
+            "volume": 13976683.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 33.52,
+            "high": 33.68,
+            "low": 32.73,
+            "close": 32.78,
+            "volume": 16515028.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 33.16,
+            "high": 33.85,
+            "low": 32.31,
+            "close": 33.22,
+            "volume": 17396113.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 32.87,
+            "high": 36.27,
+            "low": 32.66,
+            "close": 36.06,
+            "volume": 24891801.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 35.76,
+            "high": 39.6,
+            "low": 35.51,
+            "close": 38.97,
+            "volume": 46454658.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 38.78,
+            "high": 39.55,
+            "low": 38.5,
+            "close": 38.72,
+            "volume": 26275783.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 38.52,
+            "high": 39.87,
+            "low": 38.18,
+            "close": 38.27,
+            "volume": 26804956.0
+          }
+        ]
+      },
+      "002520": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002520&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-22",
+            "open": 5.69,
+            "high": 6.23,
+            "low": 5.67,
+            "close": 6.1,
+            "volume": 103478936.0
+          }
+        ]
+      },
+      "002531": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002531&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-12",
+            "open": 7.62,
+            "high": 8.27,
+            "low": 7.5,
+            "close": 8.27,
+            "volume": 104488531.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 8.19,
+            "high": 8.98,
+            "low": 7.95,
+            "close": 8.02,
+            "volume": 232347928.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 7.86,
+            "high": 7.98,
+            "low": 7.29,
+            "close": 7.39,
+            "volume": 155919743.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 7.0,
+            "high": 7.32,
+            "low": 6.68,
+            "close": 6.74,
+            "volume": 121336217.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 6.83,
+            "high": 7.41,
+            "low": 6.73,
+            "close": 7.41,
+            "volume": 179131222.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 7.26,
+            "high": 7.3,
+            "low": 7.01,
+            "close": 7.2,
+            "volume": 110665442.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 7.22,
+            "high": 7.24,
+            "low": 7.0,
+            "close": 7.09,
+            "volume": 64616059.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 7.08,
+            "high": 7.19,
+            "low": 6.93,
+            "close": 6.96,
+            "volume": 62885962.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 6.93,
+            "high": 6.96,
+            "low": 6.51,
+            "close": 6.52,
+            "volume": 81231731.0
+          }
+        ]
+      },
+      "002683": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002683&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-19",
+            "open": 28.81,
+            "high": 30.25,
+            "low": 27.92,
+            "close": 30.11,
+            "volume": 35326332.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 30.1,
+            "high": 30.55,
+            "low": 29.11,
+            "close": 30.17,
+            "volume": 19200719.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 30.12,
+            "high": 30.5,
+            "low": 29.73,
+            "close": 29.8,
+            "volume": 11404098.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 29.64,
+            "high": 30.39,
+            "low": 29.12,
+            "close": 29.2,
+            "volume": 11204979.0
+          }
+        ]
+      },
+      "002812": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002812&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-15",
+            "open": 46.62,
+            "high": 49.0,
+            "low": 45.05,
+            "close": 48.39,
+            "volume": 56680176.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 48.99,
+            "high": 49.35,
+            "low": 45.71,
+            "close": 46.26,
+            "volume": 43830968.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 45.06,
+            "high": 46.03,
+            "low": 44.9,
+            "close": 45.63,
+            "volume": 23962772.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 45.13,
+            "high": 47.1,
+            "low": 44.85,
+            "close": 46.55,
+            "volume": 25109541.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 46.06,
+            "high": 46.46,
+            "low": 43.33,
+            "close": 43.69,
+            "volume": 32658131.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 43.55,
+            "high": 44.2,
+            "low": 42.65,
+            "close": 42.65,
+            "volume": 19995215.0
+          }
+        ]
+      },
+      "002866": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002866&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-29",
+            "open": 14.26,
+            "high": 15.36,
+            "low": 14.26,
+            "close": 15.36,
+            "volume": 12492662.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 16.57,
+            "high": 16.9,
+            "low": 16.3,
+            "close": 16.9,
+            "volume": 34277162.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 16.76,
+            "high": 18.59,
+            "low": 16.18,
+            "close": 18.59,
+            "volume": 37798595.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 18.41,
+            "high": 20.45,
+            "low": 17.48,
+            "close": 18.32,
+            "volume": 76327882.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 17.82,
+            "high": 19.5,
+            "low": 17.82,
+            "close": 19.15,
+            "volume": 66786145.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 17.24,
+            "high": 17.37,
+            "low": 17.24,
+            "close": 17.24,
+            "volume": 5955300.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 16.41,
+            "high": 17.48,
+            "low": 15.85,
+            "close": 15.99,
+            "volume": 53171356.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 15.57,
+            "high": 16.79,
+            "low": 15.02,
+            "close": 16.18,
+            "volume": 49175290.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 15.6,
+            "high": 16.14,
+            "low": 14.8,
+            "close": 15.43,
+            "volume": 41621289.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 14.88,
+            "high": 15.33,
+            "low": 14.5,
+            "close": 15.11,
+            "volume": 31225300.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 14.86,
+            "high": 15.34,
+            "low": 14.86,
+            "close": 15.05,
+            "volume": 22022001.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 15.0,
+            "high": 15.06,
+            "low": 14.27,
+            "close": 14.38,
+            "volume": 23505298.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 14.38,
+            "high": 15.27,
+            "low": 13.99,
+            "close": 14.05,
+            "volume": 28239081.0
+          }
+        ]
+      },
+      "002962": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002962&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-09-28",
+            "open": 13.68,
+            "high": 14.76,
+            "low": 13.53,
+            "close": 14.76,
+            "volume": 31291098.0
+          },
+          {
+            "date": "2026-09-29",
+            "open": 14.23,
+            "high": 15.15,
+            "low": 14.22,
+            "close": 14.7,
+            "volume": 53072478.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 14.73,
+            "high": 16.17,
+            "low": 14.54,
+            "close": 16.17,
+            "volume": 35685714.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 15.5,
+            "high": 16.94,
+            "low": 15.28,
+            "close": 16.69,
+            "volume": 61165639.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 15.9,
+            "high": 15.9,
+            "low": 15.02,
+            "close": 15.02,
+            "volume": 21894631.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 14.83,
+            "high": 14.87,
+            "low": 13.52,
+            "close": 13.53,
+            "volume": 43457183.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 13.2,
+            "high": 14.48,
+            "low": 12.56,
+            "close": 14.25,
+            "volume": 44979640.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 14.25,
+            "high": 14.28,
+            "low": 13.74,
+            "close": 13.77,
+            "volume": 22944967.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 13.1,
+            "high": 13.66,
+            "low": 12.94,
+            "close": 13.01,
+            "volume": 19385099.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 13.31,
+            "high": 13.39,
+            "low": 12.6,
+            "close": 12.73,
+            "volume": 17440788.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 12.48,
+            "high": 12.76,
+            "low": 12.03,
+            "close": 12.62,
+            "volume": 15270888.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 12.61,
+            "high": 13.1,
+            "low": 12.48,
+            "close": 12.74,
+            "volume": 12241764.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 12.83,
+            "high": 12.9,
+            "low": 12.58,
+            "close": 12.64,
+            "volume": 10128500.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 12.63,
+            "high": 12.72,
+            "low": 12.14,
+            "close": 12.17,
+            "volume": 11075160.0
+          }
+        ]
+      },
+      "003021": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz003021&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-20",
+            "open": 67.52,
+            "high": 73.7,
+            "low": 67.51,
+            "close": 72.57,
+            "volume": 10545281.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 72.0,
+            "high": 77.0,
+            "low": 70.79,
+            "close": 75.81,
+            "volume": 9816350.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 80.0,
+            "high": 83.39,
+            "low": 80.0,
+            "close": 83.39,
+            "volume": 7546170.0
+          }
+        ]
+      },
+      "300058": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300058&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-09",
+            "open": 12.01,
+            "high": 13.04,
+            "low": 11.9,
+            "close": 12.87,
+            "volume": 228903956.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 12.7,
+            "high": 12.96,
+            "low": 12.48,
+            "close": 12.59,
+            "volume": 174817702.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 12.41,
+            "high": 13.32,
+            "low": 12.22,
+            "close": 13.04,
+            "volume": 256106487.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 12.83,
+            "high": 13.25,
+            "low": 12.66,
+            "close": 12.85,
+            "volume": 219930426.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 12.42,
+            "high": 13.1,
+            "low": 12.35,
+            "close": 12.35,
+            "volume": 199578087.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 12.61,
+            "high": 12.79,
+            "low": 11.82,
+            "close": 11.86,
+            "volume": 183710350.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 11.71,
+            "high": 12.09,
+            "low": 11.66,
+            "close": 11.94,
+            "volume": 132135181.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 11.83,
+            "high": 12.36,
+            "low": 11.8,
+            "close": 12.2,
+            "volume": 141305661.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 12.22,
+            "high": 12.5,
+            "low": 12.16,
+            "close": 12.22,
+            "volume": 125600032.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 12.15,
+            "high": 12.21,
+            "low": 11.71,
+            "close": 11.72,
+            "volume": 125658646.0
+          }
+        ]
+      },
+      "300314": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300314&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-20",
+            "open": 12.45,
+            "high": 13.58,
+            "low": 12.28,
+            "close": 13.23,
+            "volume": 20712259.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 13.44,
+            "high": 15.23,
+            "low": 13.44,
+            "close": 14.2,
+            "volume": 23515695.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 13.83,
+            "high": 14.15,
+            "low": 13.62,
+            "close": 13.79,
+            "volume": 16330195.0
+          }
+        ]
+      },
+      "300432": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300432&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-19",
+            "open": 12.48,
+            "high": 13.49,
+            "low": 12.47,
+            "close": 13.48,
+            "volume": 70350067.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 13.46,
+            "high": 13.8,
+            "low": 13.2,
+            "close": 13.72,
+            "volume": 66838600.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 13.78,
+            "high": 13.9,
+            "low": 13.34,
+            "close": 13.47,
+            "volume": 56327105.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 13.38,
+            "high": 14.0,
+            "low": 13.29,
+            "close": 13.29,
+            "volume": 50836742.0
+          }
+        ]
+      },
+      "300556": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300556&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-19",
+            "open": 16.22,
+            "high": 17.54,
+            "low": 15.58,
+            "close": 17.14,
+            "volume": 16683661.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 16.88,
+            "high": 18.12,
+            "low": 16.88,
+            "close": 17.71,
+            "volume": 17523580.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 17.8,
+            "high": 18.5,
+            "low": 17.52,
+            "close": 18.14,
+            "volume": 15268124.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 17.82,
+            "high": 18.01,
+            "low": 17.07,
+            "close": 17.12,
+            "volume": 10891468.0
+          }
+        ]
+      },
+      "300771": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300771&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-15",
+            "open": 10.95,
+            "high": 11.97,
+            "low": 10.83,
+            "close": 11.73,
+            "volume": 13483900.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 11.75,
+            "high": 12.13,
+            "low": 11.45,
+            "close": 11.59,
+            "volume": 10846000.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 11.41,
+            "high": 11.57,
+            "low": 11.09,
+            "close": 11.34,
+            "volume": 6897400.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 11.32,
+            "high": 11.73,
+            "low": 11.24,
+            "close": 11.7,
+            "volume": 6830100.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 11.72,
+            "high": 11.79,
+            "low": 11.45,
+            "close": 11.54,
+            "volume": 5186900.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 11.51,
+            "high": 11.64,
+            "low": 11.1,
+            "close": 11.12,
+            "volume": 4760900.0
+          }
+        ]
+      },
+      "300821": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300821&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-09",
+            "open": 15.3,
+            "high": 17.15,
+            "low": 15.3,
+            "close": 17.15,
+            "volume": 150720016.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 17.8,
+            "high": 18.49,
+            "low": 17.1,
+            "close": 17.99,
+            "volume": 224922527.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 17.63,
+            "high": 20.58,
+            "low": 17.31,
+            "close": 19.25,
+            "volume": 222029538.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 18.77,
+            "high": 18.99,
+            "low": 17.95,
+            "close": 18.01,
+            "volume": 149401830.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 17.19,
+            "high": 19.02,
+            "low": 17.04,
+            "close": 18.32,
+            "volume": 156217901.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 18.49,
+            "high": 18.85,
+            "low": 17.39,
+            "close": 17.66,
+            "volume": 137493296.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 17.25,
+            "high": 17.5,
+            "low": 16.58,
+            "close": 17.01,
+            "volume": 99027151.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 16.67,
+            "high": 17.93,
+            "low": 16.6,
+            "close": 16.98,
+            "volume": 114915821.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 17.21,
+            "high": 17.85,
+            "low": 16.77,
+            "close": 17.61,
+            "volume": 127369152.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 17.4,
+            "high": 17.63,
+            "low": 15.66,
+            "close": 15.66,
+            "volume": 127724085.0
+          }
+        ]
+      },
+      "301069": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz301069&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-15",
+            "open": 15.26,
+            "high": 17.18,
+            "low": 15.0,
+            "close": 16.71,
+            "volume": 22021342.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 17.03,
+            "high": 17.07,
+            "low": 16.41,
+            "close": 16.65,
+            "volume": 14339370.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 16.46,
+            "high": 17.65,
+            "low": 16.11,
+            "close": 17.4,
+            "volume": 18643090.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 17.22,
+            "high": 17.47,
+            "low": 17.08,
+            "close": 17.34,
+            "volume": 12964565.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 17.23,
+            "high": 17.78,
+            "low": 17.05,
+            "close": 17.33,
+            "volume": 13863033.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 17.1,
+            "high": 17.8,
+            "low": 16.85,
+            "close": 17.6,
+            "volume": 15891513.0
+          }
+        ]
+      },
+      "301658": {
+        "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz301658&scale=240&ma=no&datalen=180",
+        "bars": [
+          {
+            "date": "2026-10-20",
+            "open": 24.76,
+            "high": 25.62,
+            "low": 24.32,
+            "close": 25.62,
+            "volume": 19784243.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 25.3,
+            "high": 26.41,
+            "low": 24.9,
+            "close": 25.91,
+            "volume": 17602446.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 25.66,
+            "high": 25.66,
+            "low": 23.79,
+            "close": 23.79,
+            "volume": 13657052.0
+          }
+        ]
+      },
+      "600152": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600152,day,,,180",
+        "bars": [
+          {
+            "date": "2026-09-29",
+            "open": 7.56,
+            "high": 8.32,
+            "low": 7.5,
+            "close": 8.32,
+            "volume": 357830.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 8.81,
+            "high": 9.07,
+            "low": 8.32,
+            "close": 8.48,
+            "volume": 965263.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 8.24,
+            "high": 9.33,
+            "low": 8.24,
+            "close": 9.18,
+            "volume": 1148520.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 8.85,
+            "high": 8.96,
+            "low": 8.36,
+            "close": 8.73,
+            "volume": 950525.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 8.59,
+            "high": 9.2,
+            "low": 8.42,
+            "close": 8.45,
+            "volume": 746077.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 8.18,
+            "high": 8.44,
+            "low": 7.65,
+            "close": 8.2,
+            "volume": 666449.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 8.3,
+            "high": 9.02,
+            "low": 8.2,
+            "close": 8.4,
+            "volume": 902872.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 7.8,
+            "high": 8.11,
+            "low": 7.69,
+            "close": 7.81,
+            "volume": 630628.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 7.93,
+            "high": 7.99,
+            "low": 7.38,
+            "close": 7.72,
+            "volume": 589585.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 7.62,
+            "high": 7.71,
+            "low": 7.23,
+            "close": 7.57,
+            "volume": 392690.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 7.5,
+            "high": 7.77,
+            "low": 7.4,
+            "close": 7.5,
+            "volume": 234198.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 7.51,
+            "high": 7.55,
+            "low": 6.98,
+            "close": 7.01,
+            "volume": 394598.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 7.05,
+            "high": 7.39,
+            "low": 6.67,
+            "close": 6.68,
+            "volume": 353950.0
+          }
+        ]
+      },
+      "600199": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600199,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-15",
+            "open": 7.1,
+            "high": 7.98,
+            "low": 7.1,
+            "close": 7.75,
+            "volume": 816689.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 7.61,
+            "high": 8.46,
+            "low": 7.45,
+            "close": 8.12,
+            "volume": 918552.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 7.75,
+            "high": 8.52,
+            "low": 7.5,
+            "close": 7.78,
+            "volume": 748489.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 7.63,
+            "high": 7.79,
+            "low": 7.41,
+            "close": 7.48,
+            "volume": 497616.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 7.43,
+            "high": 7.67,
+            "low": 7.36,
+            "close": 7.47,
+            "volume": 373144.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 7.39,
+            "high": 7.4,
+            "low": 6.81,
+            "close": 6.82,
+            "volume": 457208.0
+          }
+        ]
+      },
+      "600380": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600380,day,,,180",
+        "bars": [
+          {
+            "date": "2026-09-28",
+            "open": 9.26,
+            "high": 9.81,
+            "low": 9.26,
+            "close": 9.79,
+            "volume": 479430.0
+          },
+          {
+            "date": "2026-09-29",
+            "open": 9.75,
+            "high": 10.08,
+            "low": 9.61,
+            "close": 9.9,
+            "volume": 357136.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 9.93,
+            "high": 10.23,
+            "low": 9.86,
+            "close": 10.16,
+            "volume": 316269.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 10.1,
+            "high": 10.21,
+            "low": 9.86,
+            "close": 9.9,
+            "volume": 286296.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 9.87,
+            "high": 10.17,
+            "low": 9.86,
+            "close": 10.13,
+            "volume": 240471.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 10.13,
+            "high": 10.18,
+            "low": 10.0,
+            "close": 10.03,
+            "volume": 153232.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 10.0,
+            "high": 10.01,
+            "low": 9.84,
+            "close": 9.9,
+            "volume": 159721.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 10.09,
+            "high": 10.14,
+            "low": 9.9,
+            "close": 10.03,
+            "volume": 156956.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 9.93,
+            "high": 10.08,
+            "low": 9.89,
+            "close": 10.02,
+            "volume": 188051.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 10.02,
+            "high": 10.3,
+            "low": 9.97,
+            "close": 10.08,
+            "volume": 186300.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 10.11,
+            "high": 10.19,
+            "low": 10.01,
+            "close": 10.09,
+            "volume": 205815.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 9.37,
+            "high": 9.41,
+            "low": 9.26,
+            "close": 9.41,
+            "volume": 216691.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 9.43,
+            "high": 9.47,
+            "low": 9.31,
+            "close": 9.33,
+            "volume": 111804.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 9.31,
+            "high": 9.33,
+            "low": 9.12,
+            "close": 9.12,
+            "volume": 127250.0
+          }
+        ]
+      },
+      "600547": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600547,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-09",
+            "open": 26.67,
+            "high": 27.45,
+            "low": 26.3,
+            "close": 27.17,
+            "volume": 1178871.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 27.17,
+            "high": 27.5,
+            "low": 26.4,
+            "close": 26.54,
+            "volume": 798766.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 26.16,
+            "high": 27.28,
+            "low": 25.9,
+            "close": 26.99,
+            "volume": 695999.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 26.58,
+            "high": 26.78,
+            "low": 25.94,
+            "close": 26.01,
+            "volume": 543786.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 25.56,
+            "high": 26.35,
+            "low": 25.19,
+            "close": 25.41,
+            "volume": 642442.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 25.87,
+            "high": 26.83,
+            "low": 25.35,
+            "close": 26.37,
+            "volume": 785109.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 26.11,
+            "high": 27.45,
+            "low": 26.03,
+            "close": 26.92,
+            "volume": 707530.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 26.37,
+            "high": 26.91,
+            "low": 26.08,
+            "close": 26.86,
+            "volume": 520713.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 26.59,
+            "high": 26.97,
+            "low": 26.53,
+            "close": 26.63,
+            "volume": 391987.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 26.47,
+            "high": 26.54,
+            "low": 25.35,
+            "close": 25.7,
+            "volume": 540799.0
+          }
+        ]
+      },
+      "600845": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600845,day,,,180",
+        "bars": [
+          {
+            "date": "2026-09-23",
+            "open": 18.45,
+            "high": 18.53,
+            "low": 18.27,
+            "close": 18.34,
+            "volume": 153206.0
+          },
+          {
+            "date": "2026-09-24",
+            "open": 18.34,
+            "high": 18.5,
+            "low": 18.23,
+            "close": 18.26,
+            "volume": 112390.0
+          },
+          {
+            "date": "2026-09-28",
+            "open": 18.16,
+            "high": 18.24,
+            "low": 17.78,
+            "close": 18.01,
+            "volume": 142479.0
+          },
+          {
+            "date": "2026-09-29",
+            "open": 18.01,
+            "high": 18.2,
+            "low": 17.78,
+            "close": 17.81,
+            "volume": 106811.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 17.86,
+            "high": 17.95,
+            "low": 17.62,
+            "close": 17.69,
+            "volume": 100001.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 17.58,
+            "high": 17.92,
+            "low": 17.33,
+            "close": 17.38,
+            "volume": 125709.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 17.41,
+            "high": 17.78,
+            "low": 17.17,
+            "close": 17.7,
+            "volume": 118513.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 17.63,
+            "high": 17.83,
+            "low": 17.6,
+            "close": 17.69,
+            "volume": 92147.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 17.57,
+            "high": 17.64,
+            "low": 17.15,
+            "close": 17.33,
+            "volume": 131520.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 17.33,
+            "high": 17.41,
+            "low": 17.09,
+            "close": 17.17,
+            "volume": 92363.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 16.92,
+            "high": 17.18,
+            "low": 16.7,
+            "close": 16.82,
+            "volume": 126047.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 16.98,
+            "high": 17.21,
+            "low": 16.78,
+            "close": 16.93,
+            "volume": 101581.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 16.85,
+            "high": 17.28,
+            "low": 16.8,
+            "close": 17.22,
+            "volume": 96146.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 17.15,
+            "high": 17.61,
+            "low": 17.03,
+            "close": 17.59,
+            "volume": 139133.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 17.5,
+            "high": 17.82,
+            "low": 17.42,
+            "close": 17.53,
+            "volume": 113053.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 17.46,
+            "high": 17.65,
+            "low": 17.11,
+            "close": 17.13,
+            "volume": 96367.0
+          }
+        ]
+      },
+      "600853": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600853,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-16",
+            "open": 3.4,
+            "high": 3.69,
+            "low": 3.32,
+            "close": 3.59,
+            "volume": 955068.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 3.62,
+            "high": 3.76,
+            "low": 3.52,
+            "close": 3.54,
+            "volume": 877634.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 3.59,
+            "high": 3.64,
+            "low": 3.42,
+            "close": 3.48,
+            "volume": 494540.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 3.49,
+            "high": 3.68,
+            "low": 3.45,
+            "close": 3.62,
+            "volume": 585419.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 3.66,
+            "high": 3.75,
+            "low": 3.6,
+            "close": 3.64,
+            "volume": 593388.0
+          }
+        ]
+      },
+      "600900": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600900,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-22",
+            "open": 29.57,
+            "high": 29.98,
+            "low": 29.34,
+            "close": 29.82,
+            "volume": 1690183.0
+          }
+        ]
+      },
+      "601288": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601288,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-22",
+            "open": 7.3,
+            "high": 7.43,
+            "low": 7.19,
+            "close": 7.4,
+            "volume": 4771820.0
+          }
+        ]
+      },
+      "603232": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603232,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-12",
+            "open": 16.99,
+            "high": 18.68,
+            "low": 16.92,
+            "close": 18.68,
+            "volume": 417997.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 17.8,
+            "high": 18.45,
+            "low": 17.64,
+            "close": 17.88,
+            "volume": 389067.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 17.88,
+            "high": 18.23,
+            "low": 17.55,
+            "close": 17.82,
+            "volume": 282975.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 16.8,
+            "high": 17.83,
+            "low": 16.8,
+            "close": 17.25,
+            "volume": 193528.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 17.8,
+            "high": 18.0,
+            "low": 16.92,
+            "close": 17.03,
+            "volume": 233360.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 16.88,
+            "high": 17.14,
+            "low": 15.92,
+            "close": 16.67,
+            "volume": 187939.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 16.64,
+            "high": 18.13,
+            "low": 16.53,
+            "close": 17.54,
+            "volume": 266075.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 17.53,
+            "high": 17.54,
+            "low": 16.87,
+            "close": 16.96,
+            "volume": 243548.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 17.3,
+            "high": 17.81,
+            "low": 15.75,
+            "close": 15.76,
+            "volume": 233701.0
+          }
+        ]
+      },
+      "603334": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603334,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-16",
+            "open": 30.35,
+            "high": 32.8,
+            "low": 30.16,
+            "close": 32.1,
+            "volume": 52316.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 31.83,
+            "high": 33.67,
+            "low": 30.61,
+            "close": 32.36,
+            "volume": 56672.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 32.31,
+            "high": 32.6,
+            "low": 31.72,
+            "close": 32.5,
+            "volume": 27230.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 32.34,
+            "high": 32.49,
+            "low": 31.25,
+            "close": 31.28,
+            "volume": 18279.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 31.73,
+            "high": 31.73,
+            "low": 29.88,
+            "close": 30.13,
+            "volume": 19352.0
+          }
+        ]
+      },
+      "603636": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603636,day,,,180",
+        "bars": [
+          {
+            "date": "2026-09-29",
+            "open": 7.0,
+            "high": 7.87,
+            "low": 6.86,
+            "close": 7.87,
+            "volume": 702115.0
+          },
+          {
+            "date": "2026-09-30",
+            "open": 8.08,
+            "high": 8.2,
+            "low": 7.65,
+            "close": 7.67,
+            "volume": 638096.0
+          },
+          {
+            "date": "2026-10-08",
+            "open": 7.68,
+            "high": 7.7,
+            "low": 7.39,
+            "close": 7.46,
+            "volume": 337590.0
+          },
+          {
+            "date": "2026-10-09",
+            "open": 7.47,
+            "high": 7.94,
+            "low": 7.14,
+            "close": 7.85,
+            "volume": 438254.0
+          },
+          {
+            "date": "2026-10-12",
+            "open": 7.86,
+            "high": 8.07,
+            "low": 7.61,
+            "close": 7.85,
+            "volume": 499636.0
+          },
+          {
+            "date": "2026-10-13",
+            "open": 7.67,
+            "high": 7.95,
+            "low": 7.6,
+            "close": 7.88,
+            "volume": 349675.0
+          },
+          {
+            "date": "2026-10-14",
+            "open": 7.78,
+            "high": 7.78,
+            "low": 7.47,
+            "close": 7.51,
+            "volume": 262130.0
+          },
+          {
+            "date": "2026-10-15",
+            "open": 7.3,
+            "high": 7.56,
+            "low": 7.26,
+            "close": 7.31,
+            "volume": 231833.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 8.04,
+            "high": 8.04,
+            "low": 8.04,
+            "close": 8.04,
+            "volume": 110136.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 7.8,
+            "high": 8.51,
+            "low": 7.55,
+            "close": 8.08,
+            "volume": 802276.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 7.92,
+            "high": 8.89,
+            "low": 7.92,
+            "close": 8.89,
+            "volume": 796947.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 8.95,
+            "high": 9.78,
+            "low": 8.63,
+            "close": 9.78,
+            "volume": 923750.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 9.48,
+            "high": 9.58,
+            "low": 8.8,
+            "close": 8.8,
+            "volume": 905932.0
+          }
+        ]
+      },
+      "688084": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688084,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-19",
+            "open": 40.1,
+            "high": 42.93,
+            "low": 39.11,
+            "close": 42.29,
+            "volume": 4728467.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 42.0,
+            "high": 42.98,
+            "low": 40.83,
+            "close": 42.69,
+            "volume": 3375910.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 42.6,
+            "high": 43.53,
+            "low": 40.81,
+            "close": 41.1,
+            "volume": 2844381.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 41.19,
+            "high": 42.44,
+            "low": 39.86,
+            "close": 39.86,
+            "volume": 2643267.0
+          }
+        ]
+      },
+      "688552": {
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688552,day,,,180",
+        "bars": [
+          {
+            "date": "2026-10-15",
+            "open": 31.5,
+            "high": 35.28,
+            "low": 30.75,
+            "close": 34.13,
+            "volume": 14384919.0
+          },
+          {
+            "date": "2026-10-16",
+            "open": 34.86,
+            "high": 36.63,
+            "low": 34.13,
+            "close": 34.6,
+            "volume": 11382221.0
+          },
+          {
+            "date": "2026-10-19",
+            "open": 34.32,
+            "high": 35.11,
+            "low": 32.77,
+            "close": 34.65,
+            "volume": 11162894.0
+          },
+          {
+            "date": "2026-10-20",
+            "open": 34.4,
+            "high": 35.85,
+            "low": 33.81,
+            "close": 35.27,
+            "volume": 7068107.0
+          },
+          {
+            "date": "2026-10-21",
+            "open": 35.55,
+            "high": 36.49,
+            "low": 34.9,
+            "close": 35.2,
+            "volume": 5160328.0
+          },
+          {
+            "date": "2026-10-22",
+            "open": 35.47,
+            "high": 35.86,
+            "low": 34.01,
+            "close": 34.25,
+            "volume": 6353454.0
+          }
+        ]
+      }
+    }
+  },
+  "dragon_tiger": {
+    "institution_rows": [
+      {
+        "code": "301563",
+        "name": "云汉芯城",
+        "change_pct": 16.16,
+        "turnover_pct": 11.02,
+        "institution_net_buy_wan": 2630.64
+      },
+      {
+        "code": "002696",
+        "name": "百洋股份",
+        "change_pct": -6.75,
+        "turnover_pct": 39.36,
+        "institution_net_buy_wan": 2136.2
+      },
+      {
+        "code": "920157",
+        "name": "宇特光电",
+        "change_pct": 1.58,
+        "turnover_pct": 42.16,
+        "institution_net_buy_wan": 2008.92
+      },
+      {
+        "code": "920296",
+        "name": "文峰光电",
+        "change_pct": -8.73,
+        "turnover_pct": 68.16,
+        "institution_net_buy_wan": 1290.38
+      },
+      {
+        "code": "300839",
+        "name": "博汇股份",
+        "change_pct": 20.0,
+        "turnover_pct": 14.53,
+        "institution_net_buy_wan": 1001.37
+      },
+      {
+        "code": "002343",
+        "name": "慈文传媒",
+        "change_pct": -6.16,
+        "turnover_pct": 32.95,
+        "institution_net_buy_wan": 877.97
+      },
+      {
+        "code": "301227",
+        "name": "森鹰窗业",
+        "change_pct": -20.0,
+        "turnover_pct": 12.53,
+        "institution_net_buy_wan": 515.42
+      },
+      {
+        "code": "920229",
+        "name": "世纪数码",
+        "change_pct": 3.69,
+        "turnover_pct": 29.06,
+        "institution_net_buy_wan": 346.85
+      },
+      {
+        "code": "920096",
+        "name": "嘉晨智能",
+        "change_pct": -5.69,
+        "turnover_pct": 38.21,
+        "institution_net_buy_wan": 275.91
+      },
+      {
+        "code": "301569",
+        "name": "联亚药业",
+        "change_pct": -12.76,
+        "turnover_pct": 41.03,
+        "institution_net_buy_wan": 237.06
+      },
+      {
+        "code": "301023",
+        "name": "奕帆传动",
+        "change_pct": 19.99,
+        "turnover_pct": 20.67,
+        "institution_net_buy_wan": 163.54
+      },
+      {
+        "code": "301686",
+        "name": "中塑股份",
+        "change_pct": 7.93,
+        "turnover_pct": 44.3,
+        "institution_net_buy_wan": -79.2
+      },
+      {
+        "code": "301052",
+        "name": "果麦文化",
+        "change_pct": -13.75,
+        "turnover_pct": 34.53,
+        "institution_net_buy_wan": -230.6
+      },
+      {
+        "code": "920196",
+        "name": "南方乳业",
+        "change_pct": -4.69,
+        "turnover_pct": 29.54,
+        "institution_net_buy_wan": -288.09
+      },
+      {
+        "code": "000011",
+        "name": "深物业A",
+        "change_pct": -9.96,
+        "turnover_pct": 13.73,
+        "institution_net_buy_wan": -882.19
+      },
+      {
+        "code": "600202",
+        "name": "哈空调",
+        "change_pct": 10.05,
+        "turnover_pct": 28.46,
+        "institution_net_buy_wan": -1212.9
+      },
+      {
+        "code": "000678",
+        "name": "襄阳轴承",
+        "change_pct": 9.96,
+        "turnover_pct": 15.95,
+        "institution_net_buy_wan": -1352.68
+      },
+      {
+        "code": "301502",
+        "name": "华阳智能",
+        "change_pct": 20.0,
+        "turnover_pct": 14.04,
+        "institution_net_buy_wan": -1482.71
+      },
+      {
+        "code": "000530",
+        "name": "冰山冷热",
+        "change_pct": 9.97,
+        "turnover_pct": 45.41,
+        "institution_net_buy_wan": -1770.39
+      },
+      {
+        "code": "002815",
+        "name": "崇达技术",
+        "change_pct": -10.0,
+        "turnover_pct": 12.17,
+        "institution_net_buy_wan": -2497.47
+      },
+      {
+        "code": "301591",
+        "name": "肯特股份",
+        "change_pct": 6.83,
+        "turnover_pct": 48.74,
+        "institution_net_buy_wan": -2676.93
+      },
+      {
+        "code": "002647",
+        "name": "仁东控股",
+        "change_pct": -8.96,
+        "turnover_pct": 4.05,
+        "institution_net_buy_wan": -3235.64
+      },
+      {
+        "code": "002307",
+        "name": "北新路桥",
+        "change_pct": 10.06,
+        "turnover_pct": 12.66,
+        "institution_net_buy_wan": -3742.74
+      },
+      {
+        "code": "301313",
+        "name": "凡拓数创",
+        "change_pct": -1.92,
+        "turnover_pct": 35.65,
+        "institution_net_buy_wan": -4719.58
+      },
+      {
+        "code": "002181",
+        "name": "粤传媒",
+        "change_pct": -9.96,
+        "turnover_pct": 16.72,
+        "institution_net_buy_wan": -5549.01
+      },
+      {
+        "code": "002388",
+        "name": "新亚制程",
+        "change_pct": -10.0,
+        "turnover_pct": 20.18,
+        "institution_net_buy_wan": -6134.36
+      },
+      {
+        "code": "002085",
+        "name": "万丰奥威",
+        "change_pct": -10.01,
+        "turnover_pct": 6.86,
+        "institution_net_buy_wan": -6973.85
+      },
+      {
+        "code": "002912",
+        "name": "中新赛克",
+        "change_pct": -6.85,
+        "turnover_pct": 14.69,
+        "institution_net_buy_wan": -7154.55
+      },
+      {
+        "code": "002980",
+        "name": "华盛昌",
+        "change_pct": -10.0,
+        "turnover_pct": 12.8,
+        "institution_net_buy_wan": -10461.89
+      }
+    ],
+    "stock_connect_rows": [
+      {
+        "code": "002815",
+        "name": "崇达技术",
+        "stock_connect_net_buy_wan": 11551.13,
+        "change_pct": -10.0,
+        "turnover_pct": 12.17
+      },
+      {
+        "code": "002724",
+        "name": "海洋王",
+        "stock_connect_net_buy_wan": 2637.54,
+        "change_pct": 10.01,
+        "turnover_pct": 20.18
+      },
+      {
+        "code": "002181",
+        "name": "粤传媒",
+        "stock_connect_net_buy_wan": 1831.61,
+        "change_pct": -9.96,
+        "turnover_pct": 16.72
+      },
+      {
+        "code": "601811",
+        "name": "新华文轩",
+        "stock_connect_net_buy_wan": 612.55,
+        "change_pct": -5.53,
+        "turnover_pct": 8.15
+      },
+      {
+        "code": "301563",
+        "name": "云汉芯城",
+        "stock_connect_net_buy_wan": 155.35,
+        "change_pct": 16.16,
+        "turnover_pct": 11.02
+      },
+      {
+        "code": "000678",
+        "name": "襄阳轴承",
+        "stock_connect_net_buy_wan": 151.7,
+        "change_pct": 9.96,
+        "turnover_pct": 15.95
+      },
+      {
+        "code": "600178",
+        "name": "东安动力",
+        "stock_connect_net_buy_wan": -95.82,
+        "change_pct": -9.96,
+        "turnover_pct": 22.4
+      },
+      {
+        "code": "000032",
+        "name": "深桑达A",
+        "stock_connect_net_buy_wan": -218.36,
+        "change_pct": -10.0,
+        "turnover_pct": 7.66
+      },
+      {
+        "code": "601566",
+        "name": "九牧王",
+        "stock_connect_net_buy_wan": -513.84,
+        "change_pct": -6.35,
+        "turnover_pct": 10.52
+      },
+      {
+        "code": "000011",
+        "name": "深物业A",
+        "stock_connect_net_buy_wan": -638.63,
+        "change_pct": -9.96,
+        "turnover_pct": 13.73
+      },
+      {
+        "code": "603767",
+        "name": "中马传动",
+        "stock_connect_net_buy_wan": -773.43,
+        "change_pct": -9.5,
+        "turnover_pct": 8.56
+      },
+      {
+        "code": "603155",
+        "name": "新亚强",
+        "stock_connect_net_buy_wan": -895.27,
+        "change_pct": -10.02,
+        "turnover_pct": 7.56
+      },
+      {
+        "code": "603105",
+        "name": "芯能科技",
+        "stock_connect_net_buy_wan": -1173.8,
+        "change_pct": -10.02,
+        "turnover_pct": 7.82
+      },
+      {
+        "code": "002647",
+        "name": "仁东控股",
+        "stock_connect_net_buy_wan": -1557.39,
+        "change_pct": -8.96,
+        "turnover_pct": 4.05
+      },
+      {
+        "code": "002085",
+        "name": "万丰奥威",
+        "stock_connect_net_buy_wan": -2175.13,
+        "change_pct": -10.01,
+        "turnover_pct": 6.86
+      },
+      {
+        "code": "600127",
+        "name": "金健米业",
+        "stock_connect_net_buy_wan": -5006.91,
+        "change_pct": -9.99,
+        "turnover_pct": 26.85
+      },
+      {
+        "code": "002980",
+        "name": "华盛昌",
+        "stock_connect_net_buy_wan": -7126.31,
+        "change_pct": -10.0,
+        "turnover_pct": 12.8
+      }
+    ],
+    "institution_appearance_count": 29,
+    "institution_total_net_buy_yi": -4.9,
+    "source": "https://finance.ifeng.com/c/8xREqNxTt6v"
+  },
+  "learning_review": {
+    "snapshot_id": "forward-learning-2026-10-22",
+    "sample_count": 31,
+    "status_counts": {
+      "observed": 21,
+      "ineligible_retrospective": 9,
+      "pending": 1
+    },
+    "provider_count": 23,
+    "horizon_statistics": {
+      "1": {
+        "observed": 22,
+        "pending": 0,
+        "mean_close_pct": -1.288,
+        "median_close_pct": -0.59,
+        "positive": 11,
+        "nonpositive": 11,
+        "min_close_pct": -10.002,
+        "max_close_pct": 7.293,
+        "min_mae_pct": -10.002
+      },
+      "2": {
+        "observed": 21,
+        "pending": 1,
+        "mean_close_pct": -2.389,
+        "median_close_pct": -3.444,
+        "positive": 9,
+        "nonpositive": 12,
+        "min_close_pct": -16.678,
+        "max_close_pct": 7.39,
+        "min_mae_pct": -17.528
+      },
+      "5": {
+        "observed": 18,
+        "pending": 4,
+        "mean_close_pct": -9.106,
+        "median_close_pct": -8.648,
+        "positive": 3,
+        "nonpositive": 15,
+        "min_close_pct": -18.235,
+        "max_close_pct": 2.507,
+        "min_mae_pct": -20.807
+      },
+      "10": {
+        "observed": 3,
+        "pending": 19,
+        "mean_close_pct": -19.05,
+        "median_close_pct": -26.146,
+        "positive": 0,
+        "nonpositive": 3,
+        "min_close_pct": -27.082,
+        "max_close_pct": -3.923,
+        "min_mae_pct": -27.082
+      }
+    },
+    "validation": {
+      "model_version": "forward_learning_v1",
+      "total_mature_t2_featured": 21,
+      "unique_cohort_dates": 6,
+      "promotion_authorized": false,
+      "strategy_active_rules_changed": false,
+      "rule_proposals": [],
+      "status": "insufficient_verified_proxy_samples",
+      "minimum_samples": 36,
+      "minimum_unique_dates": 20
+    },
+    "attribution_counts": {
+      "T2_price_proxy_loss_over_2pct": 12,
+      "T2_intraday_adverse_excursion_over_5pct": 13,
+      "no_preset_failure_flag": 8,
+      "positive_close_but_deep_interim_drawdown": 1
+    },
+    "provider_error_counts": {
+      "ConnectionError": 15,
+      "HTTPError": 15
+    },
+    "low_position_evaluation_count": 4
+  },
+  "limitations": [
+    "no verified trade fills",
+    "no Level-2/order-book data",
+    "daily OHLC cannot prove intraday order",
+    "dragon-tiger seat labels do not identify final holders"
+  ]
+}

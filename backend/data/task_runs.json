@@ -3415,6 +3415,116 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "volume-price-20261022-manual-completion-v1-completed",
+      "run_id": "volume-price-20261022-manual-completion-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-22",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-22T20:01:58+00:00",
+      "recorded_at": "2026-10-22T20:04:18+00:00",
+      "completed_at": "2026-10-22T20:04:18+00:00",
+      "status": "completed",
+      "summary": "复用全A5571只入口，独立复算120只广泛池/28只深筛；上一批28/28验证，收盘中位-4.318%，可执行成交N=0。",
+      "report_ids": [
+        "volume-price-20261022-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-2026-10-22-evidence.json"
+      ]
+    },
+    {
+      "id": "low-position-20261022-manual-completion-v1-completed",
+      "run_id": "low-position-20261022-manual-completion-v1",
+      "task_id": "low_position",
+      "date": "2026-10-22",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-22T20:01:58+00:00",
+      "recorded_at": "2026-10-22T20:04:18+00:00",
+      "completed_at": "2026-10-22T20:04:18+00:00",
+      "status": "completed",
+      "summary": "既有35/35重取日线，30日成熟0；新增4只同日影子样本，均未到T+1，现行规则不变。",
+      "report_ids": [
+        "low-position-20261022-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-2026-10-22-evidence.json"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261022-manual-completion-v1-completed",
+      "run_id": "dragon-tiger-20261022-manual-completion-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-22",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-22T20:01:58+00:00",
+      "recorded_at": "2026-10-22T20:04:18+00:00",
+      "completed_at": "2026-10-22T20:04:18+00:00",
+      "status": "completed",
+      "summary": "机构席位29股合计净卖4.90亿元，股通现身17股；强价与净买多处背离，D日不发布单股条件候选。",
+      "report_ids": [
+        "dragon-tiger-20261022-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-2026-10-22-evidence.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261022-manual-completion-v1-completed",
+      "run_id": "combined-pair-20261022-manual-completion-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-22",
+      "trigger": "manual_backfill",
+      "started_at": "2026-10-22T20:01:58+00:00",
+      "recorded_at": "2026-10-22T20:04:18+00:00",
+      "completed_at": "2026-10-22T20:04:18+00:00",
+      "status": "completed",
+      "summary": "四份同T完整研究及回执齐备；宽度、量价尾部和龙虎榜分歧共同否决，10月23日综合候选0只。",
+      "report_ids": [
+        "combined-pair-20261022-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-2026-10-22-evidence.json"
+      ]
+    },
+    {
+      "id": "learning-review-20261022-scheduled-v1-completed",
+      "run_id": "learning-review-20261022-scheduled-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-22",
+      "trigger": "scheduled",
+      "started_at": "2026-10-22T20:01:58+00:00",
+      "recorded_at": "2026-10-22T20:04:18+00:00",
+      "completed_at": "2026-10-22T20:04:18+00:00",
+      "status": "completed",
+      "summary": "最新快照31条；T+2成熟特征样本21条/6日期，低于36条/20日期门槛；不晋级、不改规则或权重。",
+      "report_ids": [
+        "learning-review-20261022-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-2026-10-22-evidence.json"
+      ]
     }
   ]
 }

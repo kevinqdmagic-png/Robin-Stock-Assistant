@@ -1,0 +1,29 @@
+{
+  "id": "learning-review-20261022-forward-v1",
+  "date": "2026-10-22",
+  "market_date": "2026-10-22",
+  "task_id": "learning_review",
+  "track": "market_review",
+  "title": "每日学习复核｜10月22日31条代理评估、成熟度缺口与三项影子假设",
+  "summary": "最新快照31条；T+2成熟特征样本21条/6日期，低于36条/20日期门槛；不晋级、不改规则或权重。",
+  "body": "一、新快照和样本成熟度\n\n本轮读取最新快照forward-learning-2026-10-22，记录时间2026-10-22T20:12:49.922410+08:00。共有31条评估：observed 21、ineligible_retrospective 9、pending 1；行情提供方成功计数23。所有收益字段均以信号日未复权收盘为代理基准，不是买入成交，executed_trade=false、可执行净收益N/A。\n\nT+1：22条，均值-1.288%、中位-0.590%，正/非正11/11；T+2：21条，均值-2.389%、中位-3.444%，正/非正9/12；T+5：18条，均值-9.106%、中位-8.648%，正/非正3/15；T+10仅3条，均值-19.050%、中位-26.146%，不能视为稳定长期结论。\n\n二、失败归因和风险\n\nT+2收盘代理亏损超过2%的标记12条，T+2路径MAE超过5%的标记13条；另有1条“收盘为正但中途深回撤”。ConnectionError与HTTPError各15条，错误按样本留存，没有填零或删除失败。\n\nT+2具特征成熟样本21条、仅6个独立日期；晋级门槛为至少36条和20个日期，promotion_authorized=false、strategy_active_rules_changed=false。不存在训练/留出样本充分的依据，也没有独立样本外留出集。低位形态新增4条，但T+1/T+2/T+5/T+10/T+30全部pending；龙虎榜未形成独立学习评估。因此不能把31条总记录、21条成熟代理或6个日期描述成已验证策略。\n\n三、下一轮影子假设\n\nH5继续：极弱市场中，近MA20、RVOL>3、CLV>0.70、未封板的逆势样本，只在次日宽度和板块先修复、再完成回踩重站时观察；与高乖离封板组分层。L2新增：低位四样本按防御低波动（600900/601288）和制造高弹性（000420/002520）分层，先等各自T+2和至少5个独立日期，不混算。龙虎榜R1：机构净买、股通净买和价格强弱必须三维交叉，资金—价格背离单列反例。\n\n以上均为未经样本外验证的影子假设，不自动修改规则、阈值或权重。APP没有内置大模型，不会自行推理，也不会因使用次数增加而自然提高胜率。",
+  "sources": [
+    "https://robin-stock-api-production.up.railway.app/api/learning",
+    "backend/data/learning.json",
+    "docs/research/completion-2026-10-22-evidence.json"
+  ],
+  "report_type": "learning_review",
+  "eligible_for_integrated_research": false,
+  "published_at": "2026-10-23T04:01:58+08:00",
+  "recorded_at": "2026-10-23T04:01:58+08:00",
+  "data_cutoff_at": "2026-10-23T04:01:58+08:00",
+  "run_id": "learning-review-20261022-scheduled-v1",
+  "evidence_file": "docs/research/completion-2026-10-22-evidence.json",
+  "provenance": "forward_snapshot_review",
+  "learning_snapshot_id": "forward-learning-2026-10-22",
+  "sample_count": 31,
+  "mature_t2_featured": 21,
+  "unique_cohort_dates": 6,
+  "promotion_authorized": false,
+  "strategy_active_rules_changed": false
+}
