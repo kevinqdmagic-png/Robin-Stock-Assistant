@@ -15925,6 +15925,24 @@
         "docs/research/combined-pair-2026-10-13-waiting.md"
       ],
       "strategy": "combined_limitup_watch"
+    },
+    {
+      "id": "intraday-watch-20261022-early_pair-gh39710293434",
+      "date": "2026-10-22",
+      "task_id": "early_pair",
+      "track": "market_review",
+      "title": "09:50真实行情观察（非交易推荐）",
+      "published_at": "2026-10-22T10:14:56.380068+08:00",
+      "source_cutoff_at": "2026-10-22T10:14:45+08:00",
+      "evidence_status": "partial_quote_verified_strategy_unverified",
+      "report_type": "intraday_screening_observation",
+      "body": "【非荐股／不可直接交易】北京时间 2026-10-22T10:14:56.380068+08:00 的盘中部分股票池观察。\n覆盖：54只当时有效报价，143只请求；仅既有研究池、东方财富及新浪可访问的成交活跃股票，不是A股全市场扫描。\n数据源：https://qt.gtimg.cn/q=sz300450；有效性仅检验源格式、报价时间、昨收、成交量和成交额。\n报价源分布：{'tencent': 54, 'eastmoney': 0}；两家源同时点复核2只；冲突剔除0只；采集覆盖率37.8%。\n筛选逻辑：排除ST/BJ；一定涨幅区间、成交额≥0.8亿元、换手2%至35%；仅为启发式排序，尚未验证龙虎榜、板块同步、盘口承接、封板概率、隔日溢价或T+1可行性。\n1. 利亚德（300296），当时价6.01元，涨幅6.75%，成交额19.89亿元，换手13.99%，观察分37.26；行情时间 2026-10-22T10:14:45+08:00。仅作复核候选，未形成买入信号。\n重要：未完成历史回测和样本外验证；本结果不能升级为成功荐股或投资建议。",
+      "sources": [
+        "https://qt.gtimg.cn/q=sz300296",
+        "https://qt.gtimg.cn/q=sz300450"
+      ],
+      "candidate_count": 1,
+      "universe_count": 54
     }
   ]
 }
