@@ -3525,6 +3525,37 @@
       "sources": [
         "docs/research/completion-2026-10-22-evidence.json"
       ]
+    },
+    {
+      "id": "learning-review-20261022-scheduled-v1-delivery-blocked-railway-build-pause",
+      "run_id": "learning-review-20261022-scheduled-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-22",
+      "trigger": "scheduled",
+      "started_at": "2026-10-22T20:12:58+00:00",
+      "recorded_at": "2026-10-22T20:12:58+00:00",
+      "completed_at": "2026-10-22T20:12:58+00:00",
+      "status": "blocked",
+      "summary": "10月22日四项完整研究、综合空仓决策、31条学习快照复核及原始样本已进入main且研究CI成功；Railway暂停新构建，准确SHA无法创建部署，公开APP仍为旧构建，尚未同步。",
+      "report_ids": [
+        "learning-review-20261022-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-22",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "blocked_transient_platform_build_pause",
+      "attempted_commit": "4f933b703ffc58148f12f17455f5b856ebe129e4",
+      "public_build_observed": "04141bf7e6318e2b038b21b9fa38a39c64a19c0b",
+      "reason_code": "railway_builds_temporarily_paused",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/4f933b703ffc58148f12f17455f5b856ebe129e4",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39846301689",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://robin-stock-api-production.up.railway.app/api/learning"
+      ]
     }
   ]
 }
