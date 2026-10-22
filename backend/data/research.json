@@ -16009,6 +16009,158 @@
       ],
       "provenance": "contemporaneous_close_research",
       "integrated_prerequisite_policy": "market_review+volume_price+low_position+dragon_tiger; quant_research cancelled"
+    },
+    {
+      "task_id": "market_review",
+      "track": "market_review",
+      "title": "2026-10-22 盘后指数与样本广度研究",
+      "summary": "同日指数4/4，股票115/120只，暂未完成全市场复盘。",
+      "body": "【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-10-22T17:50:49+08:00\n证据日期（北京时间）：2026-10-22；实际扫描已关注研究池120只；同日有效日线115只；并非全A扫描。样本来源：['local_research_catalog', 'eastmoney_public_turnover_ranking_best_effort']。数据错误：{'daily_ValueError': 5}。样本范围、存活偏差与供应商不可用均可能影响判断。\n核验指数：上证指数 3658.03（-1.48%）；深证成指 11357.32（-2.96%）；创业板指 2576.9（-4.37%）；科创50 1305.87（-2.78%）\n研究池上涨23只、下跌92只（非全市场涨跌家数）。\n未取得全市场行业广度、题材情绪、高度板与龙虎榜，不能生成完整次日方向判断。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "contemporaneous_observation_not_recommendation",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "id": "scheduled-research-20261022-39758539182-market_review-report",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T17:50:49+08:00",
+      "run_id": "39758539182"
+    },
+    {
+      "task_id": "volume_price",
+      "track": "volume_price",
+      "title": "2026-10-22 量价样本独立观察",
+      "summary": "完成115只有效样本量价核验；强量价形态4只、弱承接78只。",
+      "body": "【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-10-22T17:50:49+08:00\n证据日期（北京时间）：2026-10-22；实际扫描已关注研究池120只；同日有效日线115只；并非全A扫描。样本来源：['local_research_catalog', 'eastmoney_public_turnover_ranking_best_effort']。数据错误：{'daily_ValueError': 5}。样本范围、存活偏差与供应商不可用均可能影响判断。\n条件型放量收盘强势样本（前复权日线，仅研究）：\n002520 日变动+7.77% 量比4.36 收盘位置0.768 距MA20+1.06%\n000420 日变动+3.11% 量比2.05 收盘位置0.8 距MA20+8.91%\n600900 日变动+0.85% 量比1.84 收盘位置0.75 距MA20+3.14%\n601288 日变动+1.51% 量比1.50 收盘位置0.875 距MA20+6.22%\n高位承接偏弱样本：\n000032 日变动-10.00% 量比2.21 收盘位置0.0 距MA20-10.93%\n000887 日变动-4.12% 量比1.29 收盘位置0.0 距MA20-7.29%\n001270 日变动-3.42% 量比0.93 收盘位置0.0 距MA20-8.05%\n002074 日变动-2.36% 量比0.61 收盘位置0.0 距MA20-8.92%\n002130 日变动-1.97% 量比0.58 收盘位置0.0 距MA20-7.46%\n002364 日变动-3.27% 量比0.74 收盘位置0.0 距MA20-14.41%\n002371 日变动-3.39% 量比1.11 收盘位置0.0 距MA20-11.93%\n002487 日变动-7.13% 量比0.62 收盘位置0.0 距MA20-20.74%\n002812 日变动-2.38% 量比0.82 收盘位置0.0 距MA20-7.27%\n002851 日变动-6.04% 量比0.69 收盘位置0.0 距MA20-15.44%\n强弱阈值未经历史样本外验证。缺完整盘口、资金身份与可成交性，禁止把名单转换成自动买入指令。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "contemporaneous_observation_not_recommendation",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "id": "scheduled-research-20261022-39758539182-volume_price-report",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T17:50:49+08:00",
+      "run_id": "39758539182"
+    },
+    {
+      "task_id": "limitup_single",
+      "track": "market_review",
+      "title": "2026-10-22 打板生态取证状态",
+      "summary": "已有局部收盘涨幅代理；全市场涨停高度、封板时间、炸板率和可成交证据缺失，本轮不发布打板单股。",
+      "body": "【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-10-22T17:50:49+08:00\n证据日期（北京时间）：2026-10-22；实际扫描已关注研究池120只；同日有效日线115只；并非全A扫描。样本来源：['local_research_catalog', 'eastmoney_public_turnover_ranking_best_effort']。数据错误：{'daily_ValueError': 5}。样本范围、存活偏差与供应商不可用均可能影响判断。\n研究池收盘涨幅超过9.7%的代理样本数=2。不同板块涨跌停幅度、ST与新股规则不同，前复权收益率不等于交易所核验的涨停；代理样本不得被称为实际涨停。无法检查空间板、进阶板、封单与炸板，正式打板候选=0，策略成功率未知。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "contemporaneous_observation_not_recommendation",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "id": "scheduled-research-20261022-39758539182-limitup_single-report",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T17:50:49+08:00",
+      "run_id": "39758539182"
+    },
+    {
+      "task_id": "low_position",
+      "track": "low_position",
+      "title": "2026-10-22 低位启动30日跟踪：当日样本筛查",
+      "summary": "已有研究池115只同日有效日线中，满足低位放量形态代理4只。尚未完成全市场低位启动扫描。",
+      "body": "【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-10-22T17:50:49+08:00\n证据日期（北京时间）：2026-10-22；实际扫描已关注研究池120只；同日有效日线115只；并非全A扫描。样本来源：['local_research_catalog', 'eastmoney_public_turnover_ranking_best_effort']。数据错误：{'daily_ValueError': 5}。样本范围、存活偏差与供应商不可用均可能影响判断。\n筛选条件（仅供待检验样本观察）：距离近60根日线最低点0%~25%、日量比1.5~5、高于MA20 0%~15%、收盘落当日区间上30%；不代表主力吸筹事实、已成交或有效预测。\n满足代理条件的观察名单：\n600900 日变动+0.85% 量比1.84 收盘位置0.75 距MA20+3.14% 距60日最低点+8.40%\n000420 日变动+3.11% 量比2.05 收盘位置0.8 距MA20+8.91% 距60日最低点+17.40%\n601288 日变动+1.51% 量比1.50 收盘位置0.875 距MA20+6.22% 距60日最低点+18.78%\n002520 日变动+7.77% 量比4.36 收盘位置0.768 距MA20+1.06% 距60日最低点+19.61%\nT+1/T+2/T+5/T+10/T+30的后续日线收盘观察已接入独立前瞻学习归档；未到期应显示等待，停牌/缺K线不推移到下一可用交易日。除权、可买入性和样本外收益仍待检验。代理样本不能作为新荐股，亦不能从研究池推广至全A胜率。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "contemporaneous_observation_not_recommendation",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "shape_method_version": "low_position_shape_proxy_v1",
+      "signal_observations": [
+        {
+          "code": "600900",
+          "date": "2026-10-22",
+          "close_qfq": 29.82,
+          "day_pct_proxy": 0.85,
+          "relative_volume20": 1.84,
+          "close_location": 0.75,
+          "distance_ma20_pct": 3.14,
+          "distance_60d_low_pct": 8.4,
+          "source": "tencent_qfq_daily",
+          "eligible_for_trading": false
+        },
+        {
+          "code": "000420",
+          "date": "2026-10-22",
+          "close_qfq": 3.98,
+          "day_pct_proxy": 3.11,
+          "relative_volume20": 2.05,
+          "close_location": 0.8,
+          "distance_ma20_pct": 8.91,
+          "distance_60d_low_pct": 17.4,
+          "source": "tencent_qfq_daily",
+          "eligible_for_trading": false
+        },
+        {
+          "code": "601288",
+          "date": "2026-10-22",
+          "close_qfq": 7.4,
+          "day_pct_proxy": 1.51,
+          "relative_volume20": 1.5,
+          "close_location": 0.875,
+          "distance_ma20_pct": 6.22,
+          "distance_60d_low_pct": 18.78,
+          "source": "tencent_qfq_daily",
+          "eligible_for_trading": false
+        },
+        {
+          "code": "002520",
+          "date": "2026-10-22",
+          "close_qfq": 6.1,
+          "day_pct_proxy": 7.77,
+          "relative_volume20": 4.36,
+          "close_location": 0.768,
+          "distance_ma20_pct": 1.06,
+          "distance_60d_low_pct": 19.61,
+          "source": "tencent_qfq_daily",
+          "eligible_for_trading": false
+        }
+      ],
+      "security_st_and_listing_status_verified": false,
+      "id": "scheduled-research-20261022-39758539182-low_position-report",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T17:50:49+08:00",
+      "run_id": "39758539182"
+    },
+    {
+      "task_id": "combined_pair",
+      "track": "market_review",
+      "title": "2026-10-22 综合双标前置审核",
+      "summary": "盘后自动核对显示全市场复盘与打板微观证据不齐；当日新综合双标0只。",
+      "body": "【当天自动执行的前置审核，不是荐股】\n采集时间：2026-10-22T17:50:49+08:00\n证据日期（北京时间）：2026-10-22；实际扫描已关注研究池120只；同日有效日线115只；并非全A扫描。样本来源：['local_research_catalog', 'eastmoney_public_turnover_ranking_best_effort']。数据错误：{'daily_ValueError': 5}。样本范围、存活偏差与供应商不可用均可能影响判断。\n当前只有研究池局部量价与指数快照，前置研究未达到完整交付标准；综合输出0只，不能事后强行选2只，也不意味着建议买入。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "dependency_audit_only",
+      "provenance": "contemporaneous_observation_not_recommendation",
+      "validation_status": "blocked_by_incomplete_dependencies",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "id": "scheduled-research-20261022-39758539182-combined_pair-report",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T17:50:49+08:00",
+      "run_id": "39758539182"
     }
   ]
 }
