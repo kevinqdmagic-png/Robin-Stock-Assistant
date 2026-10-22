@@ -3057,6 +3057,28 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "missing_delivery_evidence"
+    },
+    {
+      "id": "early_pair-20261022-gh-39710293434",
+      "run_id": "github-actions-39710293434",
+      "task_id": "early_pair",
+      "date": "2026-10-22",
+      "trigger": "scheduled",
+      "started_at": "2026-10-22T10:14:56.380068+08:00",
+      "recorded_at": "2026-10-22T10:14:59.001328+08:00",
+      "status": "blocked",
+      "summary": "GitHub调度检查：已获得真实时间戳行情并进行观察候选筛选，但尚无样本外策略验证；不是交易推荐；实际检查北京时间 10:14:56。",
+      "report_ids": [
+        "intraday-watch-20261022-early_pair-gh39710293434"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39710293434"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "screened_watch_not_validated_strategy",
+      "completed_at": "2026-10-22T10:14:59.001328+08:00"
     }
   ]
 }
