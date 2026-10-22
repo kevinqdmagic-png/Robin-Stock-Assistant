@@ -121,7 +121,8 @@ while True:
             linked = all_rows("/api/research?code=" + stock["code"])
             report_ids = {r["id"] for r in linked["items"]}
             required = {r for entry in stock["history"] for r in entry["report_ids"]}
-            if not required.issubset(report_ids):
+            acknowledged_gaps = {gap["report_id"] for gap in detail.get("archive_gaps", [])}
+            if not (required - acknowledged_gaps).issubset(report_ids):
                 raise RuntimeError("stock research links not yet deployed: " + stock["code"])
         # A newer concurrent deployment may legitimately append records.
         for filename, actual, kind in (("research.json", reports, "research"),
