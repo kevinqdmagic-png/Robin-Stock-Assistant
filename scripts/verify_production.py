@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 from urllib.request import urlopen
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
-from task_center import data_revision
+from task_center import checked_receipt, data_revision
 from research_archive import verify_append_only
 from research_stocks import validate_catalog, verify_catalog_history
 from learning_loop import validate_learning_archive
@@ -125,10 +125,16 @@ while True:
             if not (required - acknowledged_gaps).issubset(report_ids):
                 raise RuntimeError("stock research links not yet deployed: " + stock["code"])
         # A newer concurrent deployment may legitimately append records.
-        for filename, actual, kind in (("research.json", reports, "research"),
-                                        ("task_runs.json", receipts, "task_runs"),
-                                        ("recommendations.json", recommendations, "recommendations")):
-            verify_append_only(expected[filename], actual, kind)
+        checked_runs = {"items": [checked_receipt(row, expected["research.json"])
+                                   for row in expected["task_runs.json"]["items"]]}
+        for filename, before, actual, kind in (
+                ("research.json", expected["research.json"], reports, "research"),
+                ("task_runs.json", checked_runs, receipts, "task_runs"),
+                ("recommendations.json", expected["recommendations.json"], recommendations, "recommendations")):
+            try:
+                verify_append_only(before, actual, kind)
+            except ValueError as exc:
+                raise ValueError(filename + ": " + str(exc)) from exc
         print(json.dumps({"verified": True, "version": version, "tasks": len(tasks["items"]),
                           "reports": len(reports["items"]), "receipts": len(receipts["items"]),
                           "recommendations": len(recommendations["items"]),
