@@ -39,8 +39,9 @@ def get(path):
 
 def all_rows(path):
     rows = []
+    separator = "&" if "?" in path else "?"
     while True:
-        page = get(path + "?limit=100&offset=" + str(len(rows)))
+        page = get(path + separator + "limit=100&offset=" + str(len(rows)))
         current = page.get("items", [])
         rows.extend(current)
         if not page.get("has_more"):
@@ -117,7 +118,7 @@ while True:
         for stock in expected["research_stocks.json"]["items"]:
             detail = get("/api/stocks/" + stock["code"] + "/research")
             verify_catalog_history({"items": [stock]}, {"items": [detail["stock"]]})
-            linked = get("/api/research?code=" + stock["code"] + "&limit=100")
+            linked = all_rows("/api/research?code=" + stock["code"])
             report_ids = {r["id"] for r in linked["items"]}
             required = {r for entry in stock["history"] for r in entry["report_ids"]}
             if not required.issubset(report_ids):
