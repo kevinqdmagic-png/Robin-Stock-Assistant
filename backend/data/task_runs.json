@@ -3098,6 +3098,38 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "market-review-20261022-scheduled-close-v1-completed",
+      "run_id": "market-review-20261022-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-22",
+      "trigger": "scheduled",
+      "started_at": "2026-10-22T08:42:33+00:00",
+      "recorded_at": "2026-10-22T08:54:07+00:00",
+      "completed_at": "2026-10-22T08:54:07+00:00",
+      "status": "completed",
+      "summary": "完成10月22日全A有效5571只扫描、120只广泛池、28只深筛、前日局部池119只有效补证、唯一条件观察及10月23日指数三情景冻结。",
+      "report_ids": [
+        "market-review-20261022-close-v1"
+      ],
+      "recommendation_ids": [
+        "market-review-20261022-002520-close-v1"
+      ],
+      "research_rule_version": "market_review_close_v8",
+      "analysis_completed": true,
+      "delivery_status": "repository_pending",
+      "sources": [
+        "https://finance.eastmoney.com/a/202610223904049940.html",
+        "https://www.cls.cn/detail/2511964",
+        "https://www.cls.cn/detail/2512173",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://82.push2.eastmoney.com/api/qt/clist/get",
+        "https://www.cninfo.com.cn/new/disclosure/stock?stockCode=002520",
+        "docs/research/market-review-2026-10-22-evidence.json"
+      ]
     }
   ]
 }

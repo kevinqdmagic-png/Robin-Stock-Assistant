@@ -3962,6 +3962,27 @@
           ],
           "report_id": "market-review-20261021-close-v1-blocked",
           "note": "T21开盘28.73处于冻结的27.80—29.30范围，但日线最低28.56高于回踩上界28.05；未触发回踩后重站28.70的顺序。相对T20参考收盘28.64的价格观察+1.08%，高/低路径+3.32%/-0.28%；没有实际成交，策略收益不适用。Tencent同源成交量411319、成交额约11.959亿元，分别约为T20同源量/额的64.3%/67.5%；日线快照不能证明分钟序列或委托成交。"
+        },
+        {
+          "id": "market-review-20261020-300458-close-v1-followup-20261022",
+          "as_of": "2026-10-22T15:00:00+08:00",
+          "recorded_at": "2026-10-22T16:54:07+08:00",
+          "market_date": "2026-10-22",
+          "horizon": "second-session price follow-up",
+          "observation_type": "price_observation",
+          "status": "no_trade_followup",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "observed_open": 28.7,
+          "observed_high": 29.44,
+          "observed_low": 28.25,
+          "observed_close": 28.26,
+          "close_vs_previous_pct": -2.3834,
+          "close_vs_original_reference_pct": -1.3268,
+          "executable_net_return_pct": null,
+          "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300458&scale=240&ma=no&datalen=10",
+          "report_id": "market-review-20261022-close-v1",
+          "note": "10月21日原条件明确未触发、无成交；本条只追加价格观察。"
         }
       ],
       "code": "300458",
@@ -4009,7 +4030,37 @@
         "docs/research/market-review-2026-10-20-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261020-300825-close-v1-trigger-and-followup-20261022",
+          "as_of": "2026-10-22T15:00:00+08:00",
+          "recorded_at": "2026-10-22T16:54:07+08:00",
+          "market_date": "2026-10-22",
+          "horizon": "entry-day verification and second-session follow-up",
+          "observation_type": "price_observation",
+          "status": "not_verified",
+          "trigger_status": "daily_range_met_but_intraday_sequence_and_sector_confirmation_missing",
+          "entry_fill_status": "no_fill",
+          "executed_trade": false,
+          "strategy_sample_activated": false,
+          "entry_day_20261021": {
+            "open": 11.28,
+            "high": 12.12,
+            "low": 11.18,
+            "close": 11.8
+          },
+          "observed_open": 11.8,
+          "observed_high": 12.11,
+          "observed_low": 10.9,
+          "observed_close": 10.92,
+          "close_vs_previous_pct": -7.4576,
+          "close_vs_original_reference_pct": -5.2083,
+          "executable_net_return_pct": null,
+          "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300825&scale=240&ma=no&datalen=10",
+          "report_id": "market-review-20261022-close-v1",
+          "note": "10月21日日线触及回踩区且高于重站位，但缺分钟先后、板块同步和成交证据；保守记未验证、无成交。"
+        }
+      ],
       "code": "300825",
       "name": "阿尔特",
       "model": "low_position_robot_auto_reversal_v7",
@@ -4269,6 +4320,51 @@
           "note": "T21开盘28.73处于冻结的27.90—29.10范围，但日线最低28.56高于回踩上界28.30；未触发回踩后重站28.50的顺序。相对T20参考收盘28.64的价格观察+1.08%，高/低路径+3.32%/-0.28%；没有实际成交，策略收益不适用。Tencent同源成交量411319、成交额约11.959亿元，分别约为T20同源量/额的64.3%/67.5%；日线快照不能证明分钟序列或委托成交。"
         }
       ]
+    },
+    {
+      "id": "market-review-20261022-002520-close-v1",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T16:54:07+08:00",
+      "group": "close",
+      "strategy": "market_review_conditional",
+      "task_id": "market_review",
+      "provenance": "contemporaneous_close_research",
+      "data_cutoff_at": "2026-10-22T16:30:00+08:00",
+      "planned_entry_date": "2026-10-23",
+      "earliest_legal_exit_date_if_bought": "2026-10-26",
+      "current_stage": "frozen_conditional_observation",
+      "report_ids": [
+        "market-review-20261022-close-v1"
+      ],
+      "sources": [
+        "https://finance.eastmoney.com/a/202610223904049940.html",
+        "https://www.cls.cn/detail/2511964",
+        "https://www.cls.cn/detail/2512173",
+        "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+        "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://82.push2.eastmoney.com/api/qt/clist/get",
+        "https://www.cninfo.com.cn/new/disclosure/stock?stockCode=002520",
+        "docs/research/market-review-2026-10-22-evidence.json"
+      ],
+      "roundtrip_cost_assumption_bps": 20,
+      "results": [],
+      "code": "002520",
+      "name": "日发精机",
+      "model": "weak_market_near_ma20_reclaim_v8",
+      "reason": "收6.10、涨7.77%、换手14.67%，RVOL20 4.36、CLV0.768、距MA20约+1.09%；极弱市场中的近均线放量样本，但尾盘回落，须次日市场及板块先修复。",
+      "reference_price": 6.1,
+      "reference_price_time": "2026-10-22T15:00:00+08:00",
+      "reference_price_market_date": "2026-10-22",
+      "reference_price_source": "https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData",
+      "reference_entry_range": [
+        6.02,
+        6.12
+      ],
+      "operational_invalid_price": 5.65,
+      "trigger": "10月23日开盘5.80—6.15；09:45—10:30先回踩5.76—5.92且不破5.72，再放量站上6.05并在6.02—6.12普通成交；上涨家数≥2000、代理跌停<30，机器人/机床至少两只非一字核心≥-2%。",
+      "invalid": "高开6.18以上不追；先破5.72、10:30前未完成顺序、板块/宽度不符或新增重大风险均放弃；初始失效5.65。",
+      "exit_plan": "若10月23日真实触发，最早10月26日卖；弱开或破5.65首个可成交退出，强势观察6.23/6.50，余仓不晚于10:30处理。"
     }
   ],
   "legacy_audit": [
