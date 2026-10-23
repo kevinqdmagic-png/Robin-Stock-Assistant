@@ -3597,6 +3597,39 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "learning-review-20261022-scheduled-v1-delivery-verified-8761ab0",
+      "run_id": "learning-review-20261022-scheduled-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-22",
+      "trigger": "scheduled",
+      "started_at": "2026-10-23T10:39:31+00:00",
+      "recorded_at": "2026-10-23T10:39:31+00:00",
+      "completed_at": "2026-10-23T10:39:31+00:00",
+      "status": "completed",
+      "summary": "Railway构建暂停已恢复；最新main 8761ab0经研究CI成功、Railway终态SUCCESS及公开health、learning、报告和回执接口读回，10月22日学习复核现已同步APP。",
+      "report_ids": [
+        "learning-review-20261022-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-22",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "production_verified",
+      "deployed_commit": "8761ab0895efa29742856bc0ddc4ea981e4dd38b",
+      "railway_deployment_id": "6a98707e-a7b8-4881-a9fd-69c5a4b673e3",
+      "public_build_observed": "8761ab0895efa29742856bc0ddc4ea981e4dd38b",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/8761ab0895efa29742856bc0ddc4ea981e4dd38b",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/39933352417",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://robin-stock-api-production.up.railway.app/api/research?task=learning_review",
+        "https://robin-stock-api-production.up.railway.app/api/task-runs?task=learning_review"
+      ]
     }
   ]
 }
