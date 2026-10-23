@@ -3630,6 +3630,28 @@
         "https://robin-stock-api-production.up.railway.app/api/research?task=learning_review",
         "https://robin-stock-api-production.up.railway.app/api/task-runs?task=learning_review"
       ]
+    },
+    {
+      "id": "volume-price-20261023-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261023-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-23",
+      "trigger": "scheduled",
+      "started_at": "2026-10-23T10:40:47+00:00",
+      "recorded_at": "2026-10-23T10:41:56+00:00",
+      "completed_at": "2026-10-23T10:41:56+00:00",
+      "status": "completed",
+      "summary": "全A5573只、广泛池120只、深筛28只；前池28/28验证，收盘中位+3.413%，可执行成交N=0。",
+      "report_ids": [
+        "volume-price-20261023-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/volume-price-20261023-close-evidence.json"
+      ]
     }
   ]
 }
