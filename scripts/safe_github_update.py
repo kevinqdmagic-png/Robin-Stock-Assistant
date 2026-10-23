@@ -73,7 +73,15 @@ def safe_update(repo, path, proposed, base_sha, token, branch="main", message="S
         if current["sha"] != base_sha:
             raise RuntimeError("CONCURRENT_FILE_CHANGE: stop and reconcile, never overwrite")
         if path in ('backend/data/research.json', 'backend/data/recommendations.json', 'backend/data/learning.json', 'backend/data/task_runs.json', 'backend/data/capital_watch.json'):
-            old_bytes = base64.b64decode(current['content'].replace('\\n', ''))
+            # Large GitHub Contents responses may omit inline file data.
+            inline = current.get('content')
+            if not inline:
+                blob_url = f"https://api.github.com/repos/{repo}/git/blobs/{current['sha']}"
+                blob = request("GET", blob_url, token)
+                if blob.get('encoding') != 'base64' or not blob.get('content'):
+                    raise RuntimeError("ARCHIVE_BLOB_UNREADABLE: refuse to overwrite")
+                inline = blob['content']
+            old_bytes = base64.b64decode(inline.replace('\\n', ''), validate=True)
             validate_archive_change(path, old_bytes, proposed)
         try:
             return request("PUT", url, token, {
