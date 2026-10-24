@@ -211,6 +211,75 @@
           "rule_version": "limitup_single_v1",
           "holiday_cohort": "first_week_after_national_day_closure_2026",
           "note": "10月8日必要价格条件已失败、未入场；10月9日仅补齐D+1价格观察。相对前收或原参考价变化均不是策略收益，分钟价格点不证明逐笔可成交。"
+        },
+        {
+          "id": "limitup-single-20261008-600592-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "limitup-single-20261023-close-v2"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 14.76,
+            "close": 15.61,
+            "high": 15.76,
+            "low": 14.2,
+            "volume": 237157.0
+          },
+          "anchor_date": "2026-10-08",
+          "anchor_close": 15.55,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-09",
+              "status": "price_observed",
+              "close_pct": -1.479,
+              "mfe_pct": -0.257,
+              "mae_pct": -5.209
+            },
+            {
+              "h": 3,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -7.01,
+              "mfe_pct": -0.257,
+              "mae_pct": -14.148
+            },
+            {
+              "h": 5,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -14.662,
+              "mfe_pct": -0.257,
+              "mae_pct": -14.92
+            },
+            {
+              "h": 10,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -3.923,
+              "mfe_pct": -0.257,
+              "mae_pct": -14.92
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-05"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-19"
+            }
+          ],
+          "trigger_status": "original_no_entry_preserved",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600592,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -238,7 +307,77 @@
       "planned_entry_date": "2026-10-08",
       "earliest_legal_exit_date_if_bought": "2026-10-09",
       "current_stage": "frozen_conditional_observation",
-      "results": [],
+      "results": [
+        {
+          "id": "late-pair-20261008-300450-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 27.41,
+            "close": 30.4,
+            "high": 30.48,
+            "low": 27.08,
+            "volume": 875665.0
+          },
+          "anchor_date": "2026-10-08",
+          "anchor_close": 37.59,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-09",
+              "status": "price_observed",
+              "close_pct": -2.288,
+              "mfe_pct": 3.724,
+              "mae_pct": -3.192
+            },
+            {
+              "h": 3,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -8.885,
+              "mfe_pct": 3.724,
+              "mae_pct": -11.333
+            },
+            {
+              "h": 5,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -13.94,
+              "mfe_pct": 3.724,
+              "mae_pct": -20.165
+            },
+            {
+              "h": 10,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -27.082,
+              "mfe_pct": 3.724,
+              "mae_pct": -27.082
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-05"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-19"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300450,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
+        }
+      ],
       "report_ids": [
         "late-pair-2026-10-08-1440"
       ],
@@ -278,7 +417,77 @@
       "planned_entry_date": "2026-10-08",
       "earliest_legal_exit_date_if_bought": "2026-10-09",
       "current_stage": "frozen_conditional_observation",
-      "results": [],
+      "results": [
+        {
+          "id": "late-pair-20261008-601872-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 16.05,
+            "close": 16.58,
+            "high": 16.68,
+            "low": 15.97,
+            "volume": 1054580.0
+          },
+          "anchor_date": "2026-10-08",
+          "anchor_close": 22.03,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-09",
+              "status": "price_observed",
+              "close_pct": 0.182,
+              "mfe_pct": 2.814,
+              "mae_pct": -6.264
+            },
+            {
+              "h": 3,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -3.268,
+              "mfe_pct": 2.814,
+              "mae_pct": -9.759
+            },
+            {
+              "h": 5,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -12.256,
+              "mfe_pct": 2.814,
+              "mae_pct": -12.256
+            },
+            {
+              "h": 10,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -26.146,
+              "mfe_pct": 2.814,
+              "mae_pct": -26.328
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-05"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-19"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601872,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
+        }
+      ],
       "report_ids": [
         "late-pair-2026-10-08-1440"
       ],
@@ -317,7 +526,77 @@
       "planned_entry_date": "2026-10-09",
       "earliest_legal_exit_date_if_bought": "2026-10-12",
       "current_stage": "frozen_conditional_observation",
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261008-601872-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 16.05,
+            "close": 16.58,
+            "high": 16.68,
+            "low": 15.97,
+            "volume": 1054580.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 22.07,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.379,
+              "mfe_pct": -1.042,
+              "mae_pct": -9.923
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -2.673,
+              "mfe_pct": -0.77,
+              "mae_pct": -9.923
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -17.58,
+              "mfe_pct": -0.77,
+              "mae_pct": -18.758
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -24.875,
+              "mfe_pct": -0.77,
+              "mae_pct": -27.639
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-20"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601872,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
+        }
+      ],
       "report_ids": [
         "market-review-20261008-close-v1"
       ],
@@ -354,7 +633,77 @@
       "planned_entry_date": "2026-10-09",
       "earliest_legal_exit_date_if_bought": "2026-10-12",
       "current_stage": "frozen_conditional_observation",
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261008-002074-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 24.93,
+            "close": 26.04,
+            "high": 26.15,
+            "low": 24.55,
+            "volume": 397583.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 30.41,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.263,
+              "mfe_pct": 2.466,
+              "mae_pct": -2.466
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -9.273,
+              "mfe_pct": 2.466,
+              "mae_pct": -9.635
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -8.648,
+              "mfe_pct": 2.466,
+              "mae_pct": -12.397
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -14.37,
+              "mfe_pct": 2.466,
+              "mae_pct": -19.27
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-20"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002074,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
+        }
+      ],
       "report_ids": [
         "market-review-20261008-close-v1"
       ],
@@ -426,6 +775,75 @@
           },
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/"
+        },
+        {
+          "id": "market-review-20261008-601872-close-v2-correction-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 16.05,
+            "close": 16.58,
+            "high": 16.68,
+            "low": 15.97,
+            "volume": 1054580.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 22.07,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.379,
+              "mfe_pct": -1.042,
+              "mae_pct": -9.923
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -2.673,
+              "mfe_pct": -0.77,
+              "mae_pct": -9.923
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -17.58,
+              "mfe_pct": -0.77,
+              "mae_pct": -18.758
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -24.875,
+              "mfe_pct": -0.77,
+              "mae_pct": -27.639
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-20"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601872,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -487,6 +905,75 @@
           },
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/"
+        },
+        {
+          "id": "market-review-20261008-002074-close-v2-correction-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 24.93,
+            "close": 26.04,
+            "high": 26.15,
+            "low": 24.55,
+            "volume": 397583.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 30.41,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.263,
+              "mfe_pct": 2.466,
+              "mae_pct": -2.466
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -9.273,
+              "mfe_pct": 2.466,
+              "mae_pct": -9.635
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -8.648,
+              "mfe_pct": 2.466,
+              "mae_pct": -12.397
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -14.37,
+              "mfe_pct": 2.466,
+              "mae_pct": -19.27
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-20"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002074,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -721,6 +1208,75 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261008-601872-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 16.05,
+            "close": 16.58,
+            "high": 16.68,
+            "low": 15.97,
+            "volume": 1054580.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 22.07,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.379,
+              "mfe_pct": -1.042,
+              "mae_pct": -9.923
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -2.673,
+              "mfe_pct": -0.77,
+              "mae_pct": -9.923
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -17.58,
+              "mfe_pct": -0.77,
+              "mae_pct": -18.758
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -24.875,
+              "mfe_pct": -0.77,
+              "mae_pct": -27.639
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-20"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601872,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -1039,6 +1595,75 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 24.93,
+            "close": 26.04,
+            "high": 26.15,
+            "low": 24.55,
+            "volume": 397583.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 30.41,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.263,
+              "mfe_pct": 2.466,
+              "mae_pct": -2.466
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -9.273,
+              "mfe_pct": 2.466,
+              "mae_pct": -9.635
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -8.648,
+              "mfe_pct": 2.466,
+              "mae_pct": -12.397
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -14.37,
+              "mfe_pct": 2.466,
+              "mae_pct": -19.27
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-20"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002074,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -1106,6 +1731,72 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600026"
+        },
+        {
+          "id": "market-review-20261009-600026-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 18.0,
+            "close": 18.39,
+            "high": 18.57,
+            "low": 17.74,
+            "volume": 540094.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 21.65,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": 4.85,
+              "mfe_pct": 7.483,
+              "mae_pct": 0.831
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -3.326,
+              "mfe_pct": 9.099,
+              "mae_pct": -3.326
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -8.545,
+              "mfe_pct": 9.099,
+              "mae_pct": -10.485
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-09"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-23"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600026,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -1173,6 +1864,72 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300058"
+        },
+        {
+          "id": "market-review-20261009-300058-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 11.57,
+            "close": 12.45,
+            "high": 12.56,
+            "low": 11.46,
+            "volume": 2321260.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 12.59,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": 3.574,
+              "mfe_pct": 5.798,
+              "mae_pct": -2.939
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -1.906,
+              "mfe_pct": 5.798,
+              "mae_pct": -2.939
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.163,
+              "mfe_pct": 5.798,
+              "mae_pct": -7.387
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-09"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-23"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300058,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -1540,6 +2297,72 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 11.57,
+            "close": 12.45,
+            "high": 12.56,
+            "low": 11.46,
+            "volume": 2321260.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 12.59,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": 3.574,
+              "mfe_pct": 5.798,
+              "mae_pct": -2.939
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -1.906,
+              "mfe_pct": 5.798,
+              "mae_pct": -2.939
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.163,
+              "mfe_pct": 5.798,
+              "mae_pct": -7.387
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-09"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-23"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300058,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -1907,6 +2730,72 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 3.84,
+            "close": 3.92,
+            "high": 3.94,
+            "low": 3.73,
+            "volume": 1515135.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 3.81,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -1.837,
+              "mfe_pct": 0.525,
+              "mae_pct": -3.15
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -7.349,
+              "mfe_pct": 0.525,
+              "mae_pct": -7.612
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": 2.1,
+              "mfe_pct": 4.199,
+              "mae_pct": -7.874
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-09"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-23"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000420,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -1976,6 +2865,72 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
           "report_id": "market-review-20261014-close-v1",
           "note": "缺完整分钟路径，不能确认原触发先后或可成交；仅价格观察，不计策略收益。"
+        },
+        {
+          "id": "market-review-20261012-002487-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 30.5,
+            "close": 32.93,
+            "high": 33.17,
+            "low": 29.52,
+            "volume": 612686.0
+          },
+          "anchor_date": "2026-10-13",
+          "anchor_close": 42.39,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -10.002,
+              "mfe_pct": -1.274,
+              "mae_pct": -10.002
+            },
+            {
+              "h": 3,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -15.57,
+              "mfe_pct": -1.274,
+              "mae_pct": -18.99
+            },
+            {
+              "h": 5,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -18.235,
+              "mfe_pct": -1.274,
+              "mae_pct": -20.807
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-27"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-10"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-24"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002487,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -2045,6 +3000,72 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
           "report_id": "market-review-20261014-close-v1",
           "note": "缺完整分钟路径，不能确认原触发先后或可成交；仅价格观察，不计策略收益。"
+        },
+        {
+          "id": "market-review-20261012-300413-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 21.51,
+            "close": 23.23,
+            "high": 23.58,
+            "low": 21.01,
+            "volume": 899968.0
+          },
+          "anchor_date": "2026-10-13",
+          "anchor_close": 24.0,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": 6.833,
+              "mfe_pct": 13.0,
+              "mae_pct": -6.25
+            },
+            {
+              "h": 3,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -1.625,
+              "mfe_pct": 13.0,
+              "mae_pct": -6.25
+            },
+            {
+              "h": 5,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -2.5,
+              "mfe_pct": 13.0,
+              "mae_pct": -6.667
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-27"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-10"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-24"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300413,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -2444,6 +3465,72 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 27.41,
+            "close": 30.4,
+            "high": 30.48,
+            "low": 27.08,
+            "volume": 875665.0
+          },
+          "anchor_date": "2026-10-13",
+          "anchor_close": 34.25,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -5.752,
+              "mfe_pct": 1.869,
+              "mae_pct": -6.511
+            },
+            {
+              "h": 3,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -9.372,
+              "mfe_pct": 1.869,
+              "mae_pct": -12.38
+            },
+            {
+              "h": 5,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -10.774,
+              "mfe_pct": 1.869,
+              "mae_pct": -12.38
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-27"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-10"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-24"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300450,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -2520,6 +3607,72 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600316",
           "report_id": "market-review-20261016-close-v1",
           "note": "两个冻结观察位均出现，但原计划未冻结分批权重，故不事后制造单一净收益；退出质量良好。"
+        },
+        {
+          "id": "market-review-20261014-600316-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 35.58,
+            "close": 37.28,
+            "high": 37.6,
+            "low": 35.18,
+            "volume": 172970.0
+          },
+          "anchor_date": "2026-10-15",
+          "anchor_close": 35.1,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": 7.293,
+              "mfe_pct": 10.0,
+              "mae_pct": 0.057
+            },
+            {
+              "h": 3,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 6.724,
+              "mfe_pct": 10.0,
+              "mae_pct": 0.057
+            },
+            {
+              "h": 5,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": 2.507,
+              "mfe_pct": 10.0,
+              "mae_pct": 0.057
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-29"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-12"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-26"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600316,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "id": "market-review-20261014-600316-close-v1",
@@ -2585,6 +3738,72 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002727",
           "report_id": "market-review-20261015-close-v1",
           "note": "冻结条件要求回踩12.00—12.15；当日最低12.21，未触发且不反推成交。"
+        },
+        {
+          "id": "market-review-20261014-002727-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 12.95,
+            "close": 12.69,
+            "high": 13.05,
+            "low": 12.57,
+            "volume": 148802.0
+          },
+          "anchor_date": "2026-10-15",
+          "anchor_close": 12.79,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": 1.486,
+              "mfe_pct": 2.424,
+              "mae_pct": -1.798
+            },
+            {
+              "h": 3,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 2.267,
+              "mfe_pct": 4.926,
+              "mae_pct": -1.798
+            },
+            {
+              "h": 5,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": 1.407,
+              "mfe_pct": 4.926,
+              "mae_pct": -1.798
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-29"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-12"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-26"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002727,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "id": "market-review-20261014-002727-close-v1",
@@ -2650,6 +3869,72 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000973",
           "report_id": "market-review-20261016-close-v1",
           "note": "09:45触及11.80，但全天未站上冻结的12.20，保留未触发样本。"
+        },
+        {
+          "id": "market-review-20261015-000973-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 9.84,
+            "close": 10.48,
+            "high": 10.54,
+            "low": 9.75,
+            "volume": 312052.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 11.96,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.435,
+              "mfe_pct": -1.338,
+              "mae_pct": -5.853
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -7.776,
+              "mfe_pct": -1.338,
+              "mae_pct": -8.027
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -12.375,
+              "mfe_pct": -1.338,
+              "mae_pct": -18.478
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-30"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-13"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-27"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000973,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "id": "market-review-20261015-000973-close-v1",
@@ -2715,6 +4000,72 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002812",
           "report_id": "market-review-20261016-close-v1",
           "note": "09:31回踩47.88后未收复48.60，随后跌破46.35；顺序不满足，不能用开盘价倒推成交。"
+        },
+        {
+          "id": "market-review-20261015-002812-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 42.0,
+            "close": 46.92,
+            "high": 46.92,
+            "low": 42.0,
+            "volume": 372823.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 46.26,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -1.362,
+              "mfe_pct": -0.497,
+              "mae_pct": -2.94
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -5.556,
+              "mfe_pct": 1.816,
+              "mae_pct": -6.334
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 1.427,
+              "mfe_pct": 1.816,
+              "mae_pct": -9.209
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-30"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-13"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-27"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002812,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "id": "market-review-20261015-002812-close-v1",
@@ -3033,6 +4384,72 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261015-000973-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 9.84,
+            "close": 10.48,
+            "high": 10.54,
+            "low": 9.75,
+            "volume": 312052.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 11.96,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.435,
+              "mfe_pct": -1.338,
+              "mae_pct": -5.853
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -7.776,
+              "mfe_pct": -1.338,
+              "mae_pct": -8.027
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -12.375,
+              "mfe_pct": -1.338,
+              "mae_pct": -18.478
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-30"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-13"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-27"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000973,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -3341,6 +4758,72 @@
           ],
           "trigger_status": "original_day_trigger_or_nontrigger_status_unchanged_not_reactivated_today",
           "note": "旧原条件/未触发与缺成交状态不变；今日价格不重新激活旧D，不推断触发顺序或策略收益。"
+        },
+        {
+          "id": "combined-pair-20261015-002812-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 42.0,
+            "close": 46.92,
+            "high": 46.92,
+            "low": 42.0,
+            "volume": 372823.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 46.26,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -1.362,
+              "mfe_pct": -0.497,
+              "mae_pct": -2.94
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -5.556,
+              "mfe_pct": 1.816,
+              "mae_pct": -6.334
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 1.427,
+              "mfe_pct": 1.816,
+              "mae_pct": -9.209
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-10-30"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-13"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-27"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002812,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -3394,6 +4877,69 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz300719",
           "report_id": "market-review-20261019-close-v1",
           "note": "09:38进入回踩区，但随后未站上冻结的12.45；保留未触发样本。"
+        },
+        {
+          "id": "market-review-20261016-300719-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 11.43,
+            "close": 11.72,
+            "high": 11.76,
+            "low": 10.74,
+            "volume": 91343.0
+          },
+          "anchor_date": "2026-10-19",
+          "anchor_close": 12.22,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -1.064,
+              "mfe_pct": 0.736,
+              "mae_pct": -2.782
+            },
+            {
+              "h": 3,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -5.074,
+              "mfe_pct": 1.718,
+              "mae_pct": -5.237
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-02"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-16"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-30"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300719,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "code": "300719",
@@ -3463,6 +5009,69 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600853",
           "report_id": "market-review-20261019-close-v1",
           "note": "早盘高点先出现，最低分钟价3.53，未形成冻结的回踩区后重新站3.60顺序；不倒推成交。"
+        },
+        {
+          "id": "market-review-20261016-600853-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 3.55,
+            "close": 3.68,
+            "high": 3.7,
+            "low": 3.53,
+            "volume": 637271.0
+          },
+          "anchor_date": "2026-10-19",
+          "anchor_close": 3.54,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -1.695,
+              "mfe_pct": 2.825,
+              "mae_pct": -3.39
+            },
+            {
+              "h": 3,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": 2.825,
+              "mfe_pct": 5.932,
+              "mae_pct": -3.39
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-02"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-16"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-30"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600853,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "code": "600853",
@@ -3765,6 +5374,69 @@
           "status": "not_triggered",
           "entry_fill_status": "no_strategy_fill",
           "strategy_sample_activated": false
+        },
+        {
+          "id": "combined-pair-20261016-000887-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 16.47,
+            "close": 17.46,
+            "high": 17.57,
+            "low": 16.03,
+            "volume": 478063.0
+          },
+          "anchor_date": "2026-10-19",
+          "anchor_close": 17.0,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 1.765,
+              "mfe_pct": 3.118,
+              "mae_pct": 0.0
+            },
+            {
+              "h": 3,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -1.412,
+              "mfe_pct": 3.824,
+              "mae_pct": -1.412
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-02"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-16"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-11-30"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000887,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -3816,6 +5488,69 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002683",
           "report_id": "market-review-20261020-close-v1",
           "note": "价格顺序满足开盘、回踩与再站条件，但冻结时点的两只板块同伴证据无法独立核验；保守记未验证、无成交。"
+        },
+        {
+          "id": "market-review-20261019-002683-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 28.66,
+            "close": 29.49,
+            "high": 29.68,
+            "low": 28.21,
+            "volume": 138268.0
+          },
+          "anchor_date": "2026-10-20",
+          "anchor_close": 30.17,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -1.226,
+              "mfe_pct": 1.094,
+              "mae_pct": -1.458
+            },
+            {
+              "h": 3,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -2.254,
+              "mfe_pct": 1.094,
+              "mae_pct": -6.497
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-27"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-03"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-17"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-12-01"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002683,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "code": "002683",
@@ -3883,6 +5618,69 @@
           "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002903",
           "report_id": "market-review-20261020-close-v1",
           "note": "13:41进入冻结回踩区，之后未重新站上25.05；保留未触发样本。"
+        },
+        {
+          "id": "market-review-20261019-002903-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 23.43,
+            "close": 24.45,
+            "high": 24.7,
+            "low": 21.6,
+            "volume": 103778.0
+          },
+          "anchor_date": "2026-10-20",
+          "anchor_close": 24.9,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -1.526,
+              "mfe_pct": 0.803,
+              "mae_pct": -2.129
+            },
+            {
+              "h": 3,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -1.807,
+              "mfe_pct": 0.803,
+              "mae_pct": -13.253
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-27"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-03"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-17"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-12-01"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002903,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "code": "002903",
@@ -3983,6 +5781,66 @@
           "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300458&scale=240&ma=no&datalen=10",
           "report_id": "market-review-20261022-close-v1",
           "note": "10月21日原条件明确未触发、无成交；本条只追加价格观察。"
+        },
+        {
+          "id": "market-review-20261020-300458-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 27.61,
+            "close": 30.08,
+            "high": 30.16,
+            "low": 27.34,
+            "volume": 501553.0
+          },
+          "anchor_date": "2026-10-21",
+          "anchor_close": 28.95,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -2.383,
+              "mfe_pct": 1.693,
+              "mae_pct": -2.418
+            },
+            {
+              "h": 3,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-28"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-04"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-18"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-12-02"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300458,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "code": "300458",
@@ -4059,6 +5917,66 @@
           "source": "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz300825&scale=240&ma=no&datalen=10",
           "report_id": "market-review-20261022-close-v1",
           "note": "10月21日日线触及回踩区且高于重站位，但缺分钟先后、板块同步和成交证据；保守记未验证、无成交。"
+        },
+        {
+          "id": "market-review-20261020-300825-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 10.71,
+            "close": 12.24,
+            "high": 12.45,
+            "low": 10.2,
+            "volume": 441871.0
+          },
+          "anchor_date": "2026-10-21",
+          "anchor_close": 11.8,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -7.458,
+              "mfe_pct": 2.627,
+              "mae_pct": -7.627
+            },
+            {
+              "h": 3,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-28"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-04"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-18"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-12-02"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300825,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ],
       "code": "300825",
@@ -4318,6 +6236,66 @@
           ],
           "report_id": "combined-pair-20261021-close-v1-blocked",
           "note": "T21开盘28.73处于冻结的27.90—29.10范围，但日线最低28.56高于回踩上界28.30；未触发回踩后重站28.50的顺序。相对T20参考收盘28.64的价格观察+1.08%，高/低路径+3.32%/-0.28%；没有实际成交，策略收益不适用。Tencent同源成交量411319、成交额约11.959亿元，分别约为T20同源量/额的64.3%/67.5%；日线快照不能证明分钟序列或委托成交。"
+        },
+        {
+          "id": "combined-pair-20261020-300458-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 27.61,
+            "close": 30.08,
+            "high": 30.16,
+            "low": 27.34,
+            "volume": 501553.0
+          },
+          "anchor_date": "2026-10-21",
+          "anchor_close": 28.95,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -2.383,
+              "mfe_pct": 1.693,
+              "mae_pct": -2.418
+            },
+            {
+              "h": 3,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-28"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-04"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-18"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-12-02"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300458,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
         }
       ]
     },
@@ -4348,7 +6326,65 @@
         "docs/research/market-review-2026-10-22-evidence.json"
       ],
       "roundtrip_cost_assumption_bps": 20,
-      "results": [],
+      "results": [
+        {
+          "id": "market-review-20261022-002520-close-v1-price-review-20261023",
+          "date": "2026-10-23",
+          "market_date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-23",
+            "open": 5.74,
+            "close": 6.34,
+            "high": 6.39,
+            "low": 5.67,
+            "volume": 999868.0
+          },
+          "anchor_date": "2026-10-23",
+          "anchor_close": 6.34,
+          "horizons": [
+            {
+              "h": 1,
+              "status": "pending",
+              "date": "2026-10-26"
+            },
+            {
+              "h": 3,
+              "status": "pending",
+              "date": "2026-10-28"
+            },
+            {
+              "h": 5,
+              "status": "pending",
+              "date": "2026-10-30"
+            },
+            {
+              "h": 10,
+              "status": "pending",
+              "date": "2026-11-06"
+            },
+            {
+              "h": 20,
+              "status": "pending",
+              "date": "2026-11-20"
+            },
+            {
+              "h": 30,
+              "status": "pending",
+              "date": "2026-12-04"
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002520,day,,,180",
+          "note": "补充价格路径，原推荐、触发/失效与既有结果冻结；未验证实际委托或成交。"
+        }
+      ],
       "code": "002520",
       "name": "日发精机",
       "model": "weak_market_near_ma20_reclaim_v8",

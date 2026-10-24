@@ -3,7 +3,7 @@
   "track": "low_position",
   "research_version": "low_position_30d_v1",
   "created_at": "2026-10-08T08:15:08.201Z",
-  "updated_at": "2026-10-23T04:01:58+08:00",
+  "updated_at": "2026-10-24T08:01:16+08:00",
   "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
   "milestones_calendar_days": [
     1,
@@ -588,6 +588,162 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260923-002472-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260923-002472",
+          "code": "002472",
+          "name": "双环传动",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-23",
+          "reference_close": 37.58,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 37.94,
+            "close": 41.03,
+            "high": 41.33,
+            "low": 37.5,
+            "volume": 426001.0
+          },
+          "close_return_pct": 9.18,
+          "path_mfe_pct": 9.979,
+          "path_mae_pct": -14.023,
+          "max_close_to_close_drawdown_pct": -15.819,
+          "elapsed_natural_days": 30,
+          "elapsed_trading_sessions": 16,
+          "observed_trading_sessions": 16,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": true,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-08",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 37,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-24",
+              "quote_date": "2026-09-24",
+              "close_pct": 3.619
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-09-26",
+              "quote_date": "2026-09-24",
+              "close_pct": 3.619
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-09-28",
+              "quote_date": "2026-09-28",
+              "close_pct": 3.22
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-03",
+              "quote_date": "2026-09-30",
+              "close_pct": 1.357
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-08",
+              "quote_date": "2026-10-08",
+              "close_pct": -2.288
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": -5.216
+            },
+            {
+              "day": 30,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": 9.18
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-08",
+              "close_pct": -2.288
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-15",
+              "close_pct": -12.773
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002472",
+            "name": "双环传动",
+            "date": "2026-10-23",
+            "open": 37.94,
+            "close": 41.03,
+            "high": 41.33,
+            "low": 37.5,
+            "volume": 426001.0,
+            "daily_change_pct": 7.212,
+            "rvol": {
+              "5": 1.50187,
+              "10": 1.94666,
+              "20": 2.09995
+            },
+            "ma": {
+              "5": 38.61,
+              "10": 36.51,
+              "20": 37.173,
+              "60": 37.0025
+            },
+            "range_position_pct": {
+              "20": 96.674,
+              "60": 96.674,
+              "120": 50.964
+            },
+            "distance_ma20_pct": 10.376,
+            "clv": 0.9217
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002472,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -1165,6 +1321,162 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260923-600845-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260923-600845",
+          "code": "600845",
+          "name": "宝信软件",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-23",
+          "reference_close": 18.34,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 16.91,
+            "close": 17.68,
+            "high": 17.76,
+            "low": 16.73,
+            "volume": 182709.0
+          },
+          "close_return_pct": -3.599,
+          "path_mfe_pct": 0.872,
+          "path_mae_pct": -8.942,
+          "max_close_to_close_drawdown_pct": -8.288,
+          "elapsed_natural_days": 30,
+          "elapsed_trading_sessions": 16,
+          "observed_trading_sessions": 16,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": true,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-08",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 17.5,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-24",
+              "quote_date": "2026-09-24",
+              "close_pct": -0.436
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-09-26",
+              "quote_date": "2026-09-24",
+              "close_pct": -0.436
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-09-28",
+              "quote_date": "2026-09-28",
+              "close_pct": -1.799
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-03",
+              "quote_date": "2026-09-30",
+              "close_pct": -3.544
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-08",
+              "quote_date": "2026-10-08",
+              "close_pct": -5.234
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": -5.507
+            },
+            {
+              "day": 30,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": -3.599
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-08",
+              "close_pct": -5.234
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-15",
+              "close_pct": -8.288
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600845",
+            "name": "宝信软件",
+            "date": "2026-10-23",
+            "open": 16.91,
+            "close": 17.68,
+            "high": 17.76,
+            "low": 16.73,
+            "volume": 182709.0,
+            "daily_change_pct": 3.211,
+            "rvol": {
+              "5": 1.6723,
+              "10": 1.65068,
+              "20": 1.32259
+            },
+            "ma": {
+              "5": 17.43,
+              "10": 17.309,
+              "20": 17.6415,
+              "60": 17.6995
+            },
+            "range_position_pct": {
+              "20": 46.89,
+              "60": 33.23,
+              "120": 18.757
+            },
+            "distance_ma20_pct": 0.218,
+            "clv": 0.9223
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600845,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -1753,6 +2065,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260928-600380-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260928-600380",
+          "code": "600380",
+          "name": "健康元",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-28",
+          "reference_close": 9.79,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 9.13,
+            "close": 9.27,
+            "high": 9.28,
+            "low": 9.0,
+            "volume": 148069.0
+          },
+          "close_return_pct": -5.312,
+          "path_mfe_pct": 5.209,
+          "path_mae_pct": -8.069,
+          "max_close_to_close_drawdown_pct": -10.236,
+          "elapsed_natural_days": 25,
+          "elapsed_trading_sessions": 14,
+          "observed_trading_sessions": 14,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-22",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 9.2,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-29",
+              "quote_date": "2026-09-29",
+              "close_pct": 1.124
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-01",
+              "quote_date": "2026-09-30",
+              "close_pct": 3.779
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-03",
+              "quote_date": "2026-09-30",
+              "close_pct": 3.779
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-08",
+              "quote_date": "2026-10-08",
+              "close_pct": 1.124
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": 1.124
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": 2.962
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-28"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-12",
+              "close_pct": 2.451
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": 3.064
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600380",
+            "name": "健康元",
+            "date": "2026-10-23",
+            "open": 9.13,
+            "close": 9.27,
+            "high": 9.28,
+            "low": 9.0,
+            "volume": 148069.0,
+            "daily_change_pct": 1.645,
+            "rvol": {
+              "5": 0.87319,
+              "10": 0.84791,
+              "20": 0.75282
+            },
+            "ma": {
+              "5": 9.444,
+              "10": 9.728,
+              "20": 9.6895,
+              "60": 9.73633
+            },
+            "range_position_pct": {
+              "20": 20.769,
+              "60": 17.419,
+              "120": 12.273
+            },
+            "distance_ma20_pct": -4.329,
+            "clv": 0.9643
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600380,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -2326,6 +2792,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260928-000503-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260928-000503",
+          "code": "000503",
+          "name": "国新健康",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-28",
+          "reference_close": 7.44,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 7.61,
+            "close": 7.64,
+            "high": 7.71,
+            "low": 7.14,
+            "volume": 454962.0
+          },
+          "close_return_pct": 2.688,
+          "path_mfe_pct": 14.651,
+          "path_mae_pct": -4.032,
+          "max_close_to_close_drawdown_pct": -9.371,
+          "elapsed_natural_days": 25,
+          "elapsed_trading_sessions": 14,
+          "observed_trading_sessions": 14,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 6.75,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-29",
+              "quote_date": "2026-09-29",
+              "close_pct": 3.763
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-01",
+              "quote_date": "2026-09-30",
+              "close_pct": 3.36
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-03",
+              "quote_date": "2026-09-30",
+              "close_pct": 3.36
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-08",
+              "quote_date": "2026-10-08",
+              "close_pct": 6.048
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": 8.871
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": 4.167
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-28"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-12",
+              "close_pct": 5.645
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": 11.559
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "000503",
+            "name": "国新健康",
+            "date": "2026-10-23",
+            "open": 7.61,
+            "close": 7.64,
+            "high": 7.71,
+            "low": 7.14,
+            "volume": 454962.0,
+            "daily_change_pct": -0.779,
+            "rvol": {
+              "5": 0.79438,
+              "10": 0.90541,
+              "20": 1.12719
+            },
+            "ma": {
+              "5": 7.926,
+              "10": 7.877,
+              "20": 7.6095,
+              "60": 7.26217
+            },
+            "range_position_pct": {
+              "20": 51.892,
+              "60": 63.071,
+              "120": 63.525
+            },
+            "distance_ma20_pct": 0.401,
+            "clv": 0.8772
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000503,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -2902,6 +3522,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260928-000513-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260928-000513",
+          "code": "000513",
+          "name": "丽珠集团",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-28",
+          "reference_close": 30.34,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 25.81,
+            "close": 26.97,
+            "high": 27.09,
+            "low": 25.7,
+            "volume": 125227.0
+          },
+          "close_return_pct": -11.107,
+          "path_mfe_pct": 10.02,
+          "path_mae_pct": -15.293,
+          "max_close_to_close_drawdown_pct": -20.912,
+          "elapsed_natural_days": 25,
+          "elapsed_trading_sessions": 14,
+          "observed_trading_sessions": 14,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-21",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 27.15,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-29",
+              "quote_date": "2026-09-29",
+              "close_pct": 6.229
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-01",
+              "quote_date": "2026-09-30",
+              "close_pct": 8.438
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-03",
+              "quote_date": "2026-09-30",
+              "close_pct": 8.438
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-08",
+              "quote_date": "2026-10-08",
+              "close_pct": -2.406
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": -2.999
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": -7.877
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-28"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-12",
+              "close_pct": 0.396
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": -9.525
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "000513",
+            "name": "丽珠集团",
+            "date": "2026-10-23",
+            "open": 25.81,
+            "close": 26.97,
+            "high": 27.09,
+            "low": 25.7,
+            "volume": 125227.0,
+            "daily_change_pct": 3.651,
+            "rvol": {
+              "5": 1.21091,
+              "10": 0.91543,
+              "20": 0.73328
+            },
+            "ma": {
+              "5": 26.928,
+              "10": 27.852,
+              "20": 28.4545,
+              "60": 28.58683
+            },
+            "range_position_pct": {
+              "20": 16.536,
+              "60": 16.536,
+              "120": 16.536
+            },
+            "distance_ma20_pct": -5.217,
+            "clv": 0.9137
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000513,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -3505,6 +4279,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260928-002962-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260928-002962",
+          "code": "002962",
+          "name": "五方光电",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-28",
+          "reference_close": 14.76,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 11.91,
+            "close": 12.45,
+            "high": 12.52,
+            "low": 11.41,
+            "volume": 154712.0
+          },
+          "close_return_pct": -15.65,
+          "path_mfe_pct": 14.77,
+          "path_mae_pct": -22.696,
+          "max_close_to_close_drawdown_pct": -27.082,
+          "elapsed_natural_days": 25,
+          "elapsed_trading_sessions": 14,
+          "observed_trading_sessions": 14,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-15",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 13.35,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-29",
+              "quote_date": "2026-09-29",
+              "close_pct": -0.407
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-01",
+              "quote_date": "2026-09-30",
+              "close_pct": 9.553
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-03",
+              "quote_date": "2026-09-30",
+              "close_pct": 9.553
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-08",
+              "quote_date": "2026-10-08",
+              "close_pct": 13.076
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": -3.455
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": -13.753
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-28"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-12",
+              "close_pct": -8.333
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": -14.499
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002962",
+            "name": "五方光电",
+            "date": "2026-10-23",
+            "open": 11.91,
+            "close": 12.45,
+            "high": 12.52,
+            "low": 11.41,
+            "volume": 154712.0,
+            "daily_change_pct": 2.301,
+            "rvol": {
+              "5": 1.16928,
+              "10": 0.70703,
+              "20": 0.68586
+            },
+            "ma": {
+              "5": 12.524,
+              "10": 12.991,
+              "20": 13.76,
+              "60": 13.12983
+            },
+            "range_position_pct": {
+              "20": 18.807,
+              "60": 20.39,
+              "120": 16.959
+            },
+            "distance_ma20_pct": -9.52,
+            "clv": 0.9369
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002962,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -4113,6 +5041,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260929-002074-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260929-002074",
+          "code": "002074",
+          "name": "国轩高科",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-29",
+          "reference_close": 28.68,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 24.93,
+            "close": 26.04,
+            "high": 26.15,
+            "low": 24.55,
+            "volume": 397583.0
+          },
+          "close_return_pct": -9.205,
+          "path_mfe_pct": 12.064,
+          "path_mae_pct": -14.4,
+          "max_close_to_close_drawdown_pct": -19.233,
+          "elapsed_natural_days": 24,
+          "elapsed_trading_sessions": 13,
+          "observed_trading_sessions": 13,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-21",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 26,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-30",
+              "quote_date": "2026-09-30",
+              "close_pct": 2.859
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-02",
+              "quote_date": "2026-09-30",
+              "close_pct": 2.859
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-04",
+              "quote_date": "2026-09-30",
+              "close_pct": 2.859
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-09",
+              "quote_date": "2026-10-09",
+              "close_pct": 6.032
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": -3.801
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -4.568
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-13",
+              "close_pct": -1.22
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-20",
+              "close_pct": -2.999
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002074",
+            "name": "国轩高科",
+            "date": "2026-10-23",
+            "open": 24.93,
+            "close": 26.04,
+            "high": 26.15,
+            "low": 24.55,
+            "volume": 397583.0,
+            "daily_change_pct": 3.006,
+            "rvol": {
+              "5": 0.92352,
+              "10": 0.64855,
+              "20": 0.72301
+            },
+            "ma": {
+              "5": 26.48,
+              "10": 27.475,
+              "20": 27.7645,
+              "60": 27.22133
+            },
+            "range_position_pct": {
+              "20": 19.631,
+              "60": 19.631,
+              "120": 11.195
+            },
+            "distance_ma20_pct": -6.211,
+            "clv": 0.9313
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002074,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -4689,6 +5771,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260929-600152-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260929-600152",
+          "code": "600152",
+          "name": "维科技术",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-29",
+          "reference_close": 8.32,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 6.55,
+            "close": 6.76,
+            "high": 6.78,
+            "low": 6.21,
+            "volume": 370838.0
+          },
+          "close_return_pct": -18.75,
+          "path_mfe_pct": 12.139,
+          "path_mae_pct": -25.361,
+          "max_close_to_close_drawdown_pct": -27.233,
+          "elapsed_natural_days": 24,
+          "elapsed_trading_sessions": 13,
+          "observed_trading_sessions": 13,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-21",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 7.45,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-30",
+              "quote_date": "2026-09-30",
+              "close_pct": 1.923
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-02",
+              "quote_date": "2026-09-30",
+              "close_pct": 1.923
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-04",
+              "quote_date": "2026-09-30",
+              "close_pct": 1.923
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-09",
+              "quote_date": "2026-10-09",
+              "close_pct": 4.928
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": 0.962
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -9.014
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-13",
+              "close_pct": -1.442
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-20",
+              "close_pct": -9.856
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600152",
+            "name": "维科技术",
+            "date": "2026-10-23",
+            "open": 6.55,
+            "close": 6.76,
+            "high": 6.78,
+            "low": 6.21,
+            "volume": 370838.0,
+            "daily_change_pct": 1.198,
+            "rvol": {
+              "5": 0.9436,
+              "10": 0.63266,
+              "20": 0.81534
+            },
+            "ma": {
+              "5": 7.104,
+              "10": 7.61,
+              "20": 7.8795,
+              "60": 7.9785
+            },
+            "range_position_pct": {
+              "20": 17.628,
+              "60": 17.628,
+              "120": 5.283
+            },
+            "distance_ma20_pct": -14.208,
+            "clv": 0.9649
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600152,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -5292,6 +6528,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260929-002866-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260929-002866",
+          "code": "002866",
+          "name": "传艺科技",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-29",
+          "reference_close": 15.36,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 13.71,
+            "close": 14.17,
+            "high": 14.26,
+            "low": 13.01,
+            "volume": 272771.0
+          },
+          "close_return_pct": -7.747,
+          "path_mfe_pct": 33.138,
+          "path_mae_pct": -15.299,
+          "max_close_to_close_drawdown_pct": -26.632,
+          "elapsed_natural_days": 24,
+          "elapsed_trading_sessions": 13,
+          "observed_trading_sessions": 13,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 13.65,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-30",
+              "quote_date": "2026-09-30",
+              "close_pct": 10.026
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-02",
+              "quote_date": "2026-09-30",
+              "close_pct": 10.026
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-04",
+              "quote_date": "2026-09-30",
+              "close_pct": 10.026
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-09",
+              "quote_date": "2026-10-09",
+              "close_pct": 19.271
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": 4.102
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -1.628
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-13",
+              "close_pct": 12.24
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-20",
+              "close_pct": -2.018
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002866",
+            "name": "传艺科技",
+            "date": "2026-10-23",
+            "open": 13.71,
+            "close": 14.17,
+            "high": 14.26,
+            "low": 13.01,
+            "volume": 272771.0,
+            "daily_change_pct": 0.854,
+            "rvol": {
+              "5": 0.93024,
+              "10": 0.6853,
+              "20": 1.0646
+            },
+            "ma": {
+              "5": 14.552,
+              "10": 15.675,
+              "20": 15.6125,
+              "60": 15.10933
+            },
+            "range_position_pct": {
+              "20": 15.591,
+              "60": 15.591,
+              "120": 6.828
+            },
+            "distance_ma20_pct": -9.239,
+            "clv": 0.928
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002866,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -5885,6 +7275,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260929-002244-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260929-002244",
+          "code": "002244",
+          "name": "滨江集团",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-29",
+          "reference_close": 9.46,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 9.19,
+            "close": 9.25,
+            "high": 9.5,
+            "low": 9.14,
+            "volume": 298528.0
+          },
+          "close_return_pct": -2.22,
+          "path_mfe_pct": 11.522,
+          "path_mae_pct": -9.514,
+          "max_close_to_close_drawdown_pct": -9.403,
+          "elapsed_natural_days": 24,
+          "elapsed_trading_sessions": 13,
+          "observed_trading_sessions": 13,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 8.45,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-30",
+              "quote_date": "2026-09-30",
+              "close_pct": 7.188
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-02",
+              "quote_date": "2026-09-30",
+              "close_pct": 7.188
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-04",
+              "quote_date": "2026-09-30",
+              "close_pct": 7.188
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-09",
+              "quote_date": "2026-10-09",
+              "close_pct": 7.294
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": 2.22
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": 1.903
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-13",
+              "close_pct": 3.805
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-20",
+              "close_pct": 0.74
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002244",
+            "name": "滨江集团",
+            "date": "2026-10-23",
+            "open": 9.19,
+            "close": 9.25,
+            "high": 9.5,
+            "low": 9.14,
+            "volume": 298528.0,
+            "daily_change_pct": -0.644,
+            "rvol": {
+              "5": 1.03846,
+              "10": 0.86112,
+              "20": 0.55699
+            },
+            "ma": {
+              "5": 9.43,
+              "10": 9.564,
+              "20": 9.3445,
+              "60": 8.96617
+            },
+            "range_position_pct": {
+              "20": 53.237,
+              "60": 53.901,
+              "120": 41.996
+            },
+            "distance_ma20_pct": -1.011,
+            "clv": 0.3056
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002244,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -6478,6 +8022,160 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20260929-603636-close-20261023-v1",
+          "origin_cohort_id": "low-position-20260929-603636",
+          "code": "603636",
+          "name": "南威软件",
+          "date": "2026-10-23",
+          "reference_date": "2026-09-29",
+          "reference_close": 7.87,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": false,
+          "eligible_for_model_statistics": false,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 8.05,
+            "close": 8.54,
+            "high": 8.7,
+            "low": 7.96,
+            "volume": 821147.0
+          },
+          "close_return_pct": 8.513,
+          "path_mfe_pct": 24.269,
+          "path_mae_pct": -9.276,
+          "max_close_to_close_drawdown_pct": -12.679,
+          "elapsed_natural_days": 24,
+          "elapsed_trading_sessions": 13,
+          "observed_trading_sessions": 13,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 6.85,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-09-30",
+              "quote_date": "2026-09-30",
+              "close_pct": -2.541
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-02",
+              "quote_date": "2026-09-30",
+              "close_pct": -2.541
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-04",
+              "quote_date": "2026-09-30",
+              "close_pct": -2.541
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-09",
+              "quote_date": "2026-10-09",
+              "close_pct": -0.254
+            },
+            {
+              "day": 15,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": -4.574
+            },
+            {
+              "day": 20,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": 2.668
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-13",
+              "close_pct": 0.127
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-20",
+              "close_pct": 12.961
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "603636",
+            "name": "南威软件",
+            "date": "2026-10-23",
+            "open": 8.05,
+            "close": 8.54,
+            "high": 8.7,
+            "low": 7.96,
+            "volume": 821147.0,
+            "daily_change_pct": -2.955,
+            "rvol": {
+              "5": 1.16013,
+              "10": 1.54334,
+              "20": 1.61045
+            },
+            "ma": {
+              "5": 8.818,
+              "10": 8.268,
+              "20": 7.967,
+              "60": 7.28683
+            },
+            "range_position_pct": {
+              "20": 61.006,
+              "60": 68.608,
+              "120": 41.354
+            },
+            "distance_ma20_pct": 7.192,
+            "clv": 0.7838
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603636,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ]
     },
@@ -6975,6 +8673,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261009-000420-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261009-000420",
+          "code": "000420",
+          "name": "吉林化纤",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-09",
+          "reference_close": 3.81,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 3.84,
+            "close": 3.92,
+            "high": 3.94,
+            "low": 3.73,
+            "volume": 1515135.0
+          },
+          "close_return_pct": 2.887,
+          "path_mfe_pct": 9.974,
+          "path_mae_pct": -7.874,
+          "max_close_to_close_drawdown_pct": -7.349,
+          "elapsed_natural_days": 14,
+          "elapsed_trading_sessions": 10,
+          "observed_trading_sessions": 10,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 3.53,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-10",
+              "quote_date": "2026-10-09",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-12",
+              "quote_date": "2026-10-12",
+              "close_pct": 0.0
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": -4.987
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": 2.1
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-16",
+              "close_pct": 1.837
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-23",
+              "close_pct": 2.887
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "000420",
+            "name": "吉林化纤",
+            "date": "2026-10-23",
+            "open": 3.84,
+            "close": 3.92,
+            "high": 3.94,
+            "low": 3.73,
+            "volume": 1515135.0,
+            "daily_change_pct": -1.508,
+            "rvol": {
+              "5": 0.92164,
+              "10": 0.86944,
+              "20": 1.45997
+            },
+            "ma": {
+              "5": 3.896,
+              "10": 3.806,
+              "20": 3.676,
+              "60": 3.69867
+            },
+            "range_position_pct": {
+              "20": 66.25,
+              "60": 66.25,
+              "120": 21.371
+            },
+            "distance_ma20_pct": 6.638,
+            "clv": 0.9048
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000420,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -7470,6 +9318,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261009-300821-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261009-300821",
+          "code": "300821",
+          "name": "东岳硅材",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-09",
+          "reference_close": 17.15,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 15.06,
+            "close": 16.22,
+            "high": 16.3,
+            "low": 15.01,
+            "volume": 1074995.0
+          },
+          "close_return_pct": -5.423,
+          "path_mfe_pct": 20.0,
+          "path_mae_pct": -12.478,
+          "max_close_to_close_drawdown_pct": -18.649,
+          "elapsed_natural_days": 14,
+          "elapsed_trading_sessions": 10,
+          "observed_trading_sessions": 10,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 15.3,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-10",
+              "quote_date": "2026-10-09",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-12",
+              "quote_date": "2026-10-12",
+              "close_pct": 4.898
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": 5.015
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -0.816
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-16",
+              "close_pct": 2.974
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-23",
+              "close_pct": -5.423
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "300821",
+            "name": "东岳硅材",
+            "date": "2026-10-23",
+            "open": 15.06,
+            "close": 16.22,
+            "high": 16.3,
+            "low": 15.01,
+            "volume": 1074995.0,
+            "daily_change_pct": 3.576,
+            "rvol": {
+              "5": 0.88619,
+              "10": 0.712,
+              "20": 1.15259
+            },
+            "ma": {
+              "5": 16.696,
+              "10": 17.471,
+              "20": 16.391,
+              "60": 16.06183
+            },
+            "range_position_pct": {
+              "20": 31.554,
+              "60": 35.788,
+              "120": 14.12
+            },
+            "distance_ma20_pct": -1.043,
+            "clv": 0.938
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300821,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -7982,6 +9980,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261009-600547-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261009-600547",
+          "code": "600547",
+          "name": "山东黄金",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-09",
+          "reference_close": 27.17,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 24.78,
+            "close": 26.0,
+            "high": 26.08,
+            "low": 24.45,
+            "volume": 730744.0
+          },
+          "close_return_pct": -4.306,
+          "path_mfe_pct": 1.215,
+          "path_mae_pct": -10.011,
+          "max_close_to_close_drawdown_pct": -6.478,
+          "elapsed_natural_days": 14,
+          "elapsed_trading_sessions": 10,
+          "observed_trading_sessions": 10,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 25.36,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-10",
+              "quote_date": "2026-10-09",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-12",
+              "quote_date": "2026-10-12",
+              "close_pct": -2.319
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": -4.269
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -0.92
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-16",
+              "close_pct": -2.944
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-23",
+              "close_pct": -4.306
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600547",
+            "name": "山东黄金",
+            "date": "2026-10-23",
+            "open": 24.78,
+            "close": 26.0,
+            "high": 26.08,
+            "low": 24.45,
+            "volume": 730744.0,
+            "daily_change_pct": 1.167,
+            "rvol": {
+              "5": 1.24017,
+              "10": 1.07368,
+              "20": 0.93476
+            },
+            "ma": {
+              "5": 26.422,
+              "10": 26.343,
+              "20": 27.6715,
+              "60": 30.94883
+            },
+            "range_position_pct": {
+              "20": 17.033,
+              "60": 10.839,
+              "120": 21.296
+            },
+            "distance_ma20_pct": -6.041,
+            "clv": 0.9509
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600547,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -8494,6 +10642,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261009-300058-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261009-300058",
+          "code": "300058",
+          "name": "蓝色光标",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-09",
+          "reference_close": 12.87,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 11.57,
+            "close": 12.45,
+            "high": 12.56,
+            "low": 11.46,
+            "volume": 2321260.0
+          },
+          "close_return_pct": -3.263,
+          "path_mfe_pct": 3.497,
+          "path_mae_pct": -10.956,
+          "max_close_to_close_drawdown_pct": -10.123,
+          "elapsed_natural_days": 14,
+          "elapsed_trading_sessions": 10,
+          "observed_trading_sessions": 10,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-16",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 11.9,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-10",
+              "quote_date": "2026-10-09",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-12",
+              "quote_date": "2026-10-12",
+              "close_pct": -2.176
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-14",
+              "quote_date": "2026-10-14",
+              "close_pct": -0.155
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -7.226
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-16",
+              "close_pct": -7.848
+            },
+            {
+              "session": 10,
+              "status": "observed",
+              "date": "2026-10-23",
+              "close_pct": -3.263
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "300058",
+            "name": "蓝色光标",
+            "date": "2026-10-23",
+            "open": 11.57,
+            "close": 12.45,
+            "high": 12.56,
+            "low": 11.46,
+            "volume": 2321260.0,
+            "daily_change_pct": 6.229,
+            "rvol": {
+              "5": 1.63836,
+              "10": 1.29843,
+              "20": 1.22458
+            },
+            "ma": {
+              "5": 12.106,
+              "10": 12.322,
+              "20": 12.6565,
+              "60": 13.465
+            },
+            "range_position_pct": {
+              "20": 35.87,
+              "60": 23.22,
+              "120": 15.568
+            },
+            "distance_ma20_pct": -1.632,
+            "clv": 0.9
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300058,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -8969,6 +11267,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261012-002531-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261012-002531",
+          "code": "002531",
+          "name": "天顺风能",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-12",
+          "reference_close": 8.27,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 6.41,
+            "close": 6.72,
+            "high": 6.72,
+            "low": 6.24,
+            "volume": 755819.0
+          },
+          "close_return_pct": -18.742,
+          "path_mfe_pct": 8.585,
+          "path_mae_pct": -24.547,
+          "max_close_to_close_drawdown_pct": -21.161,
+          "elapsed_natural_days": 11,
+          "elapsed_trading_sessions": 9,
+          "observed_trading_sessions": 9,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-14",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 7.5,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": -3.023
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-15",
+              "quote_date": "2026-10-15",
+              "close_pct": -18.501
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-17",
+              "quote_date": "2026-10-16",
+              "close_pct": -10.399
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -21.161
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": -12.938
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002531",
+            "name": "天顺风能",
+            "date": "2026-10-23",
+            "open": 6.41,
+            "close": 6.72,
+            "high": 6.72,
+            "low": 6.24,
+            "volume": 755819.0,
+            "daily_change_pct": 3.067,
+            "rvol": {
+              "5": 0.75805,
+              "10": 0.58634,
+              "20": 0.51763
+            },
+            "ma": {
+              "5": 6.898,
+              "10": 7.232,
+              "20": 7.448,
+              "60": 6.85183
+            },
+            "range_position_pct": {
+              "20": 17.518,
+              "60": 24.917,
+              "120": 13.068
+            },
+            "distance_ma20_pct": -9.774,
+            "clv": 1.0
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002531,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -9438,6 +11886,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261012-002027-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261012-002027",
+          "code": "002027",
+          "name": "分众传媒",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-12",
+          "reference_close": 5.1,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 4.9,
+            "close": 5.16,
+            "high": 5.18,
+            "low": 4.9,
+            "volume": 2534635.0
+          },
+          "close_return_pct": 1.176,
+          "path_mfe_pct": 5.098,
+          "path_mae_pct": -3.922,
+          "max_close_to_close_drawdown_pct": -6.061,
+          "elapsed_natural_days": 11,
+          "elapsed_trading_sessions": 9,
+          "observed_trading_sessions": 9,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 4.72,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-15",
+              "quote_date": "2026-10-15",
+              "close_pct": 2.549
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-17",
+              "quote_date": "2026-10-16",
+              "close_pct": 1.176
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -2.745
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": 3.529
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002027",
+            "name": "分众传媒",
+            "date": "2026-10-23",
+            "open": 4.9,
+            "close": 5.16,
+            "high": 5.18,
+            "low": 4.9,
+            "volume": 2534635.0,
+            "daily_change_pct": 4.032,
+            "rvol": {
+              "5": 1.25809,
+              "10": 0.93978,
+              "20": 1.34352
+            },
+            "ma": {
+              "5": 5.14,
+              "10": 5.154,
+              "20": 4.9415,
+              "60": 5.00867
+            },
+            "range_position_pct": {
+              "20": 72.603,
+              "60": 52.475,
+              "120": 28.649
+            },
+            "distance_ma20_pct": 4.422,
+            "clv": 0.9286
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002027,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -9907,6 +12505,156 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261012-603232-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261012-603232",
+          "code": "603232",
+          "name": "格尔软件",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-12",
+          "reference_close": 18.68,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 15.36,
+            "close": 16.1,
+            "high": 16.48,
+            "low": 14.57,
+            "volume": 218242.0
+          },
+          "close_return_pct": -13.812,
+          "path_mfe_pct": -1.231,
+          "path_mae_pct": -22.002,
+          "max_close_to_close_drawdown_pct": -15.632,
+          "elapsed_natural_days": 11,
+          "elapsed_trading_sessions": 9,
+          "observed_trading_sessions": 9,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-19",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 16.9,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-13",
+              "quote_date": "2026-10-13",
+              "close_pct": -4.283
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-15",
+              "quote_date": "2026-10-15",
+              "close_pct": -7.655
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-17",
+              "quote_date": "2026-10-16",
+              "close_pct": -8.833
+            },
+            {
+              "day": 10,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -15.632
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-19",
+              "close_pct": -10.76
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "603232",
+            "name": "格尔软件",
+            "date": "2026-10-23",
+            "open": 15.36,
+            "close": 16.1,
+            "high": 16.48,
+            "low": 14.57,
+            "volume": 218242.0,
+            "daily_change_pct": 2.157,
+            "rvol": {
+              "5": 0.93696,
+              "10": 0.80869,
+              "20": 0.95148
+            },
+            "ma": {
+              "5": 16.606,
+              "10": 17.169,
+              "20": 16.7235,
+              "60": 15.80633
+            },
+            "range_position_pct": {
+              "20": 37.226,
+              "60": 57.072,
+              "120": 31.303
+            },
+            "distance_ma20_pct": -3.728,
+            "clv": 0.801
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603232,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -10237,6 +12985,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261015-000973-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261015-000973",
+          "code": "000973",
+          "name": "佛塑科技",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-15",
+          "reference_close": 12.19,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 9.84,
+            "close": 10.48,
+            "high": 10.54,
+            "low": 9.75,
+            "volume": 312052.0
+          },
+          "close_return_pct": -14.028,
+          "path_mfe_pct": -1.148,
+          "path_mae_pct": -20.016,
+          "max_close_to_close_drawdown_pct": -16.489,
+          "elapsed_natural_days": 8,
+          "elapsed_trading_sessions": 6,
+          "observed_trading_sessions": 6,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-19",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 11.45,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-16",
+              "quote_date": "2026-10-16",
+              "close_pct": -1.887
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": -1.887
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": -6.645
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-14"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-22",
+              "close_pct": -16.489
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "000973",
+            "name": "佛塑科技",
+            "date": "2026-10-23",
+            "open": 9.84,
+            "close": 10.48,
+            "high": 10.54,
+            "low": 9.75,
+            "volume": 312052.0,
+            "daily_change_pct": 2.947,
+            "rvol": {
+              "5": 0.75158,
+              "10": 0.6781,
+              "20": 0.87381
+            },
+            "ma": {
+              "5": 10.876,
+              "10": 11.262,
+              "20": 11.518,
+              "60": 12.41883
+            },
+            "range_position_pct": {
+              "20": 27.757,
+              "60": 13.321,
+              "120": 5.84
+            },
+            "distance_ma20_pct": -9.012,
+            "clv": 0.9241
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000973,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -10569,6 +13465,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261015-002812-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261015-002812",
+          "code": "002812",
+          "name": "恩捷股份",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-15",
+          "reference_close": 48.39,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 42.0,
+            "close": 46.92,
+            "high": 46.92,
+            "low": 42.0,
+            "volume": 372823.0
+          },
+          "close_return_pct": -3.038,
+          "path_mfe_pct": 1.984,
+          "path_mae_pct": -13.205,
+          "max_close_to_close_drawdown_pct": -11.862,
+          "elapsed_natural_days": 8,
+          "elapsed_trading_sessions": 6,
+          "observed_trading_sessions": 6,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-21",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 45.05,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-16",
+              "quote_date": "2026-10-16",
+              "close_pct": -4.402
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": -4.402
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": -3.802
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-14"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-22",
+              "close_pct": -11.862
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002812",
+            "name": "恩捷股份",
+            "date": "2026-10-23",
+            "open": 42.0,
+            "close": 46.92,
+            "high": 46.92,
+            "low": 42.0,
+            "volume": 372823.0,
+            "daily_change_pct": 10.012,
+            "rvol": {
+              "5": 1.28068,
+              "10": 1.01026,
+              "20": 1.5288
+            },
+            "ma": {
+              "5": 45.088,
+              "10": 45.775,
+              "20": 46.293,
+              "60": 50.60183
+            },
+            "range_position_pct": {
+              "20": 66.939,
+              "60": 28.738,
+              "120": 10.764
+            },
+            "distance_ma20_pct": 1.354,
+            "clv": 1.0
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002812,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -10900,6 +13944,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261015-301069-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261015-301069",
+          "code": "301069",
+          "name": "凯盛新材",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-15",
+          "reference_close": 16.71,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 17.28,
+            "close": 17.49,
+            "high": 17.56,
+            "low": 16.49,
+            "volume": 161032.0
+          },
+          "close_return_pct": 4.668,
+          "path_mfe_pct": 6.523,
+          "path_mae_pct": -3.591,
+          "max_close_to_close_drawdown_pct": -0.625,
+          "elapsed_natural_days": 8,
+          "elapsed_trading_sessions": 6,
+          "observed_trading_sessions": 6,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 15.0,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-16",
+              "quote_date": "2026-10-16",
+              "close_pct": -0.359
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": -0.359
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 3.77
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-14"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-22",
+              "close_pct": 5.326
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "301069",
+            "name": "凯盛新材",
+            "date": "2026-10-23",
+            "open": 17.28,
+            "close": 17.49,
+            "high": 17.56,
+            "low": 16.49,
+            "volume": 161032.0,
+            "daily_change_pct": -0.625,
+            "rvol": {
+              "5": 1.0636,
+              "10": 1.09831,
+              "20": 1.79493
+            },
+            "ma": {
+              "5": 17.432,
+              "10": 16.947,
+              "20": 16.3915,
+              "60": 16.37267
+            },
+            "range_position_pct": {
+              "20": 88.929,
+              "60": 86.76,
+              "120": 30.43
+            },
+            "distance_ma20_pct": 6.702,
+            "clv": 0.9346
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz301069,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -11231,6 +14423,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261015-688552-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261015-688552",
+          "code": "688552",
+          "name": "航天南湖",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-15",
+          "reference_close": 34.13,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 33.53,
+            "close": 34.99,
+            "high": 35.14,
+            "low": 33.0,
+            "volume": 5215956.0
+          },
+          "close_return_pct": 2.52,
+          "path_mfe_pct": 7.325,
+          "path_mae_pct": -3.985,
+          "max_close_to_close_drawdown_pct": -2.892,
+          "elapsed_natural_days": 8,
+          "elapsed_trading_sessions": 6,
+          "observed_trading_sessions": 6,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 30.75,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-16",
+              "quote_date": "2026-10-16",
+              "close_pct": 1.377
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": 1.377
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 3.34
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-14"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-22",
+              "close_pct": 0.352
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "688552",
+            "name": "航天南湖",
+            "date": "2026-10-23",
+            "open": 33.53,
+            "close": 34.99,
+            "high": 35.14,
+            "low": 33.0,
+            "volume": 5215956.0,
+            "daily_change_pct": 2.161,
+            "rvol": {
+              "5": 0.63413,
+              "10": 0.68086,
+              "20": 1.04714
+            },
+            "ma": {
+              "5": 34.872,
+              "10": 33.081,
+              "20": 31.4255,
+              "60": 29.3935
+            },
+            "range_position_pct": {
+              "20": 84.572,
+              "60": 87.585,
+              "120": 59.232
+            },
+            "distance_ma20_pct": 11.343,
+            "clv": 0.9299
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688552,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -11562,6 +14902,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261015-300771-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261015-300771",
+          "code": "300771",
+          "name": "智莱科技",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-15",
+          "reference_close": 11.73,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 11.0,
+            "close": 11.38,
+            "high": 11.41,
+            "low": 10.54,
+            "volume": 66858.0
+          },
+          "close_return_pct": -2.984,
+          "path_mfe_pct": 3.41,
+          "path_mae_pct": -10.145,
+          "max_close_to_close_drawdown_pct": -5.2,
+          "elapsed_natural_days": 8,
+          "elapsed_trading_sessions": 6,
+          "observed_trading_sessions": 6,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 10.83,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-16",
+              "quote_date": "2026-10-16",
+              "close_pct": -1.194
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": -1.194
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": -0.256
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-14"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-22",
+              "close_pct": -5.2
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "300771",
+            "name": "智莱科技",
+            "date": "2026-10-23",
+            "open": 11.0,
+            "close": 11.38,
+            "high": 11.41,
+            "low": 10.54,
+            "volume": 66858.0,
+            "daily_change_pct": 2.338,
+            "rvol": {
+              "5": 0.96836,
+              "10": 0.97781,
+              "20": 1.26921
+            },
+            "ma": {
+              "5": 11.416,
+              "10": 11.454,
+              "20": 11.427,
+              "60": 11.50533
+            },
+            "range_position_pct": {
+              "20": 52.83,
+              "60": 48.996,
+              "120": 32.258
+            },
+            "distance_ma20_pct": -0.411,
+            "clv": 0.9655
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300771,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -11893,6 +15381,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261015-600199-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261015-600199",
+          "code": "600199",
+          "name": "金种子酒",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-15",
+          "reference_close": 7.75,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 6.75,
+            "close": 6.98,
+            "high": 7.07,
+            "low": 6.75,
+            "volume": 339559.0
+          },
+          "close_return_pct": -9.935,
+          "path_mfe_pct": 9.935,
+          "path_mae_pct": -12.903,
+          "max_close_to_close_drawdown_pct": -16.01,
+          "elapsed_natural_days": 8,
+          "elapsed_trading_sessions": 6,
+          "observed_trading_sessions": 6,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-22",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 7.1,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-16",
+              "quote_date": "2026-10-16",
+              "close_pct": 4.774
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-18",
+              "quote_date": "2026-10-16",
+              "close_pct": 4.774
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": -3.484
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-14"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-22",
+              "close_pct": -12.0
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600199",
+            "name": "金种子酒",
+            "date": "2026-10-23",
+            "open": 6.75,
+            "close": 6.98,
+            "high": 7.07,
+            "low": 6.75,
+            "volume": 339559.0,
+            "daily_change_pct": 2.346,
+            "rvol": {
+              "5": 0.56687,
+              "10": 0.63906,
+              "20": 0.94491
+            },
+            "ma": {
+              "5": 7.306,
+              "10": 7.416,
+              "20": 7.237,
+              "60": 7.35683
+            },
+            "range_position_pct": {
+              "20": 12.994,
+              "60": 19.9,
+              "120": 28.824
+            },
+            "distance_ma20_pct": -3.551,
+            "clv": 0.7188
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600199,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -12264,6 +15900,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261016-603334-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261016-603334",
+          "code": "603334",
+          "name": "丰倍生物",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-16",
+          "reference_close": 32.1,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 29.45,
+            "close": 29.48,
+            "high": 29.87,
+            "low": 27.8,
+            "volume": 28117.0
+          },
+          "close_return_pct": -8.162,
+          "path_mfe_pct": 4.891,
+          "path_mae_pct": -13.396,
+          "max_close_to_close_drawdown_pct": -9.292,
+          "elapsed_natural_days": 7,
+          "elapsed_trading_sessions": 5,
+          "observed_trading_sessions": 5,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-22",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 30.16,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-17",
+              "quote_date": "2026-10-16",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": 0.81
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-21",
+              "quote_date": "2026-10-21",
+              "close_pct": -2.555
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-26"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-31"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-05"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-15"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-23",
+              "close_pct": -8.162
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "603334",
+            "name": "丰倍生物",
+            "date": "2026-10-23",
+            "open": 29.45,
+            "close": 29.48,
+            "high": 29.87,
+            "low": 27.8,
+            "volume": 28117.0,
+            "daily_change_pct": -2.157,
+            "rvol": {
+              "5": 0.80866,
+              "10": 1.02789,
+              "20": 1.31306
+            },
+            "ma": {
+              "5": 31.15,
+              "10": 31.632,
+              "20": 31.916,
+              "60": 32.03617
+            },
+            "range_position_pct": {
+              "20": 23.431,
+              "60": 21.847,
+              "120": 6.954
+            },
+            "distance_ma20_pct": -7.633,
+            "clv": 0.8116
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603334,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -12634,6 +16418,154 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261016-600853-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261016-600853",
+          "code": "600853",
+          "name": "龙建股份",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-16",
+          "reference_close": 3.59,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 3.55,
+            "close": 3.68,
+            "high": 3.7,
+            "low": 3.53,
+            "volume": 637271.0
+          },
+          "close_return_pct": 2.507,
+          "path_mfe_pct": 4.735,
+          "path_mae_pct": -4.735,
+          "max_close_to_close_drawdown_pct": -3.064,
+          "elapsed_natural_days": 7,
+          "elapsed_trading_sessions": 5,
+          "observed_trading_sessions": 5,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 3.32,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-17",
+              "quote_date": "2026-10-16",
+              "close_pct": 0.0
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-19",
+              "quote_date": "2026-10-19",
+              "close_pct": -1.393
+            },
+            {
+              "day": 5,
+              "status": "price_observed",
+              "target_date": "2026-10-21",
+              "quote_date": "2026-10-21",
+              "close_pct": 0.836
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-26"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-10-31"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-05"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-15"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "observed",
+              "date": "2026-10-23",
+              "close_pct": 2.507
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600853",
+            "name": "龙建股份",
+            "date": "2026-10-23",
+            "open": 3.55,
+            "close": 3.68,
+            "high": 3.7,
+            "low": 3.53,
+            "volume": 637271.0,
+            "daily_change_pct": 1.099,
+            "rvol": {
+              "5": 0.90882,
+              "10": 1.09855,
+              "20": 1.92068
+            },
+            "ma": {
+              "5": 3.592,
+              "10": 3.536,
+              "20": 3.41,
+              "60": 3.32767
+            },
+            "range_position_pct": {
+              "20": 82.456,
+              "60": 86.111,
+              "120": 55.556
+            },
+            "distance_ma20_pct": 7.918,
+            "clv": 0.8824
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600853,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -12912,6 +16844,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261019-300432-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261019-300432",
+          "code": "300432",
+          "name": "富临精工",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-19",
+          "reference_close": 13.48,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 13.02,
+            "close": 14.12,
+            "high": 14.23,
+            "low": 12.9,
+            "volume": 664113.0
+          },
+          "close_return_pct": 4.748,
+          "path_mfe_pct": 5.564,
+          "path_mae_pct": -4.303,
+          "max_close_to_close_drawdown_pct": -3.134,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "observed_trading_sessions": 4,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 12.47,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 1.78
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -1.409
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-03"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-18"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "300432",
+            "name": "富临精工",
+            "date": "2026-10-23",
+            "open": 13.02,
+            "close": 14.12,
+            "high": 14.23,
+            "low": 12.9,
+            "volume": 664113.0,
+            "daily_change_pct": 6.245,
+            "rvol": {
+              "5": 1.07531,
+              "10": 1.3149,
+              "20": 1.63123
+            },
+            "ma": {
+              "5": 13.616,
+              "10": 13.082,
+              "20": 13.118,
+              "60": 14.5195
+            },
+            "range_position_pct": {
+              "20": 95.473,
+              "60": 43.364,
+              "120": 13.607
+            },
+            "distance_ma20_pct": 7.638,
+            "clv": 0.9173
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300432,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -13190,6 +17268,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261019-000032-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261019-000032",
+          "code": "000032",
+          "name": "深桑达Ａ",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-19",
+          "reference_close": 13.72,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 11.11,
+            "close": 11.3,
+            "high": 11.43,
+            "low": 10.69,
+            "volume": 757992.0
+          },
+          "close_return_pct": -17.638,
+          "path_mfe_pct": 1.676,
+          "path_mae_pct": -22.085,
+          "max_close_to_close_drawdown_pct": -17.638,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "observed_trading_sessions": 4,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-20",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 12.95,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": -7.58
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -13.411
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-03"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-18"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "000032",
+            "name": "深桑达Ａ",
+            "date": "2026-10-23",
+            "open": 11.11,
+            "close": 11.3,
+            "high": 11.43,
+            "low": 10.69,
+            "volume": 757992.0,
+            "daily_change_pct": -4.882,
+            "rvol": {
+              "5": 0.83764,
+              "10": 1.1802,
+              "20": 1.68963
+            },
+            "ma": {
+              "5": 12.556,
+              "10": 12.591,
+              "20": 13.184,
+              "60": 13.964
+            },
+            "range_position_pct": {
+              "20": 14.878,
+              "60": 11.509,
+              "120": 3.697
+            },
+            "distance_ma20_pct": -14.29,
+            "clv": 0.8243
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000032,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -13468,6 +17692,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261019-688084-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261019-688084",
+          "code": "688084",
+          "name": "晶品特装",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-19",
+          "reference_close": 42.29,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 39.31,
+            "close": 41.59,
+            "high": 41.79,
+            "low": 36.83,
+            "volume": 4331850.0
+          },
+          "close_return_pct": -1.655,
+          "path_mfe_pct": 2.932,
+          "path_mae_pct": -12.911,
+          "max_close_to_close_drawdown_pct": -6.629,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "observed_trading_sessions": 4,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 39.11,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 0.946
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -5.746
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-03"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-18"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "688084",
+            "name": "晶品特装",
+            "date": "2026-10-23",
+            "open": 39.31,
+            "close": 41.59,
+            "high": 41.79,
+            "low": 36.83,
+            "volume": 4331850.0,
+            "daily_change_pct": 4.34,
+            "rvol": {
+              "5": 1.22266,
+              "10": 1.48469,
+              "20": 2.21767
+            },
+            "ma": {
+              "5": 41.506,
+              "10": 40.127,
+              "20": 41.2845,
+              "60": 43.06667
+            },
+            "range_position_pct": {
+              "20": 60.661,
+              "60": 38.813,
+              "120": 15.374
+            },
+            "distance_ma20_pct": 0.74,
+            "clv": 0.9597
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688084,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -13746,6 +18116,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261019-002683-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261019-002683",
+          "code": "002683",
+          "name": "广东宏大",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-19",
+          "reference_close": 30.11,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 28.66,
+            "close": 29.49,
+            "high": 29.68,
+            "low": 28.21,
+            "volume": 138268.0
+          },
+          "close_return_pct": -2.059,
+          "path_mfe_pct": 1.461,
+          "path_mae_pct": -6.31,
+          "max_close_to_close_drawdown_pct": -3.215,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "observed_trading_sessions": 4,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 27.92,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 0.199
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -3.022
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-03"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-18"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002683",
+            "name": "广东宏大",
+            "date": "2026-10-23",
+            "open": 28.66,
+            "close": 29.49,
+            "high": 29.68,
+            "low": 28.21,
+            "volume": 138268.0,
+            "daily_change_pct": 0.993,
+            "rvol": {
+              "5": 0.74821,
+              "10": 0.97083,
+              "20": 1.42268
+            },
+            "ma": {
+              "5": 29.754,
+              "10": 28.046,
+              "20": 28.0535,
+              "60": 28.71767
+            },
+            "range_position_pct": {
+              "20": 81.239,
+              "60": 70.291,
+              "120": 27.16
+            },
+            "distance_ma20_pct": 5.121,
+            "clv": 0.8707
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002683,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -14024,6 +18540,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261019-001233-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261019-001233",
+          "code": "001233",
+          "name": "海安集团",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-19",
+          "reference_close": 51.53,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 52.54,
+            "close": 56.73,
+            "high": 56.73,
+            "low": 52.51,
+            "volume": 56983.0
+          },
+          "close_return_pct": 10.091,
+          "path_mfe_pct": 10.091,
+          "path_mae_pct": -0.912,
+          "max_close_to_close_drawdown_pct": -1.156,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "observed_trading_sessions": 4,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 48.76,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 4.095
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": 3.823
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-03"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-18"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "001233",
+            "name": "海安集团",
+            "date": "2026-10-23",
+            "open": 52.54,
+            "close": 56.73,
+            "high": 56.73,
+            "low": 52.51,
+            "volume": 56983.0,
+            "daily_change_pct": 6.037,
+            "rvol": {
+              "5": 0.99249,
+              "10": 1.32127,
+              "20": 1.61411
+            },
+            "ma": {
+              "5": 53.684,
+              "10": 49.604,
+              "20": 47.436,
+              "60": 45.30267
+            },
+            "range_position_pct": {
+              "20": 100.0,
+              "60": 100.0,
+              "120": 57.586
+            },
+            "distance_ma20_pct": 19.593,
+            "clv": 1.0
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz001233,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -14302,6 +18964,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261019-300556-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261019-300556",
+          "code": "300556",
+          "name": "丝路视觉",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-19",
+          "reference_close": 17.14,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 16.98,
+            "close": 18.17,
+            "high": 18.29,
+            "low": 15.75,
+            "volume": 163974.0
+          },
+          "close_return_pct": 6.009,
+          "path_mfe_pct": 7.935,
+          "path_mae_pct": -8.11,
+          "max_close_to_close_drawdown_pct": -5.623,
+          "elapsed_natural_days": 4,
+          "elapsed_trading_sessions": 4,
+          "observed_trading_sessions": 4,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 15.58,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-20",
+              "quote_date": "2026-10-20",
+              "close_pct": 3.326
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-22",
+              "quote_date": "2026-10-22",
+              "close_pct": -0.117
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-24"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-29"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-03"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-08"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-18"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "300556",
+            "name": "丝路视觉",
+            "date": "2026-10-23",
+            "open": 16.98,
+            "close": 18.17,
+            "high": 18.29,
+            "low": 15.75,
+            "volume": 163974.0,
+            "daily_change_pct": 6.133,
+            "rvol": {
+              "5": 1.18471,
+              "10": 1.18287,
+              "20": 1.87324
+            },
+            "ma": {
+              "5": 17.656,
+              "10": 17.256,
+              "20": 16.6245,
+              "60": 16.24967
+            },
+            "range_position_pct": {
+              "20": 83.668,
+              "60": 88.344,
+              "120": 48.562
+            },
+            "distance_ma20_pct": 9.297,
+            "clv": 0.9528
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300556,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -14512,6 +19320,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261020-301658-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261020-301658",
+          "code": "301658",
+          "name": "首航新能",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-20",
+          "reference_close": 25.62,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 22.7,
+            "close": 21.95,
+            "high": 22.89,
+            "low": 20.0,
+            "volume": 157148.0
+          },
+          "close_return_pct": -14.325,
+          "path_mfe_pct": 3.084,
+          "path_mae_pct": -21.936,
+          "max_close_to_close_drawdown_pct": -15.284,
+          "elapsed_natural_days": 3,
+          "elapsed_trading_sessions": 3,
+          "observed_trading_sessions": 3,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": "2026-10-22",
+          "ever_verified_close_below_original_invalid": true,
+          "original_invalid_close_below": 24.32,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-21",
+              "quote_date": "2026-10-21",
+              "close_pct": 1.132
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": -14.325
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-09"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-19"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "301658",
+            "name": "首航新能",
+            "date": "2026-10-23",
+            "open": 22.7,
+            "close": 21.95,
+            "high": 22.89,
+            "low": 20.0,
+            "volume": 157148.0,
+            "daily_change_pct": -7.734,
+            "rvol": {
+              "5": 0.942,
+              "10": 0.89488,
+              "20": 1.54157
+            },
+            "ma": {
+              "5": 24.414,
+              "10": 24.669,
+              "20": 23.4025,
+              "60": 23.42717
+            },
+            "range_position_pct": {
+              "20": 27.388,
+              "60": 27.388,
+              "120": 7.982
+            },
+            "distance_ma20_pct": -6.207,
+            "clv": 0.6747
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz301658,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -14722,6 +19676,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261020-003021-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261020-003021",
+          "code": "003021",
+          "name": "兆威机电",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-20",
+          "reference_close": 72.57,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 85.0,
+            "close": 91.73,
+            "high": 91.73,
+            "low": 85.0,
+            "volume": 261792.0
+          },
+          "close_return_pct": 26.402,
+          "path_mfe_pct": 26.402,
+          "path_mae_pct": -2.453,
+          "max_close_to_close_drawdown_pct": 0,
+          "elapsed_natural_days": 3,
+          "elapsed_trading_sessions": 3,
+          "observed_trading_sessions": 3,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 67.51,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-21",
+              "quote_date": "2026-10-21",
+              "close_pct": 4.465
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": 26.402
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-09"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-19"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "003021",
+            "name": "兆威机电",
+            "date": "2026-10-23",
+            "open": 85.0,
+            "close": 91.73,
+            "high": 91.73,
+            "low": 85.0,
+            "volume": 261792.0,
+            "daily_change_pct": 10.001,
+            "rvol": {
+              "5": 3.74846,
+              "10": 5.50549,
+              "20": 6.79804
+            },
+            "ma": {
+              "5": 78.144,
+              "10": 70.586,
+              "20": 70.025,
+              "60": 72.903
+            },
+            "range_position_pct": {
+              "20": 100.0,
+              "60": 100.0,
+              "120": 55.554
+            },
+            "distance_ma20_pct": 30.996,
+            "clv": 1.0
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz003021,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -14932,6 +20032,152 @@
             "fill",
             "legal_exit"
           ]
+        },
+        {
+          "id": "low-position-20261020-300314-close-20261023-v1",
+          "origin_cohort_id": "low-position-20261020-300314",
+          "code": "300314",
+          "name": "戴维医疗",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-20",
+          "reference_close": 13.23,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 13.77,
+            "close": 14.63,
+            "high": 14.75,
+            "low": 13.4,
+            "volume": 198818.0
+          },
+          "close_return_pct": 10.582,
+          "path_mfe_pct": 15.117,
+          "path_mae_pct": 1.285,
+          "max_close_to_close_drawdown_pct": -2.887,
+          "elapsed_natural_days": 3,
+          "elapsed_trading_sessions": 3,
+          "observed_trading_sessions": 3,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 12.28,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-21",
+              "quote_date": "2026-10-21",
+              "close_pct": 7.332
+            },
+            {
+              "day": 3,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": 10.582
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-10-30"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-04"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-09"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-19"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "300314",
+            "name": "戴维医疗",
+            "date": "2026-10-23",
+            "open": 13.77,
+            "close": 14.63,
+            "high": 14.75,
+            "low": 13.4,
+            "volume": 198818.0,
+            "daily_change_pct": 6.091,
+            "rvol": {
+              "5": 1.20276,
+              "10": 1.8257,
+              "20": 1.93444
+            },
+            "ma": {
+              "5": 13.664,
+              "10": 12.81,
+              "20": 12.7135,
+              "60": 11.85133
+            },
+            "range_position_pct": {
+              "20": 84.085,
+              "60": 70.972,
+              "120": 71.66
+            },
+            "distance_ma20_pct": 15.075,
+            "clv": 0.9111
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300314,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
         }
       ],
       "sources": [
@@ -15016,7 +20262,152 @@
       "report_ids": [
         "low-position-20261022-close-v1"
       ],
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-proxy-20261022-600900-close-20261023-v1",
+          "origin_cohort_id": "low-position-proxy-20261022-600900",
+          "code": "600900",
+          "name": "长江电力",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-22",
+          "reference_close": 29.82,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 29.7,
+            "close": 29.45,
+            "high": 29.99,
+            "low": 29.33,
+            "volume": 1799152.0
+          },
+          "close_return_pct": -1.241,
+          "path_mfe_pct": 0.57,
+          "path_mae_pct": -1.643,
+          "max_close_to_close_drawdown_pct": -1.241,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "observed_trading_sessions": 1,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 29.34,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": -1.241
+            },
+            {
+              "day": 3,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-06"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-21"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "600900",
+            "name": "长江电力",
+            "date": "2026-10-23",
+            "open": 29.7,
+            "close": 29.45,
+            "high": 29.99,
+            "low": 29.33,
+            "volume": 1799152.0,
+            "daily_change_pct": -1.241,
+            "rvol": {
+              "5": 1.58138,
+              "10": 1.57255,
+              "20": 1.85125
+            },
+            "ma": {
+              "5": 29.614,
+              "10": 29.503,
+              "20": 28.961,
+              "60": 28.53633
+            },
+            "range_position_pct": {
+              "20": 73.786,
+              "60": 78.226,
+              "120": 85.938
+            },
+            "distance_ma20_pct": 1.688,
+            "clv": 0.1818
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600900,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
+        }
+      ],
       "sources": [
         "docs/research/completion-2026-10-22-evidence.json",
         "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600900,day,,,180"
@@ -15099,7 +20490,152 @@
       "report_ids": [
         "low-position-20261022-close-v1"
       ],
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-proxy-20261022-000420-close-20261023-v1",
+          "origin_cohort_id": "low-position-proxy-20261022-000420",
+          "code": "000420",
+          "name": "吉林化纤",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-22",
+          "reference_close": 3.98,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 3.84,
+            "close": 3.92,
+            "high": 3.94,
+            "low": 3.73,
+            "volume": 1515135.0
+          },
+          "close_return_pct": -1.508,
+          "path_mfe_pct": -1.005,
+          "path_mae_pct": -6.281,
+          "max_close_to_close_drawdown_pct": -1.508,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "observed_trading_sessions": 1,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 3.78,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": -1.508
+            },
+            {
+              "day": 3,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-06"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-21"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "000420",
+            "name": "吉林化纤",
+            "date": "2026-10-23",
+            "open": 3.84,
+            "close": 3.92,
+            "high": 3.94,
+            "low": 3.73,
+            "volume": 1515135.0,
+            "daily_change_pct": -1.508,
+            "rvol": {
+              "5": 0.92164,
+              "10": 0.86944,
+              "20": 1.45997
+            },
+            "ma": {
+              "5": 3.896,
+              "10": 3.806,
+              "20": 3.676,
+              "60": 3.69867
+            },
+            "range_position_pct": {
+              "20": 66.25,
+              "60": 66.25,
+              "120": 21.371
+            },
+            "distance_ma20_pct": 6.638,
+            "clv": 0.9048
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000420,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
+        }
+      ],
       "sources": [
         "docs/research/completion-2026-10-22-evidence.json",
         "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz000420&scale=240&ma=no&datalen=180"
@@ -15182,7 +20718,152 @@
       "report_ids": [
         "low-position-20261022-close-v1"
       ],
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-proxy-20261022-601288-close-20261023-v1",
+          "origin_cohort_id": "low-position-proxy-20261022-601288",
+          "code": "601288",
+          "name": "农业银行",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-22",
+          "reference_close": 7.4,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 7.33,
+            "close": 7.19,
+            "high": 7.42,
+            "low": 7.11,
+            "volume": 5904283.0
+          },
+          "close_return_pct": -2.838,
+          "path_mfe_pct": 0.27,
+          "path_mae_pct": -3.919,
+          "max_close_to_close_drawdown_pct": -2.838,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "observed_trading_sessions": 1,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 7.19,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": -2.838
+            },
+            {
+              "day": 3,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-06"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-21"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "601288",
+            "name": "农业银行",
+            "date": "2026-10-23",
+            "open": 7.33,
+            "close": 7.19,
+            "high": 7.42,
+            "low": 7.11,
+            "volume": 5904283.0,
+            "daily_change_pct": -2.838,
+            "rvol": {
+              "5": 1.48476,
+              "10": 1.56372,
+              "20": 1.77795
+            },
+            "ma": {
+              "5": 7.356,
+              "10": 7.29,
+              "20": 7.0985,
+              "60": 6.88367
+            },
+            "range_position_pct": {
+              "20": 55.696,
+              "60": 70.339,
+              "120": 80.0
+            },
+            "distance_ma20_pct": 1.289,
+            "clv": 0.2581
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601288,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
+        }
+      ],
       "sources": [
         "docs/research/completion-2026-10-22-evidence.json",
         "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601288,day,,,180"
@@ -15265,7 +20946,152 @@
       "report_ids": [
         "low-position-20261022-close-v1"
       ],
-      "observations": [],
+      "observations": [
+        {
+          "id": "low-position-proxy-20261022-002520-close-20261023-v1",
+          "origin_cohort_id": "low-position-proxy-20261022-002520",
+          "code": "002520",
+          "name": "日发精机",
+          "date": "2026-10-23",
+          "reference_date": "2026-10-22",
+          "reference_close": 6.1,
+          "original_reference_matches_unadjusted_daily": true,
+          "original_snapshot_verified": true,
+          "eligible_for_model_statistics": true,
+          "price_observation": {
+            "date": "2026-10-23",
+            "open": 5.74,
+            "close": 6.34,
+            "high": 6.39,
+            "low": 5.67,
+            "volume": 999868.0
+          },
+          "close_return_pct": 3.934,
+          "path_mfe_pct": 4.754,
+          "path_mae_pct": -7.049,
+          "max_close_to_close_drawdown_pct": 0,
+          "elapsed_natural_days": 1,
+          "elapsed_trading_sessions": 1,
+          "observed_trading_sessions": 1,
+          "missing_sessions": [],
+          "thirty_natural_days_matured": false,
+          "thirty_sessions_matured": false,
+          "first_verified_close_below_original_invalid": null,
+          "ever_verified_close_below_original_invalid": false,
+          "original_invalid_close_below": 5.67,
+          "calendar_milestones": [
+            {
+              "day": 1,
+              "status": "price_observed",
+              "target_date": "2026-10-23",
+              "quote_date": "2026-10-23",
+              "close_pct": 3.934
+            },
+            {
+              "day": 3,
+              "status": "pending",
+              "target_date": "2026-10-25"
+            },
+            {
+              "day": 5,
+              "status": "pending",
+              "target_date": "2026-10-27"
+            },
+            {
+              "day": 10,
+              "status": "pending",
+              "target_date": "2026-11-01"
+            },
+            {
+              "day": 15,
+              "status": "pending",
+              "target_date": "2026-11-06"
+            },
+            {
+              "day": 20,
+              "status": "pending",
+              "target_date": "2026-11-11"
+            },
+            {
+              "day": 30,
+              "status": "pending",
+              "target_date": "2026-11-21"
+            }
+          ],
+          "trading_milestones": [
+            {
+              "session": 5,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 10,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 20,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            },
+            {
+              "session": 30,
+              "status": "pending",
+              "date": null,
+              "close_pct": null
+            }
+          ],
+          "current_structure": {
+            "code": "002520",
+            "name": "日发精机",
+            "date": "2026-10-23",
+            "open": 5.74,
+            "close": 6.34,
+            "high": 6.39,
+            "low": 5.67,
+            "volume": 999868.0,
+            "daily_change_pct": 3.934,
+            "rvol": {
+              "5": 2.84093,
+              "10": 3.50806,
+              "20": 3.58159
+            },
+            "ma": {
+              "5": 5.884,
+              "10": 5.793,
+              "20": 6.0445,
+              "60": 6.0725
+            },
+            "range_position_pct": {
+              "20": 78.512,
+              "60": 63.684,
+              "120": 45.029
+            },
+            "distance_ma20_pct": 4.889,
+            "clv": 0.9306
+          },
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "calculation_version": "low_price_observation_v3_including_anchor_in_close_drawdown",
+          "full_validation_completed": true,
+          "evidence_status": "single_provider_unadjusted_daily_path",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002520,day,,,180"
+          ],
+          "missing": [
+            "historical_minute_OHLC",
+            "order_and_fill_evidence"
+          ],
+          "calculated_at": "2026-10-24T03:05:41+08:00"
+        }
+      ],
       "sources": [
         "docs/research/completion-2026-10-22-evidence.json",
         "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData?symbol=sz002520&scale=240&ma=no&datalen=180"

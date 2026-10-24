@@ -3652,6 +3652,153 @@
       "sources": [
         "docs/research/volume-price-20261023-close-evidence.json"
       ]
+    },
+    {
+      "id": "market-review-20261023-manual-completion-v1-completed",
+      "run_id": "market-review-20261023-manual-completion-v1",
+      "task_id": "market_review",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "全A5573→广泛120→深筛28；旧池28/28日线复核，中位+3.413%，18只盘中不利≤-5%；正式新推荐0。",
+      "report_ids": [
+        "market-review-20261023-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "volume-price-20261023-manual-completion-v1-completed",
+      "run_id": "volume-price-20261023-manual-completion-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "恢复并复核同日原量价完整报告、28只前池验证及全部旧历史；不重复候选。",
+      "report_ids": [
+        "volume-price-20261023-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "low-position-20261023-manual-completion-v1-completed",
+      "run_id": "low-position-20261023-manual-completion-v1",
+      "task_id": "low_position",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "39条/38股全路径核验；30自然日到期2条但原快照不合格，模型成熟N=0；不删失败样本。",
+      "report_ids": [
+        "low-position-20261023-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261023-manual-completion-v1-completed",
+      "run_id": "dragon-tiger-20261023-manual-completion-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "98理由行/78股票；8只席位核对；旧组38只一日价格验证，沪深与北交分制度保存，候选0。",
+      "report_ids": [
+        "dragon-tiger-20261023-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "limitup-single-20261023-manual-completion-v1-completed",
+      "run_id": "limitup-single-20261023-manual-completion-v1",
+      "task_id": "limitup_single",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "v2无合格候选；保留6板高位分歧、制度分组与空间/晋级缺项；旧600592未入场状态不变。",
+      "report_ids": [
+        "limitup-single-20261023-close-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "learning-review-20261023-manual-completion-v1-completed",
+      "run_id": "learning-review-20261023-manual-completion-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "31条逐项评估，22条成熟T+2、9条回溯排除；独立日期7，未达36条/20日门槛，未修改规则。",
+      "report_ids": [
+        "learning-review-20261023-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "low-dragon-20261023-manual-completion-v1-completed",
+      "run_id": "low-dragon-20261023-manual-completion-v1",
+      "task_id": "low_dragon",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-23T18:55:40.318627+00:00",
+      "recorded_at": "2026-10-24T08:05:49+08:00",
+      "completed_at": "2026-10-24T08:05:49+08:00",
+      "status": "completed",
+      "summary": "低位和龙虎榜两份完整研究与独立回执已归档；联合仅编排摘要。",
+      "report_ids": [
+        "low-dragon-20261023-completion-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/completion-20261023-evidence.json.gz"
+      ]
     }
   ]
 }

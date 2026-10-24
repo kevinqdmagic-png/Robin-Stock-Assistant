@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T23:31:00+00:00",
+  "updated_at": "2026-10-24T08:01:16+08:00",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -195,6 +195,27 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-300450-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘30.4；已按原信号日与交易日历追加成熟节点，价格代理不证明原触发/成交。",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300450,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
           ]
         }
       ]
@@ -1139,6 +1160,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-300058-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘12.45；2026-10-09原样本参考至今-3.263%，曾收破初始失效=True",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300058,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1253,6 +1295,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000420-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘3.92；2026-10-09原样本参考至今2.887%，曾收破初始失效=False；2026-10-22原样本参考至今-1.508%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000420,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1343,6 +1406,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000887-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘17.46；已按原信号日与交易日历追加成熟节点，价格代理不证明原触发/成交。",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000887,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1389,6 +1473,27 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-300432-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘14.12；2026-10-19原样本参考至今4.748%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300432,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
           ]
         }
       ]
@@ -1437,6 +1542,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-000032-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘11.3；2026-10-19原样本参考至今-17.638%，曾收破初始失效=True",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000032,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1483,6 +1609,27 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-688084-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘41.59；2026-10-19原样本参考至今-1.655%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688084,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
           ]
         }
       ]
@@ -1531,6 +1678,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-002683-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘29.49；2026-10-19原样本参考至今-2.059%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002683,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1577,6 +1745,27 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-001233-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘56.73；2026-10-19原样本参考至今10.091%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz001233,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
           ]
         }
       ]
@@ -1625,6 +1814,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-300556-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘18.17；2026-10-19原样本参考至今6.009%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300556,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1652,6 +1862,27 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-301658-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘21.95；2026-10-20原样本参考至今-14.325%，曾收破初始失效=True",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz301658,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
           ]
         }
       ]
@@ -1681,6 +1912,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-003021-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘91.73；2026-10-20原样本参考至今26.402%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz003021,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1709,6 +1961,27 @@
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-300314-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘14.63；2026-10-20原样本参考至今10.582%，曾收破初始失效=False",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "low-position-20261023-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300314,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1736,6 +2009,27 @@
           ],
           "sources": [
             "docs/research/combined-pair-2026-10-20-evidence.json"
+          ]
+        },
+        {
+          "id": "research-stock-300458-20261023-validation",
+          "date": "2026-10-23",
+          "recorded_at": "2026-10-24T08:01:16+08:00",
+          "title": "10月23日原样本价格路径复核",
+          "reason": "追加已留存原样本的价格事实及失效证据，原研究理由和条件保持冻结。",
+          "evidence_status": "unadjusted_daily_price_observation_not_fill",
+          "fact_note": "10月23日未复权收盘30.08；已按原信号日与交易日历追加成熟节点，价格代理不证明原触发/成交。",
+          "validation": [
+            "继续原自然日/交易日节点；未成熟不提前评估。",
+            "跨任务同一价格样本不重复计策略成绩。"
+          ],
+          "risk": "日线不能证明逐笔成交、止损次序或席位身份；不得把原样本反弹视为新入场指令。",
+          "report_ids": [
+            "learning-review-20261023-forward-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300458,day,,,180",
+            "docs/research/completion-20261023-evidence.json.gz"
           ]
         }
       ]
