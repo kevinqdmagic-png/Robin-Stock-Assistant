@@ -1,5 +1,15 @@
 # Robin stock assistant: research contract and holiday progress
 
+## 2026-10-24：综合双标与每日打板合并编排
+
+以`docs/current-execution.md`为当前执行约定。外部“综合双标＋每日打板”已合并启用，沿用原任务周期及时区，不新增任务。`combined_pair`只在同T的`market_review`、`volume_price`、`low_position`、`dragon_tiger`四份完整研究和真实完成回执齐备后裁决最多两只；同时检查计划交易日D的完整`limitup_single_v2`，最多一只或空仓。T与D分开记录，打板不是第五项综合前置，量化研究继续取消。
+
+两组保留各自task_id、track、report_id、冻结原始条件、样本、回执和表现统计；独立研究不等于独立外部调度。打板模块随`combined_pair`执行，原单独打板调度已暂停。APP的安全配置仅同步实际读回状态，私有调度标识和完整提示词不公开；本次配置审计为manual且eligible=false，不冒充交易研究。
+
+已有同T综合裁决仍须检查D打板，已有D打板也须检查四项前置及综合裁决。先核实在途归档防并发；缺项实际补做，已完成复用，不重复记样本或只登记waiting。休市仅补证最近交易日预案和历史验证，不新造休市日交易推荐。持续研究不因一次完成或临时失败自动暂停。
+
+报告、原始证据和真实回执原子追加；最新main并发保护、档案与容器CI、明确测试SHA发布、Railway终态SUCCESS和公开API读回全部成功后才能称APP同步。纯研究与任务说明更新不要求重装APK。本节覆盖以下旧独立打板调度和早期编排冲突，研究方法及历史原文保留。
+
 ## 2026-10-15：当前执行规则覆盖旧编排
 
 `docs/current-execution.md`记录当前有效编排。量化痕迹`quant_research`已取消，不再研究、跟踪或作为综合前置；历史记录只作审计保留。盘后综合决策只要求同一已完成交易日的`market_review`、`volume_price`、`low_position`和`dragon_tiger`四份完整报告及完成回执。自动扫描、局部证据、历史验证和`eligible_for_integrated_research=false`报告不能替代完整研究。低位与龙虎榜分别归档，联合只表示编排；量价必须独立完成。

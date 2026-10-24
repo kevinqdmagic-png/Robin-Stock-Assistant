@@ -1,0 +1,71 @@
+{
+  "title": "综合双标＋每日打板",
+  "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T223000\nRRULE:FREQ=DAILY;BYHOUR=0,6,22,23;BYMINUTE=30\nEND:VEVENT",
+  "timezone": "Pacific/Auckland",
+  "enabled": true,
+  "source": "connected task private readback; private identifiers and prompt intentionally omitted",
+  "source_configuration_updated_at": "2026-10-24T05:35:57.477389+00:00",
+  "standalone_limitup_schedule_enabled": false,
+  "observed_at": "2026-10-24T18:14:54.957065+08:00",
+  "changed_local_task_ids": [
+    "combined_pair",
+    "limitup_single"
+  ],
+  "old_safe_registry_rows": [
+    {
+      "id": "combined_pair",
+      "title": "盘后综合双标",
+      "track": "market_review",
+      "summary": "盘后综合双标只在市场复盘、量价、低位与龙虎榜四份同日完整报告齐备后裁决；缺项由本任务实际补做，量化痕迹已取消。",
+      "schedule_text": "盘后外部完整研究与补偿复查；GitHub局部证据只作审计，不能替代四份深度研究",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Shanghai:20261015T171700\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17,18,19;BYMINUTE=17\nEND:VEVENT",
+      "timezone": "Asia/Shanghai",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": [
+        "market_review",
+        "volume_price",
+        "low_position",
+        "dragon_tiger"
+      ],
+      "configuration_confirmed_at": "2026-10-15T17:49:46.905+00:00",
+      "executes_missing_tasks": [
+        "market_review",
+        "volume_price",
+        "low_position",
+        "dragon_tiger"
+      ],
+      "execution_mode": "external_scheduled_full_research_with_github_partial_fallback",
+      "effective_enabled": true,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml",
+      "full_executor_enabled": true,
+      "integrated_prerequisite_count": 4,
+      "quant_research_required": false
+    },
+    {
+      "id": "limitup_single",
+      "title": "每日打板一股",
+      "track": "market_review",
+      "summary": "独立盘前打板一股完整研究：先核验上一交易日情绪、高度、空间和逐层晋级，再给最多一只条件候选或空仓；当前仅模拟前推。",
+      "schedule_text": "北京时间03:00（新西兰夏令时）/04:00（冬令时）· 工作日；按Pacific/Auckland 08:00锚定",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261008T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "exact_schedule",
+      "enabled": true,
+      "one_time": false,
+      "dependencies": [],
+      "include_legacy_reports": false,
+      "research_rule_version": "limitup_single_v2",
+      "research_rule_effective_scope": "下一轮新候选起；2026-10-08已冻结v1候选保持原条件",
+      "configuration_confirmed_at": "2026-10-14T19:35:54+00:00",
+      "execution_mode": "external_scheduled_full_research_with_github_partial_fallback",
+      "effective_enabled": true,
+      "partial_executor_enabled": true,
+      "executor_workflow": ".github/workflows/scheduled-research.yml",
+      "full_executor_enabled": true
+    }
+  ],
+  "configuration_is_research_completion": false
+}

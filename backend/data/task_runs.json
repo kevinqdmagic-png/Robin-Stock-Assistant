@@ -3799,6 +3799,77 @@
       "sources": [
         "docs/research/completion-20261023-evidence.json.gz"
       ]
+    },
+    {
+      "id": "combined-orchestration-20261024-manual-v1-completed",
+      "run_id": "combined-orchestration-20261024-manual-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-23",
+      "trigger": "manual",
+      "started_at": "2026-10-24T18:14:54.957065+08:00",
+      "recorded_at": "2026-10-24T18:14:54.957309+08:00",
+      "completed_at": "2026-10-24T18:14:54.957309+08:00",
+      "status": "completed",
+      "summary": "同步10月24日已合并外部任务的安全配置快照；配置核对不计作完整交易研究。",
+      "report_ids": [
+        "combined-orchestration-20261024-audit-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261023-decision-evidence.json"
+      ],
+      "execution_scope": "configuration_audit_only",
+      "eligible_for_integrated_research": false
+    },
+    {
+      "id": "combined-pair-20261023-scheduled-weekend-v1-completed",
+      "run_id": "combined-pair-20261023-scheduled-weekend-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-23",
+      "trigger": "scheduled",
+      "started_at": "2026-10-24T09:49:23+00:00",
+      "recorded_at": "2026-10-24T18:14:55.004877+08:00",
+      "completed_at": "2026-10-24T18:14:55.004877+08:00",
+      "status": "completed",
+      "summary": "复用5573只全A、120广泛池、28深筛与四项完整研究；新增官方公告补证后综合候选0只。",
+      "report_ids": [
+        "combined-pair-20261023-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261023-decision-evidence.json"
+      ],
+      "eligible_for_integrated_research": true
+    },
+    {
+      "id": "limitup-single-20261023-scheduled-weekend-evidence-v2-completed",
+      "run_id": "limitup-single-20261023-scheduled-weekend-evidence-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-23",
+      "trigger": "scheduled",
+      "started_at": "2026-10-24T09:49:23+00:00",
+      "recorded_at": "2026-10-24T18:14:55.004911+08:00",
+      "completed_at": "2026-10-24T18:14:55.004911+08:00",
+      "status": "completed",
+      "summary": "原完整D26打板报告复用；新核验官方公告支持继续空仓，未新增或重复候选。",
+      "report_ids": [
+        "limitup-single-20261023-weekend-evidence-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261023-decision-evidence.json"
+      ],
+      "execution_scope": "reuse_full_report_and_append_verified_evidence",
+      "reused_report_ids": [
+        "limitup-single-20261023-close-v2"
+      ],
+      "eligible_for_integrated_research": false
     }
   ]
 }

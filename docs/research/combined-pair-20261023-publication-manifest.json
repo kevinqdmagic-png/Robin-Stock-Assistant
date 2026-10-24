@@ -1,0 +1,24 @@
+{
+  "research_date": "2026-10-23",
+  "planned_entry_date": "2026-10-26",
+  "started_at": "2026-10-24T09:49:23+00:00",
+  "completed_at": "2026-10-24T18:14:54.957315+08:00",
+  "report_ids": [
+    "combined-orchestration-20261024-audit-v1",
+    "combined-pair-20261023-close-v1",
+    "limitup-single-20261023-weekend-evidence-v2"
+  ],
+  "dependency_report_ids": [
+    "market-review-20261023-close-v1",
+    "volume-price-20261023-close-v1",
+    "low-position-20261023-close-v1",
+    "dragon-tiger-20261023-close-v1"
+  ],
+  "reused_limitup_report_id": "limitup-single-20261023-close-v2",
+  "candidate_count": 0,
+  "limitup_candidate_count": 0,
+  "new_recommendation_count": 0,
+  "new_volume_price_sample_count": 0,
+  "configuration_only_receipt_trigger": "manual",
+  "production_verified_at_preparation": false
+}
