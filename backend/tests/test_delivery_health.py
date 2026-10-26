@@ -39,10 +39,10 @@ class DeliveryHealthTests(unittest.TestCase):
         return build_delivery_health(self.tasks, self.runs, self.reports,
                                      now=now or self.after, session_day=DAY)
 
-    def test_all_eight_independent_receipts_required(self):
+    def test_all_six_independent_full_research_receipts_required(self):
         result = self.scan()
         self.assertEqual(result["status"], "complete")
-        self.assertEqual(result["verified_count"], 8)
+        self.assertEqual(result["verified_count"], 6)
         self.assertFalse(result["trading_strategy_validated"])
 
     def test_missing_dragon_tiger_cannot_be_satisfied_by_combined(self):
@@ -82,7 +82,7 @@ class DeliveryHealthTests(unittest.TestCase):
     def test_disabled_track_not_misreported(self):
         self.tasks["items"][0]["enabled"] = False
         result = self.scan()
-        self.assertEqual(result["checked_task_count"], 7)
+        self.assertEqual(result["checked_task_count"], 5)
         self.assertNotIn("market_review", [r["task_id"] for r in result["items"]])
 
     def test_invalid_market_calendar_does_not_invent_date(self):
