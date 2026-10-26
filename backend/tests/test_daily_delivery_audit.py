@@ -19,24 +19,29 @@ class DeadlineAuditTests(unittest.TestCase):
         self.now = datetime(2026, 10, 14, 20, 45, tzinfo=CN)
         self.tasks = {"items": [{"id": "market_review", "enabled": True},
                                 {"id": "quant_research", "enabled": False},
-                                {"id": "early_pair", "enabled": True}]}
+                                {"id": "dragon_tiger", "enabled": True}]}
         self.ledger = {"schema_version": 1, "items": []}
         self.reports = {"items": []}
 
     def test_missing_runs_become_blocked_receipts_not_completion(self):
         updated, s = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
         self.assertEqual(len(s["created"]), 2)
-        self.assertEqual(s["unfulfilled"], ["market_review", "early_pair"])
+        self.assertEqual(s["unfulfilled"], ["market_review", "dragon_tiger"])
         self.assertTrue(all(row["status"] == "blocked" for row in updated["items"]))
         self.assertTrue(all(not row["report_ids"] for row in updated["items"]))
 
     def test_dragon_tiger_missing_delivery_is_audited(self):
-        self.tasks["items"].append({"id": "dragon_tiger", "enabled": True})
         updated, status = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
         self.assertIn("dragon_tiger", status["unfulfilled"])
         receipt = next(row for row in updated["items"] if row["task_id"] == "dragon_tiger")
         self.assertEqual(receipt["status"], "blocked")
         self.assertFalse(receipt["analysis_completed"])
+
+    def test_railway_resident_tasks_are_not_falsely_marked_missing(self):
+        self.tasks["items"].append({"id": "early_pair", "enabled": True})
+        updated, status = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
+        self.assertNotIn("early_pair", status["unfulfilled"])
+        self.assertNotIn("early_pair", [row["task_id"] for row in updated["items"]])
 
     def test_idempotent_audit(self):
         first, _ = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
@@ -63,7 +68,7 @@ class DeadlineAuditTests(unittest.TestCase):
                                  "recorded_at": "2026-10-14T18:35:00+08:00",
                                  "report_ids": ["r1"]}]
         updated, s = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
-        self.assertEqual(s["unfulfilled"], ["early_pair"])
+        self.assertEqual(s["unfulfilled"], ["dragon_tiger"])
         self.assertEqual(len(updated["items"]), 2)
 
 
