@@ -1,0 +1,431 @@
+{
+  "id": "combined-pair-20261026-overnight-evidence-v1",
+  "recorded_at": "2026-10-27T01:30:00+08:00",
+  "original_freeze_at": "2026-10-26T18:19:05+08:00",
+  "announcement_checks": [
+    {
+      "code": "603719",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "sse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "良品铺子",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:25.718234+00:00",
+      "total_exact_code_rows": 1,
+      "new_rows": []
+    },
+    {
+      "code": "603331",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "sse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "百达精工",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:25.656470+00:00",
+      "total_exact_code_rows": 0,
+      "new_rows": []
+    },
+    {
+      "code": "001219",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "青岛食品",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:25.402802+00:00",
+      "total_exact_code_rows": 8,
+      "new_rows": []
+    },
+    {
+      "code": "603007",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "sse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "顺景科技",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:25.362498+00:00",
+      "total_exact_code_rows": 5,
+      "new_rows": []
+    },
+    {
+      "code": "300298",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "三诺生物",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:32.005051+00:00",
+      "total_exact_code_rows": 8,
+      "new_rows": []
+    },
+    {
+      "code": "002578",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "闽发铝业",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:31.628804+00:00",
+      "total_exact_code_rows": 0,
+      "new_rows": []
+    },
+    {
+      "code": "000411",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "英特集团",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:31.087804+00:00",
+      "total_exact_code_rows": 1,
+      "new_rows": []
+    },
+    {
+      "code": "603901",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "sse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "永创智能",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:30.976896+00:00",
+      "total_exact_code_rows": 3,
+      "new_rows": []
+    },
+    {
+      "code": "002535",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "林州重机",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:37.042567+00:00",
+      "total_exact_code_rows": 8,
+      "new_rows": []
+    },
+    {
+      "code": "002696",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "百洋股份",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:37.113361+00:00",
+      "total_exact_code_rows": 3,
+      "new_rows": []
+    },
+    {
+      "code": "000559",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "万向钱潮",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:36.824485+00:00",
+      "total_exact_code_rows": 13,
+      "new_rows": [
+        {
+          "id": null,
+          "secCode": "000559",
+          "secName": "<em>万向钱潮</em>",
+          "orgId": "gssz0000559",
+          "announcementId": "1225626536",
+          "announcementTitle": "股票交易异常波动公告",
+          "announcementTime": 1793030400000,
+          "adjunctUrl": "finalpage/2026-10-27/1225626536.PDF",
+          "adjunctSize": 92,
+          "adjunctType": "PDF",
+          "storageTime": null,
+          "columnId": "09020202||250101||251302",
+          "pageColumn": "SZZB",
+          "announcementType": "01010503||010112||012103",
+          "associateAnnouncement": null,
+          "important": null,
+          "batchNum": null,
+          "announcementContent": "",
+          "orgName": null,
+          "tileSecName": "<em>万向钱潮</em>",
+          "shortTitle": "股票交易异常波动公告",
+          "announcementTypeName": null,
+          "secNameList": null
+        }
+      ]
+    },
+    {
+      "code": "002354",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "天娱数科",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:37.489956+00:00",
+      "total_exact_code_rows": 0,
+      "new_rows": []
+    },
+    {
+      "code": "000678",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "襄阳轴承",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:42.480321+00:00",
+      "total_exact_code_rows": 12,
+      "new_rows": []
+    },
+    {
+      "code": "002724",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "szse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "海洋王",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:42.462193+00:00",
+      "total_exact_code_rows": 8,
+      "new_rows": [
+        {
+          "id": null,
+          "secCode": "002724",
+          "secName": "<em>海洋王</em>",
+          "orgId": "9900023121",
+          "announcementId": "1225625801",
+          "announcementTitle": "关于高级管理人员辞职的公告",
+          "announcementTime": 1793030400000,
+          "adjunctUrl": "finalpage/2026-10-27/1225625801.PDF",
+          "adjunctSize": 68,
+          "adjunctType": "PDF",
+          "storageTime": null,
+          "columnId": "09020202||250101||251302",
+          "pageColumn": "SZZB",
+          "announcementType": "01010503||010112||012303",
+          "associateAnnouncement": null,
+          "important": null,
+          "batchNum": null,
+          "announcementContent": "",
+          "orgName": null,
+          "tileSecName": "<em>海洋王</em>",
+          "shortTitle": "关于高级管理人员辞职的公告",
+          "announcementTypeName": null,
+          "secNameList": null
+        },
+        {
+          "id": null,
+          "secCode": "002724",
+          "secName": "<em>海洋王</em>",
+          "orgId": "9900023121",
+          "announcementId": "1225625800",
+          "announcementTitle": "第七届董事会2026年第三次临时会议决议公告",
+          "announcementTime": 1793030400000,
+          "adjunctUrl": "finalpage/2026-10-27/1225625800.PDF",
+          "adjunctSize": 90,
+          "adjunctType": "PDF",
+          "storageTime": null,
+          "columnId": "09020202||250101||251302",
+          "pageColumn": "SZZB",
+          "announcementType": "01010503||010112||01239901",
+          "associateAnnouncement": null,
+          "important": null,
+          "batchNum": null,
+          "announcementContent": "",
+          "orgName": null,
+          "tileSecName": "<em>海洋王</em>",
+          "shortTitle": "第七届董事会2026年第三次临时会议决议公告",
+          "announcementTypeName": null,
+          "secNameList": null
+        },
+        {
+          "id": null,
+          "secCode": "002724",
+          "secName": "<em>海洋王</em>",
+          "orgId": "9900023121",
+          "announcementId": "1225625798",
+          "announcementTitle": "2026年三季度报告",
+          "announcementTime": 1793030400000,
+          "adjunctUrl": "finalpage/2026-10-27/1225625798.PDF",
+          "adjunctSize": 193,
+          "adjunctType": "PDF",
+          "storageTime": null,
+          "columnId": "09020202||250101||251302",
+          "pageColumn": "SZZB",
+          "announcementType": "01010503||010112||010307",
+          "associateAnnouncement": null,
+          "important": null,
+          "batchNum": null,
+          "announcementContent": "",
+          "orgName": null,
+          "tileSecName": "<em>海洋王</em>",
+          "shortTitle": "2026年三季度报告",
+          "announcementTypeName": null,
+          "secNameList": null
+        }
+      ]
+    },
+    {
+      "code": "600838",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "sse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "上海九百",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:43.861935+00:00",
+      "total_exact_code_rows": 3,
+      "new_rows": []
+    },
+    {
+      "code": "603278",
+      "source": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "query": {
+        "pageNum": 1,
+        "pageSize": 30,
+        "column": "sse",
+        "tabName": "fulltext",
+        "stock": "",
+        "searchkey": "大业股份",
+        "seDate": "2026-10-01~2026-10-27",
+        "isHLtitle": "true"
+      },
+      "retrieved_at": "2026-10-26T17:27:42.704560+00:00",
+      "total_exact_code_rows": 15,
+      "new_rows": []
+    }
+  ],
+  "pdfs": [
+    {
+      "id": "1225626536",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225626536.PDF",
+      "sha256": "bae206f0c74f0db906159736c37e3b773b2992011f5a480a634da5aec15ed43e",
+      "size": 93597
+    },
+    {
+      "id": "1225625801",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625801.PDF",
+      "sha256": "784698c42f792d72b044a303914648482d4a32dfc708d65a29cbd5bbc72d343e",
+      "size": 68831
+    },
+    {
+      "id": "1225625800",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625800.PDF",
+      "sha256": "b62f91e01306cf1bccd51696e3a36db7ddf4ac5516ca26b9ccb78ac4460d1cf3",
+      "size": 91086
+    },
+    {
+      "id": "1225625798",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625798.PDF",
+      "sha256": "c6e4db3185f5b77f35d161488e14a6341a19eaed8d02b2e201aef42b4464db63",
+      "size": 196331
+    }
+  ],
+  "table_validation": "002724 Q3 page 2 rendered and visually checked against original table",
+  "facts": {
+    "000559": {
+      "three_session_deviation_pct": 25.2,
+      "ten_session_price_pct": 24.98,
+      "industry_same_window_pct": -1.63,
+      "company_says_no_undisclosed_material_event": true
+    },
+    "002724": {
+      "financials_unaudited": true,
+      "q3_revenue_yuan": 317445777.28,
+      "q3_net_profit_yuan": 34230095.64,
+      "q3_deducted_net_profit_yuan": -22919829.59,
+      "ytd_revenue_yuan": 1076566560.87,
+      "ytd_net_profit_yuan": 62638056.16,
+      "ytd_deducted_net_profit_yuan": -16303096.59,
+      "ytd_cfo_yuan": 28023005.62,
+      "q3_separate_receivable_impairment_reversal_yuan": 112978175.03,
+      "vice_president_resigned_role_remains_employed": true
+    }
+  },
+  "decision_unchanged": true,
+  "new_recommendations": 0,
+  "executed_trades": 0
+}

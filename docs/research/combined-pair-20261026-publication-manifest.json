@@ -1,0 +1,90 @@
+{
+  "base_main": "9320b4284c2915e72b5460680a74c6de4d058dba",
+  "market_date": "2026-10-26",
+  "planned_entry_date": "2026-10-27",
+  "actual_started_at_utc": "2026-10-26T09:50:58+00:00",
+  "analysis_completed_at": "2026-10-26T18:19:05+08:00",
+  "new_report_ids": [
+    "volume-price-20261026-close-v1",
+    "low-position-20261026-close-v1",
+    "dragon-tiger-20261026-close-v1",
+    "limitup-single-20261026-close-v2",
+    "combined-pair-20261026-close-v1"
+  ],
+  "reused_report_ids": [
+    "market-review-20261026-close-v1"
+  ],
+  "new_recommendations": 0,
+  "new_low_samples": 3,
+  "old_low_observations_appended": 39,
+  "new_volume_samples": 28,
+  "old_frozen_recommendation_results_appended": 31,
+  "stock_history_updates": [
+    {
+      "code": "300058",
+      "history_id": "research-stock-300058-20261026-low-followup-v1"
+    },
+    {
+      "code": "000420",
+      "history_id": "research-stock-000420-20261026-low-followup-v1"
+    },
+    {
+      "code": "300432",
+      "history_id": "research-stock-300432-20261026-low-followup-v1"
+    },
+    {
+      "code": "000032",
+      "history_id": "research-stock-000032-20261026-low-followup-v1"
+    },
+    {
+      "code": "688084",
+      "history_id": "research-stock-688084-20261026-low-followup-v1"
+    },
+    {
+      "code": "002683",
+      "history_id": "research-stock-002683-20261026-low-followup-v1"
+    },
+    {
+      "code": "001233",
+      "history_id": "research-stock-001233-20261026-low-followup-v1"
+    },
+    {
+      "code": "300556",
+      "history_id": "research-stock-300556-20261026-low-followup-v1"
+    },
+    {
+      "code": "301658",
+      "history_id": "research-stock-301658-20261026-low-followup-v1"
+    },
+    {
+      "code": "003021",
+      "history_id": "research-stock-003021-20261026-low-followup-v1"
+    },
+    {
+      "code": "300314",
+      "history_id": "research-stock-300314-20261026-low-followup-v1"
+    },
+    {
+      "code": "603007",
+      "history_id": "research-stock-603007-20261026-origin-v1"
+    },
+    {
+      "code": "002991",
+      "history_id": "research-stock-002991-20261026-origin-v1"
+    },
+    {
+      "code": "001219",
+      "history_id": "research-stock-001219-20261026-origin-v1"
+    }
+  ],
+  "evidence_file": "docs/research/combined-pair-20261026-evidence.json.gz",
+  "evidence_sha256": "e5a80650a54ad5735c20284d7999eaf9c324a712491bce0212705ff025248888",
+  "delivery_state_at_preparation": "not_yet_ci_or_production_verified",
+  "rules_and_task_schedule_changed": false,
+  "evidence_addendum_report_ids": [
+    "combined-pair-20261026-overnight-evidence-v1"
+  ],
+  "prepublication_announcement_checked_at": "2026-10-27T01:30:00+08:00",
+  "new_announcement_count_after_original_freeze": 4,
+  "decision_unchanged_after_new_evidence": true
+}

@@ -3892,6 +3892,142 @@
       "sources": [
         "docs/research/market-review-2026-10-26-evidence.json"
       ]
+    },
+    {
+      "id": "volume-price-20261026-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261026-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T09:50:58+00:00",
+      "completed_at": "2026-10-26T18:19:05+08:00",
+      "recorded_at": "2026-10-26T18:19:05+08:00",
+      "status": "completed",
+      "summary": "全A5573→120→28；前池28/28中位-2.776%，v4历史140条/5日期；不以巨量代替承接。",
+      "report_ids": [
+        "volume-price-20261026-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261026-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "low-position-20261026-scheduled-close-v1-completed",
+      "run_id": "low-position-20261026-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T09:50:58+00:00",
+      "completed_at": "2026-10-26T18:19:05+08:00",
+      "recorded_at": "2026-10-26T18:19:05+08:00",
+      "status": "completed",
+      "summary": "新增顺景、甘源、青岛3条非交易研究样本；39条旧样本全路径验证，合格30自然日模型N=0。",
+      "report_ids": [
+        "low-position-20261026-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261026-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261026-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261026-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T09:50:58+00:00",
+      "completed_at": "2026-10-26T18:19:05+08:00",
+      "recorded_at": "2026-10-26T18:19:05+08:00",
+      "status": "completed",
+      "summary": "87理由行/71股、9只席位核对、5只条件观察；旧披露池78只分制度价格验证。",
+      "report_ids": [
+        "dragon-tiger-20261026-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261026-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "limitup-single-20261026-scheduled-close-v2-completed",
+      "run_id": "limitup-single-20261026-scheduled-close-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T09:50:58+00:00",
+      "completed_at": "2026-10-26T18:19:05+08:00",
+      "recorded_at": "2026-10-26T18:19:05+08:00",
+      "status": "completed",
+      "summary": "D27无合格打板候选；主板1进2为8/53、2进3为5/8、六进七0/2；20日空间缺6池。",
+      "report_ids": [
+        "limitup-single-20261026-close-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261026-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "combined-pair-20261026-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261026-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T09:50:58+00:00",
+      "completed_at": "2026-10-26T18:19:05+08:00",
+      "recorded_at": "2026-10-26T18:19:05+08:00",
+      "status": "completed",
+      "summary": "四项同T完整齐备；综合0只、D27打板另组0只，旧综合现金无盈亏。",
+      "report_ids": [
+        "combined-pair-20261026-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261026-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "combined-pair-20261026-overnight-evidence-v1-run-completed",
+      "run_id": "combined-pair-20261026-overnight-evidence-v1-run",
+      "task_id": "combined_pair",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T17:26:40+00:00",
+      "completed_at": "2026-10-27T01:30:00+08:00",
+      "recorded_at": "2026-10-27T01:30:00+08:00",
+      "status": "completed",
+      "summary": "追加万向异动及海洋王三季报/治理事实，综合与D27打板各0只保持；不反写原版。",
+      "report_ids": [
+        "combined-pair-20261026-overnight-evidence-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "https://static.cninfo.com.cn/finalpage/2026-10-27/1225626536.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625801.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625800.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625798.PDF",
+        "docs/research/combined-pair-20261026-overnight-evidence.json"
+      ]
     }
   ]
 }
