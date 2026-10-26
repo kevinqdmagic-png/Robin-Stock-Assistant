@@ -14,9 +14,9 @@ CN = ZoneInfo("Asia/Shanghai")
 # execute multiple tracks, but one receipt cannot satisfy another track.
 DELIVERY_TASKS = (
     "market_review", "volume_price", "low_position", "dragon_tiger",
-    "combined_pair", "limitup_single", "early_pair", "late_pair",
+    "combined_pair", "limitup_single",
 )
-FULL_RESEARCH_TASKS = set(DELIVERY_TASKS[:6])
+FULL_RESEARCH_TASKS = set(DELIVERY_TASKS)
 AUDIT_DEADLINE = time(20, 40)
 
 
