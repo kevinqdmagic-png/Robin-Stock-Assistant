@@ -57,7 +57,19 @@ while True:
         health = get("/health")
         if health.get("version") != version:
             raise RuntimeError("waiting for backend version " + version)
+        providers = get("/api/operations/providers")
+        if (providers.get("automatic_trade_permission") is not False or
+                providers.get("persistent_across_deployments") is not False):
+            raise RuntimeError("provider monitoring claims unsupported guarantees")
+        laboratory = get("/api/strategy-lab")
+        if (laboratory.get("automatic_weight_updates") is not False or
+                laboratory.get("actual_trades_verified") != 0):
+            raise RuntimeError("strategy lab claims unverified profitability")
         deliveries = get("/api/operations/delivery")
+        if deliveries.get("resident_intraday", {}).get("actual_order_fills_verified") is not False:
+            raise RuntimeError("resident observations misreported as order fills")
+        if len(deliveries.get("resident_intraday", {}).get("items", [])) != 2:
+            raise RuntimeError("09:50 / 14:40 resident audit rows missing")
         if deliveries.get("execution_claim") != "published_complete_receipts_only":
             raise RuntimeError("daily delivery status is not evidence-backed")
         if deliveries.get("trading_strategy_validated") is not False:

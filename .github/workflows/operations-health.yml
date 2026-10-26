@@ -1,0 +1,28 @@
+name: Verify complete daily operations
+on:
+  schedule:
+    # Beijing 21:15 and 22:15 on weekdays. Observes both full and intraday records.
+    - cron: '15 13 * * 1-5'
+    - cron: '15 14 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check verified complete research and resident observations
+        run: python scripts/check_operational_health.py --output daily-ops-health.json
+      - name: Preserve evidence even when incomplete
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-ops-health-${{ github.run_id }}
+          path: daily-ops-health.json
+          if-no-files-found: warn
+          retention-days: 90

@@ -41,8 +41,25 @@ class APITests(unittest.TestCase):
         sample = {"ok": True, "status": "incomplete",
                   "unverified_task_ids": ["dragon_tiger"],
                   "trading_strategy_validated": False}
-        with patch("app.delivery_health", return_value=sample):
-            self.assertEqual(api.operations_delivery(), sample)
+        with patch("app.delivery_health", return_value=sample), \
+             patch("app.resident_intraday_health", return_value={"ok": True, "items": []}):
+            result = api.operations_delivery()
+        self.assertEqual(result["status"], "incomplete")
+        self.assertEqual(result["resident_intraday"]["items"], [])
+
+    def test_strategy_lab_displays_shadow_statistics_not_orders(self):
+        from unittest.mock import patch
+        with patch("app.load_ledger", return_value={"runs": [
+                {"date": "2026-10-26", "evaluations": []}]}):
+            result = api.strategy_laboratory()
+        self.assertTrue(result["ok"])
+        self.assertFalse(result["research_gate"]["model_promotion_authorized"])
+        self.assertEqual(result["actual_trades_verified"], 0)
+
+    def test_provider_health_endpoint_is_bounded_telemetry(self):
+        result = api.operations_providers()
+        self.assertTrue(result["ok"])
+        self.assertFalse(result["persistent_across_deployments"])
 
     def test_daily_delivery_endpoint_reports_archive_failure(self):
         with patch("app.delivery_health", side_effect=ValueError("invalid_receipt")):

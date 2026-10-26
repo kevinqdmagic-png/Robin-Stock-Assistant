@@ -1231,6 +1231,8 @@ class MainActivity : AppCompatActivity() {
         taskCenterCard()
         recommendationCard()
         learningCard()
+        strategyLabCard()
+        operationsHealthCard()
         capitalBehaviorCard()
         if (researchCode.isNotBlank()) {
             card("${researchStockName} $researchCode · 关联研究").apply {
@@ -1303,6 +1305,93 @@ class MainActivity : AppCompatActivity() {
         // Keep history prominent; move the optional 30-day validation below it.
         backtestCard()
     }
+    private fun strategyLabCard() {
+        val panel = card("策略实验室 · 样本外研究")
+        panel.addView(label("去重统计：同一交易日、同一股票不会因不同栏目重复计算。价格观察不等于实际成交收益，策略不会自动晋级。", 12f))
+        val status = label("正在核对策略实验结果…", 12f)
+        val rows = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        panel.addView(status); panel.addView(rows)
+        fun load() {
+            fetch("/api/strategy-lab") { data, error ->
+                rows.removeAllViews()
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "策略实验室暂不可用。" + (error?.let { "\n" + it } ?: "")
+                    return@fetch
+                }
+                if (data.optString("status") == "no_snapshots") {
+                    status.text = "尚无可审计学习快照，继续积累。"
+                    return@fetch
+                }
+                status.text = "最新样本日 " + data.optString("snapshot_date") +
+                    " · 独立股票日期组 " + data.optInt("distinct_signal_date_symbols") +
+                    " · 排除重复 " + data.optInt("overlap_rows_excluded")
+                val horizons = data.optJSONObject("horizons")
+                for (h in listOf(1, 2, 5, 10)) {
+                    val row = horizons?.optJSONObject(h.toString()) ?: continue
+                    val n = row.optInt("sample_count")
+                    val mean = if (row.isNull("average_price_change_pct"))
+                        "N/A" else pctText(row.optDouble("average_price_change_pct"))
+                    val win = if (row.isNull("positive_pct"))
+                        "N/A" else String.format(java.util.Locale.US, "%.1f%%", row.optDouble("positive_pct"))
+                    rows.addView(label("T+$h · 有效 $n · 收涨比例 $win · 平均参考变化 $mean", 12f))
+                }
+                val gate = data.optJSONObject("research_gate")
+                val promotion = if (gate?.optBoolean("model_promotion_authorized") == true)
+                    "须人工审批" else "未授权"
+                rows.addView(label("规则晋级：$promotion · 仅观察不算净收益", 12f, true))
+                rows.addView(label("交易成交已验证：0笔。真实交易须有成交、滑点与风险证据，不能用日线最高价代替卖出收益。", 12f))
+            }
+        }
+        panel.addView(action("刷新策略验证") { load() })
+        load()
+    }
+
+    private fun operationsHealthCard() {
+        val panel = card("系统健康 · 任务与行情")
+        panel.addView(label("按北京时间区分完整研究、Railway常驻盘中观察与行情提供方；异常不会伪装成研究完成。", 12f))
+        val delivery = label("正在核验完整研究交付…", 12f)
+        val intraday = label("正在核验9:50 / 14:40驻留记录…", 12f)
+        val providers = label("正在核验行情源记录…", 12f)
+        panel.addView(delivery); panel.addView(intraday); panel.addView(providers)
+        fun load() {
+            fetch("/api/operations/delivery") { data, _ ->
+                if (data == null || !data.optBoolean("ok")) {
+                    delivery.text = "完整研究交付：证据不可用"
+                    intraday.text = "盘中观察：请核验Railway存储状态"
+                    return@fetch
+                }
+                val total = data.optInt("checked_task_count")
+                delivery.text = "研究交易日 " + data.optString("date_cn") +
+                    " · 完整核验 " + data.optInt("verified_count") + "/$total" +
+                    " · 状态 " + data.optString("status")
+                val resident = data.optJSONObject("resident_intraday")
+                val rows = resident?.optJSONArray("items") ?: JSONArray()
+                val parts = mutableListOf<String>()
+                for (i in 0 until rows.length()) {
+                    val row = rows.optJSONObject(i) ?: continue
+                    val slot = if (row.optString("task_id") == "early_pair") "9:50" else "14:40"
+                    parts.add(slot + " " + row.optString("status"))
+                }
+                intraday.text = "盘中驻留：" + (if (parts.isEmpty()) "状态未知" else parts.joinToString(" · "))
+            }
+            fetch("/api/operations/providers") { data, _ ->
+                if (data == null || !data.optBoolean("ok")) {
+                    providers.text = "行情源监测：暂无可信诊断"
+                    return@fetch
+                }
+                val stats = data.optJSONObject("by_kind")
+                val lines = listOf("quote_batch" to "报价", "minute" to "分钟",
+                                   "daily" to "日线").map { (key, name) ->
+                    val row = stats?.optJSONObject(key)
+                    name + " " + (row?.optString("latest_status") ?: "暂无记录")
+                }
+                providers.text = "提供方诊断（进程内记录，不跨重启）： " + lines.joinToString(" · ")
+            }
+        }
+        panel.addView(action("刷新系统健康") { load() })
+        load()
+    }
+
     private fun learningCard() {
         val panel = card("每日学习验证 · T+1 / T+2 / T+5 / T+10")
         panel.addView(label("把历史荐股与低位启动形态观察分开追踪：T+1/T+2/T+5/T+10的参考价变化只代表日线代理表现，不是成交收益，也不自动调整交易规则。", 12f))

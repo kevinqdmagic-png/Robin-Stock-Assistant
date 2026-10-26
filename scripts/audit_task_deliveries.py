@@ -3,6 +3,8 @@
 
 The 20:40 Beijing audit is an independent inspection of immutable task receipts.
 It never generates research, recommendations, market observations or trade claims.
+Resident 09:50/14:40 Railway records are checked by the operations endpoint,
+not by this GitHub full-report audit.
 """
 import argparse
 from datetime import datetime, time
@@ -19,8 +21,7 @@ from trading_calendar import session_state
 
 CN_TZ = ZoneInfo("Asia/Shanghai")
 AUDIT_TASKS = ("limitup_single", "market_review", "volume_price",
-               "combined_pair", "early_pair", "late_pair", "low_position",
-               "dragon_tiger")
+               "combined_pair", "low_position", "dragon_tiger")
 
 
 def audit_day(ledger, tasks, reports, now=None, day=None, audit_id=None):
