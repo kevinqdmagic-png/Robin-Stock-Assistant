@@ -19,7 +19,7 @@ from quote_providers import stock_symbol, tencent_quotes
 from intraday_scheduler import latest as intraday_status, start_scheduler as start_intraday_scheduler
 from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
-from delivery_health import delivery_health
+from delivery_health import delivery_health, resident_intraday_health
 from provider_health import record_provider_event, quality_summary
 from strategy_lab import summarize_snapshot
 from research_stocks import catalog, stock_research, stock_reports
@@ -236,7 +236,9 @@ def tasks():
 def operations_delivery():
     """Show verified daily delivery and explicit missing/partial work."""
     try:
-        return delivery_health()
+        result = delivery_health()
+        result["resident_intraday"] = resident_intraday_health()
+        return result
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Daily delivery matrix unavailable: %s", exc)
         return {"ok": False, "status": "delivery_matrix_unavailable",
