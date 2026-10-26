@@ -254,15 +254,40 @@ def evaluate_shadow_rules(evaluations):
     return info
 
 
-def build_snapshot(recommendations, fetch_daily, *, now, low_position_observations=()):
+def latest_completed_session(now):
+    """Return the latest verified-close session without backdating execution time."""
+    now = now.astimezone(CN)
+    candidate = now.date()
+    if is_session(candidate) is True and now.time() >= time(15, 15):
+        return candidate
+    candidate -= timedelta(days=1)
+    for _ in range(370):
+        state = is_session(candidate)
+        if state is None:
+            return None
+        if state:
+            return candidate
+        candidate -= timedelta(days=1)
+    return None
+
+
+def build_snapshot(recommendations, fetch_daily, *, now, low_position_observations=(),
+                   as_of=None):
     now = now.astimezone(CN)
     if now.year != 2026:
         return {"status": "calendar_unverified", "date": now.date().isoformat()}
-    if is_session(now.date()) is not True:
-        return {"status": "market_closed", "date": now.date().isoformat()}
-    if now.time() < time(15, 15):
-        return {"status": "before_verified_close", "date": now.date().isoformat()}
-    as_of = now.date()
+    if as_of is None:
+        if is_session(now.date()) is not True:
+            return {"status": "market_closed", "date": now.date().isoformat()}
+        if now.time() < time(15, 15):
+            return {"status": "before_verified_close", "date": now.date().isoformat()}
+        as_of = now.date()
+    elif isinstance(as_of, str):
+        as_of = date.fromisoformat(as_of)
+    if is_session(as_of) is not True:
+        raise ValueError("as_of_must_be_verified_session")
+    if as_of > now.date() or (as_of == now.date() and now.time() < time(15, 15)):
+        raise ValueError("as_of_session_not_completed")
     rows = []
     cache = {}
     eligible = [r for r in recommendations if r.get("code") and r.get("id")]

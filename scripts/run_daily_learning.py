@@ -14,7 +14,10 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 from app import _get_daily
-from learning_loop import build_snapshot, append_snapshot, validate_learning_archive
+from learning_loop import (
+    build_snapshot, append_snapshot, latest_completed_session,
+    validate_learning_archive,
+)
 from low_position_learning import extract_observations
 from research_archive import load_document
 
@@ -29,16 +32,19 @@ def main():
     now = datetime.fromisoformat(args.now) if args.now else datetime.now(CN)
     if now.tzinfo is None:
         parser.error("--now must include a UTC offset")
+    as_of = latest_completed_session(now)
+    if as_of is None:
+        parser.error("no verified completed session in the supported calendar")
     path = Path(args.output)
     document = json.loads(path.read_text(encoding="utf-8"))
     validate_learning_archive(document)
     recs = load_document("recommendations.json", "ROBIN_RECOMMENDATIONS_FILE")["items"]
     archive = load_document("research.json", "ROBIN_RESEARCH_FILE")["items"]
-    low_signals = extract_observations(archive, now)
+    low_signals = extract_observations(archive, as_of)
 
     def provider(code):
         return _get_daily(code, adjust="0")  # Unadjusted, do not mix with adjusted reference.
-    snapshot = build_snapshot(recs, provider, now=now,
+    snapshot = build_snapshot(recs, provider, now=now, as_of=as_of,
                               low_position_observations=low_signals)
     updated, changed = append_snapshot(document, snapshot)
     if changed:

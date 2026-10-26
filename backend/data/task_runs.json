@@ -4028,6 +4028,31 @@
         "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625798.PDF",
         "docs/research/combined-pair-20261026-overnight-evidence.json"
       ]
+    },
+    {
+      "id": "learning-review-20261026-scheduled-forward-v1-completed",
+      "run_id": "learning-review-20261026-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T03:26:51.092275+08:00",
+      "recorded_at": "2026-10-27T03:31:43.157464+08:00",
+      "completed_at": "2026-10-27T03:31:43.157464+08:00",
+      "status": "completed",
+      "summary": "31条正式记录中16条可观察、9条回溯排除、6条行情缺失；T+2特征样本16条/7日，未达36条/20日门槛，规则与权重不变。",
+      "report_ids": [
+        "learning-review-20261026-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-26",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/learning-review-20261026-evidence.json"
+      ]
     }
   ]
 }

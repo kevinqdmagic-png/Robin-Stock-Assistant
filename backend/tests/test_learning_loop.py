@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from learning_loop import (
     is_session, nth_session_after, evaluate, build_snapshot,
     append_snapshot, validate_learning_archive, verify_append_only,
-    evaluate_shadow_rules,
+    evaluate_shadow_rules, latest_completed_session,
 )
 
 CN = ZoneInfo("Asia/Shanghai")
@@ -83,6 +83,21 @@ class LearningTests(unittest.TestCase):
         for time in ("2026-10-11T18:00:00+08:00", "2026-10-12T13:00:00+08:00"):
             result = build_snapshot(recs, provider, now=datetime.fromisoformat(time))
             self.assertFalse(append_snapshot({"schema_version": 1, "runs": []}, result)[1])
+
+    def test_latest_completed_session_keeps_actual_recorded_at(self):
+        now = datetime.fromisoformat("2026-10-27T03:22:25+08:00")
+        as_of = latest_completed_session(now)
+        self.assertEqual(as_of, date(2026, 10, 26))
+        snapshot = build_snapshot([signal()], lambda code: (fixture(), "test", []),
+                                  now=now, as_of=as_of)
+        self.assertEqual(snapshot["date"], "2026-10-26")
+        self.assertEqual(snapshot["recorded_at"], "2026-10-27T03:22:25+08:00")
+
+    def test_explicit_as_of_cannot_bypass_current_session_close(self):
+        with self.assertRaisesRegex(ValueError, "not_completed"):
+            build_snapshot([signal()], lambda code: (fixture(), "test", []),
+                           now=datetime.fromisoformat("2026-10-27T03:22:25+08:00"),
+                           as_of=date(2026, 10, 27))
 
     def test_snapshot_immutable_and_repeat_is_idempotent(self):
         recs = [signal()]
