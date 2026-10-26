@@ -14,9 +14,16 @@ def inspect(payload):
     if not isinstance(payload, dict) or not payload.get("ok"):
         return {"ok": False, "reason": "operations_delivery_unavailable", "missing": []}
     missing = list(payload.get("unverified_task_ids") or [])
+    if payload.get("checked_task_count") != 6 or payload.get("verified_count") != 6:
+        missing.append("full_research_census_incomplete")
+    if payload.get("status") != "complete":
+        missing.append("full_research_not_verified_complete")
     resident = payload.get("resident_intraday") or {}
-    resident_bad = [x.get("task_id") for x in resident.get("items", [])
+    resident_items = resident.get("items") or []
+    resident_bad = [x.get("task_id") for x in resident_items
                     if x.get("research_observation_delivered") is not True]
+    if {x.get("task_id") for x in resident_items} != {"early_pair", "late_pair"}:
+        resident_bad.append("resident_census_incomplete")
     if not resident.get("ok"):
         resident_bad.append("resident_store_unavailable")
     return {"ok": not missing and not resident_bad,
