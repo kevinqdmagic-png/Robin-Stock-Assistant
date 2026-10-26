@@ -20,12 +20,13 @@ from intraday_scheduler import latest as intraday_status, start_scheduler as sta
 from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health
+from provider_health import record_provider_event, quality_summary
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
 from capital_watch import page as capital_watch_page
 from learning_loop import load_ledger
 
-API_VERSION = "0.9.1"
+API_VERSION = "0.10.0"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 # A single persistent Railway application replica drives the Beijing time windows.
 # This runs irrespective of GitHub Actions' best-effort schedule delays.
@@ -223,6 +224,12 @@ def operations_delivery():
         logger.warning("Daily delivery matrix unavailable: %s", exc)
         return {"ok": False, "status": "delivery_matrix_unavailable",
                 "time_cn": now_cn(), "items": []}
+
+
+@app.get("/api/operations/providers")
+def operations_providers():
+    """Operational provider telemetry, not a guarantee of market coverage."""
+    return {"time_cn": now_cn(), **quality_summary()}
 
 
 @app.get("/api/task-runs")
@@ -865,7 +872,9 @@ def _fetch_quote_batch(codes, timeout=(1.2, 1.8)):
         except Exception as exc:
             errors.append("tencent_batch:" + type(exc).__name__)
     source = "mixed_batch_quote" if len(sources) > 1 else sources[0] if sources else None
-    return [by_code[code] for code in codes if code in by_code], source, errors
+    output = [by_code[code] for code in codes if code in by_code]
+    record_provider_event("quote_batch", len(codes), output, source, errors)
+    return output, source, errors
 
 
 def _eastmoney_quote(code):
@@ -1312,9 +1321,12 @@ def _fetch_minute(code):
         if time.time() >= _minute_eastmoney_retry_after:
             bars, source, errors = _eastmoney_minute(code)
             if bars:
+                record_provider_event("minute", 1, [bars[-1]], source, errors)
                 return bars, source, errors
             _minute_eastmoney_retry_after = time.time() + 120
         bars, source, fallback_errors = _tencent_minute(code)
+        record_provider_event("minute", 1, [bars[-1]] if bars else [],
+                              source, errors + fallback_errors)
         return bars, source, errors + fallback_errors
     finally:
         _minute_provider_gate.release()
@@ -1487,6 +1499,8 @@ def _get_daily(code, adjust="1"):
             }
     elif cached:
         return cached["bars"], cached["source"], errors + ["stale_cache"]
+    record_provider_event("daily", 1, [bars[-1]] if len(bars) >= 62 else [],
+                          source, errors + (["insufficient_history"] if len(bars) < 62 else []))
     return bars, source, errors
 
 
