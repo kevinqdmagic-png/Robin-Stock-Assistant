@@ -11,6 +11,7 @@ spec.loader.exec_module(module)
 
 def payload():
     return {"ok": True, "date_cn": "2026-10-26", "status": "complete",
+            "checked_task_count": 6, "verified_count": 6,
             "unverified_task_ids": [], "resident_intraday": {
                 "ok": True, "items": [
                     {"task_id": "early_pair", "research_observation_delivered": True},
@@ -36,6 +37,17 @@ class OperationsMonitorTests(unittest.TestCase):
     def test_partial_resident_fails(self):
         row = payload()
         row["resident_intraday"]["items"][0]["research_observation_delivered"] = False
+        self.assertFalse(module.inspect(row)["ok"])
+
+    def test_empty_task_inventory_cannot_pass(self):
+        row = payload()
+        row["checked_task_count"] = 0
+        row["verified_count"] = 0
+        self.assertFalse(module.inspect(row)["ok"])
+
+    def test_single_resident_slot_cannot_pass(self):
+        row = payload()
+        row["resident_intraday"]["items"] = row["resident_intraday"]["items"][:1]
         self.assertFalse(module.inspect(row)["ok"])
 
     def test_http_200_without_ok_is_not_success(self):
