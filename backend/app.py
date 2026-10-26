@@ -19,12 +19,13 @@ from quote_providers import stock_symbol, tencent_quotes
 from intraday_scheduler import latest as intraday_status, start_scheduler as start_intraday_scheduler
 from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
+from delivery_health import delivery_health
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
 from capital_watch import page as capital_watch_page
 from learning_loop import load_ledger
 
-API_VERSION = "0.9.0"
+API_VERSION = "0.9.1"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 # A single persistent Railway application replica drives the Beijing time windows.
 # This runs irrespective of GitHub Actions' best-effort schedule delays.
@@ -211,6 +212,17 @@ def tasks():
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Task data unavailable: %s", exc)
         return {"ok": False, "status": "task_data_unavailable", "items": []}
+
+
+@app.get("/api/operations/delivery")
+def operations_delivery():
+    """Show verified daily delivery and explicit missing/partial work."""
+    try:
+        return delivery_health()
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Daily delivery matrix unavailable: %s", exc)
+        return {"ok": False, "status": "delivery_matrix_unavailable",
+                "time_cn": now_cn(), "items": []}
 
 
 @app.get("/api/task-runs")

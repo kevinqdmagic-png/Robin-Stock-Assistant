@@ -37,6 +37,19 @@ class APITests(unittest.TestCase):
         self.assertEqual(response["status"], "partial_live_watchlist")
         self.assertIn("eastmoney_candidate:ValueError", response["provider_errors"])
 
+    def test_daily_delivery_endpoint_does_not_claim_trade_readiness(self):
+        sample = {"ok": True, "status": "incomplete",
+                  "unverified_task_ids": ["dragon_tiger"],
+                  "trading_strategy_validated": False}
+        with patch("app.delivery_health", return_value=sample):
+            self.assertEqual(api.operations_delivery(), sample)
+
+    def test_daily_delivery_endpoint_reports_archive_failure(self):
+        with patch("app.delivery_health", side_effect=ValueError("invalid_receipt")):
+            response = api.operations_delivery()
+        self.assertFalse(response["ok"])
+        self.assertEqual(response["status"], "delivery_matrix_unavailable")
+
     def test_resident_intraday_endpoint_does_not_claim_verified_trade_pick(self):
         with patch("app.intraday_status", return_value={
                 "ok": True, "slot": "late_pair", "current_status": "observed",
