@@ -21,6 +21,7 @@ from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health
 from provider_health import record_provider_event, quality_summary
+from strategy_lab import summarize_snapshot
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
 from capital_watch import page as capital_watch_page
@@ -133,6 +134,22 @@ def learning(limit: int = 7):
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Learning archive unavailable: %s", exc)
         return {"ok": False, "status": "learning_archive_unavailable"}
+
+
+@app.get("/api/strategy-lab")
+def strategy_laboratory():
+    """Read-only, de-duplicated shadow research outcomes; NEVER live returns."""
+    try:
+        runs = load_ledger()["runs"]
+        if not runs:
+            return {"ok": True, "status": "no_snapshots",
+                    "time_cn": now_cn(), "actual_trades_verified": 0,
+                    "automatic_weight_updates": False}
+        return {"time_cn": now_cn(), **summarize_snapshot(runs[-1])}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Strategy lab evidence unavailable: %s", exc)
+        return {"ok": False, "status": "strategy_lab_unavailable",
+                "time_cn": now_cn(), "automatic_weight_updates": False}
 
 
 @app.get("/api/research-knowledge")
