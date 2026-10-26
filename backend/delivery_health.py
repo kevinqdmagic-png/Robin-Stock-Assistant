@@ -6,7 +6,7 @@ from a scheduler firing, a partial observation, or an HTTP 200 response.
 from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
-from learning_loop import latest_completed_session
+from learning_loop import latest_completed_session, is_session
 from task_center import checked_receipt, context, instant
 
 CN = ZoneInfo("Asia/Shanghai")
@@ -94,3 +94,56 @@ def build_delivery_health(tasks, runs, reports, *, now=None, session_day=None):
 def delivery_health(*, now=None):
     tasks, runs, reports = context()
     return build_delivery_health(tasks, runs, reports, now=now)
+
+
+INTRADAY_SLOTS = {"early_pair": (9, 50), "late_pair": (14, 40)}
+FINISHED_INTRADAY = {"observed", "no_signal"}
+
+
+def resident_intraday_health(*, now=None, provider=None):
+    """Assess resident Railway records separately from full GitHub report receipts.
+
+    Completion means an observation / legitimate no-signal result was persisted,
+    not that a tradable stock was selected or a strategy was verified.
+    """
+    from datetime import timedelta
+    from intraday_scheduler import latest as resident_latest
+    now = (now or datetime.now(CN)).astimezone(CN)
+    provider = provider or resident_latest
+    day = now.date() if is_session(now.date()) is True else latest_completed_session(now)
+    if day is None:
+        return {"ok": False, "status": "calendar_unverified", "items": []}
+    items = []
+    for task_id, (hour, minute) in INTRADAY_SLOTS.items():
+        planned = datetime.combine(day, time(hour, minute), CN)
+        try:
+            evidence = provider(slot=task_id)
+            latest = evidence.get("latest") or {}
+            healthy = bool(evidence.get("ok") and
+                           evidence.get("storage") == "railway_persistent_volume" and
+                           evidence.get("store_writable") is True)
+        except (OSError, ValueError, TypeError, KeyError):
+            evidence, latest, healthy = {}, {}, False
+        if not healthy:
+            status = "store_unavailable"
+        elif latest.get("date") == day.isoformat():
+            status = str(latest.get("status") or "unverified")
+        elif now < planned + timedelta(minutes=18):
+            status = "pending"
+        else:
+            status = "missing"
+        items.append({
+            "task_id": task_id, "date_cn": day.isoformat(),
+            "scheduled_at_cn": planned.isoformat(timespec="minutes"),
+            "status": status, "research_observation_delivered": status in FINISHED_INTRADAY,
+            "latest_recorded_at": latest.get("started_at") if
+                                  latest.get("date") == day.isoformat() else None,
+            "source": "railway_resident_persistent_store",
+            "candidate_is_buy_order": False,
+        })
+    return {
+        "ok": True, "date_cn": day.isoformat(), "items": items,
+        "status": "complete" if all(x["research_observation_delivered"] for x in items)
+                  else "incomplete",
+        "actual_order_fills_verified": False,
+    }
