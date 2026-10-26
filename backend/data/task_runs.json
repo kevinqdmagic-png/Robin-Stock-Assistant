@@ -3870,6 +3870,28 @@
         "limitup-single-20261023-close-v2"
       ],
       "eligible_for_integrated_research": false
+    },
+    {
+      "id": "market-review-20261026-scheduled-close-v1-completed",
+      "run_id": "market-review-20261026-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-26",
+      "trigger": "scheduled",
+      "started_at": "2026-10-26T08:51:20.817705+00:00",
+      "recorded_at": "2026-10-26T08:55:49+00:00",
+      "completed_at": "2026-10-26T08:55:49+00:00",
+      "status": "completed",
+      "summary": "全A5573→广泛120→深筛28；前池28/28验证，收盘中位-2.776%，正式新观察标的0。",
+      "report_ids": [
+        "market-review-20261026-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-2026-10-26-evidence.json"
+      ]
     }
   ]
 }

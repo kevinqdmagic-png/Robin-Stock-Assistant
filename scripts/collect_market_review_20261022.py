@@ -172,7 +172,7 @@ def main():
         "deep_pool": deep,
         "sources": [SINA.format(page=1), TENCENT_K.format(symbol="CODE"), TENCENT_M.format(symbol="CODE")],
     }
-    path = Path("docs/research/market-review-2026-10-22-evidence-base.json")
+    path = Path(f"docs/research/market-review-{MARKET_DATE}-evidence-base.json")
     path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({"path": str(path), "coverage": evidence["coverage"], "market": {k: v for k, v in market.items() if not k.startswith("top_")}, "deep": [(x["code"], x["name"], x["changepercent"], x.get("rvol20"), x.get("tail_1400_close_pct")) for x in deep]}, ensure_ascii=False, indent=2))
 
