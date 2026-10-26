@@ -57,6 +57,13 @@ while True:
         health = get("/health")
         if health.get("version") != version:
             raise RuntimeError("waiting for backend version " + version)
+        deliveries = get("/api/operations/delivery")
+        if deliveries.get("execution_claim") != "published_complete_receipts_only":
+            raise RuntimeError("daily delivery status is not evidence-backed")
+        if deliveries.get("trading_strategy_validated") is not False:
+            raise RuntimeError("delivery health cannot claim strategy profitability")
+        if not isinstance(deliveries.get("unverified_task_ids"), list):
+            raise RuntimeError("daily delivery matrix lacks missing-task details")
         tasks = get("/api/tasks")
         if not {r["id"] for r in expected["tasks.json"]["items"]}.issubset({r["id"] for r in tasks["items"]}):
             raise RuntimeError("task registry not yet deployed")
