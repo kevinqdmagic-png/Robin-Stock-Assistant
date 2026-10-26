@@ -115,8 +115,11 @@ def simulate_daily_open_proxy(signal, daily_bars, *, security_master=None,
         return {**result, "reason": "invalid_code"}
     try:
         start = date.fromisoformat(raw_day)
-        published = datetime.fromisoformat(str(signal.get("published_at", ""))).astimezone(CN)
-        if is_session(start) is not True or published.tzinfo is None:
+        published_raw = datetime.fromisoformat(str(signal.get("published_at", "")))
+        if published_raw.tzinfo is None:
+            return {**result, "reason": "missing_publication_timezone"}
+        published = published_raw.astimezone(CN)
+        if is_session(start) is not True:
             return {**result, "reason": "invalid_signal_date"}
         entry_day = nth_session_after(start, 1)
         if entry_day is None or published >= datetime.combine(entry_day, time(9, 30), CN):
@@ -151,7 +154,6 @@ def simulate_daily_open_proxy(signal, daily_bars, *, security_master=None,
         delayed = 0
         while True:
             candle = data.get(day.isoformat())
-            previous_day = nth_session_after(day, -1) if False else None
             # Exact previous EXCHANGE session close, not the preceding available stock bar.
             from datetime import timedelta
             prev_date = day - timedelta(days=1)
