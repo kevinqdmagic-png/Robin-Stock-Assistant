@@ -1336,9 +1336,9 @@ class MainActivity : AppCompatActivity() {
                     rows.addView(label("T+$h · 有效 $n · 收涨比例 $win · 平均参考变化 $mean", 12f))
                 }
                 val gate = data.optJSONObject("research_gate")
-                rows.addView(label("规则晋级：" +
-                    if (gate?.optBoolean("model_promotion_authorized") == true) "须人工审批" else "未授权" +
-                    " · 仅观察不算净收益", 12f, true))
+                val promotion = if (gate?.optBoolean("model_promotion_authorized") == true)
+                    "须人工审批" else "未授权"
+                rows.addView(label("规则晋级：$promotion · 仅观察不算净收益", 12f, true))
                 rows.addView(label("交易成交已验证：0笔。真实交易须有成交、滑点与风险证据，不能用日线最高价代替卖出收益。", 12f))
             }
         }
@@ -1372,7 +1372,7 @@ class MainActivity : AppCompatActivity() {
                     val slot = if (row.optString("task_id") == "early_pair") "9:50" else "14:40"
                     parts.add(slot + " " + row.optString("status"))
                 }
-                intraday.text = "盘中驻留：" + if (parts.isEmpty()) "状态未知" else parts.joinToString(" · ")
+                intraday.text = "盘中驻留：" + (if (parts.isEmpty()) "状态未知" else parts.joinToString(" · "))
             }
             fetch("/api/operations/providers") { data, _ ->
                 if (data == null || !data.optBoolean("ok")) {
