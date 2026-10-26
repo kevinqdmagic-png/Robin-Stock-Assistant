@@ -30,6 +30,14 @@ class DeadlineAuditTests(unittest.TestCase):
         self.assertTrue(all(row["status"] == "blocked" for row in updated["items"]))
         self.assertTrue(all(not row["report_ids"] for row in updated["items"]))
 
+    def test_dragon_tiger_missing_delivery_is_audited(self):
+        self.tasks["items"].append({"id": "dragon_tiger", "enabled": True})
+        updated, status = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
+        self.assertIn("dragon_tiger", status["unfulfilled"])
+        receipt = next(row for row in updated["items"] if row["task_id"] == "dragon_tiger")
+        self.assertEqual(receipt["status"], "blocked")
+        self.assertFalse(receipt["analysis_completed"])
+
     def test_idempotent_audit(self):
         first, _ = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
         second, s = audit.audit_day(first, self.tasks, self.reports, self.now)
