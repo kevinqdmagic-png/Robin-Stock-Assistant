@@ -3,7 +3,7 @@
 This iteration adds a **read-only** operations endpoint, `GET /api/operations/delivery`.
 It reports the latest completed A-share session in Beijing time, with independent
 publication statuses for market review, volume-price, low-position, Dragon-Tiger,
-combined pair, limit-up, 09:50 and 14:40 research.
+combined pair and limit-up research. The 09:50 / 14:40 resident Railway\nobservation runs have a separate primary evidence store and must not be judged\nusing the GitHub research-report receipts alone.
 
 ## Contract
 
@@ -30,7 +30,7 @@ A Railway `SUCCESS` alone does not prove all research jobs executed.
 
 ## Limitations and next milestones
 
-This does **not** implement automatic retries for the external full-research
+This does **not** consolidate the separate intraday resident evidence store,\nimplement automatic retries for the external full-research
 orchestrator, change trade selection, fix upstream 502s, enable FCM notifications,
 or transform observational price changes into executable trading P&L.
 
