@@ -4267,6 +4267,31 @@
       "sources": [
         "docs/research/combined-pair-20261027-overnight-evidence.json"
       ]
+    },
+    {
+      "id": "learning-review-20261027-scheduled-forward-v1-completed",
+      "run_id": "learning-review-20261027-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-28T03:38:09.411097+08:00",
+      "recorded_at": "2026-10-28T03:43:05.964557+08:00",
+      "completed_at": "2026-10-28T03:43:05.964557+08:00",
+      "status": "completed",
+      "summary": "31条正式记录仅5条可观察、17条行情缺失、9条回溯排除；去重后T+2仅3只/3日、均值-0.770%，六项研究与两档盘中存档齐，规则不变。",
+      "report_ids": [
+        "learning-review-20261027-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-27",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/learning-review-20261027-evidence.json"
+      ]
     }
   ]
 }

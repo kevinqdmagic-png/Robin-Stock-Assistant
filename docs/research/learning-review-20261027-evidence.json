@@ -1,0 +1,1550 @@
+{
+  "schema_version": 1,
+  "id": "learning-review-20261027-evidence-v1",
+  "market_date": "2026-10-27",
+  "collected_at": "2026-10-28T03:43:05.964557+08:00",
+  "data_cutoff_at": "2026-10-27T15:00:00+08:00",
+  "repository_head_observed": "6d3e2a91fe56dc3c6178cb79e1c54bb78dd6a86c",
+  "production_health_before_this_delivery": {
+    "ok": true,
+    "data_revision": "1ff7f6baab177d2e532a12516990f95fb7b87c1d96d9058d635309f8a35b7174",
+    "build_commit": "d9ba5b78c87e76436556f5edf99028c88d340824",
+    "service": "Robin Stock Assistant API",
+    "version": "0.10.0",
+    "time_cn": "2026-10-28T03:43:13+08:00",
+    "market_cache": true,
+    "market_cache_age_sec": 5454
+  },
+  "six_complete_research_items": [
+    {
+      "task_id": "market_review",
+      "report_id": "market-review-20261027-close-v1",
+      "report_type": "full_daily_research",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "receipt_id": "market-review-20261027-scheduled-close-v1-completed",
+      "receipt_status": "completed"
+    },
+    {
+      "task_id": "volume_price",
+      "report_id": "volume-price-20261027-close-v1",
+      "report_type": "full_daily_research",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "receipt_id": "volume-price-20261027-scheduled-close-v1-completed",
+      "receipt_status": "completed"
+    },
+    {
+      "task_id": "low_position",
+      "report_id": "low-position-20261027-close-v1",
+      "report_type": "full_daily_research",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "receipt_id": "low-position-20261027-scheduled-close-v1-completed",
+      "receipt_status": "completed"
+    },
+    {
+      "task_id": "dragon_tiger",
+      "report_id": "dragon-tiger-20261027-close-v1",
+      "report_type": "full_daily_research",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "receipt_id": "dragon-tiger-20261027-scheduled-close-v1-completed",
+      "receipt_status": "completed"
+    },
+    {
+      "task_id": "combined_pair",
+      "report_id": "combined-pair-20261027-close-v1",
+      "report_type": "full_trading_research",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "receipt_id": "combined-pair-20261027-scheduled-close-v1-completed",
+      "receipt_status": "completed"
+    },
+    {
+      "task_id": "limitup_single",
+      "report_id": "limitup-single-20261027-close-v2",
+      "report_type": "full_daily_research",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "receipt_id": "limitup-single-20261027-scheduled-close-v2-completed",
+      "receipt_status": "completed"
+    }
+  ],
+  "production_delivery_snapshot": {
+    "ok": true,
+    "date_cn": "2026-10-27",
+    "time_cn": "2026-10-28T03:43:19+08:00",
+    "status": "complete",
+    "audit_deadline_cn": "2026-10-27T20:40:00+08:00",
+    "checked_task_count": 6,
+    "verified_count": 6,
+    "unverified_task_ids": [],
+    "items": [
+      {
+        "task_id": "market_review",
+        "title": "A股每日复盘",
+        "status": "completed",
+        "receipt_count": 1,
+        "verified_receipt_id": "market-review-20261027-scheduled-close-v1-completed",
+        "latest_receipt_id": "market-review-20261027-scheduled-close-v1-completed",
+        "latest_recorded_at": "2026-10-27T08:52:43+00:00"
+      },
+      {
+        "task_id": "volume_price",
+        "title": "量价研究与每日验证",
+        "status": "completed",
+        "receipt_count": 1,
+        "verified_receipt_id": "volume-price-20261027-scheduled-close-v1-completed",
+        "latest_receipt_id": "volume-price-20261027-scheduled-close-v1-completed",
+        "latest_recorded_at": "2026-10-27T18:22:38+08:00"
+      },
+      {
+        "task_id": "low_position",
+        "title": "低位启动30天研究",
+        "status": "completed",
+        "receipt_count": 1,
+        "verified_receipt_id": "low-position-20261027-scheduled-close-v1-completed",
+        "latest_receipt_id": "low-position-20261027-scheduled-close-v1-completed",
+        "latest_recorded_at": "2026-10-27T18:22:38+08:00"
+      },
+      {
+        "task_id": "dragon_tiger",
+        "title": "龙虎榜超短研究",
+        "status": "completed",
+        "receipt_count": 1,
+        "verified_receipt_id": "dragon-tiger-20261027-scheduled-close-v1-completed",
+        "latest_receipt_id": "dragon-tiger-20261027-scheduled-close-v1-completed",
+        "latest_recorded_at": "2026-10-27T18:22:38+08:00"
+      },
+      {
+        "task_id": "combined_pair",
+        "title": "综合双标＋每日打板",
+        "status": "completed",
+        "receipt_count": 2,
+        "verified_receipt_id": "combined-pair-20261027-scheduled-close-v1-completed",
+        "latest_receipt_id": "combined-pair-20261027-overnight-evidence-v1-run-completed",
+        "latest_recorded_at": "2026-10-28T01:41:45+08:00"
+      },
+      {
+        "task_id": "limitup_single",
+        "title": "每日打板一股",
+        "status": "completed",
+        "receipt_count": 2,
+        "verified_receipt_id": "limitup-single-20261027-scheduled-close-v2-completed",
+        "latest_receipt_id": "limitup-single-20261027-overnight-evidence-v1-run-completed",
+        "latest_recorded_at": "2026-10-28T01:41:45+08:00"
+      }
+    ],
+    "execution_claim": "published_complete_receipts_only",
+    "trading_strategy_validated": false,
+    "resident_intraday": {
+      "ok": true,
+      "date_cn": "2026-10-28",
+      "items": [
+        {
+          "task_id": "early_pair",
+          "date_cn": "2026-10-28",
+          "scheduled_at_cn": "2026-10-28T09:50+08:00",
+          "status": "pending",
+          "research_observation_delivered": false,
+          "latest_recorded_at": null,
+          "source": "railway_resident_persistent_store",
+          "candidate_is_buy_order": false
+        },
+        {
+          "task_id": "late_pair",
+          "date_cn": "2026-10-28",
+          "scheduled_at_cn": "2026-10-28T14:40+08:00",
+          "status": "pending",
+          "research_observation_delivered": false,
+          "latest_recorded_at": null,
+          "source": "railway_resident_persistent_store",
+          "candidate_is_buy_order": false
+        }
+      ],
+      "status": "incomplete",
+      "actual_order_fills_verified": false
+    }
+  },
+  "production_provider_snapshot": {
+    "time_cn": "2026-10-28T03:43:24+08:00",
+    "ok": true,
+    "status": "observational",
+    "scope": "current_process_bounded_provider_attempts",
+    "persistent_across_deployments": false,
+    "no_observations_means_healthy": false,
+    "sample_count": 19,
+    "by_kind": {
+      "daily": {
+        "attempts": 0,
+        "ok": 0,
+        "degraded": 0,
+        "unavailable": 0,
+        "latest_status": "no_observations",
+        "latest_at_cn": null,
+        "latest_source": null,
+        "latest_requested": null,
+        "latest_returned": null,
+        "errors": {}
+      },
+      "minute": {
+        "attempts": 19,
+        "ok": 13,
+        "degraded": 6,
+        "unavailable": 0,
+        "latest_status": "degraded",
+        "latest_at_cn": "2026-10-28T02:12:21+08:00",
+        "latest_source": "tencent_minute",
+        "latest_requested": 1,
+        "latest_returned": 1,
+        "errors": {
+          "ConnectionError": 6,
+          "HTTPError": 6
+        }
+      },
+      "quote_batch": {
+        "attempts": 0,
+        "ok": 0,
+        "degraded": 0,
+        "unavailable": 0,
+        "latest_status": "no_observations",
+        "latest_at_cn": null,
+        "latest_source": null,
+        "latest_requested": null,
+        "latest_returned": null,
+        "errors": {}
+      }
+    },
+    "automatic_trade_permission": false
+  },
+  "production_strategy_snapshot_before_this_delivery": {
+    "time_cn": "2026-10-28T03:43:29+08:00",
+    "ok": true,
+    "snapshot_date": "2026-10-26",
+    "status": "shadow_observation_only",
+    "raw_signal_rows": 31,
+    "distinct_signal_date_symbols": 13,
+    "overlap_rows_excluded": 3,
+    "horizons": {
+      "1": {
+        "sample_count": 13,
+        "unique_signal_dates": 7,
+        "positive_pct": 53.85,
+        "average_price_change_pct": -0.089,
+        "median_price_change_pct": 0.263,
+        "adverse_below_minus_5_pct": 30.77,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "2": {
+        "sample_count": 13,
+        "unique_signal_dates": 7,
+        "positive_pct": 69.23,
+        "average_price_change_pct": -0.268,
+        "median_price_change_pct": 2.065,
+        "adverse_below_minus_5_pct": 46.15,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "5": {
+        "sample_count": 12,
+        "unique_signal_dates": 6,
+        "positive_pct": 33.33,
+        "average_price_change_pct": -6.05,
+        "median_price_change_pct": -6.854,
+        "adverse_below_minus_5_pct": 83.33,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "10": {
+        "sample_count": 4,
+        "unique_signal_dates": 2,
+        "positive_pct": 0.0,
+        "average_price_change_pct": -13.51,
+        "median_price_change_pct": -13.12,
+        "adverse_below_minus_5_pct": 100.0,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      }
+    },
+    "research_gate": {
+      "min_samples": 36,
+      "min_independent_dates": 20,
+      "enough_price_observations_to_evaluate": false,
+      "model_promotion_authorized": false,
+      "reasons": [
+        "missing_verified_order_fills",
+        "missing_transaction_calibration",
+        "requires_chronological_holdout_and_human_approval"
+      ]
+    },
+    "actual_trades_verified": 0,
+    "app_auto_trading_enabled": false,
+    "automatic_weight_updates": false,
+    "warning": "价格观察不是买入后的净收益，同日或同股票重复信号已按股票-日期去重。"
+  },
+  "resident_intraday_20261027": {
+    "early_pair": {
+      "date": "2026-10-27",
+      "task_id": "early_pair",
+      "started_at": "2026-10-27T09:50:04+08:00",
+      "status": "observed",
+      "reason_code": "partial_level1_watch_not_backtested",
+      "candidates": [
+        {
+          "code": "603007",
+          "name": "顺景科技",
+          "price": 4.9,
+          "pct": 6.75,
+          "volume_ratio": 13.42,
+          "turnover_ratio": 4.95,
+          "as_of": "2026-10-27T09:50:04+08:00",
+          "daily_cutoff": "2026-10-26",
+          "quote_source": "tencent_public",
+          "daily_source": "tencent_qfq_daily",
+          "score": 38.23,
+          "prior20_high": 4.75,
+          "prior20_ma": 4.381,
+          "notes": [
+            "近期放量或成交活跃代理指标",
+            "当前价对过去20日均价及高点的关系"
+          ],
+          "risk": "未验证盘口封单、同板块强弱、真实买点和T+1收益，不能视为买入信号",
+          "signal_validated": false
+        },
+        {
+          "code": "002354",
+          "name": "天娱数科",
+          "price": 8.68,
+          "pct": 6.5,
+          "volume_ratio": 9.3,
+          "turnover_ratio": 18.05,
+          "as_of": "2026-10-27T09:50:03+08:00",
+          "daily_cutoff": "2026-10-26",
+          "quote_source": "tencent_public",
+          "daily_source": "tencent_qfq_daily",
+          "score": 36.06,
+          "prior20_high": 8.83,
+          "prior20_ma": 7.546,
+          "notes": [
+            "近期放量或成交活跃代理指标",
+            "当前价对过去20日均价及高点的关系"
+          ],
+          "risk": "未验证盘口封单、同板块强弱、真实买点和T+1收益，不能视为买入信号",
+          "signal_validated": false
+        }
+      ],
+      "scanned": 137,
+      "fresh_quotes": 137,
+      "daily_checked": 18,
+      "source": "tencent_quote_and_prior_completed_qfq_daily",
+      "coverage": "partial_watchlist_plus_discoverable_activity_leaders",
+      "full_market_coverage": false,
+      "strategy_validated": false,
+      "provider_errors": [],
+      "daily_attempted": 18,
+      "attempt": 1,
+      "finished_at": "2026-10-27T09:50:11+08:00"
+    },
+    "late_pair": {
+      "date": "2026-10-27",
+      "task_id": "late_pair",
+      "started_at": "2026-10-27T14:40:04+08:00",
+      "status": "observed",
+      "reason_code": "partial_level1_watch_not_backtested",
+      "candidates": [
+        {
+          "code": "605488",
+          "name": "福莱新材",
+          "price": 44.87,
+          "pct": 6.91,
+          "volume_ratio": 1.75,
+          "turnover_ratio": 16.54,
+          "as_of": "2026-10-27T14:40:05+08:00",
+          "daily_cutoff": "2026-10-26",
+          "quote_source": "tencent_public",
+          "daily_source": "tencent_qfq_daily",
+          "score": 27.76,
+          "prior20_high": 41.97,
+          "prior20_ma": 30.369,
+          "notes": [
+            "近期放量或成交活跃代理指标",
+            "当前价对过去20日均价及高点的关系"
+          ],
+          "risk": "未验证盘口封单、同板块强弱、真实买点和T+1收益，不能视为买入信号",
+          "signal_validated": false
+        },
+        {
+          "code": "000700",
+          "name": "模塑科技",
+          "price": 13.8,
+          "pct": 5.59,
+          "volume_ratio": 1.9,
+          "turnover_ratio": 15.51,
+          "as_of": "2026-10-27T14:40:06+08:00",
+          "daily_cutoff": "2026-10-26",
+          "quote_source": "tencent_public",
+          "daily_source": "tencent_qfq_daily",
+          "score": 25.03,
+          "prior20_high": 13.07,
+          "prior20_ma": 11.486,
+          "notes": [
+            "近期放量或成交活跃代理指标",
+            "当前价对过去20日均价及高点的关系"
+          ],
+          "risk": "未验证盘口封单、同板块强弱、真实买点和T+1收益，不能视为买入信号",
+          "signal_validated": false
+        }
+      ],
+      "scanned": 137,
+      "fresh_quotes": 137,
+      "daily_checked": 18,
+      "source": "tencent_quote_and_prior_completed_qfq_daily",
+      "coverage": "partial_watchlist_plus_discoverable_activity_leaders",
+      "full_market_coverage": false,
+      "strategy_validated": false,
+      "provider_errors": [],
+      "daily_attempted": 18,
+      "attempt": 1,
+      "finished_at": "2026-10-27T14:40:11+08:00"
+    }
+  },
+  "github_issues_observed": [
+    {
+      "number": 17,
+      "state": "open",
+      "title": "provider-quality telemetry and safe quote failover"
+    },
+    {
+      "number": 18,
+      "state": "open",
+      "title": "recover missing complete daily research with immutable audit trail"
+    },
+    {
+      "number": 19,
+      "state": "open",
+      "title": "executable T+1 shadow trading laboratory"
+    },
+    {
+      "number": 20,
+      "state": "open",
+      "title": "reliable staged Android stock-alert delivery"
+    }
+  ],
+  "learning_snapshot": {
+    "id": "forward-learning-2026-10-27",
+    "date": "2026-10-27",
+    "recorded_at": "2026-10-28T03:38:09.411097+08:00",
+    "status": "completed_with_data_gaps",
+    "version": "forward_learning_v1",
+    "sample_count": 31,
+    "status_counts": {
+      "provider_unavailable": 17,
+      "observed": 5,
+      "ineligible_retrospective": 9
+    },
+    "provider_count": 23,
+    "evaluations": [
+      {
+        "signal_id": "limitup-single-20261008-600592-v1",
+        "code": "600592",
+        "strategy": "limitup_single_v1",
+        "task_id": "limitup_single",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "late-pair-20261008-300450-v1",
+        "code": "300450",
+        "strategy": "late_pair",
+        "task_id": "late_pair",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "late-pair-20261008-601872-v1",
+        "code": "601872",
+        "strategy": "late_pair",
+        "task_id": "late_pair",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261008-601872-close-v1",
+        "code": "601872",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261008-002074-close-v1",
+        "code": "002074",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [
+          {
+            "h": 1,
+            "date": "2026-10-12",
+            "status": "observed",
+            "close_pct": 0.263,
+            "mfe_pct": 2.466,
+            "mae_pct": -2.466
+          },
+          {
+            "h": 2,
+            "date": "2026-10-13",
+            "status": "observed",
+            "close_pct": -6.84,
+            "mfe_pct": 2.466,
+            "mae_pct": -7.892
+          },
+          {
+            "h": 5,
+            "date": "2026-10-16",
+            "status": "observed",
+            "close_pct": -8.648,
+            "mfe_pct": 2.466,
+            "mae_pct": -12.397
+          },
+          {
+            "h": 10,
+            "date": "2026-10-23",
+            "status": "observed",
+            "close_pct": -14.37,
+            "mfe_pct": 2.466,
+            "mae_pct": -19.27
+          }
+        ],
+        "anchor_date": "2026-10-09",
+        "anchor_close": 30.41,
+        "feature_snapshot": {
+          "available": true,
+          "as_of": "2026-10-08",
+          "model_version": "capital_behavior_daily_v1",
+          "score": 26,
+          "stage": "breakout_observed"
+        },
+        "status": "observed",
+        "attribution": [
+          "T2_price_proxy_loss_over_2pct",
+          "T2_intraday_adverse_excursion_over_5pct"
+        ],
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261008-601872-close-v2-correction",
+        "code": "601872",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261008-002074-close-v2-correction",
+        "code": "002074",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [
+          {
+            "h": 1,
+            "date": "2026-10-12",
+            "status": "observed",
+            "close_pct": 0.263,
+            "mfe_pct": 2.466,
+            "mae_pct": -2.466
+          },
+          {
+            "h": 2,
+            "date": "2026-10-13",
+            "status": "observed",
+            "close_pct": -6.84,
+            "mfe_pct": 2.466,
+            "mae_pct": -7.892
+          },
+          {
+            "h": 5,
+            "date": "2026-10-16",
+            "status": "observed",
+            "close_pct": -8.648,
+            "mfe_pct": 2.466,
+            "mae_pct": -12.397
+          },
+          {
+            "h": 10,
+            "date": "2026-10-23",
+            "status": "observed",
+            "close_pct": -14.37,
+            "mfe_pct": 2.466,
+            "mae_pct": -19.27
+          }
+        ],
+        "anchor_date": "2026-10-09",
+        "anchor_close": 30.41,
+        "feature_snapshot": {
+          "available": true,
+          "as_of": "2026-10-08",
+          "model_version": "capital_behavior_daily_v1",
+          "score": 26,
+          "stage": "breakout_observed"
+        },
+        "status": "observed",
+        "attribution": [
+          "T2_price_proxy_loss_over_2pct",
+          "T2_intraday_adverse_excursion_over_5pct"
+        ],
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261008-601872-close-v1",
+        "code": "601872",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261008-002074-close-v1",
+        "code": "002074",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-08",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [
+          {
+            "h": 1,
+            "date": "2026-10-12",
+            "status": "observed",
+            "close_pct": 0.263,
+            "mfe_pct": 2.466,
+            "mae_pct": -2.466
+          },
+          {
+            "h": 2,
+            "date": "2026-10-13",
+            "status": "observed",
+            "close_pct": -6.84,
+            "mfe_pct": 2.466,
+            "mae_pct": -7.892
+          },
+          {
+            "h": 5,
+            "date": "2026-10-16",
+            "status": "observed",
+            "close_pct": -8.648,
+            "mfe_pct": 2.466,
+            "mae_pct": -12.397
+          },
+          {
+            "h": 10,
+            "date": "2026-10-23",
+            "status": "observed",
+            "close_pct": -14.37,
+            "mfe_pct": 2.466,
+            "mae_pct": -19.27
+          }
+        ],
+        "anchor_date": "2026-10-09",
+        "anchor_close": 30.41,
+        "feature_snapshot": {
+          "available": true,
+          "as_of": "2026-10-08",
+          "model_version": "capital_behavior_daily_v1",
+          "score": 26,
+          "stage": "breakout_observed"
+        },
+        "status": "observed",
+        "attribution": [
+          "T2_price_proxy_loss_over_2pct",
+          "T2_intraday_adverse_excursion_over_5pct"
+        ],
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261009-600026-close-v1",
+        "code": "600026",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-09",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261009-300058-close-v1",
+        "code": "300058",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-09",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261009-300058-close-v1",
+        "code": "300058",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-09",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261009-000420-close-v1",
+        "code": "000420",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-09",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261012-002487-close-v1",
+        "code": "002487",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-12",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261012-300413-close-v1",
+        "code": "300413",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-12",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261012-300450-close-v1",
+        "code": "300450",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-12",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261014-600316-close-v1",
+        "code": "600316",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-14",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261014-002727-close-v1",
+        "code": "002727",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-14",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261015-000973-close-v1",
+        "code": "000973",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-15",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261015-002812-close-v1",
+        "code": "002812",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-15",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261015-000973-close-v1",
+        "code": "000973",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-15",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261015-002812-close-v1",
+        "code": "002812",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-15",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [
+          {
+            "h": 1,
+            "date": "2026-10-19",
+            "status": "observed",
+            "close_pct": -1.362,
+            "mfe_pct": -0.497,
+            "mae_pct": -2.94
+          },
+          {
+            "h": 2,
+            "date": "2026-10-20",
+            "status": "observed",
+            "close_pct": 0.627,
+            "mfe_pct": 1.816,
+            "mae_pct": -3.048
+          },
+          {
+            "h": 5,
+            "date": "2026-10-23",
+            "status": "observed",
+            "close_pct": 1.427,
+            "mfe_pct": 1.816,
+            "mae_pct": -9.209
+          },
+          {
+            "h": 10,
+            "date": "2026-10-30",
+            "status": "pending"
+          }
+        ],
+        "anchor_date": "2026-10-16",
+        "anchor_close": 46.26,
+        "feature_snapshot": {
+          "available": true,
+          "as_of": "2026-10-15",
+          "model_version": "capital_behavior_daily_v1",
+          "score": 53,
+          "stage": "accumulation_candidate"
+        },
+        "status": "observed",
+        "attribution": [
+          "no_preset_failure_flag"
+        ],
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261016-300719-close-v1",
+        "code": "300719",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-16",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261016-600853-close-v1",
+        "code": "600853",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-16",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261016-000887-close-v1",
+        "code": "000887",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-16",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261019-002683-close-v1",
+        "code": "002683",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-19",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261019-002903-close-v1",
+        "code": "002903",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-19",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261020-300458-close-v1",
+        "code": "300458",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-20",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261020-300825-close-v1",
+        "code": "300825",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-20",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "combined-pair-20261020-300458-close-v1",
+        "code": "300458",
+        "strategy": "combined_limitup_watch",
+        "task_id": "combined_pair",
+        "signal_date": "2026-10-20",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [
+          {
+            "h": 1,
+            "date": "2026-10-22",
+            "status": "observed",
+            "close_pct": -2.383,
+            "mfe_pct": 1.693,
+            "mae_pct": -2.418
+          },
+          {
+            "h": 2,
+            "date": "2026-10-23",
+            "status": "observed",
+            "close_pct": 3.903,
+            "mfe_pct": 4.18,
+            "mae_pct": -5.561
+          },
+          {
+            "h": 5,
+            "date": "2026-10-28",
+            "status": "pending"
+          },
+          {
+            "h": 10,
+            "date": "2026-11-04",
+            "status": "pending"
+          }
+        ],
+        "anchor_date": "2026-10-21",
+        "anchor_close": 28.95,
+        "feature_snapshot": {
+          "available": true,
+          "as_of": "2026-10-20",
+          "model_version": "capital_behavior_daily_v1",
+          "score": 43,
+          "stage": "unconfirmed"
+        },
+        "status": "observed",
+        "attribution": [
+          "T2_intraday_adverse_excursion_over_5pct",
+          "positive_close_but_deep_interim_drawdown"
+        ],
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ]
+      },
+      {
+        "signal_id": "market-review-20261022-002520-close-v1",
+        "code": "002520",
+        "strategy": "market_review_conditional",
+        "task_id": "market_review",
+        "signal_date": "2026-10-22",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "ineligible_retrospective",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ]
+      }
+    ],
+    "validation": {
+      "model_version": "forward_learning_v1",
+      "total_mature_t2_featured": 5,
+      "unique_cohort_dates": 3,
+      "promotion_authorized": false,
+      "strategy_active_rules_changed": false,
+      "rule_proposals": [],
+      "status": "insufficient_verified_proxy_samples",
+      "minimum_samples": 36,
+      "minimum_unique_dates": 20
+    },
+    "low_position_evaluations": [
+      {
+        "signal_id": "low-position-proxy-20261022-000420",
+        "code": "000420",
+        "strategy": "low_position_shape_proxy_v1",
+        "task_id": "low_position",
+        "signal_date": "2026-10-22",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ],
+        "is_recommendation": false,
+        "signal_source_report_id": "scheduled-research-20261022-39758539182-low_position-report",
+        "frozen_signal_features": {
+          "close_qfq": 3.98,
+          "day_pct_proxy": 3.11,
+          "relative_volume20": 2.05,
+          "close_location": 0.8,
+          "distance_ma20_pct": 8.91,
+          "distance_60d_low_pct": 17.4
+        }
+      },
+      {
+        "signal_id": "low-position-proxy-20261022-002520",
+        "code": "002520",
+        "strategy": "low_position_shape_proxy_v1",
+        "task_id": "low_position",
+        "signal_date": "2026-10-22",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ],
+        "is_recommendation": false,
+        "signal_source_report_id": "scheduled-research-20261022-39758539182-low_position-report",
+        "frozen_signal_features": {
+          "close_qfq": 6.1,
+          "day_pct_proxy": 7.77,
+          "relative_volume20": 4.36,
+          "close_location": 0.768,
+          "distance_ma20_pct": 1.06,
+          "distance_60d_low_pct": 19.61
+        }
+      },
+      {
+        "signal_id": "low-position-proxy-20261022-600900",
+        "code": "600900",
+        "strategy": "low_position_shape_proxy_v1",
+        "task_id": "low_position",
+        "signal_date": "2026-10-22",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": "tencent_unadjusted_daily",
+        "horizons": [
+          {
+            "h": 1,
+            "date": "2026-10-23",
+            "status": "observed",
+            "close_pct": -1.241,
+            "mfe_pct": 0.57,
+            "mae_pct": -1.643
+          },
+          {
+            "h": 2,
+            "date": "2026-10-26",
+            "status": "observed",
+            "close_pct": 0.134,
+            "mfe_pct": 0.57,
+            "mae_pct": -1.643
+          },
+          {
+            "h": 5,
+            "date": "2026-10-29",
+            "status": "pending"
+          },
+          {
+            "h": 10,
+            "date": "2026-11-05",
+            "status": "pending"
+          },
+          {
+            "h": 30,
+            "date": "2026-12-03",
+            "status": "pending"
+          }
+        ],
+        "anchor_date": "2026-10-22",
+        "anchor_close": 29.82,
+        "feature_snapshot": {
+          "available": true,
+          "as_of": "2026-10-21",
+          "model_version": "capital_behavior_daily_v1",
+          "score": 51,
+          "stage": "accumulation_candidate"
+        },
+        "status": "observed",
+        "attribution": [
+          "no_preset_failure_flag"
+        ],
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout"
+        ],
+        "is_recommendation": false,
+        "signal_source_report_id": "scheduled-research-20261022-39758539182-low_position-report",
+        "frozen_signal_features": {
+          "close_qfq": 29.82,
+          "day_pct_proxy": 0.85,
+          "relative_volume20": 1.84,
+          "close_location": 0.75,
+          "distance_ma20_pct": 3.14,
+          "distance_60d_low_pct": 8.4
+        }
+      },
+      {
+        "signal_id": "low-position-proxy-20261022-601288",
+        "code": "601288",
+        "strategy": "low_position_shape_proxy_v1",
+        "task_id": "low_position",
+        "signal_date": "2026-10-22",
+        "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
+        "executed_trade": false,
+        "executable_net_return_pct": null,
+        "source": null,
+        "horizons": [],
+        "status": "provider_unavailable",
+        "provider_errors": [
+          "ReadTimeout",
+          "ReadTimeout",
+          "tencent_daily:ReadTimeout"
+        ],
+        "is_recommendation": false,
+        "signal_source_report_id": "scheduled-research-20261022-39758539182-low_position-report",
+        "frozen_signal_features": {
+          "close_qfq": 7.4,
+          "day_pct_proxy": 1.51,
+          "relative_volume20": 1.5,
+          "close_location": 0.875,
+          "distance_ma20_pct": 6.22,
+          "distance_60d_low_pct": 18.78
+        }
+      }
+    ],
+    "low_position_summary": {
+      "status": "descriptive_forward_validation_only",
+      "method": "low_position_shape_proxy_v1",
+      "sample_count": 4,
+      "unique_signal_dates": 1,
+      "status_counts": {
+        "provider_unavailable": 3,
+        "observed": 1
+      },
+      "horizons": {
+        "1": {
+          "matured_count": 1,
+          "mean_close_pct": -1.241,
+          "median_close_pct": -1.241,
+          "positive_close_rate_pct": 0.0,
+          "median_intraperiod_mae_pct": -1.643,
+          "return_basis": "signal_day_close_unadjusted_proxy_not_t1_fill"
+        },
+        "2": {
+          "matured_count": 1,
+          "mean_close_pct": 0.134,
+          "median_close_pct": 0.134,
+          "positive_close_rate_pct": 100.0,
+          "median_intraperiod_mae_pct": -1.643,
+          "return_basis": "signal_day_close_unadjusted_proxy_not_t1_fill"
+        },
+        "5": {
+          "matured_count": 0,
+          "mean_close_pct": null,
+          "median_close_pct": null,
+          "positive_close_rate_pct": null,
+          "median_intraperiod_mae_pct": null,
+          "return_basis": "signal_day_close_unadjusted_proxy_not_t1_fill"
+        },
+        "10": {
+          "matured_count": 0,
+          "mean_close_pct": null,
+          "median_close_pct": null,
+          "positive_close_rate_pct": null,
+          "median_intraperiod_mae_pct": null,
+          "return_basis": "signal_day_close_unadjusted_proxy_not_t1_fill"
+        },
+        "30": {
+          "matured_count": 0,
+          "mean_close_pct": null,
+          "median_close_pct": null,
+          "positive_close_rate_pct": null,
+          "median_intraperiod_mae_pct": null,
+          "return_basis": "signal_day_close_unadjusted_proxy_not_t1_fill"
+        }
+      },
+      "selection_rules_changed": false,
+      "sample_out_of_market_census": false,
+      "holds_out_future_dates_for_rule_selection": false,
+      "executable_pnl": false
+    },
+    "low_position_observations_are_recommendations": false,
+    "training_stage": "shadow_only",
+    "source_scope": "public_unadjusted_daily_candles",
+    "trade_execution_verified": false,
+    "model_weights_updated": false,
+    "notes": [
+      "T+1/T+2/T+5/T+10 are exchange sessions from the signal-date CLOSE, not assumed entry fills.",
+      "Only pre-signal data can populate candidate features; no later quotes leak into scores.",
+      "Missing session bars, corporate actions and unknown calendars are quarantined.",
+      "Real strategy P&L and next-open execution require time-stamped order and fill evidence.",
+      "Shadow threshold proposals never modify live stock-selection rules automatically.",
+      "Low-position shape observations are separate from recommendation success metrics."
+    ]
+  },
+  "deduplicated_strategy_summary": {
+    "ok": true,
+    "snapshot_date": "2026-10-27",
+    "status": "shadow_observation_only",
+    "raw_signal_rows": 31,
+    "distinct_signal_date_symbols": 3,
+    "overlap_rows_excluded": 2,
+    "horizons": {
+      "1": {
+        "sample_count": 3,
+        "unique_signal_dates": 3,
+        "positive_pct": 33.33,
+        "average_price_change_pct": -1.161,
+        "median_price_change_pct": -1.362,
+        "adverse_below_minus_5_pct": 0.0,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "2": {
+        "sample_count": 3,
+        "unique_signal_dates": 3,
+        "positive_pct": 66.67,
+        "average_price_change_pct": -0.77,
+        "median_price_change_pct": 0.627,
+        "adverse_below_minus_5_pct": 66.67,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "5": {
+        "sample_count": 2,
+        "unique_signal_dates": 2,
+        "positive_pct": 50.0,
+        "average_price_change_pct": -3.611,
+        "median_price_change_pct": -3.611,
+        "adverse_below_minus_5_pct": 100.0,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "10": {
+        "sample_count": 1,
+        "unique_signal_dates": 1,
+        "positive_pct": 0.0,
+        "average_price_change_pct": -14.37,
+        "median_price_change_pct": -14.37,
+        "adverse_below_minus_5_pct": 100.0,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      }
+    },
+    "research_gate": {
+      "min_samples": 36,
+      "min_independent_dates": 20,
+      "enough_price_observations_to_evaluate": false,
+      "model_promotion_authorized": false,
+      "reasons": [
+        "missing_verified_order_fills",
+        "missing_transaction_calibration",
+        "requires_chronological_holdout_and_human_approval"
+      ]
+    },
+    "actual_trades_verified": 0,
+    "app_auto_trading_enabled": false,
+    "automatic_weight_updates": false,
+    "warning": "价格观察不是买入后的净收益，同日或同股票重复信号已按股票-日期去重。"
+  },
+  "learning_provider_error_counts": {
+    "ReadTimeout": 70,
+    "tencent_daily:ReadTimeout": 26
+  },
+  "provider_unavailable_unique_codes": [
+    "000420",
+    "000887",
+    "000973",
+    "002487",
+    "002520",
+    "002727",
+    "300058",
+    "300413",
+    "300450",
+    "600026",
+    "600316",
+    "600592",
+    "601288",
+    "601872"
+  ],
+  "limitations": [
+    "Production provider telemetry is process-bounded and is not persistent across deployments.",
+    "The 09:50 and 14:40 records are partial Level-1 observations, not full-market studies or buy orders.",
+    "Price changes use signal-day unadjusted close; they are not verified fills or executable net returns.",
+    "The weak-market research-shadow instruction was committed after the T27 close reports and is not backfilled here.",
+    "No rule, threshold, model weight, real-money order or automatic promotion is changed."
+  ]
+}
