@@ -4109,6 +4109,164 @@
       "sources": [
         "docs/research/market-review-2026-10-27-evidence.json"
       ]
+    },
+    {
+      "id": "volume-price-20261027-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261027-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T09:41:46+00:00",
+      "completed_at": "2026-10-27T18:22:38+08:00",
+      "recorded_at": "2026-10-27T18:22:38+08:00",
+      "status": "completed",
+      "summary": "5573→120→28；旧28只中位-2.015%，v4为168条/6个日期，价格观察不当策略收益。",
+      "report_ids": [
+        "volume-price-20261027-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "low-position-20261027-scheduled-close-v1-completed",
+      "run_id": "low-position-20261027-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T09:41:46+00:00",
+      "completed_at": "2026-10-27T18:22:38+08:00",
+      "recorded_at": "2026-10-27T18:22:38+08:00",
+      "status": "completed",
+      "summary": "新增凯中精密、峨眉山Ａ2条非交易研究样本；42条历史全路径核验，合格成熟30自然日模型N=0。",
+      "report_ids": [
+        "low-position-20261027-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261027-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261027-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T09:41:46+00:00",
+      "completed_at": "2026-10-27T18:22:38+08:00",
+      "recorded_at": "2026-10-27T18:22:38+08:00",
+      "status": "completed",
+      "summary": "87理由行/77股、11只席位及同周期价格核验、5只独立条件观察；旧71只全池分制度验证。",
+      "report_ids": [
+        "dragon-tiger-20261027-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "limitup-single-20261027-scheduled-close-v2-completed",
+      "run_id": "limitup-single-20261027-scheduled-close-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T09:41:46+00:00",
+      "completed_at": "2026-10-27T18:22:38+08:00",
+      "recorded_at": "2026-10-27T18:22:38+08:00",
+      "status": "completed",
+      "summary": "D28无合格打板候选；普通主板首进二8/33、二进三0/8，20日空间仍缺5池。",
+      "report_ids": [
+        "limitup-single-20261027-close-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "combined-pair-20261027-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261027-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T09:41:46+00:00",
+      "completed_at": "2026-10-27T18:22:38+08:00",
+      "recorded_at": "2026-10-27T18:22:38+08:00",
+      "status": "completed",
+      "summary": "四项同T完整研究真实齐备；综合组0只、D28打板另组0只。原条件和现金结论不回写。",
+      "report_ids": [
+        "combined-pair-20261027-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "combined-pair-20261027-overnight-evidence-v1-run-completed",
+      "run_id": "combined-pair-20261027-overnight-evidence-v1-run",
+      "task_id": "combined_pair",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T17:35:14+00:00",
+      "completed_at": "2026-10-28T01:41:45+08:00",
+      "recorded_at": "2026-10-28T01:41:45+08:00",
+      "status": "completed",
+      "summary": "追加青岛控制权筹划、九百/多伦Q3及高标风险公告；原两组各0只保持，不回写旧条件。",
+      "report_ids": [
+        "combined-pair-20261027-overnight-evidence-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "evidence_review_completed": true,
+      "analysis_scope": "supplementary_notice_review_not_new_full_daily_module",
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-overnight-evidence.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261027-overnight-evidence-v1-run-completed",
+      "run_id": "limitup-single-20261027-overnight-evidence-v1-run",
+      "task_id": "limitup_single",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T17:35:14+00:00",
+      "completed_at": "2026-10-28T01:41:45+08:00",
+      "recorded_at": "2026-10-28T01:41:45+08:00",
+      "status": "completed",
+      "summary": "追加青岛控制权筹划、九百/多伦Q3及高标风险公告；原两组各0只保持，不回写旧条件。",
+      "report_ids": [
+        "limitup-single-20261027-overnight-evidence-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "evidence_review_completed": true,
+      "analysis_scope": "supplementary_notice_review_not_new_full_daily_module",
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261027-overnight-evidence.json"
+      ]
     }
   ]
 }
