@@ -4087,6 +4087,28 @@
         "https://robin-stock-api-production.up.railway.app/api/task-runs?task=learning_review",
         "https://robin-stock-api-production.up.railway.app/api/tasks"
       ]
+    },
+    {
+      "id": "market-review-20261027-scheduled-close-v1-completed",
+      "run_id": "market-review-20261027-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-27",
+      "trigger": "scheduled",
+      "started_at": "2026-10-27T08:50:14.551427+00:00",
+      "recorded_at": "2026-10-27T08:52:43+00:00",
+      "completed_at": "2026-10-27T08:52:43+00:00",
+      "status": "completed",
+      "summary": "全A5573→广泛120→深筛28；4921只下跌，前池28/28验证，收盘中位-2.015%，正式新观察标的0。",
+      "report_ids": [
+        "market-review-20261027-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-2026-10-27-evidence.json"
+      ]
     }
   ]
 }
