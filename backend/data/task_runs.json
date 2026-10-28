@@ -4465,6 +4465,25 @@
         "docs/research/combined-pair-20261028-evidence.json.gz",
         "docs/research/shadow-experiments-20261029-v1.json"
       ]
+    },
+    {
+      "id": "volume-price-20261021-manual-recovery-v1-completed",
+      "run_id": "volume-price-20261021-manual-recovery-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-21",
+      "trigger": "manual",
+      "started_at": "2026-10-29T02:34:39+08:00",
+      "recorded_at": "2026-10-29T02:35:06+08:00",
+      "completed_at": "2026-10-29T02:35:06+08:00",
+      "status": "completed",
+      "summary": "历史缺口恢复完成；非原定时执行，不具原综合前置资格。",
+      "report_ids": [
+        "volume-price-20261021-historical-recovery-v1"
+      ],
+      "recommendation_ids": [],
+      "sources": [
+        "docs/research/volume-price-2026-10-21-recovery-evidence.json"
+      ]
     }
   ]
 }
