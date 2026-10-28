@@ -118,6 +118,7 @@ def latest(slot=None, limit=20, now=None):
         "store_writable": storage_ready(),
         "volume_mount_detected": os.path.ismount(STORE.parent),
         "publication": "original_time_stamped_partial_universe",
+        "research_model": "intraday_low_chase_shadow_v2",
         "strategy_validated": False, "recommendation_executable": False,
     }
 
@@ -206,42 +207,110 @@ def _fresh_quotes(codes, now):
 
 
 def _candidate(q, day, now):
+    """Low-chase shadow hypothesis v2; NEVER a verified buy signal.
+
+    All technical features use only completed prior-session bars. Thresholds
+    are pre-registered research assumptions, not fitted profitability claims.
+    """
     code = q["code"]
     pct = float(q["pct"])
-    upper = 18.0 if code.startswith(("30", "68")) else 8.9
-    lower = 4.0 if code.startswith(("30", "68")) else 2.5
+    growth_board = code.startswith(("30", "68"))
+    lower, upper = (1.5, 8.0) if growth_board else (0.8, 5.5)
     vr, turnover_ratio = q.get("volume_ratio"), q.get("turnover")
     if not lower <= pct <= upper or vr is None or turnover_ratio is None:
         return None
-    if not 1.25 <= float(vr) <= 100 or not 2 <= float(turnover_ratio) <= 34:
+    if not 1.15 <= float(vr) <= 6 or not 1.2 <= float(turnover_ratio) <= 22:
         return None
-    bars = tencent_daily(code, limit=90, adjust="1")
+    bars = tencent_daily(code, limit=100, adjust="1")
     complete = completed_bars(bars, now)
     if len(complete) < 61 or complete[-1]["date"] >= day:
         raise ValueError("daily_history_stale_or_incomplete")
     if any(b.get("volume", 0) <= 0 for b in complete[-61:]):
         return None
+    price = float(q["price"])
     prior = complete[-20:]
-    highs = max(b["high"] for b in prior)
+    prior60 = complete[-60:]
+    highest20 = max(b["high"] for b in prior)
+    lowest60 = min(b["low"] for b in prior60)
+    highest60 = max(b["high"] for b in prior60)
     ma20 = sum(b["close"] for b in prior) / 20
-    if float(q["price"]) < ma20 * 0.99:
+    distance20_pct = (price / ma20 - 1) * 100
+    prior10_pct = (complete[-1]["close"] / complete[-11]["close"] - 1) * 100
+    position60 = (price - lowest60) / (highest60 - lowest60) if highest60 > lowest60 else 1
+    breakout20_pct = (price / highest20 - 1) * 100
+    limit_distance = 16 if growth_board else 12
+    limit_prior10 = 26 if growth_board else 19
+    # Unlike v1, an extended rally is not rewarded with additional points.
+    if (distance20_pct < -3 or distance20_pct > limit_distance
+            or prior10_pct > limit_prior10
+            or breakout20_pct > 3
+            or (position60 > 0.94 and distance20_pct > 6)):
         return None
-    # Level-1 alone cannot identify order-book support or guaranteed next-day premium.
+    if not -0.12 <= position60 <= 1.12:
+        return None
     score = round(
-        pct * 2 + min(float(vr), 10) * 1.8 +
-        min(float(turnover_ratio), 20) * 0.35 +
-        (5 if float(q["price"]) >= highs else 0), 2)
+        min(float(vr), 3.5) * 2.0 +
+        min(float(turnover_ratio), 12) * 0.45 +
+        max(0, 3.5 - abs(pct - (3.3 if growth_board else 2.5))) +
+        (2 if price >= highest20 else 0) -
+        max(0, distance20_pct - 4) * 0.9 -
+        max(0, prior10_pct - 10) * 0.35 -
+        max(0, position60 - 0.82) * 12, 2)
+    risk_tags = []
+    if distance20_pct > 7:
+        risk_tags.append("above_ma20_7pct")
+    if prior10_pct > 12:
+        risk_tags.append("prior_10day_extension")
+    if position60 > 0.85:
+        risk_tags.append("near_60day_high")
     return {
         "code": code, "name": q["name"], "price": q["price"],
         "pct": q["pct"], "volume_ratio": vr, "turnover_ratio": turnover_ratio,
         "as_of": q["as_of"], "daily_cutoff": complete[-1]["date"],
         "quote_source": q["source"], "daily_source": "tencent_qfq_daily",
-        "score": score, "prior20_high": round(highs, 3),
+        "score": score, "prior20_high": round(highest20, 3),
         "prior20_ma": round(ma20, 3),
-        "notes": ["近期放量或成交活跃代理指标", "当前价对过去20日均价及高点的关系"],
-        "risk": "未验证盘口封单、同板块强弱、真实买点和T+1收益，不能视为买入信号",
-        "signal_validated": False,
+        "ma20_distance_pct": round(distance20_pct, 3),
+        "prior10_return_pct": round(prior10_pct, 3),
+        "position60": round(position60, 3),
+        "breakout20_pct": round(breakout20_pct, 3),
+        "risk_tags": risk_tags,
+        "hypothesis": "moderate_volume_accumulation_vs_extended_momentum",
+        "model_version": "intraday_low_chase_shadow_v2",
+        "notes": ["低中位温和放量、前一交易日已完成K线位置",
+                  "过热与均线乖离限制为待验证研究假设"],
+        "risk": "仅为实时观察；无盘口承接/行业同步/当时可成交/次日溢价的完整验证，不得视为买入建议",
+        "signal_validated": False, "buy_order_allowed": False,
     }
+
+def _momentum_controls(quotes, excluded):
+    """Frozen quote-level v1-style controls; never buy suggestions."""
+    rows = []
+    for q in quotes:
+        code = q["code"]
+        if code in excluded or code.startswith(("4", "8", "92")):
+            continue
+        growth = code.startswith(("30", "68"))
+        pct = float(q["pct"])
+        vr, turn = q.get("volume_ratio"), q.get("turnover")
+        if (not ((4 if growth else 2.5) <= pct <= (18 if growth else 8.9))
+                or vr is None or turn is None):
+            continue
+        if not (1.25 <= float(vr) <= 100 and 2 <= float(turn) <= 34):
+            continue
+        score = round(pct * 2 + min(float(vr), 10) * 1.8 +
+                      min(float(turn), 20) * 0.35, 2)
+        rows.append({
+            "code": code, "name": q["name"], "price": q["price"],
+            "pct": pct, "volume_ratio": vr, "turnover_ratio": turn,
+            "score": score, "as_of": q["as_of"],
+            "quote_source": q["source"],
+            "model_version": "intraday_momentum_quote_control_v1",
+            "control_only": True, "signal_validated": False,
+            "risk": "旧涨幅优先的对照观察，未完成日线复核；绝非买点",
+        })
+    rows.sort(key=lambda x: (-x["score"], x["code"]))
+    return rows[:2]
 
 
 def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_loader=None):
@@ -260,7 +329,8 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
         "daily_checked": 0, "source": "tencent_quote_and_prior_completed_qfq_daily",
         "coverage": "partial_watchlist_plus_discoverable_activity_leaders",
         "full_market_coverage": False, "strategy_validated": False,
-        "provider_errors": [],
+        "model_version": "intraday_low_chase_shadow_v2",
+        "momentum_control": [], "provider_errors": [],
     }
     try:
         codes, names, errors = (universe_loader or target_universe)()
@@ -275,8 +345,18 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
         if len(quotes) < 5:
             base["reason_code"] = "insufficient_fresh_quotes"
             return base
-        short = sorted(quotes, key=lambda q: float(q.get("pct", 0)), reverse=True)
-        short = [q for q in short if 2 <= float(q.get("pct", 0)) <= 19][:18]
+        # Prefer moderate strength/volume, never today's biggest gainers by default.
+        short = [q for q in quotes if
+                 0.8 <= float(q.get("pct", 0)) <= 8.0 and
+                 q.get("turnover") is not None and
+                 q.get("volume_ratio") is not None and
+                 1 <= float(q["turnover"]) <= 28 and
+                 1 <= float(q["volume_ratio"]) <= 12]
+        short.sort(key=lambda q: (
+            abs(float(q["pct"]) - 2.8),
+            abs(float(q["volume_ratio"]) - 2),
+            -min(float(q["turnover"]), 12), q["code"]))
+        short = short[:30]
         results = []
         attempted = 0
         daily_failures = 0
@@ -299,8 +379,10 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
             return base
         results.sort(key=lambda x: (-x["score"], x["code"]))
         base["candidates"] = results[:2]
+        base["momentum_control"] = _momentum_controls(
+            quotes, {x["code"] for x in base["candidates"]})
         base["status"] = "observed" if results else "no_signal"
-        base["reason_code"] = "partial_level1_watch_not_backtested" if results else "no_eligible_candidate"
+        base["reason_code"] = "low_chase_shadow_not_backtested" if results else "no_eligible_low_chase_candidate"
         return base
     except Exception as exc:
         log.exception("Intraday %s execution error", slot)
