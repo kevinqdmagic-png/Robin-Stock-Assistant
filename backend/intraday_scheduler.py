@@ -19,6 +19,7 @@ import time
 import requests
 from capital_behavior import classify
 from daily_providers import tencent_daily
+from intraday_forward import update_forward, forward_summary
 from quote_providers import tencent_quotes, stock_symbol
 from research_archive import load_document
 from trading_calendar import CN_TZ, completed_bars, session_state
@@ -30,6 +31,8 @@ MAX_AGE = 180
 _guard = threading.RLock()
 _running = set()
 _started = False
+_forward_running = False
+_last_forward_attempt = None
 
 
 def storage_ready():
@@ -437,6 +440,40 @@ def _run_if_due(now=None):
     return False
 
 
+def tracking_status(slot=None, limit=100):
+    """Expose frozen T+h price observations, never a live trading signal."""
+    return forward_summary(STORE.with_name("intraday_forward.json"), slot=slot, limit=limit)
+
+
+def _run_forward_if_due(now=None):
+    global _forward_running, _last_forward_attempt
+    now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
+    if (session_state(now)["code"] != "after_close"
+            or now.hour * 60 + now.minute < 930):
+        return False
+    with _guard:
+        if _forward_running or (_last_forward_attempt is not None and
+               (now - _last_forward_attempt).total_seconds() < 1800):
+            return False
+        _last_forward_attempt = now
+        _forward_running = True
+    def work():
+        global _forward_running
+        try:
+            with _guard:
+                rows = list(_store()["items"])
+            summary = update_forward(rows, STORE.with_name("intraday_forward.json"))
+            log.info("INTRADAY_FORWARD %s appended=%s attempted=%s",
+                     summary["status"], summary["appended"], summary.get("attempted"))
+        except Exception:
+            log.exception("INTRADAY_FORWARD_ERROR")
+        finally:
+            with _guard:
+                _forward_running = False
+    threading.Thread(target=work, daemon=True, name="intraday-forward").start()
+    return True
+
+
 def start_scheduler():
     global _started
     with _guard:
@@ -450,6 +487,7 @@ def start_scheduler():
         while True:
             try:
                 _run_if_due()
+                _run_forward_if_due()
             except Exception:
                 log.exception("INTRADAY_SCHEDULER_LOOP_FAILED")
             time.sleep(15)
