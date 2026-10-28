@@ -16,7 +16,8 @@ from research_archive import archive_page, load_document
 from trading_calendar import completed_bars, session_state
 from market_insights import overview as market_overview, stamp as quote_stamp
 from quote_providers import stock_symbol, tencent_quotes
-from intraday_scheduler import latest as intraday_status, start_scheduler as start_intraday_scheduler
+from intraday_scheduler import (latest as intraday_status, tracking_status as intraday_forward_status,
+                                start_scheduler as start_intraday_scheduler)
 from daily_providers import tencent_daily
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health, resident_intraday_health
@@ -221,6 +222,18 @@ def intraday_live(slot: str = "late_pair", limit: int = 20):
         return {"ok": False, "status": "intraday_ledger_unavailable",
                 "time_cn": now_cn(), "slot": slot, "latest": None,
                 "items": [], "strategy_validated": False}
+
+
+@app.get("/api/intraday-performance")
+def intraday_performance(slot: str = "late_pair", limit: int = 100):
+    """Frozen original quote to T+h close price-only comparison; NEVER trading P&L."""
+    try:
+        return {"time_cn": now_cn(), **intraday_forward_status(slot=slot, limit=limit)}
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Intraday forward performance unavailable: %s", exc)
+        return {"ok": False, "status": "intraday_forward_unavailable",
+                "time_cn": now_cn(), "slot": slot, "items": [],
+                "strategy_validated": False}
 
 
 @app.get("/api/tasks")
