@@ -1,0 +1,962 @@
+{
+  "schema_version": "research_shadow_experiment_v1",
+  "notice": "研究影子组及对照，非买入建议；独立于recommendations.json，不触发正式买入提醒。",
+  "T": "2026-10-28",
+  "planned_D": "2026-10-29",
+  "frozen_at": "2026-10-29T01:44:05+08:00",
+  "research_rule_version": "weak_market_shadow_v1",
+  "report_ids": [
+    "combined-pair-20261028-close-v1",
+    "limitup-single-20261028-close-v2"
+  ],
+  "prior_validation_completed_before_freeze": true,
+  "prior_validation_report_ids": [
+    "volume-price-20261028-close-v1"
+  ],
+  "prior_shadow_status": "本任务无D28盘前合格影子组；市场复盘D29纽威/横河尚未成熟，重叠代码日去重",
+  "signals": [
+    {
+      "id": "shadow-combined-pair-20261029-603699-v1",
+      "role": "research_shadow",
+      "is_recommendation": false,
+      "formal_buy_signal": false,
+      "send_trade_notification": false,
+      "parent_task_id": "combined_pair",
+      "report_ids": [
+        "combined-pair-20261028-close-v1"
+      ],
+      "rank": 1,
+      "date": "2026-10-28",
+      "T": "2026-10-28",
+      "planned_entry_date": "2026-10-29",
+      "signal_frozen_at": "2026-10-29T01:44:05+08:00",
+      "recorded_at": "2026-10-29T01:44:05+08:00",
+      "freeze_phase": "before_planned_session_open",
+      "eligible_forward_observation": true,
+      "code": "603699",
+      "name": "纽威股份",
+      "market_event_id": "cnA:2026-10-29:603699",
+      "board_regime": "ordinary_main_10pct",
+      "daily_limit_pct": 10,
+      "reference_price": 38.39,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "reference_is_fill": false,
+      "provider_quote_timestamp": "20261028161456",
+      "observed_T_upper_price": 38.4,
+      "observed_T_lower_price": 31.42,
+      "D_actual_upper_price": null,
+      "D_upper_status": "must obtain dated D quote; not T close times 1.1",
+      "evidence_available_at": [
+        {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603699%2Cday%2C%2C%2C180",
+          "retrieved_at": "2026-10-28T09:59:16.828745+00:00"
+        },
+        {
+          "source": "https://qt.gtimg.cn/q=sz301591,sz301603,sz301682,sz301716,sh600078,sh600173,sh600252,sh600601,sh600715,sh600828,sh601956,sh603006,sh603037,sh603061,sh603081,sh603109,sh603131,sh603135,sh603179,sh603219,sh603226,sh603303,sh603337,sh603418,sh603533,sh603612,sh603626,sh603633,sh603667,sh603680,sh603699,sh603868,sh603897,sh603920,sh603926,sh603992,sh605060,sh605288,sh605366,sh605488",
+          "retrieved_at": "2026-10-28T10:06:15.317348+00:00"
+        }
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603699%2Cday%2C%2C%2C180",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603699",
+        "https://qt.gtimg.cn/q=sz301591,sz301603,sz301682,sz301716,sh600078,sh600173,sh600252,sh600601,sh600715,sh600828,sh601956,sh603006,sh603037,sh603061,sh603081,sh603109,sh603131,sh603135,sh603179,sh603219,sh603226,sh603303,sh603337,sh603418,sh603533,sh603612,sh603626,sh603633,sh603667,sh603680,sh603699,sh603868,sh603897,sh603920,sh603926,sh603992,sh605060,sh605288,sh605366,sh605488",
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "https://static.cninfo.com.cn/finalpage/2026-08-22/1225489280.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-24/1225618136.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-13/1225601510.PDF"
+      ],
+      "theme": "工业阀门",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "combined_limitup_watch_v5",
+      "model": "低位修复＋尾盘承接",
+      "hypothesis_labels": [
+        "H1",
+        "H3"
+      ],
+      "market_emotion": "震荡",
+      "emotion_detail": "退潮后的修复，尚非已确认强势；弱市标签不回填",
+      "selection_reason": "低长期位置12.496%，RVOL20=3.542、CLV0.9974、14时后+1.346%；较横河20%制度和高换手，10%制度便于同口径实验。",
+      "formal_rejection_reason": "未收复MA20/60，不能叫趋势完成或封板；H1只是待证伪修复。半年现金流下降、Q3未取得，小额质押不当确定身份。",
+      "independent_risk": "未收复MA20/60，不能叫趋势完成或封板；H1只是待证伪修复。半年现金流下降、Q3未取得，小额质押不当确定身份。",
+      "pullback_or_auction_range": [
+        36.81,
+        37.88
+      ],
+      "confirmation_range": [
+        37.88,
+        38.39
+      ],
+      "max_auction_price": 39.16,
+      "observation_invalidation_below": 35.88,
+      "structural_invalidation_below": 34.5,
+      "trigger": "D29竞价不高于39.16；09:45与10:30两个有日期价格点都在37.88—38.39且当时累计VWAP不高于现价，再核验研究回踩区36.81—37.88的先后证据。无先后证据只作收盘价格观察，不认定触发或成交。",
+      "abandon": "D29高于冻结竞价上限、跌破观察失效、板块转弱、主参考股弱势扩散、连续开板或爆量不能推进即放弃该条件；日期/盘口/可成交性不能核验则不计触发成交。绝不由日线高低倒推顺序。",
+      "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+      "exit_rule": "若D29有可证实模拟入场，D30最早可卖；综合按D30 09:45首个可证明可成交报价尝试退出，打板按D30 09:30首个可证明可成交报价。强开/平开/弱开均遵守同一时点，不事后选择最高；跌停/停牌/排队未成交记录未退出并延后至下一个可证明成交时点。D29失效只能承受持仓风险，不能当天卖。",
+      "research_benchmark": "sh000300",
+      "sector_benchmark_proxy": "BK0545",
+      "sector_mapping_status": "按公开主营作研究代理，未声称供应商成分归属已核验",
+      "entry_triggered": null,
+      "entry_fill_verified": null,
+      "sealed_or_failed_after_entry": null,
+      "executable_net_return_pct": null,
+      "results": []
+    },
+    {
+      "id": "shadow-combined-pair-20261029-603926-v1",
+      "role": "research_shadow",
+      "is_recommendation": false,
+      "formal_buy_signal": false,
+      "send_trade_notification": false,
+      "parent_task_id": "combined_pair",
+      "report_ids": [
+        "combined-pair-20261028-close-v1"
+      ],
+      "rank": 2,
+      "date": "2026-10-28",
+      "T": "2026-10-28",
+      "planned_entry_date": "2026-10-29",
+      "signal_frozen_at": "2026-10-29T01:44:05+08:00",
+      "recorded_at": "2026-10-29T01:44:05+08:00",
+      "freeze_phase": "before_planned_session_open",
+      "eligible_forward_observation": true,
+      "code": "603926",
+      "name": "铁流股份",
+      "market_event_id": "cnA:2026-10-29:603926",
+      "board_regime": "ordinary_main_10pct",
+      "daily_limit_pct": 10,
+      "reference_price": 17.06,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "reference_is_fill": false,
+      "provider_quote_timestamp": "20261028161453",
+      "observed_T_upper_price": 17.06,
+      "observed_T_lower_price": 13.96,
+      "D_actual_upper_price": null,
+      "D_upper_status": "must obtain dated D quote; not T close times 1.1",
+      "evidence_available_at": [
+        {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603926%2Cday%2C%2C%2C180",
+          "retrieved_at": "2026-10-28T09:59:34.584744+00:00"
+        },
+        {
+          "source": "https://qt.gtimg.cn/q=sz301591,sz301603,sz301682,sz301716,sh600078,sh600173,sh600252,sh600601,sh600715,sh600828,sh601956,sh603006,sh603037,sh603061,sh603081,sh603109,sh603131,sh603135,sh603179,sh603219,sh603226,sh603303,sh603337,sh603418,sh603533,sh603612,sh603626,sh603633,sh603667,sh603680,sh603699,sh603868,sh603897,sh603920,sh603926,sh603992,sh605060,sh605288,sh605366,sh605488",
+          "retrieved_at": "2026-10-28T10:06:15.317348+00:00"
+        }
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603926%2Cday%2C%2C%2C180",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603926",
+        "https://qt.gtimg.cn/q=sz301591,sz301603,sz301682,sz301716,sh600078,sh600173,sh600252,sh600601,sh600715,sh600828,sh601956,sh603006,sh603037,sh603061,sh603081,sh603109,sh603131,sh603135,sh603179,sh603219,sh603226,sh603303,sh603337,sh603418,sh603533,sh603612,sh603626,sh603633,sh603667,sh603680,sh603699,sh603868,sh603897,sh603920,sh603926,sh603992,sh605060,sh605288,sh605366,sh605488",
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "https://static.cninfo.com.cn/finalpage/2026-10-28/1225627768.PDF"
+      ],
+      "theme": "汽车传动",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "combined_limitup_watch_v5",
+      "model": "低中位放量修复",
+      "hypothesis_labels": [
+        "H1",
+        "H3"
+      ],
+      "market_emotion": "震荡",
+      "emotion_detail": "退潮后的修复，尚非已确认强势；弱市标签不回填",
+      "selection_reason": "RVOL20=3.391、收复MA60、120日位置30.168%，累计现金流改善；相较徕木亏损/高担保及神驰利润下滑，反证较少。",
+      "formal_rejection_reason": "原20日高17.96未破，14时后0%只是封板价格持平，不证明尾盘主动吸筹；Q3单季收入利润下滑。",
+      "independent_risk": "原20日高17.96未破，14时后0%只是封板价格持平，不证明尾盘主动吸筹；Q3单季收入利润下滑。",
+      "pullback_or_auction_range": [
+        16.4,
+        17.06
+      ],
+      "confirmation_range": [
+        16.49,
+        17.06
+      ],
+      "max_auction_price": 17.4,
+      "observation_invalidation_below": 16.4,
+      "structural_invalidation_below": 15.45,
+      "trigger": "D29竞价不高于17.4；09:45与10:30两个有日期价格点都在16.49—17.06且当时累计VWAP不高于现价，再核验研究回踩区16.4—17.06的先后证据。无先后证据只作收盘价格观察，不认定触发或成交。",
+      "abandon": "D29高于冻结竞价上限、跌破观察失效、板块转弱、主参考股弱势扩散、连续开板或爆量不能推进即放弃该条件；日期/盘口/可成交性不能核验则不计触发成交。绝不由日线高低倒推顺序。",
+      "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+      "exit_rule": "若D29有可证实模拟入场，D30最早可卖；综合按D30 09:45首个可证明可成交报价尝试退出，打板按D30 09:30首个可证明可成交报价。强开/平开/弱开均遵守同一时点，不事后选择最高；跌停/停牌/排队未成交记录未退出并延后至下一个可证明成交时点。D29失效只能承受持仓风险，不能当天卖。",
+      "research_benchmark": "sh000300",
+      "sector_benchmark_proxy": "BK0481",
+      "sector_mapping_status": "按公开主营作研究代理，未声称供应商成分归属已核验",
+      "entry_triggered": null,
+      "entry_fill_verified": null,
+      "sealed_or_failed_after_entry": null,
+      "executable_net_return_pct": null,
+      "results": []
+    },
+    {
+      "id": "shadow-limitup-single-20261029-000554-v1",
+      "role": "research_shadow",
+      "is_recommendation": false,
+      "formal_buy_signal": false,
+      "send_trade_notification": false,
+      "parent_task_id": "limitup_single",
+      "report_ids": [
+        "limitup-single-20261028-close-v2"
+      ],
+      "rank": 1,
+      "date": "2026-10-28",
+      "T": "2026-10-28",
+      "planned_entry_date": "2026-10-29",
+      "signal_frozen_at": "2026-10-29T01:44:05+08:00",
+      "recorded_at": "2026-10-29T01:44:05+08:00",
+      "freeze_phase": "before_planned_session_open",
+      "eligible_forward_observation": true,
+      "code": "000554",
+      "name": "泰山石油",
+      "market_event_id": "cnA:2026-10-29:000554",
+      "board_regime": "ordinary_main_10pct",
+      "daily_limit_pct": 10,
+      "reference_price": 6.63,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "reference_is_fill": false,
+      "provider_quote_timestamp": "20261028161445",
+      "observed_T_upper_price": 6.63,
+      "observed_T_lower_price": 5.43,
+      "D_actual_upper_price": null,
+      "D_upper_status": "must obtain dated D quote; not T close times 1.1",
+      "evidence_available_at": [
+        {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000554%2Cday%2C%2C%2C180",
+          "retrieved_at": "2026-10-28T09:50:36.535236+00:00"
+        },
+        {
+          "source": "https://qt.gtimg.cn/q=sz000554,sz000559,sz000670,sz000678,sz001219,sz001270,sz001296,sz001400,sz002150,sz002164,sz002172,sz002265,sz002472,sz002526,sz002534,sz002636,sz002696,sz002708,sz002731,sz002741,sz002862,sz002879,sz002889,sz002915,sz002943,sz002962,sz002975,sz003028,sz300006,sz300042,sz300223,sz300291,sz300308,sz300331,sz300342,sz300364,sz300421,sz300461,sz300473,sz300488",
+          "retrieved_at": "2026-10-28T10:06:10.309404+00:00"
+        }
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000554%2Cday%2C%2C%2C180",
+        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000554",
+        "https://qt.gtimg.cn/q=sz000554,sz000559,sz000670,sz000678,sz001219,sz001270,sz001296,sz001400,sz002150,sz002164,sz002172,sz002265,sz002472,sz002526,sz002534,sz002636,sz002696,sz002708,sz002731,sz002741,sz002862,sz002879,sz002889,sz002915,sz002943,sz002962,sz002975,sz003028,sz300006,sz300042,sz300223,sz300291,sz300308,sz300331,sz300342,sz300364,sz300421,sz300461,sz300473,sz300488",
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "https://static.cninfo.com.cn/finalpage/2026-10-28/1225628047.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-13/1225601745.PDF"
+      ],
+      "theme": "成品油零售",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "limitup_single_v2",
+      "model": "首板后首次分歧承接/回封",
+      "hypothesis_labels": [
+        "H2",
+        "H3"
+      ],
+      "market_emotion": "震荡",
+      "emotion_detail": "退潮后的修复，尚非已确认强势；弱市标签不回填",
+      "selection_reason": "首板、120日位置39.13%，换手15.177%、RVOL20=4.86，突破原20日高6.50；Q3盈利及现金流支持相较高位缩量接力的研究顺序。",
+      "formal_rejection_reason": "高换手放量可能是分歧而非吸筹；营收下降、油品主线不强，15:00封单不能沿用到D29。成品油高度可见1，角色待确认。",
+      "independent_risk": "高换手放量可能是分歧而非吸筹；营收下降、油品主线不强，15:00封单不能沿用到D29。成品油高度可见1，角色待确认。",
+      "pullback_or_auction_range": [
+        6.63,
+        6.96
+      ],
+      "confirmation_range": null,
+      "max_auction_price": 6.96,
+      "observation_invalidation_below": 6.42,
+      "structural_invalidation_below": 6.03,
+      "trigger": "D29竞价6.63—6.96；09:30—10:30内有真实首次分歧后回封逐笔时序，并由当日带日期行情核验实际涨停上限，价格回到该上限且至少连续60秒可核验承接后，才记研究触发。分钟价点不能证明60秒或排队成交；无逐笔/队列证据触发与成交保持待验证。",
+      "abandon": "D29高于冻结竞价上限、跌破观察失效、板块转弱、主参考股弱势扩散、连续开板或爆量不能推进即放弃该条件；日期/盘口/可成交性不能核验则不计触发成交。绝不由日线高低倒推顺序。",
+      "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+      "exit_rule": "若D29有可证实模拟入场，D30最早可卖；综合按D30 09:45首个可证明可成交报价尝试退出，打板按D30 09:30首个可证明可成交报价。强开/平开/弱开均遵守同一时点，不事后选择最高；跌停/停牌/排队未成交记录未退出并延后至下一个可证明成交时点。D29失效只能承受持仓风险，不能当天卖。",
+      "research_benchmark": "sh000300",
+      "sector_benchmark_proxy": null,
+      "sector_mapping_status": "按公开主营作研究代理，未声称供应商成分归属已核验",
+      "entry_triggered": null,
+      "entry_fill_verified": null,
+      "sealed_or_failed_after_entry": null,
+      "executable_net_return_pct": null,
+      "results": []
+    }
+  ],
+  "controls": [
+    {
+      "code": "603037",
+      "name": "凯众股份",
+      "reference_price": 13.06,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603037%2Cday%2C%2C%2C180",
+      "snapshot": {
+        "code": "603037",
+        "name": "凯众股份",
+        "date": "2026-10-28",
+        "open": 11.87,
+        "close": 13.06,
+        "high": 13.06,
+        "low": 11.8,
+        "volume": 292795.0,
+        "daily_change_pct": 10.025,
+        "rvol": {
+          "5": 2.77127,
+          "10": 3.31333,
+          "20": 3.48164
+        },
+        "ma": {
+          "5": 11.298,
+          "10": 10.729,
+          "20": 10.4405,
+          "60": 10.25467
+        },
+        "range_position_pct": {
+          "20": 100.0,
+          "60": 100.0,
+          "120": 63.533
+        },
+        "distance_ma20_pct": 25.09,
+        "clv": 1.0,
+        "turnover_pct": 11.00111,
+        "amount_yi": 3.71136603,
+        "prior_turnover_pct": 8.18232,
+        "turnover_change_pct_points": 2.81879,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603037%2Cday%2C%2C%2C180",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603037",
+          "date": "2026-10-28",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 11.87,
+              "cumulative_volume_lots": 6573.0,
+              "cumulative_amount_cny": 7802151.0,
+              "return_vs_reference_pct": 0.0
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 12.45,
+              "cumulative_volume_lots": 131800.0,
+              "cumulative_amount_cny": 163782948.07,
+              "return_vs_reference_pct": 4.886
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 12.71,
+              "cumulative_volume_lots": 151332.0,
+              "cumulative_amount_cny": 188317472.46,
+              "return_vs_reference_pct": 7.077
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 13.06,
+              "cumulative_volume_lots": 268247.0,
+              "cumulative_amount_cny": 339077349.74,
+              "return_vs_reference_pct": 10.025
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 13.06,
+              "cumulative_volume_lots": 280708.0,
+              "cumulative_amount_cny": 355351383.39,
+              "return_vs_reference_pct": 10.025
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 13.06,
+              "cumulative_volume_lots": 283228.0,
+              "cumulative_amount_cny": 358642503.52,
+              "return_vs_reference_pct": 10.025
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 13.06,
+              "cumulative_volume_lots": 286244.0,
+              "cumulative_amount_cny": 362581411.0,
+              "return_vs_reference_pct": 10.025
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 13.06,
+              "cumulative_volume_lots": 286811.0,
+              "cumulative_amount_cny": 363321913.01,
+              "return_vs_reference_pct": 10.025
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 13.06,
+              "cumulative_volume_lots": 292795.0,
+              "cumulative_amount_cny": 371137008.62,
+              "return_vs_reference_pct": 10.025
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share_pct": 3.2674738298126678,
+        "previous_20_session_high": 11.87,
+        "break_above_previous_20_high": true,
+        "daily_volume_ratio_vs_previous": 1.3444963333379252,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "role": "research_control_not_recommendation",
+      "label": "H1高位均线乖离对照",
+      "market_event_id": "cnA:2026-10-29:603037",
+      "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
+      "results": []
+    },
+    {
+      "code": "601956",
+      "name": "东贝集团",
+      "reference_price": 6.09,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601956%2Cday%2C%2C%2C180",
+      "snapshot": {
+        "code": "601956",
+        "name": "东贝集团",
+        "date": "2026-10-28",
+        "open": 6.0,
+        "close": 6.09,
+        "high": 6.09,
+        "low": 5.85,
+        "volume": 329279.0,
+        "daily_change_pct": 9.928,
+        "rvol": {
+          "5": 1.94286,
+          "10": 2.13955,
+          "20": 2.1334
+        },
+        "ma": {
+          "5": 5.358,
+          "10": 5.26,
+          "20": 5.217,
+          "60": 5.01667
+        },
+        "range_position_pct": {
+          "20": 100.0,
+          "60": 100.0,
+          "120": 98.876
+        },
+        "distance_ma20_pct": 16.734,
+        "clv": 1.0,
+        "turnover_pct": 5.29713,
+        "amount_yi": 1.98986298,
+        "prior_turnover_pct": 4.1509,
+        "turnover_change_pct_points": 1.14623,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601956%2Cday%2C%2C%2C180",
+        "minute_checkpoints": {
+          "status": "missing_date_verified_minute_prices"
+        },
+        "tail_1400_close_pct": null,
+        "tail_volume_share_pct": null,
+        "previous_20_session_high": 5.59,
+        "break_above_previous_20_high": true,
+        "daily_volume_ratio_vs_previous": 1.2761416440915099,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "role": "research_control_not_recommendation",
+      "label": "H1等成交额高位置对照",
+      "market_event_id": "cnA:2026-10-29:601956",
+      "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
+      "results": []
+    },
+    {
+      "code": "603337",
+      "name": "杰克科技",
+      "reference_price": 48.83,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603337%2Cday%2C%2C%2C180",
+      "snapshot": {
+        "code": "603337",
+        "name": "杰克科技",
+        "date": "2026-10-28",
+        "open": 44.39,
+        "close": 48.83,
+        "high": 48.83,
+        "low": 43.72,
+        "volume": 336690.0,
+        "daily_change_pct": 10.002,
+        "rvol": {
+          "5": 1.72801,
+          "10": 2.60215,
+          "20": 4.27904
+        },
+        "ma": {
+          "5": 42.272,
+          "10": 38.171,
+          "20": 36.798,
+          "60": 38.515
+        },
+        "range_position_pct": {
+          "20": 100.0,
+          "60": 100.0,
+          "120": 100.0
+        },
+        "distance_ma20_pct": 32.697,
+        "clv": 1.0,
+        "turnover_pct": 7.20544,
+        "amount_yi": 15.98020173,
+        "prior_turnover_pct": 9.46266,
+        "turnover_change_pct_points": -2.25722,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603337%2Cday%2C%2C%2C180",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603337",
+          "date": "2026-10-28",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 44.39,
+              "cumulative_volume_lots": 4429.0,
+              "cumulative_amount_cny": 19660331.0,
+              "return_vs_reference_pct": 0.0
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 47.7,
+              "cumulative_volume_lots": 86578.0,
+              "cumulative_amount_cny": 396523560.59,
+              "return_vs_reference_pct": 7.457
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 48.32,
+              "cumulative_volume_lots": 106859.0,
+              "cumulative_amount_cny": 493810409.54,
+              "return_vs_reference_pct": 8.853
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 48.83,
+              "cumulative_volume_lots": 189771.0,
+              "cumulative_amount_cny": 891916414.01,
+              "return_vs_reference_pct": 10.002
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 48.83,
+              "cumulative_volume_lots": 191396.0,
+              "cumulative_amount_cny": 899851288.44,
+              "return_vs_reference_pct": 10.002
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 47.8,
+              "cumulative_volume_lots": 234294.0,
+              "cumulative_amount_cny": 1108622818.25,
+              "return_vs_reference_pct": 7.682
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 47.84,
+              "cumulative_volume_lots": 297447.0,
+              "cumulative_amount_cny": 1409530336.39,
+              "return_vs_reference_pct": 7.772
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 47.58,
+              "cumulative_volume_lots": 308824.0,
+              "cumulative_amount_cny": 1463942554.62,
+              "return_vs_reference_pct": 7.186
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 48.83,
+              "cumulative_volume_lots": 336690.0,
+              "cumulative_amount_cny": 1598019081.36,
+              "return_vs_reference_pct": 10.002
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 2.155,
+        "tail_volume_share_pct": 30.412545665151917,
+        "previous_20_session_high": 47.51,
+        "break_above_previous_20_high": true,
+        "daily_volume_ratio_vs_previous": 0.76145954894564,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "role": "research_control_not_recommendation",
+      "label": "H3绝对涨幅/高位对照",
+      "market_event_id": "cnA:2026-10-29:603337",
+      "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
+      "results": []
+    },
+    {
+      "code": "603633",
+      "name": "徕木股份",
+      "reference_price": 6.36,
+      "reference_price_at": "2026-10-28T15:00:00+08:00",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603633%2Cday%2C%2C%2C180",
+      "snapshot": {
+        "code": "603633",
+        "name": "徕木股份",
+        "date": "2026-10-28",
+        "open": 5.91,
+        "close": 6.36,
+        "high": 6.36,
+        "low": 5.76,
+        "volume": 262215.0,
+        "daily_change_pct": 10.035,
+        "rvol": {
+          "5": 2.91831,
+          "10": 2.91426,
+          "20": 3.12248
+        },
+        "ma": {
+          "5": 6.004,
+          "10": 5.972,
+          "20": 6.0755,
+          "60": 6.296
+        },
+        "range_position_pct": {
+          "20": 86.735,
+          "60": 63.91,
+          "120": 29.452
+        },
+        "distance_ma20_pct": 4.683,
+        "clv": 1.0,
+        "turnover_pct": 6.14359,
+        "amount_yi": 1.64499272,
+        "prior_turnover_pct": 1.42171,
+        "turnover_change_pct_points": 4.72188,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603633%2Cday%2C%2C%2C180",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603633",
+          "date": "2026-10-28",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 5.91,
+              "cumulative_volume_lots": 230.0,
+              "cumulative_amount_cny": 135930.0,
+              "return_vs_reference_pct": 2.249
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 6.36,
+              "cumulative_volume_lots": 95528.0,
+              "cumulative_amount_cny": 58930727.0,
+              "return_vs_reference_pct": 10.035
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 6.36,
+              "cumulative_volume_lots": 106587.0,
+              "cumulative_amount_cny": 65964251.0,
+              "return_vs_reference_pct": 10.035
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 6.36,
+              "cumulative_volume_lots": 248192.0,
+              "cumulative_amount_cny": 155580506.41,
+              "return_vs_reference_pct": 10.035
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 6.36,
+              "cumulative_volume_lots": 253537.0,
+              "cumulative_amount_cny": 158979921.76,
+              "return_vs_reference_pct": 10.035
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 6.36,
+              "cumulative_volume_lots": 260011.0,
+              "cumulative_amount_cny": 163097387.18,
+              "return_vs_reference_pct": 10.035
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 6.36,
+              "cumulative_volume_lots": 261046.0,
+              "cumulative_amount_cny": 163755647.18,
+              "return_vs_reference_pct": 10.035
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 6.36,
+              "cumulative_volume_lots": 261138.0,
+              "cumulative_amount_cny": 163814159.18,
+              "return_vs_reference_pct": 10.035
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 6.36,
+              "cumulative_volume_lots": 262215.0,
+              "cumulative_amount_cny": 164499133.98,
+              "return_vs_reference_pct": 10.035
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share_pct": 0.8405316248117004,
+        "previous_20_session_high": 6.5,
+        "break_above_previous_20_high": false,
+        "daily_volume_ratio_vs_previous": 4.32127554383652,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "role": "research_control_not_recommendation",
+      "label": "H2首板同流动性量级但基本面反证对照",
+      "market_event_id": "cnA:2026-10-29:603633",
+      "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
+      "results": []
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "version": "weak_market_shadow_v1",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "hypothesis": "低位量能＋尾盘承接的T+2/T+5/T+10超额价格分布和MAE优于高位放量加速",
+      "treatment_codes": [
+        "603699",
+        "603926"
+      ],
+      "control_codes": [
+        "603037",
+        "601956"
+      ],
+      "falsification": "在至少20—30个独立计划交易日复核中，同情绪/制度口径处理组中位超额收益不大于对照且MAE无改善则不支持；披露下行尾部和缺失比例，样本不足不宣称优势",
+      "boundary": "纽威有尾盘价格推进；铁流尾盘价格持平，仅作为未确认承接修复亚组，不给两者同样的资金身份结论"
+    },
+    {
+      "id": "H2",
+      "version": "weak_market_shadow_v1",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "hypothesis": "首板后首次分歧承接/回封相较直接追高，次日退出的尾部亏损较小",
+      "treatment_codes": [
+        "000554"
+      ],
+      "control_codes": [
+        "000554",
+        "603633"
+      ],
+      "paired_arms": {
+        "A": "首次可核验分歧回封后按冻结触发观察",
+        "B": "D29开盘首个可交易报价的直接追高价格对照；同样受一字/无成交限制，不自动算成交"
+      },
+      "falsification": "A的合法退出可执行净收益分布若在同口径成本后不优于B或尾部风险无改善则不支持；没有逐笔/成交证据两臂仅报告价格观察",
+      "boundary": "同股票同D双臂是配对信号，不计两笔独立交易；603633单独风险对照，非同质经营样本"
+    },
+    {
+      "id": "H3",
+      "version": "weak_market_shadow_v1",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "hypothesis": "板块相对基准逆势强度比仅绝对涨幅更能解释隔夜承接",
+      "treatment_codes": [
+        "603699",
+        "603926",
+        "000554"
+      ],
+      "control_codes": [
+        "603337"
+      ],
+      "falsification": "按相同情绪、涨跌幅制度和日期分层后，超额价格与MAE均无改善则不支持；缺行业历史/成分映射时只用沪深300同日期基准并标限制",
+      "boundary": "T28为修复；通用设备/汽车零部件分别+3.65%/+3.47%，不是弱市逆势样本。泰山油品参照中国石化/中国石油，不虚构板块指数；不把本轮用于证明弱市假设。"
+    }
+  ],
+  "formal_cash_observations": [
+    {
+      "id": "combined-pair-20261028-cash-observation-v1",
+      "task_id": "combined_pair",
+      "report_id": "combined-pair-20261028-close-v1",
+      "T": "2026-10-28",
+      "planned_D": "2026-10-29",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "decision": "cash_no_qualified_formal_candidate",
+      "formal_candidate_count": 0,
+      "market_emotion": "震荡",
+      "objective_conditions": {
+        "advance_ratio": 0.7704857248794957,
+        "proxy_failed_board_ratio": 0.5298507462686567,
+        "exact_visible_main_failed_ratio": 0.4537037037037037,
+        "first_to_second": {
+          "advanced": 5,
+          "denominator": 26
+        },
+        "second_to_third": {
+          "advanced": 2,
+          "denominator": 8
+        },
+        "fifth_to_sixth": {
+          "advanced": 0,
+          "denominator": 1
+        }
+      },
+      "reason": "宽度修复而冲板兑现偏高；高位断板与单季/现金流反证未解除，入选候选没有同时闭合可执行承接及隔夜风险。空仓不等于研究终止。",
+      "comparison_pool_codes": [
+        "000554",
+        "300539",
+        "300980",
+        "605488",
+        "600828",
+        "002696",
+        "300549",
+        "603337",
+        "603109",
+        "603037",
+        "001400",
+        "301225",
+        "688836",
+        "300718",
+        "600078",
+        "603131",
+        "002889",
+        "001296",
+        "002172",
+        "003028",
+        "603081",
+        "688286",
+        "603926",
+        "300986",
+        "603699",
+        "603633",
+        "300421",
+        "300473"
+      ],
+      "rejected_alternatives": [
+        "603699",
+        "603926"
+      ],
+      "strategy_return_pct": null,
+      "account_position_not_asserted": true,
+      "results": []
+    },
+    {
+      "id": "limitup-single-20261028-cash-observation-v1",
+      "task_id": "limitup_single",
+      "report_id": "limitup-single-20261028-close-v2",
+      "T": "2026-10-28",
+      "planned_D": "2026-10-29",
+      "frozen_at": "2026-10-29T01:44:05+08:00",
+      "decision": "cash_no_qualified_formal_candidate",
+      "formal_candidate_count": 0,
+      "market_emotion": "震荡",
+      "objective_conditions": {
+        "advance_ratio": 0.7704857248794957,
+        "proxy_failed_board_ratio": 0.5298507462686567,
+        "exact_visible_main_failed_ratio": 0.4537037037037037,
+        "first_to_second": {
+          "advanced": 5,
+          "denominator": 26
+        },
+        "second_to_third": {
+          "advanced": 2,
+          "denominator": 8
+        },
+        "fifth_to_sixth": {
+          "advanced": 0,
+          "denominator": 1
+        }
+      },
+      "reason": "宽度修复而冲板兑现偏高；高位断板与单季/现金流反证未解除，入选候选没有同时闭合可执行承接及隔夜风险。空仓不等于研究终止。",
+      "comparison_pool_codes": [
+        "000554",
+        "300539",
+        "300980",
+        "605488",
+        "600828",
+        "002696",
+        "300549",
+        "603337",
+        "603109",
+        "603037",
+        "001400",
+        "301225",
+        "688836",
+        "300718",
+        "600078",
+        "603131",
+        "002889",
+        "001296",
+        "002172",
+        "003028",
+        "603081",
+        "688286",
+        "603926",
+        "300986",
+        "603699",
+        "603633",
+        "300421",
+        "300473"
+      ],
+      "rejected_alternatives": [
+        "000554"
+      ],
+      "strategy_return_pct": null,
+      "account_position_not_asserted": true,
+      "results": []
+    }
+  ],
+  "shared_source_shadow_report_id": "market-review-20261028-close-v1",
+  "benchmark": {
+    "primary": "sh000300",
+    "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh000300%2Cday%2C%2C%2C180",
+    "horizons": [
+      "D close",
+      "D+1",
+      "D+2",
+      "D+5",
+      "D+10"
+    ],
+    "price_return_anchor": "T已观察收盘；另存有证据的真实模拟入场/合法退出，二者不能混合",
+    "sector_proxy_evidence_key": "dated_industry_histories",
+    "sector_membership_verified": false
+  },
+  "review": {
+    "first_review_independent_sessions_min": 20,
+    "first_review_independent_sessions_max": 30,
+    "count_unit": "不同计划交易日；同代码同D的跨任务/配对/重叠持有事件用market_event_id去重",
+    "required": [
+      "N与独立日期",
+      "缺失/未触发/无法成交比例",
+      "T+1/T+2/T+5/T+10价格分布及MFE/MAE",
+      "封板/炸板与合法T+1退出",
+      "同情绪/制度基准或行业流动性对照",
+      "可执行净收益含成本，仅数据足够时",
+      "正式空仓的机会成本和风险，不当用户账户收益"
+    ],
+    "automatic_model_updates": false
+  },
+  "results": []
+}

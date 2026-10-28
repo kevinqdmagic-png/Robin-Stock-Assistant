@@ -4350,6 +4350,121 @@
       "sources": [
         "docs/research/market-review-2026-10-28-evidence.json"
       ]
+    },
+    {
+      "id": "volume-price-20261028-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261028-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-28",
+      "trigger": "scheduled",
+      "started_at": "2026-10-28T09:44:14+00:00",
+      "completed_at": "2026-10-29T01:49:18+08:00",
+      "recorded_at": "2026-10-29T01:49:18+08:00",
+      "status": "completed",
+      "summary": "5572→120→28；旧28中位+1.808%，13只最低≤-5%；v4 196条/7日，不当实盘收益。",
+      "report_ids": [
+        "volume-price-20261028-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "docs/research/shadow-experiments-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "low-position-20261028-scheduled-close-v1-completed",
+      "run_id": "low-position-20261028-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-28",
+      "trigger": "scheduled",
+      "started_at": "2026-10-28T09:44:14+00:00",
+      "completed_at": "2026-10-29T01:49:18+08:00",
+      "recorded_at": "2026-10-29T01:49:18+08:00",
+      "status": "completed",
+      "summary": "新增泰山、神驰、铁流3条非推荐；44条旧路径完整、合格成熟30日N=0。",
+      "report_ids": [
+        "low-position-20261028-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "docs/research/shadow-experiments-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261028-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261028-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-28",
+      "trigger": "scheduled",
+      "started_at": "2026-10-28T09:44:14+00:00",
+      "completed_at": "2026-10-29T01:49:18+08:00",
+      "recorded_at": "2026-10-29T01:49:18+08:00",
+      "status": "completed",
+      "summary": "78理由行/67股、8只席位与同花顺同周期核验；旧77保留摘牌1只，76只可观察。",
+      "report_ids": [
+        "dragon-tiger-20261028-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "docs/research/shadow-experiments-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261028-scheduled-close-v2-completed",
+      "run_id": "limitup-single-20261028-scheduled-close-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-28",
+      "trigger": "scheduled",
+      "started_at": "2026-10-28T09:44:14+00:00",
+      "completed_at": "2026-10-29T01:49:18+08:00",
+      "recorded_at": "2026-10-29T01:49:18+08:00",
+      "status": "completed",
+      "summary": "D29正式0只；泰山000554独立研究影子、盘前冻结，不触发正式信号。",
+      "report_ids": [
+        "limitup-single-20261028-close-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "docs/research/shadow-experiments-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261028-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261028-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-28",
+      "trigger": "scheduled",
+      "started_at": "2026-10-28T09:44:14+00:00",
+      "completed_at": "2026-10-29T01:49:18+08:00",
+      "recorded_at": "2026-10-29T01:49:18+08:00",
+      "status": "completed",
+      "summary": "同T四项完整齐备；正式0只，影子纽威603699/铁流603926，原始条件独立冻结。",
+      "report_ids": [
+        "combined-pair-20261028-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/combined-pair-20261028-evidence.json.gz",
+        "docs/research/shadow-experiments-20261029-v1.json"
+      ]
     }
   ]
 }

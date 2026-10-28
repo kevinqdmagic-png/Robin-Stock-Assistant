@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-28T01:41:45+08:00",
+  "updated_at": "2026-10-29T01:50:08+08:00",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -1223,6 +1223,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300058%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-300058-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "蓝色光标原低位样本继续跟踪；本次相对原收盘价格观察-1.632%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-09，T28收盘12.66，原失效位11.9；曾收破=True。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300058%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1399,6 +1420,27 @@
           "sources": [
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000420%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-000420-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "吉林化纤原低位样本继续跟踪；本次相对原收盘价格观察-4.02%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-22，T28收盘3.82，原失效位3.78；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000420%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
           ]
         }
       ]
@@ -1621,6 +1663,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300432%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-300432-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "富临精工原低位样本继续跟踪；本次相对原收盘价格观察13.279%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-19，T28收盘15.27，原失效位12.47；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300432%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1730,6 +1793,27 @@
           "sources": [
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000032%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-000032-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "深桑达Ａ原低位样本继续跟踪；本次相对原收盘价格观察-16.108%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-19，T28收盘11.51，原失效位12.95；曾收破=True。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000032%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
           ]
         }
       ]
@@ -1841,6 +1925,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688084%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-688084-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "晶品特装原低位样本继续跟踪；本次相对原收盘价格观察3.334%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-19，T28收盘43.7，原失效位39.11；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh688084%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -1950,6 +2055,27 @@
           "sources": [
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002683%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-002683-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "广东宏大原低位样本继续跟踪；本次相对原收盘价格观察6.543%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-19，T28收盘32.08，原失效位27.92；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002683%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
           ]
         }
       ]
@@ -2061,6 +2187,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz001233%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-001233-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "海安集团原低位样本继续跟踪；本次相对原收盘价格观察18.339%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-19，T28收盘60.98，原失效位48.76；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz001233%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -2171,6 +2318,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300556%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-300556-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "丝路视觉原低位样本继续跟踪；本次相对原收盘价格观察6.184%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-19，T28收盘18.2，原失效位15.58；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300556%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -2261,6 +2429,27 @@
           "sources": [
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz301658%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-301658-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "首航新能原低位样本继续跟踪；本次相对原收盘价格观察-16.12%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-20，T28收盘21.49，原失效位24.32；曾收破=True。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz301658%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
           ]
         }
       ]
@@ -2353,6 +2542,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz003021%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-003021-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "兆威机电原低位样本继续跟踪；本次相对原收盘价格观察34.229%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-20，T28收盘97.41，原失效位67.51；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz003021%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -2443,6 +2653,27 @@
           "sources": [
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300314%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-300314-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "戴维医疗原低位样本继续跟踪；本次相对原收盘价格观察8.466%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-20，T28收盘14.35，原失效位12.28；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz300314%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
           ]
         }
       ]
@@ -2545,6 +2776,27 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603007%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-603007-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "顺景科技原低位样本继续跟踪；本次相对原收盘价格观察4.139%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-26，T28收盘4.78，原失效位4.15；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603007%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -2596,6 +2848,27 @@
           "sources": [
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002991%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-002991-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "甘源食品原低位样本继续跟踪；本次相对原收盘价格观察-1.275%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-26，T28收盘38.71，原失效位38.0；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002991%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
           ]
         }
       ]
@@ -2671,6 +2944,27 @@
             "https://static.cninfo.com.cn/finalpage/2026-10-28/1225632089.PDF",
             "docs/research/combined-pair-20261027-overnight-evidence.json"
           ]
+        },
+        {
+          "id": "research-stock-001219-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "青岛食品原低位样本继续跟踪；本次相对原收盘价格观察20.999%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-26，T28收盘16.48，原失效位13.08；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz001219%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -2704,6 +2998,27 @@
             "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625068.PDF",
             "https://static.cninfo.com.cn/finalpage/2026-10-16/1225607189.PDF"
           ]
+        },
+        {
+          "id": "research-stock-002823-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "凯中精密原低位样本继续跟踪；本次相对原收盘价格观察3.484%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-27，T28收盘13.96，原失效位12.25；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz002823%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -2734,6 +3049,120 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000888%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261027-evidence.json.gz",
             "https://static.cninfo.com.cn/finalpage/2026-08-28/1225516792.PDF"
+          ]
+        },
+        {
+          "id": "research-stock-000888-20261028-low-followup-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "30天研究价格跟踪与原失效核验",
+          "reason": "峨眉山Ａ原低位样本继续跟踪；本次相对原收盘价格观察-5.743%，不改原快照、模型资格及失败结论。",
+          "evidence_status": "verified_daily_price_observation_not_trade_return",
+          "fact_note": "原日期2026-10-27，T28收盘9.52，原失效位9.14；曾收破=False。",
+          "validation": [
+            "原自然日和交易日节点独立，未成熟不补结果",
+            "以原失效位核查收盘路径，未以价格回升抹去失败"
+          ],
+          "risk": "价格观察不证明实际成交、固定退出净收益、资金身份或30天稳定胜率。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000888%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "000554",
+      "name": "泰山石油",
+      "sector": "成品油零售",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-000554-20261028-origin-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "新增30天研究样本，非短线交易推荐",
+          "reason": "120日区间39.13%、60日60.305%；收6.63越过原20日高6.50并收复MA60，研究首轮放量突破后的承接。",
+          "evidence_status": "verified_closed_daily_snapshot_with_official_filing_risk_notes",
+          "fact_note": "泰山石油T28收盘6.63，原失效收盘位6.03；未来节点尚未知。",
+          "validation": [
+            "按1/3/5/10/15/20/30自然日与5/10/20交易日滚动前推",
+            "验证放量后的承接与板块同步，不将形态认定账户身份"
+          ],
+          "risk": "前三季营收下降10.60%，不是增长无风险；10月21日每股0.06元现金除息使未复权历史位置受影响。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000554%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz",
+            "https://static.cninfo.com.cn/finalpage/2026-10-28/1225628047.PDF"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "603109",
+      "name": "神驰机电",
+      "sector": "通用动力",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-603109-20261028-origin-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "新增30天研究样本，非短线交易推荐",
+          "reason": "120日区间31.673%、收复MA60；原20日高17.99尚未越过，不叫箱体突破，检验放量修复能否持续。",
+          "evidence_status": "verified_closed_daily_snapshot_with_official_filing_risk_notes",
+          "fact_note": "神驰机电T28收盘17.93，原失效收盘位16.31；未来节点尚未知。",
+          "validation": [
+            "按1/3/5/10/15/20/30自然日与5/10/20交易日滚动前推",
+            "验证放量后的承接与板块同步，不将形态认定账户身份"
+          ],
+          "risk": "前三季归母下降50.49%、Q3归母下降64.00%，量能放大不能证明经营反转。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603109%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz",
+            "https://static.cninfo.com.cn/finalpage/2026-10-29/1225633692.PDF"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "603926",
+      "name": "铁流股份",
+      "sector": "汽车传动",
+      "role": "research",
+      "default_watch": false,
+      "history": [
+        {
+          "id": "research-stock-603926-20261028-origin-v1",
+          "date": "2026-10-28",
+          "recorded_at": "2026-10-29T01:50:08+08:00",
+          "title": "新增30天研究样本，非短线交易推荐",
+          "reason": "120日区间30.168%、收复MA60；RVOL20为3.391，原20日高17.96未破，研究首次放量修复与回踩。",
+          "evidence_status": "verified_closed_daily_snapshot_with_official_filing_risk_notes",
+          "fact_note": "铁流股份T28收盘17.06，原失效收盘位15.45；未来节点尚未知。",
+          "validation": [
+            "按1/3/5/10/15/20/30自然日与5/10/20交易日滚动前推",
+            "验证放量后的承接与板块同步，不将形态认定账户身份"
+          ],
+          "risk": "前三季现金流改善，但Q3收入下降13.13%、归母下降10.98%；次日开板和承接仍未知。",
+          "report_ids": [
+            "low-position-20261028-close-v1"
+          ],
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603926%2Cday%2C%2C%2C180",
+            "docs/research/combined-pair-20261028-evidence.json.gz",
+            "https://static.cninfo.com.cn/finalpage/2026-10-28/1225627768.PDF"
           ]
         }
       ]
