@@ -21178,6 +21178,50 @@
         "dragon-tiger-20261029-close-v1"
       ],
       "cohort_label": "综合盘后组"
+    },
+    {
+      "id": "learning-review-20261029-forward-v1",
+      "date": "2026-10-29",
+      "market_date": "2026-10-29",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "run_id": "learning-review-20261029-scheduled-forward-v1",
+      "title": "每日学习复核｜10月29日v2首日、左尾风险与发布恢复闭环",
+      "summary": "六项研究6/6齐备；31条学习行去重为11个证券日/最多7个日期，T+5均值-5.659%、T+10均值-7.931%；防追高v2仅首日且无成熟T+1，#23在生产实证后关闭。",
+      "body": "研究交易日T=2026-10-29；实际复核时间2026-10-30T03:14:00.301141+08:00。本轮先核对最新main、Railway、生产API和真实回执，复用market_review、volume_price、low_position、dragon_tiger四份同T完整研究，以及combined_pair和limitup_single两份完整裁决。生产交付核验6/6完成；这只证明交付齐全，不证明策略盈利。\n\n一、学习快照、成熟度与极端风险\n新增forward-learning-2026-10-29，记录时间2026-10-30T03:09:05.408924+08:00。31条历史行中17条可观察、5条行情不可用、9条回溯来源排除；不可用代码为['002487', '002727', '002812', '300450', '601288']，错误计数为{'ReadTimeout': 66, 'tencent_daily:ReadTimeout': 7, 'HTTPError': 4}。没有把缺失填成0，也没有用10月29日盘后信息回填盘中信号。\n\n按同一证券+信号日去重后为11个证券日，剔除6条跨轨重叠；独立信号日最多7日：\n\n|周期|去重N|独立日|均值%|中位数%|正变化率%|MAE≤-5%占比|\n|---|---:|---:|---:|---:|---:|---:|\n|T+1|11|7|1.239|0.263|63.64|36.36|\n|T+2|11|7|-0.636|2.065|54.55|63.64|\n|T+5|11|7|-5.659|-5.163|27.27|90.91|\n|T+10|8|4|-7.931|-4.483|12.5|100.0|\n\nT+1的正变化率不能掩盖路径风险：T+2平均仍为-0.636%，T+5平均-5.659%、90.91%的样本出现至少-5%的路径不利观察；T+10仅8条/4日，平均-7.931%、全部出现至少-5%的MAE。原始重复轨中601872的T+10收盘代理最低-26.146%、MAE最低-27.639%，属于需要保留的左尾反证，不是可成交亏损。统一闸门仍为36条且20个独立日期，并要求成交、成本和按日期隔离的留出验证；当前不能训练/留出比较，promotion_authorized=false。\n\n低位组仍只有4条、1个信号日，其中3条可观察。T+1均值0.395%、T+2均值-1.620%、T+5均值-1.998%；单日三只且有1只行情缺失，不能概括低位策略表现。龙虎榜仍无独立统一前推收益组，不能把席位净买直接写成胜率。\n\n二、9:50/14:40防追高v2首日\n10月29日09:50记录扫描143只、有效报价143只、日线复核23只：新组002421/600853，MA20乖离6.143%/3.873%，近10日累计0.929%/1.719%；旧动量对照002164/300006。14:40记录仅扫描56只、有效报价56只、日线复核4只：新组600853/000888，MA20乖离4.744%/6.546%，近10日累计1.719%/4.615%；对照001270/002487。两档均是局部股票池，早盘有daily_validation:ValueError，尾盘有2次eastmoney_rank:HTTPError。\n\nv2与控制组都只有一个独立交易日，收集时10月30日尚未收盘，T+1/T+2/T+5/T+10均未成熟，因此性能接口尚无v2或control分组，只有旧版未标记历史。旧版价格观察：早盘T+1为19条/10日、均值-2.604%、极端低于-5%占47.37%；尾盘T+1为19条/10日、均值-0.128%、极端低于-5%占10.53%。旧版筛选深度与v2/对照不同，不能拿这组历史暗示因果胜率。盘中报价到未来收盘也不是买卖净利。\n\n三、发布恢复、失败归因与下一轮假设\nRailway BuildKit专项已闭环：原目标e7f5de229a72是当前生产a92a7cd26b1b的祖先，生产部署d227be2d-1822-433b-b259-bfa162368dc1为SUCCESS，/health精准返回当前SHA；两档live和performance接口均200，持久历史未覆写，scheduler/store/volume状态正常，所有新旧组仍shadow_only且零验证成交。GitHub #23已在真实读回后关闭。旧失败部署68c47427仍保留buildkitd.sock中断证据；官方US West构建事故于10月28日10:40 UTC标记resolved。代码/CI/部署成功均不代表研究成熟或盈利。\n\n生产providers当前进程只有分钟16次尝试：13次ok、3次degraded；ConnectionError与HTTPError各3次。daily和quote_batch均为no_observations，不能解释为健康。本轮独立日线学习仍出现大量ReadTimeout/HTTPError，说明服务可访问与数据完整必须分开。\n\n可证伪下一步仅保持影子：\n1. 预注册比较v2与control的T+1/T+2终点、MAE和缺失率；同股同日去重，至少20个独立交易日、36条后才讨论方向。\n2. 对新组按MA20乖离≤7%、近10日涨幅≤5%预先分层；若留出日期的左尾和缺失率不改善，否定“低乖离更抗回撤”。\n3. 旧控制组缺少同深度日线筛选，先补齐可比字段或保持不可比；不允许用事后赢家补齐。\n4. #17—#20继续open：提供方持久质量、完整研究幂等恢复、真实T+1成交实验和设备推送仍未满足关闭标准。\n\n以上不修改现行选股规则、阈值或权重。APP没有内置大模型，不自动调权、不下实盘单，也不保证获利。",
+      "sources": [
+        "https://robin-stock-api-production.up.railway.app/api/operations/delivery",
+        "https://robin-stock-api-production.up.railway.app/api/operations/providers",
+        "https://robin-stock-api-production.up.railway.app/api/strategy-lab",
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=late_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=late_pair",
+        "docs/research/learning-review-20261029-evidence.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/23",
+        "https://status.railway.com/incident/ILLVW9WG"
+      ],
+      "report_type": "full_daily_research",
+      "eligible_for_integrated_research": false,
+      "analysis_completed": true,
+      "status": "completed_with_data_gaps",
+      "published_at": "2026-10-30T03:14:00.301141+08:00",
+      "recorded_at": "2026-10-30T03:14:00.301141+08:00",
+      "data_cutoff_at": "2026-10-29T15:00:00+08:00",
+      "provenance": "forward_snapshot_intraday_and_release_recovery_review",
+      "research_rule_version": "forward_learning_v1_intraday_low_chase_shadow_v2",
+      "learning_snapshot_id": "forward-learning-2026-10-29",
+      "sample_count": 31,
+      "deduplicated_signal_date_symbols": 11,
+      "unique_cohort_dates": 7,
+      "intraday_v2_independent_dates": 1,
+      "promotion_authorized": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "candidate_count": 0,
+      "recommendation_ids": [],
+      "evidence_file": "docs/research/learning-review-20261029-evidence.json"
     }
   ]
 }

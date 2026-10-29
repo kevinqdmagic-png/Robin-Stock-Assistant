@@ -4626,6 +4626,31 @@
         "docs/research/shadow-experiments-20261030-v1.json",
         "docs/research/shadow-validation-20261029-v1.json"
       ]
+    },
+    {
+      "id": "learning-review-20261029-scheduled-forward-v1-completed",
+      "run_id": "learning-review-20261029-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T03:09:05.408924+08:00",
+      "recorded_at": "2026-10-30T03:14:00.301141+08:00",
+      "completed_at": "2026-10-30T03:14:00.301141+08:00",
+      "status": "completed",
+      "summary": "六项研究6/6齐备；31条学习行去重为11个证券日/最多7个日期，T+5均值-5.659%、T+10均值-7.931%；防追高v2仅首日且无成熟T+1，#23在生产实证后关闭。",
+      "report_ids": [
+        "learning-review-20261029-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-29",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "repository_prepared_not_yet_ci_or_production_verified",
+      "sources": [
+        "docs/research/learning-review-20261029-evidence.json"
+      ]
     }
   ]
 }
