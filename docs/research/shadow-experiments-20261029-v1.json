@@ -100,7 +100,203 @@
       "entry_fill_verified": null,
       "sealed_or_failed_after_entry": null,
       "executable_net_return_pct": null,
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-603699-v1",
+          "code": "603699",
+          "name": "纽威股份",
+          "market_event_id": "cnA:2026-10-29:603699",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 38.39,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 38.01,
+            "close": 37.12,
+            "high": 38.01,
+            "low": 36.51,
+            "volume": 69623.0
+          },
+          "open_observation_pct": -0.99,
+          "close_observation_pct": -3.308,
+          "MFE_price_observation_pct": -0.99,
+          "MAE_price_observation_pct": -4.897,
+          "CSI300_excess_price_observation_pct": -2.279,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603699",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 38.01,
+                "cumulative_volume_lots": 195.0,
+                "cumulative_amount_cny": 741195.0,
+                "return_vs_reference_pct": -0.99
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 36.84,
+                "cumulative_volume_lots": 15975.0,
+                "cumulative_amount_cny": 59504710.0,
+                "return_vs_reference_pct": -4.038,
+                "calculated_cumulative_vwap": 37.24864475743349
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 37.04,
+                "cumulative_volume_lots": 19743.0,
+                "cumulative_amount_cny": 73351733.0,
+                "return_vs_reference_pct": -3.517
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 36.88,
+                "cumulative_volume_lots": 34496.0,
+                "cumulative_amount_cny": 127912628.7,
+                "return_vs_reference_pct": -3.933,
+                "calculated_cumulative_vwap": 37.08042344039889
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 36.85,
+                "cumulative_volume_lots": 43434.0,
+                "cumulative_amount_cny": 161083626.43,
+                "return_vs_reference_pct": -4.011
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 37.33,
+                "cumulative_volume_lots": 55914.0,
+                "cumulative_amount_cny": 207934860.28,
+                "return_vs_reference_pct": -2.761
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 37.39,
+                "cumulative_volume_lots": 60463.0,
+                "cumulative_amount_cny": 224909865.88,
+                "return_vs_reference_pct": -2.605
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 37.22,
+                "cumulative_volume_lots": 62580.0,
+                "cumulative_amount_cny": 232802825.77,
+                "return_vs_reference_pct": -3.048
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 37.12,
+                "cumulative_volume_lots": 69623.0,
+                "cumulative_amount_cny": 259020068.46,
+                "return_vs_reference_pct": -3.308
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 42.23,
+          "D_actual_lower_price": 34.55,
+          "provider_timestamp": "20261029161453",
+          "day_touched_upper": false,
+          "day_closed_at_upper": false,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": false,
+          "trigger_evidence": [
+            "0945 price 36.84 outside frozen confirmation 37.88..38.39",
+            "0945 price below contemporaneous cumulative VWAP",
+            "1030 price 36.88 outside frozen confirmation 37.88..38.39",
+            "1030 price below contemporaneous cumulative VWAP"
+          ],
+          "entry_fill_verified": false,
+          "entry_status": "not_triggered",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": -3.308
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": -3.308
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603699%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603699"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     },
     {
       "id": "shadow-combined-pair-20261029-603926-v1",
@@ -185,7 +381,201 @@
       "entry_fill_verified": null,
       "sealed_or_failed_after_entry": null,
       "executable_net_return_pct": null,
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-603926-v1",
+          "code": "603926",
+          "name": "铁流股份",
+          "market_event_id": "cnA:2026-10-29:603926",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 17.06,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 17.39,
+            "close": 16.62,
+            "high": 17.7,
+            "low": 16.5,
+            "volume": 101902.0
+          },
+          "open_observation_pct": 1.934,
+          "close_observation_pct": -2.579,
+          "MFE_price_observation_pct": 3.751,
+          "MAE_price_observation_pct": -3.283,
+          "CSI300_excess_price_observation_pct": -1.55,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603926",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 17.39,
+                "cumulative_volume_lots": 2119.0,
+                "cumulative_amount_cny": 3684941.0,
+                "return_vs_reference_pct": 1.934
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 17.45,
+                "cumulative_volume_lots": 33232.0,
+                "cumulative_amount_cny": 57619981.0,
+                "return_vs_reference_pct": 2.286,
+                "calculated_cumulative_vwap": 17.33870396003852
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 17.27,
+                "cumulative_volume_lots": 38285.0,
+                "cumulative_amount_cny": 66382254.0,
+                "return_vs_reference_pct": 1.231
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 16.98,
+                "cumulative_volume_lots": 55760.0,
+                "cumulative_amount_cny": 96454822.0,
+                "return_vs_reference_pct": -0.469,
+                "calculated_cumulative_vwap": 17.298210545193687
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 16.89,
+                "cumulative_volume_lots": 70567.0,
+                "cumulative_amount_cny": 121381199.0,
+                "return_vs_reference_pct": -0.996
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 16.73,
+                "cumulative_volume_lots": 85491.0,
+                "cumulative_amount_cny": 146620881.0,
+                "return_vs_reference_pct": -1.934
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 16.72,
+                "cumulative_volume_lots": 90103.0,
+                "cumulative_amount_cny": 154340325.0,
+                "return_vs_reference_pct": -1.993
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 16.63,
+                "cumulative_volume_lots": 93996.0,
+                "cumulative_amount_cny": 160812995.0,
+                "return_vs_reference_pct": -2.521
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 16.62,
+                "cumulative_volume_lots": 101902.0,
+                "cumulative_amount_cny": 173934659.0,
+                "return_vs_reference_pct": -2.579
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 18.77,
+          "D_actual_lower_price": 15.35,
+          "provider_timestamp": "20261029161443",
+          "day_touched_upper": false,
+          "day_closed_at_upper": false,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": false,
+          "trigger_evidence": [
+            "0945 price 17.45 outside frozen confirmation 16.49..17.06",
+            "1030 price below contemporaneous cumulative VWAP"
+          ],
+          "entry_fill_verified": false,
+          "entry_status": "not_triggered",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": -2.579
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": -2.579
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603926%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603926"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     },
     {
       "id": "shadow-limitup-single-20261029-000554-v1",
@@ -268,7 +658,198 @@
       "entry_fill_verified": null,
       "sealed_or_failed_after_entry": null,
       "executable_net_return_pct": null,
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-000554-v1",
+          "code": "000554",
+          "name": "泰山石油",
+          "market_event_id": "cnA:2026-10-29:000554",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 6.63,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 6.87,
+            "close": 6.45,
+            "high": 6.98,
+            "low": 6.45,
+            "volume": 487933.0
+          },
+          "open_observation_pct": 3.62,
+          "close_observation_pct": -2.715,
+          "MFE_price_observation_pct": 5.279,
+          "MAE_price_observation_pct": -2.715,
+          "CSI300_excess_price_observation_pct": -1.686,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000554",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 6.87,
+                "cumulative_volume_lots": 18023.0,
+                "cumulative_amount_cny": 12381801.0,
+                "return_vs_reference_pct": 3.62
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 6.75,
+                "cumulative_volume_lots": 209072.0,
+                "cumulative_amount_cny": 143124050.0,
+                "return_vs_reference_pct": 1.81
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 6.77,
+                "cumulative_volume_lots": 222499.0,
+                "cumulative_amount_cny": 152214642.57,
+                "return_vs_reference_pct": 2.112
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 6.63,
+                "cumulative_volume_lots": 303159.0,
+                "cumulative_amount_cny": 206250405.27,
+                "return_vs_reference_pct": 0.0
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 6.49,
+                "cumulative_volume_lots": 372797.0,
+                "cumulative_amount_cny": 252030809.92,
+                "return_vs_reference_pct": -2.112
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 6.47,
+                "cumulative_volume_lots": 422497.0,
+                "cumulative_amount_cny": 284275007.94,
+                "return_vs_reference_pct": -2.413
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 6.48,
+                "cumulative_volume_lots": 448364.0,
+                "cumulative_amount_cny": 300995587.33,
+                "return_vs_reference_pct": -2.262
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 6.5,
+                "cumulative_volume_lots": 459131.0,
+                "cumulative_amount_cny": 307970722.11,
+                "return_vs_reference_pct": -1.961
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 6.45,
+                "cumulative_volume_lots": 487933.0,
+                "cumulative_amount_cny": 326615141.55,
+                "return_vs_reference_pct": -2.715
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 7.29,
+          "D_actual_lower_price": 5.97,
+          "provider_timestamp": "20261029161424",
+          "day_touched_upper": false,
+          "day_closed_at_upper": false,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": false,
+          "trigger_evidence": [
+            "Dated daily high below provider-reported D upper price: reseal condition impossible"
+          ],
+          "entry_fill_verified": false,
+          "entry_status": "not_triggered",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": -2.715
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": -2.715
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000554%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000554"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     }
   ],
   "controls": [
@@ -405,7 +986,198 @@
       "label": "H1高位均线乖离对照",
       "market_event_id": "cnA:2026-10-29:603037",
       "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-603037-v1",
+          "code": "603037",
+          "name": "凯众股份",
+          "market_event_id": "cnA:2026-10-29:603037",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 13.06,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 13.5,
+            "close": 12.77,
+            "high": 14.25,
+            "low": 12.55,
+            "volume": 480326.0
+          },
+          "open_observation_pct": 3.369,
+          "close_observation_pct": -2.221,
+          "MFE_price_observation_pct": 9.112,
+          "MAE_price_observation_pct": -3.905,
+          "CSI300_excess_price_observation_pct": -1.192,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603037",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 13.5,
+                "cumulative_volume_lots": 16274.0,
+                "cumulative_amount_cny": 21969900.0,
+                "return_vs_reference_pct": 3.369
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 13.6,
+                "cumulative_volume_lots": 213799.0,
+                "cumulative_amount_cny": 284150147.59,
+                "return_vs_reference_pct": 4.135
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 14.1,
+                "cumulative_volume_lots": 269724.0,
+                "cumulative_amount_cny": 361814339.39,
+                "return_vs_reference_pct": 7.963
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 13.49,
+                "cumulative_volume_lots": 359458.0,
+                "cumulative_amount_cny": 484853071.04,
+                "return_vs_reference_pct": 3.292
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 12.97,
+                "cumulative_volume_lots": 402537.0,
+                "cumulative_amount_cny": 541714467.61,
+                "return_vs_reference_pct": -0.689
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 12.69,
+                "cumulative_volume_lots": 437912.0,
+                "cumulative_amount_cny": 587108861.55,
+                "return_vs_reference_pct": -2.833
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 12.68,
+                "cumulative_volume_lots": 455677.0,
+                "cumulative_amount_cny": 609860111.06,
+                "return_vs_reference_pct": -2.91
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 12.69,
+                "cumulative_volume_lots": 460186.0,
+                "cumulative_amount_cny": 615569008.3,
+                "return_vs_reference_pct": -2.833
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 12.77,
+                "cumulative_volume_lots": 480326.0,
+                "cumulative_amount_cny": 641176988.14,
+                "return_vs_reference_pct": -2.221
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 14.37,
+          "D_actual_lower_price": 11.75,
+          "provider_timestamp": "20261029161455",
+          "day_touched_upper": false,
+          "day_closed_at_upper": false,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": null,
+          "trigger_evidence": [
+            "Necessary conditions not disproved, but auction, sequence, 60-second support and fills unverified"
+          ],
+          "entry_fill_verified": null,
+          "entry_status": "full_condition_unverified",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": -2.221
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": -2.221
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603037%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603037"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     },
     {
       "code": "601956",
@@ -469,7 +1241,198 @@
       "label": "H1等成交额高位置对照",
       "market_event_id": "cnA:2026-10-29:601956",
       "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-601956-v1",
+          "code": "601956",
+          "name": "东贝集团",
+          "market_event_id": "cnA:2026-10-29:601956",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 6.09,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 6.7,
+            "close": 6.7,
+            "high": 6.7,
+            "low": 6.7,
+            "volume": 157491.0
+          },
+          "open_observation_pct": 10.016,
+          "close_observation_pct": 10.016,
+          "MFE_price_observation_pct": 10.016,
+          "MAE_price_observation_pct": 10.016,
+          "CSI300_excess_price_observation_pct": 11.045,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601956",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 6.7,
+                "cumulative_volume_lots": 31474.0,
+                "cumulative_amount_cny": 21087580.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 6.7,
+                "cumulative_volume_lots": 100890.0,
+                "cumulative_amount_cny": 67596300.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 6.7,
+                "cumulative_volume_lots": 105276.0,
+                "cumulative_amount_cny": 70534920.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 6.7,
+                "cumulative_volume_lots": 128636.0,
+                "cumulative_amount_cny": 86186120.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 6.7,
+                "cumulative_volume_lots": 140759.0,
+                "cumulative_amount_cny": 94308530.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 6.7,
+                "cumulative_volume_lots": 148369.0,
+                "cumulative_amount_cny": 99407230.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 6.7,
+                "cumulative_volume_lots": 150102.0,
+                "cumulative_amount_cny": 100568340.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 6.7,
+                "cumulative_volume_lots": 150959.0,
+                "cumulative_amount_cny": 101142530.5,
+                "return_vs_reference_pct": 10.016
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 6.7,
+                "cumulative_volume_lots": 157491.0,
+                "cumulative_amount_cny": 105518970.5,
+                "return_vs_reference_pct": 10.016
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 6.7,
+          "D_actual_lower_price": 5.48,
+          "provider_timestamp": "20261029161456",
+          "day_touched_upper": true,
+          "day_closed_at_upper": true,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": null,
+          "trigger_evidence": [
+            "Necessary conditions not disproved, but auction, sequence, 60-second support and fills unverified"
+          ],
+          "entry_fill_verified": null,
+          "entry_status": "full_condition_unverified",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": 10.016
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": 10.016
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh601956%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh601956"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     },
     {
       "code": "603337",
@@ -604,7 +1567,198 @@
       "label": "H3绝对涨幅/高位对照",
       "market_event_id": "cnA:2026-10-29:603337",
       "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-603337-v1",
+          "code": "603337",
+          "name": "杰克科技",
+          "market_event_id": "cnA:2026-10-29:603337",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 48.83,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 51.0,
+            "close": 52.2,
+            "high": 53.58,
+            "low": 48.84,
+            "volume": 285698.0
+          },
+          "open_observation_pct": 4.444,
+          "close_observation_pct": 6.901,
+          "MFE_price_observation_pct": 9.728,
+          "MAE_price_observation_pct": 0.02,
+          "CSI300_excess_price_observation_pct": 7.93,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603337",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 51.0,
+                "cumulative_volume_lots": 8054.0,
+                "cumulative_amount_cny": 41075400.0,
+                "return_vs_reference_pct": 4.444
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 50.85,
+                "cumulative_volume_lots": 81490.0,
+                "cumulative_amount_cny": 409226652.37,
+                "return_vs_reference_pct": 4.137
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 51.36,
+                "cumulative_volume_lots": 96203.0,
+                "cumulative_amount_cny": 484246515.44,
+                "return_vs_reference_pct": 5.181
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 52.4,
+                "cumulative_volume_lots": 172401.0,
+                "cumulative_amount_cny": 882480816.25,
+                "return_vs_reference_pct": 7.311
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 51.9,
+                "cumulative_volume_lots": 208778.0,
+                "cumulative_amount_cny": 1071227071.5,
+                "return_vs_reference_pct": 6.287
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 52.84,
+                "cumulative_volume_lots": 242001.0,
+                "cumulative_amount_cny": 1246564366.72,
+                "return_vs_reference_pct": 8.212
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 52.5,
+                "cumulative_volume_lots": 253415.0,
+                "cumulative_amount_cny": 1306538410.7,
+                "return_vs_reference_pct": 7.516
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 52.36,
+                "cumulative_volume_lots": 257124.0,
+                "cumulative_amount_cny": 1326007669.87,
+                "return_vs_reference_pct": 7.229
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 52.2,
+                "cumulative_volume_lots": 285698.0,
+                "cumulative_amount_cny": 1474823420.48,
+                "return_vs_reference_pct": 6.901
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 53.71,
+          "D_actual_lower_price": 43.95,
+          "provider_timestamp": "20261029161455",
+          "day_touched_upper": false,
+          "day_closed_at_upper": false,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": null,
+          "trigger_evidence": [
+            "Necessary conditions not disproved, but auction, sequence, 60-second support and fills unverified"
+          ],
+          "entry_fill_verified": null,
+          "entry_status": "full_condition_unverified",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": 6.901
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": 6.901
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603337%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603337"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     },
     {
       "code": "603633",
@@ -739,7 +1893,198 @@
       "label": "H2首板同流动性量级但基本面反证对照",
       "market_event_id": "cnA:2026-10-29:603633",
       "sector_liquidity_match": "601956与铁流成交额均约1.99亿元；603633约1.64亿元，其余非严格行业匹配，不能解释为已控制全部混杂",
-      "results": []
+      "results": [
+        {
+          "id": "shadow-price-20261029-603633-v1",
+          "code": "603633",
+          "name": "徕木股份",
+          "market_event_id": "cnA:2026-10-29:603633",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T09:41:31.024002+00:00",
+          "reference_price": 6.36,
+          "reference_definition": "frozen signal T close, not entry price",
+          "daily": {
+            "date": "2026-10-29",
+            "open": 6.25,
+            "close": 5.79,
+            "high": 6.38,
+            "low": 5.76,
+            "volume": 489314.0
+          },
+          "open_observation_pct": -1.73,
+          "close_observation_pct": -8.962,
+          "MFE_price_observation_pct": 0.314,
+          "MAE_price_observation_pct": -9.434,
+          "CSI300_excess_price_observation_pct": -7.933,
+          "minute_checkpoints": {
+            "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603633",
+            "date": "2026-10-29",
+            "price_point_count": 242,
+            "auction_0925": null,
+            "points": {
+              "0930": {
+                "clock": "0930",
+                "price": 6.25,
+                "cumulative_volume_lots": 16569.0,
+                "cumulative_amount_cny": 10355625.0,
+                "return_vs_reference_pct": -1.73
+              },
+              "0945": {
+                "clock": "0945",
+                "price": 6.13,
+                "cumulative_volume_lots": 156270.0,
+                "cumulative_amount_cny": 97606122.38,
+                "return_vs_reference_pct": -3.616
+              },
+              "0950": {
+                "clock": "0950",
+                "price": 6.14,
+                "cumulative_volume_lots": 169662.0,
+                "cumulative_amount_cny": 105810222.1,
+                "return_vs_reference_pct": -3.459
+              },
+              "1030": {
+                "clock": "1030",
+                "price": 6.02,
+                "cumulative_volume_lots": 267746.0,
+                "cumulative_amount_cny": 165485844.42,
+                "return_vs_reference_pct": -5.346
+              },
+              "1130": {
+                "clock": "1130",
+                "price": 5.9,
+                "cumulative_volume_lots": 341333.0,
+                "cumulative_amount_cny": 209256152.35,
+                "return_vs_reference_pct": -7.233
+              },
+              "1400": {
+                "clock": "1400",
+                "price": 5.77,
+                "cumulative_volume_lots": 410548.0,
+                "cumulative_amount_cny": 249878032.54,
+                "return_vs_reference_pct": -9.277
+              },
+              "1430": {
+                "clock": "1430",
+                "price": 5.8,
+                "cumulative_volume_lots": 442265.0,
+                "cumulative_amount_cny": 268237071.67,
+                "return_vs_reference_pct": -8.805
+              },
+              "1440": {
+                "clock": "1440",
+                "price": 5.79,
+                "cumulative_volume_lots": 456643.0,
+                "cumulative_amount_cny": 276563664.04,
+                "return_vs_reference_pct": -8.962
+              },
+              "1500": {
+                "clock": "1500",
+                "price": 5.79,
+                "cumulative_volume_lots": 489314.0,
+                "cumulative_amount_cny": 295501740.41,
+                "return_vs_reference_pct": -8.962
+              }
+            },
+            "full_minute_ohlc": false,
+            "verified_fill": false,
+            "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+          },
+          "auction_0925": null,
+          "D_actual_upper_price": 7.0,
+          "D_actual_lower_price": 5.72,
+          "provider_timestamp": "20261029161450",
+          "day_touched_upper": false,
+          "day_closed_at_upper": false,
+          "day_touched_upper_not_closed": false,
+          "sealed_or_failed_after_entry": null,
+          "entry_triggered": null,
+          "trigger_evidence": [
+            "Necessary conditions not disproved, but auction, sequence, 60-second support and fills unverified"
+          ],
+          "entry_fill_verified": null,
+          "entry_status": "full_condition_unverified",
+          "actual_trade_claimed": false,
+          "simulated_entry_recorded": false,
+          "earliest_legal_exit_if_bought_at": "2026-10-30T09:30:00+08:00",
+          "legal_exit_window_reached": false,
+          "executable_net_return_pct": null,
+          "signal_T_horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-29",
+              "axis": "signal_T",
+              "status": "price_observed",
+              "close_observation_pct": -8.962
+            },
+            {
+              "h": 2,
+              "date": "2026-10-30",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-04",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-11",
+              "axis": "signal_T",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "planned_D_horizons": [
+            {
+              "h": 0,
+              "date": "2026-10-29",
+              "axis": "planned_D",
+              "status": "price_observed",
+              "close_observation_pct": -8.962
+            },
+            {
+              "h": 1,
+              "date": "2026-10-30",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 2,
+              "date": "2026-11-02",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 5,
+              "date": "2026-11-05",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            },
+            {
+              "h": 10,
+              "date": "2026-11-12",
+              "axis": "planned_D",
+              "status": "pending",
+              "close_observation_pct": null
+            }
+          ],
+          "status": "dated_price_observation_not_trade",
+          "sources": [
+            "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh603633%2Cday%2C%2C%2C180",
+            "https://qt.gtimg.cn/q=sh603699,sh603926,sz000554,sh603037,sh601956,sh603337,sh603633,sz300539",
+            "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh603633"
+          ],
+          "no_order_fill_or_intra_minute_sequence_inference": true
+        }
+      ]
     }
   ],
   "hypotheses": [
@@ -860,7 +2205,35 @@
       ],
       "strategy_return_pct": null,
       "account_position_not_asserted": true,
-      "results": []
+      "results": [
+        {
+          "id": "combined-pair-20261028-cash-observation-v1-review-20261029",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T18:08:42+08:00",
+          "formal_new_candidates": 0,
+          "actual_orders_claimed": false,
+          "account_PnL": null,
+          "shadow_price_summary": {
+            "frozen_signal_n": 3,
+            "observed_n": 3,
+            "independent_planned_sessions_n": 1,
+            "independent_code_D_events": 3,
+            "necessary_conditions_disproved_n": 3,
+            "full_trigger_unverified_n": 0,
+            "verified_fill_n": 0,
+            "missing_daily_price_n": 0,
+            "close_price_mean_pct": -2.867,
+            "close_price_median_pct": -2.715,
+            "net_return_mean_pct": null,
+            "net_return_median_pct": null,
+            "strategy_win_rate": null,
+            "review_ready": false,
+            "review_min_independent_sessions": 20,
+            "no_supported_weak_market_edge_claim": true
+          },
+          "source": "docs/research/shadow-validation-20261029-v1.json"
+        }
+      ]
     },
     {
       "id": "limitup-single-20261028-cash-observation-v1",
@@ -925,7 +2298,35 @@
       ],
       "strategy_return_pct": null,
       "account_position_not_asserted": true,
-      "results": []
+      "results": [
+        {
+          "id": "limitup-single-20261028-cash-observation-v1-review-20261029",
+          "date": "2026-10-29",
+          "recorded_at": "2026-10-29T18:08:42+08:00",
+          "formal_new_candidates": 0,
+          "actual_orders_claimed": false,
+          "account_PnL": null,
+          "shadow_price_summary": {
+            "frozen_signal_n": 3,
+            "observed_n": 3,
+            "independent_planned_sessions_n": 1,
+            "independent_code_D_events": 3,
+            "necessary_conditions_disproved_n": 3,
+            "full_trigger_unverified_n": 0,
+            "verified_fill_n": 0,
+            "missing_daily_price_n": 0,
+            "close_price_mean_pct": -2.867,
+            "close_price_median_pct": -2.715,
+            "net_return_mean_pct": null,
+            "net_return_median_pct": null,
+            "strategy_win_rate": null,
+            "review_ready": false,
+            "review_min_independent_sessions": 20,
+            "no_supported_weak_market_edge_claim": true
+          },
+          "source": "docs/research/shadow-validation-20261029-v1.json"
+        }
+      ]
     }
   ],
   "shared_source_shadow_report_id": "market-review-20261028-close-v1",
@@ -958,5 +2359,29 @@
     ],
     "automatic_model_updates": false
   },
-  "results": []
+  "results": [
+    {
+      "date": "2026-10-29",
+      "recorded_at": "2026-10-29T18:08:42+08:00",
+      "summary": {
+        "frozen_signal_n": 3,
+        "observed_n": 3,
+        "independent_planned_sessions_n": 1,
+        "independent_code_D_events": 3,
+        "necessary_conditions_disproved_n": 3,
+        "full_trigger_unverified_n": 0,
+        "verified_fill_n": 0,
+        "missing_daily_price_n": 0,
+        "close_price_mean_pct": -2.867,
+        "close_price_median_pct": -2.715,
+        "net_return_mean_pct": null,
+        "net_return_median_pct": null,
+        "strategy_win_rate": null,
+        "review_ready": false,
+        "review_min_independent_sessions": 20,
+        "no_supported_weak_market_edge_claim": true
+      },
+      "validation_file": "docs/research/shadow-validation-20261029-v1.json"
+    }
+  ]
 }

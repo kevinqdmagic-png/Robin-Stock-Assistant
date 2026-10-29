@@ -4506,6 +4506,126 @@
       "sources": [
         "docs/research/market-review-2026-10-29-evidence.json"
       ]
+    },
+    {
+      "id": "volume-price-20261029-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261029-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-29T09:17:54+00:00",
+      "completed_at": "2026-10-29T18:08:42+08:00",
+      "recorded_at": "2026-10-29T18:08:42+08:00",
+      "status": "completed",
+      "summary": "5573→120→28；旧28中位−3.011%；D29原3影子必要条件均未触发，0已核成交；新28按原v4冻结。",
+      "report_ids": [
+        "volume-price-20261029-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261029-evidence.json.gz",
+        "docs/research/shadow-experiments-20261030-v1.json",
+        "docs/research/shadow-validation-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "low-position-20261029-scheduled-close-v1-completed",
+      "run_id": "low-position-20261029-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-29T09:17:54+00:00",
+      "completed_at": "2026-10-29T18:08:42+08:00",
+      "recorded_at": "2026-10-29T18:08:42+08:00",
+      "status": "completed",
+      "summary": "旧47条/46代码全路径验证；新增卫星600118、景津603279、海阳603382三条非推荐，合格成熟30日N=0。",
+      "report_ids": [
+        "low-position-20261029-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261029-evidence.json.gz",
+        "docs/research/shadow-experiments-20261030-v1.json",
+        "docs/research/shadow-validation-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261029-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261029-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-29T09:17:54+00:00",
+      "completed_at": "2026-10-29T18:08:42+08:00",
+      "recorded_at": "2026-10-29T18:08:42+08:00",
+      "status": "completed",
+      "summary": "75原因行/69证券，其中67只A股、2只B股排除；13只A股席位交叉核验，原T28全部67股验证。",
+      "report_ids": [
+        "dragon-tiger-20261029-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261029-evidence.json.gz",
+        "docs/research/shadow-experiments-20261030-v1.json",
+        "docs/research/shadow-validation-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261029-scheduled-close-v2-completed",
+      "run_id": "limitup-single-20261029-scheduled-close-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-29T09:17:54+00:00",
+      "completed_at": "2026-10-29T18:08:42+08:00",
+      "recorded_at": "2026-10-29T18:08:42+08:00",
+      "status": "completed",
+      "summary": "D30正式打板0；独立影子桂林三金002275，非买入建议；旧D29泰山未达实际涨停上限，无入场。",
+      "report_ids": [
+        "limitup-single-20261029-close-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261029-evidence.json.gz",
+        "docs/research/shadow-experiments-20261030-v1.json",
+        "docs/research/shadow-validation-20261029-v1.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261029-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261029-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-29T09:17:54+00:00",
+      "completed_at": "2026-10-29T18:08:42+08:00",
+      "recorded_at": "2026-10-29T18:08:42+08:00",
+      "status": "completed",
+      "summary": "四份同T完整齐备；D30正式0，影子中国卫星600118/景津装备603279，条件与风险独立冻结。",
+      "report_ids": [
+        "combined-pair-20261029-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261029-evidence.json.gz",
+        "docs/research/shadow-experiments-20261030-v1.json",
+        "docs/research/shadow-validation-20261029-v1.json"
+      ]
     }
   ]
 }
