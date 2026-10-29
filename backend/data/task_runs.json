@@ -4651,6 +4651,56 @@
       "sources": [
         "docs/research/learning-review-20261029-evidence.json"
       ]
+    },
+    {
+      "id": "learning-review-20261029-scheduled-forward-v1-delivery-verified-c100149",
+      "run_id": "learning-review-20261029-scheduled-forward-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-29",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T03:18:41.460894+08:00",
+      "recorded_at": "2026-10-30T03:18:41.460894+08:00",
+      "completed_at": "2026-10-30T03:18:41.460894+08:00",
+      "status": "completed",
+      "summary": "10月29日学习快照、盘中v2/对照原始证据、发布恢复审计、独立报告与回执已通过研究CI、Railway终态SUCCESS及公开health、learning、strategy-lab、delivery、两档live/performance、报告和回执接口读回。",
+      "report_ids": [
+        "learning-review-20261029-forward-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "learning_snapshot_id": "forward-learning-2026-10-29",
+      "eligible_for_integrated_research": false,
+      "strategy_active_rules_changed": false,
+      "model_weights_updated": false,
+      "delivery_status": "production_verified",
+      "deployed_commit": "c1001494cf6d52b8233575b4a6e6196f00862447",
+      "railway_deployment_id": "2bc3592d-bf61-443d-8b70-e216859c7d67",
+      "public_build_observed": "c1001494cf6d52b8233575b4a6e6196f00862447",
+      "github_actions_run_id": "40938495174",
+      "public_readback": {
+        "learning_latest": "forward-learning-2026-10-29",
+        "strategy_lab_snapshot_date": "2026-10-29",
+        "delivery_verified": 6,
+        "early_live_total": 11,
+        "late_live_total": 11,
+        "early_performance_total": 49,
+        "late_performance_total": 48,
+        "actual_trades_verified": 0
+      },
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/c1001494cf6d52b8233575b4a6e6196f00862447",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/40938495174",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://robin-stock-api-production.up.railway.app/api/strategy-lab",
+        "https://robin-stock-api-production.up.railway.app/api/operations/delivery",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=late_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=late_pair",
+        "https://robin-stock-api-production.up.railway.app/api/research?task=learning_review",
+        "https://robin-stock-api-production.up.railway.app/api/task-runs?task=learning_review"
+      ]
     }
   ]
 }
