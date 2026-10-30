@@ -4844,6 +4844,44 @@
         "docs/research/shadow-experiments-20261102-v1.json",
         "docs/research/shadow-validation-20261030-v1.json"
       ]
+    },
+    {
+      "id": "volume-price-20261030-scheduled-close-v1-delivery-verified-ad3a180",
+      "run_id": "volume-price-20261030-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T10:28:08.427247+00:00",
+      "completed_at": "2026-10-30T18:28:10+08:00",
+      "recorded_at": "2026-10-30T18:28:10+08:00",
+      "status": "completed",
+      "summary": "10月30日完整量价报告、28条新冻结、旧池与影子验证已通过研究CI、准确SHA Railway SUCCESS及生产tasks、report、receipt接口读回；未新增正式候选或已核成交。",
+      "report_ids": [
+        "volume-price-20261030-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "production_verified",
+      "deployed_commit": "ad3a180d51e5dbf4399faad430dfdefb32482d03",
+      "railway_deployment_id": "410dfe6e-5c43-4fbf-ab21-b088fe0ae438",
+      "public_build_observed": "ad3a180d51e5dbf4399faad430dfdefb32482d03",
+      "github_actions_run_id": "41040599774",
+      "public_readback": {
+        "health_version": "0.10.0",
+        "task_last_report": "volume-price-20261030-close-v1",
+        "report_id": "volume-price-20261030-close-v1",
+        "report_status": "completed",
+        "receipt_id": "volume-price-20261030-scheduled-close-v1-completed"
+      },
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/ad3a180d51e5dbf4399faad430dfdefb32482d03",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/41040599774",
+        "https://robin-stock-api-production.up.railway.app/health",
+        "https://robin-stock-api-production.up.railway.app/api/tasks",
+        "https://robin-stock-api-production.up.railway.app/api/research?task=volume_price&date=2026-10-30",
+        "https://robin-stock-api-production.up.railway.app/api/task-runs?task=volume_price"
+      ]
     }
   ]
 }
