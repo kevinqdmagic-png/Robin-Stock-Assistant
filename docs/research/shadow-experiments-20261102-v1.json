@@ -1,0 +1,1499 @@
+{
+  "schema_version": "research_shadow_experiment_v1",
+  "notice": "独立研究影子，非买入建议；不写正式recommendations、不触发正式通知。",
+  "T": "2026-10-30",
+  "planned_D": "2026-11-02",
+  "frozen_at": "2026-10-30T18:20:11+08:00",
+  "research_rule_version": "weak_market_shadow_v1",
+  "report_ids": [
+    "combined-pair-20261030-close-v1",
+    "limitup-single-20261030-close-v2"
+  ],
+  "prior_validation_completed_before_freeze": true,
+  "prior_validation_file": "docs/research/shadow-validation-20261030-v1.json",
+  "prior_validation_recorded_at": "2026-10-30T09:47:16.158412+00:00",
+  "signals": [
+    {
+      "parent_task_id": "combined_pair",
+      "rank": 1,
+      "code": "000568",
+      "theme": "白酒逆势价格篮子",
+      "model": "低长期位置放量突破＋逆势板块",
+      "hypothesis_labels": [
+        "H1",
+        "H3"
+      ],
+      "H1_arm": "low_position_volume_tail_flat_partial_not_full_H1",
+      "selection_reason": "120日位置28.501%、RVOL20=3.387、突破原20日高74.22；同业古井/迎驾均逆势封板。相比皇台高位置高换手、好想你扣非亏损，保留正利润正现金与更低长期位置，但不把衰退财报当增长。",
+      "formal_rejection_reason": "弱市、旧三进四0/2、高位负反馈扩散；Q3利润−57.03%、未收MA60=77.845，尾盘持平且D可得性未知。",
+      "independent_risk": "财报是显著下滑，可能仅防守轮动/估值修复，尾盘0%不证明主动承接。前收上涨10%后可能高开兑现，低长期位置不等于下跌结束。",
+      "pullback_or_auction_range": [
+        74.22,
+        75.53
+      ],
+      "confirmation_range": [
+        75.53,
+        77.07
+      ],
+      "max_auction_price": 78.61,
+      "observation_invalidation_below": 74.22,
+      "structural_invalidation_below": 71.39,
+      "trigger": "D=11月2日另核9:25真实竞价≤78.61；先有74.22—75.53回踩再承接的带时序证据，09:45和10:30均在75.53—77.07且不低于同时累计VWAP；古井000596/迎驾603198不能同时转弱。74.22是原20日高参照、75.53约为T收盘98%，均是待检验区间，不是保证支撑。",
+      "invalid": "D任一日期合格价格跌破74.22，停止新触发；71.39为T日最低结构参照，MA20=71.096另保留。已买当日不能卖。",
+      "abandon": "竞价超过78.61、无回踩顺序/双时点/VWAP确认、白酒同伴同时转弱、高标跌停扩散或证券状态/当日涨停价不能核验时放弃，不追一字板。",
+      "official_fact_keys": [
+        "000568-q3"
+      ],
+      "current_boards": 1,
+      "planned_boards": 2,
+      "theme_visible_height": 1,
+      "theme_height_reference": "000568/000596/603198可见白酒换手首板，非完整行业主表",
+      "role_in_theme": "白酒低位大市值换手分支，核心待确认",
+      "limitup_path_hypothesis": "D先回踩承接，白酒同伴继续逆势才可能再冲上限",
+      "counterexample": "回落失74.22、盈利下滑继续被交易或板块一日游则否定",
+      "id": "shadow-combined-pair-20261102-000568-v1",
+      "role": "research_shadow",
+      "is_recommendation": false,
+      "formal_buy_signal": false,
+      "send_trade_notification": false,
+      "report_ids": [
+        "combined-pair-20261030-close-v1"
+      ],
+      "T": "2026-10-30",
+      "date": "2026-10-30",
+      "planned_entry_date": "2026-11-02",
+      "name": "泸州老窖",
+      "signal_frozen_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "freeze_phase": "before_planned_session_open",
+      "eligible_forward_observation": true,
+      "market_event_id": "cnA:2026-11-02:000568",
+      "board_regime": "ordinary_main_10pct",
+      "daily_limit_pct": 10,
+      "reference_price": 77.07,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "reference_is_fill": false,
+      "provider_quote_timestamp": "20261030161415",
+      "observed_T_upper_price": 77.07,
+      "observed_T_lower_price": 63.05,
+      "D_actual_upper_price": null,
+      "D_upper_status": "Require date-verified D provider field, never assume previous close times 1.1",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "combined_limitup_watch_v5",
+      "market_emotion": "弱",
+      "evidence_available_at": [
+        {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000568%2Cday%2C%2C%2C180",
+          "retrieved_at": "2026-10-30T09:46:09.687257+00:00"
+        },
+        {
+          "source": "https://qt.gtimg.cn/q=sz000032,sz000058,sz000059,sz000099,sz000156,sz000410,sz000411,sz000415,sz000417,sz000420,sz000503,sz000513,sz000525,sz000530,sz000547,sz000554,sz000559,sz000560,sz000568,sz000576,sz000596,sz000599,sz000635,sz000639,sz000670,sz000676,sz000678,sz000690,sz000700,sz000701,sz000712,sz000716,sz000729,sz000759,sz000810",
+          "retrieved_at": "2026-10-30T09:44:36.527420+00:00"
+        },
+        {
+          "source": "https://static.cninfo.com.cn/finalpage/2026-10-30/1225639079.PDF",
+          "retrieved_at": "2026-10-30T09:55:19.874971+00:00"
+        }
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000568%2Cday%2C%2C%2C180",
+        "https://qt.gtimg.cn/q=sz000032,sz000058,sz000059,sz000099,sz000156,sz000410,sz000411,sz000415,sz000417,sz000420,sz000503,sz000513,sz000525,sz000530,sz000547,sz000554,sz000559,sz000560,sz000568,sz000576,sz000596,sz000599,sz000635,sz000639,sz000670,sz000676,sz000678,sz000690,sz000700,sz000701,sz000712,sz000716,sz000729,sz000759,sz000810",
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "https://static.cninfo.com.cn/finalpage/2026-10-30/1225639079.PDF"
+      ],
+      "reference_stocks": [
+        {
+          "code": "001219",
+          "name": "青岛食品",
+          "role": "五板市场高度",
+          "reference_close": 19.94,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161445",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "002708",
+          "name": "光洋股份",
+          "role": "四进五断板负反馈",
+          "reference_close": 19.02,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161403",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "600715",
+          "name": "文投控股",
+          "role": "三进四失败跌停负反馈",
+          "reference_close": 2.04,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161457",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "603131",
+          "name": "上海沪工",
+          "role": "三板一字高度参照",
+          "reference_close": 17.55,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161456",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "002172",
+          "name": "澳洋健康",
+          "role": "三板换手高度参照",
+          "reference_close": 5.91,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161415",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "000596",
+          "name": "古井贡酒",
+          "role": "白酒同伴",
+          "reference_close": 95.7,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161500",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "603198",
+          "name": "迎驾贡酒",
+          "role": "白酒同伴",
+          "reference_close": 44.47,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161446",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "600754",
+          "name": "锦江酒店",
+          "role": "酒店确认同伴",
+          "reference_close": 18.7,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161444",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "000428",
+          "name": "华天酒店",
+          "role": "酒店确认同伴",
+          "reference_close": 3.31,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161454",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        }
+      ],
+      "earliest_legal_exit_if_bought_at": "2026-11-03T09:30:00+08:00",
+      "exit_rule": "D买入最早2026-11-03可卖；综合在该日09:45首个可证明能成交报价尝试退出，打板为09:30首个可证明能成交报价。强/平/弱开采用同一固定窗口；跌停、停牌或排队未成交则保留未退出并顺延，不择最高价。买入当日失效不能当日卖。",
+      "research_benchmark": "sh000300",
+      "entry_triggered": null,
+      "entry_fill_verified": null,
+      "sealed_or_failed_after_entry": null,
+      "executable_net_return_pct": null,
+      "weekend_overnight_sample": false,
+      "signal_weekend_gap": true,
+      "long_holiday_sample": false,
+      "signal_T_horizon_dates": {
+        "1": "2026-11-02",
+        "2": "2026-11-03",
+        "5": "2026-11-06",
+        "10": "2026-11-13"
+      },
+      "planned_D_horizon_dates": {
+        "1": "2026-11-03",
+        "2": "2026-11-04",
+        "5": "2026-11-09",
+        "10": "2026-11-16"
+      },
+      "results": []
+    },
+    {
+      "parent_task_id": "combined_pair",
+      "rank": 2,
+      "code": "600510",
+      "theme": "园区开发/纺织低位价格修复",
+      "model": "低位量能＋小幅正尾盘价格代理",
+      "hypothesis_labels": [
+        "H1"
+      ],
+      "H1_arm": "low_position_volume_positive_tail_price_proxy_not_confirmed_orderflow",
+      "selection_reason": "120日位置17.767%、RVOL20=4.086、14时后+0.311%、CLV1；与祥源低位但负尾盘/低收盘位置、海洋王高位正尾盘相比较，保留一个完整H1必要价量代理供证伪。研究排序强调可检验性，绝非财务安全或收益排名。",
+      "formal_rejection_reason": "前三季归母亏4.9517亿元、CFO−3.0036亿元、Q3减值冲击；未收MA60=6.56且未越6.83原20日高，正式明确否决。",
+      "independent_risk": "尾盘仅两分钱、+0.311%是必要价格代理，不能确认真实资金承接。财务恶化、园区/地产库存和减值风险明显；可出现亏损股短暂反弹，不认定价值反转。",
+      "pullback_or_auction_range": [
+        6.2,
+        6.33
+      ],
+      "confirmation_range": [
+        6.33,
+        6.46
+      ],
+      "max_auction_price": 6.59,
+      "observation_invalidation_below": 6.17,
+      "structural_invalidation_below": 5.62,
+      "trigger": "11月2日另核9:25真实竞价≤6.59，先有6.20—6.33回踩及之后承接的时序证据；09:45/10:30两时点均在6.33—6.46且各自不低累计VWAP。6.20/6.33约为T收盘96%/98%的研究带；未收6.56/未越6.83仍不称趋势突破。",
+      "invalid": "D任一已核价点跌破6.17（T日MA20近似参照）停止新触发，5.62为T低点结构参照；亏损/新监管/停牌/ST风险发生则放弃。",
+      "abandon": "竞价超过6.59、确认带或VWAP不合格、无可核回踩顺序、财务风险升级/高标风险扩散、状态或上限缺失，全部放弃；不以最低最高推成交。",
+      "official_fact_keys": [
+        "600510-q3",
+        "600510-risk1"
+      ],
+      "current_boards": 1,
+      "planned_boards": 2,
+      "theme_visible_height": 1,
+      "theme_height_reference": "仅园区/纺织价格修复研究，不声称板块主线或行业高度已核",
+      "role_in_theme": "低位结构实验，主线身份未知",
+      "limitup_path_hypothesis": "只有低位回踩后承接再转强，才研究第二次上冲",
+      "counterexample": "破6.17、财报继续恶化、正尾盘两分钱未获后续推进即构成反证",
+      "id": "shadow-combined-pair-20261102-600510-v1",
+      "role": "research_shadow",
+      "is_recommendation": false,
+      "formal_buy_signal": false,
+      "send_trade_notification": false,
+      "report_ids": [
+        "combined-pair-20261030-close-v1"
+      ],
+      "T": "2026-10-30",
+      "date": "2026-10-30",
+      "planned_entry_date": "2026-11-02",
+      "name": "黑牡丹",
+      "signal_frozen_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "freeze_phase": "before_planned_session_open",
+      "eligible_forward_observation": true,
+      "market_event_id": "cnA:2026-11-02:600510",
+      "board_regime": "ordinary_main_10pct",
+      "daily_limit_pct": 10,
+      "reference_price": 6.46,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "reference_is_fill": false,
+      "provider_quote_timestamp": "20261030161458",
+      "observed_T_upper_price": 6.46,
+      "observed_T_lower_price": 5.28,
+      "D_actual_upper_price": null,
+      "D_upper_status": "Require date-verified D provider field, never assume previous close times 1.1",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "combined_limitup_watch_v5",
+      "market_emotion": "弱",
+      "evidence_available_at": [
+        {
+          "source": "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+          "retrieved_at": "2026-10-30T09:45:00.414323+00:00"
+        },
+        {
+          "source": "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+          "retrieved_at": "2026-10-30T09:45:00.414323+00:00"
+        },
+        {
+          "source": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619778.PDF",
+          "retrieved_at": "2026-10-30T09:55:31.214898+00:00"
+        },
+        {
+          "source": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619774.PDF",
+          "retrieved_at": "2026-10-30T09:55:30.856844+00:00"
+        }
+      ],
+      "sources": [
+        "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+        "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619778.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619774.PDF"
+      ],
+      "reference_stocks": [
+        {
+          "code": "001219",
+          "name": "青岛食品",
+          "role": "五板市场高度",
+          "reference_close": 19.94,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161445",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "002708",
+          "name": "光洋股份",
+          "role": "四进五断板负反馈",
+          "reference_close": 19.02,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161403",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "600715",
+          "name": "文投控股",
+          "role": "三进四失败跌停负反馈",
+          "reference_close": 2.04,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161457",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "603131",
+          "name": "上海沪工",
+          "role": "三板一字高度参照",
+          "reference_close": 17.55,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161456",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "002172",
+          "name": "澳洋健康",
+          "role": "三板换手高度参照",
+          "reference_close": 5.91,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161415",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "000596",
+          "name": "古井贡酒",
+          "role": "白酒同伴",
+          "reference_close": 95.7,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161500",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "603198",
+          "name": "迎驾贡酒",
+          "role": "白酒同伴",
+          "reference_close": 44.47,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161446",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "600754",
+          "name": "锦江酒店",
+          "role": "酒店确认同伴",
+          "reference_close": 18.7,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161444",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "000428",
+          "name": "华天酒店",
+          "role": "酒店确认同伴",
+          "reference_close": 3.31,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161454",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        }
+      ],
+      "earliest_legal_exit_if_bought_at": "2026-11-03T09:30:00+08:00",
+      "exit_rule": "D买入最早2026-11-03可卖；综合在该日09:45首个可证明能成交报价尝试退出，打板为09:30首个可证明能成交报价。强/平/弱开采用同一固定窗口；跌停、停牌或排队未成交则保留未退出并顺延，不择最高价。买入当日失效不能当日卖。",
+      "research_benchmark": "sh000300",
+      "entry_triggered": null,
+      "entry_fill_verified": null,
+      "sealed_or_failed_after_entry": null,
+      "executable_net_return_pct": null,
+      "weekend_overnight_sample": false,
+      "signal_weekend_gap": true,
+      "long_holiday_sample": false,
+      "signal_T_horizon_dates": {
+        "1": "2026-11-02",
+        "2": "2026-11-03",
+        "5": "2026-11-06",
+        "10": "2026-11-13"
+      },
+      "planned_D_horizon_dates": {
+        "1": "2026-11-03",
+        "2": "2026-11-04",
+        "5": "2026-11-09",
+        "10": "2026-11-16"
+      },
+      "results": []
+    },
+    {
+      "parent_task_id": "limitup_single",
+      "rank": 1,
+      "code": "600258",
+      "theme": "酒店/消费轮动",
+      "model": "首板后第一次分歧承接/二板回封",
+      "hypothesis_labels": [
+        "H2",
+        "H3"
+      ],
+      "selection_reason": "普通主板首板、换手6.523%、长期位置41.099%，季度扣非增长与正现金相较桂林/巴比已二板、青岛五板更适合研究首板后首次分歧；相较泸州，单季扣非仍增长。",
+      "formal_rejection_reason": "弱市高标坍塌及D盘口未核，T池14次开板、60日位置87.562%；盈利改善不保证次日供给与隔夜退出。",
+      "independent_risk": "不是120日底部，RVOL20=6.235、收盘封板但多次开板；酒店收入和CFO同比仍下降。晚间信息与周末政策可能改变预案。",
+      "pullback_or_auction_range": [
+        12.43,
+        13.05
+      ],
+      "confirmation_range": null,
+      "max_auction_price": 13.05,
+      "observation_invalidation_below": 12.18,
+      "structural_invalidation_below": 11.44,
+      "trigger": "11月2日9:25竞价12.43—13.05，09:35—10:30窗口累计换手2%—12%；第一次可核分歧后回到真实D涨停价，且至少60秒守住D上限×98%及累计VWAP；锦江酒店600754与华天酒店000428同时相对T收盘≥+3%，高标未跌停。须逐笔/连续盘口证据；价格点和大封单不能单独确认，排队无成交证明不认定买入。",
+      "invalid": "D任一已核价点跌破12.18（约T收盘98%的研究观察线）或行业/高标否决成立，停止新触发；11.44为T低结构参照，原突破11.51另列。",
+      "abandon": "竞价高于13.05、没有首分歧/60秒/VWAP/同伴+3%证据，一字排队、反复开板失承接、爆量不推进、行业转弱、证券状态或D真实涨停价无法核实时放弃。",
+      "official_fact_keys": [
+        "600258-q3"
+      ],
+      "current_boards": 1,
+      "planned_boards": 2,
+      "theme_visible_height": 1,
+      "theme_height_reference": "酒店可见首板600258；更广消费中青岛食品5板仅情绪参照，不冒称酒店高度",
+      "role_in_theme": "酒店换手首板分支，是否核心待D确认",
+      "limitup_path_hypothesis": "首板后首次分歧得到同行同步和可核承接，才可能换手二板",
+      "counterexample": "同行不达阈值、再封失效、周末消息或高标负反馈扩散则否定",
+      "id": "shadow-limitup-single-20261102-600258-v1",
+      "role": "research_shadow",
+      "is_recommendation": false,
+      "formal_buy_signal": false,
+      "send_trade_notification": false,
+      "report_ids": [
+        "limitup-single-20261030-close-v2"
+      ],
+      "T": "2026-10-30",
+      "date": "2026-10-30",
+      "planned_entry_date": "2026-11-02",
+      "name": "首旅酒店",
+      "signal_frozen_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "freeze_phase": "before_planned_session_open",
+      "eligible_forward_observation": true,
+      "market_event_id": "cnA:2026-11-02:600258",
+      "board_regime": "ordinary_main_10pct",
+      "daily_limit_pct": 10,
+      "reference_price": 12.43,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "reference_is_fill": false,
+      "provider_quote_timestamp": "20261030161454",
+      "observed_T_upper_price": 12.43,
+      "observed_T_lower_price": 10.17,
+      "D_actual_upper_price": null,
+      "D_upper_status": "Require date-verified D provider field, never assume previous close times 1.1",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "limitup_single_v2",
+      "market_emotion": "弱",
+      "evidence_available_at": [
+        {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600258%2Cday%2C%2C%2C180",
+          "retrieved_at": "2026-10-30T09:47:17.731072+00:00"
+        },
+        {
+          "source": "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+          "retrieved_at": "2026-10-30T09:45:00.414323+00:00"
+        },
+        {
+          "source": "https://static.cninfo.com.cn/finalpage/2026-10-30/1225639529.PDF",
+          "retrieved_at": "2026-10-30T09:55:25.323107+00:00"
+        }
+      ],
+      "sources": [
+        "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600258%2Cday%2C%2C%2C180",
+        "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "https://static.cninfo.com.cn/finalpage/2026-10-30/1225639529.PDF"
+      ],
+      "reference_stocks": [
+        {
+          "code": "001219",
+          "name": "青岛食品",
+          "role": "五板市场高度",
+          "reference_close": 19.94,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161445",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "002708",
+          "name": "光洋股份",
+          "role": "四进五断板负反馈",
+          "reference_close": 19.02,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161403",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "600715",
+          "name": "文投控股",
+          "role": "三进四失败跌停负反馈",
+          "reference_close": 2.04,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161457",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "603131",
+          "name": "上海沪工",
+          "role": "三板一字高度参照",
+          "reference_close": 17.55,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161456",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "002172",
+          "name": "澳洋健康",
+          "role": "三板换手高度参照",
+          "reference_close": 5.91,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161415",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "000596",
+          "name": "古井贡酒",
+          "role": "白酒同伴",
+          "reference_close": 95.7,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161500",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "603198",
+          "name": "迎驾贡酒",
+          "role": "白酒同伴",
+          "reference_close": 44.47,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161446",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "600754",
+          "name": "锦江酒店",
+          "role": "酒店确认同伴",
+          "reference_close": 18.7,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161444",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        },
+        {
+          "code": "000428",
+          "name": "华天酒店",
+          "role": "酒店确认同伴",
+          "reference_close": 3.31,
+          "date": "2026-10-30",
+          "provider_timestamp": "20261030161454",
+          "source": "https://qt.gtimg.cn/q=sz001219,sz002708,sh600715,sh603131,sz002172,sz000568,sh600510,sh600258,sz000596,sh603198,sh600754,sz000428,sz002275,sh605338",
+          "observation_window": "D=11月2日9:25及09:35—10:30，需重新取得当时真实数据",
+          "extra_abandon": "青岛/沪工/澳洋任一出现经核跌停无承接，或光洋与文投同时相对T收盘下跌≥5%，停止新的影子触发；此为前推风控假设，不推断成交。"
+        }
+      ],
+      "earliest_legal_exit_if_bought_at": "2026-11-03T09:30:00+08:00",
+      "exit_rule": "D买入最早2026-11-03可卖；综合在该日09:45首个可证明能成交报价尝试退出，打板为09:30首个可证明能成交报价。强/平/弱开采用同一固定窗口；跌停、停牌或排队未成交则保留未退出并顺延，不择最高价。买入当日失效不能当日卖。",
+      "research_benchmark": "sh000300",
+      "entry_triggered": null,
+      "entry_fill_verified": null,
+      "sealed_or_failed_after_entry": null,
+      "executable_net_return_pct": null,
+      "weekend_overnight_sample": false,
+      "signal_weekend_gap": true,
+      "long_holiday_sample": false,
+      "signal_T_horizon_dates": {
+        "1": "2026-11-02",
+        "2": "2026-11-03",
+        "5": "2026-11-06",
+        "10": "2026-11-13"
+      },
+      "planned_D_horizon_dates": {
+        "1": "2026-11-03",
+        "2": "2026-11-04",
+        "5": "2026-11-09",
+        "10": "2026-11-16"
+      },
+      "results": []
+    }
+  ],
+  "controls": [
+    {
+      "code": "001219",
+      "hypothesis_labels": [
+        "H1",
+        "H3"
+      ],
+      "arm": "high_position_acceleration",
+      "matched_to": "600258",
+      "reason": "位置100%、五板；T成交9.441亿与首旅8.823亿同量级，板数/控制权事件不同，不作因果完全匹配",
+      "name": "青岛食品",
+      "reference_price": 19.94,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "role": "research_control_not_recommendation",
+      "market_event_id": "cnA:2026-11-02:001219",
+      "snapshot": {
+        "code": "001219",
+        "name": "青岛食品",
+        "date": "2026-10-30",
+        "open": 19.94,
+        "close": 19.94,
+        "high": 19.94,
+        "low": 19.51,
+        "volume": 473549.0,
+        "daily_change_pct": 9.983,
+        "rvol": {
+          "5": 7.62156,
+          "10": 11.80231,
+          "20": 15.95188
+        },
+        "ma": {
+          "5": 16.63,
+          "10": 14.518,
+          "20": 13.7375,
+          "60": 13.05317
+        },
+        "range_position_pct": {
+          "20": 100.0,
+          "60": 100.0,
+          "120": 100.0
+        },
+        "distance_ma20_pct": 45.15,
+        "clv": 1.0,
+        "turnover_pct": 24.89775,
+        "amount_yi": 9.44077293,
+        "prior_turnover_pct": 1.57402,
+        "turnover_change_pct_points": 23.32373,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://qt.gtimg.cn/q=sz000823,sz000838,sz000858,sz000859,sz000860,sz000887,sz000888,sz000892,sz000897,sz000900,sz000915,sz000972,sz000973,sz000983,sz000993,sz000995,sz000999,sz001208,sz001210,sz001211,sz001216,sz001219,sz001225,sz001233,sz001238,sz001239,sz001270,sz001282,sz001283,sz001287,sz001296,sz001298,sz001301,sz001311,sz001317",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz001219",
+          "date": "2026-10-30",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 19.94,
+              "cumulative_volume_lots": 99096.0,
+              "cumulative_amount_cny": 197597424.0,
+              "return_vs_reference_pct": 9.983
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 19.94,
+              "cumulative_volume_lots": 349311.0,
+              "cumulative_amount_cny": 696370961.52,
+              "return_vs_reference_pct": 9.983
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 19.94,
+              "cumulative_volume_lots": 352370.0,
+              "cumulative_amount_cny": 702470607.89,
+              "return_vs_reference_pct": 9.983
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 19.94,
+              "cumulative_volume_lots": 363327.0,
+              "cumulative_amount_cny": 724318865.57,
+              "return_vs_reference_pct": 9.983
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 19.89,
+              "cumulative_volume_lots": 415302.0,
+              "cumulative_amount_cny": 827954890.59,
+              "return_vs_reference_pct": 9.708
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 19.94,
+              "cumulative_volume_lots": 466439.0,
+              "cumulative_amount_cny": 929899912.53,
+              "return_vs_reference_pct": 9.983
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 19.94,
+              "cumulative_volume_lots": 469613.0,
+              "cumulative_amount_cny": 936228868.53,
+              "return_vs_reference_pct": 9.983
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 19.94,
+              "cumulative_volume_lots": 470520.0,
+              "cumulative_amount_cny": 938037426.71,
+              "return_vs_reference_pct": 9.983
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 19.94,
+              "cumulative_volume_lots": 473549.0,
+              "cumulative_amount_cny": 944077252.71,
+              "return_vs_reference_pct": 9.983
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share_pct": 1.5014285744453055,
+        "previous_20_session_high": 18.13,
+        "break_above_previous_20_high": true,
+        "daily_volume_ratio_vs_previous": 15.817656490079498,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "source": "https://qt.gtimg.cn/q=sz000823,sz000838,sz000858,sz000859,sz000860,sz000887,sz000888,sz000892,sz000897,sz000900,sz000915,sz000972,sz000973,sz000983,sz000993,sz000995,sz000999,sz001208,sz001210,sz001211,sz001216,sz001219,sz001225,sz001233,sz001238,sz001239,sz001270,sz001282,sz001283,sz001287,sz001296,sz001298,sz001301,sz001311,sz001317",
+      "results": []
+    },
+    {
+      "code": "002275",
+      "hypothesis_labels": [
+        "H1"
+      ],
+      "arm": "high_position_volume",
+      "matched_to": "600510",
+      "reason": "位置100%、二板；3.523亿与黑牡丹2.079亿约1.69倍，财务/题材/板数不同，保留混杂说明",
+      "name": "桂林三金",
+      "reference_price": 14.98,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "role": "research_control_not_recommendation",
+      "market_event_id": "cnA:2026-11-02:002275",
+      "snapshot": {
+        "code": "002275",
+        "name": "桂林三金",
+        "date": "2026-10-30",
+        "open": 14.3,
+        "close": 14.98,
+        "high": 14.98,
+        "low": 14.24,
+        "volume": 236261.0,
+        "daily_change_pct": 9.985,
+        "rvol": {
+          "5": 3.83543,
+          "10": 6.0893,
+          "20": 8.87454
+        },
+        "ma": {
+          "5": 13.06,
+          "10": 12.605,
+          "20": 12.4175,
+          "60": 12.63233
+        },
+        "range_position_pct": {
+          "20": 100.0,
+          "60": 100.0,
+          "120": 100.0
+        },
+        "distance_ma20_pct": 20.636,
+        "clv": 1.0,
+        "turnover_pct": 4.18345,
+        "amount_yi": 3.52306517,
+        "prior_turnover_pct": 4.09484,
+        "turnover_change_pct_points": 0.08861,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://qt.gtimg.cn/q=sz002134,sz002149,sz002150,sz002164,sz002169,sz002172,sz002173,sz002178,sz002179,sz002181,sz002184,sz002187,sz002196,sz002205,sz002212,sz002241,sz002242,sz002244,sz002249,sz002265,sz002275,sz002277,sz002279,sz002284,sz002290,sz002291,sz002292,sz002300,sz002303,sz002307,sz002311,sz002313,sz002315,sz002317,sz002322",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002275",
+          "date": "2026-10-30",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 14.3,
+              "cumulative_volume_lots": 16287.0,
+              "cumulative_amount_cny": 23290410.0,
+              "return_vs_reference_pct": 4.993
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 14.98,
+              "cumulative_volume_lots": 166366.0,
+              "cumulative_amount_cny": 247603884.32,
+              "return_vs_reference_pct": 9.985
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 14.98,
+              "cumulative_volume_lots": 169487.0,
+              "cumulative_amount_cny": 252279142.27,
+              "return_vs_reference_pct": 9.985
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 14.98,
+              "cumulative_volume_lots": 222252.0,
+              "cumulative_amount_cny": 331321112.85,
+              "return_vs_reference_pct": 9.985
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 14.98,
+              "cumulative_volume_lots": 227756.0,
+              "cumulative_amount_cny": 339566100.74,
+              "return_vs_reference_pct": 9.985
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 14.98,
+              "cumulative_volume_lots": 231496.0,
+              "cumulative_amount_cny": 345168621.38,
+              "return_vs_reference_pct": 9.985
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 14.98,
+              "cumulative_volume_lots": 232933.0,
+              "cumulative_amount_cny": 347321247.45,
+              "return_vs_reference_pct": 9.985
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 14.98,
+              "cumulative_volume_lots": 234429.0,
+              "cumulative_amount_cny": 349562255.46,
+              "return_vs_reference_pct": 9.985
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 14.98,
+              "cumulative_volume_lots": 236261.0,
+              "cumulative_amount_cny": 352306591.46,
+              "return_vs_reference_pct": 9.985
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share_pct": 2.0168373112786284,
+        "previous_20_session_high": 13.62,
+        "break_above_previous_20_high": true,
+        "daily_volume_ratio_vs_previous": 1.0216382639228219,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "source": "https://qt.gtimg.cn/q=sz002134,sz002149,sz002150,sz002164,sz002169,sz002172,sz002173,sz002178,sz002179,sz002181,sz002184,sz002187,sz002196,sz002205,sz002212,sz002241,sz002242,sz002244,sz002249,sz002265,sz002275,sz002277,sz002279,sz002284,sz002290,sz002291,sz002292,sz002300,sz002303,sz002307,sz002311,sz002313,sz002315,sz002317,sz002322",
+      "results": []
+    },
+    {
+      "code": "000596",
+      "hypothesis_labels": [
+        "H3"
+      ],
+      "arm": "same_industry_price_control",
+      "matched_to": "000568",
+      "reason": "同白酒、同日首板；9.911亿对31.164亿约3.14倍，不冒称严格流动性匹配，另用同口径沪深300基准",
+      "name": "古井贡酒",
+      "reference_price": 95.7,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "role": "research_control_not_recommendation",
+      "market_event_id": "cnA:2026-11-02:000596",
+      "snapshot": {
+        "code": "000596",
+        "name": "古井贡酒",
+        "date": "2026-10-30",
+        "open": 87.4,
+        "close": 95.7,
+        "high": 95.7,
+        "low": 87.4,
+        "volume": 104642.0,
+        "daily_change_pct": 10.0,
+        "rvol": {
+          "5": 2.75705,
+          "10": 2.82968,
+          "20": 3.02354
+        },
+        "ma": {
+          "5": 88.422,
+          "10": 86.963,
+          "20": 88.073,
+          "60": 92.50967
+        },
+        "range_position_pct": {
+          "20": 86.916,
+          "60": 61.78,
+          "120": 60.741
+        },
+        "distance_ma20_pct": 8.66,
+        "clv": 1.0,
+        "turnover_pct": 2.56098,
+        "amount_yi": 9.9105566,
+        "prior_turnover_pct": 1.01611,
+        "turnover_change_pct_points": 1.54487,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000596%2Cday%2C%2C%2C180",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz000596",
+          "date": "2026-10-30",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 87.4,
+              "cumulative_volume_lots": 498.0,
+              "cumulative_amount_cny": 4352520.0,
+              "return_vs_reference_pct": 0.46
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 95.43,
+              "cumulative_volume_lots": 30348.0,
+              "cumulative_amount_cny": 281175363.66,
+              "return_vs_reference_pct": 9.69
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 94.82,
+              "cumulative_volume_lots": 36697.0,
+              "cumulative_amount_cny": 341570701.06,
+              "return_vs_reference_pct": 8.989
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 95.51,
+              "cumulative_volume_lots": 78295.0,
+              "cumulative_amount_cny": 739032040.77,
+              "return_vs_reference_pct": 9.782
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 95.7,
+              "cumulative_volume_lots": 96659.0,
+              "cumulative_amount_cny": 914660150.69,
+              "return_vs_reference_pct": 10.0
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 95.7,
+              "cumulative_volume_lots": 101215.0,
+              "cumulative_amount_cny": 958261071.46,
+              "return_vs_reference_pct": 10.0
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 95.7,
+              "cumulative_volume_lots": 102274.0,
+              "cumulative_amount_cny": 968395701.63,
+              "return_vs_reference_pct": 10.0
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 95.7,
+              "cumulative_volume_lots": 102961.0,
+              "cumulative_amount_cny": 974970291.74,
+              "return_vs_reference_pct": 10.0
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 95.7,
+              "cumulative_volume_lots": 104642.0,
+              "cumulative_amount_cny": 991057459.03,
+              "return_vs_reference_pct": 10.0
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 0.0,
+        "tail_volume_share_pct": 3.2749756311997094,
+        "previous_20_session_high": 97.8,
+        "break_above_previous_20_high": false,
+        "daily_volume_ratio_vs_previous": 2.5204007900187873,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sz000596%2Cday%2C%2C%2C180",
+      "results": []
+    },
+    {
+      "code": "002724",
+      "hypothesis_labels": [
+        "H1"
+      ],
+      "arm": "high_position_positive_tail",
+      "matched_to": "600510",
+      "reason": "位置99.211%、尾盘+2.080%但未封/扣非亏损；检验正尾盘不能替代低位置，不按结果筛掉",
+      "name": "海洋王",
+      "reference_price": 14.72,
+      "reference_price_at": "2026-10-30T15:00:00+08:00",
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "role": "research_control_not_recommendation",
+      "market_event_id": "cnA:2026-11-02:002724",
+      "snapshot": {
+        "code": "002724",
+        "name": "海洋王",
+        "date": "2026-10-30",
+        "open": 13.49,
+        "close": 14.72,
+        "high": 14.8,
+        "low": 13.03,
+        "volume": 1294632.0,
+        "daily_change_pct": 8.715,
+        "rvol": {
+          "5": 0.89442,
+          "10": 1.35167,
+          "20": 1.92691
+        },
+        "ma": {
+          "5": 13.33,
+          "10": 11.806,
+          "20": 9.427,
+          "60": 7.48867
+        },
+        "range_position_pct": {
+          "20": 99.048,
+          "60": 99.165,
+          "120": 99.211
+        },
+        "distance_ma20_pct": 56.147,
+        "clv": 0.9548,
+        "turnover_pct": 22.85405,
+        "amount_yi": 18.31503144,
+        "prior_turnover_pct": 20.99305,
+        "turnover_change_pct_points": 1.861,
+        "intraday_volume_ratio": null,
+        "board_regime": "ordinary_main_10pct",
+        "quote_crosscheck_max_ohlc_difference": 0.0,
+        "source": "https://qt.gtimg.cn/q=sz002724,sz002727,sz002731,sz002737,sz002741,sz002747,sz002748,sz002777,sz002779,sz002785,sz002789,sz002792,sz002795,sz002800,sz002803,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002842,sz002851,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915",
+        "minute_checkpoints": {
+          "source": "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=sz002724",
+          "date": "2026-10-30",
+          "price_point_count": 242,
+          "auction_0925": null,
+          "points": {
+            "0930": {
+              "clock": "0930",
+              "price": 13.49,
+              "cumulative_volume_lots": 47961.0,
+              "cumulative_amount_cny": 64699389.0,
+              "return_vs_reference_pct": -0.369
+            },
+            "0945": {
+              "clock": "0945",
+              "price": 14.18,
+              "cumulative_volume_lots": 471001.0,
+              "cumulative_amount_cny": 656422471.65,
+              "return_vs_reference_pct": 4.727
+            },
+            "0950": {
+              "clock": "0950",
+              "price": 14.06,
+              "cumulative_volume_lots": 504558.0,
+              "cumulative_amount_cny": 703795436.64,
+              "return_vs_reference_pct": 3.84
+            },
+            "1030": {
+              "clock": "1030",
+              "price": 14.05,
+              "cumulative_volume_lots": 777139.0,
+              "cumulative_amount_cny": 1083998758.7,
+              "return_vs_reference_pct": 3.767
+            },
+            "1130": {
+              "clock": "1130",
+              "price": 14.14,
+              "cumulative_volume_lots": 893965.0,
+              "cumulative_amount_cny": 1248215592.54,
+              "return_vs_reference_pct": 4.431
+            },
+            "1400": {
+              "clock": "1400",
+              "price": 14.42,
+              "cumulative_volume_lots": 1063198.0,
+              "cumulative_amount_cny": 1493743581.8,
+              "return_vs_reference_pct": 6.499
+            },
+            "1430": {
+              "clock": "1430",
+              "price": 14.48,
+              "cumulative_volume_lots": 1107568.0,
+              "cumulative_amount_cny": 1557873184.14,
+              "return_vs_reference_pct": 6.942
+            },
+            "1440": {
+              "clock": "1440",
+              "price": 14.5,
+              "cumulative_volume_lots": 1138119.0,
+              "cumulative_amount_cny": 1602068172.1,
+              "return_vs_reference_pct": 7.09
+            },
+            "1500": {
+              "clock": "1500",
+              "price": 14.72,
+              "cumulative_volume_lots": 1294632.0,
+              "cumulative_amount_cny": 1831502549.75,
+              "return_vs_reference_pct": 8.715
+            }
+          },
+          "full_minute_ohlc": false,
+          "verified_fill": false,
+          "note": "Dated quote price points and cumulative volume/amount; no intra-minute sequence, order book, queue fill or auction evidence."
+        },
+        "tail_1400_close_pct": 2.08,
+        "tail_volume_share_pct": 17.876431294761755,
+        "previous_20_session_high": 13.59,
+        "break_above_previous_20_high": true,
+        "daily_volume_ratio_vs_previous": 1.0886478513905438,
+        "missing": [
+          "auction_0925",
+          "verified_order_book_and_queue_fill",
+          "intraday_comparable_volume_ratio",
+          "full_historical_daily_turnover_curve"
+        ]
+      },
+      "source": "https://qt.gtimg.cn/q=sz002724,sz002727,sz002731,sz002737,sz002741,sz002747,sz002748,sz002777,sz002779,sz002785,sz002789,sz002792,sz002795,sz002800,sz002803,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002842,sz002851,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915",
+      "results": []
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "hypothesis": "低位量能＋尾盘承接相较高位放量加速，T+2/T+5/T+10超额价格分布和MAE更好",
+      "falsification": "20—30独立实际计划日同情绪/制度检验，若中位超额价格不大于对照且MAE无改善则不支持；缺成交不能推净收益优势",
+      "boundary": "黑牡丹为低位置/放量/正尾盘必要价格代理处理组，正幅仅0.311%且财务亏损，不声称盘口承接已证；泸州尾盘持平列部分亚组。海洋王高位置正尾盘、桂林高位放量、青岛高位加速均保留对照，不按结果重分组。",
+      "treatment_codes": [
+        "600510"
+      ],
+      "partial_low_position_codes": [
+        "000568"
+      ],
+      "control_codes": [
+        "001219",
+        "002275",
+        "002724"
+      ],
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "version": "weak_market_shadow_v1",
+      "original_preregistration_file": "docs/research/shadow-experiments-20261030-v1.json"
+    },
+    {
+      "id": "H2",
+      "hypothesis": "首板后首次分歧承接/回封相较直接追高，合法次日退出的尾部亏损更小",
+      "falsification": "同股票同D的A首次可核分歧回封、B首个可交易开盘报价配对；同口径成本后净收益与下行尾部若无改善则不支持；无成交两臂只保留价格观察",
+      "boundary": "同股同D首次可核回封与开盘报价配对，仍是一个股票-D市场事件；没有买卖成交证据两臂都不产生净收益。",
+      "treatment_codes": [
+        "600258"
+      ],
+      "control_codes": [
+        "600258",
+        "605338"
+      ],
+      "paired_arms": {
+        "A": "原卡第一次可核分歧回封",
+        "B": "原卡第一个可证明成交的开盘报价价格对照"
+      },
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "version": "weak_market_shadow_v1",
+      "original_preregistration_file": "docs/research/shadow-experiments-20261030-v1.json"
+    },
+    {
+      "id": "H3",
+      "hypothesis": "板块逆势强度相较只看绝对涨幅，更有助于解释隔夜承接",
+      "falsification": "按弱/震荡/强、同日同制度分层后，沪深300超额价格和MAE若无改善则不支持；不能只统计仍涨停的幸存者",
+      "boundary": "白酒/酒店/食品与航运的可见价格篮子相对成长退潮更强；不是已核全行业成分或资金身份。主基准始终用同日沪深300及同弱/强/震荡口径。首旅8.823亿对青岛9.441亿、黑牡丹2.079亿对桂林3.523亿是同制度同量级但题材/板数/财务未完全匹配；泸州与古井成交相差约3.14倍，不冒称严格流动性匹配。所有原对照保留，不仅统计仍封板者。",
+      "treatment_codes": [
+        "000568",
+        "600258"
+      ],
+      "control_codes": [
+        "001219",
+        "000596"
+      ],
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "version": "weak_market_shadow_v1",
+      "original_preregistration_file": "docs/research/shadow-experiments-20261030-v1.json"
+    }
+  ],
+  "formal_cash_observations": [
+    {
+      "id": "combined-pair-20261030-cash-observation-v1",
+      "task_id": "combined_pair",
+      "report_id": "combined-pair-20261030-close-v1",
+      "T": "2026-10-30",
+      "planned_D": "2026-11-02",
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "decision": "cash_no_qualified_formal_candidate",
+      "formal_candidate_count": 0,
+      "market_emotion": "弱",
+      "objective_conditions": {
+        "advance_ratio": 0.16235893702220605,
+        "proxy_failed_board_ratio": 0.45454545454545453,
+        "main_progression": {
+          "1_to_2": {
+            "prior_full_denominator": 28,
+            "advanced": 6,
+            "broken": 22,
+            "missing": 0
+          },
+          "2_to_3": {
+            "prior_full_denominator": 6,
+            "advanced": 2,
+            "broken": 4,
+            "missing": 0
+          },
+          "3_to_4": {
+            "prior_full_denominator": 2,
+            "advanced": 0,
+            "broken": 2,
+            "missing": 0
+          },
+          "4_to_5": {
+            "prior_full_denominator": 2,
+            "advanced": 1,
+            "broken": 1,
+            "missing": 0
+          },
+          "5_to_6": {
+            "prior_full_denominator": 0,
+            "advanced": 0,
+            "broken": 0,
+            "missing": 0
+          },
+          "6_to_7": {
+            "prior_full_denominator": 0,
+            "advanced": 0,
+            "broken": 0,
+            "missing": 0
+          }
+        }
+      },
+      "reason": "同源正价宽度892涨/4602跌，上涨仅16.236%、主板阈值炸板35/77=45.455%，冻结定义仍为弱。旧三进四0/2，东贝/文投均收跌停，光洋四进五失败，最高青岛五板与空四板并存。新修复方向可研究，但量价/财报/高标供给/D可成交与隔夜退出未同时过关：正式综合0、打板0，分别保留空仓事件及28只对照池，不停止影子。",
+      "comparison_pool_codes": [
+        "001219",
+        "002582",
+        "300149",
+        "002086",
+        "600258",
+        "301210",
+        "605338",
+        "300980",
+        "002275",
+        "603278",
+        "002172",
+        "000995",
+        "600215",
+        "600688",
+        "600721",
+        "002724",
+        "600510",
+        "600928",
+        "000525",
+        "000568",
+        "000596",
+        "601083",
+        "301413",
+        "603330",
+        "600035",
+        "002636",
+        "001400",
+        "603382"
+      ],
+      "rejected_alternatives": [
+        "000568",
+        "600510",
+        "600258",
+        "605338",
+        "002275",
+        "001219",
+        "002724",
+        "300980"
+      ],
+      "strategy_return_pct": null,
+      "account_position_not_asserted": true,
+      "results": []
+    },
+    {
+      "id": "limitup-single-20261030-cash-observation-v1",
+      "task_id": "limitup_single",
+      "report_id": "limitup-single-20261030-close-v2",
+      "T": "2026-10-30",
+      "planned_D": "2026-11-02",
+      "frozen_at": "2026-10-30T18:20:11+08:00",
+      "decision": "cash_no_qualified_formal_candidate",
+      "formal_candidate_count": 0,
+      "market_emotion": "弱",
+      "objective_conditions": {
+        "advance_ratio": 0.16235893702220605,
+        "proxy_failed_board_ratio": 0.45454545454545453,
+        "main_progression": {
+          "1_to_2": {
+            "prior_full_denominator": 28,
+            "advanced": 6,
+            "broken": 22,
+            "missing": 0
+          },
+          "2_to_3": {
+            "prior_full_denominator": 6,
+            "advanced": 2,
+            "broken": 4,
+            "missing": 0
+          },
+          "3_to_4": {
+            "prior_full_denominator": 2,
+            "advanced": 0,
+            "broken": 2,
+            "missing": 0
+          },
+          "4_to_5": {
+            "prior_full_denominator": 2,
+            "advanced": 1,
+            "broken": 1,
+            "missing": 0
+          },
+          "5_to_6": {
+            "prior_full_denominator": 0,
+            "advanced": 0,
+            "broken": 0,
+            "missing": 0
+          },
+          "6_to_7": {
+            "prior_full_denominator": 0,
+            "advanced": 0,
+            "broken": 0,
+            "missing": 0
+          }
+        }
+      },
+      "reason": "同源正价宽度892涨/4602跌，上涨仅16.236%、主板阈值炸板35/77=45.455%，冻结定义仍为弱。旧三进四0/2，东贝/文投均收跌停，光洋四进五失败，最高青岛五板与空四板并存。新修复方向可研究，但量价/财报/高标供给/D可成交与隔夜退出未同时过关：正式综合0、打板0，分别保留空仓事件及28只对照池，不停止影子。",
+      "comparison_pool_codes": [
+        "001219",
+        "002582",
+        "300149",
+        "002086",
+        "600258",
+        "301210",
+        "605338",
+        "300980",
+        "002275",
+        "603278",
+        "002172",
+        "000995",
+        "600215",
+        "600688",
+        "600721",
+        "002724",
+        "600510",
+        "600928",
+        "000525",
+        "000568",
+        "000596",
+        "601083",
+        "301413",
+        "603330",
+        "600035",
+        "002636",
+        "001400",
+        "603382"
+      ],
+      "rejected_alternatives": [
+        "000568",
+        "600510",
+        "600258",
+        "605338",
+        "002275",
+        "001219",
+        "002724",
+        "300980"
+      ],
+      "strategy_return_pct": null,
+      "account_position_not_asserted": true,
+      "results": []
+    }
+  ],
+  "benchmark": {
+    "primary": "sh000300",
+    "source": "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh000300%2Cday%2C%2C%2C180",
+    "horizon_axes": [
+      "signal_T:1,2,5,10",
+      "planned_D:0,1,2,5,10"
+    ],
+    "price_anchor": "T close, not a fill",
+    "sector_context": "白酒/酒店/食品与航运的可见价格篮子相对成长退潮更强；不是已核全行业成分或资金身份。主基准始终用同日沪深300及同弱/强/震荡口径。首旅8.823亿对青岛9.441亿、黑牡丹2.079亿对桂林3.523亿是同制度同量级但题材/板数/财务未完全匹配；泸州与古井成交相差约3.14倍，不冒称严格流动性匹配。所有原对照保留，不仅统计仍封板者。",
+    "industry_constituents_verified": false
+  },
+  "review": {
+    "first_review_independent_sessions_min": 20,
+    "first_review_independent_sessions_max": 30,
+    "count_unit": "不同计划交易日；同代码同D的跨任务/配对/重叠持有事件用market_event_id去重",
+    "required": [
+      "N与独立日期",
+      "缺失/未触发/无法成交比例",
+      "T+1/T+2/T+5/T+10价格分布及MFE/MAE",
+      "封板/炸板与合法T+1退出",
+      "同情绪/制度基准或行业流动性对照",
+      "可执行净收益含成本，仅数据足够时",
+      "正式空仓的机会成本和风险，不当用户账户收益"
+    ],
+    "automatic_model_updates": false
+  },
+  "independent_market_shadow_report_id": "market-review-20261030-close-v1",
+  "results": []
+}

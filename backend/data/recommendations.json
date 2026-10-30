@@ -665,6 +665,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh600202,sh600215,sh600241,sh600252,sh600261,sh600293,sh600303,sh600316,sh600319,sh600325,sh600329,sh600380,sh600428,sh600435,sh600487,sh600501,sh600506,sh600510,sh600519,sh600547,sh600558,sh600576,sh600592,sh600596,sh600601,sh600611,sh600621,sh600626,sh600641,sh600643,sh600668,sh600693,sh600698,sh600710,sh600715",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "limitup-single-20261008-600592-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "limitup-single-20261030-close-v2"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 18.8,
+            "close": 15.68,
+            "high": 18.98,
+            "low": 15.67,
+            "volume": 623518.0
+          },
+          "anchor_date": "2026-10-08",
+          "anchor_close": 15.55,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 15.55,
+          "original_frozen_reference_price": 16.2,
+          "T_close_vs_signal_daily_close_pct": 0.836,
+          "T_close_vs_original_reference_pct": -3.21,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-09",
+              "status": "price_observed",
+              "close_pct": -1.479,
+              "high_observation_pct": -0.257,
+              "low_observation_pct": -5.209,
+              "benchmark_pct": 0.05,
+              "excess_price_observation_pct": -1.529,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -6.624,
+              "high_observation_pct": -0.257,
+              "low_observation_pct": -6.688,
+              "benchmark_pct": -0.385,
+              "excess_price_observation_pct": -6.239,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -7.01,
+              "high_observation_pct": -0.257,
+              "low_observation_pct": -14.148,
+              "benchmark_pct": -0.29,
+              "excess_price_observation_pct": -6.72,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -14.662,
+              "high_observation_pct": -0.257,
+              "low_observation_pct": -14.92,
+              "benchmark_pct": -2.739,
+              "excess_price_observation_pct": -11.923,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -3.923,
+              "high_observation_pct": -0.257,
+              "low_observation_pct": -14.92,
+              "benchmark_pct": -4.037,
+              "excess_price_observation_pct": 0.114,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-05",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-19",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "original_no_entry_preserved",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -1145,6 +1255,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300364,sz300369,sz300394,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "late-pair-20261008-300450-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 29.16,
+            "close": 30.45,
+            "high": 31.45,
+            "low": 29.16,
+            "volume": 727759.0
+          },
+          "anchor_date": "2026-10-08",
+          "anchor_close": 37.59,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 37.59,
+          "original_frozen_reference_price": 36.87,
+          "T_close_vs_signal_daily_close_pct": -18.994,
+          "T_close_vs_original_reference_pct": -17.413,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-09",
+              "status": "price_observed",
+              "close_pct": -2.288,
+              "high_observation_pct": 3.724,
+              "low_observation_pct": -3.192,
+              "benchmark_pct": 0.05,
+              "excess_price_observation_pct": -2.338,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.771,
+              "high_observation_pct": 3.724,
+              "low_observation_pct": -3.884,
+              "benchmark_pct": -0.385,
+              "excess_price_observation_pct": 1.156,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -8.885,
+              "high_observation_pct": 3.724,
+              "low_observation_pct": -11.333,
+              "benchmark_pct": -0.29,
+              "excess_price_observation_pct": -8.595,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -13.94,
+              "high_observation_pct": 3.724,
+              "low_observation_pct": -20.165,
+              "benchmark_pct": -2.739,
+              "excess_price_observation_pct": -11.201,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -27.082,
+              "high_observation_pct": 3.724,
+              "low_observation_pct": -27.082,
+              "benchmark_pct": -4.037,
+              "excess_price_observation_pct": -23.045,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-05",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-19",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300369,sz300394,sz300404,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300434,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494,sz300503,sz300504,sz300507,sz300508,sz300529,sz300530,sz300532,sz300539,sz300549,sz300552,sz300556,sz300561,sz300584,sz300613,sz300618,sz300620",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -1641,6 +1861,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh601398,sh601519,sh601528,sh601566,sh601698,sh601778,sh601808,sh601838,sh601872,sh601899,sh601900,sh601956,sh601975,sh601988,sh601995,sh601999,sh603006,sh603007,sh603021,sh603028,sh603037,sh603043,sh603061,sh603066,sh603067,sh603081,sh603083,sh603089,sh603095,sh603096,sh603101,sh603103,sh603109,sh603110,sh603121",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "late-pair-20261008-601872-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 17.05,
+            "close": 17.71,
+            "high": 17.92,
+            "low": 17.05,
+            "volume": 1149273.0
+          },
+          "anchor_date": "2026-10-08",
+          "anchor_close": 22.03,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 22.03,
+          "original_frozen_reference_price": 22.02,
+          "T_close_vs_signal_daily_close_pct": -19.61,
+          "T_close_vs_original_reference_pct": -19.573,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-09",
+              "status": "price_observed",
+              "close_pct": 0.182,
+              "high_observation_pct": 2.814,
+              "low_observation_pct": -6.264,
+              "benchmark_pct": 0.05,
+              "excess_price_observation_pct": 0.132,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.215,
+              "high_observation_pct": 2.814,
+              "low_observation_pct": -9.759,
+              "benchmark_pct": -0.385,
+              "excess_price_observation_pct": -8.83,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -3.268,
+              "high_observation_pct": 2.814,
+              "low_observation_pct": -9.759,
+              "benchmark_pct": -0.29,
+              "excess_price_observation_pct": -2.978,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -12.256,
+              "high_observation_pct": 2.814,
+              "low_observation_pct": -12.256,
+              "benchmark_pct": -2.739,
+              "excess_price_observation_pct": -9.517,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -26.146,
+              "high_observation_pct": 2.814,
+              "low_observation_pct": -26.328,
+              "benchmark_pct": -4.037,
+              "excess_price_observation_pct": -22.109,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-05",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-19",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600839,sh600845,sh600851,sh600853,sh600860,sh600862,sh600865,sh600879,sh600900,sh600928,sh600980,sh600988,sh600997,sh601021,sh601033,sh601083,sh601086,sh601091,sh601118,sh601127,sh601188,sh601199,sh601231,sh601288,sh601398,sh601519,sh601528,sh601566,sh601698,sh601717,sh601778,sh601808,sh601838,sh601858,sh601872",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
       "report_ids": [
@@ -2135,6 +2465,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh601398,sh601519,sh601528,sh601566,sh601698,sh601778,sh601808,sh601838,sh601872,sh601899,sh601900,sh601956,sh601975,sh601988,sh601995,sh601999,sh603006,sh603007,sh603021,sh603028,sh603037,sh603043,sh603061,sh603066,sh603067,sh603081,sh603083,sh603089,sh603095,sh603096,sh603101,sh603103,sh603109,sh603110,sh603121",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261008-601872-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 17.05,
+            "close": 17.71,
+            "high": 17.92,
+            "low": 17.05,
+            "volume": 1149273.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 22.07,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 22.03,
+          "original_frozen_reference_price": 22.17,
+          "T_close_vs_signal_daily_close_pct": -19.61,
+          "T_close_vs_original_reference_pct": -20.117,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.379,
+              "high_observation_pct": -1.042,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -0.434,
+              "excess_price_observation_pct": -8.945,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -3.444,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -0.339,
+              "excess_price_observation_pct": -3.105,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -2.673,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -1.221,
+              "excess_price_observation_pct": -1.452,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -17.58,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -18.758,
+              "benchmark_pct": -2.557,
+              "excess_price_observation_pct": -15.023,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -24.875,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -27.639,
+              "benchmark_pct": -3.233,
+              "excess_price_observation_pct": -21.642,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600839,sh600845,sh600851,sh600853,sh600860,sh600862,sh600865,sh600879,sh600900,sh600928,sh600980,sh600988,sh600997,sh601021,sh601033,sh601083,sh601086,sh601091,sh601118,sh601127,sh601188,sh601199,sh601231,sh601288,sh601398,sh601519,sh601528,sh601566,sh601698,sh601717,sh601778,sh601808,sh601838,sh601858,sh601872",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
       "report_ids": [
@@ -2626,6 +3066,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002076,sz002077,sz002078,sz002080,sz002085,sz002086,sz002088,sz002093,sz002095,sz002097,sz002103,sz002112,sz002134,sz002149,sz002150,sz002164,sz002172,sz002173,sz002178,sz002179,sz002181,sz002184,sz002187,sz002196,sz002205,sz002212,sz002241,sz002242,sz002244,sz002249,sz002265,sz002274,sz002275,sz002277",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261008-002074-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 22.4,
+            "close": 22.59,
+            "high": 23.6,
+            "low": 22.37,
+            "volume": 263206.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 30.41,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 31.3,
+          "original_frozen_reference_price": 31.18,
+          "T_close_vs_signal_daily_close_pct": -27.827,
+          "T_close_vs_original_reference_pct": -27.55,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.263,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -2.466,
+              "benchmark_pct": -0.434,
+              "excess_price_observation_pct": 0.697,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -6.84,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -7.892,
+              "benchmark_pct": -0.339,
+              "excess_price_observation_pct": -6.501,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -9.273,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -9.635,
+              "benchmark_pct": -1.221,
+              "excess_price_observation_pct": -8.052,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -8.648,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -12.397,
+              "benchmark_pct": -2.557,
+              "excess_price_observation_pct": -6.091,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -14.37,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -19.27,
+              "benchmark_pct": -3.233,
+              "excess_price_observation_pct": -11.137,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz001318,sz001323,sz001326,sz001328,sz001331,sz001359,sz001360,sz001368,sz001379,sz001388,sz001389,sz001400,sz001979,sz002009,sz002011,sz002026,sz002027,sz002029,sz002031,sz002036,sz002049,sz002058,sz002074,sz002076,sz002077,sz002078,sz002080,sz002085,sz002086,sz002088,sz002093,sz002095,sz002097,sz002103,sz002112",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -3154,6 +3704,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh601398,sh601519,sh601528,sh601566,sh601698,sh601778,sh601808,sh601838,sh601872,sh601899,sh601900,sh601956,sh601975,sh601988,sh601995,sh601999,sh603006,sh603007,sh603021,sh603028,sh603037,sh603043,sh603061,sh603066,sh603067,sh603081,sh603083,sh603089,sh603095,sh603096,sh603101,sh603103,sh603109,sh603110,sh603121",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261008-601872-close-v2-correction-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 17.05,
+            "close": 17.71,
+            "high": 17.92,
+            "low": 17.05,
+            "volume": 1149273.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 22.07,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 22.03,
+          "original_frozen_reference_price": 22.03,
+          "T_close_vs_signal_daily_close_pct": -19.61,
+          "T_close_vs_original_reference_pct": -19.61,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.379,
+              "high_observation_pct": -1.042,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -0.434,
+              "excess_price_observation_pct": -8.945,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -3.444,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -0.339,
+              "excess_price_observation_pct": -3.105,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -2.673,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -1.221,
+              "excess_price_observation_pct": -1.452,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -17.58,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -18.758,
+              "benchmark_pct": -2.557,
+              "excess_price_observation_pct": -15.023,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -24.875,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -27.639,
+              "benchmark_pct": -3.233,
+              "excess_price_observation_pct": -21.642,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600839,sh600845,sh600851,sh600853,sh600860,sh600862,sh600865,sh600879,sh600900,sh600928,sh600980,sh600988,sh600997,sh601021,sh601033,sh601083,sh601086,sh601091,sh601118,sh601127,sh601188,sh601199,sh601231,sh601288,sh601398,sh601519,sh601528,sh601566,sh601698,sh601717,sh601778,sh601808,sh601838,sh601858,sh601872",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -3668,6 +4328,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002076,sz002077,sz002078,sz002080,sz002085,sz002086,sz002088,sz002093,sz002095,sz002097,sz002103,sz002112,sz002134,sz002149,sz002150,sz002164,sz002172,sz002173,sz002178,sz002179,sz002181,sz002184,sz002187,sz002196,sz002205,sz002212,sz002241,sz002242,sz002244,sz002249,sz002265,sz002274,sz002275,sz002277",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261008-002074-close-v2-correction-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 22.4,
+            "close": 22.59,
+            "high": 23.6,
+            "low": 22.37,
+            "volume": 263206.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 30.41,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 31.3,
+          "original_frozen_reference_price": 31.3,
+          "T_close_vs_signal_daily_close_pct": -27.827,
+          "T_close_vs_original_reference_pct": -27.827,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.263,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -2.466,
+              "benchmark_pct": -0.434,
+              "excess_price_observation_pct": 0.697,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -6.84,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -7.892,
+              "benchmark_pct": -0.339,
+              "excess_price_observation_pct": -6.501,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -9.273,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -9.635,
+              "benchmark_pct": -1.221,
+              "excess_price_observation_pct": -8.052,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -8.648,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -12.397,
+              "benchmark_pct": -2.557,
+              "excess_price_observation_pct": -6.091,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -14.37,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -19.27,
+              "benchmark_pct": -3.233,
+              "excess_price_observation_pct": -11.137,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz001318,sz001323,sz001326,sz001328,sz001331,sz001359,sz001360,sz001368,sz001379,sz001388,sz001389,sz001400,sz001979,sz002009,sz002011,sz002026,sz002027,sz002029,sz002031,sz002036,sz002049,sz002058,sz002074,sz002076,sz002077,sz002078,sz002080,sz002085,sz002086,sz002088,sz002093,sz002095,sz002097,sz002103,sz002112",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
@@ -4356,6 +5126,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh601398,sh601519,sh601528,sh601566,sh601698,sh601778,sh601808,sh601838,sh601872,sh601899,sh601900,sh601956,sh601975,sh601988,sh601995,sh601999,sh603006,sh603007,sh603021,sh603028,sh603037,sh603043,sh603061,sh603066,sh603067,sh603081,sh603083,sh603089,sh603095,sh603096,sh603101,sh603103,sh603109,sh603110,sh603121",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261008-601872-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 17.05,
+            "close": 17.71,
+            "high": 17.92,
+            "low": 17.05,
+            "volume": 1149273.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 22.07,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 22.03,
+          "original_frozen_reference_price": 22.03,
+          "T_close_vs_signal_daily_close_pct": -19.61,
+          "T_close_vs_original_reference_pct": -19.61,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": -9.379,
+              "high_observation_pct": -1.042,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -0.434,
+              "excess_price_observation_pct": -8.945,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -3.444,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -0.339,
+              "excess_price_observation_pct": -3.105,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -2.673,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -9.923,
+              "benchmark_pct": -1.221,
+              "excess_price_observation_pct": -1.452,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -17.58,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -18.758,
+              "benchmark_pct": -2.557,
+              "excess_price_observation_pct": -15.023,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -24.875,
+              "high_observation_pct": -0.77,
+              "low_observation_pct": -27.639,
+              "benchmark_pct": -3.233,
+              "excess_price_observation_pct": -21.642,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600839,sh600845,sh600851,sh600853,sh600860,sh600862,sh600865,sh600879,sh600900,sh600928,sh600980,sh600988,sh600997,sh601021,sh601033,sh601083,sh601086,sh601091,sh601118,sh601127,sh601188,sh601199,sh601231,sh601288,sh601398,sh601519,sh601528,sh601566,sh601698,sh601717,sh601778,sh601808,sh601838,sh601858,sh601872",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
@@ -5129,6 +6009,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002074,sz002076,sz002077,sz002078,sz002080,sz002085,sz002086,sz002088,sz002093,sz002095,sz002097,sz002103,sz002112,sz002134,sz002149,sz002150,sz002164,sz002172,sz002173,sz002178,sz002179,sz002181,sz002184,sz002187,sz002196,sz002205,sz002212,sz002241,sz002242,sz002244,sz002249,sz002265,sz002274,sz002275,sz002277",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261008-002074-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 22.4,
+            "close": 22.59,
+            "high": 23.6,
+            "low": 22.37,
+            "volume": 263206.0
+          },
+          "anchor_date": "2026-10-09",
+          "anchor_close": 30.41,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-08",
+          "signal_daily_close": 31.3,
+          "original_frozen_reference_price": 31.3,
+          "T_close_vs_signal_daily_close_pct": -27.827,
+          "T_close_vs_original_reference_pct": -27.827,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-12",
+              "status": "price_observed",
+              "close_pct": 0.263,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -2.466,
+              "benchmark_pct": -0.434,
+              "excess_price_observation_pct": 0.697,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -6.84,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -7.892,
+              "benchmark_pct": -0.339,
+              "excess_price_observation_pct": -6.501,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -9.273,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -9.635,
+              "benchmark_pct": -1.221,
+              "excess_price_observation_pct": -8.052,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -8.648,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -12.397,
+              "benchmark_pct": -2.557,
+              "excess_price_observation_pct": -6.091,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -14.37,
+              "high_observation_pct": 2.466,
+              "low_observation_pct": -19.27,
+              "benchmark_pct": -3.233,
+              "excess_price_observation_pct": -11.137,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz001318,sz001323,sz001326,sz001328,sz001331,sz001359,sz001360,sz001368,sz001379,sz001388,sz001389,sz001400,sz001979,sz002009,sz002011,sz002026,sz002027,sz002029,sz002031,sz002036,sz002049,sz002058,sz002074,sz002076,sz002077,sz002078,sz002080,sz002085,sz002086,sz002088,sz002093,sz002095,sz002097,sz002103,sz002112",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -5647,6 +6637,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz301550,sz301555,sz301563,sz301565,sz301569,sz301591,sz301603,sz301622,sz301633,sz301655,sz301658,sz301660,sz301666,sz301682,sz301683,sz301686,sz301696,sz301699,sz301707,sz301716,sz301718,sh600026,sh600036,sh600075,sh600078,sh600094,sh600118,sh600127,sh600148,sh600152,sh600173,sh600178,sh600187,sh600192,sh600199",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261009-600026-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 18.45,
+            "close": 18.98,
+            "high": 19.48,
+            "low": 18.33,
+            "volume": 588071.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 21.65,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-09",
+          "signal_daily_close": 23.49,
+          "original_frozen_reference_price": 23.49,
+          "T_close_vs_signal_daily_close_pct": -19.2,
+          "T_close_vs_original_reference_pct": -19.2,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": 4.85,
+              "high_observation_pct": 7.483,
+              "low_observation_pct": 0.831,
+              "benchmark_pct": 0.095,
+              "excess_price_observation_pct": 4.755,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": 7.39,
+              "high_observation_pct": 9.099,
+              "low_observation_pct": 0.831,
+              "benchmark_pct": -0.79,
+              "excess_price_observation_pct": 8.18,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -3.326,
+              "high_observation_pct": 9.099,
+              "low_observation_pct": -3.326,
+              "benchmark_pct": -2.364,
+              "excess_price_observation_pct": -0.962,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -8.545,
+              "high_observation_pct": 9.099,
+              "low_observation_pct": -10.485,
+              "benchmark_pct": -1.747,
+              "excess_price_observation_pct": -6.798,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -11.871,
+              "high_observation_pct": 9.099,
+              "low_observation_pct": -18.06,
+              "benchmark_pct": -2.626,
+              "excess_price_observation_pct": -9.245,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-09",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-23",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz301555,sz301563,sz301565,sz301569,sz301591,sz301603,sz301606,sz301622,sz301626,sz301633,sz301655,sz301658,sz301660,sz301666,sz301682,sz301683,sz301686,sz301696,sz301699,sz301707,sz301716,sz301718,sh600026,sh600035,sh600036,sh600078,sh600094,sh600113,sh600118,sh600127,sh600148,sh600152,sh600173,sh600178,sh600187",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -6164,6 +7264,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002975,sz002979,sz002980,sz002982,sz002983,sz002988,sz002990,sz002991,sz002993,sz002995,sz003009,sz003011,sz003017,sz003018,sz003021,sz003028,sz003029,sz003032,sz200468,sz300006,sz300007,sz300031,sz300042,sz300045,sz300058,sz300061,sz300102,sz300107,sz300111,sz300113,sz300133,sz300136,sz300147,sz300154,sz300165",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261009-300058-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 11.56,
+            "close": 11.51,
+            "high": 12.08,
+            "low": 11.5,
+            "volume": 1431634.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 12.59,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-09",
+          "signal_daily_close": 12.87,
+          "original_frozen_reference_price": 12.87,
+          "T_close_vs_signal_daily_close_pct": -10.567,
+          "T_close_vs_original_reference_pct": -10.567,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": 3.574,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -2.939,
+              "benchmark_pct": 0.095,
+              "excess_price_observation_pct": 3.479,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": 2.065,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -2.939,
+              "benchmark_pct": -0.79,
+              "excess_price_observation_pct": 2.855,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -1.906,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -2.939,
+              "benchmark_pct": -2.364,
+              "excess_price_observation_pct": 0.458,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.163,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -7.387,
+              "benchmark_pct": -1.747,
+              "excess_price_observation_pct": -3.416,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -0.715,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -8.975,
+              "benchmark_pct": -2.626,
+              "excess_price_observation_pct": 1.911,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-09",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-23",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300058,sz300061,sz300102,sz300107,sz300111,sz300113,sz300121,sz300122,sz300133,sz300136,sz300147,sz300149,sz300154,sz300165,sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300286,sz300289,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300363,sz300364",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
@@ -6983,6 +8193,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002975,sz002979,sz002980,sz002982,sz002983,sz002988,sz002990,sz002991,sz002993,sz002995,sz003009,sz003011,sz003017,sz003018,sz003021,sz003028,sz003029,sz003032,sz200468,sz300006,sz300007,sz300031,sz300042,sz300045,sz300058,sz300061,sz300102,sz300107,sz300111,sz300113,sz300133,sz300136,sz300147,sz300154,sz300165",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261009-300058-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 11.56,
+            "close": 11.51,
+            "high": 12.08,
+            "low": 11.5,
+            "volume": 1431634.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 12.59,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-09",
+          "signal_daily_close": 12.87,
+          "original_frozen_reference_price": 12.87,
+          "T_close_vs_signal_daily_close_pct": -10.567,
+          "T_close_vs_original_reference_pct": -10.567,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": 3.574,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -2.939,
+              "benchmark_pct": 0.095,
+              "excess_price_observation_pct": 3.479,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": 2.065,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -2.939,
+              "benchmark_pct": -0.79,
+              "excess_price_observation_pct": 2.855,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -1.906,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -2.939,
+              "benchmark_pct": -2.364,
+              "excess_price_observation_pct": 0.458,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.163,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -7.387,
+              "benchmark_pct": -1.747,
+              "excess_price_observation_pct": -3.416,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -0.715,
+              "high_observation_pct": 5.798,
+              "low_observation_pct": -8.975,
+              "benchmark_pct": -2.626,
+              "excess_price_observation_pct": 1.911,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-09",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-23",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300058,sz300061,sz300102,sz300107,sz300111,sz300113,sz300121,sz300122,sz300133,sz300136,sz300147,sz300149,sz300154,sz300165,sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300286,sz300289,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300363,sz300364",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -7801,6 +9121,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz000029,sz000032,sz000058,sz000059,sz000099,sz000156,sz000411,sz000420,sz000422,sz000503,sz000513,sz000530,sz000547,sz000554,sz000559,sz000560,sz000576,sz000635,sz000639,sz000670,sz000678,sz000690,sz000700,sz000701,sz000712,sz000729,sz000759,sz000810,sz000812,sz000823,sz000860,sz000887,sz000888,sz000892,sz000972",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261009-000420-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 3.61,
+            "close": 3.65,
+            "high": 3.81,
+            "low": 3.6,
+            "volume": 973885.0
+          },
+          "anchor_date": "2026-10-12",
+          "anchor_close": 3.81,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-09",
+          "signal_daily_close": 3.81,
+          "original_frozen_reference_price": 3.81,
+          "T_close_vs_signal_daily_close_pct": -4.199,
+          "T_close_vs_original_reference_pct": -4.199,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-13",
+              "status": "price_observed",
+              "close_pct": -1.837,
+              "high_observation_pct": 0.525,
+              "low_observation_pct": -3.15,
+              "benchmark_pct": 0.095,
+              "excess_price_observation_pct": -1.932,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -4.987,
+              "high_observation_pct": 0.525,
+              "low_observation_pct": -5.249,
+              "benchmark_pct": -0.79,
+              "excess_price_observation_pct": -4.197,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -7.349,
+              "high_observation_pct": 0.525,
+              "low_observation_pct": -7.612,
+              "benchmark_pct": -2.364,
+              "excess_price_observation_pct": -4.985,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": 2.1,
+              "high_observation_pct": 4.199,
+              "low_observation_pct": -7.874,
+              "benchmark_pct": -1.747,
+              "excess_price_observation_pct": 3.847,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": 0.787,
+              "high_observation_pct": 5.774,
+              "low_observation_pct": -7.874,
+              "benchmark_pct": -2.626,
+              "excess_price_observation_pct": 3.413,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-09",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-23",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz000032,sz000058,sz000059,sz000099,sz000156,sz000410,sz000411,sz000415,sz000417,sz000420,sz000503,sz000513,sz000525,sz000530,sz000547,sz000554,sz000559,sz000560,sz000568,sz000576,sz000596,sz000599,sz000635,sz000639,sz000670,sz000676,sz000678,sz000690,sz000700,sz000701,sz000712,sz000716,sz000729,sz000759,sz000810",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -8321,6 +9751,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002279,sz002284,sz002300,sz002307,sz002311,sz002313,sz002315,sz002317,sz002322,sz002337,sz002343,sz002347,sz002354,sz002361,sz002368,sz002376,sz002380,sz002384,sz002388,sz002390,sz002394,sz002420,sz002421,sz002434,sz002437,sz002439,sz002456,sz002463,sz002469,sz002472,sz002474,sz002487,sz002488,sz002520,sz002526",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261012-002487-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 31.87,
+            "close": 30.68,
+            "high": 32.3,
+            "low": 30.42,
+            "volume": 484441.0
+          },
+          "anchor_date": "2026-10-13",
+          "anchor_close": 42.39,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-12",
+          "signal_daily_close": 47.1,
+          "original_frozen_reference_price": 47.1,
+          "T_close_vs_signal_daily_close_pct": -34.862,
+          "T_close_vs_original_reference_pct": -34.862,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -10.002,
+              "high_observation_pct": -1.274,
+              "low_observation_pct": -10.002,
+              "benchmark_pct": -0.885,
+              "excess_price_observation_pct": -9.117,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -16.678,
+              "high_observation_pct": -1.274,
+              "low_observation_pct": -17.528,
+              "benchmark_pct": -2.457,
+              "excess_price_observation_pct": -14.221,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -15.57,
+              "high_observation_pct": -1.274,
+              "low_observation_pct": -18.99,
+              "benchmark_pct": -2.225,
+              "excess_price_observation_pct": -13.345,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -18.235,
+              "high_observation_pct": -1.274,
+              "low_observation_pct": -20.807,
+              "benchmark_pct": -1.723,
+              "excess_price_observation_pct": -16.512,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-27",
+              "status": "price_observed",
+              "close_pct": -25.619,
+              "high_observation_pct": -1.274,
+              "low_observation_pct": -30.361,
+              "benchmark_pct": -4.014,
+              "excess_price_observation_pct": -21.605,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-10",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-24",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002324,sz002337,sz002343,sz002345,sz002347,sz002348,sz002354,sz002361,sz002363,sz002365,sz002368,sz002376,sz002380,sz002384,sz002388,sz002390,sz002394,sz002420,sz002421,sz002425,sz002432,sz002434,sz002437,sz002439,sz002463,sz002469,sz002471,sz002472,sz002474,sz002487,sz002488,sz002510,sz002520,sz002526,sz002531",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -8840,6 +10380,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300364,sz300369,sz300394,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261012-300413-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 22.88,
+            "close": 22.3,
+            "high": 23.5,
+            "low": 22.05,
+            "volume": 664523.0
+          },
+          "anchor_date": "2026-10-13",
+          "anchor_close": 24.0,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-12",
+          "signal_daily_close": 24.16,
+          "original_frozen_reference_price": 24.16,
+          "T_close_vs_signal_daily_close_pct": -7.699,
+          "T_close_vs_original_reference_pct": -7.699,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": 6.833,
+              "high_observation_pct": 13.0,
+              "low_observation_pct": -6.25,
+              "benchmark_pct": -0.885,
+              "excess_price_observation_pct": 7.718,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": 2.125,
+              "high_observation_pct": 13.0,
+              "low_observation_pct": -6.25,
+              "benchmark_pct": -2.457,
+              "excess_price_observation_pct": 4.582,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -1.625,
+              "high_observation_pct": 13.0,
+              "low_observation_pct": -6.25,
+              "benchmark_pct": -2.225,
+              "excess_price_observation_pct": 0.6,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -2.5,
+              "high_observation_pct": 13.0,
+              "low_observation_pct": -6.667,
+              "benchmark_pct": -1.723,
+              "excess_price_observation_pct": -0.777,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-27",
+              "status": "price_observed",
+              "close_pct": -2.167,
+              "high_observation_pct": 13.0,
+              "low_observation_pct": -12.458,
+              "benchmark_pct": -4.014,
+              "excess_price_observation_pct": 1.847,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-10",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-24",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300369,sz300394,sz300404,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300434,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494,sz300503,sz300504,sz300507,sz300508,sz300529,sz300530,sz300532,sz300539,sz300549,sz300552,sz300556,sz300561,sz300584,sz300613,sz300618,sz300620",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
@@ -9691,6 +11341,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300364,sz300369,sz300394,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261012-300450-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 29.16,
+            "close": 30.45,
+            "high": 31.45,
+            "low": 29.16,
+            "volume": 727759.0
+          },
+          "anchor_date": "2026-10-13",
+          "anchor_close": 34.25,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-12",
+          "signal_daily_close": 37.88,
+          "original_frozen_reference_price": 37.88,
+          "T_close_vs_signal_daily_close_pct": -19.615,
+          "T_close_vs_original_reference_pct": -19.615,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-14",
+              "status": "price_observed",
+              "close_pct": -5.752,
+              "high_observation_pct": 1.869,
+              "low_observation_pct": -6.511,
+              "benchmark_pct": -0.885,
+              "excess_price_observation_pct": -4.867,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-15",
+              "status": "price_observed",
+              "close_pct": -5.547,
+              "high_observation_pct": 1.869,
+              "low_observation_pct": -12.38,
+              "benchmark_pct": -2.457,
+              "excess_price_observation_pct": -3.09,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": -9.372,
+              "high_observation_pct": 1.869,
+              "low_observation_pct": -12.38,
+              "benchmark_pct": -2.225,
+              "excess_price_observation_pct": -7.147,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -10.774,
+              "high_observation_pct": 1.869,
+              "low_observation_pct": -12.38,
+              "benchmark_pct": -1.723,
+              "excess_price_observation_pct": -9.051,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-27",
+              "status": "price_observed",
+              "close_pct": -13.577,
+              "high_observation_pct": 1.869,
+              "low_observation_pct": -20.934,
+              "benchmark_pct": -4.014,
+              "excess_price_observation_pct": -9.563,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-10",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-24",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300369,sz300394,sz300404,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300434,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494,sz300503,sz300504,sz300507,sz300508,sz300529,sz300530,sz300532,sz300539,sz300549,sz300552,sz300556,sz300561,sz300584,sz300613,sz300618,sz300620",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -10218,6 +11978,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh600202,sh600215,sh600241,sh600252,sh600261,sh600293,sh600303,sh600316,sh600319,sh600325,sh600329,sh600380,sh600428,sh600435,sh600487,sh600501,sh600506,sh600510,sh600519,sh600547,sh600558,sh600576,sh600592,sh600596,sh600601,sh600611,sh600621,sh600626,sh600641,sh600643,sh600668,sh600693,sh600698,sh600710,sh600715",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261014-600316-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 32.84,
+            "close": 32.16,
+            "high": 33.17,
+            "low": 31.86,
+            "volume": 143276.0
+          },
+          "anchor_date": "2026-10-15",
+          "anchor_close": 35.1,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-14",
+          "signal_daily_close": 35.56,
+          "original_frozen_reference_price": 35.56,
+          "T_close_vs_signal_daily_close_pct": -9.561,
+          "T_close_vs_original_reference_pct": -9.561,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": 7.293,
+              "high_observation_pct": 10.0,
+              "low_observation_pct": 0.057,
+              "benchmark_pct": 0.237,
+              "excess_price_observation_pct": 7.056,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": 7.208,
+              "high_observation_pct": 10.0,
+              "low_observation_pct": 0.057,
+              "benchmark_pct": 0.632,
+              "excess_price_observation_pct": 6.576,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 6.724,
+              "high_observation_pct": 10.0,
+              "low_observation_pct": 0.057,
+              "benchmark_pct": 0.752,
+              "excess_price_observation_pct": 5.972,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": 2.507,
+              "high_observation_pct": 10.0,
+              "low_observation_pct": 0.057,
+              "benchmark_pct": -1.334,
+              "excess_price_observation_pct": 3.841,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-29",
+              "status": "price_observed",
+              "close_pct": -5.043,
+              "high_observation_pct": 10.0,
+              "low_observation_pct": -7.92,
+              "benchmark_pct": -1.512,
+              "excess_price_observation_pct": -3.531,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-12",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-26",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600189,sh600192,sh600199,sh600202,sh600215,sh600241,sh600252,sh600258,sh600261,sh600272,sh600281,sh600285,sh600293,sh600303,sh600316,sh600319,sh600329,sh600353,sh600380,sh600428,sh600435,sh600436,sh600487,sh600501,sh600506,sh600510,sh600516,sh600519,sh600520,sh600547,sh600556,sh600558,sh600576,sh600592,sh600596",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
       "id": "market-review-20261014-600316-close-v1",
@@ -10733,6 +12603,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002531,sz002534,sz002535,sz002536,sz002565,sz002576,sz002578,sz002580,sz002590,sz002593,sz002596,sz002599,sz002605,sz002612,sz002623,sz002625,sz002626,sz002631,sz002636,sz002639,sz002679,sz002683,sz002687,sz002696,sz002703,sz002708,sz002709,sz002724,sz002727,sz002731,sz002741,sz002747,sz002748,sz002774,sz002777",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261014-002727-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 12.86,
+            "close": 13.25,
+            "high": 13.45,
+            "low": 12.83,
+            "volume": 173480.0
+          },
+          "anchor_date": "2026-10-15",
+          "anchor_close": 12.79,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-14",
+          "signal_daily_close": 12.46,
+          "original_frozen_reference_price": 12.46,
+          "T_close_vs_signal_daily_close_pct": 6.34,
+          "T_close_vs_original_reference_pct": 6.34,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-16",
+              "status": "price_observed",
+              "close_pct": 1.486,
+              "high_observation_pct": 2.424,
+              "low_observation_pct": -1.798,
+              "benchmark_pct": 0.237,
+              "excess_price_observation_pct": 1.249,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": 3.518,
+              "high_observation_pct": 4.926,
+              "low_observation_pct": -1.798,
+              "benchmark_pct": 0.632,
+              "excess_price_observation_pct": 2.886,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 2.267,
+              "high_observation_pct": 4.926,
+              "low_observation_pct": -1.798,
+              "benchmark_pct": 0.752,
+              "excess_price_observation_pct": 1.515,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": 1.407,
+              "high_observation_pct": 4.926,
+              "low_observation_pct": -1.798,
+              "benchmark_pct": -1.334,
+              "excess_price_observation_pct": 2.741,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-29",
+              "status": "price_observed",
+              "close_pct": 1.407,
+              "high_observation_pct": 4.926,
+              "low_observation_pct": -3.206,
+              "benchmark_pct": -1.512,
+              "excess_price_observation_pct": 2.919,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-12",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-26",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002724,sz002727,sz002731,sz002737,sz002741,sz002747,sz002748,sz002777,sz002779,sz002785,sz002789,sz002792,sz002795,sz002800,sz002803,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002842,sz002851,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -11250,6 +13230,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz000973,sz000983,sz000993,sz000995,sz001211,sz001216,sz001219,sz001225,sz001233,sz001239,sz001270,sz001282,sz001283,sz001296,sz001298,sz001301,sz001311,sz001317,sz001318,sz001323,sz001328,sz001331,sz001359,sz001360,sz001368,sz001379,sz001388,sz001400,sz001979,sz002009,sz002011,sz002026,sz002027,sz002049,sz002058",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261015-000973-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 10.15,
+            "close": 10.34,
+            "high": 10.63,
+            "low": 10.1,
+            "volume": 231148.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 11.96,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-15",
+          "signal_daily_close": 12.19,
+          "original_frozen_reference_price": 12.19,
+          "T_close_vs_signal_daily_close_pct": -15.176,
+          "T_close_vs_original_reference_pct": -15.176,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.435,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -5.853,
+              "benchmark_pct": 0.394,
+              "excess_price_observation_pct": -5.829,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -4.849,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -7.776,
+              "benchmark_pct": 0.514,
+              "excess_price_observation_pct": -5.363,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -7.776,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -8.027,
+              "benchmark_pct": -0.087,
+              "excess_price_observation_pct": -7.689,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -12.375,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -18.478,
+              "benchmark_pct": -0.694,
+              "excess_price_observation_pct": -11.681,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-30",
+              "status": "price_observed",
+              "close_pct": -13.545,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -18.478,
+              "benchmark_pct": -3.155,
+              "excess_price_observation_pct": -10.39,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-13",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-27",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz000823,sz000838,sz000858,sz000859,sz000860,sz000887,sz000888,sz000892,sz000897,sz000900,sz000915,sz000972,sz000973,sz000983,sz000993,sz000995,sz000999,sz001208,sz001210,sz001211,sz001216,sz001219,sz001225,sz001233,sz001238,sz001239,sz001270,sz001282,sz001283,sz001287,sz001296,sz001298,sz001301,sz001311,sz001317",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
       "id": "market-review-20261015-000973-close-v1",
@@ -11765,6 +13855,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002779,sz002785,sz002786,sz002789,sz002795,sz002800,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915,sz002917,sz002929,sz002931,sz002938,sz002943,sz002945,sz002948,sz002949,sz002961,sz002962,sz002963",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261015-002812-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 45.53,
+            "close": 46.66,
+            "high": 48.28,
+            "low": 45.3,
+            "volume": 283724.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 46.26,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-15",
+          "signal_daily_close": 48.39,
+          "original_frozen_reference_price": 48.39,
+          "T_close_vs_signal_daily_close_pct": -3.575,
+          "T_close_vs_original_reference_pct": -3.575,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -1.362,
+              "high_observation_pct": -0.497,
+              "low_observation_pct": -2.94,
+              "benchmark_pct": 0.394,
+              "excess_price_observation_pct": -1.756,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 0.627,
+              "high_observation_pct": 1.816,
+              "low_observation_pct": -3.048,
+              "benchmark_pct": 0.514,
+              "excess_price_observation_pct": 0.113,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -5.556,
+              "high_observation_pct": 1.816,
+              "low_observation_pct": -6.334,
+              "benchmark_pct": -0.087,
+              "excess_price_observation_pct": -5.469,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 1.427,
+              "high_observation_pct": 1.816,
+              "low_observation_pct": -9.209,
+              "benchmark_pct": -0.694,
+              "excess_price_observation_pct": 2.121,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-30",
+              "status": "price_observed",
+              "close_pct": 0.865,
+              "high_observation_pct": 5.88,
+              "low_observation_pct": -9.209,
+              "benchmark_pct": -3.155,
+              "excess_price_observation_pct": 4.02,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-13",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-27",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002724,sz002727,sz002731,sz002737,sz002741,sz002747,sz002748,sz002777,sz002779,sz002785,sz002789,sz002792,sz002795,sz002800,sz002803,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002842,sz002851,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -12535,6 +14735,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz000973,sz000983,sz000993,sz000995,sz001211,sz001216,sz001219,sz001225,sz001233,sz001239,sz001270,sz001282,sz001283,sz001296,sz001298,sz001301,sz001311,sz001317,sz001318,sz001323,sz001328,sz001331,sz001359,sz001360,sz001368,sz001379,sz001388,sz001400,sz001979,sz002009,sz002011,sz002026,sz002027,sz002049,sz002058",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261015-000973-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 10.15,
+            "close": 10.34,
+            "high": 10.63,
+            "low": 10.1,
+            "volume": 231148.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 11.96,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-15",
+          "signal_daily_close": 12.19,
+          "original_frozen_reference_price": 12.19,
+          "T_close_vs_signal_daily_close_pct": -15.176,
+          "T_close_vs_original_reference_pct": -15.176,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -5.435,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -5.853,
+              "benchmark_pct": 0.394,
+              "excess_price_observation_pct": -5.829,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -4.849,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -7.776,
+              "benchmark_pct": 0.514,
+              "excess_price_observation_pct": -5.363,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -7.776,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -8.027,
+              "benchmark_pct": -0.087,
+              "excess_price_observation_pct": -7.689,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -12.375,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -18.478,
+              "benchmark_pct": -0.694,
+              "excess_price_observation_pct": -11.681,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-30",
+              "status": "price_observed",
+              "close_pct": -13.545,
+              "high_observation_pct": -1.338,
+              "low_observation_pct": -18.478,
+              "benchmark_pct": -3.155,
+              "excess_price_observation_pct": -10.39,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-13",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-27",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz000823,sz000838,sz000858,sz000859,sz000860,sz000887,sz000888,sz000892,sz000897,sz000900,sz000915,sz000972,sz000973,sz000983,sz000993,sz000995,sz000999,sz001208,sz001210,sz001211,sz001216,sz001219,sz001225,sz001233,sz001238,sz001239,sz001270,sz001282,sz001283,sz001287,sz001296,sz001298,sz001301,sz001311,sz001317",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -13294,6 +15604,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002779,sz002785,sz002786,sz002789,sz002795,sz002800,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915,sz002917,sz002929,sz002931,sz002938,sz002943,sz002945,sz002948,sz002949,sz002961,sz002962,sz002963",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261015-002812-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 45.53,
+            "close": 46.66,
+            "high": 48.28,
+            "low": 45.3,
+            "volume": 283724.0
+          },
+          "anchor_date": "2026-10-16",
+          "anchor_close": 46.26,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-15",
+          "signal_daily_close": 48.39,
+          "original_frozen_reference_price": 48.39,
+          "T_close_vs_signal_daily_close_pct": -3.575,
+          "T_close_vs_original_reference_pct": -3.575,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-19",
+              "status": "price_observed",
+              "close_pct": -1.362,
+              "high_observation_pct": -0.497,
+              "low_observation_pct": -2.94,
+              "benchmark_pct": 0.394,
+              "excess_price_observation_pct": -1.756,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 0.627,
+              "high_observation_pct": 1.816,
+              "low_observation_pct": -3.048,
+              "benchmark_pct": 0.514,
+              "excess_price_observation_pct": 0.113,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -5.556,
+              "high_observation_pct": 1.816,
+              "low_observation_pct": -6.334,
+              "benchmark_pct": -0.087,
+              "excess_price_observation_pct": -5.469,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 1.427,
+              "high_observation_pct": 1.816,
+              "low_observation_pct": -9.209,
+              "benchmark_pct": -0.694,
+              "excess_price_observation_pct": 2.121,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-10-30",
+              "status": "price_observed",
+              "close_pct": 0.865,
+              "high_observation_pct": 5.88,
+              "low_observation_pct": -9.209,
+              "benchmark_pct": -3.155,
+              "excess_price_observation_pct": 4.02,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-13",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-27",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002724,sz002727,sz002731,sz002737,sz002741,sz002747,sz002748,sz002777,sz002779,sz002785,sz002789,sz002792,sz002795,sz002800,sz002803,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002842,sz002851,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -13794,6 +16214,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300503,sz300504,sz300507,sz300508,sz300529,sz300530,sz300532,sz300539,sz300549,sz300552,sz300556,sz300561,sz300584,sz300613,sz300618,sz300620,sz300626,sz300631,sz300666,sz300671,sz300677,sz300684,sz300698,sz300699,sz300709,sz300718,sz300719,sz300751,sz300756,sz300762,sz300771,sz300780,sz300787,sz300806,sz300821",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261016-300719-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 11.07,
+            "close": 10.41,
+            "high": 11.1,
+            "low": 10.41,
+            "volume": 58286.0
+          },
+          "anchor_date": "2026-10-19",
+          "anchor_close": 12.22,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-16",
+          "signal_daily_close": 12.4,
+          "original_frozen_reference_price": 12.4,
+          "T_close_vs_signal_daily_close_pct": -16.048,
+          "T_close_vs_original_reference_pct": -16.048,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -1.064,
+              "high_observation_pct": 0.736,
+              "low_observation_pct": -2.782,
+              "benchmark_pct": 0.119,
+              "excess_price_observation_pct": -1.183,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -1.391,
+              "high_observation_pct": 1.718,
+              "low_observation_pct": -2.782,
+              "benchmark_pct": -0.48,
+              "excess_price_observation_pct": -0.911,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -5.074,
+              "high_observation_pct": 1.718,
+              "low_observation_pct": -5.237,
+              "benchmark_pct": -1.954,
+              "excess_price_observation_pct": -3.12,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -5.237,
+              "high_observation_pct": 1.718,
+              "low_observation_pct": -12.111,
+              "benchmark_pct": -0.895,
+              "excess_price_observation_pct": -4.342,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-02",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-16",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-30",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300626,sz300631,sz300666,sz300671,sz300677,sz300684,sz300695,sz300698,sz300699,sz300709,sz300718,sz300719,sz300725,sz300739,sz300740,sz300751,sz300756,sz300762,sz300770,sz300771,sz300780,sz300787,sz300803,sz300806,sz300821,sz300825,sz300829,sz300832,sz300839,sz300860,sz300877,sz300900,sz300911,sz300916,sz300949",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -14311,6 +16841,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sh600727,sh600728,sh600737,sh600742,sh600757,sh600771,sh600785,sh600802,sh600809,sh600812,sh600822,sh600825,sh600826,sh600828,sh600838,sh600839,sh600845,sh600851,sh600853,sh600860,sh600862,sh600865,sh600879,sh600900,sh600980,sh600988,sh600997,sh601033,sh601086,sh601091,sh601118,sh601127,sh601188,sh601231,sh601288",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261016-600853-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 3.58,
+            "close": 3.51,
+            "high": 3.73,
+            "low": 3.49,
+            "volume": 652373.0
+          },
+          "anchor_date": "2026-10-19",
+          "anchor_close": 3.54,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-16",
+          "signal_daily_close": 3.59,
+          "original_frozen_reference_price": 3.59,
+          "T_close_vs_signal_daily_close_pct": -2.228,
+          "T_close_vs_original_reference_pct": -2.228,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": -1.695,
+              "high_observation_pct": 2.825,
+              "low_observation_pct": -3.39,
+              "benchmark_pct": 0.119,
+              "excess_price_observation_pct": -1.814,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": 2.26,
+              "high_observation_pct": 3.955,
+              "low_observation_pct": -3.39,
+              "benchmark_pct": -0.48,
+              "excess_price_observation_pct": 2.74,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": 2.825,
+              "high_observation_pct": 5.932,
+              "low_observation_pct": -3.39,
+              "benchmark_pct": -1.954,
+              "excess_price_observation_pct": 4.779,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -0.847,
+              "high_observation_pct": 5.932,
+              "low_observation_pct": -3.39,
+              "benchmark_pct": -0.895,
+              "excess_price_observation_pct": 0.048,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-02",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-16",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-30",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sh600839,sh600845,sh600851,sh600853,sh600860,sh600862,sh600865,sh600879,sh600900,sh600928,sh600980,sh600988,sh600997,sh601021,sh601033,sh601083,sh601086,sh601091,sh601118,sh601127,sh601188,sh601199,sh601231,sh601288,sh601398,sh601519,sh601528,sh601566,sh601698,sh601717,sh601778,sh601808,sh601838,sh601858,sh601872",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -15062,6 +17702,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz000029,sz000032,sz000058,sz000059,sz000099,sz000156,sz000411,sz000420,sz000422,sz000503,sz000513,sz000530,sz000547,sz000554,sz000559,sz000560,sz000576,sz000635,sz000639,sz000670,sz000678,sz000690,sz000700,sz000701,sz000712,sz000729,sz000759,sz000810,sz000812,sz000823,sz000860,sz000887,sz000888,sz000892,sz000972",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261016-000887-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 16.26,
+            "close": 16.3,
+            "high": 17.11,
+            "low": 16.16,
+            "volume": 291210.0
+          },
+          "anchor_date": "2026-10-19",
+          "anchor_close": 17.0,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-16",
+          "signal_daily_close": 17.72,
+          "original_frozen_reference_price": 17.72,
+          "T_close_vs_signal_daily_close_pct": -8.014,
+          "T_close_vs_original_reference_pct": -8.014,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-20",
+              "status": "price_observed",
+              "close_pct": 1.765,
+              "high_observation_pct": 3.118,
+              "low_observation_pct": 0.0,
+              "benchmark_pct": 0.119,
+              "excess_price_observation_pct": 1.646,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": 2.824,
+              "high_observation_pct": 3.824,
+              "low_observation_pct": 0.0,
+              "benchmark_pct": -0.48,
+              "excess_price_observation_pct": 3.304,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -1.412,
+              "high_observation_pct": 3.824,
+              "low_observation_pct": -1.412,
+              "benchmark_pct": -1.954,
+              "excess_price_observation_pct": 0.542,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": 2.235,
+              "high_observation_pct": 4.824,
+              "low_observation_pct": -5.706,
+              "benchmark_pct": -0.895,
+              "excess_price_observation_pct": 3.13,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-02",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-16",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-11-30",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz000823,sz000838,sz000858,sz000859,sz000860,sz000887,sz000888,sz000892,sz000897,sz000900,sz000915,sz000972,sz000973,sz000983,sz000993,sz000995,sz000999,sz001208,sz001210,sz001211,sz001216,sz001219,sz001225,sz001233,sz001238,sz001239,sz001270,sz001282,sz001283,sz001287,sz001296,sz001298,sz001301,sz001311,sz001317",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -15560,6 +18310,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002531,sz002534,sz002535,sz002536,sz002565,sz002576,sz002578,sz002580,sz002590,sz002593,sz002596,sz002599,sz002605,sz002612,sz002623,sz002625,sz002626,sz002631,sz002636,sz002639,sz002679,sz002683,sz002687,sz002696,sz002703,sz002708,sz002709,sz002724,sz002727,sz002731,sz002741,sz002747,sz002748,sz002774,sz002777",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261019-002683-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 31.5,
+            "close": 32.12,
+            "high": 32.83,
+            "low": 31.3,
+            "volume": 178755.0
+          },
+          "anchor_date": "2026-10-20",
+          "anchor_close": 30.17,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-19",
+          "signal_daily_close": 30.11,
+          "original_frozen_reference_price": 30.11,
+          "T_close_vs_signal_daily_close_pct": 6.676,
+          "T_close_vs_original_reference_pct": 6.676,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -1.226,
+              "high_observation_pct": 1.094,
+              "low_observation_pct": -1.458,
+              "benchmark_pct": -0.598,
+              "excess_price_observation_pct": -0.628,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -3.215,
+              "high_observation_pct": 1.094,
+              "low_observation_pct": -3.48,
+              "benchmark_pct": -2.07,
+              "excess_price_observation_pct": -1.145,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -2.254,
+              "high_observation_pct": 1.094,
+              "low_observation_pct": -6.497,
+              "benchmark_pct": -1.202,
+              "excess_price_observation_pct": -1.052,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-27",
+              "status": "price_observed",
+              "close_pct": -2.353,
+              "high_observation_pct": 2.32,
+              "low_observation_pct": -6.497,
+              "benchmark_pct": -2.331,
+              "excess_price_observation_pct": -0.022,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-03",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-17",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-12-01",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002534,sz002535,sz002536,sz002550,sz002555,sz002565,sz002576,sz002578,sz002580,sz002582,sz002590,sz002593,sz002596,sz002599,sz002605,sz002612,sz002623,sz002625,sz002626,sz002627,sz002631,sz002636,sz002639,sz002652,sz002655,sz002667,sz002674,sz002679,sz002683,sz002687,sz002696,sz002703,sz002708,sz002709,sz002712",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -16075,6 +18935,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002779,sz002785,sz002786,sz002789,sz002795,sz002800,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915,sz002917,sz002929,sz002931,sz002938,sz002943,sz002945,sz002948,sz002949,sz002961,sz002962,sz002963",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261019-002903-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 23.46,
+            "close": 23.14,
+            "high": 24.98,
+            "low": 23.14,
+            "volume": 88404.0
+          },
+          "anchor_date": "2026-10-20",
+          "anchor_close": 24.9,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-19",
+          "signal_daily_close": 24.96,
+          "original_frozen_reference_price": 24.96,
+          "T_close_vs_signal_daily_close_pct": -7.292,
+          "T_close_vs_original_reference_pct": -7.292,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-21",
+              "status": "price_observed",
+              "close_pct": -1.526,
+              "high_observation_pct": 0.803,
+              "low_observation_pct": -2.129,
+              "benchmark_pct": -0.598,
+              "excess_price_observation_pct": -0.928,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -4.016,
+              "high_observation_pct": 0.803,
+              "low_observation_pct": -4.98,
+              "benchmark_pct": -2.07,
+              "excess_price_observation_pct": -1.946,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": -1.807,
+              "high_observation_pct": 0.803,
+              "low_observation_pct": -13.253,
+              "benchmark_pct": -1.202,
+              "excess_price_observation_pct": -0.605,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-27",
+              "status": "price_observed",
+              "close_pct": 1.124,
+              "high_observation_pct": 6.265,
+              "low_observation_pct": -13.253,
+              "benchmark_pct": -2.331,
+              "excess_price_observation_pct": 3.455,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-03",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-17",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-12-01",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002724,sz002727,sz002731,sz002737,sz002741,sz002747,sz002748,sz002777,sz002779,sz002785,sz002789,sz002792,sz002795,sz002800,sz002803,sz002805,sz002811,sz002812,sz002820,sz002823,sz002835,sz002842,sz002851,sz002862,sz002865,sz002866,sz002869,sz002877,sz002878,sz002879,sz002889,sz002901,sz002903,sz002913,sz002915",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -16621,6 +19591,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300364,sz300369,sz300394,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261020-300458-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 25.48,
+            "close": 24.76,
+            "high": 26.31,
+            "low": 24.71,
+            "volume": 327980.0
+          },
+          "anchor_date": "2026-10-21",
+          "anchor_close": 28.95,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-20",
+          "signal_daily_close": 28.64,
+          "original_frozen_reference_price": 28.64,
+          "T_close_vs_signal_daily_close_pct": -13.547,
+          "T_close_vs_original_reference_pct": -13.547,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -2.383,
+              "high_observation_pct": 1.693,
+              "low_observation_pct": -2.418,
+              "benchmark_pct": -1.481,
+              "excess_price_observation_pct": -0.902,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 3.903,
+              "high_observation_pct": 4.18,
+              "low_observation_pct": -5.561,
+              "benchmark_pct": -0.607,
+              "excess_price_observation_pct": 4.51,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -1.209,
+              "high_observation_pct": 4.18,
+              "low_observation_pct": -5.561,
+              "benchmark_pct": -0.418,
+              "excess_price_observation_pct": -0.791,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-28",
+              "status": "price_observed",
+              "close_pct": -4.94,
+              "high_observation_pct": 4.18,
+              "low_observation_pct": -8.463,
+              "benchmark_pct": -0.85,
+              "excess_price_observation_pct": -4.09,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-04",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-18",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-12-02",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300369,sz300394,sz300404,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300434,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494,sz300503,sz300504,sz300507,sz300508,sz300529,sz300530,sz300532,sz300539,sz300549,sz300552,sz300556,sz300561,sz300584,sz300613,sz300618,sz300620",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
       "code": "300458",
@@ -17141,6 +20221,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300825,sz300829,sz300832,sz300839,sz300860,sz300877,sz300900,sz300916,sz300949,sz300952,sz300961,sz300962,sz300969,sz300976,sz300980,sz300984,sz300986,sz300990,sz301005,sz301010,sz301015,sz301023,sz301025,sz301041,sz301047,sz301052,sz301057,sz301069,sz301076,sz301079,sz301080,sz301083,sz301086,sz301097,sz301101",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261020-300825-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 10.66,
+            "close": 10.01,
+            "high": 11.1,
+            "low": 10.01,
+            "volume": 277832.0
+          },
+          "anchor_date": "2026-10-21",
+          "anchor_close": 11.8,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-20",
+          "signal_daily_close": 11.52,
+          "original_frozen_reference_price": 11.52,
+          "T_close_vs_signal_daily_close_pct": -13.108,
+          "T_close_vs_original_reference_pct": -13.108,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -7.458,
+              "high_observation_pct": 2.627,
+              "low_observation_pct": -7.627,
+              "benchmark_pct": -1.481,
+              "excess_price_observation_pct": -5.977,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 3.729,
+              "high_observation_pct": 5.508,
+              "low_observation_pct": -13.559,
+              "benchmark_pct": -0.607,
+              "excess_price_observation_pct": 4.336,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": 2.627,
+              "high_observation_pct": 5.508,
+              "low_observation_pct": -13.559,
+              "benchmark_pct": -0.418,
+              "excess_price_observation_pct": 3.045,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-28",
+              "status": "price_observed",
+              "close_pct": 0.169,
+              "high_observation_pct": 5.508,
+              "low_observation_pct": -13.559,
+              "benchmark_pct": -0.85,
+              "excess_price_observation_pct": 1.019,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-04",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-18",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-12-02",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300626,sz300631,sz300666,sz300671,sz300677,sz300684,sz300695,sz300698,sz300699,sz300709,sz300718,sz300719,sz300725,sz300739,sz300740,sz300751,sz300756,sz300762,sz300770,sz300771,sz300780,sz300787,sz300803,sz300806,sz300821,sz300825,sz300829,sz300832,sz300839,sz300860,sz300877,sz300900,sz300911,sz300916,sz300949",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],
@@ -17846,6 +21036,116 @@
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz300177,sz300182,sz300184,sz300213,sz300223,sz300274,sz300291,sz300296,sz300298,sz300307,sz300308,sz300314,sz300315,sz300331,sz300342,sz300354,sz300357,sz300364,sz300369,sz300394,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "combined-pair-20261020-300458-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 25.48,
+            "close": 24.76,
+            "high": 26.31,
+            "low": 24.71,
+            "volume": 327980.0
+          },
+          "anchor_date": "2026-10-21",
+          "anchor_close": 28.95,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-20",
+          "signal_daily_close": 28.64,
+          "original_frozen_reference_price": 28.64,
+          "T_close_vs_signal_daily_close_pct": -13.547,
+          "T_close_vs_original_reference_pct": -13.547,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-22",
+              "status": "price_observed",
+              "close_pct": -2.383,
+              "high_observation_pct": 1.693,
+              "low_observation_pct": -2.418,
+              "benchmark_pct": -1.481,
+              "excess_price_observation_pct": -0.902,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-23",
+              "status": "price_observed",
+              "close_pct": 3.903,
+              "high_observation_pct": 4.18,
+              "low_observation_pct": -5.561,
+              "benchmark_pct": -0.607,
+              "excess_price_observation_pct": 4.51,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -1.209,
+              "high_observation_pct": 4.18,
+              "low_observation_pct": -5.561,
+              "benchmark_pct": -0.418,
+              "excess_price_observation_pct": -0.791,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-28",
+              "status": "price_observed",
+              "close_pct": -4.94,
+              "high_observation_pct": 4.18,
+              "low_observation_pct": -8.463,
+              "benchmark_pct": -0.85,
+              "excess_price_observation_pct": -4.09,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-04",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-18",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-12-02",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz300369,sz300394,sz300404,sz300410,sz300411,sz300413,sz300418,sz300421,sz300428,sz300432,sz300434,sz300450,sz300458,sz300461,sz300466,sz300473,sz300484,sz300488,sz300494,sz300503,sz300504,sz300507,sz300508,sz300529,sz300530,sz300532,sz300539,sz300549,sz300552,sz300556,sz300561,sz300584,sz300613,sz300618,sz300620",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ]
     },
@@ -18317,6 +21617,116 @@
           "executed_trade": false,
           "executable_net_return_pct": null,
           "source": "https://qt.gtimg.cn/q=sz002279,sz002284,sz002300,sz002307,sz002311,sz002313,sz002315,sz002317,sz002322,sz002337,sz002343,sz002347,sz002354,sz002361,sz002368,sz002376,sz002380,sz002384,sz002388,sz002390,sz002394,sz002420,sz002421,sz002434,sz002437,sz002439,sz002456,sz002463,sz002469,sz002472,sz002474,sz002487,sz002488,sz002520,sz002526",
+          "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
+        },
+        {
+          "id": "market-review-20261022-002520-close-v1-price-review-20261030",
+          "date": "2026-10-30",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-30T18:20:11+08:00",
+          "report_ids": [
+            "combined-pair-20261030-close-v1"
+          ],
+          "status": "price_observation_only",
+          "observed_daily": {
+            "date": "2026-10-30",
+            "open": 6.11,
+            "close": 6.2,
+            "high": 6.67,
+            "low": 6.08,
+            "volume": 727007.0
+          },
+          "anchor_date": "2026-10-23",
+          "anchor_close": 6.34,
+          "anchor_definition": "planned-entry-date close, retained as price-only baseline, not a fill",
+          "signal_date": "2026-10-22",
+          "signal_daily_close": 6.1,
+          "original_frozen_reference_price": 6.1,
+          "T_close_vs_signal_daily_close_pct": 1.639,
+          "T_close_vs_original_reference_pct": 1.639,
+          "horizons": [
+            {
+              "h": 1,
+              "date": "2026-10-26",
+              "status": "price_observed",
+              "close_pct": -5.205,
+              "high_observation_pct": 0.315,
+              "low_observation_pct": -5.363,
+              "benchmark_pct": 0.191,
+              "excess_price_observation_pct": -5.396,
+              "missing_sessions": []
+            },
+            {
+              "h": 2,
+              "date": "2026-10-27",
+              "status": "price_observed",
+              "close_pct": -2.681,
+              "high_observation_pct": 4.259,
+              "low_observation_pct": -5.363,
+              "benchmark_pct": -1.143,
+              "excess_price_observation_pct": -1.538,
+              "missing_sessions": []
+            },
+            {
+              "h": 3,
+              "date": "2026-10-28",
+              "status": "price_observed",
+              "close_pct": -1.262,
+              "high_observation_pct": 4.259,
+              "low_observation_pct": -5.363,
+              "benchmark_pct": -0.244,
+              "excess_price_observation_pct": -1.018,
+              "missing_sessions": []
+            },
+            {
+              "h": 5,
+              "date": "2026-10-30",
+              "status": "price_observed",
+              "close_pct": -2.208,
+              "high_observation_pct": 5.205,
+              "low_observation_pct": -5.363,
+              "benchmark_pct": -2.478,
+              "excess_price_observation_pct": 0.27,
+              "missing_sessions": []
+            },
+            {
+              "h": 10,
+              "date": "2026-11-06",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 20,
+              "date": "2026-11-20",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            },
+            {
+              "h": 30,
+              "date": "2026-12-04",
+              "status": "pending",
+              "close_pct": null,
+              "high_observation_pct": null,
+              "low_observation_pct": null,
+              "benchmark_pct": null,
+              "excess_price_observation_pct": null,
+              "missing_sessions": []
+            }
+          ],
+          "trigger_status": "not_reconstructed_from_daily_extremes",
+          "executed_trade": false,
+          "executable_net_return_pct": null,
+          "source": "https://qt.gtimg.cn/q=sz002324,sz002337,sz002343,sz002345,sz002347,sz002348,sz002354,sz002361,sz002363,sz002365,sz002368,sz002376,sz002380,sz002384,sz002388,sz002390,sz002394,sz002420,sz002421,sz002425,sz002432,sz002434,sz002437,sz002439,sz002463,sz002469,sz002471,sz002472,sz002474,sz002487,sz002488,sz002510,sz002520,sz002526,sz002531",
           "fee_and_slippage_status": "unverified orders/quantity/minimum commission/slippage; no net profit"
         }
       ],

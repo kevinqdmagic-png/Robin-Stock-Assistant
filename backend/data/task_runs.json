@@ -4701,6 +4701,149 @@
         "https://robin-stock-api-production.up.railway.app/api/research?task=learning_review",
         "https://robin-stock-api-production.up.railway.app/api/task-runs?task=learning_review"
       ]
+    },
+    {
+      "id": "market-review-20261030-scheduled-close-v1-completed",
+      "run_id": "market-review-20261030-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T09:38:34+00:00",
+      "completed_at": "2026-10-30T18:20:09+08:00",
+      "recorded_at": "2026-10-30T18:20:09+08:00",
+      "status": "completed",
+      "summary": "T30成长继续退潮；5574正价入口/4无OHLCV单列/5570当日成交报价、120/28，旧28全验证，正式0。",
+      "report_ids": [
+        "market-review-20261030-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-2026-10-30-evidence.json",
+        "docs/research/combined-pair-20261030-evidence.json.gz"
+      ]
+    },
+    {
+      "id": "volume-price-20261030-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261030-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T09:38:34+00:00",
+      "completed_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "status": "completed",
+      "summary": "旧14批369条验证，T29池中位−3.691%；D30三影子均未触发，新增28条前推，净收益N/A。",
+      "report_ids": [
+        "volume-price-20261030-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ]
+    },
+    {
+      "id": "low-position-20261030-scheduled-close-v1-completed",
+      "run_id": "low-position-20261030-scheduled-close-v1",
+      "task_id": "low_position",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T09:38:34+00:00",
+      "completed_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "status": "completed",
+      "summary": "旧50条不删失败，新泸州/黑牡丹2条；11条30自然日到期但有效成熟N=0。",
+      "report_ids": [
+        "low-position-20261030-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261030-scheduled-close-v1-completed",
+      "run_id": "dragon-tiger-20261030-scheduled-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T09:38:34+00:00",
+      "completed_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "status": "completed",
+      "summary": "T30 78只A股披露、2只B股隔离，13重点A股席位同花顺交叉，青岛无当日榜不补造；正式0。",
+      "report_ids": [
+        "dragon-tiger-20261030-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ]
+    },
+    {
+      "id": "limitup-single-20261030-scheduled-close-v2-completed",
+      "run_id": "limitup-single-20261030-scheduled-close-v2",
+      "task_id": "limitup_single",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T09:38:34+00:00",
+      "completed_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "status": "completed",
+      "summary": "D=11月2日正式打板0，独立影子首旅600258；先三日情绪/梯队与首次分歧，非买入。",
+      "report_ids": [
+        "limitup-single-20261030-close-v2"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ]
+    },
+    {
+      "id": "combined-pair-20261030-scheduled-close-v1-completed",
+      "run_id": "combined-pair-20261030-scheduled-close-v1",
+      "task_id": "combined_pair",
+      "date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-30T09:38:34+00:00",
+      "completed_at": "2026-10-30T18:20:11+08:00",
+      "recorded_at": "2026-10-30T18:20:11+08:00",
+      "status": "completed",
+      "summary": "四项T30完整；正式0，D=11月2日独立影子泸州000568/黑牡丹600510，非买入。",
+      "report_ids": [
+        "combined-pair-20261030-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-pair-20261030-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ]
     }
   ]
 }
