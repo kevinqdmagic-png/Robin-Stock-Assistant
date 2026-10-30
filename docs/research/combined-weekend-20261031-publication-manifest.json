@@ -1,0 +1,47 @@
+{
+  "base_main": "6aeaae7c66e96a2c1b95cb6c3f1d461d0e023743",
+  "actual_started_at_utc": "2026-10-30T17:12:08+00:00",
+  "completed_at": "2026-10-31T01:27:05+08:00",
+  "market_T": "2026-10-30",
+  "maintenance_date_cn": "2026-10-31",
+  "planned_D": "2026-11-02",
+  "report_ids": [
+    "combined-pair-20261031-weekend-supplement-v1",
+    "limitup-single-20261031-weekend-supplement-v1"
+  ],
+  "existing_stock_history_updates": [
+    {
+      "code": "600510",
+      "history_id": "research-stock-600510-20261031-filing-supplement-v1",
+      "report_id": "combined-pair-20261031-weekend-supplement-v1"
+    },
+    {
+      "code": "000568",
+      "history_id": "research-stock-000568-20261031-filing-supplement-v1",
+      "report_id": "combined-pair-20261031-weekend-supplement-v1"
+    },
+    {
+      "code": "600258",
+      "history_id": "research-stock-600258-20261031-filing-supplement-v1",
+      "report_id": "limitup-single-20261031-weekend-supplement-v1"
+    },
+    {
+      "code": "002275",
+      "history_id": "research-stock-002275-20261031-filing-supplement-v1",
+      "report_id": "combined-pair-20261031-weekend-supplement-v1"
+    }
+  ],
+  "new_recommendations": 0,
+  "new_shadow_candidates": 0,
+  "new_sample_cohorts": 0,
+  "new_price_or_trade_results": 0,
+  "original_freeze_hashes": {
+    "docs/research/shadow-experiments-20261029-v1.json": "02641c6767e262066c7c2c4c03f2dc3915f25edc908ed9e4b8a40fe1840eb3b6",
+    "docs/research/shadow-experiments-20261030-v1.json": "cc53f286687417aff06978be6cfba59ce5e4d4468238dfdaa92d06ce3002c95d",
+    "docs/research/shadow-experiments-20261102-v1.json": "fdb0bc50412cb52e20e103300ecec28b6f9853015585a45eb1dc9aa9aaea4d4e"
+  },
+  "task_registry_and_schedules_changed": false,
+  "quant_research_restored": false,
+  "evidence_file": "docs/research/combined-weekend-20261031-evidence.json.gz",
+  "evidence_sha256": "4540a23a5510439cafb8f8ffab63f58762fdbf132b5df5ed4f1bdde0a4060a05"
+}

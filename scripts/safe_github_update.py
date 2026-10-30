@@ -81,7 +81,9 @@ def safe_update(repo, path, proposed, base_sha, token, branch="main", message="S
                 if blob.get('encoding') != 'base64' or not blob.get('content'):
                     raise RuntimeError("ARCHIVE_BLOB_UNREADABLE: refuse to overwrite")
                 inline = blob['content']
-            old_bytes = base64.b64decode(inline.replace('\\n', ''), validate=True)
+            # GitHub wraps Base64 with real LF (sometimes CRLF), not a
+            # literal backslash-n. Keep strict validation for other bytes.
+            old_bytes = base64.b64decode(inline.replace('\r', '').replace('\n', ''), validate=True)
             validate_archive_change(path, old_bytes, proposed)
         try:
             return request("PUT", url, token, {

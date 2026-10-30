@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-30T18:20:11+08:00",
+  "updated_at": "2026-10-31T01:27:05+08:00",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -4104,6 +4104,28 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh000300%2Cday%2C%2C%2C180",
             "https://qt.gtimg.cn/q=sh600118,sh603279,sz002275,sz000999,sh600329,sh600436,sz000678,sz001219,sz002708"
           ]
+        },
+        {
+          "id": "research-stock-002275-20261031-filing-supplement-v1",
+          "date": "2026-10-31",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-31T01:27:05+08:00",
+          "title": "原公告补证，原冻结信号不回写",
+          "reason": "桂林三金新增原公告核验或原同伴补证，保持正式空仓与原研究条件。",
+          "evidence_status": "original_company_filing_verified",
+          "fact_note": "10月29、30日连续两日偏离值累计达20%；公告重申前三季营收14.4405亿元同比−1.25%、归母净利3.7434亿元同比−2.83%，基本面未重大变化，提示三季报、分红及减值公告。",
+          "validation": [
+            "旧D30信号必要条件未满足、成交0的结论不回改，不因封板/分红/新异动公告改成盈利或自动续入D1102；原高位对照保留。",
+            "按原D1102卡继续核验；未到价格节点不填未来结果"
+          ],
+          "risk": "未改变原风险、价格、排序和退出条件；融资注册/财报/异动均不构成买入、成交或净收益证明。",
+          "report_ids": [
+            "combined-pair-20261031-weekend-supplement-v1"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-10-31/1225650050.PDF",
+            "docs/research/combined-weekend-20261031-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -4342,6 +4364,28 @@
             "docs/research/combined-pair-20261030-evidence.json.gz",
             "https://static.cninfo.com.cn/finalpage/2026-10-30/1225639079.PDF"
           ]
+        },
+        {
+          "id": "research-stock-000568-20261031-filing-supplement-v1",
+          "date": "2026-10-31",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-31T01:27:05+08:00",
+          "title": "原公告补证，原冻结信号不回写",
+          "reason": "泸州老窖新增原公告核验或原同伴补证，保持正式空仓与原研究条件。",
+          "evidence_status": "original_peer_filing_verified",
+          "fact_note": "此处财务/公告对象为原同伴古井贡酒，不是泸州老窖自身财务。10月29、30日连续两日偏离值累计达20%以上；公告重申前三季收入127.7011亿元同比−22.25%、归母净利22.5983亿元同比−42.94%，经营环境未发生重大变化。",
+          "validation": [
+            "为泸州老窖000568的原冻结白酒同伴增加风险补证，不把古井异动当新催化或更换同伴；泸州原尾盘持平/利润下滑反证保留。",
+            "按原D1102卡继续核验；未到价格节点不填未来结果"
+          ],
+          "risk": "未改变原风险、价格、排序和退出条件；融资注册/财报/异动均不构成买入、成交或净收益证明。",
+          "report_ids": [
+            "combined-pair-20261031-weekend-supplement-v1"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-10-31/1225650007.PDF",
+            "docs/research/combined-weekend-20261031-evidence.json.gz"
+          ]
         }
       ]
     },
@@ -4372,6 +4416,28 @@
             "https://web.ifzq.gtimg.cn/appstock/app/kline/kline?param=sh600258%2Cday%2C%2C%2C180",
             "docs/research/combined-pair-20261030-evidence.json.gz",
             "https://static.cninfo.com.cn/finalpage/2026-10-30/1225639529.PDF"
+          ]
+        },
+        {
+          "id": "research-stock-600258-20261031-filing-supplement-v1",
+          "date": "2026-10-31",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-31T01:27:05+08:00",
+          "title": "原公告补证，原冻结信号不回写",
+          "reason": "首旅酒店新增原公告核验或原同伴补证，保持正式空仓与原研究条件。",
+          "evidence_status": "original_peer_filing_verified",
+          "fact_note": "此处财务/公告对象为原同伴锦江酒店，不是首旅酒店自身财务。未审计三季报：前三季收入106.7882亿元同比+4.27%，归母净利10.5516亿元+41.43%，扣非10.8190亿元+28.87%，经营现金流33.6020亿元+20.45%；单季扣非4.8875亿元+13.43%。",
+          "validation": [
+            "为首旅酒店600258原冻结酒店同伴提供经营支持，不能替代D竞价、同行同时涨≥3%、第一次分歧回封/60秒/VWAP及排队成交证据。仍不得据此升级为正式打板。A股600754与B股900934不混样本。",
+            "按原D1102卡继续核验；未到价格节点不填未来结果"
+          ],
+          "risk": "未改变原风险、价格、排序和退出条件；融资注册/财报/异动均不构成买入、成交或净收益证明。",
+          "report_ids": [
+            "limitup-single-20261031-weekend-supplement-v1"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-10-31/1225648607.PDF",
+            "docs/research/combined-weekend-20261031-evidence.json.gz"
           ]
         }
       ]
@@ -4405,6 +4471,28 @@
             "docs/research/combined-pair-20261030-evidence.json.gz",
             "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619778.PDF",
             "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619774.PDF"
+          ]
+        },
+        {
+          "id": "research-stock-600510-20261031-filing-supplement-v1",
+          "date": "2026-10-31",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-10-31T01:27:05+08:00",
+          "title": "原公告补证，原冻结信号不回写",
+          "reason": "黑牡丹新增原公告核验或原同伴补证，保持正式空仓与原研究条件。",
+          "evidence_status": "original_company_filing_verified",
+          "fact_note": "中期票据实际获准注册17.1亿元，额度自接受注册通知书落款日起2年有效，可分期择机发行；早先申请上限20亿元与获准17.1亿元不是同一个数。公告没有证明17.1亿元已发行或到账，也没有可核票面利率/实际期限/本次资金到账日。",
+          "validation": [
+            "融资渠道可得性是补充事实，不消除原前三季亏损约4.9517亿元、经营现金流约−3.0036亿元和减值风险。正式仍0，原H1价格结构仅研究，不变触发/失效位。",
+            "按原D1102卡继续核验；未到价格节点不填未来结果"
+          ],
+          "risk": "未改变原风险、价格、排序和退出条件；融资注册/财报/异动均不构成买入、成交或净收益证明。",
+          "report_ids": [
+            "combined-pair-20261031-weekend-supplement-v1"
+          ],
+          "sources": [
+            "https://static.cninfo.com.cn/finalpage/2026-10-31/1225648935.PDF",
+            "docs/research/combined-weekend-20261031-evidence.json.gz"
           ]
         }
       ]
