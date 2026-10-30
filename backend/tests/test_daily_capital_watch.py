@@ -43,6 +43,41 @@ class DailyCapitalWatchTests(unittest.TestCase):
                              loader=lambda *args, **kw: self.fail("no market access"))
         self.assertEqual(result["status"], "skipped")
 
+    def test_post_midnight_saturday_still_scans_friday(self):
+        # GitHub Actions can start many hours late; a Friday run may
+        # arrive after midnight Beijing time before any next session.
+        delayed = datetime(2026, 10, 31, 0, 40, tzinfo=CN)
+        codes = [f"60{i:04d}" for i in range(6)]
+        result = module.scan(now=delayed, pool=codes,
+                             loader=lambda *args, **kwargs: bars("2026-10-30"))
+        self.assertEqual(result["date"], "2026-10-30")
+        self.assertEqual(result["as_of"], delayed.isoformat(timespec="seconds"))
+        self.assertEqual(result["status"], "no_matches")
+        self.assertEqual(result["valid_daily"], 6)
+        archive, changed = module.append_snapshot(
+            {"schema_version": 1, "items": []}, result, "999001", published_at=delayed
+        )
+        self.assertTrue(changed)
+        item = archive["items"][0]
+        self.assertEqual(item["id"], "capital-watch-20261030-999001")
+        self.assertEqual(item["published_at"], delayed.isoformat(timespec="seconds"))
+        self.assertTrue(item["delayed_publication"])
+        validate_archive(archive)
+
+    def test_delay_window_cannot_replay_weekend_or_after_next_open(self):
+        codes = ["600001"]
+        for attempted in (datetime(2026, 11, 1, 0, 40, tzinfo=CN),
+                          datetime(2026, 11, 2, 9, 30, tzinfo=CN)):
+            result = module.scan(now=attempted, pool=codes,
+                                 loader=lambda *args, **kwargs: self.fail("no market access"))
+            self.assertEqual(result["status"], "skipped")
+        with self.assertRaisesRegex(ValueError, "late_publish_outside_verified_session_window"):
+            module.append_snapshot(
+                {"schema_version": 1, "items": []},
+                {"date": "2026-10-30", "status": "no_matches", "candidates": []},
+                "999002", published_at=datetime(2026, 11, 2, 9, 30, tzinfo=CN)
+            )
+
     def test_no_yesterday_bar_may_pass_today(self):
         result = module.scan(now=datetime(2026,10,14,18,10,tzinfo=CN),
                              pool=["002068"]*7,

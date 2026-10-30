@@ -8,7 +8,7 @@ existing manual per-code capital-behavior endpoint.
 import argparse
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 from pathlib import Path
 import re
@@ -83,9 +83,29 @@ def assess(code, day, now, loader=None):
     }
 
 
+def eligible_completed_day(now):
+    """Trading date eligible for a real, point-in-time scan.
+
+    GitHub scheduled jobs sometimes start after Beijing midnight. Until 09:00
+    the next calendar day, allow the immediately preceding verified trading
+    session, but retain the *actual* scan/publish time. Never replay an
+    older session or scan after the next trading session has opened.
+    """
+    now = now.astimezone(CN)
+    state = session_state(now)
+    if state["code"] == "after_close" and (now.hour, now.minute) >= (15, 10):
+        return now.date().isoformat()
+    if now.hour < 9:
+        prior_close = (now - timedelta(days=1)).replace(hour=16, minute=0, second=0)
+        if session_state(prior_close)["code"] == "after_close":
+            return prior_close.date().isoformat()
+    return None
+
+
 def scan(now=None, pool=None, loader=None, workers=6):
     now = (now or datetime.now(CN)).astimezone(CN)
-    day = now.date().isoformat()
+    eligible_day = eligible_completed_day(now)
+    day = eligible_day or now.date().isoformat()
     run_base = {
         "date": day, "as_of": now.isoformat(timespec="seconds"),
         "model": "capital_behavior_daily_v1", "scanned": 0, "valid_daily": 0,
@@ -93,8 +113,7 @@ def scan(now=None, pool=None, loader=None, workers=6):
         "universe_sources": [], "provider_errors": {},
         "coverage": "partial_universe_not_a_share_full_market",
     }
-    state = session_state(now)
-    if state["code"] != "after_close" or (now.hour, now.minute) < (15, 10):
+    if eligible_day is None:
         return {**run_base, "status": "skipped", "note": "非已确认的交易日收盘后时段"}
     supplied_pool = pool is not None
     if pool is None:
@@ -169,9 +188,9 @@ def append_snapshot(doc, run, run_id, published_at=None):
         raise ValueError("invalid_github_run_id")
     if run["status"] == "skipped":
         return doc, False
-    if run["date"] != now.date().isoformat():
-        raise ValueError("late_publish_on_different_date")
-    key = "capital-watch-" + now.strftime("%Y%m%d") + "-" + str(run_id)
+    if run["date"] != eligible_completed_day(now):
+        raise ValueError("late_publish_outside_verified_session_window")
+    key = "capital-watch-" + run["date"].replace("-", "") + "-" + str(run_id)
     if any(x.get("id") == key for x in doc["items"]):
         return doc, False
     item = {
@@ -179,6 +198,7 @@ def append_snapshot(doc, run, run_id, published_at=None):
         "published_at": now.isoformat(timespec="seconds"),
         "timezone": "Asia/Shanghai",
         "research_only": True, "selection_validated": False,
+        "delayed_publication": run["date"] != now.date().isoformat(),
         "sources": ["https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/" + str(run_id)],
     }
     updated = {**doc, "items": [*doc["items"], item]}
