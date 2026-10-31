@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-31T01:27:05+08:00",
+  "updated_at": "2026-11-01T01:11:58+08:00",
   "notice": "这是中长期与产业链研究观察池。每日两只短线标的及其触发条件，另见推荐跟踪；这里不沿用旧价格作当前买点。",
   "items": [
     {
@@ -4386,6 +4386,30 @@
             "https://static.cninfo.com.cn/finalpage/2026-10-31/1225650007.PDF",
             "docs/research/combined-weekend-20261031-evidence.json.gz"
           ]
+        },
+        {
+          "id": "research-stock-000568-20261101-macro-supplement-v1",
+          "date": "2026-11-01",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-11-01T01:11:58+08:00",
+          "title": "原冻结后的宏观行业补证，非公司经营数据",
+          "reason": "泸州老窖000568：消费品制造业收缩为总需求反证；该口径不是白酒专项调查。原H1/H3量价与逆势强度须由原窗口的报价检验，不能把消费分项当公司订单下降或确定股价下跌。",
+          "evidence_status": "official_macro_sector_context_verified_company_effect_unverified",
+          "fact_note": "消费品制造业PMI为48.8，下降1.9个百分点；建筑业活动48.0，下降2.3个百分点；房地产行业被列为低于50，但本文未给其单独数值。建筑业48.0不能标为房地产PMI。这些是行业调查背景，不是泸州老窖000568或黑牡丹600510的订单、去库存、预售或现金流数据。",
+          "validation": [
+            "原影子排序、参考价、同伴、触发/失效/放弃及T+1退出规则全部保留。",
+            "本次关联是研究推断，需在D原窗口证伪；不产生正式买入或新增交易计数。"
+          ],
+          "risk": "宏观行业数据不是公司订单、现金流或股价预测；不能豁免个股风险或证明成交。",
+          "report_ids": [
+            "combined-pair-20261101-macro-supplement-v1"
+          ],
+          "sources": [
+            "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965718.html",
+            "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965719.html",
+            "docs/research/combined-macro-20261101-evidence.json.gz",
+            "docs/research/shadow-experiments-20261102-v1.json"
+          ]
         }
       ]
     },
@@ -4438,6 +4462,30 @@
           "sources": [
             "https://static.cninfo.com.cn/finalpage/2026-10-31/1225648607.PDF",
             "docs/research/combined-weekend-20261031-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-600258-20261101-macro-supplement-v1",
+          "date": "2026-11-01",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-11-01T01:11:58+08:00",
+          "title": "原冻结后的宏观行业补证，非公司经营数据",
+          "reason": "首旅酒店600258：住宿分项相对总量改善，为原H3行业分化假设增加支持线索。仍须按原H2首次分歧/回封、原同伴、高标、量价窗口及队列证据检验；不新增阈值、参照股或买入许可。",
+          "evidence_status": "official_macro_sector_context_verified_company_effect_unverified",
+          "fact_note": "服务业活动50.0，下降0.2个百分点；统计局解读同时列住宿业环比改善且仍高于50，没有在该段披露住宿业具体指数。总量偏弱与住宿分项改善并存。它涉及10月含长假的经营调查，不等于首旅酒店600258自身入住率、房价或利润改善，更不是11月2日酒店股票板块已经走强。",
+          "validation": [
+            "原影子排序、参考价、同伴、触发/失效/放弃及T+1退出规则全部保留。",
+            "本次关联是研究推断，需在D原窗口证伪；不产生正式买入或新增交易计数。"
+          ],
+          "risk": "宏观行业数据不是公司订单、现金流或股价预测；不能豁免个股风险或证明成交。",
+          "report_ids": [
+            "limitup-single-20261101-macro-supplement-v1"
+          ],
+          "sources": [
+            "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965718.html",
+            "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965719.html",
+            "docs/research/combined-macro-20261101-evidence.json.gz",
+            "docs/research/shadow-experiments-20261102-v1.json"
           ]
         }
       ]
@@ -4493,6 +4541,30 @@
           "sources": [
             "https://static.cninfo.com.cn/finalpage/2026-10-31/1225648935.PDF",
             "docs/research/combined-weekend-20261031-evidence.json.gz"
+          ]
+        },
+        {
+          "id": "research-stock-600510-20261101-macro-supplement-v1",
+          "date": "2026-11-01",
+          "market_date": "2026-10-30",
+          "recorded_at": "2026-11-01T01:11:58+08:00",
+          "title": "原冻结后的宏观行业补证，非公司经营数据",
+          "reason": "黑牡丹600510：建筑与房地产行业调查偏弱增加经营背景风险，不能直接计算个股业绩损失。原财务反证和融资注册不等于到账的边界继续保留；原H1价格代理不因此升级为正式买入。",
+          "evidence_status": "official_macro_sector_context_verified_company_effect_unverified",
+          "fact_note": "消费品制造业PMI为48.8，下降1.9个百分点；建筑业活动48.0，下降2.3个百分点；房地产行业被列为低于50，但本文未给其单独数值。建筑业48.0不能标为房地产PMI。这些是行业调查背景，不是泸州老窖000568或黑牡丹600510的订单、去库存、预售或现金流数据。",
+          "validation": [
+            "原影子排序、参考价、同伴、触发/失效/放弃及T+1退出规则全部保留。",
+            "本次关联是研究推断，需在D原窗口证伪；不产生正式买入或新增交易计数。"
+          ],
+          "risk": "宏观行业数据不是公司订单、现金流或股价预测；不能豁免个股风险或证明成交。",
+          "report_ids": [
+            "combined-pair-20261101-macro-supplement-v1"
+          ],
+          "sources": [
+            "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965718.html",
+            "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965719.html",
+            "docs/research/combined-macro-20261101-evidence.json.gz",
+            "docs/research/shadow-experiments-20261102-v1.json"
           ]
         }
       ]

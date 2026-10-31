@@ -5016,6 +5016,56 @@
         "https://robin-stock-api-production.up.railway.app/api/task-runs?task=learning_review",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/23"
       ]
+    },
+    {
+      "id": "combined-pair-20261101-scheduled-macro-supplement-v1-completed",
+      "run_id": "combined-pair-20261101-scheduled-macro-supplement-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-01",
+      "market_date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-31T17:02:13+00:00",
+      "completed_at": "2026-11-01T01:11:58+08:00",
+      "recorded_at": "2026-11-01T01:11:58+08:00",
+      "status": "completed",
+      "summary": "统计局原站PMI补证；总量偏弱与行业分化不改变原正式0及冻结条件，无新增样本或成交。",
+      "report_ids": [
+        "combined-pair-20261101-macro-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-macro-20261101-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json"
+      ],
+      "does_not_replace_original_full_research": true
+    },
+    {
+      "id": "limitup-single-20261101-scheduled-macro-supplement-v1-completed",
+      "run_id": "limitup-single-20261101-scheduled-macro-supplement-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-01",
+      "market_date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-10-31T17:02:13+00:00",
+      "completed_at": "2026-11-01T01:11:58+08:00",
+      "recorded_at": "2026-11-01T01:11:58+08:00",
+      "status": "completed",
+      "summary": "统计局原站PMI补证；总量偏弱与行业分化不改变原正式0及冻结条件，无新增样本或成交。",
+      "report_ids": [
+        "limitup-single-20261101-macro-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-macro-20261101-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json"
+      ],
+      "does_not_replace_original_full_research": true
     }
   ]
 }

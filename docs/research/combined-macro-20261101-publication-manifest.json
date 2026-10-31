@@ -1,0 +1,42 @@
+{
+  "base_main": "01530db5b3614347063a4d12a343d0c3d3cb4d89",
+  "actual_started_at_utc": "2026-10-31T17:02:13+00:00",
+  "completed_at": "2026-11-01T01:11:58+08:00",
+  "market_T": "2026-10-30",
+  "maintenance_date_cn": "2026-11-01",
+  "planned_D": "2026-11-02",
+  "report_ids": [
+    "combined-pair-20261101-macro-supplement-v1",
+    "limitup-single-20261101-macro-supplement-v1"
+  ],
+  "existing_stock_history_updates": [
+    {
+      "code": "000568",
+      "history_id": "research-stock-000568-20261101-macro-supplement-v1",
+      "report_id": "combined-pair-20261101-macro-supplement-v1"
+    },
+    {
+      "code": "600510",
+      "history_id": "research-stock-600510-20261101-macro-supplement-v1",
+      "report_id": "combined-pair-20261101-macro-supplement-v1"
+    },
+    {
+      "code": "600258",
+      "history_id": "research-stock-600258-20261101-macro-supplement-v1",
+      "report_id": "limitup-single-20261101-macro-supplement-v1"
+    }
+  ],
+  "original_freeze_hashes": {
+    "docs/research/shadow-experiments-20261029-v1.json": "02641c6767e262066c7c2c4c03f2dc3915f25edc908ed9e4b8a40fe1840eb3b6",
+    "docs/research/shadow-experiments-20261030-v1.json": "cc53f286687417aff06978be6cfba59ce5e4d4468238dfdaa92d06ce3002c95d",
+    "docs/research/shadow-experiments-20261102-v1.json": "fdb0bc50412cb52e20e103300ecec28b6f9853015585a45eb1dc9aa9aaea4d4e"
+  },
+  "new_recommendations": 0,
+  "new_shadow_candidates": 0,
+  "new_sample_cohorts": 0,
+  "new_price_or_trade_results": 0,
+  "task_registry_and_schedules_changed": false,
+  "quant_research_restored": false,
+  "evidence_file": "docs/research/combined-macro-20261101-evidence.json.gz",
+  "evidence_sha256": "6a17c399af2ed1a210d3f36ec53d4541d25638303c20444c8d4b0db6bd13a723"
+}

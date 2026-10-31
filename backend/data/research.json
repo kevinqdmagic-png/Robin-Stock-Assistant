@@ -22976,6 +22976,154 @@
       "candidate_count": 0,
       "recommendation_ids": [],
       "evidence_file": "docs/research/learning-review-20261030-evidence.json"
+    },
+    {
+      "id": "combined-pair-20261101-macro-supplement-v1",
+      "date": "2026-11-01",
+      "market_date": "2026-10-30",
+      "task_id": "combined_pair",
+      "track": "market_review",
+      "run_id": "combined-pair-20261101-scheduled-macro-supplement-v1",
+      "title": "休市综合补证｜10月PMI与消费、地产背景反证，原影子冻结不变",
+      "summary": "统计局原站PMI补证；总量偏弱与行业分化不改变原正式0及冻结条件，无新增样本或成交。",
+      "body": "这是2026-11-01休市宏观补证，实际完成北京时间2026-11-01T01:11:58+08:00。最近已收盘交易日T=2026-10-30，原计划D=2026-11-02；若D实际买入，最早2026-11-03可卖。原四模块及两个裁决完整交付6/6，复用原报告和真实回执；本补证不替代任何完整前置，也不是休市日交易复盘。统计局两页标注10月31日09:30；本轮实际于11月1日01:07:12左右取得原站HTTP正文，准确UTC、原站URL与SHA256另存证据。页面日期不等于已独立证明互联网首次公开时刻。它们晚于10月30日18:20:11的原信号冻结，不能反向填入原入选理由。\n\n一、可核验事实与解释边界\n10月制造业PMI为49.3，环比下降0.8个百分点；新订单49.4，下降1.1个百分点。非制造业活动49.7，下降0.5个百分点。PMI是调查扩散指数，50为环比景气分界，这些数值不是企业盈利比例、产值同比增速或股市涨跌概率。宏观回落不能代替T30按市场宽度、炸板和晋级逐股分母冻结的“弱”情绪判定，也不能作为D开盘已知的价格表现。\n消费品制造业PMI为48.8，下降1.9个百分点；建筑业活动48.0，下降2.3个百分点；房地产行业被列为低于50，但本文未给其单独数值。建筑业48.0不能标为房地产PMI。这些是行业调查背景，不是泸州老窖000568或黑牡丹600510的订单、去库存、预售或现金流数据。\n\n二、原影子结构化清单与独立判断\n|原组别/序|原信号id|代码/名称|原T日参考价，非新报价|本次影响（推断）|\n|---|---|---|---|---|\n|combined_pair/1|shadow-combined-pair-20261102-000568-v1|000568 泸州老窖|77.07|泸州老窖000568：消费品制造业收缩为总需求反证；该口径不是白酒专项调查。原H1/H3量价与逆势强度须由原窗口的报价检验，不能把消费分项当公司订单下降或确定股价下跌。|\n|combined_pair/2|shadow-combined-pair-20261102-600510-v1|600510 黑牡丹|6.46|黑牡丹600510：建筑与房地产行业调查偏弱增加经营背景风险，不能直接计算个股业绩损失。原财务反证和融资注册不等于到账的边界继续保留；原H1价格代理不因此升级为正式买入。|\n\n原触发、失效、放弃、退出、板块制度与同伴全部以原冻结清单为准，不作修改。\n\n三、上一批验证、对照与统计\nD29及D30原影子必要条件未满足、已核实成交0的结论保持；完整深筛池及失败/未触发样本均保留。尚只有2个已观察计划交易日，D1102未开市。本轮不新增证券日或交易数，不在周末重复追加T+1/T+2/T+5/T+10、MFE/MAE或封板/炸板结果。有分钟/逐笔、两侧成交、成本与合法T+1退出证据才计算可执行净收益。原沪深300和全部冻结对照继续使用；已有题材/流动性不完全匹配的限制保留。NBS行业分类不是A股行业成分篮子，不能把PMI差异算成股票对照收益。\n\n四、前推规则及下一检查\n原正式综合与打板各0只及其空仓事件不变，不再生成一个休市空仓交易日。H1/H2/H3、combined_limitup_watch_v5和limitup_single_v2均不改版。11月2日沿原窗口核验竞价、真实证券状态/涨停价、承接、固定同伴与高标，未满足原条件即未触发；缺成交证据即成交待验证，不能从日最高价反推买到或获利。H3的反证仍是原参照篮子在原窗口无相对强度或原同伴条件失败；宏观支持不能豁免。原20—30个实际交易日首轮复核节点不变；不足样本不宣称高胜率。20只原候选/同伴/风险参照公司的公告增量查询均成功，无此前未核查的精确代码公告；这是有限对象核查，并非全A新扫描或风险穷尽。任务、量化取消状态和自动买入/调权关闭均不变。",
+      "sources": [
+        "docs/research/combined-macro-20261101-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json",
+        "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965718.html",
+        "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965719.html"
+      ],
+      "report_type": "research_supplement",
+      "eligible_for_integrated_research": false,
+      "analysis_completed": true,
+      "status": "completed",
+      "published_at": "2026-11-01T01:11:58+08:00",
+      "recorded_at": "2026-11-01T01:11:58+08:00",
+      "data_cutoff_at": "2026-11-01T01:11:58+08:00",
+      "market_data_cutoff_at": "2026-10-30T15:00:00+08:00",
+      "planned_entry_date": "2026-11-02",
+      "earliest_legal_exit_date_if_bought": "2026-11-03",
+      "provenance": "new_macro_evidence_reviewed_after_original_freeze",
+      "candidate_count": 0,
+      "recommendation_ids": [],
+      "original_report_ids": [
+        "combined-pair-20261030-close-v1"
+      ],
+      "original_cash_observation_id": "combined-pair-20261030-cash-observation-v1",
+      "maintained_shadow_experiment_file": "docs/research/shadow-experiments-20261102-v1.json",
+      "existing_shadow_conditions": [
+        {
+          "original_signal_id": "shadow-combined-pair-20261102-000568-v1",
+          "market_event_id": "cnA:2026-11-02:000568",
+          "code": "000568",
+          "name": "泸州老窖",
+          "original_rank": 1,
+          "original_frozen_at": "2026-10-30T18:20:11+08:00",
+          "original_reference_price": 77.07,
+          "original_reference_price_at": "2026-10-30T15:00:00+08:00",
+          "original_condition_source": "docs/research/shadow-experiments-20261102-v1.json",
+          "not_a_new_signal": true,
+          "is_recommendation": false,
+          "formal_buy_signal": false,
+          "macro_impact_is_inference": "泸州老窖000568：消费品制造业收缩为总需求反证；该口径不是白酒专项调查。原H1/H3量价与逆势强度须由原窗口的报价检验，不能把消费分项当公司订单下降或确定股价下跌。"
+        },
+        {
+          "original_signal_id": "shadow-combined-pair-20261102-600510-v1",
+          "market_event_id": "cnA:2026-11-02:600510",
+          "code": "600510",
+          "name": "黑牡丹",
+          "original_rank": 2,
+          "original_frozen_at": "2026-10-30T18:20:11+08:00",
+          "original_reference_price": 6.46,
+          "original_reference_price_at": "2026-10-30T15:00:00+08:00",
+          "original_condition_source": "docs/research/shadow-experiments-20261102-v1.json",
+          "not_a_new_signal": true,
+          "is_recommendation": false,
+          "formal_buy_signal": false,
+          "macro_impact_is_inference": "黑牡丹600510：建筑与房地产行业调查偏弱增加经营背景风险，不能直接计算个股业绩损失。原财务反证和融资注册不等于到账的边界继续保留；原H1价格代理不因此升级为正式买入。"
+        }
+      ],
+      "new_shadow_candidates": 0,
+      "new_price_observations": 0,
+      "new_trade_observations": 0,
+      "original_freeze_preserved": true,
+      "not_a_new_trading_day_report": true,
+      "evidence_file": "docs/research/combined-macro-20261101-evidence.json.gz",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "combined_limitup_watch_v5",
+      "codes": [
+        "000568",
+        "600510"
+      ],
+      "reference_market_emotion": "弱",
+      "emotion_as_of": "2026-10-30"
+    },
+    {
+      "id": "limitup-single-20261101-macro-supplement-v1",
+      "date": "2026-11-01",
+      "market_date": "2026-10-30",
+      "task_id": "limitup_single",
+      "track": "market_review",
+      "run_id": "limitup-single-20261101-scheduled-macro-supplement-v1",
+      "title": "休市打板v2补证｜住宿与总量分化，原首旅影子条件不变",
+      "summary": "统计局原站PMI补证；总量偏弱与行业分化不改变原正式0及冻结条件，无新增样本或成交。",
+      "body": "这是2026-11-01休市宏观补证，实际完成北京时间2026-11-01T01:11:58+08:00。最近已收盘交易日T=2026-10-30，原计划D=2026-11-02；若D实际买入，最早2026-11-03可卖。原四模块及两个裁决完整交付6/6，复用原报告和真实回执；本补证不替代任何完整前置，也不是休市日交易复盘。统计局两页标注10月31日09:30；本轮实际于11月1日01:07:12左右取得原站HTTP正文，准确UTC、原站URL与SHA256另存证据。页面日期不等于已独立证明互联网首次公开时刻。它们晚于10月30日18:20:11的原信号冻结，不能反向填入原入选理由。\n\n一、可核验事实与解释边界\n10月制造业PMI为49.3，环比下降0.8个百分点；新订单49.4，下降1.1个百分点。非制造业活动49.7，下降0.5个百分点。PMI是调查扩散指数，50为环比景气分界，这些数值不是企业盈利比例、产值同比增速或股市涨跌概率。宏观回落不能代替T30按市场宽度、炸板和晋级逐股分母冻结的“弱”情绪判定，也不能作为D开盘已知的价格表现。\n服务业活动50.0，下降0.2个百分点；统计局解读同时列住宿业环比改善且仍高于50，没有在该段披露住宿业具体指数。总量偏弱与住宿分项改善并存。它涉及10月含长假的经营调查，不等于首旅酒店600258自身入住率、房价或利润改善，更不是11月2日酒店股票板块已经走强。\n\n二、原影子结构化清单与独立判断\n|原组别/序|原信号id|代码/名称|原T日参考价，非新报价|本次影响（推断）|\n|---|---|---|---|---|\n|limitup_single/1|shadow-limitup-single-20261102-600258-v1|600258 首旅酒店|12.43|首旅酒店600258：住宿分项相对总量改善，为原H3行业分化假设增加支持线索。仍须按原H2首次分歧/回封、原同伴、高标、量价窗口及队列证据检验；不新增阈值、参照股或买入许可。|\n\n原触发、失效、放弃、退出、板块制度与同伴全部以原冻结清单为准，不作修改。\n\n三、上一批验证、对照与统计\nD29及D30原影子必要条件未满足、已核实成交0的结论保持；完整深筛池及失败/未触发样本均保留。尚只有2个已观察计划交易日，D1102未开市。本轮不新增证券日或交易数，不在周末重复追加T+1/T+2/T+5/T+10、MFE/MAE或封板/炸板结果。有分钟/逐笔、两侧成交、成本与合法T+1退出证据才计算可执行净收益。原沪深300和全部冻结对照继续使用；已有题材/流动性不完全匹配的限制保留。NBS行业分类不是A股行业成分篮子，不能把PMI差异算成股票对照收益。\n\n四、前推规则及下一检查\n原正式综合与打板各0只及其空仓事件不变，不再生成一个休市空仓交易日。H1/H2/H3、combined_limitup_watch_v5和limitup_single_v2均不改版。11月2日沿原窗口核验竞价、真实证券状态/涨停价、承接、固定同伴与高标，未满足原条件即未触发；缺成交证据即成交待验证，不能从日最高价反推买到或获利。H3的反证仍是原参照篮子在原窗口无相对强度或原同伴条件失败；宏观支持不能豁免。原20—30个实际交易日首轮复核节点不变；不足样本不宣称高胜率。20只原候选/同伴/风险参照公司的公告增量查询均成功，无此前未核查的精确代码公告；这是有限对象核查，并非全A新扫描或风险穷尽。任务、量化取消状态和自动买入/调权关闭均不变。",
+      "sources": [
+        "docs/research/combined-macro-20261101-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json",
+        "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965718.html",
+        "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965719.html"
+      ],
+      "report_type": "research_supplement",
+      "eligible_for_integrated_research": false,
+      "analysis_completed": true,
+      "status": "completed",
+      "published_at": "2026-11-01T01:11:58+08:00",
+      "recorded_at": "2026-11-01T01:11:58+08:00",
+      "data_cutoff_at": "2026-11-01T01:11:58+08:00",
+      "market_data_cutoff_at": "2026-10-30T15:00:00+08:00",
+      "planned_entry_date": "2026-11-02",
+      "earliest_legal_exit_date_if_bought": "2026-11-03",
+      "provenance": "new_macro_evidence_reviewed_after_original_freeze",
+      "candidate_count": 0,
+      "recommendation_ids": [],
+      "original_report_ids": [
+        "limitup-single-20261030-close-v2"
+      ],
+      "original_cash_observation_id": "limitup-single-20261030-cash-observation-v1",
+      "maintained_shadow_experiment_file": "docs/research/shadow-experiments-20261102-v1.json",
+      "existing_shadow_conditions": [
+        {
+          "original_signal_id": "shadow-limitup-single-20261102-600258-v1",
+          "market_event_id": "cnA:2026-11-02:600258",
+          "code": "600258",
+          "name": "首旅酒店",
+          "original_rank": 1,
+          "original_frozen_at": "2026-10-30T18:20:11+08:00",
+          "original_reference_price": 12.43,
+          "original_reference_price_at": "2026-10-30T15:00:00+08:00",
+          "original_condition_source": "docs/research/shadow-experiments-20261102-v1.json",
+          "not_a_new_signal": true,
+          "is_recommendation": false,
+          "formal_buy_signal": false,
+          "macro_impact_is_inference": "首旅酒店600258：住宿分项相对总量改善，为原H3行业分化假设增加支持线索。仍须按原H2首次分歧/回封、原同伴、高标、量价窗口及队列证据检验；不新增阈值、参照股或买入许可。"
+        }
+      ],
+      "new_shadow_candidates": 0,
+      "new_price_observations": 0,
+      "new_trade_observations": 0,
+      "original_freeze_preserved": true,
+      "not_a_new_trading_day_report": true,
+      "evidence_file": "docs/research/combined-macro-20261101-evidence.json.gz",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "limitup_single_v2",
+      "codes": [
+        "600258"
+      ],
+      "reference_market_emotion": "弱",
+      "emotion_as_of": "2026-10-30"
     }
   ]
 }
