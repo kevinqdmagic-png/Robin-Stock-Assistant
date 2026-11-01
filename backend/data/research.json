@@ -23124,6 +23124,151 @@
       ],
       "reference_market_emotion": "弱",
       "emotion_as_of": "2026-10-30"
+    },
+    {
+      "id": "combined-pair-20261102-premarket-risk-supplement-v1",
+      "date": "2026-11-02",
+      "market_date": "2026-10-30",
+      "task_id": "combined_pair",
+      "track": "market_review",
+      "run_id": "combined-pair-20261102-scheduled-premarket-risk-supplement-v1",
+      "title": "盘前综合补证｜海洋王严重异动与题材澄清，原冻结不变",
+      "summary": "核验海洋王严重异动公告及业务边界；保留H1高位对照与原正式0/影子条件，不新增交易或样本。",
+      "body": "盘前追加补证，实际完成北京时间2026-11-02T01:25:24+08:00；T=2026-10-30，计划D=2026-11-02。原四模块与综合、打板裁决已完成并核验6/6，本报告eligible_for_integrated_research=false，不能替代完整前置或视为新一轮选股。资料为海洋王002724公告2026-054。文件落款和巨潮元数据日期均为11月2日；本轮实际取得PDF为北京时间11月2日01:22:00.969586，这是本轮可证明的取得时间，互联网首次公开时刻未独立核实。不得把文件日期或本次事实倒填到10月30日18:20:11原冻结。\n\n一、原始公告事实及口径\n公告称10月19日至30日连续10个交易日收盘价格涨幅偏离值累计100.02%，达到严重异常波动情形。100.02%是相对基准的累计偏离指标，不是原始股价区间收益，也不是十连板。公告援引10月29日中证行业数据：公司静态/滚动市盈率94.91/216.79倍，行业18.90/17.99倍；本轮核实的是公告如此记载，未独立重算中证估值，不把这些估值口径与扣非利润混为一谈。公告按顺序列近五交易日换手25.66%、28.85%、24.15%、20.99%、22.85%，不能凭高换手断言资金身份或筹码锁定。前三季扣非净利润为亏损1630.31万元，同比下降189.97%，与原T30研究已记录的盈利质量风险一致。\n业务澄清：公司称AI智慧照明收入体量有限，尚不足以显著影响总体业绩；耐辐照灯具虽在核岛使用，照明不属于主生产设备，公司否认据此归入核电概念；没有可用于万米深海作业的应用产品，并否认深海科技概念。这些是发行人披露的业务边界，不能继续用题材标签代替已确认收入。公司核查称未有应披露未披露重大事项，这不是对股价安全、低估或不存在全部风险的保证。\n\n二、对原研究的支持、反证与限制\n海洋王原本是高位置、正尾盘但未封板的H1对照和落选对象，并非正式或影子入选。公告强化高位换手、盈利质量与题材映射的风险反证，但只是对照股的新证据，不能推导11月2日必跌、风险已扩散或低位实验一定胜出。原海洋王对照继续保留，其后失败、停牌、无法成交和缺失结果同样进入原分母；不因风险公告把它剔除或事后换成赢家。不新增参照股票、阈值或事后放弃规则；原信号中“高标风险扩散”等条件仅按原定参考对象和原窗口验证，不能单凭本公告判定三只影子已失效。海洋王不在当前48只研究自选档案，本次不新增自选或默认关注。\n\n三、原影子结构化维护清单\n|原组别/序|代码/名称|原T日参考价，非新报价|本轮处理|\n|---|---|---|---|\n|combined_pair/1|000568 泸州老窖|77.07|原触发、失效、放弃、固定同伴和合法退出规则全部保留；非买入建议|\n|combined_pair/2|600510 黑牡丹|6.46|原触发、失效、放弃、固定同伴和合法退出规则全部保留；非买入建议|\n\n原始精确区间、时间窗与证据链接以原冻结JSON为准，不改写。\n\n四、先验证、统计与执行边界\nD29/D30原必要条件未满足、已核实成交0的结果保持；原完整深筛池与失败样本保留。目前仅2个已观察计划交易日，D1102尚未开盘。本补证不新增计划日、证券日、影子候选或成交数；T+1/T+2/T+5/T+10、MFE/MAE无新成熟价格窗口，不补写结果。正式综合及打板各0只和原空仓事件不变，不再计一个新的空仓策略事件。若D真实入场，最早11月3日实际交易日卖出；当日炸板无法当日止损，跌停、停牌或队列可能无法退出。缺分钟/逐笔、排队及两侧成交证据只报可核日线观察，涨停价或最高价不能当成可实现盈利。H1/H2/H3、combined_limitup_watch_v5与limitup_single_v2不改版；原同口径沪深300及全部对照保留，流动性和行业未完全匹配的限制不变。20—30个实际交易日仅为首轮复核节点，不能据此宣称高胜率。\n\n五、来源覆盖与下一检查\n本轮20只原候选、同伴与风险参照公司公告查询均成功且无未取完页；新增精确代码公告1份，即本文件。它是有限对象补证，不是新全A扫描。真实证券状态、当日实际涨停价、竞价、分钟承接及成交队列尚待开市数据，不得用10月30日报价冒充盘前实时确认。原任务调度和量化取消状态保持；不自动下单、调权或发影子买入通知。",
+      "sources": [
+        "https://static.cninfo.com.cn/finalpage/2026-11-02/1225650401.PDF",
+        "docs/research/combined-risk-20261102-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ],
+      "report_type": "research_supplement",
+      "eligible_for_integrated_research": false,
+      "analysis_completed": true,
+      "status": "completed",
+      "published_at": "2026-11-02T01:25:24+08:00",
+      "recorded_at": "2026-11-02T01:25:24+08:00",
+      "data_cutoff_at": "2026-11-02T01:25:24+08:00",
+      "market_data_cutoff_at": "2026-10-30T15:00:00+08:00",
+      "planned_entry_date": "2026-11-02",
+      "earliest_legal_exit_date_if_bought": "2026-11-03",
+      "candidate_count": 0,
+      "recommendation_ids": [],
+      "provenance": "verified_issuer_filing_obtained_after_original_freeze_before_planned_D_open",
+      "original_report_ids": [
+        "combined-pair-20261030-close-v1"
+      ],
+      "original_cash_observation_id": "combined-pair-20261030-cash-observation-v1",
+      "maintained_shadow_experiment_file": "docs/research/shadow-experiments-20261102-v1.json",
+      "existing_shadow_conditions": [
+        {
+          "original_signal_id": "shadow-combined-pair-20261102-000568-v1",
+          "market_event_id": "cnA:2026-11-02:000568",
+          "code": "000568",
+          "name": "泸州老窖",
+          "original_rank": 1,
+          "original_frozen_at": "2026-10-30T18:20:11+08:00",
+          "original_reference_price": 77.07,
+          "original_reference_price_at": "2026-10-30T15:00:00+08:00",
+          "original_condition_source": "docs/research/shadow-experiments-20261102-v1.json",
+          "not_a_new_signal": true,
+          "is_recommendation": false,
+          "formal_buy_signal": false
+        },
+        {
+          "original_signal_id": "shadow-combined-pair-20261102-600510-v1",
+          "market_event_id": "cnA:2026-11-02:600510",
+          "code": "600510",
+          "name": "黑牡丹",
+          "original_rank": 2,
+          "original_frozen_at": "2026-10-30T18:20:11+08:00",
+          "original_reference_price": 6.46,
+          "original_reference_price_at": "2026-10-30T15:00:00+08:00",
+          "original_condition_source": "docs/research/shadow-experiments-20261102-v1.json",
+          "not_a_new_signal": true,
+          "is_recommendation": false,
+          "formal_buy_signal": false
+        }
+      ],
+      "new_shadow_candidates": 0,
+      "new_price_observations": 0,
+      "new_trade_observations": 0,
+      "original_freeze_preserved": true,
+      "not_a_new_trading_day_report": true,
+      "evidence_file": "docs/research/combined-risk-20261102-evidence.json.gz",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "combined_limitup_watch_v5",
+      "codes": [
+        "002724",
+        "000568",
+        "600510"
+      ],
+      "reference_market_emotion": "弱",
+      "emotion_as_of": "2026-10-30"
+    },
+    {
+      "id": "limitup-single-20261102-premarket-risk-supplement-v1",
+      "date": "2026-11-02",
+      "market_date": "2026-10-30",
+      "task_id": "limitup_single",
+      "track": "market_review",
+      "run_id": "limitup-single-20261102-scheduled-premarket-risk-supplement-v1",
+      "title": "盘前打板v2补证｜海洋王严重异动与题材澄清，原冻结不变",
+      "summary": "核验海洋王严重异动公告及业务边界；保留H1高位对照与原正式0/影子条件，不新增交易或样本。",
+      "body": "盘前追加补证，实际完成北京时间2026-11-02T01:25:24+08:00；T=2026-10-30，计划D=2026-11-02。原四模块与综合、打板裁决已完成并核验6/6，本报告eligible_for_integrated_research=false，不能替代完整前置或视为新一轮选股。资料为海洋王002724公告2026-054。文件落款和巨潮元数据日期均为11月2日；本轮实际取得PDF为北京时间11月2日01:22:00.969586，这是本轮可证明的取得时间，互联网首次公开时刻未独立核实。不得把文件日期或本次事实倒填到10月30日18:20:11原冻结。\n\n一、原始公告事实及口径\n公告称10月19日至30日连续10个交易日收盘价格涨幅偏离值累计100.02%，达到严重异常波动情形。100.02%是相对基准的累计偏离指标，不是原始股价区间收益，也不是十连板。公告援引10月29日中证行业数据：公司静态/滚动市盈率94.91/216.79倍，行业18.90/17.99倍；本轮核实的是公告如此记载，未独立重算中证估值，不把这些估值口径与扣非利润混为一谈。公告按顺序列近五交易日换手25.66%、28.85%、24.15%、20.99%、22.85%，不能凭高换手断言资金身份或筹码锁定。前三季扣非净利润为亏损1630.31万元，同比下降189.97%，与原T30研究已记录的盈利质量风险一致。\n业务澄清：公司称AI智慧照明收入体量有限，尚不足以显著影响总体业绩；耐辐照灯具虽在核岛使用，照明不属于主生产设备，公司否认据此归入核电概念；没有可用于万米深海作业的应用产品，并否认深海科技概念。这些是发行人披露的业务边界，不能继续用题材标签代替已确认收入。公司核查称未有应披露未披露重大事项，这不是对股价安全、低估或不存在全部风险的保证。\n\n二、对原研究的支持、反证与限制\n海洋王原本是高位置、正尾盘但未封板的H1对照和落选对象，并非正式或影子入选。公告强化高位换手、盈利质量与题材映射的风险反证，但只是对照股的新证据，不能推导11月2日必跌、风险已扩散或低位实验一定胜出。原海洋王对照继续保留，其后失败、停牌、无法成交和缺失结果同样进入原分母；不因风险公告把它剔除或事后换成赢家。不新增参照股票、阈值或事后放弃规则；原信号中“高标风险扩散”等条件仅按原定参考对象和原窗口验证，不能单凭本公告判定三只影子已失效。海洋王不在当前48只研究自选档案，本次不新增自选或默认关注。\n\n三、原影子结构化维护清单\n|原组别/序|代码/名称|原T日参考价，非新报价|本轮处理|\n|---|---|---|---|\n|limitup_single/1|600258 首旅酒店|12.43|原触发、失效、放弃、固定同伴和合法退出规则全部保留；非买入建议|\n\n原始精确区间、时间窗与证据链接以原冻结JSON为准，不改写。\n\n四、先验证、统计与执行边界\nD29/D30原必要条件未满足、已核实成交0的结果保持；原完整深筛池与失败样本保留。目前仅2个已观察计划交易日，D1102尚未开盘。本补证不新增计划日、证券日、影子候选或成交数；T+1/T+2/T+5/T+10、MFE/MAE无新成熟价格窗口，不补写结果。正式综合及打板各0只和原空仓事件不变，不再计一个新的空仓策略事件。若D真实入场，最早11月3日实际交易日卖出；当日炸板无法当日止损，跌停、停牌或队列可能无法退出。缺分钟/逐笔、排队及两侧成交证据只报可核日线观察，涨停价或最高价不能当成可实现盈利。H1/H2/H3、combined_limitup_watch_v5与limitup_single_v2不改版；原同口径沪深300及全部对照保留，流动性和行业未完全匹配的限制不变。20—30个实际交易日仅为首轮复核节点，不能据此宣称高胜率。\n\n五、来源覆盖与下一检查\n本轮20只原候选、同伴与风险参照公司公告查询均成功且无未取完页；新增精确代码公告1份，即本文件。它是有限对象补证，不是新全A扫描。真实证券状态、当日实际涨停价、竞价、分钟承接及成交队列尚待开市数据，不得用10月30日报价冒充盘前实时确认。原任务调度和量化取消状态保持；不自动下单、调权或发影子买入通知。",
+      "sources": [
+        "https://static.cninfo.com.cn/finalpage/2026-11-02/1225650401.PDF",
+        "docs/research/combined-risk-20261102-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "docs/research/shadow-validation-20261030-v1.json"
+      ],
+      "report_type": "research_supplement",
+      "eligible_for_integrated_research": false,
+      "analysis_completed": true,
+      "status": "completed",
+      "published_at": "2026-11-02T01:25:24+08:00",
+      "recorded_at": "2026-11-02T01:25:24+08:00",
+      "data_cutoff_at": "2026-11-02T01:25:24+08:00",
+      "market_data_cutoff_at": "2026-10-30T15:00:00+08:00",
+      "planned_entry_date": "2026-11-02",
+      "earliest_legal_exit_date_if_bought": "2026-11-03",
+      "candidate_count": 0,
+      "recommendation_ids": [],
+      "provenance": "verified_issuer_filing_obtained_after_original_freeze_before_planned_D_open",
+      "original_report_ids": [
+        "limitup-single-20261030-close-v2"
+      ],
+      "original_cash_observation_id": "limitup-single-20261030-cash-observation-v1",
+      "maintained_shadow_experiment_file": "docs/research/shadow-experiments-20261102-v1.json",
+      "existing_shadow_conditions": [
+        {
+          "original_signal_id": "shadow-limitup-single-20261102-600258-v1",
+          "market_event_id": "cnA:2026-11-02:600258",
+          "code": "600258",
+          "name": "首旅酒店",
+          "original_rank": 1,
+          "original_frozen_at": "2026-10-30T18:20:11+08:00",
+          "original_reference_price": 12.43,
+          "original_reference_price_at": "2026-10-30T15:00:00+08:00",
+          "original_condition_source": "docs/research/shadow-experiments-20261102-v1.json",
+          "not_a_new_signal": true,
+          "is_recommendation": false,
+          "formal_buy_signal": false
+        }
+      ],
+      "new_shadow_candidates": 0,
+      "new_price_observations": 0,
+      "new_trade_observations": 0,
+      "original_freeze_preserved": true,
+      "not_a_new_trading_day_report": true,
+      "evidence_file": "docs/research/combined-risk-20261102-evidence.json.gz",
+      "research_rule_version": "weak_market_shadow_v1",
+      "parent_rule_version": "limitup_single_v2",
+      "codes": [
+        "002724",
+        "600258"
+      ],
+      "reference_market_emotion": "弱",
+      "emotion_as_of": "2026-10-30"
     }
   ]
 }

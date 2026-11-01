@@ -5066,6 +5066,56 @@
         "docs/research/shadow-experiments-20261102-v1.json"
       ],
       "does_not_replace_original_full_research": true
+    },
+    {
+      "id": "combined-pair-20261102-scheduled-premarket-risk-supplement-v1-completed",
+      "run_id": "combined-pair-20261102-scheduled-premarket-risk-supplement-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-02",
+      "market_date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-11-01T17:20:26+00:00",
+      "completed_at": "2026-11-02T01:25:24+08:00",
+      "recorded_at": "2026-11-02T01:25:24+08:00",
+      "status": "completed",
+      "summary": "核验海洋王严重异动公告及业务边界；保留H1高位对照与原正式0/影子条件，不新增交易或样本。",
+      "report_ids": [
+        "combined-pair-20261102-premarket-risk-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-risk-20261102-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json"
+      ],
+      "does_not_replace_original_full_research": true
+    },
+    {
+      "id": "limitup-single-20261102-scheduled-premarket-risk-supplement-v1-completed",
+      "run_id": "limitup-single-20261102-scheduled-premarket-risk-supplement-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-02",
+      "market_date": "2026-10-30",
+      "trigger": "scheduled",
+      "started_at": "2026-11-01T17:20:26+00:00",
+      "completed_at": "2026-11-02T01:25:24+08:00",
+      "recorded_at": "2026-11-02T01:25:24+08:00",
+      "status": "completed",
+      "summary": "核验海洋王严重异动公告及业务边界；保留H1高位对照与原正式0/影子条件，不新增交易或样本。",
+      "report_ids": [
+        "limitup-single-20261102-premarket-risk-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/combined-risk-20261102-evidence.json.gz",
+        "docs/research/shadow-experiments-20261102-v1.json"
+      ],
+      "does_not_replace_original_full_research": true
     }
   ]
 }
