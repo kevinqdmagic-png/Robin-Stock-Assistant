@@ -53,6 +53,8 @@ def full_report(report, task, day):
         return False
     if report.get("status") != "completed" or report.get("analysis_completed") is not True:
         return False
+    if report.get("report_type") not in {"full_daily_research", "full_trading_research"}:
+        return False
     if report.get("execution_scope") in INVALID_SCOPE:
         return False
     if report.get("run_status") in INVALID_STATUS:
