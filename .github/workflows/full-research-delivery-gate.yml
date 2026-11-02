@@ -1,0 +1,35 @@
+name: Full A-share research delivery gate
+on:
+  # China 20:15 on exchange weekdays. Do not call partial evidence a complete study.
+  schedule:
+    - cron: '15 12 * * 1-5'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_full_research_delivery.py'
+      - 'tests/test_full_research_delivery.py'
+      - '.github/workflows/full-research-delivery-gate.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run audit regression tests
+        run: python -m unittest discover -s tests -p test_full_research_delivery.py -v
+      - name: Verify all six actual full research reports and linked receipts
+        run: python scripts/verify_full_research_delivery.py --require-complete --output full_delivery_audit.json
+      - name: Preserve missing-delivery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-research-delivery-audit
+          path: full_delivery_audit.json
+          if-no-files-found: warn
+          retention-days: 90
