@@ -1,0 +1,51 @@
+name: Recover Nov2 missing daily bars via alternate historical sources
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_nov02_missing_daybars.py'
+      - '.github/workflows/recover-nov02-missing-daybars.yml'
+permissions:
+  contents: write
+concurrency:
+  group: nov02-secondary-daybar-fallback
+  cancel-in-progress: false
+jobs:
+  fallback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Try dated Tencent legacy and Sina daybar for original missing securities
+        id: collect
+        continue-on-error: true
+        run: python scripts/recover_nov02_missing_daybars.py
+      - name: Preserve provider failure information
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nov02-missing-universe-second-provider-audit
+          path: docs/research/nov02-missing-daybar-fallback.json
+          retention-days: 90
+      - name: Publish source-supported additional daybars
+        if: steps.collect.outcome == 'success'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BASE=$(git rev-parse HEAD:docs/research/nov02-missing-daybar-fallback.json)
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            docs/research/nov02-missing-daybar-fallback.json docs/research/nov02-missing-daybar-fallback.json \
+            --base-sha "$BASE" \
+            --message "research: save independently anchored missing Nov2 daily bars and failures"
+      - name: Report provider coverage outcomes
+        if: always()
+        run: test "${{ steps.collect.outcome }}" = "success"
