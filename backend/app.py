@@ -25,7 +25,7 @@ from provider_health import record_provider_event, quality_summary
 from strategy_lab import summarize_snapshot
 from research_stocks import catalog, stock_research, stock_reports
 from capital_behavior import classify as classify_capital_behavior, archive_context as capital_archive_context
-from capital_watch import page as capital_watch_page
+from capital_watch import page as capital_watch_page, last_completed_trade_day
 from learning_loop import load_ledger
 
 API_VERSION = "0.10.0"
@@ -197,11 +197,12 @@ def capital_watch(limit: int = 10):
     try:
         payload = capital_watch_page(limit)
         latest = payload["latest"]
-        current_day = datetime.now(CN_TZ).date().isoformat()
+        last_trade_day = last_completed_trade_day()
         status = ("not_yet_published" if latest is None
-                  else "latest_trade_day" if latest["date"] == current_day
+                  else "latest_trade_day" if last_trade_day is not None and latest["date"] == last_trade_day
                   else "previous_research_day")
-        return {"ok": True, "status": status, "time_cn": now_cn(), **payload}
+        return {"ok": True, "status": status, "last_completed_trade_day": last_trade_day,
+                "time_cn": now_cn(), **payload}
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Capital watch archive unavailable: %s", exc)
         return {"ok": False, "status": "capital_watch_archive_unavailable",
