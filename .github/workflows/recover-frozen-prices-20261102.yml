@@ -1,0 +1,53 @@
+name: Recover Nov 2 frozen-pool real OHLCV
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_frozen_prices_20261102.py'
+      - '.github/workflows/recover-frozen-prices-20261102.yml'
+permissions:
+  contents: write
+concurrency:
+  group: scheduled-task-ledger-writer
+  cancel-in-progress: false
+jobs:
+  backfill-price-observations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Capture immutable evidence base blob
+        id: base
+        run: echo "sha=$(git rev-parse HEAD:docs/research/frozen-price-observation-20261102.json)" >> "$GITHUB_OUTPUT"
+      - name: Download historical unadjusted T30 and D11/02 bars for PRE-FROZEN cohort only
+        id: observe
+        continue-on-error: true
+        run: python scripts/recover_frozen_prices_20261102.py
+      - name: Preserve all raw successes, errors, timestamp, and source URLs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-20261102-frozen-price-observations
+          path: docs/research/frozen-price-observation-20261102.json
+          retention-days: 90
+      - name: Publish real prices only after sufficient sourced collection
+        if: steps.observe.outcome == 'success'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            docs/research/frozen-price-observation-20261102.json docs/research/frozen-price-observation-20261102.json \
+            --base-sha "${{ steps.base.outputs.sha }}" \
+            --message "research: archive true retrospective Nov2 OHLCV for frozen Oct30 cohort"
+      - name: Surface source failures and insufficient coverage as failure
+        if: always()
+        run: test "${{ steps.observe.outcome }}" = "success"
