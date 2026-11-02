@@ -27,13 +27,28 @@ def _published_complete(task_id, row, reports):
         return False
     if task_id in FULL_RESEARCH_TASKS and row.get("analysis_completed") is not True:
         return False
+    # A completed *supplement* is not a completed daily analysis.
+    # Require the original full report, not just any linked report ID.
     linked = {r.get("id"): r for r in reports["items"] if r.get("id")}
-    return all(
-        linked.get(report_id, {}).get("task_id") == task_id
-        and linked[report_id].get("date") == row["date"]
-        and linked[report_id].get("status") not in ("evidence_only", "missing_original_report")
-        for report_id in row["report_ids"]
-    )
+    for report_id in row["report_ids"]:
+        report = linked.get(report_id)
+        if report is None:
+            return False
+        if report.get("task_id") != task_id or report.get("date") != row["date"]:
+            return False
+        if report.get("status") != "completed" or report.get("analysis_completed") is not True:
+            return False
+        if report.get("report_type") not in {"full_daily_research", "full_trading_research"}:
+            return False
+        if report.get("execution_scope") in {"partial_research_universe", "dependency_audit_only", "retrospective_partial_evidence"}:
+            return False
+        if any(token in report_id.lower() for token in ("supplement", "partial", "snapshot", "audit-only", "recovery-audit")):
+            return False
+        if task_id != "limitup_single" and report.get("eligible_for_integrated_research") is not True:
+            return False
+        if not str(report.get("body") or "").strip() or not report.get("sources"):
+            return False
+    return True
 
 
 def build_delivery_health(tasks, runs, reports, *, now=None, session_day=None):
