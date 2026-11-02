@@ -24,7 +24,11 @@ def receipt(task, status="completed", *, analysis=True, report_id=None):
 
 def report(task):
     return {"id": task + "-report", "task_id": task, "date": DAY,
-            "status": "completed", "report_type": "full_daily_research"}
+            "status": "completed", "report_type": "full_daily_research",
+            "analysis_completed": True,
+            "eligible_for_integrated_research": task != "limitup_single",
+            "body": "Full independently sourced analysis, not a supplement",
+            "sources": ["https://example.org/source"]}
 
 
 class DeliveryHealthTests(unittest.TestCase):
@@ -78,6 +82,24 @@ class DeliveryHealthTests(unittest.TestCase):
         result = self.scan(datetime(2026, 10, 26, 18, 0, tzinfo=CN))
         self.assertEqual(result["status"], "pending")
         self.assertTrue(all(x["status"] == "pending" for x in result["items"]))
+
+    def test_supplementary_completed_receipt_is_not_full_delivery(self):
+        for task in ("combined_pair", "limitup_single"):
+            index = next(i for i, r in enumerate(self.reports["items"]) if r["task_id"] == task)
+            old = self.reports["items"][index]
+            self.reports["items"][index] = dict(
+                old, id=old["id"] + "-supplement",
+                report_type="premarket_supplement", eligible_for_integrated_research=False)
+            for r in self.runs["items"]:
+                if r["task_id"] == task:
+                    r["report_ids"] = [self.reports["items"][index]["id"]]
+        result = self.scan()
+        self.assertEqual(set(result["unverified_task_ids"]), {"combined_pair", "limitup_single"})
+        self.assertNotEqual(result["status"], "complete")
+
+    def test_incomplete_report_body_never_passes(self):
+        next(r for r in self.reports["items"] if r["task_id"] == "volume_price")["body"] = ""
+        self.assertIn("volume_price", self.scan()["unverified_task_ids"])
 
     def test_disabled_track_not_misreported(self):
         self.tasks["items"][0]["enabled"] = False
