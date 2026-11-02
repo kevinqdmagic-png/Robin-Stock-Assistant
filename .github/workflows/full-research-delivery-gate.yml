@@ -1,12 +1,19 @@
 name: Full A-share research delivery gate
 on:
-  # China 20:15 on exchange weekdays. Do not call partial evidence a complete study.
+  # China 20:15 and 21:15 weekday retries; UTC weekday 22:15 is
+  # China 06:15 next day, checking the LAST FINISHED session.
+  # A missing GitHub cron firing must not make the latest delivery invisible.
   schedule:
     - cron: '15 12 * * 1-5'
+    - cron: '15 13 * * 1-5'
+    - cron: '15 22 * * 1-5'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
+      - 'backend/data/research.json'
+      - 'backend/data/task_runs.json'
+      - 'backend/data/tasks.json'
       - 'scripts/verify_full_research_delivery.py'
       - 'tests/test_full_research_delivery.py'
       - '.github/workflows/full-research-delivery-gate.yml'
