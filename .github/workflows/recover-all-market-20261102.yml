@@ -1,0 +1,82 @@
+name: Recover original T30 all-A universe Nov2 daily bars
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_all_market_20261102.py'
+      - '.github/workflows/recover-all-market-20261102.yml'
+permissions:
+  contents: write
+concurrency:
+  group: nov02-historical-full-market-recovery
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        part: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Collect date-exact Nov2 historical bars from original Oct30 universe
+        id: source
+        continue-on-error: true
+        run: python scripts/recover_all_market_20261102.py --part ${{ matrix.part }} --parts 8
+      - name: Retain source failures and actual observations for every partition
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nov02-market-shard-${{ matrix.part }}
+          path: tmp/nov02-market-shards/*.json
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Fail if requested sample coverage is too low
+        if: always()
+        run: test "${{ steps.source.outcome }}" = "success"
+  assemble:
+    needs: collect
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: nov02-market-shard-*
+          path: tmp/nov02-market-shards
+          merge-multiple: true
+      - name: Assemble original full source universe, without rewriting missing prices
+        run: |
+          python scripts/recover_all_market_20261102.py --merge --parts 8
+      - name: Retain complete machine-readable results
+        uses: actions/upload-artifact@v4
+        with:
+          name: original-prior-universe-20261102-results
+          path: docs/research/nov02-retrospective-market.json
+          retention-days: 90
+      - name: Append validated historical evidence to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BASE=$(git rev-parse HEAD:docs/research/nov02-retrospective-market.json)
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            docs/research/nov02-retrospective-market.json docs/research/nov02-retrospective-market.json \
+            --base-sha "$BASE" \
+            --message "research: record Nov2 actual bars for Oct30 full quoted stock universe"
