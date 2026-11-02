@@ -1,0 +1,50 @@
+name: Recover dated Nov2 frozen-pool minute price points
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_nov02_minute_points.py'
+      - '.github/workflows/recover-nov02-minute-points.yml'
+permissions:
+  contents: write
+concurrency:
+  group: nov02-historical-minute-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch strictly date-verified Nov2 intraday prices, no fills assumed
+        id: collect
+        continue-on-error: true
+        run: python scripts/recover_nov02_minute_points.py
+      - name: Preserve raw price points and failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nov02-original-frozen-minute-price-evidence
+          path: docs/research/nov02-frozen-minute-points.json
+          retention-days: 90
+      - name: Publish only when verified 11/2 date and sufficient true coverage
+        if: steps.collect.outcome == 'success'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BASE=$(git rev-parse HEAD:docs/research/nov02-frozen-minute-points.json)
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            docs/research/nov02-frozen-minute-points.json docs/research/nov02-frozen-minute-points.json \
+            --base-sha "$BASE" \
+            --message "research: recover dated Nov2 minute price evidence for T30 frozen candidates"
+      - name: Require real source evidence
+        if: always()
+        run: test "${{ steps.collect.outcome }}" = "success"
