@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "target_date": "2026-11-02",
+  "pre_frozen_at": "2026-10-30T18:20:11+08:00",
+  "actually_audited_at": "2026-11-02T18:19:10.426Z",
+  "sources": [
+    "docs/research/shadow-experiments-20261102-v1.json",
+    "docs/research/nov02-frozen-minute-points.json",
+    "docs/research/frozen-price-observation-20261102.json"
+  ],
+  "original_signal_count": 3,
+  "rejected_by_mandatory_price_gate": 2,
+  "full_trigger_verified_count": 0,
+  "research_shadow_evaluations": [
+    {
+      "code": "000568",
+      "name": "泸州老窖",
+      "original_frozen_at": "2026-10-30T18:20:11+08:00",
+      "original_signal_id": "shadow-combined-pair-20261102-000568-v1",
+      "condition_type": "09:45 and 10:30 both must be within frozen band and above VWAP",
+      "frozen_confirmation_range": [
+        75.53,
+        77.07
+      ],
+      "checkpoints": [
+        {
+          "clock": "0945",
+          "price": 79.88,
+          "cumulative_vwap_proxy": 79.2251,
+          "requires_confirmation_range": [
+            75.53,
+            77.07
+          ],
+          "within_price_band": false,
+          "above_vwap": true
+        },
+        {
+          "clock": "1030",
+          "price": 80.28,
+          "cumulative_vwap_proxy": 79.9169,
+          "requires_confirmation_range": [
+            75.53,
+            77.07
+          ],
+          "within_price_band": false,
+          "above_vwap": true
+        }
+      ],
+      "signal_state": "required_price_gate_failed_no_valid_entry",
+      "rejection_reasons": [
+        "mandatory_0945_or_1030_frozen_range_condition_failed"
+      ],
+      "historical_daybar": {
+        "open": 77.7,
+        "high": 81.62,
+        "low": 77.2,
+        "close": 79.77,
+        "close_pct": 3.50331
+      },
+      "observed_intraday_fill": false,
+      "executed_trade": false,
+      "calculated_return_pct": null
+    },
+    {
+      "code": "600510",
+      "name": "黑牡丹",
+      "original_frozen_at": "2026-10-30T18:20:11+08:00",
+      "original_signal_id": "shadow-combined-pair-20261102-600510-v1",
+      "condition_type": "09:45 and 10:30 both must be within frozen band and above VWAP",
+      "frozen_confirmation_range": [
+        6.33,
+        6.46
+      ],
+      "checkpoints": [
+        {
+          "clock": "0945",
+          "price": 6.92,
+          "cumulative_vwap_proxy": 6.62265,
+          "requires_confirmation_range": [
+            6.33,
+            6.46
+          ],
+          "within_price_band": false,
+          "above_vwap": true
+        },
+        {
+          "clock": "1030",
+          "price": 6.76,
+          "cumulative_vwap_proxy": 6.69477,
+          "requires_confirmation_range": [
+            6.33,
+            6.46
+          ],
+          "within_price_band": false,
+          "above_vwap": true
+        }
+      ],
+      "signal_state": "required_price_gate_failed_no_valid_entry",
+      "rejection_reasons": [
+        "mandatory_0945_or_1030_frozen_range_condition_failed"
+      ],
+      "historical_daybar": {
+        "open": 6.59,
+        "high": 6.98,
+        "low": 6.39,
+        "close": 6.58,
+        "close_pct": 1.85759
+      },
+      "observed_intraday_fill": false,
+      "executed_trade": false,
+      "calculated_return_pct": null
+    },
+    {
+      "code": "600258",
+      "name": "首旅酒店",
+      "original_frozen_at": "2026-10-30T18:20:11+08:00",
+      "original_signal_id": "shadow-limitup-single-20261102-600258-v1",
+      "condition_type": "separate auction/upper-limit/reseal/peer conditions",
+      "frozen_confirmation_range": null,
+      "checkpoints": [
+        {
+          "clock": "0945",
+          "price": 12.88,
+          "cumulative_vwap_proxy": 12.73164,
+          "requires_confirmation_range": null,
+          "within_price_band": null,
+          "above_vwap": true
+        },
+        {
+          "clock": "1030",
+          "price": 13.07,
+          "cumulative_vwap_proxy": 12.86596,
+          "requires_confirmation_range": null,
+          "within_price_band": null,
+          "above_vwap": true
+        }
+      ],
+      "signal_state": "cannot_verify_full_trigger_with_available_evidence",
+      "rejection_reasons": [
+        "missing_auction_or_tick_level_orderflow_or_sector_peer_and_limit_verification"
+      ],
+      "historical_daybar": {
+        "open": 12.43,
+        "high": 13.21,
+        "low": 12.3,
+        "close": 12.95,
+        "close_pct": 4.18343
+      },
+      "observed_intraday_fill": false,
+      "executed_trade": false,
+      "calculated_return_pct": null
+    }
+  ],
+  "original_rules_unmodified": true,
+  "uses_contemporaneous_frozen_rules": true,
+  "retroactive_captured_market_evidence": true,
+  "authentic_broker_fills_verified": 0,
+  "execution_profit_computable": false,
+  "limitation": "Clock points and daily OHLCV are after-date data recovery; no 09:25 auction, continuous seal and order fills. Required gates that fail are decisive negatives. Otherwise mark unknown, never a successful trade."
+}
