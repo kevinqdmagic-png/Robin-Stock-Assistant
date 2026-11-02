@@ -6,8 +6,13 @@ on:
       - 'scripts/run_daily_capital_watch.py'
       - '.github/workflows/daily-capital-watch.yml'
   schedule:
-    # Beijing 18:10 on weekdays, may start late with GitHub Actions scheduling.
+    # Beijing 18:10 primary plus 19:10 / 21:10 retries for delayed or missing cron.
+    # UTC 23:10 weekday checks the most recent completed China session next morning.
+    # Archive remains immutable and a prior record is not treated as a new-day scan.
     - cron: '10 10 * * 1-5'
+    - cron: '10 11 * * 1-5'
+    - cron: '10 13 * * 1-5'
+    - cron: '10 23 * * 1-5'
   workflow_dispatch:
 permissions:
   contents: write
