@@ -1,0 +1,23 @@
+name: Confirm Nov2 expanded research is readable in live APP API
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_nov02_expanded_production.py'
+      - '.github/workflows/verify-nov02-expanded-production.yml'
+permissions:
+  contents: read
+jobs:
+  production-readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Confirm exact SHA, live APP archive receipts, and fail-closed 0 of 6 delivery
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: python scripts/verify_nov02_expanded_production.py
