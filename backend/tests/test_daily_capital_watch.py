@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "backend"))
-from capital_watch import validate_archive, verify_append_only
+from capital_watch import validate_archive, verify_append_only, last_completed_trade_day
 
 spec = importlib.util.spec_from_file_location("daily_capital_watch", ROOT / "scripts/run_daily_capital_watch.py")
 module = importlib.util.module_from_spec(spec)
@@ -37,6 +37,16 @@ class DailyCapitalWatchTests(unittest.TestCase):
         self.assertEqual(by_id["capital_behavior"]["execution_mode"], "app_only_on_demand")
         self.assertTrue(by_id["capital_watch_daily"]["enabled"])
         self.assertEqual(by_id["capital_watch_daily"]["timezone"], "Asia/Shanghai")
+
+    def test_latest_completed_session_before_open_and_holiday(self):
+        self.assertEqual(last_completed_trade_day(
+            datetime(2026, 11, 3, 2, 45, tzinfo=CN)), "2026-11-02")
+        self.assertEqual(last_completed_trade_day(
+            datetime(2026, 11, 2, 14, 0, tzinfo=CN)), "2026-10-30")
+        self.assertEqual(last_completed_trade_day(
+            datetime(2026, 10, 6, 16, 0, tzinfo=CN)), "2026-09-30")
+        self.assertEqual(last_completed_trade_day(
+            datetime(2026, 11, 3, 16, 0, tzinfo=CN)), "2026-11-03")
 
     def test_nontrading_session_does_not_scan(self):
         result = module.scan(now=datetime(2026,10,11,18,10,tzinfo=CN),pool=["002068"],
