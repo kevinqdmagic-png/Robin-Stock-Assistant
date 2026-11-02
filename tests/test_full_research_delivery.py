@@ -19,6 +19,7 @@ def archive():
         rid = f"{task}-{DAY}-close-v1"
         reports.append({
             "id": rid, "task_id": task, "date": DAY, "status": "completed",
+            "report_type": "full_daily_research",
             "analysis_completed": True, "eligible_for_integrated_research": task != "limitup_single",
             "body": "Original full research with underlying source evidence",
             "sources": ["https://example.org/source"],
@@ -43,6 +44,12 @@ class FullDeliveryAuditTest(unittest.TestCase):
         runs["items"][-1]["report_ids"] = [reports["items"][-1]["id"]]
         result = audit(DAY, reports, runs, datetime(2026, 10, 30, 20, 20, tzinfo=CN))
         self.assertEqual(result["missing"], ["limitup_single"])
+
+    def test_typed_premarket_report_rejected_without_id_hint(self):
+        reports, runs = archive()
+        reports["items"][0]["report_type"] = "premarket_supplement"
+        result = audit(DAY, reports, runs, datetime(2026, 10, 30, 20, 20, tzinfo=CN))
+        self.assertIn("market_review", result["missing"])
 
     def test_partial_and_waiting_are_not_success(self):
         reports, runs = archive()
