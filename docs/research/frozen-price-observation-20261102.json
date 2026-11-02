@@ -1,8 +1,5046 @@
 {
   "schema_version": 1,
   "target_session": "2026-11-02",
-  "status": "collection_pending",
+  "frozen_session": "2026-10-30",
+  "frozen_at": "2026-10-30T18:20:11+08:00",
+  "retrieved_at": "2026-11-03T02:03:21+08:00",
+  "research_scope": "retrospective_daybar_observations_for_pre_frozen_T30_universe_only",
+  "source_provider": "tencent_unadjusted_daybars_adjust_0",
+  "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+  "expected": {
+    "broad": 120,
+    "deep": 28,
+    "low": 51,
+    "shadow": 3,
+    "unique": 166
+  },
+  "success": 164,
+  "failure": 2,
+  "errors": {
+    "920156": "ValueError: missing_exact_T_or_D_day_bar",
+    "920201": "ValueError: missing_exact_T_or_D_day_bar"
+  },
+  "summary": [
+    {
+      "group": "broad",
+      "verified_daily_n": 118,
+      "anchor_consistent_n": 118,
+      "mean_close_pct": 1.3764,
+      "median_close_pct": 0.9572,
+      "mean_high_excursion_pct": 4.2782,
+      "mean_low_excursion_pct": -3.7188,
+      "close_up_n": 71,
+      "close_down_n": 46,
+      "proxy_only_not_executable_return": true
+    },
+    {
+      "group": "deep",
+      "verified_daily_n": 28,
+      "anchor_consistent_n": 28,
+      "mean_close_pct": 1.9983,
+      "median_close_pct": 1.1238,
+      "mean_high_excursion_pct": 4.0793,
+      "mean_low_excursion_pct": -2.7558,
+      "close_up_n": 18,
+      "close_down_n": 9,
+      "proxy_only_not_executable_return": true
+    },
+    {
+      "group": "low",
+      "verified_daily_n": 51,
+      "anchor_consistent_n": 51,
+      "mean_close_pct": 2.6904,
+      "median_close_pct": 1.9345,
+      "mean_high_excursion_pct": 4.0115,
+      "mean_low_excursion_pct": -3.248,
+      "close_up_n": 37,
+      "close_down_n": 14,
+      "proxy_only_not_executable_return": true
+    },
+    {
+      "group": "shadow",
+      "verified_daily_n": 3,
+      "anchor_consistent_n": 3,
+      "mean_close_pct": 3.1814,
+      "median_close_pct": 3.5033,
+      "mean_high_excursion_pct": 6.7428,
+      "mean_low_excursion_pct": -0.6536,
+      "close_up_n": 3,
+      "close_down_n": 0,
+      "proxy_only_not_executable_return": true
+    }
+  ],
+  "observations": [
+    {
+      "code": "000032",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 10.7,
+        "close": 10.37,
+        "high": 10.97,
+        "low": 10.36,
+        "volume": 421648.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.47,
+        "close": 10.96,
+        "high": 11.06,
+        "low": 10.23,
+        "volume": 506102.0
+      },
+      "close_pct": 5.68949,
+      "open_pct": 0.96432,
+      "daily_high_excursion_pct": 6.65381,
+      "daily_low_excursion_pct": -1.35005,
+      "clv": 0.87952,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000032%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000410",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 4.98,
+        "close": 5.37,
+        "high": 5.37,
+        "low": 4.94,
+        "volume": 468120.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.67,
+        "close": 5.91,
+        "high": 5.91,
+        "low": 5.54,
+        "volume": 2081056.0
+      },
+      "close_pct": 10.05587,
+      "open_pct": 5.58659,
+      "daily_high_excursion_pct": 10.05587,
+      "daily_low_excursion_pct": 3.16574,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000410%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 5.37,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000415",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 4.3,
+        "close": 4.57,
+        "high": 4.66,
+        "low": 4.25,
+        "volume": 1499190.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 4.56,
+        "close": 4.58,
+        "high": 4.63,
+        "low": 4.47,
+        "volume": 960911.0
+      },
+      "close_pct": 0.21882,
+      "open_pct": -0.21882,
+      "daily_high_excursion_pct": 1.31291,
+      "daily_low_excursion_pct": -2.18818,
+      "clv": 0.6875,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000415%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 4.57,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000417",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.42,
+        "close": 5.7,
+        "high": 5.7,
+        "low": 5.41,
+        "volume": 397271.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.94,
+        "close": 6.27,
+        "high": 6.27,
+        "low": 5.75,
+        "volume": 776045.0
+      },
+      "close_pct": 10.0,
+      "open_pct": 4.21053,
+      "daily_high_excursion_pct": 10.0,
+      "daily_low_excursion_pct": 0.87719,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000417%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 5.7,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000420",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 3.61,
+        "close": 3.65,
+        "high": 3.81,
+        "low": 3.6,
+        "volume": 973885.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.67,
+        "close": 3.66,
+        "high": 3.73,
+        "low": 3.56,
+        "volume": 756346.0
+      },
+      "close_pct": 0.27397,
+      "open_pct": 0.54795,
+      "daily_high_excursion_pct": 2.19178,
+      "daily_low_excursion_pct": -2.46575,
+      "clv": 0.58824,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000420%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000503",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.78,
+        "close": 6.51,
+        "high": 7.0,
+        "low": 6.5,
+        "volume": 275607.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.86,
+        "close": 7.0,
+        "high": 7.08,
+        "low": 6.37,
+        "volume": 354673.0
+      },
+      "close_pct": 7.52688,
+      "open_pct": 5.37634,
+      "daily_high_excursion_pct": 8.75576,
+      "daily_low_excursion_pct": -2.15054,
+      "clv": 0.88732,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000503%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000513",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 27.67,
+        "close": 28.52,
+        "high": 28.96,
+        "low": 27.2,
+        "volume": 175188.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 28.5,
+        "close": 29.42,
+        "high": 29.6,
+        "low": 28.4,
+        "volume": 163918.0
+      },
+      "close_pct": 3.15568,
+      "open_pct": -0.07013,
+      "daily_high_excursion_pct": 3.78682,
+      "daily_low_excursion_pct": -0.42076,
+      "clv": 0.85,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000513%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000525",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 4.01,
+        "close": 4.49,
+        "high": 4.49,
+        "low": 4.01,
+        "volume": 670376.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 4.94,
+        "close": 4.94,
+        "high": 4.94,
+        "low": 4.94,
+        "volume": 153301.0
+      },
+      "close_pct": 10.02227,
+      "open_pct": 10.02227,
+      "daily_high_excursion_pct": 10.02227,
+      "daily_low_excursion_pct": 10.02227,
+      "clv": null,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000525%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 4.49,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000554",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.46,
+        "close": 6.51,
+        "high": 6.67,
+        "low": 6.35,
+        "volume": 363946.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.41,
+        "close": 6.56,
+        "high": 6.6,
+        "low": 6.3,
+        "volume": 296552.0
+      },
+      "close_pct": 0.76805,
+      "open_pct": -1.5361,
+      "daily_high_excursion_pct": 1.38249,
+      "daily_low_excursion_pct": -3.22581,
+      "clv": 0.86667,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000554%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000568",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 72.0,
+        "close": 77.07,
+        "high": 77.07,
+        "low": 71.39,
+        "volume": 413681.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 77.7,
+        "close": 79.77,
+        "high": 81.62,
+        "low": 77.2,
+        "volume": 419677.0
+      },
+      "close_pct": 3.50331,
+      "open_pct": 0.81744,
+      "daily_high_excursion_pct": 5.90372,
+      "daily_low_excursion_pct": 0.16868,
+      "clv": 0.58145,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000568%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28",
+        "preexisting_low_position_52",
+        "T30_frozen_shadow_3"
+      ],
+      "T30_frozen_quote_close": 77.07,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000596",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 87.4,
+        "close": 95.7,
+        "high": 95.7,
+        "low": 87.4,
+        "volume": 104642.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 97.97,
+        "close": 103.8,
+        "high": 105.0,
+        "low": 97.01,
+        "volume": 147735.0
+      },
+      "close_pct": 8.46395,
+      "open_pct": 2.372,
+      "daily_high_excursion_pct": 9.71787,
+      "daily_low_excursion_pct": 1.36886,
+      "clv": 0.84981,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000596%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 95.7,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000676",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.47,
+        "close": 6.61,
+        "high": 6.61,
+        "low": 6.41,
+        "volume": 817209.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.42,
+        "close": 6.89,
+        "high": 7.27,
+        "low": 6.19,
+        "volume": 1712079.0
+      },
+      "close_pct": 4.23601,
+      "open_pct": -2.87443,
+      "daily_high_excursion_pct": 9.98487,
+      "daily_low_excursion_pct": -6.35401,
+      "clv": 0.64815,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000676%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 6.61,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000716",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.15,
+        "close": 5.24,
+        "high": 5.24,
+        "low": 5.15,
+        "volume": 306450.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.61,
+        "close": 5.49,
+        "high": 5.76,
+        "low": 5.36,
+        "volume": 1487483.0
+      },
+      "close_pct": 4.77099,
+      "open_pct": 7.06107,
+      "daily_high_excursion_pct": 9.92366,
+      "daily_low_excursion_pct": 2.29008,
+      "clv": 0.325,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000716%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 5.24,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000823",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 15.71,
+        "close": 17.2,
+        "high": 18.18,
+        "low": 15.32,
+        "volume": 1589703.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.54,
+        "close": 17.28,
+        "high": 18.28,
+        "low": 16.74,
+        "volume": 1227079.0
+      },
+      "close_pct": 0.46512,
+      "open_pct": 1.97674,
+      "daily_high_excursion_pct": 6.27907,
+      "daily_low_excursion_pct": -2.67442,
+      "clv": 0.35065,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000823%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.2,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000860",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 10.68,
+        "close": 11.63,
+        "high": 11.87,
+        "low": 10.63,
+        "volume": 345466.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 11.59,
+        "close": 12.28,
+        "high": 12.41,
+        "low": 11.59,
+        "volume": 446080.0
+      },
+      "close_pct": 5.58899,
+      "open_pct": -0.34394,
+      "daily_high_excursion_pct": 6.70679,
+      "daily_low_excursion_pct": -0.34394,
+      "clv": 0.84146,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000860%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 11.63,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000888",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.54,
+        "close": 9.7,
+        "high": 10.24,
+        "low": 9.38,
+        "volume": 331561.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 9.62,
+        "close": 10.21,
+        "high": 10.32,
+        "low": 9.54,
+        "volume": 358245.0
+      },
+      "close_pct": 5.25773,
+      "open_pct": -0.82474,
+      "daily_high_excursion_pct": 6.39175,
+      "daily_low_excursion_pct": -1.64948,
+      "clv": 0.85897,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000888%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000900",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 3.47,
+        "close": 3.62,
+        "high": 3.66,
+        "low": 3.47,
+        "volume": 433336.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.58,
+        "close": 3.6,
+        "high": 3.65,
+        "low": 3.57,
+        "volume": 209638.0
+      },
+      "close_pct": -0.55249,
+      "open_pct": -1.10497,
+      "daily_high_excursion_pct": 0.82873,
+      "daily_low_excursion_pct": -1.38122,
+      "clv": 0.375,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000900%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 3.62,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "000973",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 10.15,
+        "close": 10.34,
+        "high": 10.63,
+        "low": 10.1,
+        "volume": 231148.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.33,
+        "close": 10.54,
+        "high": 10.65,
+        "low": 10.22,
+        "volume": 218012.0
+      },
+      "close_pct": 1.93424,
+      "open_pct": -0.09671,
+      "daily_high_excursion_pct": 2.99807,
+      "daily_low_excursion_pct": -1.16054,
+      "clv": 0.74419,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000973%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "000995",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.84,
+        "close": 14.18,
+        "high": 14.18,
+        "low": 12.84,
+        "volume": 510660.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 15.53,
+        "close": 15.6,
+        "high": 15.6,
+        "low": 15.5,
+        "volume": 127330.0
+      },
+      "close_pct": 10.0141,
+      "open_pct": 9.52045,
+      "daily_high_excursion_pct": 10.0141,
+      "daily_low_excursion_pct": 9.30889,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz000995%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 14.18,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "001210",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.52,
+        "close": 20.52,
+        "high": 21.65,
+        "low": 18.68,
+        "volume": 141418.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 20.34,
+        "close": 20.62,
+        "high": 21.1,
+        "low": 19.82,
+        "volume": 107210.0
+      },
+      "close_pct": 0.48733,
+      "open_pct": -0.87719,
+      "daily_high_excursion_pct": 2.82651,
+      "daily_low_excursion_pct": -3.41131,
+      "clv": 0.625,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz001210%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 20.52,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "001219",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.94,
+        "close": 19.94,
+        "high": 19.94,
+        "low": 19.51,
+        "volume": 473549.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 20.6,
+        "close": 21.93,
+        "high": 21.93,
+        "low": 19.2,
+        "volume": 375432.0
+      },
+      "close_pct": 9.97994,
+      "open_pct": 3.30993,
+      "daily_high_excursion_pct": 9.97994,
+      "daily_low_excursion_pct": -3.71113,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz001219%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28",
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": 19.94,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "001233",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 54.81,
+        "close": 55.66,
+        "high": 57.52,
+        "low": 54.72,
+        "volume": 41328.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 55.92,
+        "close": 54.73,
+        "high": 56.8,
+        "low": 53.77,
+        "volume": 48184.0
+      },
+      "close_pct": -1.67086,
+      "open_pct": 0.46712,
+      "daily_high_excursion_pct": 2.04815,
+      "daily_low_excursion_pct": -3.39562,
+      "clv": 0.31683,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz001233%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "001287",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.92,
+        "close": 20.24,
+        "high": 20.24,
+        "low": 19.89,
+        "volume": 310958.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 20.25,
+        "close": 20.16,
+        "high": 20.83,
+        "low": 20.04,
+        "volume": 576701.0
+      },
+      "close_pct": -0.39526,
+      "open_pct": 0.04941,
+      "daily_high_excursion_pct": 2.91502,
+      "daily_low_excursion_pct": -0.98814,
+      "clv": 0.1519,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz001287%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 20.24,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "001318",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.05,
+        "close": 14.43,
+        "high": 14.95,
+        "low": 13.05,
+        "volume": 550137.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 14.22,
+        "close": 14.4,
+        "high": 15.11,
+        "low": 12.99,
+        "volume": 490557.0
+      },
+      "close_pct": -0.2079,
+      "open_pct": -1.4553,
+      "daily_high_excursion_pct": 4.7124,
+      "daily_low_excursion_pct": -9.97921,
+      "clv": 0.66509,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz001318%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 14.43,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "001400",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 90.0,
+        "close": 97.21,
+        "high": 101.38,
+        "low": 86.61,
+        "volume": 88518.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 92.77,
+        "close": 95.9,
+        "high": 97.0,
+        "low": 89.2,
+        "volume": 55933.0
+      },
+      "close_pct": -1.3476,
+      "open_pct": -4.56743,
+      "daily_high_excursion_pct": -0.21603,
+      "daily_low_excursion_pct": -8.23989,
+      "clv": 0.85897,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz001400%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 97.21,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002009",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.1,
+        "close": 17.23,
+        "high": 18.26,
+        "low": 16.65,
+        "volume": 742314.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.0,
+        "close": 16.88,
+        "high": 17.0,
+        "low": 15.51,
+        "volume": 610312.0
+      },
+      "close_pct": -2.03134,
+      "open_pct": -1.33488,
+      "daily_high_excursion_pct": -1.33488,
+      "daily_low_excursion_pct": -9.98259,
+      "clv": 0.91946,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002009%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.23,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002027",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.17,
+        "close": 5.26,
+        "high": 5.31,
+        "low": 5.14,
+        "volume": 2139472.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.24,
+        "close": 5.43,
+        "high": 5.48,
+        "low": 5.22,
+        "volume": 2899637.0
+      },
+      "close_pct": 3.23194,
+      "open_pct": -0.38023,
+      "daily_high_excursion_pct": 4.18251,
+      "daily_low_excursion_pct": -0.76046,
+      "clv": 0.80769,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002027%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002074",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 22.4,
+        "close": 22.59,
+        "high": 23.6,
+        "low": 22.37,
+        "volume": 263206.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 22.65,
+        "close": 23.1,
+        "high": 23.17,
+        "low": 22.22,
+        "volume": 256302.0
+      },
+      "close_pct": 2.25764,
+      "open_pct": 0.2656,
+      "daily_high_excursion_pct": 2.56751,
+      "daily_low_excursion_pct": -1.63789,
+      "clv": 0.92632,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002074%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002086",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 2.7,
+        "close": 2.83,
+        "high": 2.83,
+        "low": 2.62,
+        "volume": 4296709.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.11,
+        "close": 3.11,
+        "high": 3.11,
+        "low": 3.0,
+        "volume": 1741887.0
+      },
+      "close_pct": 9.89399,
+      "open_pct": 9.89399,
+      "daily_high_excursion_pct": 9.89399,
+      "daily_low_excursion_pct": 6.00707,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002086%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 2.83,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002088",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 7.0,
+        "close": 7.74,
+        "high": 7.74,
+        "low": 6.95,
+        "volume": 170412.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 7.8,
+        "close": 7.57,
+        "high": 7.85,
+        "low": 7.4,
+        "volume": 170765.0
+      },
+      "close_pct": -2.19638,
+      "open_pct": 0.77519,
+      "daily_high_excursion_pct": 1.42119,
+      "daily_low_excursion_pct": -4.39276,
+      "clv": 0.37778,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002088%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 7.74,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002149",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 32.31,
+        "close": 33.57,
+        "high": 35.54,
+        "low": 32.3,
+        "volume": 1029378.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 33.92,
+        "close": 34.66,
+        "high": 35.16,
+        "low": 32.68,
+        "volume": 745326.0
+      },
+      "close_pct": 3.24695,
+      "open_pct": 1.0426,
+      "daily_high_excursion_pct": 4.73637,
+      "daily_low_excursion_pct": -2.65118,
+      "clv": 0.79839,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002149%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 33.57,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002164",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.42,
+        "close": 19.03,
+        "high": 19.79,
+        "low": 16.9,
+        "volume": 1049446.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 18.15,
+        "close": 18.34,
+        "high": 19.55,
+        "low": 17.52,
+        "volume": 871041.0
+      },
+      "close_pct": -3.62585,
+      "open_pct": -4.62428,
+      "daily_high_excursion_pct": 2.73253,
+      "daily_low_excursion_pct": -7.93484,
+      "clv": 0.40394,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002164%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 19.03,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002172",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.61,
+        "close": 5.91,
+        "high": 5.91,
+        "low": 5.27,
+        "volume": 2294689.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.21,
+        "close": 6.5,
+        "high": 6.5,
+        "low": 6.02,
+        "volume": 1916740.0
+      },
+      "close_pct": 9.98308,
+      "open_pct": 5.07614,
+      "daily_high_excursion_pct": 9.98308,
+      "daily_low_excursion_pct": 1.86125,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002172%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 5.91,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002173",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 16.0,
+        "close": 17.22,
+        "high": 18.3,
+        "low": 15.88,
+        "volume": 535338.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.82,
+        "close": 16.53,
+        "high": 16.89,
+        "low": 15.7,
+        "volume": 418664.0
+      },
+      "close_pct": -4.00697,
+      "open_pct": -2.32288,
+      "daily_high_excursion_pct": -1.91638,
+      "daily_low_excursion_pct": -8.82695,
+      "clv": 0.69748,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002173%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.22,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002244",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.43,
+        "close": 9.44,
+        "high": 9.6,
+        "low": 9.12,
+        "volume": 347991.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 9.38,
+        "close": 9.11,
+        "high": 9.51,
+        "low": 8.97,
+        "volume": 383624.0
+      },
+      "close_pct": -3.49576,
+      "open_pct": -0.63559,
+      "daily_high_excursion_pct": 0.74153,
+      "daily_low_excursion_pct": -4.97881,
+      "clv": 0.25926,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002244%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002275",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 14.3,
+        "close": 14.98,
+        "high": 14.98,
+        "low": 14.24,
+        "volume": 236261.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.48,
+        "close": 16.48,
+        "high": 16.48,
+        "low": 16.48,
+        "volume": 108089.0
+      },
+      "close_pct": 10.01335,
+      "open_pct": 10.01335,
+      "daily_high_excursion_pct": 10.01335,
+      "daily_low_excursion_pct": 10.01335,
+      "clv": null,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002275%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 14.98,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002365",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.2,
+        "close": 12.23,
+        "high": 12.23,
+        "low": 12.2,
+        "volume": 99403.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 12.61,
+        "close": 12.42,
+        "high": 13.28,
+        "low": 12.3,
+        "volume": 507640.0
+      },
+      "close_pct": 1.55356,
+      "open_pct": 3.10711,
+      "daily_high_excursion_pct": 8.58545,
+      "daily_low_excursion_pct": 0.57236,
+      "clv": 0.12245,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002365%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 12.23,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002390",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 2.92,
+        "close": 3.07,
+        "high": 3.13,
+        "low": 2.9,
+        "volume": 776544.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.07,
+        "close": 3.11,
+        "high": 3.12,
+        "low": 3.02,
+        "volume": 575428.0
+      },
+      "close_pct": 1.30293,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 1.62866,
+      "daily_low_excursion_pct": -1.62866,
+      "clv": 0.9,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002390%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 3.07,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002432",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 53.3,
+        "close": 56.24,
+        "high": 56.24,
+        "low": 53.3,
+        "volume": 203362.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 57.79,
+        "close": 55.5,
+        "high": 58.57,
+        "low": 54.6,
+        "volume": 392223.0
+      },
+      "close_pct": -1.31579,
+      "open_pct": 2.75605,
+      "daily_high_excursion_pct": 4.14296,
+      "daily_low_excursion_pct": -2.91607,
+      "clv": 0.2267,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002432%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 56.24,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002472",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 42.17,
+        "close": 41.21,
+        "high": 43.88,
+        "low": 41.03,
+        "volume": 367005.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 41.18,
+        "close": 42.65,
+        "high": 43.42,
+        "low": 39.45,
+        "volume": 426563.0
+      },
+      "close_pct": 3.4943,
+      "open_pct": -0.0728,
+      "daily_high_excursion_pct": 5.36278,
+      "daily_low_excursion_pct": -4.27081,
+      "clv": 0.80605,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002472%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002520",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.11,
+        "close": 6.2,
+        "high": 6.67,
+        "low": 6.08,
+        "volume": 727007.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.22,
+        "close": 6.18,
+        "high": 6.31,
+        "low": 5.68,
+        "volume": 636486.0
+      },
+      "close_pct": -0.32258,
+      "open_pct": 0.32258,
+      "daily_high_excursion_pct": 1.77419,
+      "daily_low_excursion_pct": -8.3871,
+      "clv": 0.79365,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002520%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002531",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 7.11,
+        "close": 7.04,
+        "high": 7.22,
+        "low": 6.87,
+        "volume": 1307603.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 7.04,
+        "close": 7.11,
+        "high": 7.16,
+        "low": 6.9,
+        "volume": 815814.0
+      },
+      "close_pct": 0.99432,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 1.70455,
+      "daily_low_excursion_pct": -1.98864,
+      "clv": 0.80769,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002531%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002550",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.74,
+        "close": 6.05,
+        "high": 6.13,
+        "low": 5.71,
+        "volume": 378644.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.99,
+        "close": 6.12,
+        "high": 6.14,
+        "low": 5.92,
+        "volume": 182078.0
+      },
+      "close_pct": 1.15702,
+      "open_pct": -0.99174,
+      "daily_high_excursion_pct": 1.4876,
+      "daily_low_excursion_pct": -2.14876,
+      "clv": 0.90909,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002550%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 6.05,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002580",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 16.38,
+        "close": 17.49,
+        "high": 18.45,
+        "low": 16.31,
+        "volume": 793001.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.0,
+        "close": 16.97,
+        "high": 17.51,
+        "low": 16.07,
+        "volume": 618085.0
+      },
+      "close_pct": -2.97313,
+      "open_pct": -2.8016,
+      "daily_high_excursion_pct": 0.11435,
+      "daily_low_excursion_pct": -8.11893,
+      "clv": 0.625,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002580%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.49,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002582",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.4,
+        "close": 9.93,
+        "high": 9.93,
+        "low": 9.32,
+        "volume": 609944.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.23,
+        "close": 10.47,
+        "high": 10.5,
+        "low": 9.81,
+        "volume": 765968.0
+      },
+      "close_pct": 5.43807,
+      "open_pct": 3.02115,
+      "daily_high_excursion_pct": 5.74018,
+      "daily_low_excursion_pct": -1.20846,
+      "clv": 0.95652,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002582%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 9.93,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002636",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 55.67,
+        "close": 63.68,
+        "high": 63.68,
+        "low": 55.13,
+        "volume": 666902.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 65.48,
+        "close": 63.7,
+        "high": 67.66,
+        "low": 62.0,
+        "volume": 822780.0
+      },
+      "close_pct": 0.03141,
+      "open_pct": 2.82663,
+      "daily_high_excursion_pct": 6.25,
+      "daily_low_excursion_pct": -2.63819,
+      "clv": 0.30035,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002636%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 63.68,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002652",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 3.44,
+        "close": 3.91,
+        "high": 3.91,
+        "low": 3.4,
+        "volume": 257528.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.92,
+        "close": 3.79,
+        "high": 3.99,
+        "low": 3.56,
+        "volume": 771660.0
+      },
+      "close_pct": -3.06905,
+      "open_pct": 0.25575,
+      "daily_high_excursion_pct": 2.04604,
+      "daily_low_excursion_pct": -8.95141,
+      "clv": 0.53488,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002652%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 3.91,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002683",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 31.5,
+        "close": 32.12,
+        "high": 32.83,
+        "low": 31.3,
+        "volume": 178755.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 31.87,
+        "close": 32.27,
+        "high": 32.46,
+        "low": 31.1,
+        "volume": 147665.0
+      },
+      "close_pct": 0.467,
+      "open_pct": -0.77833,
+      "daily_high_excursion_pct": 1.05853,
+      "daily_low_excursion_pct": -3.17559,
+      "clv": 0.86029,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002683%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002724",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.49,
+        "close": 14.72,
+        "high": 14.8,
+        "low": 13.03,
+        "volume": 1294632.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 13.25,
+        "close": 13.25,
+        "high": 13.25,
+        "low": 13.25,
+        "volume": 145335.0
+      },
+      "close_pct": -9.98641,
+      "open_pct": -9.98641,
+      "daily_high_excursion_pct": -9.98641,
+      "daily_low_excursion_pct": -9.98641,
+      "clv": null,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002724%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 14.72,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002737",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 11.38,
+        "close": 11.85,
+        "high": 11.96,
+        "low": 11.3,
+        "volume": 159951.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 11.7,
+        "close": 11.94,
+        "high": 12.06,
+        "low": 11.67,
+        "volume": 105006.0
+      },
+      "close_pct": 0.75949,
+      "open_pct": -1.26582,
+      "daily_high_excursion_pct": 1.77215,
+      "daily_low_excursion_pct": -1.51899,
+      "clv": 0.69231,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002737%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 11.85,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002747",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 27.0,
+        "close": 29.24,
+        "high": 31.24,
+        "low": 26.8,
+        "volume": 1036794.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 29.24,
+        "close": 28.98,
+        "high": 29.39,
+        "low": 26.62,
+        "volume": 900416.0
+      },
+      "close_pct": -0.88919,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 0.513,
+      "daily_low_excursion_pct": -8.96033,
+      "clv": 0.85199,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002747%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 29.24,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002812",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 45.53,
+        "close": 46.66,
+        "high": 48.28,
+        "low": 45.3,
+        "volume": 283724.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 46.9,
+        "close": 47.5,
+        "high": 48.3,
+        "low": 46.34,
+        "volume": 303045.0
+      },
+      "close_pct": 1.80026,
+      "open_pct": 0.51436,
+      "daily_high_excursion_pct": 3.51479,
+      "daily_low_excursion_pct": -0.68581,
+      "clv": 0.59184,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002812%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002823",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.57,
+        "close": 11.74,
+        "high": 12.78,
+        "low": 11.74,
+        "volume": 184591.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 11.9,
+        "close": 11.77,
+        "high": 12.0,
+        "low": 11.1,
+        "volume": 145006.0
+      },
+      "close_pct": 0.25554,
+      "open_pct": 1.36286,
+      "daily_high_excursion_pct": 2.21465,
+      "daily_low_excursion_pct": -5.45145,
+      "clv": 0.74444,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002823%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002865",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 38.63,
+        "close": 39.74,
+        "high": 41.38,
+        "low": 38.0,
+        "volume": 551854.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 39.73,
+        "close": 39.56,
+        "high": 40.8,
+        "low": 37.8,
+        "volume": 379615.0
+      },
+      "close_pct": -0.45294,
+      "open_pct": -0.02516,
+      "daily_high_excursion_pct": 2.66734,
+      "daily_low_excursion_pct": -4.88173,
+      "clv": 0.58667,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002865%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 39.74,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002866",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.31,
+        "close": 12.21,
+        "high": 12.98,
+        "low": 12.2,
+        "volume": 132879.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 12.32,
+        "close": 12.67,
+        "high": 12.74,
+        "low": 11.92,
+        "volume": 122742.0
+      },
+      "close_pct": 3.7674,
+      "open_pct": 0.9009,
+      "daily_high_excursion_pct": 4.3407,
+      "daily_low_excursion_pct": -2.3751,
+      "clv": 0.91463,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002866%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002946",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 14.33,
+        "close": 15.82,
+        "high": 15.82,
+        "low": 14.26,
+        "volume": 144113.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 15.8,
+        "close": 15.8,
+        "high": 16.55,
+        "low": 15.3,
+        "volume": 230880.0
+      },
+      "close_pct": -0.12642,
+      "open_pct": -0.12642,
+      "daily_high_excursion_pct": 4.61441,
+      "daily_low_excursion_pct": -3.28698,
+      "clv": 0.4,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002946%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 15.82,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002949",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.34,
+        "close": 12.8,
+        "high": 13.57,
+        "low": 12.1,
+        "volume": 297326.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 12.4,
+        "close": 14.08,
+        "high": 14.08,
+        "low": 11.68,
+        "volume": 273295.0
+      },
+      "close_pct": 10.0,
+      "open_pct": -3.125,
+      "daily_high_excursion_pct": 10.0,
+      "daily_low_excursion_pct": -8.75,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002949%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 12.8,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002958",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 2.89,
+        "close": 3.03,
+        "high": 3.04,
+        "low": 2.88,
+        "volume": 2157534.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.01,
+        "close": 2.99,
+        "high": 3.06,
+        "low": 2.97,
+        "volume": 1363955.0
+      },
+      "close_pct": -1.32013,
+      "open_pct": -0.66007,
+      "daily_high_excursion_pct": 0.9901,
+      "daily_low_excursion_pct": -1.9802,
+      "clv": 0.22222,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002958%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 3.03,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "002962",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.19,
+        "close": 11.82,
+        "high": 12.54,
+        "low": 11.82,
+        "volume": 161488.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 11.82,
+        "close": 12.18,
+        "high": 12.25,
+        "low": 11.44,
+        "volume": 133187.0
+      },
+      "close_pct": 3.04569,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 3.6379,
+      "daily_low_excursion_pct": -3.21489,
+      "clv": 0.91358,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002962%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "002991",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 39.15,
+        "close": 41.18,
+        "high": 42.4,
+        "low": 38.93,
+        "volume": 35319.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 41.18,
+        "close": 40.62,
+        "high": 41.78,
+        "low": 40.14,
+        "volume": 29184.0
+      },
+      "close_pct": -1.35988,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 1.45702,
+      "daily_low_excursion_pct": -2.5255,
+      "clv": 0.29268,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz002991%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": 41.18,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "003021",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 91.8,
+        "close": 90.4,
+        "high": 95.96,
+        "low": 90.13,
+        "volume": 121640.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 89.0,
+        "close": 89.77,
+        "high": 92.25,
+        "low": 83.51,
+        "volume": 124336.0
+      },
+      "close_pct": -0.6969,
+      "open_pct": -1.54867,
+      "daily_high_excursion_pct": 2.04646,
+      "daily_low_excursion_pct": -7.62168,
+      "clv": 0.71625,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz003021%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "003032",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.92,
+        "close": 9.96,
+        "high": 9.96,
+        "low": 9.24,
+        "volume": 188811.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.7,
+        "close": 9.57,
+        "high": 10.86,
+        "low": 9.05,
+        "volume": 1090483.0
+      },
+      "close_pct": -3.91566,
+      "open_pct": 7.42972,
+      "daily_high_excursion_pct": 9.03614,
+      "daily_low_excursion_pct": -9.13655,
+      "clv": 0.28729,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz003032%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 9.96,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300030",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.05,
+        "close": 7.31,
+        "high": 7.31,
+        "low": 5.98,
+        "volume": 511886.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 7.24,
+        "close": 7.02,
+        "high": 7.24,
+        "low": 6.7,
+        "volume": 685552.0
+      },
+      "close_pct": -3.96717,
+      "open_pct": -0.95759,
+      "daily_high_excursion_pct": -0.95759,
+      "daily_low_excursion_pct": -8.34473,
+      "clv": 0.59259,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300030%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 7.31,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300058",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 11.56,
+        "close": 11.51,
+        "high": 12.08,
+        "low": 11.5,
+        "volume": 1431634.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 11.6,
+        "close": 12.15,
+        "high": 12.33,
+        "low": 11.48,
+        "volume": 2037917.0
+      },
+      "close_pct": 5.56038,
+      "open_pct": 0.78193,
+      "daily_high_excursion_pct": 7.12424,
+      "daily_low_excursion_pct": -0.26064,
+      "clv": 0.78824,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300058%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "300149",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 8.0,
+        "close": 8.89,
+        "high": 9.59,
+        "low": 7.86,
+        "volume": 822667.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 8.66,
+        "close": 8.63,
+        "high": 8.77,
+        "low": 8.29,
+        "volume": 496146.0
+      },
+      "close_pct": -2.92463,
+      "open_pct": -2.58718,
+      "daily_high_excursion_pct": -1.34983,
+      "daily_low_excursion_pct": -6.74916,
+      "clv": 0.70833,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300149%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 8.89,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300286",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.36,
+        "close": 17.82,
+        "high": 18.5,
+        "low": 17.27,
+        "volume": 112638.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.83,
+        "close": 18.15,
+        "high": 18.49,
+        "low": 17.61,
+        "volume": 72544.0
+      },
+      "close_pct": 1.85185,
+      "open_pct": 0.05612,
+      "daily_high_excursion_pct": 3.75982,
+      "daily_low_excursion_pct": -1.17845,
+      "clv": 0.61364,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300286%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.82,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300289",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.66,
+        "close": 5.9,
+        "high": 6.28,
+        "low": 5.61,
+        "volume": 288267.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.05,
+        "close": 6.14,
+        "high": 6.66,
+        "low": 6.01,
+        "volume": 357648.0
+      },
+      "close_pct": 4.0678,
+      "open_pct": 2.54237,
+      "daily_high_excursion_pct": 12.88136,
+      "daily_low_excursion_pct": 1.86441,
+      "clv": 0.2,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300289%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 5.9,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300314",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.94,
+        "close": 13.44,
+        "high": 14.17,
+        "low": 13.41,
+        "volume": 92172.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 13.56,
+        "close": 13.7,
+        "high": 14.07,
+        "low": 13.18,
+        "volume": 74751.0
+      },
+      "close_pct": 1.93452,
+      "open_pct": 0.89286,
+      "daily_high_excursion_pct": 4.6875,
+      "daily_low_excursion_pct": -1.93452,
+      "clv": 0.58427,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300314%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "300363",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 21.52,
+        "close": 23.5,
+        "high": 24.93,
+        "low": 21.01,
+        "volume": 317283.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 23.38,
+        "close": 23.11,
+        "high": 23.49,
+        "low": 22.32,
+        "volume": 221823.0
+      },
+      "close_pct": -1.65957,
+      "open_pct": -0.51064,
+      "daily_high_excursion_pct": -0.04255,
+      "daily_low_excursion_pct": -5.02128,
+      "clv": 0.67521,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300363%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 23.5,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300432",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.83,
+        "close": 13.65,
+        "high": 14.55,
+        "low": 13.61,
+        "volume": 736873.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 13.69,
+        "close": 14.09,
+        "high": 14.1,
+        "low": 12.91,
+        "volume": 760275.0
+      },
+      "close_pct": 3.22344,
+      "open_pct": 0.29304,
+      "daily_high_excursion_pct": 3.2967,
+      "daily_low_excursion_pct": -5.42125,
+      "clv": 0.9916,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300432%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "300461",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 38.02,
+        "close": 41.6,
+        "high": 45.0,
+        "low": 38.0,
+        "volume": 185981.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 41.52,
+        "close": 42.64,
+        "high": 44.92,
+        "low": 39.41,
+        "volume": 177465.0
+      },
+      "close_pct": 2.5,
+      "open_pct": -0.19231,
+      "daily_high_excursion_pct": 7.98077,
+      "daily_low_excursion_pct": -5.26442,
+      "clv": 0.58621,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300461%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 41.6,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300556",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.42,
+        "close": 16.26,
+        "high": 17.7,
+        "low": 16.26,
+        "volume": 139546.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.38,
+        "close": 19.51,
+        "high": 19.51,
+        "low": 15.8,
+        "volume": 192783.0
+      },
+      "close_pct": 19.9877,
+      "open_pct": 0.73801,
+      "daily_high_excursion_pct": 19.9877,
+      "daily_low_excursion_pct": -2.82903,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300556%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "300695",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 47.81,
+        "close": 51.59,
+        "high": 58.68,
+        "low": 47.18,
+        "volume": 72432.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 50.03,
+        "close": 49.45,
+        "high": 51.35,
+        "low": 46.63,
+        "volume": 53452.0
+      },
+      "close_pct": -4.14809,
+      "open_pct": -3.02384,
+      "daily_high_excursion_pct": -0.46521,
+      "daily_low_excursion_pct": -9.61427,
+      "clv": 0.59746,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300695%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 51.59,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300725",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 42.15,
+        "close": 44.8,
+        "high": 48.73,
+        "low": 41.26,
+        "volume": 323910.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 46.5,
+        "close": 45.25,
+        "high": 46.7,
+        "low": 44.01,
+        "volume": 285967.0
+      },
+      "close_pct": 1.00446,
+      "open_pct": 3.79464,
+      "daily_high_excursion_pct": 4.24107,
+      "daily_low_excursion_pct": -1.76339,
+      "clv": 0.46097,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300725%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 44.8,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300739",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.16,
+        "close": 22.2,
+        "high": 23.89,
+        "low": 19.01,
+        "volume": 401166.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 22.53,
+        "close": 23.12,
+        "high": 25.88,
+        "low": 21.88,
+        "volume": 417585.0
+      },
+      "close_pct": 4.14414,
+      "open_pct": 1.48649,
+      "daily_high_excursion_pct": 16.57658,
+      "daily_low_excursion_pct": -1.44144,
+      "clv": 0.31,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300739%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 22.2,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300740",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 16.99,
+        "close": 18.06,
+        "high": 18.47,
+        "low": 16.93,
+        "volume": 437747.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.5,
+        "close": 17.18,
+        "high": 17.66,
+        "low": 16.03,
+        "volume": 367320.0
+      },
+      "close_pct": -4.87265,
+      "open_pct": -3.10078,
+      "daily_high_excursion_pct": -2.21484,
+      "daily_low_excursion_pct": -11.24031,
+      "clv": 0.70552,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300740%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 18.06,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300771",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 10.01,
+        "close": 9.9,
+        "high": 10.41,
+        "low": 9.86,
+        "volume": 47038.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 9.99,
+        "close": 10.0,
+        "high": 10.1,
+        "low": 9.7,
+        "volume": 46041.0
+      },
+      "close_pct": 1.0101,
+      "open_pct": 0.90909,
+      "daily_high_excursion_pct": 2.0202,
+      "daily_low_excursion_pct": -2.0202,
+      "clv": 0.75,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300771%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "300806",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 39.0,
+        "close": 42.42,
+        "high": 45.0,
+        "low": 38.1,
+        "volume": 423509.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 42.95,
+        "close": 42.97,
+        "high": 45.26,
+        "low": 42.1,
+        "volume": 378714.0
+      },
+      "close_pct": 1.29656,
+      "open_pct": 1.24941,
+      "daily_high_excursion_pct": 6.69496,
+      "daily_low_excursion_pct": -0.75436,
+      "clv": 0.27532,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300806%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 42.42,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300821",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.69,
+        "close": 12.83,
+        "high": 14.06,
+        "low": 12.81,
+        "volume": 912210.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 12.93,
+        "close": 13.28,
+        "high": 13.38,
+        "low": 12.58,
+        "volume": 674203.0
+      },
+      "close_pct": 3.5074,
+      "open_pct": 0.77942,
+      "daily_high_excursion_pct": 4.28683,
+      "daily_low_excursion_pct": -1.94856,
+      "clv": 0.875,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300821%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "300829",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 21.18,
+        "close": 24.34,
+        "high": 25.66,
+        "low": 20.8,
+        "volume": 356933.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 24.67,
+        "close": 24.2,
+        "high": 25.2,
+        "low": 23.46,
+        "volume": 271563.0
+      },
+      "close_pct": -0.57518,
+      "open_pct": 1.35579,
+      "daily_high_excursion_pct": 3.53328,
+      "daily_low_excursion_pct": -3.61545,
+      "clv": 0.42529,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300829%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 24.34,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "300980",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 14.14,
+        "close": 15.6,
+        "high": 17.38,
+        "low": 13.91,
+        "volume": 342989.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 15.67,
+        "close": 15.71,
+        "high": 16.06,
+        "low": 14.45,
+        "volume": 319382.0
+      },
+      "close_pct": 0.70513,
+      "open_pct": 0.44872,
+      "daily_high_excursion_pct": 2.94872,
+      "daily_low_excursion_pct": -7.37179,
+      "clv": 0.78261,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz300980%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 15.6,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301015",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 22.36,
+        "close": 26.08,
+        "high": 27.25,
+        "low": 21.71,
+        "volume": 371333.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 25.77,
+        "close": 24.89,
+        "high": 25.81,
+        "low": 24.55,
+        "volume": 265762.0
+      },
+      "close_pct": -4.56288,
+      "open_pct": -1.18865,
+      "daily_high_excursion_pct": -1.03528,
+      "daily_low_excursion_pct": -5.86656,
+      "clv": 0.26984,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301015%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 26.08,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301069",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.1,
+        "close": 17.82,
+        "high": 18.24,
+        "low": 16.99,
+        "volume": 215374.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.67,
+        "close": 17.55,
+        "high": 17.78,
+        "low": 17.0,
+        "volume": 164642.0
+      },
+      "close_pct": -1.51515,
+      "open_pct": -0.84175,
+      "daily_high_excursion_pct": -0.22447,
+      "daily_low_excursion_pct": -4.60157,
+      "clv": 0.70513,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301069%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "301071",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 47.69,
+        "close": 50.59,
+        "high": 53.3,
+        "low": 47.5,
+        "volume": 202604.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 51.06,
+        "close": 55.62,
+        "high": 56.96,
+        "low": 50.2,
+        "volume": 205100.0
+      },
+      "close_pct": 9.94268,
+      "open_pct": 0.92904,
+      "daily_high_excursion_pct": 12.59142,
+      "daily_low_excursion_pct": -0.7709,
+      "clv": 0.80178,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301071%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 50.59,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301079",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 37.55,
+        "close": 36.79,
+        "high": 39.98,
+        "low": 35.88,
+        "volume": 338727.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 35.0,
+        "close": 34.09,
+        "high": 36.3,
+        "low": 32.33,
+        "volume": 255888.0
+      },
+      "close_pct": -7.33895,
+      "open_pct": -4.86545,
+      "daily_high_excursion_pct": -1.33188,
+      "daily_low_excursion_pct": -12.12286,
+      "clv": 0.44332,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301079%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 36.79,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301080",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 97.85,
+        "close": 103.5,
+        "high": 113.17,
+        "low": 92.0,
+        "volume": 233173.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 97.5,
+        "close": 101.57,
+        "high": 103.75,
+        "low": 90.88,
+        "volume": 203414.0
+      },
+      "close_pct": -1.86473,
+      "open_pct": -5.7971,
+      "daily_high_excursion_pct": 0.24155,
+      "daily_low_excursion_pct": -12.19324,
+      "clv": 0.83061,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301080%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 103.5,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301132",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 46.72,
+        "close": 56.08,
+        "high": 56.08,
+        "low": 44.88,
+        "volume": 163863.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 54.43,
+        "close": 54.25,
+        "high": 58.09,
+        "low": 50.0,
+        "volume": 198640.0
+      },
+      "close_pct": -3.2632,
+      "open_pct": -2.94223,
+      "daily_high_excursion_pct": 3.58417,
+      "daily_low_excursion_pct": -10.84165,
+      "clv": 0.52534,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301132%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 56.08,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301187",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 14.79,
+        "close": 16.8,
+        "high": 16.8,
+        "low": 14.79,
+        "volume": 80279.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.81,
+        "close": 16.17,
+        "high": 16.99,
+        "low": 15.38,
+        "volume": 221582.0
+      },
+      "close_pct": -3.75,
+      "open_pct": 0.05952,
+      "daily_high_excursion_pct": 1.13095,
+      "daily_low_excursion_pct": -8.45238,
+      "clv": 0.49068,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301187%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 16.8,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301210",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 27.9,
+        "close": 31.79,
+        "high": 33.81,
+        "low": 27.41,
+        "volume": 149270.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 31.6,
+        "close": 31.19,
+        "high": 32.09,
+        "low": 28.29,
+        "volume": 125861.0
+      },
+      "close_pct": -1.88739,
+      "open_pct": -0.59767,
+      "daily_high_excursion_pct": 0.94369,
+      "daily_low_excursion_pct": -11.00975,
+      "clv": 0.76316,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301210%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 31.79,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301261",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 59.56,
+        "close": 63.79,
+        "high": 67.82,
+        "low": 58.87,
+        "volume": 123022.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 62.82,
+        "close": 64.31,
+        "high": 66.8,
+        "low": 60.66,
+        "volume": 101984.0
+      },
+      "close_pct": 0.81517,
+      "open_pct": -1.52061,
+      "daily_high_excursion_pct": 4.71861,
+      "daily_low_excursion_pct": -4.90673,
+      "clv": 0.59446,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301261%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 63.79,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301363",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 15.7,
+        "close": 17.24,
+        "high": 18.83,
+        "low": 15.58,
+        "volume": 379520.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.04,
+        "close": 16.5,
+        "high": 17.24,
+        "low": 15.53,
+        "volume": 311332.0
+      },
+      "close_pct": -4.29234,
+      "open_pct": -1.16009,
+      "daily_high_excursion_pct": 0.0,
+      "daily_low_excursion_pct": -9.91879,
+      "clv": 0.56725,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301363%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.24,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301413",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 65.84,
+        "close": 71.88,
+        "high": 76.86,
+        "low": 65.01,
+        "volume": 167919.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 70.55,
+        "close": 74.2,
+        "high": 77.27,
+        "low": 67.51,
+        "volume": 126952.0
+      },
+      "close_pct": 3.2276,
+      "open_pct": -1.85031,
+      "daily_high_excursion_pct": 7.49861,
+      "daily_low_excursion_pct": -6.07958,
+      "clv": 0.68545,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301413%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 71.88,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301520",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 50.81,
+        "close": 60.06,
+        "high": 60.06,
+        "low": 47.06,
+        "volume": 152113.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 61.72,
+        "close": 62.69,
+        "high": 62.82,
+        "low": 57.0,
+        "volume": 160323.0
+      },
+      "close_pct": 4.37895,
+      "open_pct": 2.7639,
+      "daily_high_excursion_pct": 4.5954,
+      "daily_low_excursion_pct": -5.09491,
+      "clv": 0.97766,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301520%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 60.06,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301606",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 48.9,
+        "close": 49.48,
+        "high": 52.52,
+        "low": 48.8,
+        "volume": 94727.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 50.71,
+        "close": 53.17,
+        "high": 53.49,
+        "low": 49.2,
+        "volume": 107040.0
+      },
+      "close_pct": 7.45756,
+      "open_pct": 2.48585,
+      "daily_high_excursion_pct": 8.10428,
+      "daily_low_excursion_pct": -0.56589,
+      "clv": 0.92541,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301606%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 49.48,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "301658",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 20.4,
+        "close": 19.25,
+        "high": 20.89,
+        "low": 19.18,
+        "volume": 105740.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 19.17,
+        "close": 20.36,
+        "high": 20.49,
+        "low": 18.48,
+        "volume": 92210.0
+      },
+      "close_pct": 5.76623,
+      "open_pct": -0.41558,
+      "daily_high_excursion_pct": 6.44156,
+      "daily_low_excursion_pct": -4.0,
+      "clv": 0.93532,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301658%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "301666",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 300.01,
+        "close": 316.76,
+        "high": 351.18,
+        "low": 297.88,
+        "volume": 83437.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 326.0,
+        "close": 312.2,
+        "high": 333.16,
+        "low": 306.03,
+        "volume": 62991.0
+      },
+      "close_pct": -1.43958,
+      "open_pct": 2.91703,
+      "daily_high_excursion_pct": 5.17742,
+      "daily_low_excursion_pct": -3.38742,
+      "clv": 0.22742,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sz301666%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 316.76,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600035",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 3.73,
+        "close": 3.83,
+        "high": 3.86,
+        "low": 3.7,
+        "volume": 614776.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.8,
+        "close": 3.83,
+        "high": 3.84,
+        "low": 3.76,
+        "volume": 331335.0
+      },
+      "close_pct": 0.0,
+      "open_pct": -0.78329,
+      "daily_high_excursion_pct": 0.2611,
+      "daily_low_excursion_pct": -1.82768,
+      "clv": 0.875,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600035%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 3.83,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600113",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 22.0,
+        "close": 24.62,
+        "high": 24.62,
+        "low": 21.41,
+        "volume": 93719.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 25.95,
+        "close": 24.89,
+        "high": 26.0,
+        "low": 22.5,
+        "volume": 154405.0
+      },
+      "close_pct": 1.09667,
+      "open_pct": 5.40211,
+      "daily_high_excursion_pct": 5.6052,
+      "daily_low_excursion_pct": -8.61089,
+      "clv": 0.68286,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600113%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 24.62,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600118",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 56.0,
+        "close": 55.91,
+        "high": 59.72,
+        "low": 54.9,
+        "volume": 886007.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 55.36,
+        "close": 55.7,
+        "high": 56.38,
+        "low": 52.8,
+        "volume": 555612.0
+      },
+      "close_pct": -0.3756,
+      "open_pct": -0.98372,
+      "daily_high_excursion_pct": 0.84064,
+      "daily_low_excursion_pct": -5.56251,
+      "clv": 0.81006,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600118%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600152",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.38,
+        "close": 6.26,
+        "high": 6.61,
+        "low": 6.25,
+        "volume": 182948.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.28,
+        "close": 6.37,
+        "high": 6.43,
+        "low": 6.1,
+        "volume": 169207.0
+      },
+      "close_pct": 1.75719,
+      "open_pct": 0.31949,
+      "daily_high_excursion_pct": 2.71565,
+      "daily_low_excursion_pct": -2.55591,
+      "clv": 0.81818,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600152%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600189",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 7.96,
+        "close": 8.84,
+        "high": 8.84,
+        "low": 7.9,
+        "volume": 289474.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 9.0,
+        "close": 9.72,
+        "high": 9.72,
+        "low": 8.96,
+        "volume": 1016780.0
+      },
+      "close_pct": 9.95475,
+      "open_pct": 1.80995,
+      "daily_high_excursion_pct": 9.95475,
+      "daily_low_excursion_pct": 1.35747,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600189%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 8.84,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600199",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 6.8,
+        "close": 7.02,
+        "high": 7.24,
+        "low": 6.77,
+        "volume": 353190.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 7.02,
+        "close": 7.72,
+        "high": 7.72,
+        "low": 7.02,
+        "volume": 616308.0
+      },
+      "close_pct": 9.97151,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 9.97151,
+      "daily_low_excursion_pct": 0.0,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600199%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600215",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.7,
+        "close": 6.37,
+        "high": 6.37,
+        "low": 5.65,
+        "volume": 431818.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.99,
+        "close": 6.14,
+        "high": 6.3,
+        "low": 5.73,
+        "volume": 556030.0
+      },
+      "close_pct": -3.61068,
+      "open_pct": -5.96546,
+      "daily_high_excursion_pct": -1.0989,
+      "daily_low_excursion_pct": -10.0471,
+      "clv": 0.7193,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600215%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 6.37,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600258",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 11.48,
+        "close": 12.43,
+        "high": 12.43,
+        "low": 11.44,
+        "volume": 728363.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 12.43,
+        "close": 12.95,
+        "high": 13.21,
+        "low": 12.3,
+        "volume": 773953.0
+      },
+      "close_pct": 4.18343,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 6.27514,
+      "daily_low_excursion_pct": -1.04586,
+      "clv": 0.71429,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600258%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28",
+        "T30_frozen_shadow_3"
+      ],
+      "T30_frozen_quote_close": 12.43,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600281",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.24,
+        "close": 5.4,
+        "high": 5.65,
+        "low": 5.2,
+        "volume": 722324.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.27,
+        "close": 5.68,
+        "high": 5.9,
+        "low": 5.27,
+        "volume": 789195.0
+      },
+      "close_pct": 5.18519,
+      "open_pct": -2.40741,
+      "daily_high_excursion_pct": 9.25926,
+      "daily_low_excursion_pct": -2.40741,
+      "clv": 0.65079,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600281%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 5.4,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600285",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 21.66,
+        "close": 22.0,
+        "high": 22.0,
+        "low": 21.28,
+        "volume": 202196.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 22.47,
+        "close": 22.56,
+        "high": 23.56,
+        "low": 22.41,
+        "volume": 415359.0
+      },
+      "close_pct": 2.54545,
+      "open_pct": 2.13636,
+      "daily_high_excursion_pct": 7.09091,
+      "daily_low_excursion_pct": 1.86364,
+      "clv": 0.13043,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600285%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 22.0,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600380",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.95,
+        "close": 10.05,
+        "high": 10.12,
+        "low": 9.87,
+        "volume": 175162.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.05,
+        "close": 10.3,
+        "high": 10.32,
+        "low": 10.01,
+        "volume": 226889.0
+      },
+      "close_pct": 2.48756,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 2.68657,
+      "daily_low_excursion_pct": -0.39801,
+      "clv": 0.93548,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600380%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600510",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.8,
+        "close": 6.46,
+        "high": 6.46,
+        "low": 5.62,
+        "volume": 335078.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 6.59,
+        "close": 6.58,
+        "high": 6.98,
+        "low": 6.39,
+        "volume": 321953.0
+      },
+      "close_pct": 1.85759,
+      "open_pct": 2.01238,
+      "daily_high_excursion_pct": 8.04954,
+      "daily_low_excursion_pct": -1.08359,
+      "clv": 0.32203,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600510%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28",
+        "preexisting_low_position_52",
+        "T30_frozen_shadow_3"
+      ],
+      "T30_frozen_quote_close": 6.46,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600547",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 23.54,
+        "close": 23.31,
+        "high": 23.88,
+        "low": 23.1,
+        "volume": 626384.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 23.25,
+        "close": 22.81,
+        "high": 23.31,
+        "low": 22.1,
+        "volume": 866997.0
+      },
+      "close_pct": -2.145,
+      "open_pct": -0.2574,
+      "daily_high_excursion_pct": 0.0,
+      "daily_low_excursion_pct": -5.19091,
+      "clv": 0.58678,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600547%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600664",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 5.2,
+        "close": 5.55,
+        "high": 5.82,
+        "low": 5.04,
+        "volume": 4053001.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 5.49,
+        "close": 5.76,
+        "high": 5.76,
+        "low": 5.3,
+        "volume": 3628909.0
+      },
+      "close_pct": 3.78378,
+      "open_pct": -1.08108,
+      "daily_high_excursion_pct": 3.78378,
+      "daily_low_excursion_pct": -4.5045,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600664%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 5.55,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600688",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 2.86,
+        "close": 3.05,
+        "high": 3.08,
+        "low": 2.85,
+        "volume": 2927129.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 2.98,
+        "close": 3.02,
+        "high": 3.05,
+        "low": 2.93,
+        "volume": 1839283.0
+      },
+      "close_pct": -0.98361,
+      "open_pct": -2.29508,
+      "daily_high_excursion_pct": 0.0,
+      "daily_low_excursion_pct": -3.93443,
+      "clv": 0.75,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600688%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 3.05,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600690",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.61,
+        "close": 20.74,
+        "high": 20.76,
+        "low": 19.58,
+        "volume": 836368.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 20.67,
+        "close": 20.55,
+        "high": 20.87,
+        "low": 20.48,
+        "volume": 597480.0
+      },
+      "close_pct": -0.9161,
+      "open_pct": -0.33751,
+      "daily_high_excursion_pct": 0.62681,
+      "daily_low_excursion_pct": -1.25362,
+      "clv": 0.17949,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600690%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 20.74,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600702",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 30.94,
+        "close": 32.87,
+        "high": 33.75,
+        "low": 30.84,
+        "volume": 149981.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 32.88,
+        "close": 34.0,
+        "high": 34.5,
+        "low": 32.84,
+        "volume": 134739.0
+      },
+      "close_pct": 3.43779,
+      "open_pct": 0.03042,
+      "daily_high_excursion_pct": 4.95893,
+      "daily_low_excursion_pct": -0.09127,
+      "clv": 0.6988,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600702%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 32.87,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600721",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 8.94,
+        "close": 9.83,
+        "high": 9.83,
+        "low": 8.45,
+        "volume": 973468.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.1,
+        "close": 9.98,
+        "high": 10.11,
+        "low": 9.16,
+        "volume": 1081531.0
+      },
+      "close_pct": 1.52594,
+      "open_pct": 2.74669,
+      "daily_high_excursion_pct": 2.84842,
+      "daily_low_excursion_pct": -6.81587,
+      "clv": 0.86316,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600721%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 9.83,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600745",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 10.88,
+        "close": 11.4,
+        "high": 11.4,
+        "low": 10.8,
+        "volume": 395196.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 11.2,
+        "close": 11.77,
+        "high": 12.39,
+        "low": 10.69,
+        "volume": 740480.0
+      },
+      "close_pct": 3.24561,
+      "open_pct": -1.75439,
+      "daily_high_excursion_pct": 8.68421,
+      "daily_low_excursion_pct": -6.22807,
+      "clv": 0.63529,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600745%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 11.4,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600754",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.68,
+        "close": 18.7,
+        "high": 18.93,
+        "low": 17.61,
+        "volume": 225560.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 19.59,
+        "close": 20.57,
+        "high": 20.57,
+        "low": 19.26,
+        "volume": 318003.0
+      },
+      "close_pct": 10.0,
+      "open_pct": 4.75936,
+      "daily_high_excursion_pct": 10.0,
+      "daily_low_excursion_pct": 2.99465,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600754%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 18.7,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600763",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 33.98,
+        "close": 35.59,
+        "high": 35.98,
+        "low": 33.9,
+        "volume": 162951.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 35.5,
+        "close": 36.51,
+        "high": 36.89,
+        "low": 35.42,
+        "volume": 177533.0
+      },
+      "close_pct": 2.585,
+      "open_pct": -0.25288,
+      "daily_high_excursion_pct": 3.65271,
+      "daily_low_excursion_pct": -0.47766,
+      "clv": 0.7415,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600763%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 35.59,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600809",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 118.15,
+        "close": 126.27,
+        "high": 128.0,
+        "low": 116.2,
+        "volume": 216212.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 127.8,
+        "close": 130.95,
+        "high": 133.02,
+        "low": 126.0,
+        "volume": 201346.0
+      },
+      "close_pct": 3.70634,
+      "open_pct": 1.21169,
+      "daily_high_excursion_pct": 5.34569,
+      "daily_low_excursion_pct": -0.21383,
+      "clv": 0.70513,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600809%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 126.27,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "600845",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 16.73,
+        "close": 16.01,
+        "high": 16.88,
+        "low": 15.96,
+        "volume": 206586.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.09,
+        "close": 16.96,
+        "high": 17.15,
+        "low": 16.09,
+        "volume": 225701.0
+      },
+      "close_pct": 5.93379,
+      "open_pct": 0.49969,
+      "daily_high_excursion_pct": 7.12055,
+      "daily_low_excursion_pct": 0.49969,
+      "clv": 0.82075,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600845%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600853",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 3.58,
+        "close": 3.51,
+        "high": 3.73,
+        "low": 3.49,
+        "volume": 652373.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.46,
+        "close": 3.49,
+        "high": 3.52,
+        "low": 3.23,
+        "volume": 527198.0
+      },
+      "close_pct": -0.5698,
+      "open_pct": -1.4245,
+      "daily_high_excursion_pct": 0.2849,
+      "daily_low_excursion_pct": -7.97721,
+      "clv": 0.89655,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600853%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600900",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 29.76,
+        "close": 29.74,
+        "high": 30.0,
+        "low": 29.68,
+        "volume": 1187426.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 29.85,
+        "close": 29.5,
+        "high": 29.99,
+        "low": 29.39,
+        "volume": 1502603.0
+      },
+      "close_pct": -0.80699,
+      "open_pct": 0.36987,
+      "daily_high_excursion_pct": 0.84062,
+      "daily_low_excursion_pct": -1.17687,
+      "clv": 0.18333,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600900%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "600928",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 3.65,
+        "close": 3.9,
+        "high": 3.91,
+        "low": 3.65,
+        "volume": 1188530.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 3.85,
+        "close": 3.83,
+        "high": 3.97,
+        "low": 3.8,
+        "volume": 747941.0
+      },
+      "close_pct": -1.79487,
+      "open_pct": -1.28205,
+      "daily_high_excursion_pct": 1.79487,
+      "daily_low_excursion_pct": -2.5641,
+      "clv": 0.17647,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh600928%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 3.9,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "601083",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.11,
+        "close": 13.93,
+        "high": 13.93,
+        "low": 13.11,
+        "volume": 200867.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 14.1,
+        "close": 14.08,
+        "high": 14.77,
+        "low": 13.86,
+        "volume": 401767.0
+      },
+      "close_pct": 1.07681,
+      "open_pct": 1.22039,
+      "daily_high_excursion_pct": 6.03015,
+      "daily_low_excursion_pct": -0.50251,
+      "clv": 0.24176,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601083%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 13.93,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "601288",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 7.5,
+        "close": 7.48,
+        "high": 7.58,
+        "low": 7.38,
+        "volume": 3788253.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 7.51,
+        "close": 7.47,
+        "high": 7.64,
+        "low": 7.42,
+        "volume": 4363639.0
+      },
+      "close_pct": -0.13369,
+      "open_pct": 0.40107,
+      "daily_high_excursion_pct": 2.13904,
+      "daily_low_excursion_pct": -0.80214,
+      "clv": 0.22727,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601288%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "601717",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.94,
+        "close": 14.5,
+        "high": 14.69,
+        "low": 13.91,
+        "volume": 502901.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 14.49,
+        "close": 14.82,
+        "high": 15.02,
+        "low": 14.4,
+        "volume": 431912.0
+      },
+      "close_pct": 2.2069,
+      "open_pct": -0.06897,
+      "daily_high_excursion_pct": 3.58621,
+      "daily_low_excursion_pct": -0.68966,
+      "clv": 0.67742,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601717%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 14.5,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "601919",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 16.9,
+        "close": 17.84,
+        "high": 18.0,
+        "low": 16.89,
+        "volume": 2082399.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.98,
+        "close": 17.97,
+        "high": 18.2,
+        "low": 17.74,
+        "volume": 1512446.0
+      },
+      "close_pct": 0.7287,
+      "open_pct": 0.78475,
+      "daily_high_excursion_pct": 2.01794,
+      "daily_low_excursion_pct": -0.56054,
+      "clv": 0.5,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh601919%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 17.84,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603002",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.0,
+        "close": 13.76,
+        "high": 14.1,
+        "low": 12.52,
+        "volume": 1186687.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 13.6,
+        "close": 13.52,
+        "high": 14.15,
+        "low": 13.35,
+        "volume": 1105159.0
+      },
+      "close_pct": -1.74419,
+      "open_pct": -1.16279,
+      "daily_high_excursion_pct": 2.8343,
+      "daily_low_excursion_pct": -2.97965,
+      "clv": 0.2125,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603002%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 13.76,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603007",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 4.71,
+        "close": 4.37,
+        "high": 4.84,
+        "low": 4.35,
+        "volume": 510550.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 4.42,
+        "close": 4.47,
+        "high": 4.49,
+        "low": 4.06,
+        "volume": 460245.0
+      },
+      "close_pct": 2.28833,
+      "open_pct": 1.14416,
+      "daily_high_excursion_pct": 2.746,
+      "daily_low_excursion_pct": -7.09382,
+      "clv": 0.95349,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603007%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "603089",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.0,
+        "close": 9.95,
+        "high": 10.48,
+        "low": 8.89,
+        "volume": 440587.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 9.55,
+        "close": 9.32,
+        "high": 9.67,
+        "low": 8.96,
+        "volume": 335658.0
+      },
+      "close_pct": -6.33166,
+      "open_pct": -4.0201,
+      "daily_high_excursion_pct": -2.81407,
+      "daily_low_excursion_pct": -9.94975,
+      "clv": 0.50704,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603089%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 9.95,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603109",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 15.81,
+        "close": 14.99,
+        "high": 15.98,
+        "low": 14.99,
+        "volume": 84904.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 14.46,
+        "close": 14.84,
+        "high": 14.94,
+        "low": 14.0,
+        "volume": 58387.0
+      },
+      "close_pct": -1.00067,
+      "open_pct": -3.53569,
+      "daily_high_excursion_pct": -0.33356,
+      "daily_low_excursion_pct": -6.6044,
+      "clv": 0.89362,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603109%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "603112",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.91,
+        "close": 14.94,
+        "high": 15.63,
+        "low": 13.88,
+        "volume": 177236.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 14.94,
+        "close": 15.24,
+        "high": 15.4,
+        "low": 14.57,
+        "volume": 128098.0
+      },
+      "close_pct": 2.00803,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 3.07898,
+      "daily_low_excursion_pct": -2.47657,
+      "clv": 0.80723,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603112%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 14.94,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603198",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 41.1,
+        "close": 44.47,
+        "high": 44.47,
+        "low": 41.0,
+        "volume": 88798.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 45.13,
+        "close": 48.53,
+        "high": 48.92,
+        "low": 44.8,
+        "volume": 255884.0
+      },
+      "close_pct": 9.12975,
+      "open_pct": 1.48415,
+      "daily_high_excursion_pct": 10.00675,
+      "daily_low_excursion_pct": 0.74207,
+      "clv": 0.90534,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603198%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 44.47,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603200",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 45.68,
+        "close": 51.72,
+        "high": 51.72,
+        "low": 45.61,
+        "volume": 231944.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 51.72,
+        "close": 52.05,
+        "high": 53.28,
+        "low": 49.58,
+        "volume": 247997.0
+      },
+      "close_pct": 0.63805,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 3.01624,
+      "daily_low_excursion_pct": -4.13766,
+      "clv": 0.66757,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603200%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 51.72,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603232",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 14.0,
+        "close": 13.08,
+        "high": 14.37,
+        "low": 13.08,
+        "volume": 172268.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 13.09,
+        "close": 13.79,
+        "high": 13.98,
+        "low": 12.66,
+        "volume": 167227.0
+      },
+      "close_pct": 5.42813,
+      "open_pct": 0.07645,
+      "daily_high_excursion_pct": 6.88073,
+      "daily_low_excursion_pct": -3.21101,
+      "clv": 0.85606,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603232%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "603233",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 18.54,
+        "close": 20.26,
+        "high": 20.26,
+        "low": 18.35,
+        "volume": 239470.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 20.4,
+        "close": 20.55,
+        "high": 20.98,
+        "low": 20.15,
+        "volume": 346683.0
+      },
+      "close_pct": 1.43139,
+      "open_pct": 0.69102,
+      "daily_high_excursion_pct": 3.5538,
+      "daily_low_excursion_pct": -0.54294,
+      "clv": 0.48193,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603233%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 20.26,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603273",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 13.75,
+        "close": 15.6,
+        "high": 15.6,
+        "low": 13.75,
+        "volume": 59186.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.14,
+        "close": 15.17,
+        "high": 16.98,
+        "low": 14.7,
+        "volume": 138153.0
+      },
+      "close_pct": -2.75641,
+      "open_pct": 3.46154,
+      "daily_high_excursion_pct": 8.84615,
+      "daily_low_excursion_pct": -5.76923,
+      "clv": 0.20614,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603273%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 15.6,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603278",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 18.11,
+        "close": 19.52,
+        "high": 19.67,
+        "low": 18.1,
+        "volume": 1125735.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 17.57,
+        "close": 17.57,
+        "high": 18.27,
+        "low": 17.57,
+        "volume": 540428.0
+      },
+      "close_pct": -9.98975,
+      "open_pct": -9.98975,
+      "daily_high_excursion_pct": -6.40369,
+      "daily_low_excursion_pct": -9.98975,
+      "clv": 0.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603278%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 19.52,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603279",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.26,
+        "close": 12.61,
+        "high": 12.8,
+        "low": 12.1,
+        "volume": 290081.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 12.61,
+        "close": 12.96,
+        "high": 13.07,
+        "low": 12.48,
+        "volume": 217305.0
+      },
+      "close_pct": 2.77557,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 3.6479,
+      "daily_low_excursion_pct": -1.03093,
+      "clv": 0.81356,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603279%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "603330",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 9.37,
+        "close": 10.25,
+        "high": 10.65,
+        "low": 9.35,
+        "volume": 1271631.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 10.2,
+        "close": 10.37,
+        "high": 10.7,
+        "low": 9.56,
+        "volume": 1116621.0
+      },
+      "close_pct": 1.17073,
+      "open_pct": -0.4878,
+      "daily_high_excursion_pct": 4.39024,
+      "daily_low_excursion_pct": -6.73171,
+      "clv": 0.71053,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603330%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 10.25,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603334",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 26.12,
+        "close": 25.51,
+        "high": 26.6,
+        "low": 25.51,
+        "volume": 12385.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 25.5,
+        "close": 25.5,
+        "high": 25.66,
+        "low": 25.03,
+        "volume": 10648.0
+      },
+      "close_pct": -0.0392,
+      "open_pct": -0.0392,
+      "daily_high_excursion_pct": 0.588,
+      "daily_low_excursion_pct": -1.88162,
+      "clv": 0.74603,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603334%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "603368",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 15.7,
+        "close": 16.68,
+        "high": 16.95,
+        "low": 15.66,
+        "volume": 163014.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 16.82,
+        "close": 17.85,
+        "high": 18.05,
+        "low": 16.69,
+        "volume": 296992.0
+      },
+      "close_pct": 7.01439,
+      "open_pct": 0.83933,
+      "daily_high_excursion_pct": 8.21343,
+      "daily_low_excursion_pct": 0.05995,
+      "clv": 0.85294,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603368%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 16.68,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603369",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 31.4,
+        "close": 33.6,
+        "high": 34.17,
+        "low": 31.2,
+        "volume": 203770.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 33.67,
+        "close": 34.76,
+        "high": 36.95,
+        "low": 33.11,
+        "volume": 340546.0
+      },
+      "close_pct": 3.45238,
+      "open_pct": 0.20833,
+      "daily_high_excursion_pct": 9.97024,
+      "daily_low_excursion_pct": -1.45833,
+      "clv": 0.42969,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603369%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 33.6,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603382",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.2,
+        "close": 20.43,
+        "high": 20.5,
+        "low": 18.58,
+        "volume": 170828.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 19.65,
+        "close": 19.71,
+        "high": 19.74,
+        "low": 18.55,
+        "volume": 129008.0
+      },
+      "close_pct": -3.52423,
+      "open_pct": -3.81791,
+      "daily_high_excursion_pct": -3.37739,
+      "daily_low_excursion_pct": -9.20215,
+      "clv": 0.97479,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603382%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28",
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": 20.43,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603589",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 17.12,
+        "close": 18.12,
+        "high": 18.42,
+        "low": 17.11,
+        "volume": 167431.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 18.0,
+        "close": 18.72,
+        "high": 18.88,
+        "low": 17.99,
+        "volume": 177780.0
+      },
+      "close_pct": 3.31126,
+      "open_pct": -0.66225,
+      "daily_high_excursion_pct": 4.19426,
+      "daily_low_excursion_pct": -0.71744,
+      "clv": 0.82022,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603589%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 18.12,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603636",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 8.04,
+        "close": 7.58,
+        "high": 8.32,
+        "low": 7.58,
+        "volume": 524495.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 7.3,
+        "close": 8.34,
+        "high": 8.34,
+        "low": 7.05,
+        "volume": 718328.0
+      },
+      "close_pct": 10.02639,
+      "open_pct": -3.69393,
+      "daily_high_excursion_pct": 10.02639,
+      "daily_low_excursion_pct": -6.99208,
+      "clv": 1.0,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603636%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "603899",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 21.21,
+        "close": 22.75,
+        "high": 22.97,
+        "low": 21.21,
+        "volume": 107404.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 22.71,
+        "close": 22.77,
+        "high": 23.07,
+        "low": 22.48,
+        "volume": 79174.0
+      },
+      "close_pct": 0.08791,
+      "open_pct": -0.17582,
+      "daily_high_excursion_pct": 1.40659,
+      "daily_low_excursion_pct": -1.18681,
+      "clv": 0.49153,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603899%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 22.75,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "603926",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 16.41,
+        "close": 15.07,
+        "high": 16.61,
+        "low": 15.01,
+        "volume": 100506.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 15.1,
+        "close": 15.3,
+        "high": 15.37,
+        "low": 14.29,
+        "volume": 73197.0
+      },
+      "close_pct": 1.52621,
+      "open_pct": 0.19907,
+      "daily_high_excursion_pct": 1.99071,
+      "daily_low_excursion_pct": -5.17585,
+      "clv": 0.93519,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh603926%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "605006",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 12.33,
+        "close": 13.39,
+        "high": 13.4,
+        "low": 11.7,
+        "volume": 534514.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 13.26,
+        "close": 13.42,
+        "high": 13.65,
+        "low": 12.83,
+        "volume": 430248.0
+      },
+      "close_pct": 0.22405,
+      "open_pct": -0.97087,
+      "daily_high_excursion_pct": 1.94175,
+      "daily_low_excursion_pct": -4.18223,
+      "clv": 0.71951,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605006%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 13.39,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "605058",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 44.51,
+        "close": 50.26,
+        "high": 50.26,
+        "low": 43.19,
+        "volume": 152692.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 50.3,
+        "close": 53.05,
+        "high": 53.83,
+        "low": 47.51,
+        "volume": 236802.0
+      },
+      "close_pct": 5.55113,
+      "open_pct": 0.07959,
+      "daily_high_excursion_pct": 7.10306,
+      "daily_low_excursion_pct": -5.47155,
+      "clv": 0.87658,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605058%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 50.26,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "605118",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 30.17,
+        "close": 34.77,
+        "high": 36.07,
+        "low": 30.17,
+        "volume": 185042.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 34.3,
+        "close": 37.2,
+        "high": 38.23,
+        "low": 31.29,
+        "volume": 175799.0
+      },
+      "close_pct": 6.98878,
+      "open_pct": -1.35174,
+      "daily_high_excursion_pct": 9.95111,
+      "daily_low_excursion_pct": -10.00863,
+      "clv": 0.85159,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605118%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 34.77,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "605338",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 19.09,
+        "close": 20.88,
+        "high": 20.88,
+        "low": 18.72,
+        "volume": 154764.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 20.88,
+        "close": 21.07,
+        "high": 22.57,
+        "low": 19.8,
+        "volume": 204749.0
+      },
+      "close_pct": 0.90996,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 8.09387,
+      "daily_low_excursion_pct": -5.17241,
+      "clv": 0.45848,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605338%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120",
+        "frozen_deep_28"
+      ],
+      "T30_frozen_quote_close": 20.88,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "605499",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 99.9,
+        "close": 108.0,
+        "high": 108.5,
+        "low": 99.79,
+        "volume": 114216.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 107.0,
+        "close": 110.4,
+        "high": 112.98,
+        "low": 106.8,
+        "volume": 76682.0
+      },
+      "close_pct": 2.22222,
+      "open_pct": -0.92593,
+      "daily_high_excursion_pct": 4.61111,
+      "daily_low_excursion_pct": -1.11111,
+      "clv": 0.58252,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605499%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 108.0,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "605598",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 26.37,
+        "close": 26.14,
+        "high": 27.39,
+        "low": 25.57,
+        "volume": 258477.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 23.9,
+        "close": 25.52,
+        "high": 26.1,
+        "low": 23.9,
+        "volume": 205724.0
+      },
+      "close_pct": -2.37184,
+      "open_pct": -8.56924,
+      "daily_high_excursion_pct": -0.15302,
+      "daily_low_excursion_pct": -8.56924,
+      "clv": 0.73636,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh605598%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 26.14,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688045",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 56.35,
+        "close": 61.87,
+        "high": 61.87,
+        "low": 56.35,
+        "volume": 4979194.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 60.76,
+        "close": 59.98,
+        "high": 61.93,
+        "low": 54.24,
+        "volume": 10038321.0
+      },
+      "close_pct": -3.05479,
+      "open_pct": -1.79408,
+      "daily_high_excursion_pct": 0.09698,
+      "daily_low_excursion_pct": -12.33231,
+      "clv": 0.74642,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688045%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 61.87,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688073",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 58.3,
+        "close": 67.0,
+        "high": 67.56,
+        "low": 56.16,
+        "volume": 9665056.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 65.0,
+        "close": 66.43,
+        "high": 67.88,
+        "low": 62.88,
+        "volume": 8692817.0
+      },
+      "close_pct": -0.85075,
+      "open_pct": -2.98507,
+      "daily_high_excursion_pct": 1.31343,
+      "daily_low_excursion_pct": -6.14925,
+      "clv": 0.71,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688073%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 67.0,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688084",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 41.22,
+        "close": 37.62,
+        "high": 41.95,
+        "low": 37.61,
+        "volume": 5008014.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 37.62,
+        "close": 39.18,
+        "high": 39.77,
+        "low": 35.21,
+        "volume": 3619264.0
+      },
+      "close_pct": 4.14673,
+      "open_pct": 0.0,
+      "daily_high_excursion_pct": 5.71505,
+      "daily_low_excursion_pct": -6.40617,
+      "clv": 0.87061,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688084%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "688087",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 27.35,
+        "close": 29.3,
+        "high": 29.58,
+        "low": 27.06,
+        "volume": 4788393.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 28.51,
+        "close": 29.29,
+        "high": 29.68,
+        "low": 28.42,
+        "volume": 3313357.0
+      },
+      "close_pct": -0.03413,
+      "open_pct": -2.69625,
+      "daily_high_excursion_pct": 1.29693,
+      "daily_low_excursion_pct": -3.00341,
+      "clv": 0.69048,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688087%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 29.3,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688128",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 21.69,
+        "close": 22.16,
+        "high": 22.87,
+        "low": 21.69,
+        "volume": 7416585.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 22.08,
+        "close": 23.45,
+        "high": 23.66,
+        "low": 22.08,
+        "volume": 8880176.0
+      },
+      "close_pct": 5.8213,
+      "open_pct": -0.36101,
+      "daily_high_excursion_pct": 6.76895,
+      "daily_low_excursion_pct": -0.36101,
+      "clv": 0.86709,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688128%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 22.16,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688131",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 85.8,
+        "close": 92.09,
+        "high": 97.0,
+        "low": 83.5,
+        "volume": 10813092.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 91.0,
+        "close": 93.7,
+        "high": 95.54,
+        "low": 90.44,
+        "volume": 6794349.0
+      },
+      "close_pct": 1.74829,
+      "open_pct": -1.18362,
+      "daily_high_excursion_pct": 3.74634,
+      "daily_low_excursion_pct": -1.79173,
+      "clv": 0.63922,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688131%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 92.09,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688137",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 128.14,
+        "close": 150.8,
+        "high": 154.1,
+        "low": 123.51,
+        "volume": 11116134.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 146.62,
+        "close": 154.5,
+        "high": 155.55,
+        "low": 135.08,
+        "volume": 9568843.0
+      },
+      "close_pct": 2.45358,
+      "open_pct": -2.77188,
+      "daily_high_excursion_pct": 3.14987,
+      "daily_low_excursion_pct": -10.4244,
+      "clv": 0.94871,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688137%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 150.8,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688411",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 129.32,
+        "close": 136.58,
+        "high": 144.22,
+        "low": 128.7,
+        "volume": 5240251.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 137.08,
+        "close": 144.14,
+        "high": 147.25,
+        "low": 133.7,
+        "volume": 6130519.0
+      },
+      "close_pct": 5.53522,
+      "open_pct": 0.36609,
+      "daily_high_excursion_pct": 7.81227,
+      "daily_low_excursion_pct": -2.10865,
+      "clv": 0.77048,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688411%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 136.58,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688552",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 30.5,
+        "close": 28.04,
+        "high": 30.5,
+        "low": 27.5,
+        "volume": 7469124.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 28.71,
+        "close": 30.36,
+        "high": 30.77,
+        "low": 26.82,
+        "volume": 6092960.0
+      },
+      "close_pct": 8.27389,
+      "open_pct": 2.38944,
+      "daily_high_excursion_pct": 9.73609,
+      "daily_low_excursion_pct": -4.35093,
+      "clv": 0.8962,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688552%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "preexisting_low_position_52"
+      ],
+      "T30_frozen_quote_close": null,
+      "anchor_match_within_0_03": null
+    },
+    {
+      "code": "688710",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 83.0,
+        "close": 93.22,
+        "high": 99.95,
+        "low": 80.55,
+        "volume": 5667454.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 91.51,
+        "close": 88.8,
+        "high": 96.5,
+        "low": 86.7,
+        "volume": 4804361.0
+      },
+      "close_pct": -4.74147,
+      "open_pct": -1.83437,
+      "daily_high_excursion_pct": 3.51856,
+      "daily_low_excursion_pct": -6.99421,
+      "clv": 0.21429,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688710%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 93.22,
+      "anchor_match_within_0_03": true
+    },
+    {
+      "code": "688765",
+      "prev": {
+        "date": "2026-10-30",
+        "open": 28.14,
+        "close": 30.35,
+        "high": 32.23,
+        "low": 28.14,
+        "volume": 11154195.0
+      },
+      "current": {
+        "date": "2026-11-02",
+        "open": 30.51,
+        "close": 30.97,
+        "high": 31.13,
+        "low": 29.62,
+        "volume": 7708269.0
+      },
+      "close_pct": 2.04283,
+      "open_pct": 0.52718,
+      "daily_high_excursion_pct": 2.57002,
+      "daily_low_excursion_pct": -2.40527,
+      "clv": 0.89404,
+      "source": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh688765%2Cday%2C%2C%2C180%2Cnone",
+      "groups": [
+        "frozen_broad_120"
+      ],
+      "T30_frozen_quote_close": 30.35,
+      "anchor_match_within_0_03": true
+    }
+  ],
   "analysis_completed": false,
+  "original_T11_02_research_completed": false,
   "eligible_for_integrated_research": false,
-  "observations": []
+  "backfill_is_forward_signal": false,
+  "verified_buy_fills": 0,
+  "intraday_entry_trigger_verified": false,
+  "missing": [
+    "all_A_share_universe_for_T20261102",
+    "dated_exchange_seat_full_list",
+    "2026-11-02_full_minute_OHLC",
+    "real_0925_auction",
+    "original_frozen_time_on_T20261102",
+    "verified_order_fills"
+  ],
+  "note": "These prices existed on 11/02, but were recovered on 11/03. Do not claim publication on 11/02, full original research, or tradable P&L."
 }
