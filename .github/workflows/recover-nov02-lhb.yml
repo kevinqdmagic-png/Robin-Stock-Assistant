@@ -1,0 +1,50 @@
+name: Recover Nov2 date-exact LHB public seat evidence
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_nov02_lhb.py'
+      - '.github/workflows/recover-nov02-lhb.yml'
+permissions:
+  contents: write
+concurrency:
+  group: nov02-historical-lhb-recovery
+  cancel-in-progress: false
+jobs:
+  source-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Collect 11/2 dated disclosure list and both public top-five sides
+        id: collect
+        continue-on-error: true
+        run: python scripts/recover_nov02_lhb.py
+      - name: Preserve raw vendor replies and missing-data reasons
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nov02-public-lhb-unmodified-dated-queries
+          path: docs/research/nov02-lhb-historical-seats.json
+          retention-days: 90
+      - name: Publish when vendor source coverage is sufficient
+        if: steps.collect.outcome == 'success'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BASE=$(git rev-parse HEAD:docs/research/nov02-lhb-historical-seats.json)
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            docs/research/nov02-lhb-historical-seats.json docs/research/nov02-lhb-historical-seats.json \
+            --base-sha "$BASE" \
+            --message "research: save Nov2 dated vendor LHB disclosure and original row evidence"
+      - name: Report genuine vendor failures
+        if: always()
+        run: test "${{ steps.collect.outcome }}" = "success"
