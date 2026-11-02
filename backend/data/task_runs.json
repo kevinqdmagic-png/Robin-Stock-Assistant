@@ -5333,6 +5333,63 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "executed_trades": 0
+    },
+    {
+      "id": "nov02-combined-source-20261103-market_review-receipt",
+      "task_id": "market_review",
+      "run_id": "nov02-combined-source-20261103-market_review",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T18:29:27.492Z",
+      "completed_at": "2026-11-02T18:29:27.492Z",
+      "recorded_at": "2026-11-02T18:29:27.492Z",
+      "status": "partial",
+      "summary": "已恢复T30前一交易日全市场原始5574只报价股的D11/02未复权价格5568只（99.89%），4678涨/818跌/72平；非D当日实时全市场正式研究。 未完成原定全研究合同，不得转completed。",
+      "report_ids": [
+        "nov02-combined-source-20261103-market_review-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false
+    },
+    {
+      "id": "nov02-combined-source-20261103-volume_price-receipt",
+      "task_id": "volume_price",
+      "run_id": "nov02-combined-source-20261103-volume_price",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T18:29:27.492Z",
+      "completed_at": "2026-11-02T18:29:27.492Z",
+      "recorded_at": "2026-11-02T18:29:27.492Z",
+      "status": "partial",
+      "summary": "5568只同T/D价格，5556只可算20日相对量；1404只RVOL20≥1.5；28只价格点合格，两个预冻结影子强制区间失败。仍非完整量价决策。 未完成原定全研究合同，不得转completed。",
+      "report_ids": [
+        "nov02-combined-source-20261103-volume_price-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false
+    },
+    {
+      "id": "nov02-combined-source-20261103-low_position-receipt",
+      "task_id": "low_position",
+      "run_id": "nov02-combined-source-20261103-low_position",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T18:29:27.492Z",
+      "completed_at": "2026-11-02T18:29:27.492Z",
+      "recorded_at": "2026-11-02T18:29:27.492Z",
+      "status": "partial",
+      "summary": "T30既存低位样本去重51只，在D11/02真实历史日线全部取回，37涨/14跌；这是价格跟踪，不是吸筹胜率或新启动推荐。 未完成原定全研究合同，不得转completed。",
+      "report_ids": [
+        "nov02-combined-source-20261103-low_position-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false
     }
   ]
 }
