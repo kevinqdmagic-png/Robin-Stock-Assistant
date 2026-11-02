@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "T": "2026-10-30",
+  "D": "2026-11-02",
+  "actually_compiled_at": "2026-11-02T18:28:04.002Z",
+  "original_quoted_universe": 5574,
+  "original_market_source": "docs/research/combined-pair-20261030-evidence.json.gz",
+  "first_provider_archive": "docs/research/nov02-retrospective-market.json",
+  "second_provider_archive": "docs/research/nov02-missing-daybar-fallback.json",
+  "primary_valid": 5094,
+  "secondary_valid": 474,
+  "total_dated_verified": 5568,
+  "unverified_count": 6,
+  "exact_unverified_codes": [
+    "000831",
+    "002129",
+    "601326",
+    "605258",
+    "688121",
+    "688496"
+  ],
+  "unverified_reasons": {
+    "601326": {
+      "tencent_legacy": "ValueError:missing_exact_T_or_D",
+      "sina_historical": "ValueError:missing_exact_T_or_D"
+    },
+    "605258": {
+      "tencent_legacy": "ValueError:missing_exact_T_or_D",
+      "sina_historical": "ValueError:missing_exact_T_or_D"
+    },
+    "688121": {
+      "tencent_legacy": "ValueError:missing_exact_T_or_D",
+      "sina_historical": "ValueError:missing_exact_T_or_D"
+    },
+    "688496": {
+      "tencent_legacy": "ValueError:missing_exact_T_or_D",
+      "sina_historical": "ValueError:missing_exact_T_or_D"
+    },
+    "002129": {
+      "tencent_legacy": "ValueError:missing_exact_T_or_D",
+      "sina_historical": "ValueError:missing_exact_T_or_D"
+    },
+    "000831": {
+      "tencent_legacy": "ValueError:missing_exact_T_or_D",
+      "sina_historical": "ValueError:missing_exact_T_or_D"
+    }
+  },
+  "coverage_rate": 99.892,
+  "descriptive_stats": {
+    "advanced": 4678,
+    "declined": 818,
+    "flat": 72,
+    "mean_close_pct": 2.40006,
+    "median_close_pct": 2.01614,
+    "same_source_rvol20_available": 5556,
+    "rv20_gt_1_5": 1404,
+    "daily_close_location_gt_0_7": 4012
+  },
+  "independent_source_counts": {
+    "tencent_original": 5094,
+    "tencent_legacy": 120,
+    "sina": 354
+  },
+  "data_notes": [
+    "All recovered prices require exact T and D dates and T close match to original archived snapshot within 0.03 CNY.",
+    "Newly listed and zero-quote Nov2 names are not established by the original T30 universe.",
+    "Within-security volume units are consistent for RVOL. Absolute vendor volume units cannot be added across providers.",
+    "Price changes are next-day observations, not retrospective first-buy entry levels or net returns.",
+    "Current-day institutional seat original exchange disclosure and real-order execution are separate unverified prerequisites."
+  ],
+  "original_nov02_full_study_completed": false,
+  "original_nov02_new_market_broad_deep_frozen": false,
+  "genuine_order_fills": 0,
+  "eligible_for_integrated_research": false,
+  "analysis_completed": false
+}
