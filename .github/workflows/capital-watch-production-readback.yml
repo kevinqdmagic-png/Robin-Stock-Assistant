@@ -1,0 +1,23 @@
+name: Daily capital-watch APP production readback
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_daily_capital_watch_live.py'
+      - '.github/workflows/capital-watch-production-readback.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  watch-publication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify exact live build, November 2 five stock watch list, and trading-day freshness
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: python scripts/verify_daily_capital_watch_live.py
