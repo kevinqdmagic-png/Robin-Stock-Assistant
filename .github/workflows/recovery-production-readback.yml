@@ -1,0 +1,23 @@
+name: Verify November 2 recovery in production
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_recovery_production.py'
+      - '.github/workflows/recovery-production-readback.yml'
+permissions:
+  contents: read
+jobs:
+  readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Require exact deployed SHA and six linked blocked receipts from public API
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: python scripts/verify_recovery_production.py
