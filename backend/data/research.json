@@ -23472,6 +23472,42 @@
       "candidate_count": 0,
       "explicitly_not_formal_recommendation": true,
       "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-frozen-daybars-20261102-v1",
+      "date": "2026-11-02",
+      "market_date": "2026-11-02",
+      "task_id": "volume_price",
+      "track": "volume_price",
+      "run_id": "recovery-frozen-daybars-20261102-v1",
+      "title": "11月2日真实K线补采｜10月30日已冻结观察池164/166隔日价格核验（非完整研究）",
+      "summary": "已从真实历史未复权日线恢复166只预冻股票中164只，深筛28/28，影子3/3；仍缺全A新筛选和分钟成交，因此仅部分证据。",
+      "body": "【历史价格证据补采，不是11月2日收盘即时完整研究或正式交易信号】\n真实原始冻结时间：2026-10-30T18:20:11+08:00；计划验证交易日：2026-11-02；这批未复权历史K线实际采集：2026-11-03T02:03:21+08:00。该记录本身实际生成：2026-11-02T18:05:19.734Z，不能提前日期，也不能重选当日赢家。\n\n一、来源与样本口径\n提前冻结的10月30日广泛观察120只、深筛28只、低位旧台账51个不同代码、影子3只。去重166个代码，其中164只找回10月30日及11月2日两日真实未复权OHLCV；缺失两只分别为920156、920201，报错原因：{\"920156\":\"ValueError: missing_exact_T_or_D_day_bar\",\"920201\":\"ValueError: missing_exact_T_or_D_day_bar\"}。所有成功样本含前收、11/2开高低收、成交量、CLV、与冻结源10/30价格逐股锚点一致性和历史数据源URL。各组相互交叉重叠，绝不把合计作为独立N。\n\n二、前推观察池与真实隔日价格（全部只是价格代理）\nbroad: 日线118只，平均收盘观察1.3764%（中位0.9572%），相对前收日高4.2782% / 日低-3.7188%\ndeep: 日线28只，平均收盘观察1.9983%（中位1.1238%），相对前收日高4.0793% / 日低-2.7558%\nlow: 日线51只，平均收盘观察2.6904%（中位1.9345%），相对前收日高4.0115% / 日低-3.248%\nshadow: 日线3只，平均收盘观察3.1814%（中位3.5033%），相对前收日高6.7428% / 日低-0.6536%\n\n三、T30已冻结三只研究影子11月2日真实收盘\n000568：10/30前收77.07，11/2开77.7高81.62低77.2收79.77，11/2收盘相较10/30 +3.50331%；相对10/30日高+5.90372%、日低+0.16868%；冻结前收数据校验一致。\n600258：10/30前收12.43，11/2开12.43高13.21低12.3收12.95，11/2收盘相较10/30 +4.18343%；相对10/30日高+6.27514%、日低-1.04586%；冻结前收数据校验一致。\n600510：10/30前收6.46，11/2开6.59高6.98低6.39收6.58，11/2收盘相较10/30 +1.85759%；相对10/30日高+8.04954%、日低-1.08359%；冻结前收数据校验一致。\n\n四、统计与限制\n深筛28只11月2日均值+1.9983%、中位+1.1238%；广泛池118只有效，均值+1.3764%、中位+0.9572%；三只影子均值+3.1814%。这些集合重叠、只有单一交易日、没有基准配对和足够独立日期，不得据此称有显著Alpha/高胜率。日高/日低是与10/30收盘的**无成交先后顺序**的历史极值代理，不是入场后真实MFE/MAE。没有9:25竞价、9:45/10:30同刻真实VWAP、分钟成交顺序、证券实际可交易/停牌和订单成交证据，因此三只影子原触发与否、是否已买、可执行净利润全部保持未核验。即便11/2真实买入，A股T+1最早11/3卖；本次没有任何已核实买入。\n\n五、未达到完整研究合同\n这批仅恢复的是T=10/30已经确定的观察池在D=11/2的历史价格核验；没有完成T=11/2全A 5570+入口、当日新120/28筛选、龙虎榜所有席位原始数据、板块归属及完整四模块新裁决。之前六项blocked不改、没有补造11/3盘前冻结或正式荐股。证据机读明细见仓库源文件。",
+      "sources": [
+        "docs/research/frozen-price-observation-20261102.json",
+        "docs/research/market-review-2026-10-30-evidence.json",
+        "docs/research/shadow-experiments-20261102-v1.json",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "report_type": "retrospective_daily_price_observation_partial",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "execution_scope": "retrospective_frozen_universe_price_observation",
+      "validation_status": "price_only_no_trading",
+      "provenance": "retrospective_unadjusted_daily_actual_provider",
+      "published_at": "2026-11-02T18:05:19.734Z",
+      "recorded_at": "2026-11-02T18:05:19.734Z",
+      "market_data_cutoff_at": "2026-11-02T15:00:00+08:00",
+      "data_cutoff_at": "2026-11-02T18:05:19.734Z",
+      "recovered_unique": 164,
+      "requested_unique": 166,
+      "deep_verified": 28,
+      "shadow_verified": 3,
+      "verified_order_fills": 0,
+      "integrated_trade_permission": false,
+      "recommendation_ids": [],
+      "candidate_count": 0
     }
   ]
 }

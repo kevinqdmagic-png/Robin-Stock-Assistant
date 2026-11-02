@@ -5274,6 +5274,27 @@
       "eligible_for_integrated_research": false,
       "research_coverage": "retrospective_public_sources_partial",
       "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-frozen-daybars-20261102-receipt",
+      "run_id": "recovery-frozen-daybars-20261102-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "status": "partial",
+      "started_at": "2026-11-02T18:05:19.734Z",
+      "completed_at": "2026-11-02T18:05:19.734Z",
+      "recorded_at": "2026-11-02T18:05:19.734Z",
+      "summary": "仅真实未复权历史日线价格核验164/166（原深筛28/28，冻结影子3/3）且全部保存原始来源；全市场原定研究、分钟成交仍缺，明确partial。",
+      "report_ids": [
+        "recovery-frozen-daybars-20261102-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "price_observation_only": true,
+      "executed_trade": false,
+      "verified_fill_count": 0
     }
   ]
 }
