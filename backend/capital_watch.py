@@ -1,7 +1,8 @@
 """Immutable daily accumulation-shape watch archive (research, not trades)."""
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 from research_archive import load_document
+from trading_calendar import session_state, CN_TZ
 
 TASK = "capital_watch_daily"
 STAGES = {"accumulation_candidate", "late_accumulation_candidate"}
@@ -55,6 +56,26 @@ def verify_append_only(old, new):
         if by_id.get(row["id"]) != row:
             raise ValueError("capital_watch_history_mutated")
 
+
+
+def last_completed_trade_day(now=None):
+    """Latest date whose exchange session really finished (China-local).
+
+    The next morning must not label the immediately preceding closed-session
+    research as stale merely because the civil date changed.
+    """
+    now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
+    for days_back in range(16):
+        check = (now - timedelta(days=days_back)).replace(
+            hour=16, minute=0, second=0, microsecond=0)
+        if check > now:
+            continue
+        state = session_state(check)
+        if state["code"] == "after_close":
+            return check.date().isoformat()
+        if state["code"] == "unknown":
+            return None
+    return None
 
 def page(limit=10):
     doc = validate_archive(load_document("capital_watch.json", "ROBIN_CAPITAL_WATCH_FILE"))
