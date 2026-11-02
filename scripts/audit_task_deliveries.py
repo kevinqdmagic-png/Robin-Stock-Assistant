@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 from research_archive import load_document, verify_append_only
 from task_center import validate_runs
+from delivery_health import _published_complete
 from trading_calendar import session_state
 
 CN_TZ = ZoneInfo("Asia/Shanghai")
@@ -47,9 +48,7 @@ def audit_day(ledger, tasks, reports, now=None, day=None, audit_id=None):
         if task is None or not task.get("enabled"):
             continue
         history = [r for r in updated["items"] if r["task_id"] == task_id and r["date"] == day]
-        completed = any(r["status"] == "completed" and r.get("report_ids") and
-                        all(key in index and index[key].get("task_id") == task_id and index[key].get("date") == day
-                            for key in r["report_ids"]) for r in history)
+        completed = any(_published_complete(task_id, r, reports) for r in history)
         if completed:
             continue
         unfulfilled.append(task_id)
