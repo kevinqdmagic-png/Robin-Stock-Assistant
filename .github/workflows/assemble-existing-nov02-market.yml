@@ -1,0 +1,58 @@
+name: Assemble already-collected Nov2 original universe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/assemble-existing-nov02-market.yml'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: nov02-retrospective-assembly-fallback
+  cancel-in-progress: false
+jobs:
+  collect-existing-and-assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Download all eight already-complete date-verified evidence shards
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 41498668962
+          github-token: ${{ github.token }}
+          pattern: nov02-market-shard-*
+          path: tmp/nov02-market-shards
+          merge-multiple: true
+      - name: Assemble all eight original-universe partitions
+        run: python scripts/recover_all_market_20261102.py --merge --parts 8
+      - name: Archive all source results
+        uses: actions/upload-artifact@v4
+        with:
+          name: entire-20261102-original-universe-daybar-summary
+          path: docs/research/nov02-retrospective-market.json
+          retention-days: 90
+      - name: Publish unless same evidence already present
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json
+          j=json.load(open('docs/research/nov02-retrospective-market.json'))
+          assert j["D_bars_verified"]+j["D_bars_missing"]==j["prior_universe_count"]
+          assert j["D_bars_verified"]>4500
+          PY
+          BASE=$(git rev-parse HEAD:docs/research/nov02-retrospective-market.json)
+          python scripts/safe_github_update.py \
+            "${{ github.repository }}" \
+            docs/research/nov02-retrospective-market.json docs/research/nov02-retrospective-market.json \
+            --base-sha "$BASE" \
+            --message "research: publish actual Nov2 daybars for T30 entire source universe"
