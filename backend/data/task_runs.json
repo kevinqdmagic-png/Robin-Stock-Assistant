@@ -5154,6 +5154,126 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "recovery-audit-20261102-20261103-market_review-receipt",
+      "run_id": "recovery-audit-20261102-20261103-market_review",
+      "task_id": "market_review",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T17:50:33.797Z",
+      "recorded_at": "2026-11-02T17:50:33.797Z",
+      "completed_at": "2026-11-02T17:50:33.797Z",
+      "status": "blocked",
+      "summary": "实际补做历史公开数据及原冻结对照；因缺完整全A原始池、逐股量价/席位/分钟触发和正式研究条件，故本次未完成合同规定的六项完整研究。详见附属追补报告。",
+      "report_ids": [
+        "recovery-audit-20261102-20261103-market_review-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "retrospective_public_sources_partial",
+      "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-audit-20261102-20261103-volume_price-receipt",
+      "run_id": "recovery-audit-20261102-20261103-volume_price",
+      "task_id": "volume_price",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T17:50:33.797Z",
+      "recorded_at": "2026-11-02T17:50:33.797Z",
+      "completed_at": "2026-11-02T17:50:33.797Z",
+      "status": "blocked",
+      "summary": "实际补做历史公开数据及原冻结对照；因缺完整全A原始池、逐股量价/席位/分钟触发和正式研究条件，故本次未完成合同规定的六项完整研究。详见附属追补报告。",
+      "report_ids": [
+        "recovery-audit-20261102-20261103-volume_price-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "retrospective_public_sources_partial",
+      "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-audit-20261102-20261103-low_position-receipt",
+      "run_id": "recovery-audit-20261102-20261103-low_position",
+      "task_id": "low_position",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T17:50:33.797Z",
+      "recorded_at": "2026-11-02T17:50:33.797Z",
+      "completed_at": "2026-11-02T17:50:33.797Z",
+      "status": "blocked",
+      "summary": "实际补做历史公开数据及原冻结对照；因缺完整全A原始池、逐股量价/席位/分钟触发和正式研究条件，故本次未完成合同规定的六项完整研究。详见附属追补报告。",
+      "report_ids": [
+        "recovery-audit-20261102-20261103-low_position-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "retrospective_public_sources_partial",
+      "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-audit-20261102-20261103-dragon_tiger-receipt",
+      "run_id": "recovery-audit-20261102-20261103-dragon_tiger",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T17:50:33.797Z",
+      "recorded_at": "2026-11-02T17:50:33.797Z",
+      "completed_at": "2026-11-02T17:50:33.797Z",
+      "status": "blocked",
+      "summary": "实际补做历史公开数据及原冻结对照；因缺完整全A原始池、逐股量价/席位/分钟触发和正式研究条件，故本次未完成合同规定的六项完整研究。详见附属追补报告。",
+      "report_ids": [
+        "recovery-audit-20261102-20261103-dragon_tiger-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "retrospective_public_sources_partial",
+      "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-audit-20261102-20261103-combined_pair-receipt",
+      "run_id": "recovery-audit-20261102-20261103-combined_pair",
+      "task_id": "combined_pair",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T17:50:33.797Z",
+      "recorded_at": "2026-11-02T17:50:33.797Z",
+      "completed_at": "2026-11-02T17:50:33.797Z",
+      "status": "blocked",
+      "summary": "实际补做历史公开数据及原冻结对照；因缺完整全A原始池、逐股量价/席位/分钟触发和正式研究条件，故本次未完成合同规定的六项完整研究。详见附属追补报告。",
+      "report_ids": [
+        "recovery-audit-20261102-20261103-combined_pair-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "retrospective_public_sources_partial",
+      "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+    },
+    {
+      "id": "recovery-audit-20261102-20261103-limitup_single-receipt",
+      "run_id": "recovery-audit-20261102-20261103-limitup_single",
+      "task_id": "limitup_single",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T17:50:33.797Z",
+      "recorded_at": "2026-11-02T17:50:33.797Z",
+      "completed_at": "2026-11-02T17:50:33.797Z",
+      "status": "blocked",
+      "summary": "实际补做历史公开数据及原冻结对照；因缺完整全A原始池、逐股量价/席位/分钟触发和正式研究条件，故本次未完成合同规定的六项完整研究。详见附属追补报告。",
+      "report_ids": [
+        "recovery-audit-20261102-20261103-limitup_single-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "retrospective_public_sources_partial",
+      "issue_url": "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
     }
   ]
 }
