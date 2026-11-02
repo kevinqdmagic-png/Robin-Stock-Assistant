@@ -5295,6 +5295,44 @@
       "price_observation_only": true,
       "executed_trade": false,
       "verified_fill_count": 0
+    },
+    {
+      "id": "nov02-real-source-recovery-20261103-dragon_tiger-receipt",
+      "run_id": "nov02-real-source-recovery-20261103-dragon_tiger",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T18:21:51.442Z",
+      "completed_at": "2026-11-02T18:21:51.442Z",
+      "recorded_at": "2026-11-02T18:21:51.442Z",
+      "status": "partial",
+      "summary": "真实恢复东方财富历史榜单80上榜原因、70只证券，70/70查得双边席位；尚未对交易所原始披露逐条核对，按partial归档。 不等于完整正式研究。",
+      "report_ids": [
+        "nov02-real-source-recovery-20261103-dragon_tiger-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "executed_trades": 0
+    },
+    {
+      "id": "nov02-real-source-recovery-20261103-volume_price-receipt",
+      "run_id": "nov02-real-source-recovery-20261103-volume_price",
+      "task_id": "volume_price",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-02T18:21:51.442Z",
+      "completed_at": "2026-11-02T18:21:51.442Z",
+      "recorded_at": "2026-11-02T18:21:51.442Z",
+      "status": "partial",
+      "summary": "真实恢复11月2日28/28只冻结深筛/对照股票的日期合格分钟价格；原影子000568与600510未满足强制9:45/10:30价格区间，600258仍无法确认完整触发。 不等于完整正式研究。",
+      "report_ids": [
+        "nov02-real-source-recovery-20261103-volume_price-report"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "executed_trades": 0
     }
   ]
 }

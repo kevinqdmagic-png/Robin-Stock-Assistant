@@ -23508,6 +23508,64 @@
       "integrated_trade_permission": false,
       "recommendation_ids": [],
       "candidate_count": 0
+    },
+    {
+      "id": "nov02-real-source-recovery-20261103-dragon_tiger-report",
+      "date": "2026-11-02",
+      "market_date": "2026-11-02",
+      "task_id": "dragon_tiger",
+      "track": "dragon_tiger",
+      "title": "11月2日龙虎榜真实供应商明细：70只证券、80上榜原因、70/70买卖席位",
+      "summary": "真实恢复东方财富历史榜单80上榜原因、70只证券，70/70查得双边席位；尚未对交易所原始披露逐条核对，按partial归档。",
+      "body": "历史数据实际采集时间 2026-11-03T02:16:05+08:00，源交易日2026-11-02。东方财富历史数据中心返回原始上榜原因共80条，按剔除B股代码、去重后可见70只证券；对这些证券逐只查询买入前五与卖出前五，70只成功取得双侧席位，失败0只。本次资料保留原始上榜记录、成交金额、席位名字/代码、买卖金额、TRADE_ID与查询URL；一个证券可能因多项原因重复上榜，不能将原因行数等同证券数量或独立交易样本。举例：捷成股份300182当日榜面买入460,676,102.45元、卖出129,887,580.11元，差额330,788,522.34元（特定公开前五席位合计，不是交易市场总体净买）。\n仍需交易所原始披露逐项核对（同时段归属/机构身份/席位重叠/可转债和北交所覆盖）及同花顺对照，不能称完整原始龙虎榜研究或证明机构建仓。原冻结和真实成交均未改变。本轮为2026-11-03事后取证，允许partial，不转化成新荐股。",
+      "sources": [
+        "docs/research/nov02-lhb-historical-seats.json",
+        "https://datacenter-web.eastmoney.com/api/data/v1/get",
+        "https://www.cninfo.com.cn/new/commonUrl?url=data%2Fpublic-information"
+      ],
+      "run_id": "nov02-real-source-recovery-20261103-dragon_tiger",
+      "report_type": "retrospective_evidence_partial",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "validation_status": "source_verified_but_incomplete_original_contract",
+      "provenance": "retrospective_source_recovery_not_contemporaneous_signal",
+      "published_at": "2026-11-02T18:21:51.442Z",
+      "recorded_at": "2026-11-02T18:21:51.442Z",
+      "data_cutoff_at": "2026-11-02T18:21:51.442Z",
+      "market_data_cutoff_at": "2026-11-02T15:00:00+08:00",
+      "recommendation_ids": [],
+      "candidate_count": 0,
+      "execution_scope": "partial_research_evidence_no_trade"
+    },
+    {
+      "id": "nov02-real-source-recovery-20261103-volume_price-report",
+      "date": "2026-11-02",
+      "market_date": "2026-11-02",
+      "task_id": "volume_price",
+      "track": "volume_price",
+      "title": "11月2日真实分钟价格回溯：28/28股票与三只冻结影子买点否决",
+      "summary": "真实恢复11月2日28/28只冻结深筛/对照股票的日期合格分钟价格；原影子000568与600510未满足强制9:45/10:30价格区间，600258仍无法确认完整触发。",
+      "body": "原始价格点实际于 2026-11-03T02:17:16+08:00 采集，均严格核验源日期为2026-11-02。提前冻结的深筛、控制及影子共28个去重代码，实际取回28/28，保存每个分钟时刻价格与累计成交量/成交额及累计VWAP代理；无9:25竞价/逐笔/排队成交。\n逐项对照T2026-10-30真正提前冻结的条件：泸州老窖000568要求09:45和10:30均在75.53–77.07，当日真实时点价格分别79.88和80.28，均超出，必要条件失败；黑牡丹600510要求两时点均在6.33–6.46，真实为6.92和6.76，也不满足，必要条件失败。两股虽隔日收涨，不得称买点成立、更不得算作成交盈利。首旅酒店600258两时点分别12.88/13.07，尽管高于各自累计VWAP，缺原定首次分歧、回封连续封单和实际成交，保留indeterminate，不认定成功触发。\n价格路径是每分钟离散点，不是分钟OHLC、竞价撮合、完整日内最高最低先后顺序，也不能证明订单成交。除这批真实价格点外，T11/02新全A完整筛选、全市场逐笔仍缺。本研究局部补证状态partial，正式打板/综合裁决前置未满足。",
+      "sources": [
+        "docs/research/nov02-frozen-minute-points.json",
+        "docs/research/nov02-frozen-signal-gate-audit.json",
+        "docs/research/shadow-experiments-20261102-v1.json"
+      ],
+      "run_id": "nov02-real-source-recovery-20261103-volume_price",
+      "report_type": "retrospective_evidence_partial",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "validation_status": "source_verified_but_incomplete_original_contract",
+      "provenance": "retrospective_source_recovery_not_contemporaneous_signal",
+      "published_at": "2026-11-02T18:21:51.442Z",
+      "recorded_at": "2026-11-02T18:21:51.442Z",
+      "data_cutoff_at": "2026-11-02T18:21:51.442Z",
+      "market_data_cutoff_at": "2026-11-02T15:00:00+08:00",
+      "recommendation_ids": [],
+      "candidate_count": 0,
+      "execution_scope": "partial_research_evidence_no_trade"
     }
   ]
 }
