@@ -58,15 +58,37 @@ class DeadlineAuditTests(unittest.TestCase):
         updated, _ = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
         self.assertNotIn("quant_research", [r["task_id"] for r in updated["items"]])
 
+    def test_premarket_addendum_rejected_even_if_marked_completed(self):
+        self.reports["items"] = [{
+            "id": "market-review-supplement", "task_id": "market_review",
+            "date": "2026-10-14", "status": "completed",
+            "analysis_completed": True, "eligible_for_integrated_research": False,
+            "report_type": "premarket_supplement", "body": "Risk note",
+            "sources": ["https://example.org/news"]}]
+        self.ledger["items"] = [{
+            "id": "premarket-receipt", "run_id": "premarket", "task_id": "market_review",
+            "date": "2026-10-14", "trigger": "scheduled", "status": "completed",
+            "analysis_completed": True, "report_ids": ["market-review-supplement"],
+            "started_at": "2026-10-14T08:00:00+08:00",
+            "completed_at": "2026-10-14T08:01:00+08:00",
+            "recorded_at": "2026-10-14T08:01:00+08:00"}]
+        _ledger, result = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
+        self.assertIn("market_review", result["unfulfilled"])
+
     def test_complete_receipt_with_report_passes(self):
-        self.reports["items"] = [{"id": "r1", "task_id": "market_review", "date": "2026-10-14"}]
+        self.reports["items"] = [{"id": "r1", "task_id": "market_review", "date": "2026-10-14",
+                                  "status": "completed", "analysis_completed": True,
+                                  "eligible_for_integrated_research": True,
+                                  "report_type": "full_daily_research",
+                                  "body": "Full source-verified market review",
+                                  "sources": ["https://example.org/source"]}]
         self.ledger["items"] = [{"id": "old", "run_id": "test-real-run",
                                  "task_id": "market_review", "date": "2026-10-14",
                                  "trigger": "scheduled", "status": "completed",
                                  "started_at": "2026-10-14T18:00:00+08:00",
                                  "completed_at": "2026-10-14T18:30:00+08:00",
                                  "recorded_at": "2026-10-14T18:35:00+08:00",
-                                 "report_ids": ["r1"]}]
+                                 "report_ids": ["r1"], "analysis_completed": True}]
         updated, s = audit.audit_day(self.ledger, self.tasks, self.reports, self.now)
         self.assertEqual(s["unfulfilled"], ["dragon_tiger"])
         self.assertEqual(len(updated["items"]), 2)
