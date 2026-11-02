@@ -49,6 +49,27 @@ def check(expected_sha):
             raise AssertionError(f"blocked_receipt_missing_or_inaccurate:{receipt_id}")
         result["report_ids"].append(report_id)
         result["blocked_receipts"].append(receipt_id)
+    # Also insist that the later 164/166 real D-day OHLCV observations survived
+    # production archive loading, without laundering them into a full study.
+    price_id = "recovery-frozen-daybars-20261102-v1"
+    price = found.get(price_id)
+    if not price or price.get("status") != "partial" or price.get("recovered_unique") != 164 or price.get("analysis_completed") is not False:
+        raise AssertionError("frozen_universe_price_evidence_missing_or_misclassified")
+    price_receipts = read("/api/task-runs", {"task": "volume_price", "limit": 100})
+    price_receipt = next((x for x in price_receipts.get("items", []) if x.get("id") == "recovery-frozen-daybars-20261102-receipt"), None)
+    if not price_receipt or price_receipt.get("status") != "partial":
+        raise AssertionError("frozen_universe_price_receipt_missing")
+    daily = read("/api/operations/delivery")
+    if daily.get("date_cn") != DAY:
+        raise AssertionError("wrong_latest_completed_trading_date")
+    if daily.get("verified_count") != 0 or set(daily.get("unverified_task_ids", [])) != set(TASKS):
+        raise AssertionError("delivery_health_false_full_completion:" +
+                             json.dumps({"verified_count": daily.get("verified_count"),
+                                         "missing": daily.get("unverified_task_ids")}))
+    result["price_observation"] = price_id
+    result["price_verified_count"] = price["recovered_unique"]
+    result["delivery_verified_count"] = daily["verified_count"]
+    result["delivery_missing"] = daily["unverified_task_ids"]
     return result
 
 
