@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
@@ -61,8 +62,12 @@ class MainActivity : AppCompatActivity() {
     private var homeSessionDate = ""
     private var homeIsLive = false
     private var refreshTick = 0
-    private val ink = Color.rgb(35, 38, 44)
-    private val muted = Color.rgb(122, 126, 134)
+    private val isNight by lazy { (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES }
+    private val ink by lazy { if (isNight) Color.rgb(234, 237, 243) else Color.rgb(35, 38, 44) }
+    private val muted by lazy { if (isNight) Color.rgb(170, 178, 191) else Color.rgb(122, 126, 134) }
+    private val panelColor by lazy { if (isNight) Color.rgb(31, 36, 46) else Color.WHITE }
+    private val pageColor by lazy { if (isNight) Color.rgb(18, 22, 30) else Color.rgb(245, 247, 250) }
+    private val actionColor by lazy { if (isNight) Color.rgb(65, 36, 44) else Color.rgb(255, 241, 242) }
     private lateinit var root: LinearLayout
     private lateinit var scroller: ScrollView
     private lateinit var nav: LinearLayout
@@ -99,13 +104,13 @@ class MainActivity : AppCompatActivity() {
     }
     private fun card(title: String) = LinearLayout(this).apply {
         orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(14))
-        background = surface(Color.WHITE)
+        background = surface(panelColor)
         root.addView(this, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(12) })
         if (title.isNotEmpty()) addView(label(title, 19f, true))
     }
     private fun action(title: String, click: () -> Unit) = Button(this).apply {
         text = title; textSize = 14f; isAllCaps = false; setTextColor(red)
-        backgroundTintList = android.content.res.ColorStateList.valueOf(Color.rgb(255, 241, 242))
+        backgroundTintList = android.content.res.ColorStateList.valueOf(actionColor)
         setOnClickListener { click() }
     }
     private fun codeInput() = EditText(this).apply {
@@ -196,11 +201,11 @@ class MainActivity : AppCompatActivity() {
         loadBundledCatalog()
         ResearchNotificationWorker.schedule(applicationContext)
         selectedCode = savedInstanceState?.getString("code") ?: prefs.getString("selected", prefs.getString("watch", "")).orEmpty()
-        val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(Color.rgb(245, 247, 250)) }
+        val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(pageColor) }
         root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(16)) }
         scroller = ScrollView(this).apply { isFillViewport = true; addView(root) }
         shell.addView(scroller, LinearLayout.LayoutParams(-1, 0, 1f))
-        nav = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; setBackgroundColor(Color.WHITE); elevation = dp(5).toFloat() }
+        nav = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; setBackgroundColor(panelColor); elevation = dp(5).toFloat() }
         shell.addView(nav, LinearLayout.LayoutParams(-1, -2))
         setContentView(shell)
         ViewCompat.setOnApplyWindowInsetsListener(shell) { view, insets ->
@@ -884,7 +889,7 @@ class MainActivity : AppCompatActivity() {
                     ?: "股票"
                 val item = LinearLayout(this).apply {
                     orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(14))
-                    background = surface(Color.WHITE)
+                    background = surface(panelColor)
                     setOnClickListener { openStock(code) }
                 }
 
