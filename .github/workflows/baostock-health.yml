@@ -24,7 +24,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          timeout 60s python scripts/probe_baostock.py 2026-10-30 > baostock-probe.json 2>&1
+          timeout 60s python scripts/probe_baostock.py > baostock-probe.json 2>&1
           code=$?
           echo "probe_exit_code=$code" >> "$GITHUB_STEP_SUMMARY"
           cat baostock-probe.json >> "$GITHUB_STEP_SUMMARY"
