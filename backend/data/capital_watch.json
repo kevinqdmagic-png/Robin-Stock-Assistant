@@ -1764,6 +1764,159 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/41693414435"
       ]
+    },
+    {
+      "date": "2026-11-03",
+      "as_of": "2026-11-04T04:04:26+08:00",
+      "model": "capital_behavior_daily_v1",
+      "scanned": 110,
+      "valid_daily": 107,
+      "candidates": [
+        {
+          "code": "600150",
+          "name": "中国船舶",
+          "as_of": "2026-11-03",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 78,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "波动：近10日平均日内波幅相对上一组10日收窄",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 1.0,
+          "price_location60": 0.359,
+          "relative_volume20": 1.086,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "600276",
+          "name": "恒瑞医药",
+          "as_of": "2026-11-03",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 78,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 1.0,
+          "price_location60": 0.53,
+          "relative_volume20": 1.041,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "300059",
+          "name": "东方财富",
+          "as_of": "2026-11-03",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 69,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.75,
+          "price_location60": 0.508,
+          "relative_volume20": 1.673,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "600030",
+          "name": "中信证券",
+          "as_of": "2026-11-03",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 69,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 1.0,
+          "price_location60": 0.463,
+          "relative_volume20": 1.441,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "300450",
+          "name": "先导智能",
+          "as_of": "2026-11-03",
+          "stage": "accumulation_candidate",
+          "stage_title": "疑似吸筹形态（待验证）",
+          "score": 64,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "供给代理：最近5日平均成交量下降",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.7,
+          "price_location60": 0.38,
+          "relative_volume20": 0.956,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        }
+      ],
+      "universe": "historical_research_plus_public_activity_leaders",
+      "universe_sources": [
+        "historical_research_codes",
+        "sina_turnover_leaders"
+      ],
+      "provider_errors": {
+        "eastmoney_discovery:ValueError": 1,
+        "ValueError": 3
+      },
+      "coverage": "partial_universe_not_a_share_full_market",
+      "status": "completed",
+      "note": "只代表量价模型观察候选，非真实主力持仓、非已验证交易策略",
+      "matching_before_limit": 10,
+      "id": "capital-watch-20261103-41709058075",
+      "run_id": "github-actions-41709058075",
+      "published_at": "2026-11-04T04:04:46+08:00",
+      "timezone": "Asia/Shanghai",
+      "research_only": true,
+      "selection_validated": false,
+      "delayed_publication": true,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/41709058075"
+      ]
     }
   ]
 }
