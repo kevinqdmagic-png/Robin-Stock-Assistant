@@ -6,7 +6,9 @@ may be blocked in Railway; only enable a runtime fallback after measuring it.
 """
 import json
 import sys
-from datetime import date
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import math
 
 def main():
     try:
@@ -14,11 +16,13 @@ def main():
     except ImportError:
         print(json.dumps({"ok": False, "status": "dependency_missing", "install": "pip install baostock"}))
         return 2
-    day = date.fromisoformat(sys.argv[1]).isoformat() if len(sys.argv) > 1 else date.today().isoformat()
+    day = date.fromisoformat(sys.argv[1]).isoformat() if len(sys.argv) > 1 else datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
     result = {"ok": False, "requested_date": day, "provider": "baostock", "scope": "single_stock_probe"}
-    login = bs.login()
+    logged_in = False
     try:
-        if login.error_code != "0":
+        login = bs.login()
+        logged_in = login.error_code == "0"
+        if not logged_in:
             result.update(status="login_failed", error_code=login.error_code, error=login.error_msg)
             return 1
         cal = bs.query_trade_dates(start_date=day, end_date=day)
@@ -51,13 +55,21 @@ def main():
                 continue
             opening, high, low, closing = prices
             if (r["date"] == day and 0 < low <= min(opening, closing)
-                    and max(opening, closing) <= high and volume >= 0 and amount >= 0):
+                    and max(opening, closing) <= high and volume >= 0 and amount >= 0
+                    and all(math.isfinite(v) for v in prices + [volume, amount])):
                 valid.append(r)
         result.update(ok=bool(valid), status="verified_single_stock" if valid else "missing_or_nontrading",
                       bars=valid, coverage="one stock only; not full-market verified")
         return 0 if valid else 1
+    except Exception as exc:
+        result.update(status="provider_exception", error_type=type(exc).__name__, error=str(exc)[:200])
+        return 1
     finally:
-        bs.logout()
+        if logged_in:
+            try:
+                bs.logout()
+            except Exception:
+                pass
         print(json.dumps(result, ensure_ascii=False))
 
 if __name__ == "__main__":
