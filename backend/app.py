@@ -459,6 +459,10 @@ def health():
         "time_cn": now_cn(),
         "market_cache": cached,
         "market_cache_age_sec": age,
+        "market_cache_status": (_market_cache["payload"] or {}).get("status") if cached else "unavailable",
+        "market_cache_source": (_market_cache["payload"] or {}).get("source") if cached else None,
+        "market_cache_breadth_complete": (_market_cache["payload"] or {}).get("breadth_complete") is True if cached else False,
+        "market_cache_count": (_market_cache["payload"] or {}).get("count", 0) if cached else 0,
     }
 
 
