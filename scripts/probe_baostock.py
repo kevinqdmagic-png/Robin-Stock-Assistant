@@ -29,6 +29,9 @@ def main():
         while cal.next():
             calendar_rows.append(cal.get_row_data())
         result["calendar"] = calendar_rows
+        if calendar_rows and calendar_rows[0][-1] == "0":
+            result.update(status="nontrading_day", ok=True, coverage="calendar only; no OHLCV expected")
+            return 0
         rows = bs.query_history_k_data_plus(
             "sh.600000", "date,code,open,high,low,close,volume,amount,tradestatus",
             start_date=day, end_date=day, frequency="d", adjustflag="3")
@@ -38,8 +41,18 @@ def main():
         data = []
         while rows.next():
             data.append(dict(zip(rows.fields, rows.get_row_data())))
-        valid = [r for r in data if r["date"] == day and all(
-            float(r[k]) > 0 for k in ("open", "high", "low", "close"))]
+        valid = []
+        for r in data:
+            try:
+                prices = [float(r[k]) for k in ("open", "high", "low", "close")]
+                volume = float(r["volume"])
+                amount = float(r["amount"])
+            except (ValueError, TypeError, KeyError):
+                continue
+            opening, high, low, closing = prices
+            if (r["date"] == day and 0 < low <= min(opening, closing)
+                    and max(opening, closing) <= high and volume >= 0 and amount >= 0):
+                valid.append(r)
         result.update(ok=bool(valid), status="verified_single_stock" if valid else "missing_or_nontrading",
                       bars=valid, coverage="one stock only; not full-market verified")
         return 0 if valid else 1
