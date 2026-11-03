@@ -1,0 +1,65 @@
+name: Production research delivery audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 21:10 Beijing on weekdays, after the evening research deadline.
+    - cron: '10 13 * * 1-5'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify live production readback
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import urllib.request
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          root = "https://robin-stock-api-production.up.railway.app"
+          checks = {}
+          for name, path in (
+              ("health", "/health"),
+              ("delivery", "/api/operations/delivery"),
+              ("tasks", "/api/tasks"),
+              ("task_runs", "/api/task-runs"),
+          ):
+              try:
+                  req = urllib.request.Request(root + path, headers={"User-Agent":"Robin-Production-Audit/1.0"})
+                  with urllib.request.urlopen(req, timeout=12) as response:
+                      body = response.read(800000)
+                      checks[name] = {"http": response.status, "payload": json.loads(body)}
+              except Exception as exc:
+                  checks[name] = {"error": type(exc).__name__, "detail": str(exc)[:240]}
+          health = checks.get("health", {}).get("payload", {})
+          delivery = checks.get("delivery", {}).get("payload", {})
+          now = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()
+          result = {
+              "checked_at_cn": now, "checks": checks,
+              "api_alive": health.get("ok") is True,
+              "market_full": health.get("market_cache_breadth_complete") is True,
+              "research_delivery_verified": False,
+              "note": "Readback diagnostic only. Do not infer delivery from HTTP 200.",
+          }
+          # Delivery payload is retained intact; manual evidence review required
+          # until its schema is validated in a dedicated contract test.
+          with open("production-audit.json","w",encoding="utf-8") as f:
+              json.dump(result,f,ensure_ascii=False,indent=2)
+          with open(__import__("os").environ["GITHUB_STEP_SUMMARY"],"a") as f:
+              f.write(f"API alive: {result['api_alive']}\\n\\nMarket full: {result['market_full']}\\n\\nDelivery verified: NOT YET (readback only)\\n")
+          if not result["api_alive"]:
+              raise SystemExit("Production health unavailable; see artifact")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-research-readback
+          path: production-audit.json
+          retention-days: 14
