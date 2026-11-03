@@ -57,6 +57,7 @@ _minute_inflight = {}
 _minute_failures = {}
 _minute_provider_gate = threading.BoundedSemaphore(3)
 _minute_eastmoney_retry_after = 0.0
+_market_eastmoney_retry_after = 0.0
 MINUTE_CACHE_TTL = 30
 MINUTE_FAILURE_TTL = 30
 
@@ -462,6 +463,9 @@ def health():
 
 
 def _eastmoney_spot():
+    global _market_eastmoney_retry_after
+    if time.time() < _market_eastmoney_retry_after:
+        return pd.DataFrame(), None, False, ["eastmoney_circuit_open"]
     page_size = 100
     base_params = {
         "po": "1",
@@ -499,6 +503,7 @@ def _eastmoney_spot():
             raise ValueError("empty first page")
     except Exception as exc:
         logger.warning("Eastmoney first page failed: %s", exc)
+        _market_eastmoney_retry_after = time.time() + 180
         return pd.DataFrame(), None, False, [f"eastmoney_direct:{type(exc).__name__}"]
 
     intended_pages = max(1, (total + page_size - 1) // page_size)
