@@ -41,21 +41,30 @@ jobs:
           health = checks.get("health", {}).get("payload", {})
           delivery = checks.get("delivery", {}).get("payload", {})
           now = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()
+          required = {"market_review", "volume_price", "low_position", "dragon_tiger", "combined_pair", "limitup_single"}
+          observed = delivery.get("items") if isinstance(delivery, dict) else None
+          items = observed if isinstance(observed, list) else []
+          verified = {x.get("task_id") for x in items if isinstance(x, dict) and x.get("status") == "completed" and x.get("verified_receipt_id")}
+          delivery_verified = (delivery.get("ok") is True and delivery.get("status") == "complete"
+                               and delivery.get("checked_task_count") == 6
+                               and delivery.get("verified_count") == 6
+                               and required == verified
+                               and not delivery.get("unverified_task_ids"))
           result = {
               "checked_at_cn": now, "checks": checks,
               "api_alive": health.get("ok") is True,
               "market_full": health.get("market_cache_breadth_complete") is True,
-              "research_delivery_verified": False,
+              "research_delivery_verified": delivery_verified,
+              "missing_verified_tasks": sorted(required - verified),
               "note": "Readback diagnostic only. Do not infer delivery from HTTP 200.",
           }
-          # Delivery payload is retained intact; manual evidence review required
-          # until its schema is validated in a dedicated contract test.
+          # Contract checks do not prove APP display; verify UI separately.
           with open("production-audit.json","w",encoding="utf-8") as f:
               json.dump(result,f,ensure_ascii=False,indent=2)
           with open(__import__("os").environ["GITHUB_STEP_SUMMARY"],"a") as f:
               f.write(f"API alive: {result['api_alive']}\\n\\nMarket full: {result['market_full']}\\n\\nDelivery verified: NOT YET (readback only)\\n")
-          if not result["api_alive"]:
-              raise SystemExit("Production health unavailable; see artifact")
+          if not result["api_alive"] or not delivery_verified:
+              raise SystemExit("Production API unavailable or six same-day research receipts not verified; see artifact")
           PY
       - uses: actions/upload-artifact@v4
         if: always()
