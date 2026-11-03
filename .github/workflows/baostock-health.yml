@@ -29,8 +29,8 @@ jobs:
           echo "probe_exit_code=$code" >> "$GITHUB_STEP_SUMMARY"
           cat baostock-probe.json >> "$GITHUB_STEP_SUMMARY"
           if [ "$code" -eq 124 ]; then echo '{"ok":false,"status":"timeout","timeout_seconds":60}' >> baostock-probe.json; fi
-          # A provider outage must be visible in the artifact, not block unrelated CI.
-          exit 0
+          # Red check means probe failed; artifact is still uploaded by always().
+          exit "$code"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
