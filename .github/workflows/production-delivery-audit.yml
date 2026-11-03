@@ -62,7 +62,7 @@ jobs:
           with open("production-audit.json","w",encoding="utf-8") as f:
               json.dump(result,f,ensure_ascii=False,indent=2)
           with open(__import__("os").environ["GITHUB_STEP_SUMMARY"],"a") as f:
-              f.write(f"API alive: {result['api_alive']}\\n\\nMarket full: {result['market_full']}\\n\\nDelivery verified: NOT YET (readback only)\\n")
+              f.write(f"API alive: {result['api_alive']}\\n\\nMarket full: {result['market_full']}\\n\\nSix receipts verified: {delivery_verified} (APP display separately unverified)\\n")
           if not result["api_alive"] or not delivery_verified:
               raise SystemExit("Production API unavailable or six same-day research receipts not verified; see artifact")
           PY
