@@ -1502,6 +1502,11 @@ def _eastmoney_daily(code, limit=120, adjust="1"):
 
 
 def _get_daily(code, adjust="1"):
+    """Use independent Tencent day-K first; Eastmoney only as a bounded fallback.
+
+    Avoid making every request wait for a known unreliable primary. Preserve
+    adjustment type, source attribution, cache semantics and failure evidence.
+    """
     cache_key = code + ":" + adjust
     now = time.time()
     with _daily_lock:
@@ -1509,26 +1514,29 @@ def _get_daily(code, adjust="1"):
     if cached and now - cached["saved_at"] < DAILY_CACHE_TTL:
         return cached["bars"], cached["source"], cached["errors"]
 
-    bars, source, errors = _eastmoney_daily(code, adjust=adjust)
-    # Even HTTP 200 may contain a truncated history; capital study needs 61
-    # completed sessions, so try an independent day-K source when too short.
+    bars, source, errors = [], "unavailable", []
+    try:
+        alternate = tencent_daily(code, limit=120, adjust=adjust)
+        if len(alternate) >= 62:
+            bars = alternate
+            source = ("tencent_qfq_daily" if adjust == "1"
+                      else "tencent_unadjusted_daily")
+        else:
+            errors.append("tencent_daily_insufficient_history")
+    except (requests.RequestException, OSError, ValueError, TypeError, KeyError) as exc:
+        errors.append("tencent_daily:" + type(exc).__name__)
+        logger.warning("Tencent daily K failed for %s: %s", code, exc)
+
     if len(bars) < 62:
-        try:
-            alternate = tencent_daily(code, limit=120, adjust=adjust)
-            if len(alternate) > len(bars):
-                bars, source = alternate, ("tencent_qfq_daily" if adjust == "1"
-                                          else "tencent_unadjusted_daily")
-            elif not bars:
-                errors.append("tencent_daily_insufficient_history")
-        except (requests.RequestException, OSError, ValueError, TypeError, KeyError) as exc:
-            errors.append("tencent_daily:" + type(exc).__name__)
-            logger.warning("Independent daily K fallback failed for %s: %s", code, exc)
-    # Never pin an incomplete snapshot in the 10-minute cache.
+        east_bars, east_source, east_errors = _eastmoney_daily(code, adjust=adjust)
+        errors.extend(east_errors)
+        if len(east_bars) > len(bars):
+            bars, source = east_bars, east_source
+
     if len(bars) >= 62:
         with _daily_lock:
             _daily_cache[cache_key] = {
-                "saved_at": now,
-                "bars": bars, "source": source, "errors": errors,
+                "saved_at": now, "bars": bars, "source": source, "errors": errors,
             }
     elif cached:
         return cached["bars"], cached["source"], errors + ["stale_cache"]
