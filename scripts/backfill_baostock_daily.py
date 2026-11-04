@@ -2,7 +2,6 @@
 import argparse
 import json
 import math
-import time
 from datetime import date
 from pathlib import Path
 
@@ -13,8 +12,8 @@ def main():
     parser.add_argument("--output", default="artifacts/baostock-2026-11-03.json")
     args = parser.parse_args()
     day = date.fromisoformat(args.date).isoformat()
-    if not 1 <= args.limit <= 500:
-        raise ValueError("limit must be 1..500")
+    if not 1 <= args.limit <= 6000:
+        raise ValueError("limit must be 1..6000")
     import baostock as bs
     output = {"provider": "baostock", "trade_date": day, "scope": "bounded_sample", "requested_limit": args.limit, "rows": [], "errors": [], "ok": False}
     login = bs.login()
@@ -57,6 +56,7 @@ def main():
                 output["errors"].append({"code": code, "reason": type(exc).__name__, "detail": str(exc)[:120]})
         output["checked_count"] = len(selected)
         output["verified_count"] = len(output["rows"])
+        output["coverage_ratio"] = round(len(output["rows"]) / len(selected), 6) if selected else 0.0
         output["ok"] = bool(output["rows"]) and len(output["rows"]) + len(output["errors"]) == len(selected)
         output["warning"] = "NOT full-market coverage; no recommendations or signals computed"
     finally:
