@@ -1,9 +1,11 @@
-name: BaoStock five-minute independent collection
+name: Verified five-minute HTTPS/BaoStock collection
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/baostock-five-minute.yml'
+      - 'backend/eastmoney_five_minute_https.py'
+      - 'backend/collect_baostock_five_minute.py'
   workflow_dispatch:
     inputs:
       research_day:
@@ -39,9 +41,9 @@ jobs:
             RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from collect_baostock_five_minute import default_research_day; print(default_research_day())')
           fi
           export RESEARCH_DAY
-          echo "BAOSTOCK_COLLECT_START date=$RESEARCH_DAY source=baostock"
+          echo "FIVE_MIN_COLLECT_START date=$RESEARCH_DAY sources=eastmoney_https,baostock_tcp"
           PYTHONPATH=backend python backend/collect_baostock_five_minute.py
-          echo "BAOSTOCK_COLLECT_VALIDATED date=$RESEARCH_DAY"
+          echo "FIVE_MIN_COLLECT_VALIDATED date=$RESEARCH_DAY"
       - name: Summarize failed collection
         if: failure()
         run: |
