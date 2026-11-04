@@ -6,7 +6,7 @@ on:
       - 'scripts/backfill_baostock_daily.py'
       - '.github/workflows/baostock-backfill.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
   historical-backfill:
     runs-on: ubuntu-latest
@@ -99,3 +99,15 @@ jobs:
           name: baostock-2026-11-03-sh-sz-validated
           path: artifacts/baostock-2026-11-03-sh-sz-merged.json
           retention-days: 30
+      - name: Publish validated historical snapshot to repository
+        if: success()
+        run: |
+          mkdir -p data/baostock
+          cp artifacts/baostock-2026-11-03-sh-sz-merged.json data/baostock/2026-11-03.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/baostock/2026-11-03.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: archive validated BaoStock Shanghai Shenzhen daily bars for 2026-11-03"
+            git push origin HEAD:main
+          fi
