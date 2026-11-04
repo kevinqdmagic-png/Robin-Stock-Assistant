@@ -2,6 +2,7 @@
 from datetime import date, datetime, timedelta
 import math
 import re
+import socket
 
 FIELDS = "date,time,code,open,high,low,close,volume,amount,adjustflag"
 CODE_RE = re.compile(r"^(sh\.6|sz\.[03])\d{5}$")
@@ -14,7 +15,7 @@ def fetch_five_minute(code, day, client=None):
     if target > date.today() or target < date.today() - timedelta(days=365 * 5):
         raise ValueError("historical_date_out_of_range")
     if client is None:
-        import baostock as client
+        # BaoStock uses a TCP socket rather than HTTPS; fail fast when the\n        # hosting environment cannot reach its service port.\n        try:\n            with socket.create_connection(("www.baostock.com", 10030), timeout=4):\n                pass\n        except (OSError, TimeoutError) as exc:\n            raise ValueError("baostock_tcp_unreachable:10030") from exc\n        import baostock as client
     login = client.login()
     if login.error_code != "0":
         raise ValueError("baostock_login_failed:" + str(login.error_code))
