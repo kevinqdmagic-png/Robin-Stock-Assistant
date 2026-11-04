@@ -1,0 +1,43 @@
+name: BaoStock five-minute independent collection
+on:
+  workflow_dispatch:
+    inputs:
+      research_day:
+        description: 'Completed A-share trading day YYYY-MM-DD'
+        required: true
+        default: '2026-11-04'
+  schedule:
+    - cron: '15 9 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: baostock-five-minute-collection
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install 'baostock>=0.8.9,<0.9'
+      - name: Fetch verified five-minute bars
+        env:
+          RESEARCH_DAY: ${{ inputs.research_day || '' }}
+        run: |
+          if [ -z "$RESEARCH_DAY" ]; then
+            RESEARCH_DAY=$(TZ=Asia/Shanghai date -d 'yesterday' +%F)
+          fi
+          export RESEARCH_DAY
+          PYTHONPATH=backend python backend/collect_baostock_five_minute.py
+      - name: Commit collected history only on success
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add backend/data/baostock_five_minute/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: verified BaoStock five-minute historical snapshot"
+            git push
+          fi
