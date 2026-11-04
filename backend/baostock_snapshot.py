@@ -3,7 +3,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent / "data" / "baostock"
+ROOT = Path(__file__).resolve().parent / "data" / "baostock"
 DATE_RE = re.compile(r"^20\d{2}-\d{2}-\d{2}$")
 CODE_RE = re.compile(r"^(sh\.6|sz\.[03])\d{5}$")
 
