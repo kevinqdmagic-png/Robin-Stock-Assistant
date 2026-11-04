@@ -28,16 +28,42 @@ jobs:
         shell: bash
         run: |
           set +e
-          timeout 60s python scripts/probe_baostock.py > baostock-probe.json 2>&1
+          timeout 60s python scripts/probe_baostock.py > baostock-probe.log 2>&1
           code=$?
+          PROBE_EXIT_CODE="$code" python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          raw = Path("baostock-probe.log").read_text(errors="replace")
+          payload = None
+          for line in reversed(raw.splitlines()):
+              try:
+                  candidate = json.loads(line)
+              except json.JSONDecodeError:
+                  continue
+              if isinstance(candidate, dict) and candidate.get("provider") == "baostock":
+                  payload = candidate
+                  break
+          if payload is None:
+              payload = {
+                  "ok": False,
+                  "provider": "baostock",
+                  "status": "timeout" if os.environ["PROBE_EXIT_CODE"] == "124" else "no_structured_result",
+                  "probe_exit_code": int(os.environ["PROBE_EXIT_CODE"]),
+                  "error_excerpt": raw[-600:],
+              }
+          Path("baostock-probe.json").write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\\n"
+          )
+          PY
           echo "probe_exit_code=$code" >> "$GITHUB_STEP_SUMMARY"
           cat baostock-probe.json >> "$GITHUB_STEP_SUMMARY"
-          if [ "$code" -eq 124 ]; then echo '{"ok":false,"status":"timeout","timeout_seconds":60}' >> baostock-probe.json; fi
-          # Red check means probe failed; artifact is still uploaded by always().
+          # Nonzero exit preserves failure, while JSON and raw logs remain available.
           exit "$code"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: baostock-source-health
-          path: baostock-probe.json
+          path: |\n            baostock-probe.json\n            baostock-probe.log
           retention-days: 14
