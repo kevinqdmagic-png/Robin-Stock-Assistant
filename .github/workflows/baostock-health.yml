@@ -2,6 +2,10 @@ name: Free BaoStock source health (diagnostic only)
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/probe_baostock.py'
+      - '.github/workflows/baostock-health.yml'
   schedule:
     # 17:30 Beijing (09:30 UTC), Monday-Friday. Holiday/no-bar is not an outage.
     - cron: '30 9 * * 1-5'
