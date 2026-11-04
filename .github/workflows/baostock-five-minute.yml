@@ -33,11 +33,19 @@ jobs:
         env:
           RESEARCH_DAY: ${{ inputs.research_day || '' }}
         run: |
+          set -euo pipefail
           if [ -z "$RESEARCH_DAY" ]; then
             RESEARCH_DAY=$(TZ=Asia/Shanghai python -c 'from datetime import date,timedelta; d=date.today(); d-=timedelta(days=max(0,d.weekday()-4)); print(d.isoformat())')
           fi
           export RESEARCH_DAY
+          echo "BAOSTOCK_COLLECT_START date=$RESEARCH_DAY source=baostock"
           PYTHONPATH=backend python backend/collect_baostock_five_minute.py
+          echo "BAOSTOCK_COLLECT_VALIDATED date=$RESEARCH_DAY"
+      - name: Summarize failed collection
+        if: failure()
+        run: |
+          echo "### BaoStock 5-minute collection failed" >> "$GITHUB_STEP_SUMMARY"
+          echo "No unverified bars were published. Inspect Fetch verified five-minute bars logs." >> "$GITHUB_STEP_SUMMARY"
       - name: Commit collected history only on success
         run: |
           git config user.name 'github-actions[bot]'
