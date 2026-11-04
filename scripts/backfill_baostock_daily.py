@@ -19,7 +19,7 @@ def main():
     if args.shards < 1 or not 0 <= args.shard < args.shards:
         raise ValueError("invalid shard configuration")
     import baostock as bs
-    output = {"provider": "baostock", "trade_date": day, "scope": "bounded_sample", "requested_limit": args.limit, "rows": [], "errors": [], "ok": False}
+    output = {"provider": "baostock", "trade_date": day, "scope": "shanghai_shenzhen_shard", "requested_limit": args.limit, "rows": [], "errors": [], "ok": False}
     login = bs.login()
     if login.error_code != "0":
         raise RuntimeError("BaoStock login failed: " + login.error_msg)
@@ -33,12 +33,12 @@ def main():
             code = row.get("code", "")
             if (code.startswith("sh.6") or code.startswith("sz.0") or code.startswith("sz.3")) and len(code) == 9:
                 codes.append(code)
+        codes = sorted(set(codes))
         output["universe_candidate_count"] = len(codes)
         output["excluded_beijing_exchange"] = True
         output["shard"] = args.shard
         output["shards"] = args.shards
         # Spread the bounded sample deterministically across the full ordered universe.
-        codes = sorted(set(codes))
         selected = codes[args.shard::args.shards]
         if len(selected) > args.limit:
             selected = [selected[i * len(selected) // args.limit] for i in range(args.limit)]
