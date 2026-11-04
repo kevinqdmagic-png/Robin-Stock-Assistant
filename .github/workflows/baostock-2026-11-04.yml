@@ -1,0 +1,118 @@
+name: Backfill November 4 Shanghai Shenzhen A-share daily bars
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/backfill_baostock_daily.py'
+      - '.github/workflows/baostock-2026-11-04.yml'
+permissions:
+  contents: write
+jobs:
+  historical-backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check 'baostock==0.9.3'
+      - name: Fetch November 4 Shanghai/Shenzhen shard
+        run: |
+          python scripts/backfill_baostock_daily.py --date 2026-11-04 --limit 6000 --shard ${{ matrix.shard }} --shards 8 --output artifacts/baostock-2026-11-04-shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: baostock-2026-11-04-shard-${{ matrix.shard }}
+          path: artifacts/baostock-2026-11-04-shard-${{ matrix.shard }}.json
+          retention-days: 30
+  verify-coverage:
+    needs: historical-backfill
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: baostock-2026-11-04-shard-*
+          path: collected
+          merge-multiple: true
+      - name: Validate all eight shard artifacts and coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths=sorted(Path("collected").glob("baostock-2026-11-04-shard-*.json"))
+          assert len(paths)==8, f"Expected 8 shard files, got {len(paths)}"
+          all_codes=set()
+          error_codes=set()
+          totals={"files":len(paths),"checked":0,"verified":0,"errors":0}
+          universe_counts=set()
+          seen_shards=set()
+          merged_rows=[]
+          merged_errors=[]
+          for p in paths:
+              d=json.loads(p.read_text())
+              assert d["provider"]=="baostock" and d["trade_date"]=="2026-11-04"
+              assert d["shards"]==8 and d["shard"] in range(8)
+              assert d["shard"] not in seen_shards
+              seen_shards.add(d["shard"])
+              assert d["checked_count"]==d["verified_count"]+len(d["errors"])
+              assert d["verified_count"]==len(d["rows"])
+              universe_counts.add(d["universe_candidate_count"])
+              totals["checked"]+=d["checked_count"]
+              totals["verified"]+=d["verified_count"]
+              totals["errors"]+=len(d["errors"])
+              for row in d["rows"]:
+                  code=row["code"]
+                  assert code.startswith(("sh.6","sz.0","sz.3")) and len(code)==9, code
+                  assert code not in all_codes, f"duplicate {code}"
+                  all_codes.add(code)
+                  assert row["date"]=="2026-11-04" and row["provider"]=="baostock" and row["adjustment"]=="none"
+                  merged_rows.append(row)
+              for error in d["errors"]:
+                  code=error["code"]
+                  assert code.startswith(("sh.6","sz.0","sz.3")) and len(code)==9, code
+                  assert code not in error_codes and code not in all_codes, f"duplicate error {code}"
+                  error_codes.add(code)
+              merged_errors.extend(d["errors"])
+          assert seen_shards==set(range(8))
+          assert not (all_codes & error_codes)
+          assert len(all_codes | error_codes)==totals["checked"]
+          assert len(universe_counts)==1, f"Universe changed across shards: {universe_counts}"
+          assert totals["checked"]==next(iter(universe_counts)), f"missing shard coverage: {totals}"
+          totals["coverage_ratio"]=round(totals["verified"]/totals["checked"],6)
+          print("SH_SZ_BACKFILL_VALIDATION",json.dumps(totals))
+          assert totals["checked"]>=5000, f"Unexpectedly small universe: {totals}"
+          assert totals["coverage_ratio"]>=0.90, f"Coverage below 90%: {totals}"
+          merged={"provider":"baostock","trade_date":"2026-11-04","exchange_scope":"Shanghai+Shenzhen only; Beijing excluded","status":"historical_observation_only","coverage":totals,"rows":sorted(merged_rows,key=lambda r:r["code"]),"errors":merged_errors}
+          Path("artifacts").mkdir(exist_ok=True)
+          Path("artifacts/baostock-2026-11-04-sh-sz-merged.json").write_text(json.dumps(merged,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: baostock-2026-11-04-sh-sz-validated
+          path: artifacts/baostock-2026-11-04-sh-sz-merged.json
+          retention-days: 30
+      - name: Publish validated historical snapshot to repository
+        if: success()
+        run: |
+          mkdir -p data/baostock backend/data/baostock
+          cp artifacts/baostock-2026-11-04-sh-sz-merged.json data/baostock/2026-11-04.json
+          cp artifacts/baostock-2026-11-04-sh-sz-merged.json backend/data/baostock/2026-11-04.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/baostock/2026-11-04.json backend/data/baostock/2026-11-04.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: archive validated BaoStock Shanghai Shenzhen daily bars for 2026-11-04"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
