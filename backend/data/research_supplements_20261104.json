@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "market-review-20261104-breadth-audit-20261105",
+      "date": "2026-11-04",
+      "published_at": "2026-11-05T01:00:00+08:00",
+      "track": "market_review",
+      "task_id": "market_review",
+      "title": "11月4日市场广度补证（部分受阻）",
+      "status": "blocked",
+      "eligible_for_integrated_research": false,
+      "body": "BaoStock沪深冻结代码5504/5510有效；冻结名称映射5214只，涨4331、跌760、平123；成交额样本合计约20340.76亿元。未覆盖北交所及完整板块、分钟证据，不能称全A完整复盘。详见 docs/research/market-review-20261104-baostock-breadth-audit-20261105.md",
+      "sources": [
+        "docs/research/market-review-20261104-baostock-breadth-audit-20261105.md"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261104-cross-source-audit-20261105",
+      "date": "2026-11-04",
+      "published_at": "2026-11-05T01:01:00+08:00",
+      "track": "dragon_tiger",
+      "task_id": "dragon_tiger",
+      "title": "11月4日龙虎榜跨源补证（官方席位待核）",
+      "status": "blocked",
+      "eligible_for_integrated_research": false,
+      "body": "保留既有龙虎榜来源，交叉核查第三方公开榜单；三日累计与单日净额分开。官方完整席位未逐条复核，不生成正式双标或打板。详见 docs/research/dragon-tiger-20261104-cross-source-audit-20261105.md",
+      "sources": [
+        "docs/research/dragon-tiger-20261104-cross-source-audit-20261105.md"
+      ]
+    },
+    {
+      "id": "low-position-20261104-source-audit-20261105",
+      "date": "2026-11-04",
+      "published_at": "2026-11-05T01:02:00+08:00",
+      "track": "low_position",
+      "task_id": "low_position",
+      "title": "11月4日低位启动独立研究补证（部分受阻）",
+      "status": "blocked",
+      "eligible_for_integrated_research": false,
+      "body": "复用11月4日已冻结120只广池及28只深筛：拓日新能、品茗科技为事后条件观察，东山精密需复核机构卖出；无分钟/换手/板块证据，不构成实时买入信号。详见 docs/research/low-position-20261104-source-bounded-20261105.md",
+      "sources": [
+        "docs/research/low-position-20261104-source-bounded-20261105.md"
+      ]
+    }
+  ]
+}
