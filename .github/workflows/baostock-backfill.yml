@@ -51,10 +51,15 @@ jobs:
           all_codes=set()
           totals={"files":len(paths),"checked":0,"verified":0,"errors":0}
           universe_counts=set()
+          seen_shards=set()
+          merged_rows=[]
+          merged_errors=[]
           for p in paths:
               d=json.loads(p.read_text())
               assert d["provider"]=="baostock" and d["trade_date"]=="2026-11-03"
               assert d["shards"]==8 and d["shard"] in range(8)
+              assert d["shard"] not in seen_shards
+              seen_shards.add(d["shard"])
               assert d["checked_count"]==d["verified_count"]+len(d["errors"])
               universe_counts.add(d["universe_candidate_count"])
               totals["checked"]+=d["checked_count"]
@@ -65,9 +70,22 @@ jobs:
                   assert code.startswith(("sh.6","sz.0","sz.3")) and len(code)==9, code
                   assert code not in all_codes, f"duplicate {code}"
                   all_codes.add(code)
+                  assert row["date"]=="2026-11-03" and row["provider"]=="baostock" and row["adjustment"]=="none"
+                  merged_rows.append(row)
+              merged_errors.extend(d["errors"])
+          assert seen_shards==set(range(8))
           assert len(universe_counts)==1, f"Universe changed across shards: {universe_counts}"
           assert totals["checked"]==next(iter(universe_counts)), f"missing shard coverage: {totals}"
           totals["coverage_ratio"]=round(totals["verified"]/totals["checked"],6)
           print("SH_SZ_BACKFILL_VALIDATION",json.dumps(totals))
           assert totals["verified"]>0
+          merged={"provider":"baostock","trade_date":"2026-11-03","exchange_scope":"Shanghai+Shenzhen only; Beijing excluded","status":"historical_observation_only","coverage":totals,"rows":sorted(merged_rows,key=lambda r:r["code"]),"errors":merged_errors}
+          Path("artifacts").mkdir(exist_ok=True)
+          Path("artifacts/baostock-2026-11-03-sh-sz-merged.json").write_text(json.dumps(merged,ensure_ascii=False)+"\\n")
           PY
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: baostock-2026-11-03-sh-sz-validated
+          path: artifacts/baostock-2026-11-03-sh-sz-merged.json
+          retention-days: 30
