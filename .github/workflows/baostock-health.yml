@@ -54,7 +54,7 @@ jobs:
                   "error_excerpt": raw[-600:],
               }
           Path("baostock-probe.json").write_text(
-              json.dumps(payload, ensure_ascii=False, indent=2) + "\\n"
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
           )
           PY
           echo "probe_exit_code=$code" >> "$GITHUB_STEP_SUMMARY"
@@ -65,5 +65,7 @@ jobs:
         if: always()
         with:
           name: baostock-source-health
-          path: |\n            baostock-probe.json\n            baostock-probe.log
+          path: |
+            baostock-probe.json
+            baostock-probe.log
           retention-days: 14
