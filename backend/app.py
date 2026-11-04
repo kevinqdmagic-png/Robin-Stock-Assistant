@@ -137,14 +137,23 @@ def archived_baostock_five_minute(code: str, date: str):
 
 
 @app.get("/api/market/history/five-minute")
-def baostock_five_minute_history(code: str, date: str):
-    """Read BaoStock five-minute history on demand; no local download required."""
+def baostock_five_minute_history(code: str, date: str, direct: bool = False):
+    """Prefer independently verified archive; direct TCP is opt-in diagnostics only."""
+    archived = archived_baostock_five_minute(code, date)
+    if archived.get("ok"):
+        return archived
+    if archived.get("reason") == "invalid_request":
+        return archived
+    if not direct:
+        return {"ok": False, "status": "verified_archive_pending",
+                "code": code, "date": date, "reason": archived.get("reason"),
+                "historical_only": True, "bars": []}
     from baostock_five_minute import fetch_five_minute
     try:
         result = fetch_five_minute(code, date)
-        return {"ok": True, "time_cn": now_cn(), **result}
+        return {"ok": True, "mode": "direct_tcp_diagnostic", **result}
     except (ValueError, OSError, ImportError) as exc:
-        logger.warning("BaoStock five-minute history unavailable: %s", exc)
+        logger.warning("BaoStock five-minute direct diagnostic unavailable: %s", exc)
         return {"ok": False, "status": "historical_five_minute_unavailable",
                 "code": code, "date": date, "reason": str(exc), "bars": []}
 
