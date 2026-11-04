@@ -101,7 +101,7 @@ def archived_baostock_five_minute(code: str, date: str):
     """Serve only independently collected, validated historical bars."""
     from pathlib import Path
     import re
-    if not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}", date) or not re.fullmatch(r"(sh\\.6|sz\\.[03])\\d{5}", code):
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date) or not re.fullmatch(r"(sh\.6|sz\.[03])\d{5}", code):
         return {"ok": False, "reason": "invalid_request", "bars": []}
     archive = Path(__file__).resolve().parent / "data" / "baostock_five_minute" / (date + ".json")
     if not archive.is_file():
