@@ -1,0 +1,46 @@
+name: Publish existing BaoStock snapshot to backend image
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/publish-baostock-backend.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate existing snapshot and copy into backend build context
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source=Path("data/baostock/2026-11-03.json")
+          payload=json.loads(source.read_text(encoding="utf-8"))
+          coverage=payload.get("coverage") or {}
+          rows=payload.get("rows") or []
+          assert payload.get("provider")=="baostock"
+          assert payload.get("trade_date")=="2026-11-03"
+          assert payload.get("status")=="historical_observation_only"
+          assert coverage.get("checked",0)>=5000
+          assert coverage.get("coverage_ratio",0)>=0.90
+          assert len(rows)==coverage.get("verified")
+          assert all(row.get("date")=="2026-11-03" and (str(row.get("code","")).startswith("sh.6") or str(row.get("code","")).startswith(("sz.0","sz.3"))) for row in rows)
+          dest=Path("backend/data/baostock/2026-11-03.json")
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_bytes(source.read_bytes())
+          print(f"Validated and copied {len(rows)} Shanghai/Shenzhen historical rows")
+          PY
+      - name: Commit backend snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add backend/data/baostock/2026-11-03.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: include validated BaoStock snapshot in backend image"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
