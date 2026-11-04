@@ -28,7 +28,7 @@ jobs:
           python-version: '3.11'
       - run: pip install 'baostock>=0.8.9,<0.9'
       - name: Run five-minute parser unit tests
-        run: PYTHONPATH=backend python -m unittest backend/test_baostock_five_minute.py
+        run: PYTHONPATH=backend python -m unittest backend/test_baostock_five_minute.py backend/test_baostock_session.py
       - name: Fetch verified five-minute bars
         env:
           RESEARCH_DAY: ${{ inputs.research_day || '' }}
