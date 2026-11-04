@@ -6,7 +6,7 @@ may be blocked in Railway; only enable a runtime fallback after measuring it.
 """
 import json
 import sys
-from datetime import datetime
+from datetime import date, datetime
 from zoneinfo import ZoneInfo
 import math
 
