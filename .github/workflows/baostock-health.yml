@@ -61,6 +61,8 @@ jobs:
           cat baostock-probe.json >> "$GITHUB_STEP_SUMMARY"
           echo "::group::BAOSTOCK_DIAGNOSTIC_RESULT"
           cat baostock-probe.json
+          echo "----- RAW PROVIDER LOG (last 60 lines) -----"
+          tail -n 60 baostock-probe.log
           echo "::endgroup::"
           if [ "$code" -ne 0 ]; then
             status=$(python -c 'import json; print(json.load(open("baostock-probe.json")).get("status", "unknown"))')
