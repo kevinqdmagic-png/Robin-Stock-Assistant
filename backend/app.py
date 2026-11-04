@@ -109,7 +109,8 @@ def archived_baostock_five_minute(code: str, date: str):
     try:
         document = json.loads(archive.read_text(encoding="utf-8"))
         item = document.get("stocks", {}).get(code)
-        if document.get("date") != date or document.get("source") != "baostock" or not item or not item.get("complete_session") or item.get("count") != 48 or len(item.get("bars", [])) != 48:
+        from collect_baostock_five_minute import validate_session
+        if document.get("date") != date or document.get("source") != "baostock" or not item or not item.get("complete_session") or item.get("count") != 48 or not validate_session(item, code, date):
             return {"ok": False, "reason": "archive_integrity_failed", "date": date, "code": code, "bars": []}
         return {"ok": True, "mode": "verified_archive", **item}
     except (OSError, ValueError, TypeError):
