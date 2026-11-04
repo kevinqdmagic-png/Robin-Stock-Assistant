@@ -17,7 +17,7 @@ def main():
         print(json.dumps({"ok": False, "status": "dependency_missing", "install": "pip install baostock"}))
         return 2
     day = date.fromisoformat(sys.argv[1]).isoformat() if len(sys.argv) > 1 else datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
-    result = {"ok": False, "requested_date": day, "provider": "baostock", "scope": "single_stock_probe"}
+    result = {"ok": False, "requested_date": day, "provider": "baostock", "scope": "three_stock_probe", "symbols": ["sh.600000", "sz.000001", "sz.300750"]}
     logged_in = False
     try:
         login = bs.login()
@@ -33,34 +33,45 @@ def main():
         while cal.next():
             calendar_rows.append(cal.get_row_data())
         result["calendar"] = calendar_rows
-        if calendar_rows and calendar_rows[0][-1] == "0":
+        if not calendar_rows:
+            result.update(status="calendar_empty", error="No trade-calendar rows returned")
+            return 1
+        if calendar_rows[0][-1] == "0":
             result.update(status="nontrading_day", ok=True, coverage="calendar only; no OHLCV expected")
             return 0
-        rows = bs.query_history_k_data_plus(
-            "sh.600000", "date,code,open,high,low,close,volume,amount,tradestatus",
-            start_date=day, end_date=day, frequency="d", adjustflag="3")
-        if rows.error_code != "0":
-            result.update(status="kline_failed", error_code=rows.error_code)
-            return 1
-        data = []
-        while rows.next():
-            data.append(dict(zip(rows.fields, rows.get_row_data())))
-        valid = []
-        for r in data:
-            try:
-                prices = [float(r[k]) for k in ("open", "high", "low", "close")]
-                volume = float(r["volume"])
-                amount = float(r["amount"])
-            except (ValueError, TypeError, KeyError):
+        per_symbol = {}
+        for symbol in result["symbols"]:
+            rows = bs.query_history_k_data_plus(
+                symbol, "date,code,open,high,low,close,volume,amount,tradestatus",
+                start_date=day, end_date=day, frequency="d", adjustflag="3")
+            if rows.error_code != "0":
+                per_symbol[symbol] = {"status": "kline_failed", "error_code": rows.error_code}
                 continue
-            opening, high, low, closing = prices
-            if (r["date"] == day and 0 < low <= min(opening, closing)
-                    and max(opening, closing) <= high and volume >= 0 and amount >= 0
-                    and all(math.isfinite(v) for v in prices + [volume, amount])):
-                valid.append(r)
-        result.update(ok=bool(valid), status="verified_single_stock" if valid else "missing_or_nontrading",
-                      bars=valid, coverage="one stock only; not full-market verified")
-        return 0 if valid else 1
+            data = []
+            while rows.next():
+                data.append(dict(zip(rows.fields, rows.get_row_data())))
+            valid = []
+            for bar in data:
+                try:
+                    prices = [float(bar[k]) for k in ("open", "high", "low", "close")]
+                    volume = float(bar["volume"])
+                    amount = float(bar["amount"])
+                except (ValueError, TypeError, KeyError):
+                    continue
+                opening, high, low, closing = prices
+                if (bar["date"] == day and 0 < low <= min(opening, closing)
+                        and max(opening, closing) <= high and volume >= 0 and amount >= 0
+                        and all(math.isfinite(v) for v in prices + [volume, amount])):
+                    valid.append(bar)
+            per_symbol[symbol] = {"status": "verified" if valid else "missing_or_suspended",
+                                  "bars": valid}
+        verified_count = sum(item["status"] == "verified" for item in per_symbol.values())
+        result.update(ok=verified_count == len(per_symbol),
+                      status="verified_three_stocks" if verified_count == len(per_symbol) else "partial_or_missing",
+                      verified_count=verified_count, checked_count=len(per_symbol),
+                      per_symbol=per_symbol,
+                      coverage="three selected stocks only; not full-market verified")
+        return 0 if result["ok"] else 1
     except Exception as exc:
         result.update(status="provider_exception", error_type=type(exc).__name__, error=str(exc)[:200])
         return 1
