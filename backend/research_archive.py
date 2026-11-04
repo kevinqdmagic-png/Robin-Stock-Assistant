@@ -66,6 +66,16 @@ def verify_append_only(before, after, kind):
 def archive_page(track=None, day=None, offset=0, limit=30):
     payload = load_document("research.json", "ROBIN_RESEARCH_FILE")
     rows = payload["items"]
+    # Publish independently audited partial reports without rewriting the immutable
+    # main archive or a production-mounted research.json. These are never completed
+    # execution receipts and cannot satisfy combined-pair prerequisites.
+    supplement_path = DATA / "research_supplements_20261104.json"
+    if supplement_path.exists():
+        with supplement_path.open(encoding="utf-8") as file:
+            supplements = json.load(file)
+        validate_document(supplements, "research")
+        known_ids = {r.get("id") for r in rows if isinstance(r, dict)}
+        rows = rows + [r for r in supplements["items"] if r["id"] not in known_ids]
     # Support old production records, which predate id/body.
     rows = [dict(r, body=r.get("body") or r.get("summary", "")) for r in rows
             if isinstance(r, dict) and r.get("track") in TRACKS and r.get("date")]
