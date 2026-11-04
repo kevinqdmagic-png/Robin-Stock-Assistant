@@ -39,6 +39,34 @@ def main():
         if calendar_rows[0][-1] == "0":
             result.update(status="nontrading_day", ok=True, coverage="calendar only; no OHLCV expected")
             return 0
+        # Universe is an independent coverage diagnostic, not a full OHLCV scan.
+        universe = bs.query_all_stock(day=day)
+        if universe.error_code != "0":
+            result.update(status="universe_failed", error_code=universe.error_code)
+            return 1
+        market_counts = {"sh": 0, "sz": 0, "bj": 0}
+        tradable_count = 0
+        while universe.next():
+            row = dict(zip(universe.fields, universe.get_row_data()))
+            code = str(row.get("code", ""))
+            prefix, _, digits = code.partition(".")
+            if prefix not in market_counts or len(digits) != 6 or not digits.isdigit():
+                continue
+            # Exclude indices/ETFs and other non-A-share securities by prefix.
+            is_stock = ((prefix == "sh" and digits.startswith(("6", "9")))
+                        or (prefix == "sz" and digits.startswith(("0", "3")))
+                        or (prefix == "bj" and digits.startswith(("4", "8", "9"))))
+            if not is_stock:
+                continue
+            market_counts[prefix] += 1
+            if str(row.get("tradeStatus", "")) == "1":
+                tradable_count += 1
+        result["universe"] = {"candidate_count": sum(market_counts.values()),
+                              "by_exchange": market_counts, "tradable_count": tradable_count,
+                              "method": "code-prefix approximation; excludes no verified instrument types"}
+        if sum(market_counts.values()) < 1000:
+            result.update(status="universe_too_small")
+            return 1
         per_symbol = {}
         for symbol in result["symbols"]:
             rows = bs.query_history_k_data_plus(
