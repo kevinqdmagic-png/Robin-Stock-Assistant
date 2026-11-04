@@ -96,6 +96,19 @@ def baostock_history(date: str = "2026-11-03", code: str = "", limit: int = 100,
         return {"ok": False, "status": "snapshot_read_failed", "reason": str(exc), "trade_date": date, "rows": []}
 
 
+@app.get("/api/market/history/five-minute")
+def baostock_five_minute_history(code: str, date: str):
+    """Read BaoStock five-minute history on demand; no local download required."""
+    from baostock_five_minute import fetch_five_minute
+    try:
+        result = fetch_five_minute(code, date)
+        return {"ok": True, "time_cn": now_cn(), **result}
+    except (ValueError, OSError, ImportError) as exc:
+        logger.warning("BaoStock five-minute history unavailable: %s", exc)
+        return {"ok": False, "status": "historical_five_minute_unavailable",
+                "code": code, "date": date, "reason": str(exc), "bars": []}
+
+
 @app.get("/api/market/history/fallback")
 def daily_history_fallback(code: str, limit: int = 120):
     """Bounded unadjusted historical bars for evidence repair, never a live signal."""
