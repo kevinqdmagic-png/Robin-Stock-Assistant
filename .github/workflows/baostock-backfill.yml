@@ -105,11 +105,12 @@ jobs:
       - name: Publish validated historical snapshot to repository
         if: success()
         run: |
-          mkdir -p data/baostock
+          mkdir -p data/baostock backend/data/baostock
           cp artifacts/baostock-2026-11-03-sh-sz-merged.json data/baostock/2026-11-03.json
+          cp artifacts/baostock-2026-11-03-sh-sz-merged.json backend/data/baostock/2026-11-03.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/baostock/2026-11-03.json
+          git add data/baostock/2026-11-03.json backend/data/baostock/2026-11-03.json
           if ! git diff --cached --quiet; then
             git commit -m "data: archive validated BaoStock Shanghai Shenzhen daily bars for 2026-11-03"
             git pull --rebase origin main
