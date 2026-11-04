@@ -59,6 +59,13 @@ jobs:
           PY
           echo "probe_exit_code=$code" >> "$GITHUB_STEP_SUMMARY"
           cat baostock-probe.json >> "$GITHUB_STEP_SUMMARY"
+          echo "::group::BAOSTOCK_DIAGNOSTIC_RESULT"
+          cat baostock-probe.json
+          echo "::endgroup::"
+          if [ "$code" -ne 0 ]; then
+            status=$(python -c 'import json; print(json.load(open("baostock-probe.json")).get("status", "unknown"))')
+            echo "::error title=BaoStock probe failed::exit=$code status=$status; expand BAOSTOCK_DIAGNOSTIC_RESULT for details"
+          fi
           # Nonzero exit preserves failure, while JSON and raw logs remain available.
           exit "$code"
       - uses: actions/upload-artifact@v4
