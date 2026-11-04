@@ -14,7 +14,7 @@ def main():
     try:
         import baostock as bs
     except ImportError:
-        print(json.dumps({"ok": False, "status": "dependency_missing", "install": "pip install baostock"}))
+        print(json.dumps({"ok": False, "provider": "baostock", "status": "dependency_missing", "install": "pip install baostock"}))
         return 2
     day = date.fromisoformat(sys.argv[1]).isoformat() if len(sys.argv) > 1 else datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
     result = {"ok": False, "requested_date": day, "provider": "baostock", "scope": "three_stock_probe", "symbols": ["sh.600000", "sz.000001", "sz.300750"]}
@@ -119,8 +119,8 @@ def main():
             minute.update(status="verified" if minute_bars > 0 and invalid_bars == 0 else "missing_or_invalid",
                           valid_bars=minute_bars, invalid_bars=invalid_bars)
         result["minute_5m"] = minute
-        result.update(ok=verified_count == len(per_symbol),
-                      status="verified_three_stocks" if verified_count == len(per_symbol) else "partial_or_missing",
+        result.update(ok=verified_count == len(per_symbol) and minute["status"] == "verified",
+                      status="verified_daily_and_5m" if verified_count == len(per_symbol) and minute["status"] == "verified" else "partial_or_missing",
                       verified_count=verified_count, checked_count=len(per_symbol),
                       per_symbol=per_symbol,
                       coverage="three selected stocks only; not full-market verified")
