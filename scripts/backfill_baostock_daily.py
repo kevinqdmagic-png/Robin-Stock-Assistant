@@ -1,4 +1,4 @@
-"""Bounded historical A-share backfill; research input only, never a trading signal."""
+"""Shanghai/Shenzhen historical A-share backfill; research input only."""
 import argparse
 import json
 import math
@@ -38,7 +38,7 @@ def main():
         output["excluded_beijing_exchange"] = True
         output["shard"] = args.shard
         output["shards"] = args.shards
-        # Spread the bounded sample deterministically across the full ordered universe.
+        # Deterministic disjoint partition; do not sample in the eight-shard workflow.
         selected = codes[args.shard::args.shards]
         if len(selected) > args.limit:
             selected = [selected[i * len(selected) // args.limit] for i in range(args.limit)]
@@ -66,7 +66,7 @@ def main():
         output["checked_count"] = len(selected)
         output["verified_count"] = len(output["rows"])
         output["coverage_ratio"] = round(len(output["rows"]) / len(selected), 6) if selected else 0.0
-        output["ok"] = bool(output["rows"]) and len(output["rows"]) + len(output["errors"]) == len(selected)
+        output["ok"] = (bool(output["rows"]) and len(output["rows"]) + len(output["errors"]) == len(selected) and output["coverage_ratio"] >= 0.90)
         output["warning"] = "Shard only; merge and verify all shards before claiming full-market coverage. No recommendations computed."
     finally:
         bs.logout()
