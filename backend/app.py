@@ -96,6 +96,26 @@ def baostock_history(date: str = "2026-11-03", code: str = "", limit: int = 100,
         return {"ok": False, "status": "snapshot_read_failed", "reason": str(exc), "trade_date": date, "rows": []}
 
 
+def _verify_baostock_five_minute_once():
+    """Startup smoke-check with bounded historical queries; never claim signal readiness."""
+    from baostock_five_minute import fetch_five_minute
+    for code in ("sz.002218", "sh.688109"):
+        try:
+            result = fetch_five_minute(code, "2026-11-04")
+            logger.warning("BAOSTOCK_5M_CHECK code=%s date=2026-11-04 bars=%d full_session=%s first=%s last=%s",
+                           code, result["count"], result["complete_session"],
+                           result["bars"][0]["time"], result["bars"][-1]["time"])
+        except Exception as exc:
+            logger.warning("BAOSTOCK_5M_CHECK code=%s date=2026-11-04 status=unavailable reason=%s",
+                           code, str(exc)[:160])
+
+
+@app.on_event("startup")
+def start_baostock_five_minute_smoke_check():
+    threading.Thread(target=_verify_baostock_five_minute_once, daemon=True,
+                     name="baostock-five-minute-smoke").start()
+
+
 @app.get("/api/market/history/five-minute")
 def baostock_five_minute_history(code: str, date: str):
     """Read BaoStock five-minute history on demand; no local download required."""
