@@ -1,0 +1,154 @@
+name: Daily validated BaoStock Shanghai Shenzhen close
+on:
+  workflow_dispatch:
+  schedule:
+    # 09:30 UTC = 17:30 Beijing time; weekdays only (exchange holidays checked below).
+    - cron: '30 9 * * 1-5'
+permissions:
+  contents: write
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      trade_date: ${{ steps.calendar.outputs.trade_date }}
+      is_open: ${{ steps.calendar.outputs.is_open }}
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check 'baostock==0.9.3'
+      - id: calendar
+        run: |
+          python - <<'PY'
+          import baostock as bs
+          from datetime import datetime, timezone, timedelta
+          from os import environ
+          day=datetime.now(timezone(timedelta(hours=8))).date().isoformat()
+          client=bs.login()
+          if client.error_code!='0': raise RuntimeError('BaoStock calendar login failed: '+client.error_msg)
+          try:
+              result=bs.query_trade_dates(start_date=day,end_date=day)
+              if result.error_code!='0': raise RuntimeError('BaoStock trade calendar failed: '+result.error_msg)
+              rows=[]
+              while result.next(): rows.append(dict(zip(result.fields,result.get_row_data())))
+              is_open=len(rows)==1 and rows[0].get('calendar_date')==day and rows[0].get('is_trading_day')=='1'
+          finally:
+              bs.logout()
+          with open(environ['GITHUB_OUTPUT'],'a') as f:
+              f.write(f'trade_date={day}\nis_open={str(is_open).lower()}\n')
+          print('China trade date',day,'open',is_open)
+          PY
+  historical-backfill:
+    needs: preflight
+    if: needs.preflight.outputs.is_open == 'true'
+    env:
+      TRADE_DATE: ${{ needs.preflight.outputs.trade_date }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check 'baostock==0.9.3'
+      - name: Fetch November 4 Shanghai/Shenzhen shard
+        run: |
+          python scripts/backfill_baostock_daily.py --date ${{ env.TRADE_DATE }} --limit 6000 --shard ${{ matrix.shard }} --shards 8 --output artifacts/baostock-${{ env.TRADE_DATE }}-shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: baostock-${{ env.TRADE_DATE }}-shard-${{ matrix.shard }}
+          path: artifacts/baostock-${{ env.TRADE_DATE }}-shard-${{ matrix.shard }}.json
+          retention-days: 30
+  verify-coverage:
+    needs: [preflight, historical-backfill]
+    if: needs.historical-backfill.result == 'success'
+    env:
+      TRADE_DATE: ${{ needs.preflight.outputs.trade_date }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: baostock-${{ env.TRADE_DATE }}-shard-*
+          path: collected
+          merge-multiple: true
+      - name: Validate all eight shard artifacts and coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths=sorted(Path("collected").glob("baostock-${{ env.TRADE_DATE }}-shard-*.json"))
+          assert len(paths)==8, f"Expected 8 shard files, got {len(paths)}"
+          all_codes=set()
+          error_codes=set()
+          totals={"files":len(paths),"checked":0,"verified":0,"errors":0}
+          universe_counts=set()
+          seen_shards=set()
+          merged_rows=[]
+          merged_errors=[]
+          for p in paths:
+              d=json.loads(p.read_text())
+              assert d["provider"]=="baostock" and d["trade_date"]==__import__("os").environ["TRADE_DATE"]
+              assert d["shards"]==8 and d["shard"] in range(8)
+              assert d["shard"] not in seen_shards
+              seen_shards.add(d["shard"])
+              assert d["checked_count"]==d["verified_count"]+len(d["errors"])
+              assert d["verified_count"]==len(d["rows"])
+              universe_counts.add(d["universe_candidate_count"])
+              totals["checked"]+=d["checked_count"]
+              totals["verified"]+=d["verified_count"]
+              totals["errors"]+=len(d["errors"])
+              for row in d["rows"]:
+                  code=row["code"]
+                  assert code.startswith(("sh.6","sz.0","sz.3")) and len(code)==9, code
+                  assert code not in all_codes, f"duplicate {code}"
+                  all_codes.add(code)
+                  assert row["date"]==__import__("os").environ["TRADE_DATE"] and row["provider"]=="baostock" and row["adjustment"]=="none"
+                  merged_rows.append(row)
+              for error in d["errors"]:
+                  code=error["code"]
+                  assert code.startswith(("sh.6","sz.0","sz.3")) and len(code)==9, code
+                  assert code not in error_codes and code not in all_codes, f"duplicate error {code}"
+                  error_codes.add(code)
+              merged_errors.extend(d["errors"])
+          assert seen_shards==set(range(8))
+          assert not (all_codes & error_codes)
+          assert len(all_codes | error_codes)==totals["checked"]
+          assert len(universe_counts)==1, f"Universe changed across shards: {universe_counts}"
+          assert totals["checked"]==next(iter(universe_counts)), f"missing shard coverage: {totals}"
+          totals["coverage_ratio"]=round(totals["verified"]/totals["checked"],6)
+          print("SH_SZ_BACKFILL_VALIDATION",json.dumps(totals))
+          assert totals["checked"]>=5000, f"Unexpectedly small universe: {totals}"
+          assert totals["coverage_ratio"]>=0.90, f"Coverage below 90%: {totals}"
+          merged={"provider":"baostock","trade_date":__import__("os").environ["TRADE_DATE"],"exchange_scope":"Shanghai+Shenzhen only; Beijing excluded","status":"historical_observation_only","coverage":totals,"rows":sorted(merged_rows,key=lambda r:r["code"]),"errors":merged_errors}
+          Path("artifacts").mkdir(exist_ok=True)
+          Path("artifacts/baostock-${{ env.TRADE_DATE }}-sh-sz-merged.json").write_text(json.dumps(merged,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: baostock-${{ env.TRADE_DATE }}-sh-sz-validated
+          path: artifacts/baostock-${{ env.TRADE_DATE }}-sh-sz-merged.json
+          retention-days: 30
+      - name: Publish validated historical snapshot to repository
+        if: success()
+        run: |
+          mkdir -p data/baostock backend/data/baostock
+          cp artifacts/baostock-${{ env.TRADE_DATE }}-sh-sz-merged.json data/baostock/${{ env.TRADE_DATE }}.json
+          cp artifacts/baostock-${{ env.TRADE_DATE }}-sh-sz-merged.json backend/data/baostock/${{ env.TRADE_DATE }}.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/baostock/${{ env.TRADE_DATE }}.json backend/data/baostock/${{ env.TRADE_DATE }}.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: archive validated BaoStock Shanghai Shenzhen daily bars for ${{ env.TRADE_DATE }}"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
