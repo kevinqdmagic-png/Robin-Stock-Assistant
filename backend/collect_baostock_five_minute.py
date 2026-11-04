@@ -10,13 +10,26 @@ OUT = Path("backend/data/baostock_five_minute") / (DAY + ".json")
 CODES = ("sz.002218", "sh.688109")
 
 
+def validate_session(item, code, day):
+    """Require all 48 canonical five-minute bar endpoints, not just 48 rows."""
+    bars = item.get("bars", [])
+    if item.get("code") != code or item.get("date") != day or len(bars) != 48:
+        return False
+    # Trading intervals are 09:35..11:30 and 13:05..15:00, 48 in total.
+    canonical = []
+    for start, end in ((9 * 60 + 35, 11 * 60 + 30), (13 * 60 + 5, 15 * 60)):
+        canonical.extend(f"{day.replace('-', '')}{m // 60:02d}{m % 60:02d}00000"
+                         for m in range(start, end + 1, 5))
+    return [bar.get("time") for bar in bars] == canonical
+
+
 def main():
     results, errors = {}, {}
     for code in CODES:
         try:
             item = fetch_five_minute(code, DAY)
-            if not item["complete_session"]:
-                errors[code] = "incomplete_session:" + str(item["count"])
+            if not item["complete_session"] or not validate_session(item, code, DAY):
+                errors[code] = "invalid_or_incomplete_session:" + str(item["count"])
                 continue
             results[code] = item
         except Exception as exc:
