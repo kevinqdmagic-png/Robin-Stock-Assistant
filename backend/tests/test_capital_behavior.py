@@ -73,17 +73,18 @@ class CapitalBehaviorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "volume"):
             classify(data)
 
-    def test_independent_tencent_daily_fallback_when_eastmoney_is_offline(self):
+    def test_independent_tencent_daily_primary_does_not_wait_for_eastmoney(self):
         api._daily_cache.clear()
-        with patch("app._eastmoney_daily", return_value=([], None, ["HTTPError"])), \
+        with patch("app._eastmoney_daily", return_value=([], None, ["HTTPError"])) as eastmoney, \
              patch("app.tencent_daily", return_value=samples(85)) as alternative, \
              patch("app.completed_bars", side_effect=lambda bars: bars):
             result = api.capital_behavior("002068")
         self.assertTrue(result["ok"])
         self.assertEqual(result["source"], "tencent_qfq_daily")
         self.assertEqual(result["completed_bars"], 85)
-        self.assertIn("HTTPError", result["provider_errors"])
+        self.assertEqual(result["provider_errors"], [])
         alternative.assert_called_once_with("002068", limit=120, adjust="1")
+        eastmoney.assert_not_called()
         api._daily_cache.clear()
 
     def test_both_daily_providers_unavailable_are_explained(self):
