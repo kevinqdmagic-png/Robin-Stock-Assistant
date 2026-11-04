@@ -53,6 +53,25 @@ def main():
                     break
         if not codes:
             raise RuntimeError("BaoStock returned an empty SH/SZ universe for current and previous seven dates")
+        # Freeze one validated repository universe for every CI shard.
+        # Independent BaoStock universe calls can differ and overlap shards.
+        for snapshot in sorted(Path("data/baostock").glob("20??-??-??.json"), reverse=True):
+            if snapshot.stem >= day:
+                continue
+            previous = json.loads(snapshot.read_text(encoding="utf-8"))
+            if previous.get("provider") != "baostock" or previous.get("coverage", {}).get("checked", 0) < 5000:
+                continue
+            frozen = {row["code"] for row in previous.get("rows", [])}
+            frozen.update(error["code"] for error in previous.get("errors", []))
+            frozen = sorted(code for code in frozen if len(code) == 9 and
+                            code.startswith(("sh.6", "sz.0", "sz.3")))
+            if len(frozen) >= 5000:
+                codes = frozen
+                output["universe_source_date"] = snapshot.stem
+                output["universe_source_type"] = "validated_repository_snapshot"
+                break
+        else:
+            raise RuntimeError("No validated repository universe available; refusing nondeterministic parallel shards")
         output["universe_candidate_count"] = len(codes)
         output["excluded_beijing_exchange"] = True
         output["shard"] = args.shard
