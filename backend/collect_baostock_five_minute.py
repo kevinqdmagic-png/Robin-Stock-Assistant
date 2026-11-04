@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 from baostock_five_minute import fetch_five_minute
+from eastmoney_five_minute_https import fetch_five_minute_https
 from learning_loop import CN, latest_completed_session
 
 def default_research_day(now=None):
@@ -36,7 +37,13 @@ def main():
     results, errors = {}, {}
     for code in CODES:
         try:
-            item = fetch_five_minute(code, DAY)
+            try:
+                item = fetch_five_minute_https(code, DAY)
+            except Exception as https_exc:
+                try:
+                    item = fetch_five_minute(code, DAY)
+                except Exception as tcp_exc:
+                    raise ValueError(f"https={str(https_exc)[:90]};tcp={str(tcp_exc)[:90]}") from tcp_exc
             if not item["complete_session"] or not validate_session(item, code, DAY):
                 errors[code] = "invalid_or_incomplete_session:" + str(item["count"])
                 continue
@@ -47,7 +54,7 @@ def main():
     if not results:
         raise SystemExit("No complete BaoStock five-minute history; refusing to publish")
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({"date": DAY, "source": "baostock", "stocks": results,
+    OUT.write_text(json.dumps({"date": DAY, "source": "verified_multi_source_5m", "stocks": results,
                                "errors": errors}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
