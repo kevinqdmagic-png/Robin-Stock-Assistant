@@ -1,6 +1,9 @@
 name: Daily validated BaoStock Shanghai Shenzhen close
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/baostock-daily.yml'
   schedule:
     # 09:30 UTC = 17:30 Beijing time; weekdays only (exchange holidays checked below).
     - cron: '30 9 * * 1-5'
