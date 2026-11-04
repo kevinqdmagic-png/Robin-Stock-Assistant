@@ -53,7 +53,7 @@ def main():
             if prefix not in market_counts or len(digits) != 6 or not digits.isdigit():
                 continue
             # Exclude indices/ETFs and other non-A-share securities by prefix.
-            is_stock = ((prefix == "sh" and digits.startswith(("6", "9")))
+            is_stock = ((prefix == "sh" and digits.startswith("6"))
                         or (prefix == "sz" and digits.startswith(("0", "3")))
                         or (prefix == "bj" and digits.startswith(("4", "8", "9"))))
             if not is_stock:
@@ -94,6 +94,31 @@ def main():
             per_symbol[symbol] = {"status": "verified" if valid else "missing_or_suspended",
                                   "bars": valid}
         verified_count = sum(item["status"] == "verified" for item in per_symbol.values())
+        # BaoStock offers 5-minute historical bars, not tick-level realtime quotes.
+        minute = {"symbol": "sh.600000", "frequency": "5", "status": "not_checked"}
+        mrs = bs.query_history_k_data_plus(
+            "sh.600000", "date,time,code,open,high,low,close,volume,amount",
+            start_date=day, end_date=day, frequency="5", adjustflag="3")
+        if mrs.error_code != "0":
+            minute.update(status="query_failed", error_code=mrs.error_code)
+        else:
+            minute_bars = 0
+            invalid_bars = 0
+            while mrs.next():
+                bar = dict(zip(mrs.fields, mrs.get_row_data()))
+                try:
+                    o, h, l, c = (float(bar[k]) for k in ("open", "high", "low", "close"))
+                    v, a = float(bar["volume"]), float(bar["amount"])
+                    valid = (bar["date"] == day and 0 < l <= min(o, c)
+                             and max(o, c) <= h and v >= 0 and a >= 0
+                             and all(math.isfinite(x) for x in (o, h, l, c, v, a)))
+                except (ValueError, TypeError, KeyError):
+                    valid = False
+                minute_bars += int(valid)
+                invalid_bars += int(not valid)
+            minute.update(status="verified" if minute_bars > 0 and invalid_bars == 0 else "missing_or_invalid",
+                          valid_bars=minute_bars, invalid_bars=invalid_bars)
+        result["minute_5m"] = minute
         result.update(ok=verified_count == len(per_symbol),
                       status="verified_three_stocks" if verified_count == len(per_symbol) else "partial_or_missing",
                       verified_count=verified_count, checked_count=len(per_symbol),
