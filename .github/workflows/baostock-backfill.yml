@@ -1,0 +1,35 @@
+name: Backfill historical A-share sample (diagnostic)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/backfill_baostock_daily.py'
+      - '.github/workflows/baostock-backfill.yml'
+permissions:
+  contents: read
+jobs:
+  historical-backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check 'baostock==0.9.3'
+      - name: Verify November 3 historical OHLCV sample
+        run: |
+          python scripts/backfill_baostock_daily.py --date 2026-11-03 --limit 100 --output artifacts/baostock-2026-11-03.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("artifacts/baostock-2026-11-03.json").read_text())
+          print("BACKFILL_VERIFIED", json.dumps({k:v for k,v in d.items() if k not in ("rows","errors")},ensure_ascii=False))
+          assert d["trade_date"] == "2026-11-03" and d["verified_count"] > 0
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: baostock-2026-11-03-historical-sample
+          path: artifacts/baostock-2026-11-03.json
+          retention-days: 30
