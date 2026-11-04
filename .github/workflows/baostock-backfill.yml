@@ -109,5 +109,6 @@ jobs:
           git add data/baostock/2026-11-03.json
           if ! git diff --cached --quiet; then
             git commit -m "data: archive validated BaoStock Shanghai Shenzhen daily bars for 2026-11-03"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
