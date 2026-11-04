@@ -18,7 +18,7 @@ from market_insights import overview as market_overview, stamp as quote_stamp
 from quote_providers import stock_symbol, tencent_quotes
 from intraday_scheduler import (latest as intraday_status, tracking_status as intraday_forward_status,
                                 start_scheduler as start_intraday_scheduler)
-from daily_providers import tencent_daily
+from daily_providers import tencent_daily, historical_daily_with_fallback
 from baostock_snapshot import load_snapshot
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health, resident_intraday_health
@@ -94,6 +94,19 @@ def baostock_history(date: str = "2026-11-03", code: str = "", limit: int = 100,
         return load_snapshot(date, code, limit, offset)
     except (ValueError, OSError, json.JSONDecodeError) as exc:
         return {"ok": False, "status": "snapshot_read_failed", "reason": str(exc), "trade_date": date, "rows": []}
+
+
+@app.get("/api/market/history/fallback")
+def daily_history_fallback(code: str, limit: int = 120):
+    """Bounded unadjusted historical bars for evidence repair, never a live signal."""
+    try:
+        if limit < 20 or limit > 120:
+            raise ValueError("history_limit_out_of_range")
+        result = historical_daily_with_fallback(code, limit=limit, adjust="0")
+        return {"ok": True, "code": code, "historical_only": True, **result}
+    except (ValueError, requests.RequestException) as exc:
+        return {"ok": False, "code": code, "status": "historical_sources_unavailable",
+                "reason": str(exc), "rows": []}
 
 
 @app.get("/api/research")
