@@ -6,7 +6,7 @@ may be blocked in Railway; only enable a runtime fallback after measuring it.
 """
 import json
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 import math
 
@@ -16,7 +16,10 @@ def main():
     except ImportError:
         print(json.dumps({"ok": False, "provider": "baostock", "status": "dependency_missing", "install": "pip install baostock"}))
         return 2
-    day = date.fromisoformat(sys.argv[1]).isoformat() if len(sys.argv) > 1 else datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
+    now_cn = datetime.now(ZoneInfo("Asia/Shanghai"))
+    # Before 16:00 Beijing, the current daily candle may be incomplete/unpublished.
+    requested = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else (now_cn.date() if now_cn.hour >= 16 else now_cn.date() - timedelta(days=1))
+    day = requested.isoformat()
     result = {"ok": False, "requested_date": day, "provider": "baostock", "scope": "three_stock_probe", "symbols": ["sh.600000", "sz.000001", "sz.300750"]}
     logged_in = False
     try:
@@ -25,20 +28,21 @@ def main():
         if not logged_in:
             result.update(status="login_failed", error_code=login.error_code, error=login.error_msg)
             return 1
-        cal = bs.query_trade_dates(start_date=day, end_date=day)
+        # Resolve weekends and exchange holidays to the latest completed trading day.
+        cal = bs.query_trade_dates(start_date=(requested - timedelta(days=14)).isoformat(), end_date=day)
         if cal.error_code != "0":
             result.update(status="calendar_failed", error_code=cal.error_code)
             return 1
         calendar_rows = []
         while cal.next():
             calendar_rows.append(cal.get_row_data())
-        result["calendar"] = calendar_rows
-        if not calendar_rows:
-            result.update(status="calendar_empty", error="No trade-calendar rows returned")
+        result["calendar_window"] = [calendar_rows[0], calendar_rows[-1]] if calendar_rows else []
+        trading_days = [row[0] for row in calendar_rows if len(row) >= 2 and row[-1] == "1"]
+        if not trading_days:
+            result.update(status="no_completed_trading_day", error="No trading date in lookback window")
             return 1
-        if calendar_rows[0][-1] == "0":
-            result.update(status="nontrading_day", ok=True, coverage="calendar only; no OHLCV expected")
-            return 0
+        day = max(trading_days)
+        result["resolved_trading_date"] = day
         # Universe is an independent coverage diagnostic, not a full OHLCV scan.
         universe = bs.query_all_stock(day=day)
         if universe.error_code != "0":
