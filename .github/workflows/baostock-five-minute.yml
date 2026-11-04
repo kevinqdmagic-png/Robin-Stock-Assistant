@@ -1,5 +1,9 @@
 name: BaoStock five-minute independent collection
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/baostock-five-minute.yml'
   workflow_dispatch:
     inputs:
       research_day:
