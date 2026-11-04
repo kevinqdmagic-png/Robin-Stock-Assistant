@@ -10,10 +10,14 @@ def main():
     parser.add_argument("--date", default="2026-11-03")
     parser.add_argument("--limit", type=int, default=100)
     parser.add_argument("--output", default="artifacts/baostock-2026-11-03.json")
+    parser.add_argument("--shard", type=int, default=0)
+    parser.add_argument("--shards", type=int, default=1)
     args = parser.parse_args()
     day = date.fromisoformat(args.date).isoformat()
     if not 1 <= args.limit <= 6000:
         raise ValueError("limit must be 1..6000")
+    if args.shards < 1 or not 0 <= args.shard < args.shards:
+        raise ValueError("invalid shard configuration")
     import baostock as bs
     output = {"provider": "baostock", "trade_date": day, "scope": "bounded_sample", "requested_limit": args.limit, "rows": [], "errors": [], "ok": False}
     login = bs.login()
@@ -30,9 +34,14 @@ def main():
             if (code.startswith("sh.6") or code.startswith("sz.0") or code.startswith("sz.3")) and len(code) == 9:
                 codes.append(code)
         output["universe_candidate_count"] = len(codes)
+        output["excluded_beijing_exchange"] = True
+        output["shard"] = args.shard
+        output["shards"] = args.shards
         # Spread the bounded sample deterministically across the full ordered universe.
         codes = sorted(set(codes))
-        selected = [codes[i * len(codes) // min(args.limit, len(codes))] for i in range(min(args.limit, len(codes)))]
+        selected = codes[args.shard::args.shards]
+        if len(selected) > args.limit:
+            selected = [selected[i * len(selected) // args.limit] for i in range(args.limit)]
         for code in selected:
             try:
                 rs = bs.query_history_k_data_plus(code, "date,code,open,high,low,close,volume,amount,tradestatus", start_date=day, end_date=day, frequency="d", adjustflag="3")
@@ -58,7 +67,7 @@ def main():
         output["verified_count"] = len(output["rows"])
         output["coverage_ratio"] = round(len(output["rows"]) / len(selected), 6) if selected else 0.0
         output["ok"] = bool(output["rows"]) and len(output["rows"]) + len(output["errors"]) == len(selected)
-        output["warning"] = "NOT full-market coverage; no recommendations or signals computed"
+        output["warning"] = "Shard only; merge and verify all shards before claiming full-market coverage. No recommendations computed."
     finally:
         bs.logout()
         target = Path(args.output)
