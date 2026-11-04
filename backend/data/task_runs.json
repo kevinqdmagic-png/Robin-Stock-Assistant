@@ -5528,6 +5528,37 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "learning-review-20261104-v1-completed",
+      "run_id": "learning-review-20261104-v1",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "date": "2026-11-04",
+      "trigger": "scheduled",
+      "started_at": "2026-11-05T03:51:00+08:00",
+      "recorded_at": "2026-11-05T03:59:26+08:00",
+      "completed_at": "2026-11-05T03:59:26+08:00",
+      "status": "completed",
+      "summary": "已完成T=11月4日独立学习复核并实施Issue #25日期修复：31行去重16个证券日/7日期，六模块仍0/6；10项测试通过，修复后任务正确选T但BaoStock TCP 10030受阻，未伪造分钟归档。",
+      "report_ids": ["learning-review-20261104-v1"],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "sources": [
+        "docs/research/learning-review-20261104-v1.md",
+        "docs/research/learning-review-20261104-evidence.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/41901918799",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/commit/f178d7d76f4c4b18081085a9317c71dd71bb9434"
+      ],
+      "completed_scope": "learning_review_and_completed_session_date_selection_fix",
+      "blocked_modules": [
+        "six_module_daily_delivery",
+        "verified_five_minute_https_fallback",
+        "full_market_intraday_ohlcv"
+      ],
+      "verified_fill_count": 0,
+      "six_module_verified_count": 0
     }
   ]
 }
