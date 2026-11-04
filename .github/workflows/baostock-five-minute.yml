@@ -28,7 +28,7 @@ jobs:
           RESEARCH_DAY: ${{ inputs.research_day || '' }}
         run: |
           if [ -z "$RESEARCH_DAY" ]; then
-            RESEARCH_DAY=$(TZ=Asia/Shanghai date -d 'yesterday' +%F)
+            RESEARCH_DAY=$(TZ=Asia/Shanghai python -c 'from datetime import date,timedelta; d=date.today()-timedelta(days=1); d-=timedelta(days=max(0,d.weekday()-4)); print(d.isoformat())')
           fi
           export RESEARCH_DAY
           PYTHONPATH=backend python backend/collect_baostock_five_minute.py
