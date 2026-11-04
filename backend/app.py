@@ -116,6 +116,26 @@ def start_baostock_five_minute_smoke_check():
                      name="baostock-five-minute-smoke").start()
 
 
+@app.get("/api/market/history/five-minute/archive")
+def archived_baostock_five_minute(code: str, date: str):
+    """Serve only independently collected, validated historical bars."""
+    from pathlib import Path
+    import re
+    if not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}", date) or not re.fullmatch(r"(sh\\.6|sz\\.[03])\\d{5}", code):
+        return {"ok": False, "reason": "invalid_request", "bars": []}
+    archive = Path(__file__).resolve().parent / "data" / "baostock_five_minute" / (date + ".json")
+    if not archive.is_file():
+        return {"ok": False, "reason": "verified_archive_not_found", "date": date, "code": code, "bars": []}
+    try:
+        document = json.loads(archive.read_text(encoding="utf-8"))
+        item = document.get("stocks", {}).get(code)
+        if document.get("date") != date or document.get("source") != "baostock" or not item or not item.get("complete_session") or item.get("count") != 48 or len(item.get("bars", [])) != 48:
+            return {"ok": False, "reason": "archive_integrity_failed", "date": date, "code": code, "bars": []}
+        return {"ok": True, "mode": "verified_archive", **item}
+    except (OSError, ValueError, TypeError):
+        return {"ok": False, "reason": "archive_read_failed", "date": date, "code": code, "bars": []}
+
+
 @app.get("/api/market/history/five-minute")
 def baostock_five_minute_history(code: str, date: str):
     """Read BaoStock five-minute history on demand; no local download required."""
