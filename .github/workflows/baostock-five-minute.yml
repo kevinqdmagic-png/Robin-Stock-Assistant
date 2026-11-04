@@ -35,7 +35,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "$RESEARCH_DAY" ]; then
-            RESEARCH_DAY=$(TZ=Asia/Shanghai python -c 'from datetime import date,timedelta; d=date.today(); d-=timedelta(days=max(0,d.weekday()-4)); print(d.isoformat())')
+            RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from collect_baostock_five_minute import default_research_day; print(default_research_day())')
           fi
           export RESEARCH_DAY
           echo "BAOSTOCK_COLLECT_START date=$RESEARCH_DAY source=baostock"

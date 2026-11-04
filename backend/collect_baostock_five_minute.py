@@ -1,11 +1,20 @@
 """Collect verified BaoStock five-minute history to a dated JSON artifact."""
 import json
 import os
-from datetime import date
+from datetime import datetime
 from pathlib import Path
 from baostock_five_minute import fetch_five_minute
+from learning_loop import CN, latest_completed_session
 
-DAY = os.environ.get("RESEARCH_DAY", date.today().isoformat())
+def default_research_day(now=None):
+    """Resolve the latest completed A-share session in Beijing time."""
+    completed = latest_completed_session(now or datetime.now(CN))
+    if completed is None:
+        raise RuntimeError("completed_session_calendar_unavailable")
+    return completed.isoformat()
+
+
+DAY = os.environ.get("RESEARCH_DAY") or default_research_day()
 OUT = Path("backend/data/baostock_five_minute") / (DAY + ".json")
 CODES = ("sz.002218", "sh.688109")
 

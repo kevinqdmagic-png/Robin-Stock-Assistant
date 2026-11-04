@@ -1,6 +1,8 @@
 """Offline validation of archived trading-session timestamps."""
 import unittest
-from collect_baostock_five_minute import validate_session
+from datetime import datetime
+
+from collect_baostock_five_minute import default_research_day, validate_session
 
 
 class SessionValidationTests(unittest.TestCase):
@@ -19,6 +21,22 @@ class SessionValidationTests(unittest.TestCase):
     def test_wrong_date(self):
         self.assertFalse(validate_session({"code": "sz.002218", "date": "2026-11-03", "bars": []},
                                           "sz.002218", "2026-11-04"))
+
+    def test_default_day_before_close_uses_previous_session(self):
+        self.assertEqual(default_research_day(datetime.fromisoformat("2026-11-05T03:50:00+08:00")),
+                         "2026-11-04")
+
+    def test_default_day_after_close_uses_current_session(self):
+        self.assertEqual(default_research_day(datetime.fromisoformat("2026-11-05T15:20:00+08:00")),
+                         "2026-11-05")
+
+    def test_default_day_monday_before_close_skips_weekend(self):
+        self.assertEqual(default_research_day(datetime.fromisoformat("2026-11-09T09:50:00+08:00")),
+                         "2026-11-06")
+
+    def test_default_day_after_holiday_uses_last_session(self):
+        self.assertEqual(default_research_day(datetime.fromisoformat("2026-10-08T09:00:00+08:00")),
+                         "2026-09-30")
 
 
 if __name__ == "__main__":
