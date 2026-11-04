@@ -31,3 +31,43 @@ jobs:
           name: baostock-2026-11-03-shard-${{ matrix.shard }}
           path: artifacts/baostock-2026-11-03-shard-${{ matrix.shard }}.json
           retention-days: 30
+  verify-coverage:
+    needs: historical-backfill
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: baostock-2026-11-03-shard-*
+          path: collected
+          merge-multiple: true
+      - name: Validate all eight shard artifacts and coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths=sorted(Path("collected").glob("baostock-2026-11-03-shard-*.json"))
+          assert len(paths)==8, f"Expected 8 shard files, got {len(paths)}"
+          all_codes=set()
+          totals={"files":len(paths),"checked":0,"verified":0,"errors":0}
+          universe_counts=set()
+          for p in paths:
+              d=json.loads(p.read_text())
+              assert d["provider"]=="baostock" and d["trade_date"]=="2026-11-03"
+              assert d["shards"]==8 and d["shard"] in range(8)
+              assert d["checked_count"]==d["verified_count"]+len(d["errors"])
+              universe_counts.add(d["universe_candidate_count"])
+              totals["checked"]+=d["checked_count"]
+              totals["verified"]+=d["verified_count"]
+              totals["errors"]+=len(d["errors"])
+              for row in d["rows"]:
+                  code=row["code"]
+                  assert code.startswith(("sh.6","sz.0","sz.3")) and len(code)==9, code
+                  assert code not in all_codes, f"duplicate {code}"
+                  all_codes.add(code)
+          assert len(universe_counts)==1, f"Universe changed across shards: {universe_counts}"
+          assert totals["checked"]==next(iter(universe_counts)), f"missing shard coverage: {totals}"
+          totals["coverage_ratio"]=round(totals["verified"]/totals["checked"],6)
+          print("SH_SZ_BACKFILL_VALIDATION",json.dumps(totals))
+          assert totals["verified"]>0
+          PY
