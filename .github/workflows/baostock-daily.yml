@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/baostock-daily.yml'
+      - 'scripts/backfill_baostock_daily.py'
   schedule:
     # 09:30 UTC = 17:30 Beijing time; weekdays only (exchange holidays checked below).
     - cron: '30 9 * * 1-5'
