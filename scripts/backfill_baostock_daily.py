@@ -27,13 +27,32 @@ def main():
         universe = bs.query_all_stock(day=day)
         if universe.error_code != "0":
             raise RuntimeError("universe error: " + universe.error_msg)
-        codes = []
-        while universe.next():
-            row = dict(zip(universe.fields, universe.get_row_data()))
-            code = row.get("code", "")
-            if (code.startswith("sh.6") or code.startswith("sz.0") or code.startswith("sz.3")) and len(code) == 9:
-                codes.append(code)
-        codes = sorted(set(codes))
+        def read_codes(result):
+            found = []
+            while result.next():
+                row = dict(zip(result.fields, result.get_row_data()))
+                code = row.get("code", "")
+                if (code.startswith("sh.6") or code.startswith("sz.0") or code.startswith("sz.3")) and len(code) == 9:
+                    found.append(code)
+            return sorted(set(found))
+        codes = read_codes(universe)
+        output["universe_source_date"] = day
+        if not codes:
+            # Same-day universe can lag the trading calendar after close.
+            # Prior-day codes only select symbols; bars must match requested day.
+            from datetime import timedelta
+            for offset in range(1, 8):
+                prior = (date.fromisoformat(day) - timedelta(days=offset)).isoformat()
+                fallback = bs.query_all_stock(day=prior)
+                if fallback.error_code != "0":
+                    continue
+                codes = read_codes(fallback)
+                if codes:
+                    output["universe_source_date"] = prior
+                    output["universe_fallback"] = True
+                    break
+        if not codes:
+            raise RuntimeError("BaoStock returned an empty SH/SZ universe for current and previous seven dates")
         output["universe_candidate_count"] = len(codes)
         output["excluded_beijing_exchange"] = True
         output["shard"] = args.shard
