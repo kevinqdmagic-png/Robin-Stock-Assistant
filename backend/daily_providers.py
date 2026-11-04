@@ -71,3 +71,90 @@ def tencent_daily(code, limit=120, adjust="1", client=requests):
     response.raise_for_status()
     payload = response.json()
     return parse_tencent_daily(payload, symbol, adjust=adjust, limit=limit)
+
+
+def parse_sina_daily(payload, limit=120):
+    """Validate Sina unadjusted day-K fallback without inventing bars or units.
+
+    Sina CN_MarketDataService.getKLineData returns a list of records with
+    day/open/high/low/close/volume. This parser accepts only explicit dates
+    and valid OHLCV; volume remains provider-native.
+    """
+    import datetime
+    if not isinstance(payload, list):
+        raise ValueError("invalid_sina_daily_response")
+    rows = []
+    seen = set()
+    for item in payload[-limit:]:
+        if not isinstance(item, dict):
+            continue
+        try:
+            day = datetime.date.fromisoformat(str(item["day"])[:10]).isoformat()
+            opening = float(item["open"])
+            closing = float(item["close"])
+            high = float(item["high"])
+            low = float(item["low"])
+            volume = float(item["volume"])
+        except (KeyError, ValueError, TypeError, OverflowError):
+            continue
+        if not all(math.isfinite(v) for v in (opening, closing, high, low, volume)):
+            continue
+        if not (0 < low <= min(opening, closing) <= max(opening, closing) <= high and volume >= 0):
+            continue
+        if day in seen:
+            raise ValueError("duplicate_sina_daily_date")
+        seen.add(day)
+        rows.append({"date": day, "open": opening, "close": closing,
+                     "high": high, "low": low, "volume": volume})
+    if not rows:
+        raise ValueError("no_valid_sina_daily_bars")
+    return sorted(rows, key=lambda r: r["date"])
+
+
+def sina_daily(code, limit=120, client=requests):
+    """Independent free unadjusted historical fallback, bounded and validated."""
+    import json
+    if not re.fullmatch(r"[0-9]{6}", str(code)):
+        raise ValueError("invalid_stock_code")
+    if not isinstance(limit, int) or limit < 1 or limit > 240:
+        raise ValueError("invalid_history_limit")
+    symbol = stock_symbol(code)
+    if symbol.startswith("bj"):
+        raise ValueError("sina_beijing_unsupported")
+    url = "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData"
+    response = client.get(url, params={"symbol": symbol, "scale": 240,
+                          "ma": "no", "datalen": limit}, headers={
+        "User-Agent": "Mozilla/5.0", "Referer": "https://finance.sina.com.cn/"
+    }, timeout=(3.5, 7))
+    response.raise_for_status()
+    raw = response.text.strip()
+    # The endpoint returns JSONP; extract only a single list payload.
+    start, end = raw.find("(["), raw.rfind("])")
+    if start < 0 or end < start:
+        raise ValueError("invalid_sina_jsonp_wrapper")
+    payload = json.loads(raw[start + 1:end + 1])
+    return parse_sina_daily(payload, limit=limit)
+
+
+def historical_daily_with_fallback(code, limit=120, adjust="0", client=requests):
+    """Try Tencent first; Sina only when requesting unadjusted history.
+
+    Return provenance explicitly. Never silently replace adjusted Tencent bars
+    with unadjusted Sina bars, and never turn missing data into a trade signal.
+    """
+    errors = {}
+    try:
+        rows = tencent_daily(code, limit=limit, adjust=adjust, client=client)
+        return {"rows": rows, "provider": "tencent", "adjustment": adjust,
+                "fallback_used": False}
+    except (requests.RequestException, ValueError, TypeError) as exc:
+        errors["tencent"] = type(exc).__name__
+    if adjust != "0":
+        raise ValueError("adjusted_history_fallback_unavailable")
+    try:
+        rows = sina_daily(code, limit=limit, client=client)
+        return {"rows": rows, "provider": "sina", "adjustment": "0",
+                "fallback_used": True, "primary_error": errors["tencent"]}
+    except (requests.RequestException, ValueError, TypeError) as exc:
+        errors["sina"] = type(exc).__name__
+    raise ValueError("all_unadjusted_daily_sources_failed:" + ",".join(errors))
