@@ -23735,6 +23735,45 @@
         "beijing"
       ],
       "verified_fill_count": 0
+    },
+    {
+      "id": "volume-price-20261104-intraday-supplement-v1",
+      "date": "2026-11-04",
+      "task_id": "volume_price",
+      "track": "volume_price",
+      "title": "量价研究补证｜11月4日9:50与14:40生产冻结时间窗复核",
+      "summary": "复核Railway持久台账：9:50和14:40各扫描63只、均无低追涨候选；补入4只控制组的时点量比/换手。范围仍为部分观察池，不能替代28只深筛分钟顺序或全A换手。",
+      "body": "# 量价研究补证｜2026-11-04 生产冻结时间窗复核\n\n交易日T=2026-11-04。本补证关联主报告`volume-price-20261104-partial-v1`，不重复建立当日候选，不重计样本收益，也不改变主报告的`blocked/partial`状态。\n\n## 新增可核验事实\n\n- 生产`early_pair`在北京时间09:50:09启动，09:50:15完成：部分观察池扫描63只，取得63只新鲜腾讯Level-1报价，日线复核4只；结果`no_signal`，正式/影子候选均为0。\n- 生产`late_pair`在北京时间14:40:14启动，14:40:21完成：部分观察池扫描63只，取得63只新鲜腾讯Level-1报价，日线复核7只；结果`no_signal`，正式/影子候选均为0。\n- 两个时间窗均标注`full_market_coverage=false`、`strategy_validated=false`，来源为`tencent_quote_and_prior_completed_qfq_daily`。东方财富活动榜两路请求失败；日线校验也出现HTTP错误，失败记录保留。\n- 09:50旧涨幅优先控制组为通富微电002156（40.63元、+5.59%、量比6.91、换手2.47%）和芒果超媒300413（29.00元、+4.32%、量比6.46、换手4.99%）。\n- 14:40控制组为首航新能301658（24.26元、+14.60%、量比3.27、换手31.19%）和炬芯科技688049（44.07元、+12.14%、量比1.63、换手7.04%）。四只均是`control_only`，不是买点、成交或推荐。\n\n## 对主研究的影响\n\n1. 9:50与14:40的真实冻结结果支持“不能仅按涨幅、量比或高换手追高”的风险约束；两个时窗都未产生低追涨候选。\n2. 这些快照只覆盖63只部分观察池，且只保留时点报价，不包含主报告28只深筛的完整分钟OHLCV、杀跌—承接—再突破顺序、逐笔队列或板块成员同步证据。\n3. 因此，主报告受阻项从“完全没有时间窗证据”收窄为“存在部分观察池时点证据，但缺全池分钟顺序和可成交性”。换手率也仅对四只控制组可核，不能回填28只深筛或全A换手字段。\n4. 正式候选仍为0；不新增9:50/14:40收益，不从收盘高低反推触发，不把`no_signal`当成策略胜利。\n\n## 仍未完成\n\n- 北交所及冻结名称映射后的新变更股票覆盖；\n- 5214只股票及28只深筛的一致口径换手率历史；\n- 点时板块成员、板块OHLCV和同步强度；\n- 28只深筛的当日完整分钟/逐笔/竞价/订单证据；\n- 任何实际成交、A股T+1净收益、胜率、盈亏比或退出质量。\n\n规则继续使用`volume_price_close_v5_partial_source_bounded`。本补证为追加事实，不修改历史报告，不保证收益。\n",
+      "sources": [
+        "docs/research/volume-price-20261104-intraday-supplement-evidence.json",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=early_pair&limit=3",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=late_pair&limit=20",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+      ],
+      "report_type": "evidence_supplement",
+      "primary_report_id": "volume-price-20261104-partial-v1",
+      "eligible_for_integrated_research": false,
+      "analysis_completed": false,
+      "status": "blocked",
+      "published_at": "2026-11-04T18:56:34+08:00",
+      "recorded_at": "2026-11-04T18:56:34+08:00",
+      "market_data_cutoff_at": "2026-11-04T14:40:21+08:00",
+      "data_cutoff_at": "2026-11-04T18:56:34+08:00",
+      "research_rule_version": "volume_price_close_v5_partial_source_bounded",
+      "candidate_count": 0,
+      "recommendation_ids": [],
+      "evidence_file": "docs/research/volume-price-20261104-intraday-supplement-evidence.json",
+      "window_scan_count": {
+        "early_pair": 63,
+        "late_pair": 63
+      },
+      "verified_fill_count": 0,
+      "blocked_modules": [
+        "full_market_turnover",
+        "sector_sync",
+        "deep_pool_intraday_sequence",
+        "beijing_coverage"
+      ]
     }
   ]
 }

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "market_date": "2026-11-04",
+  "primary_report_id": "volume-price-20261104-partial-v1",
+  "supplement_report_id": "volume-price-20261104-intraday-supplement-v1",
+  "retrieved_at": "2026-11-04T18:55:08+08:00",
+  "source": "Railway production persistent intraday ledger",
+  "source_urls": [
+    "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=early_pair&limit=3",
+    "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=late_pair&limit=20"
+  ],
+  "windows": [
+    {
+      "slot": "early_pair",
+      "started_at": "2026-11-04T09:50:09+08:00",
+      "finished_at": "2026-11-04T09:50:15+08:00",
+      "status": "no_signal",
+      "reason_code": "no_eligible_low_chase_candidate",
+      "scanned": 63,
+      "fresh_quotes": 63,
+      "daily_checked": 4,
+      "candidate_count": 0,
+      "source": "tencent_quote_and_prior_completed_qfq_daily",
+      "coverage": "partial_watchlist_plus_discoverable_activity_leaders",
+      "full_market_coverage": false,
+      "strategy_validated": false,
+      "controls": [
+        {"code": "002156", "name": "通富微电", "price": 40.63, "pct": 5.59, "volume_ratio": 6.91, "turnover_ratio": 2.47, "as_of": "2026-11-04T09:50:12+08:00", "control_only": true},
+        {"code": "300413", "name": "芒果超媒", "price": 29.0, "pct": 4.32, "volume_ratio": 6.46, "turnover_ratio": 4.99, "as_of": "2026-11-04T09:50:09+08:00", "control_only": true}
+      ],
+      "provider_errors": ["eastmoney_rank:HTTPError", "eastmoney_rank:HTTPError", "daily_validation:HTTPError", "daily_validation:HTTPError"]
+    },
+    {
+      "slot": "late_pair",
+      "started_at": "2026-11-04T14:40:14+08:00",
+      "finished_at": "2026-11-04T14:40:21+08:00",
+      "status": "no_signal",
+      "reason_code": "no_eligible_low_chase_candidate",
+      "scanned": 63,
+      "fresh_quotes": 63,
+      "daily_checked": 7,
+      "candidate_count": 0,
+      "source": "tencent_quote_and_prior_completed_qfq_daily",
+      "coverage": "partial_watchlist_plus_discoverable_activity_leaders",
+      "full_market_coverage": false,
+      "strategy_validated": false,
+      "controls": [
+        {"code": "301658", "name": "首航新能", "price": 24.26, "pct": 14.6, "volume_ratio": 3.27, "turnover_ratio": 31.19, "as_of": "2026-11-04T14:40:15+08:00", "control_only": true},
+        {"code": "688049", "name": "炬芯科技", "price": 44.07, "pct": 12.14, "volume_ratio": 1.63, "turnover_ratio": 7.04, "as_of": "2026-11-04T14:40:15+08:00", "control_only": true}
+      ],
+      "provider_errors": [
+        "eastmoney_rank:HTTPError", "eastmoney_rank:HTTPError",
+        "daily_validation:HTTPError", "daily_validation:HTTPError", "daily_validation:HTTPError",
+        "daily_validation:HTTPError", "daily_validation:HTTPError", "daily_validation:HTTPError",
+        "daily_validation:HTTPError", "daily_validation:HTTPError", "daily_validation:HTTPError",
+        "daily_validation:HTTPError", "daily_validation:HTTPError", "daily_validation:HTTPError"
+      ]
+    }
+  ],
+  "candidate_count": 0,
+  "verified_fill_count": 0,
+  "eligible_for_integrated_research": false,
+  "limitations": [
+    "partial 63-name universe only",
+    "point-in-time Level-1 quotes, not complete minute OHLCV",
+    "no auction, tick, order queue or verified fill evidence",
+    "does not backfill turnover or intraday sequence for the 28-name daily deep pool"
+  ]
+}

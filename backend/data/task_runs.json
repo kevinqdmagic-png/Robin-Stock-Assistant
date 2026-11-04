@@ -5477,6 +5477,38 @@
         "beijing"
       ],
       "verified_fill_count": 0
+    },
+    {
+      "id": "volume-price-20261104-scheduled-intraday-supplement-v1-blocked",
+      "run_id": "volume-price-20261104-scheduled-intraday-supplement-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-04",
+      "trigger": "scheduled",
+      "started_at": "2026-11-04T18:53:47+08:00",
+      "recorded_at": "2026-11-04T18:56:34+08:00",
+      "completed_at": "2026-11-04T18:56:34+08:00",
+      "status": "blocked",
+      "summary": "复核同T主报告并补证生产9:50/14:40冻结时间窗：各扫描63只且均无候选；部分时点报价不能补齐全A换手、板块同步及28只深池分钟顺序，故维持blocked。",
+      "report_ids": [
+        "volume-price-20261104-partial-v1",
+        "volume-price-20261104-intraday-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "sources": [
+        "docs/research/volume-price-20261104-intraday-supplement-evidence.json",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=early_pair&limit=3",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=late_pair&limit=20",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+      ],
+      "blocked_modules": [
+        "full_market_turnover",
+        "sector_sync",
+        "deep_pool_intraday_sequence",
+        "beijing_coverage"
+      ],
+      "verified_fill_count": 0
     }
   ]
 }
