@@ -19,6 +19,7 @@ from quote_providers import stock_symbol, tencent_quotes
 from intraday_scheduler import (latest as intraday_status, tracking_status as intraday_forward_status,
                                 start_scheduler as start_intraday_scheduler)
 from daily_providers import tencent_daily
+from baostock_snapshot import load_snapshot
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health, resident_intraday_health
 from provider_health import record_provider_event, quality_summary
@@ -84,6 +85,15 @@ def _num(value, default=None):
         return float(value)
     except (TypeError, ValueError):
         return default
+
+
+@app.get("/api/market/baostock/history")
+def baostock_history(date: str = "2026-11-03", code: str = "", limit: int = 100, offset: int = 0):
+    """Validated historical observations only; never interpreted as live quotes."""
+    try:
+        return load_snapshot(date, code, limit, offset)
+    except (ValueError, OSError, json.JSONDecodeError) as exc:
+        return {"ok": False, "status": "snapshot_read_failed", "reason": str(exc), "trade_date": date, "rows": []}
 
 
 @app.get("/api/research")
