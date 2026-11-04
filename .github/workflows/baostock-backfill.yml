@@ -81,7 +81,7 @@ jobs:
           assert totals["verified"]>0
           merged={"provider":"baostock","trade_date":"2026-11-03","exchange_scope":"Shanghai+Shenzhen only; Beijing excluded","status":"historical_observation_only","coverage":totals,"rows":sorted(merged_rows,key=lambda r:r["code"]),"errors":merged_errors}
           Path("artifacts").mkdir(exist_ok=True)
-          Path("artifacts/baostock-2026-11-03-sh-sz-merged.json").write_text(json.dumps(merged,ensure_ascii=False)+"\\n")
+          Path("artifacts/baostock-2026-11-03-sh-sz-merged.json").write_text(json.dumps(merged,ensure_ascii=False))
           PY
       - uses: actions/upload-artifact@v4
         if: success()
