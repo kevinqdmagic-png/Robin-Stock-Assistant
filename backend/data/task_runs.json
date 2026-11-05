@@ -5604,6 +5604,38 @@
         "docs/research/market-review-20261105-source-bounded-v1.md",
         "docs/research/market-review-20261105-evidence.json"
       ]
+    },
+    {
+      "id": "volume-price-20261105-scheduled-close-v1-partial",
+      "run_id": "volume-price-20261105-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-05",
+      "trigger": "scheduled",
+      "started_at": "2026-11-05T18:27:09+08:00",
+      "recorded_at": "2026-11-05T18:28:01+08:00",
+      "completed_at": "2026-11-05T18:28:01+08:00",
+      "status": "blocked",
+      "summary": "已实质完成11月5日BaoStock 5217/5510、5215只冻结股票映射扫描、120广泛池、28深筛及上一批28/28日线验证；北交所、板块与分钟顺序缺失，故不标completed。",
+      "report_ids": [
+        "volume-price-20261105-partial-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "sources": [
+        "backend/data/baostock/2026-11-05.json",
+        "backend/data/baostock/2026-11-04.json",
+        "docs/research/volume-price-20261105-evidence.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+      ],
+      "blocked_modules": [
+        "market_scope",
+        "sector_sync",
+        "intraday_sequence",
+        "executable_strategy"
+      ],
+      "verified_fill_count": 0
     }
   ]
 }
