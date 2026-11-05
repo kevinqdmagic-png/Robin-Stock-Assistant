@@ -1,0 +1,95 @@
+name: Daily full-universe HTTPS validation
+on:
+  workflow_dispatch:
+    inputs:
+      research_day:
+        required: true
+        default: '2026-11-05'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/https-daily-full.yml'
+  schedule:
+    - cron: '45 9 * * 1-5'
+permissions:
+  contents: write
+  issues: write
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Collect HTTPS shard
+        env:
+          RESEARCH_DAY: ${{ inputs.research_day || '' }}
+        run: |
+          if [ -z "$RESEARCH_DAY" ]; then
+            RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from collect_baostock_five_minute import default_research_day; print(default_research_day())')
+          fi
+          PYTHONPATH=backend python scripts/backfill_https_daily.py --date "$RESEARCH_DAY" --shard ${{ matrix.shard }} --output artifacts/https-$RESEARCH_DAY-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-https-shard-${{ matrix.shard }}
+          path: artifacts/https-*.json
+          retention-days: 14
+  verify:
+    needs: collect
+    if: needs.collect.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: daily-https-shard-*
+          path: collected
+          merge-multiple: true
+      - name: Merge only complete verified eight-shard data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          files=sorted(Path("collected").glob("https-*.json"))
+          assert len(files)==8, len(files)
+          docs=[json.loads(p.read_text()) for p in files]
+          assert {d["shard"] for d in docs}==set(range(8))
+          assert len({d["trade_date"] for d in docs})==1
+          assert len({d["universe_source_date"] for d in docs})==1
+          assert len({d["universe_candidate_count"] for d in docs})==1
+          rows=sum((d["rows"] for d in docs),[])
+          errors=sum((d["errors"] for d in docs),[])
+          checked=sum(d["checked_count"] for d in docs)
+          assert checked==docs[0]["universe_candidate_count"] and checked>=5000
+          assert len(rows)+len(errors)==checked
+          assert len({r["code"] for r in rows+errors})==checked
+          assert all(r["date"]==docs[0]["trade_date"] and r["provider"]=="eastmoney_https_unofficial" for r in rows)
+          assert len(rows)/checked>=.90
+          day=docs[0]["trade_date"]
+          result={"provider":"eastmoney_https_unofficial","trade_date":day,
+                  "exchange_scope":"Shanghai+Shenzhen; Beijing excluded",
+                  "status":"historical_observation_only",
+                  "coverage":{"checked":checked,"verified":len(rows),"errors":len(errors),
+                              "coverage_ratio":round(len(rows)/checked,6)},
+                  "rows":sorted(rows,key=lambda x:x["code"]),"errors":errors}
+          target=Path("backend/data/https_daily_full")/(day+".json")
+          target.parent.mkdir(parents=True,exist_ok=True)
+          target.write_text(json.dumps(result,ensure_ascii=False)+"\n")
+          print("HTTPS_FULL_DAILY_VERIFIED",day,checked,len(rows))
+          PY
+      - name: Commit verified archive
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add backend/data/https_daily_full/
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: validated full-universe HTTPS daily snapshot'
+            git push
+          fi
