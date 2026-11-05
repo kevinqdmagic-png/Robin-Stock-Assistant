@@ -20,6 +20,80 @@ def q(code, now):
 
 
 class IntradaySchedulerTests(unittest.TestCase):
+    def test_5504_historical_universe_expands_beyond_legacy_watchlist(self):
+        at = datetime(2026, 11, 5, 9, 50, tzinfo=CN)
+        rows = []
+        for prefix, count in (("sh.60", 2000), ("sh.68", 500),
+                              ("sz.00", 1700), ("sz.30", 1304)):
+            rows.extend({"code": prefix + f"{i:04d}", "date": "2026-11-04",
+                         "close": 10.0, "amount": 10_000_000 + i * 1000}
+                        for i in range(count))
+        self.assertEqual(len(rows), 5504)
+        payload = {"provider": "baostock", "trade_date": "2026-11-04",
+                   "status": "historical_observation_only",
+                   "coverage": {"checked": 5510, "verified": 5504, "coverage_ratio": .998911},
+                   "rows": rows}
+        class Down:
+            def get(self, *args, **kwargs):
+                import requests
+                raise requests.ConnectionError("Eastmoney 502")
+        with tempfile.TemporaryDirectory() as folder:
+            Path(folder, "2026-11-04.json").write_text(json.dumps(payload), encoding="utf-8")
+            codes, names, errors, coverage = module.target_universe(
+                client=Down(), now=at, snapshot_root=Path(folder))
+        self.assertGreaterEqual(len(codes), 350)
+        self.assertLessEqual(len(codes), 500)
+        self.assertEqual(len(codes), len(set(codes)))
+        self.assertEqual(coverage["historical_universe_count"], 5504)
+        self.assertEqual(coverage["universe_source"], "prior_completed_baostock_historical_market")
+        self.assertEqual(coverage["live_quote_requested"], len(codes))
+        self.assertFalse(coverage["whole_market_live_scanned"])
+        self.assertFalse(coverage["full_market_coverage"])
+        self.assertTrue(any(e.startswith("eastmoney_rank:") for e in errors))
+        self.assertTrue(all(any(code.startswith(p) for p in ("00", "30", "60", "68"))
+                            for code in codes))
+        self.assertGreater(len({next(p for p in ("00", "30", "60", "68") if c.startswith(p))
+                                for c in codes}), 3)
+
+    def test_no_prior_day_snapshot_is_not_misrepresented_as_full_market(self):
+        at = datetime(2026, 11, 5, 9, 50, tzinfo=CN)
+        class Down:
+            def get(self, *args, **kwargs):
+                import requests
+                raise requests.ConnectionError("Eastmoney unavailable")
+        with tempfile.TemporaryDirectory() as folder, patch.object(
+                module, "load_document", side_effect=[{"items": [{"code": "600123"}]},
+                                                     {"items": []}]):
+            codes, names, errors, info = module.target_universe(
+                client=Down(), now=at, snapshot_root=Path(folder))
+        self.assertEqual(codes, ["600123"])
+        self.assertEqual(info["historical_universe_count"], 0)
+        self.assertEqual(info["universe_source"], "legacy_history_fallback_not_full_market")
+        self.assertIn("whole_market_discovery_unavailable", errors)
+        self.assertFalse(info["full_market_coverage"])
+
+    def test_broad_discovery_metrics_are_separate_from_deep_validation(self):
+        at = datetime(2026, 10, 14, 9, 50, tzinfo=CN)
+        codes = [f"60{i:04d}" for i in range(80)]
+        quotes = [q(code, at) for code in codes]
+        result = module.execute(
+            "early_pair", at,
+            lambda: (codes, {}, [], {"historical_universe_count": 5504,
+                                     "historical_scope": "Shanghai+Shenzhen",
+                                     "universe_source": "prior_completed_baostock_historical_market",
+                                     "whole_market_live_scanned": False}),
+            lambda c, n: (quotes, []),
+            lambda item, day, now: {"code": item["code"], "score": 10,
+                                    "name": item["name"], "as_of": item["as_of"],
+                                    "signal_validated": False})
+        self.assertEqual(result["historical_universe_count"], 5504)
+        self.assertEqual(result["scanned"], 80)
+        self.assertEqual(result["fresh_quotes"], 80)
+        self.assertEqual(result["daily_attempted"], 30)
+        self.assertEqual(result["live_quote_coverage_ratio"], 1)
+        self.assertEqual(result["preliminary_count"], 80)
+        self.assertFalse(result["whole_market_live_scanned"])
+
     def test_day_closed_no_market_fetch(self):
         with patch.object(module, "target_universe") as fetch:
             self.assertIsNone(module.execute("late_pair", datetime(2026,10,11,14,40,tzinfo=CN)))
