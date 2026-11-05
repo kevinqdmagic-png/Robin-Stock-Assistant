@@ -1,1 +1,1 @@
-{"provider": "baostock", "trade_date": "2026-11-05", "attempted_at": "2026-11-05T10:21:56.788612+00:00", "ok": true, "status": "verified", "coverage": {"checked": 5510, "verified": 5217, "errors": 293, "coverage_ratio": 0.946824}}
+{"provider": "baostock", "trade_date": "2026-11-05", "attempted_at": "2026-11-05T10:26:21.420061+00:00", "ok": true, "status": "already_verified_no_network_request"}
