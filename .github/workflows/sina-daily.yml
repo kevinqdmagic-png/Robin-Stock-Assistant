@@ -1,0 +1,60 @@
+name: Independent Sina SH SZ close backup
+on:
+  schedule:
+    - cron: '45 7 * * 1-5'
+    - cron: '30 10 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      research_day:
+        description: 'Completed session; blank uses exchange calendar'
+        required: false
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sina-daily.yml'
+      - 'backend/sina_snapshot.py'
+      - 'scripts/collect_sina_snapshot.py'
+permissions:
+  contents: write
+concurrency:
+  group: sina-close-backup
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Resolve latest completed session
+        env:
+          RESEARCH_DAY: ${{ inputs.research_day || '' }}
+        run: |
+          if [ -z "$RESEARCH_DAY" ]; then
+            RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from datetime import datetime; from zoneinfo import ZoneInfo; from learning_loop import latest_completed_session; print(latest_completed_session(datetime.now(ZoneInfo("Asia/Shanghai")))))')
+          fi
+          echo "RESEARCH_DAY=$RESEARCH_DAY" >> "$GITHUB_ENV"
+      - name: Collect and verify independent post-close snapshot
+        id: collect
+        continue-on-error: true
+        run: python scripts/collect_sina_snapshot.py --date "$RESEARCH_DAY"
+      - name: Publish verified archive and actual attempt status atomically
+        if: always() && steps.collect.outcome != 'skipped'
+        run: |
+          mkdir -p backend/data/sina_daily_full backend/data/market_source_status
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add backend/data/sina_daily_full/ backend/data/market_source_status/
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: verified independent Sina close backup and source status'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Keep upstream failure visible
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

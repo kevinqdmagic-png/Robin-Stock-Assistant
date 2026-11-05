@@ -3,14 +3,16 @@ import json
 import math
 import re
 from collections import Counter
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 from baostock_snapshot import CODE_RE
 
 ROOT = Path(__file__).resolve().parent / "data"
 SOURCES = (("baostock", "baostock"),
-           ("eastmoney_https_unofficial", "https_daily_full"))
+           ("eastmoney_https_unofficial", "https_daily_full"),
+           ("sina_close_snapshot", "sina_daily_full"))
 STOCK_CODE_RE = re.compile(r"^(?:sh\.6\d{5}|sz\.(?:00|30)\d{4})$")
 
 
@@ -34,6 +36,14 @@ def validate_snapshot(payload, day, provider):
         if (row.get("date") != day or row.get("provider") != provider
                 or row.get("adjustment") != "none"):
             raise ValueError("snapshot_row_identity_invalid")
+        if provider == "sina_close_snapshot":
+            stamp = datetime.fromisoformat(row.get("quote_as_of", ""))
+            if stamp.tzinfo is None:
+                raise ValueError("close_snapshot_timezone_required")
+            stamp = stamp.astimezone(ZoneInfo("Asia/Shanghai"))
+            if (stamp.date().isoformat() != day or (stamp.hour, stamp.minute) < (15, 0)
+                    or row.get("volume_unit") != "shares"):
+                raise ValueError("close_snapshot_not_verified_close")
         values = [float(row[k]) for k in ("open", "high", "low", "close", "volume", "amount")]
         o, h, l, c, v, a = values
         if not all(math.isfinite(x) for x in values) or not (0 < l <= min(o, c) <= max(o, c) <= h and v >= 0 and a >= 0):

@@ -62,11 +62,13 @@ def discover_candidates():
     try:
         # The existing intraday scanner already validates public turnover rankings.
         from intraday_scheduler import target_universe
-        discovered, _names, failures = target_universe()
+        discovery = target_universe()
+        discovered, _names, failures = discovery[:3]
         pool = list(dict.fromkeys([*local, *discovered]))[:MAX_UNIVERSE]
         errors.extend(failures)
         if len(pool) > len(local):
-            sources.append("eastmoney_public_turnover_ranking_best_effort")
+            sources.append(discovery[3].get("universe_source", "public_activity_discovery")
+                           if len(discovery) == 4 else "eastmoney_public_turnover_ranking_best_effort")
     except (ImportError, OSError, ValueError, TypeError) as exc:
         pool = local
         errors.append("universe_discovery:" + type(exc).__name__)

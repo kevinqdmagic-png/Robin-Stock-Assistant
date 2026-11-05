@@ -121,7 +121,9 @@ def sina_daily(code, limit=120, client=requests):
     symbol = stock_symbol(code)
     if symbol.startswith("bj"):
         raise ValueError("sina_beijing_unsupported")
-    url = "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData"
+    # jsonp_v2 requires a callback path segment; omitting it returns HTTP 200
+    # with "Invalid service name" rather than any bars.
+    url = "https://quotes.sina.cn/cn/api/jsonp_v2.php/var%20_robin=/CN_MarketDataService.getKLineData"
     response = client.get(url, params={"symbol": symbol, "scale": 240,
                           "ma": "no", "datalen": limit}, headers={
         "User-Agent": "Mozilla/5.0", "Referer": "https://finance.sina.com.cn/"

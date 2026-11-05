@@ -147,10 +147,14 @@ def resident_intraday_health(*, now=None, provider=None):
             status = "pending"
         else:
             status = "missing"
+        candidate_count = len(latest.get("candidates") or []) if latest.get("date") == day.isoformat() else 0
+        pair_required = day.isoformat() >= "2026-11-06"
         items.append({
             "task_id": task_id, "date_cn": day.isoformat(),
             "scheduled_at_cn": planned.isoformat(timespec="minutes"),
-            "status": status, "research_observation_delivered": status in FINISHED_INTRADAY,
+            "status": status, "research_observation_delivered": status in FINISHED_INTRADAY and
+                (not pair_required or candidate_count >= 2),
+            "candidate_count": candidate_count, "required_candidate_count": 2 if pair_required else None,
             "latest_recorded_at": latest.get("started_at") if
                                   latest.get("date") == day.isoformat() else None,
             "source": "railway_resident_persistent_store",

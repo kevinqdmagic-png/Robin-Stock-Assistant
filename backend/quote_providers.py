@@ -1,5 +1,6 @@
 """Independent public quote fallback, with the provider's own quote timestamp."""
 from datetime import datetime
+import math
 import re
 
 import requests
@@ -12,6 +13,47 @@ def stock_symbol(code):
     if code.startswith(("4", "8", "92")):
         return "bj" + code
     return ("sh" if code.startswith(("5", "6", "9")) else "sz") + code
+
+
+def parse_sina_quotes(raw, symbols):
+    """Independent timestamped SH/SZ quotes; absent ratios stay unknown."""
+    wanted = set(symbols)
+    quotes = {}
+    for symbol, body in re.findall(r'hq_str_((?:sh|sz)\d{6})="([^"]*)"', raw):
+        fields = body.split(",")
+        if symbol not in wanted or len(fields) < 32:
+            continue
+        price, previous = number(fields[3]), number(fields[2])
+        if (price is None or previous is None or not math.isfinite(price) or not math.isfinite(previous)
+                or price <= 0 or previous <= 0 or not fields[0]):
+            continue
+        try:
+            stamp = datetime.strptime(fields[30] + " " + fields[31], "%Y-%m-%d %H:%M:%S").replace(tzinfo=CN_TZ)
+        except ValueError:
+            continue
+        quotes[symbol] = {
+            "code": symbol[-6:], "name": fields[0], "price": price,
+            "pct": round((price / previous - 1) * 100, 2),
+            "as_of": stamp.isoformat(timespec="seconds"),
+            "turnover": None, "volume_ratio": None, "source": "sina_public",
+            "pct_basis": "provider_previous_close", "previous_close": previous,
+        }
+    return [quotes[s] for s in symbols if s in quotes]
+
+
+def sina_quotes(symbols, timeout=(3.5, 5)):
+    symbols = list(dict.fromkeys(s for s in symbols if re.fullmatch(r"(?:sh|sz)\d{6}", s)))
+    if not symbols:
+        return []
+    response = requests.get("https://hq.sinajs.cn/list=" + ",".join(symbols), headers={
+        "User-Agent": "Mozilla/5.0", "Referer": "https://finance.sina.com.cn/",
+    }, timeout=timeout)
+    response.raise_for_status()
+    response.encoding = "gb18030"
+    rows = parse_sina_quotes(response.text, symbols)
+    if not rows:
+        raise ValueError("sina_quote_empty_or_invalid")
+    return rows
 
 
 def tencent_quotes(symbols, timeout=(4, 5)):

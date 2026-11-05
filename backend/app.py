@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import requests
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from analytics import backtest_daily, recommendation_performance
 from research_archive import archive_page, load_document
@@ -30,7 +30,7 @@ from capital_behavior import classify as classify_capital_behavior, archive_cont
 from capital_watch import page as capital_watch_page, last_completed_trade_day
 from learning_loop import load_ledger
 
-API_VERSION = "0.10.0"
+API_VERSION = "0.10.1"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 # A single persistent Railway application replica drives the Beijing time windows.
 # This runs irrespective of GitHub Actions' best-effort schedule delays.
@@ -179,6 +179,30 @@ def research(track: str = "", date: str = "", offset: int = 0, limit: int = 30, 
     except (OSError, ValueError, TypeError) as exc:
         logger.warning("Research archive unavailable: %s", exc)
         return {"ok": False, "status": "research_data_unavailable", "items": [], "total": 0}
+
+
+@app.get("/api/daily-results")
+def daily_report_index(date: str = "", offset: int = Query(0, ge=0), limit: int = Query(7, ge=1, le=20)):
+    from daily_results import daily_results
+    try:
+        return daily_results(date or None, offset, limit)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except (OSError, KeyError, TypeError) as exc:
+        logger.warning("Daily report index unavailable: %s", exc)
+        raise HTTPException(status_code=503, detail="daily_report_index_unavailable") from exc
+
+
+@app.get("/api/research/{report_id}")
+def research_detail(report_id: str):
+    from daily_results import report_detail
+    try:
+        result = report_detail(report_id)
+    except (OSError, ValueError, TypeError) as exc:
+        raise HTTPException(status_code=503, detail="research_data_unavailable") from exc
+    if result is None:
+        raise HTTPException(status_code=404, detail="report_not_found")
+    return {"time_cn": now_cn(), **result}
 
 
 @app.get("/api/research-stocks")

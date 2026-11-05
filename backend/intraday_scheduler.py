@@ -2,7 +2,8 @@
 
 The API process drives 09:50/14:40 Beijing windows, independent of delayed GitHub cron.
 A Railway persistent volume preserves original dated observations across deploys.
-Zero ticker candidates is a legitimate outcome; backtesting is still outstanding.
+Research targets two observations even when the strict hypothesis has no match.
+Missing real quotes remain a retryable failure; backtesting is outstanding.
 """
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, time as clock
@@ -18,9 +19,9 @@ import time
 
 import requests
 from capital_behavior import classify
-from daily_providers import tencent_daily
+from daily_providers import tencent_daily, historical_daily_with_fallback
 from intraday_forward import update_forward, forward_summary
-from quote_providers import tencent_quotes, stock_symbol
+from quote_providers import tencent_quotes, sina_quotes, stock_symbol
 from research_archive import load_document
 from trading_calendar import CN_TZ, completed_bars, session_state
 
@@ -220,7 +221,7 @@ def _snapshot_universe(now, root=None):
         provider = payload.get("provider")
         rows = payload.get("rows") or []
         coverage = payload.get("coverage") or {}
-        if (provider not in ("baostock", "eastmoney_https_unofficial")
+        if (provider not in ("baostock", "eastmoney_https_unofficial", "sina_close_snapshot")
                 or payload.get("status") != "historical_observation_only"
                 or payload.get("trade_date") != expected
                 or coverage.get("checked", 0) < 5000
@@ -317,30 +318,41 @@ def _fresh_quotes(codes, now):
     errors = []
     chunks = [[stock_symbol(c) for c in codes[begin:begin + 45]]
               for begin in range(0, len(codes), 45)]
-    # 500 live quote requests, not 5,500 daily-bar network fetches. Bounded
-    # concurrency keeps the 09:50 observation within its 18-minute window.
+    def valid(q):
+        try:
+            stamp = datetime.fromisoformat(q["as_of"])
+            if stamp.tzinfo is None:
+                return False
+            stamp = stamp.astimezone(CN_TZ)
+            return (stamp.date() == now.date() and -45 <= (now - stamp).total_seconds() <= MAX_AGE
+                    and re.fullmatch(r"(?:00|30|60|68)\d{4}", q["code"]) is not None
+                    and "ST" not in q["name"].upper() and "退" not in q["name"]
+                    and math.isfinite(float(q["price"])) and float(q["price"]) > 0
+                    and math.isfinite(float(q["pct"])))
+        except (ValueError, TypeError, KeyError, OverflowError):
+            return False
+
+    def batch(chunk):
+        found, failures = {}, []
+        for provider_name, provider in (("tencent_public", tencent_quotes), ("sina_public", sina_quotes)):
+            missing = [s for s in chunk if s[-6:] not in found]
+            if not missing:
+                break
+            try:
+                for q in provider(missing):
+                    if valid(q) and q["code"] in {s[-6:] for s in missing}:
+                        found[q["code"]] = q
+            except (requests.RequestException, ValueError, TypeError) as exc:
+                failures.append(provider_name + ":" + type(exc).__name__)
+        return list(found.values()), failures
+
     with ThreadPoolExecutor(max_workers=6) as executor:
-        pending = {executor.submit(tencent_quotes, chunk): chunk for chunk in chunks}
+        pending = {executor.submit(batch, chunk): chunk for chunk in chunks}
         for future in as_completed(pending):
             try:
-                quote_rows = future.result()
-                for q in quote_rows:
-                    try:
-                        stamp = datetime.fromisoformat(q["as_of"])
-                        if stamp.tzinfo is None:
-                            continue
-                        age = (now - stamp.astimezone(CN_TZ)).total_seconds()
-                        if stamp.astimezone(CN_TZ).date() != now.date():
-                            continue
-                        if not -45 <= age <= MAX_AGE:
-                            continue
-                        if "ST" in q["name"].upper() or "退" in q["name"]:
-                            continue
-                        if not math.isfinite(float(q["price"])) or not math.isfinite(float(q["pct"])):
-                            continue
-                        good.append(q)
-                    except (ValueError, KeyError, TypeError, OverflowError):
-                        continue
+                quote_rows, failures = future.result()
+                good.extend(quote_rows)
+                errors.extend(failures)
             except (requests.RequestException, ValueError, TypeError) as exc:
                 errors.append("tencent_quote_batch:" + type(exc).__name__)
     good = list({row["code"]: row for row in good}.values())
@@ -440,9 +452,10 @@ def _relative_shadow_candidate(q, day, now):
             or not 0.2 <= float(vr) <= 100
             or not 0.3 <= float(turn) <= 40):
         return None
-    bars = tencent_daily(code, limit=100, adjust="1")
+    history = historical_daily_with_fallback(code, limit=100, adjust="0")
+    bars = history["rows"]
     complete = completed_bars(bars, now)
-    if len(complete) < 61 or complete[-1]["date"] >= day:
+    if len(complete) < 61 or complete[-1]["date"] != _previous_trading_date(now):
         raise ValueError("relative_shadow_daily_history_stale")
     if any(row.get("volume", 0) <= 0 for row in complete[-61:]):
         return None
@@ -467,17 +480,53 @@ def _relative_shadow_candidate(q, day, now):
         "code": code, "name": q["name"], "price": price,
         "pct": pct, "volume_ratio": vr, "turnover_ratio": turn,
         "as_of": q["as_of"], "daily_cutoff": complete[-1]["date"],
-        "quote_source": q["source"], "daily_source": "tencent_qfq_daily",
+        "quote_source": q["source"], "daily_source": history["provider"] + "_unadjusted_daily",
+        "daily_adjustment": "none", "daily_fallback_used": history["fallback_used"],
         "score": score, "prior20_ma": round(ma20, 3),
         "ma20_distance_pct": round(dist20, 3),
         "prior10_return_pct": round(prior10, 3),
         "position60": round(pos60, 3),
-        "model_version": "intraday_relative_shadow_v1",
+        "model_version": "intraday_relative_shadow_v2",
         "relative_rank_only": True, "signal_validated": False,
         "buy_order_allowed": False, "shadow_only": True,
         "risk": "弱市也保留相对优选研究样本；仅有时点报价与前日K线，无实盘买入许可或可成交验证",
-        "notes": ["当日真实报价与前一交易日已完成日线的相对排名；不表示达到正式买入门槛"],
+        "notes": ["当日真实报价与前一交易日已完成日线的相对排名；不表示达到正式买入门槛",
+                  "未复权历史存在除权影响，不能直接替代原前复权模型"],
     }
+
+
+def _quote_only_observations(quotes, excluded):
+    """An explicit research tier when historical/ratio fields are unavailable.
+
+    The score uses only actually supplied quote fields. No history, liquidity,
+    sector, tradability or completed-risk-review claims are synthesized.
+    """
+    ranked = []
+    for q in quotes:
+        try:
+            code, name = q["code"], q["name"]
+            price, pct = float(q["price"]), float(q["pct"])
+            if (code in excluded or not re.fullmatch(r"(?:00|30|60|68)\d{4}", code)
+                    or "ST" in name.upper() or "退" in name or not name
+                    or not math.isfinite(price) or price <= 0 or not math.isfinite(pct)
+                    or not -21 <= pct <= 21):
+                continue
+            score = round(-abs(pct - 1.0), 3)
+            ranked.append({
+                "code": code, "name": name, "price": price, "pct": pct,
+                "as_of": q["as_of"], "quote_source": q["source"],
+                "score": score, "daily_source": None, "daily_cutoff": None,
+                "history_verified": False, "evidence_tier": "timestamped_quote_only",
+                "model_version": "intraday_quote_observation_v1",
+                "relative_rank_only": True, "shadow_only": True,
+                "buy_order_allowed": False, "signal_validated": False,
+                "risk": "仅有当时实时报价；日线、量比、换手、公告风险和可成交性未完成核验，仅保留研究样本",
+                "notes": ["按距离温和涨幅的远近生成对照样本；不代表选股优势或完整研究"],
+            })
+        except (ValueError, TypeError, KeyError):
+            continue
+    ranked.sort(key=lambda x: (-x["score"], x["code"]))
+    return ranked
 
 def _momentum_controls(quotes, excluded):
     """Frozen quote-level v1-style controls; never buy suggestions."""
@@ -538,14 +587,14 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
             base["universe_source"] = "injected_test_or_legacy_partial"
         base["scanned"] = len(codes)
         base["provider_errors"].extend(errors)
-        if len(codes) < 5:
+        if len(codes) < 2:
             base["reason_code"] = "universe_too_small"
             return base
         quotes, errors = (quote_loader or _fresh_quotes)(codes, now)
         base["fresh_quotes"] = len(quotes)
         base["live_quote_coverage_ratio"] = round(len(quotes) / max(1, len(codes)), 4)
         base["provider_errors"].extend(errors)
-        if len(quotes) < 5:
+        if len(quotes) < 2:
             base["reason_code"] = "insufficient_fresh_quotes"
             return base
         # Prefer moderate strength/volume, never today's biggest gainers by default.
@@ -578,9 +627,7 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
         base["daily_checked"] = max(0, attempted - daily_failures)
         base["daily_attempted"] = attempted
         if attempted and daily_failures == attempted:
-            base["status"] = "blocked"
-            base["reason_code"] = "daily_validation_unavailable"
-            return base
+            base["provider_errors"].append("all_strict_daily_validation_failed")
         results.sort(key=lambda x: (-x["score"], x["code"]))
         strict_count = min(len(results), 2)
         # A strict risk gate must not erase useful forward-study samples in
@@ -615,11 +662,19 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
             base["relative_attempted"] = fallback_attempted
             base["relative_failed"] = fallback_failed
         base["candidates"] = results[:2]
+        if len(results) < 2 and (candidate_loader is None or relative_loader is not None):
+            excluded = {x["code"] for x in results}
+            limited = _quote_only_observations(quotes, excluded)[:2 - len(results)]
+            results.extend(limited)
+            base["quote_only_shadow_count"] = len(limited)
+            base["candidates"] = results[:2]
         base["strict_shadow_count"] = strict_count
         base["relative_shadow_count"] = len(base["candidates"]) - strict_count
         base["momentum_control"] = _momentum_controls(
             quotes, {x["code"] for x in base["candidates"]})
-        base["status"] = "observed" if results else "no_signal"
+        base["status"] = "observed" if len(results) >= 2 else "blocked"
+        # A blocked/incomplete observation stays retryable within the real slot.
+        # Old finalized records are never overwritten or backfilled.
         base["reason_code"] = (
             "relative_shadow_fallback_not_backtested" if base["relative_shadow_count"]
             else ("low_chase_shadow_not_backtested" if results

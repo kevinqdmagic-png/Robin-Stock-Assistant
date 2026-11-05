@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-11-05T18:37:01.865561+00:00",
+  "date": "2026-11-05",
+  "provider": "sina_close_snapshot",
+  "coverage": {
+    "checked": 5224,
+    "verified": 5217,
+    "errors": 7,
+    "coverage_ratio": 0.99866
+  },
+  "independent_crosschecked": 5217,
+  "ohlc_matched_0011": 5217,
+  "ohlc_mismatches": [],
+  "volume_outside_1pct": [],
+  "amount_outside_1pct": [],
+  "live_intraday_verified": false,
+  "primary_archive": "backend/data/baostock/2026-11-05.json",
+  "backup_archive": "backend/data/sina_daily_full/2026-11-05.json"
+}

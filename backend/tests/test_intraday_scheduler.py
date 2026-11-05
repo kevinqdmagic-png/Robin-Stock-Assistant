@@ -115,13 +115,13 @@ class IntradaySchedulerTests(unittest.TestCase):
         self.assertFalse(outcome["strategy_validated"])
         self.assertEqual(outcome["fresh_quotes"],8)
 
-    def test_no_signal_is_successful_empty_observation(self):
+    def test_incomplete_pair_stays_blocked_for_retry(self):
         at=datetime(2026,10,14,14,40,tzinfo=CN)
         codes=[f"60{i:04d}" for i in range(8)]
         o=module.execute("late_pair",at,lambda:(codes,{},[]),
                          lambda codes,now:([q(c,now) for c in codes],[]),
                          lambda stock,day,now:None)
-        self.assertEqual(o["status"],"no_signal")
+        self.assertEqual(o["status"],"blocked")
         self.assertEqual(o["candidates"],[])
 
     def test_weak_market_still_freezes_two_rank_only_shadow_observations(self):

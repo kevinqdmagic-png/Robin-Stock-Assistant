@@ -184,7 +184,7 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             val data = runCatching {
                 request(path).also {
-                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/recommendations?") || path.startsWith("/api/tasks") || path.startsWith("/api/task-runs") || path.endsWith("/research")))
+                    if (it.optBoolean("ok") && (path.startsWith("/api/research") || path.startsWith("/api/daily-results") || path.startsWith("/api/recommendations?") || path.startsWith("/api/tasks") || path.startsWith("/api/task-runs") || path.endsWith("/research")))
                         prefs.edit().putString("cache:$path", it.toString()).apply()
                 }
             }.recoverCatching {
@@ -1233,6 +1233,7 @@ class MainActivity : AppCompatActivity() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
         intradayAutoCard()
+        dailyResultsCard()
         taskCenterCard()
         recommendationCard()
         learningCard()
@@ -1489,6 +1490,78 @@ class MainActivity : AppCompatActivity() {
         render()
     }
 
+    private fun dailyResultsCard() {
+        val panel = card("每日定时研究成果")
+        val status = label("正在读取最近交易日成果…", 12f)
+        val rows = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        panel.addView(status)
+        panel.addView(rows)
+        val states = mapOf("completed" to "已完成", "partial" to "部分完成", "blocked" to "待补证",
+            "failed" to "执行失败", "missing" to "待补做", "waiting" to "等待执行", "unverified" to "待核验")
+        fun load() {
+            fetch("/api/daily-results?limit=7") { data, error ->
+                rows.removeAllViews()
+                if (data == null || !data.optBoolean("ok")) {
+                    status.text = "每日成果暂不可用，请刷新重试。" + (error?.let { "\n$it" } ?: "")
+                    return@fetch
+                }
+                status.text = (if (data.optBoolean("_offline")) "离线缓存 · " else "") +
+                    data.optString("date_cn") + " · 已发布 " + data.optInt("published_count") +
+                    "/" + data.optInt("total") + " 项 · 完整完成 " + data.optInt("completed_count") + " 项\n" +
+                    "沪深股票研究；部分成果和待补做项目分别保留。"
+                val items = data.optJSONArray("items") ?: JSONArray()
+                for (i in 0 until items.length()) {
+                    val row = items.optJSONObject(i) ?: continue
+                    rows.addView(label(row.optString("title") + " · " +
+                        (states[row.optString("status")] ?: "待核验"), 15f, true))
+                    rows.addView(label(row.optString("summary"), 12f))
+                    val shadows = row.optJSONArray("research_shadow_candidates") ?: JSONArray()
+                    for (j in 0 until shadows.length()) {
+                        val candidate = shadows.optJSONObject(j) ?: continue
+                        rows.addView(label("观察样本：" + candidate.optString("name") + "（" + candidate.optString("code") +
+                            "） · 历史参考 " + candidate.optString("reference_price") +
+                            "\n价格时点：" + candidate.optString("reference_as_of") +
+                            "\n计划观察日：" + candidate.optString("planned_observation_date") +
+                            "\n" + candidate.optString("hypothesis") + "\n风险：" + candidate.optString("risk"), 12f))
+                    }
+                    if (row.optBoolean("published")) {
+                        val details = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+                        val toggle = action("阅读全文") { }
+                        var loaded = false
+                        toggle.setOnClickListener {
+                            if (loaded) {
+                                details.visibility = if (details.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                                toggle.text = if (details.visibility == View.VISIBLE) "收起全文" else "阅读全文"
+                            } else {
+                                toggle.isEnabled = false
+                                fetch(row.optString("detail_path")) { result, _ ->
+                                    toggle.isEnabled = true
+                                    val report = result?.optJSONObject("report")
+                                    details.removeAllViews()
+                                    if (report == null) {
+                                        details.addView(label("报告暂时无法读取，点击重试。", 12f))
+                                    } else {
+                                        loaded = true
+                                        details.addView(label(report.optString("title"), 16f, true))
+                                        details.addView(label("发布于 " + report.optString("published_at"), 11f))
+                                        details.addView(label(report.optString("body").replace("\\n", "\n"), 14f).apply {
+                                            setTextColor(ink); setTextIsSelectable(true)
+                                        })
+                                        toggle.text = "收起全文"
+                                    }
+                                }
+                            }
+                        }
+                        rows.addView(toggle)
+                        rows.addView(details)
+                    }
+                }
+            }
+        }
+        panel.addView(action("刷新每日成果") { load() })
+        load()
+    }
+
     private fun intradayAutoCard() {
         val panel = card("14:40 / 09:50 · 自动盘中研究")
         panel.addView(label("由Railway常驻执行器按北京时间检查。仅展示当时验证的部分研究池观察候选；不是已验证的T+1买点。", 12f))
@@ -1529,7 +1602,7 @@ class MainActivity : AppCompatActivity() {
                             item.optString("reason_code") + "。", 12f))
                         val candidates = item.optJSONArray("candidates") ?: JSONArray()
                         if (candidates.length() == 0) {
-                            rows.addView(label("未形成可发布的盘中观察候选，不强行凑数。", 12f))
+                            rows.addView(label("本次候选尚未交付，需检查行情并补做；历史空记录保留。", 12f))
                         }
                         for (i in 0 until candidates.length()) {
                             val c = candidates.optJSONObject(i) ?: continue
@@ -1537,6 +1610,7 @@ class MainActivity : AppCompatActivity() {
                                 c.optString("name") + "（" + c.optString("code") +
                                 "） · 涨幅 " + c.optString("pct") + "% · 观察分 " +
                                 c.optString("score") + "\n报价时间：" + c.optString("as_of") +
+                                "\n证据：" + (if (c.optString("evidence_tier") == "timestamped_quote_only") "仅时点报价，历史核验未完成" else "报价与历史结构观察") +
                                 "\n风险：" + c.optString("risk"), 12f))
                         }
                     }
