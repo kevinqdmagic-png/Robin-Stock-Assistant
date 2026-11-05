@@ -286,6 +286,61 @@ def _candidate(q, day, now):
         "signal_validated": False, "buy_order_allowed": False,
     }
 
+def _relative_shadow_candidate(q, day, now):
+    """Rank-only fallback when strict v2 has fewer than two observations.
+
+    This is not a trading signal. Only quotes captured before the slot and
+    completed prior-day bars are eligible; never fill with retrospective prices.
+    """
+    code = q["code"]
+    price = float(q["price"])
+    pct = float(q["pct"])
+    vr = q.get("volume_ratio")
+    turn = q.get("turnover")
+    if (price <= 0 or vr is None or turn is None
+            or not -20 <= pct <= 20
+            or not 0.2 <= float(vr) <= 100
+            or not 0.3 <= float(turn) <= 40):
+        return None
+    bars = tencent_daily(code, limit=100, adjust="1")
+    complete = completed_bars(bars, now)
+    if len(complete) < 61 or complete[-1]["date"] >= day:
+        raise ValueError("relative_shadow_daily_history_stale")
+    if any(row.get("volume", 0) <= 0 for row in complete[-61:]):
+        return None
+    prior20 = complete[-20:]
+    prior60 = complete[-60:]
+    ma20 = sum(row["close"] for row in prior20) / len(prior20)
+    low60 = min(row["low"] for row in prior60)
+    high60 = max(row["high"] for row in prior60)
+    pos60 = (price - low60) / (high60 - low60) if high60 > low60 else 1.0
+    dist20 = (price / ma20 - 1) * 100 if ma20 > 0 else 999
+    prior10 = (complete[-1]["close"] / complete[-11]["close"] - 1) * 100
+    # Favor liquidity and proximity to the historical base; do not simply
+    # rank large intraday gains, and do not present the score as calibrated.
+    score = round(
+        min(float(vr), 3.5) * 1.4
+        + min(float(turn), 12) * 0.25
+        - abs(pct - 1.0) * 0.4
+        - max(0.0, dist20 - 6) * 0.5
+        - max(0.0, prior10 - 12) * 0.3
+        - max(0.0, pos60 - 0.85) * 8, 2)
+    return {
+        "code": code, "name": q["name"], "price": price,
+        "pct": pct, "volume_ratio": vr, "turnover_ratio": turn,
+        "as_of": q["as_of"], "daily_cutoff": complete[-1]["date"],
+        "quote_source": q["source"], "daily_source": "tencent_qfq_daily",
+        "score": score, "prior20_ma": round(ma20, 3),
+        "ma20_distance_pct": round(dist20, 3),
+        "prior10_return_pct": round(prior10, 3),
+        "position60": round(pos60, 3),
+        "model_version": "intraday_relative_shadow_v1",
+        "relative_rank_only": True, "signal_validated": False,
+        "buy_order_allowed": False, "shadow_only": True,
+        "risk": "弱市也保留相对优选研究样本；仅有时点报价与前日K线，无实盘买入许可或可成交验证",
+        "notes": ["当日真实报价与前一交易日已完成日线的相对排名；不表示达到正式买入门槛"],
+    }
+
 def _momentum_controls(quotes, excluded):
     """Frozen quote-level v1-style controls; never buy suggestions."""
     rows = []
@@ -316,7 +371,7 @@ def _momentum_controls(quotes, excluded):
     return rows[:2]
 
 
-def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_loader=None):
+def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_loader=None, relative_loader=None):
     if slot not in SLOTS:
         raise ValueError("invalid_intraday_slot")
     now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
@@ -381,11 +436,48 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
             base["reason_code"] = "daily_validation_unavailable"
             return base
         results.sort(key=lambda x: (-x["score"], x["code"]))
+        strict_count = min(len(results), 2)
+        # A strict risk gate must not erase useful forward-study samples in
+        # weak markets. The fallback ranks valid as-of quotes and prior bars,
+        # never silently upgrades them to executable buy recommendations.
+        if len(results) < 2 and (candidate_loader is None or relative_loader is not None):
+            excluded = {x["code"] for x in results}
+            ranked = [q for q in quotes if q["code"] not in excluded
+                      and q.get("volume_ratio") is not None
+                      and q.get("turnover") is not None]
+            ranked.sort(key=lambda q: (
+                abs(float(q["pct"]) - 1.0),
+                abs(float(q["volume_ratio"]) - 2.0),
+                -float(q["turnover"]), q["code"]))
+            fallback_attempted = 0
+            fallback_failed = 0
+            supplemental = []
+            for quote in ranked[:30]:
+                if len(supplemental) + len(results) >= 2:
+                    break
+                fallback_attempted += 1
+                try:
+                    item = (relative_loader or _relative_shadow_candidate)(quote, date, now)
+                    if item and item["code"] not in excluded:
+                        supplemental.append(item)
+                        excluded.add(item["code"])
+                except (requests.RequestException, ValueError, TypeError, KeyError) as exc:
+                    fallback_failed += 1
+                    base["provider_errors"].append("relative_daily_validation:" + type(exc).__name__)
+            supplemental.sort(key=lambda x: (-x["score"], x["code"]))
+            results.extend(supplemental)
+            base["relative_attempted"] = fallback_attempted
+            base["relative_failed"] = fallback_failed
         base["candidates"] = results[:2]
+        base["strict_shadow_count"] = strict_count
+        base["relative_shadow_count"] = len(base["candidates"]) - strict_count
         base["momentum_control"] = _momentum_controls(
             quotes, {x["code"] for x in base["candidates"]})
         base["status"] = "observed" if results else "no_signal"
-        base["reason_code"] = "low_chase_shadow_not_backtested" if results else "no_eligible_low_chase_candidate"
+        base["reason_code"] = (
+            "relative_shadow_fallback_not_backtested" if base["relative_shadow_count"]
+            else ("low_chase_shadow_not_backtested" if results
+                  else "no_verified_daily_rank_candidates"))
         return base
     except Exception as exc:
         log.exception("Intraday %s execution error", slot)
