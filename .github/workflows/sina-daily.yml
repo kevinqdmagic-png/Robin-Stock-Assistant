@@ -36,7 +36,7 @@ jobs:
           RESEARCH_DAY: ${{ inputs.research_day || '' }}
         run: |
           if [ -z "$RESEARCH_DAY" ]; then
-            RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from datetime import datetime; from zoneinfo import ZoneInfo; from learning_loop import latest_completed_session; print(latest_completed_session(datetime.now(ZoneInfo("Asia/Shanghai")))))')
+            RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from datetime import datetime; from zoneinfo import ZoneInfo; from learning_loop import latest_completed_session; print(latest_completed_session(datetime.now(ZoneInfo("Asia/Shanghai"))))')
           fi
           echo "RESEARCH_DAY=$RESEARCH_DAY" >> "$GITHUB_ENV"
       - name: Collect and verify independent post-close snapshot
