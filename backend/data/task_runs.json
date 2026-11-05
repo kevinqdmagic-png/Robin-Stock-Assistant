@@ -5655,6 +5655,174 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "recovery-20261105-market_review-manual-v1-partial",
+      "run_id": "recovery-20261105-market_review-manual-v1",
+      "task_id": "market_review",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "partial",
+      "summary": "市场复盘补做：5217只日线、原28事件复核及两处纠错；实际补做已归档；保留完整研究门槛，剩余源缺口逐项可见。",
+      "report_ids": [
+        "recovery-20261105-market_review-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-market_review.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261105-volume_price-manual-v1-partial",
+      "run_id": "recovery-20261105-volume_price-manual-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "partial",
+      "summary": "量价补做：28只完整5分钟与上一批全样本验证；实际补做已归档；保留完整研究门槛，剩余源缺口逐项可见。",
+      "report_ids": [
+        "recovery-20261105-volume_price-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-volume_price.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261105-low_position-manual-v1-partial",
+      "run_id": "recovery-20261105-low_position-manual-v1",
+      "task_id": "low_position",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "partial",
+      "summary": "低位启动补做：结构清单、亏损反例与长期节点；实际补做已归档；保留完整研究门槛，剩余源缺口逐项可见。",
+      "report_ids": [
+        "recovery-20261105-low_position-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-low_position.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261105-dragon_tiger-manual-v1-partial",
+      "run_id": "recovery-20261105-dragon_tiger-manual-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "partial",
+      "summary": "龙虎榜补做：62只双侧席位、去重与5只观察；实际补做已归档；保留完整研究门槛，剩余源缺口逐项可见。",
+      "report_ids": [
+        "recovery-20261105-dragon_tiger-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-dragon_tiger.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261105-combined_pair-manual-v1-blocked",
+      "run_id": "recovery-20261105-combined_pair-manual-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "blocked",
+      "summary": "综合双标补做：正式受阻、11月6日两只影子冻结；实际补做已归档；保留完整研究门槛，剩余源缺口逐项可见。",
+      "report_ids": [
+        "recovery-20261105-combined_pair-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-combined_pair.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261105-limitup_single-manual-v1-blocked",
+      "run_id": "recovery-20261105-limitup_single-manual-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "blocked",
+      "summary": "独立打板补做：v2证据审查与一只影子冻结；实际补做已归档；保留完整研究门槛，剩余源缺口逐项可见。",
+      "report_ids": [
+        "recovery-20261105-limitup_single-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-limitup_single.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261105-learning_review-manual-v1-completed",
+      "run_id": "recovery-20261105-learning_review-manual-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-05",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-05T16:32:00+00:00",
+      "completed_at": "2026-11-06T00:51:25+08:00",
+      "recorded_at": "2026-11-06T00:51:25+08:00",
+      "status": "completed",
+      "summary": "学习复核补做：31条原记录、16个独立证券日与失败归因；学习审计完成，31条/16个证券日/7个日期，策略不晋级。",
+      "report_ids": [
+        "recovery-20261105-learning_review-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_production_verification_pending",
+      "sources": [
+        "docs/research/recovery-20261105-learning_review.md",
+        "docs/research/recovery-20261105-evidence.json"
+      ]
     }
   ]
 }

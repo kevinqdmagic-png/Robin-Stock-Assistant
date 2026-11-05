@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-06T00:51:25+08:00",
+  "market_date": "2026-11-05",
+  "planned_date": "2026-11-06",
+  "scope": "147只已交叉核验历史日线及公开资料初核的比较池；不声称全A最优或已校准排名。",
+  "status": "prospective_research_observations_only",
+  "items": [
+    {
+      "id": "recovery-shadow-20261106-combined_pair-002156-v1",
+      "task_id": "combined_pair",
+      "code": "002156",
+      "name": "通富微电",
+      "research_date": "2026-11-05",
+      "planned_observation_date": "2026-11-06",
+      "actual_frozen_at": "2026-11-06T00:51:25+08:00",
+      "reference_price": 45.25,
+      "reference_as_of": "2026-11-05T15:00:00+08:00",
+      "reference_is_live_quote": false,
+      "price_sources": [
+        "backend/data/baostock/2026-11-05.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/var%20_recovery=/CN_MarketDataService.getKLineData?symbol=sz002156&scale=240&ma=no&datalen=150"
+      ],
+      "strategy_version": "manual_recovery_shadow_v1",
+      "hypothesis": "H1低位量能＋H2首次分歧修复",
+      "trigger": "45.25—45.70回踩后重新站稳；不追46.56以上。观察09:45—10:30和14:00—14:40。",
+      "invalid": "跌破44.35、开盘涨幅>3%、半导体同伴中位转负或无连续报价即放弃。",
+      "risk": "前三季归母30.606亿元/扣非13.778亿元，归母增幅受非经常性损益影响；T日触板后回落、尾30分钟-0.330%，分歧尚未确认完成。",
+      "main_board_regime": "ordinary_10pct_subject_to_D_security_status_verification",
+      "earliest_legal_exit_if_D_bought": "2026-11-09T09:30:00+08:00",
+      "exit_rule": "D+1实际交易日首个可核实可成交报价；无买盘/停牌保留敞口，不挑次日最高价。",
+      "next_validation_sessions": {
+        "1": "2026-11-09",
+        "2": "2026-11-10",
+        "5": "2026-11-13",
+        "10": "2026-11-20"
+      },
+      "forward_baseline": "D=2026-11-06收盘；仅D收盘后才冻结可比较基准，不将T11/05收盘代理当D买入价。",
+      "entry_fill": null,
+      "executed_trade": false,
+      "executable_net_return_pct": null,
+      "is_recommendation": false,
+      "buy_order_allowed": false,
+      "cohort": "research_shadow",
+      "not_reconstructed_20261105_intraday": true
+    },
+    {
+      "id": "recovery-shadow-20261106-combined_pair-002876-v1",
+      "task_id": "combined_pair",
+      "code": "002876",
+      "name": "三利谱",
+      "research_date": "2026-11-05",
+      "planned_observation_date": "2026-11-06",
+      "actual_frozen_at": "2026-11-06T00:51:25+08:00",
+      "reference_price": 30.02,
+      "reference_as_of": "2026-11-05T15:00:00+08:00",
+      "reference_is_live_quote": false,
+      "price_sources": [
+        "backend/data/baostock/2026-11-05.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/var%20_recovery=/CN_MarketDataService.getKLineData?symbol=sz002876&scale=240&ma=no&datalen=150"
+      ],
+      "strategy_version": "manual_recovery_shadow_v1",
+      "hypothesis": "H1量能推进＋业绩催化对照",
+      "trigger": "30.02—30.32回踩后重新站稳；不追30.87以上。观察09:45—10:30和14:00—14:40。",
+      "invalid": "跌破29.42、开盘涨幅>3%、不能重新站上实时成交均价或源缺失即放弃。",
+      "risk": "前三季营收+24.96%、归母+167.15%，但经营现金净额仅2355万元，远期外汇合约亏损和存货减值增加；T收盘低于全日VWAP。",
+      "main_board_regime": "ordinary_10pct_subject_to_D_security_status_verification",
+      "earliest_legal_exit_if_D_bought": "2026-11-09T09:30:00+08:00",
+      "exit_rule": "D+1实际交易日首个可核实可成交报价；无买盘/停牌保留敞口，不挑次日最高价。",
+      "next_validation_sessions": {
+        "1": "2026-11-09",
+        "2": "2026-11-10",
+        "5": "2026-11-13",
+        "10": "2026-11-20"
+      },
+      "forward_baseline": "D=2026-11-06收盘；仅D收盘后才冻结可比较基准，不将T11/05收盘代理当D买入价。",
+      "entry_fill": null,
+      "executed_trade": false,
+      "executable_net_return_pct": null,
+      "is_recommendation": false,
+      "buy_order_allowed": false,
+      "cohort": "research_shadow",
+      "not_reconstructed_20261105_intraday": true
+    },
+    {
+      "id": "recovery-shadow-20261106-limitup_single-603699-v1",
+      "task_id": "limitup_single",
+      "code": "603699",
+      "name": "纽威股份",
+      "research_date": "2026-11-05",
+      "planned_observation_date": "2026-11-06",
+      "actual_frozen_at": "2026-11-06T00:51:25+08:00",
+      "reference_price": 39.39,
+      "reference_as_of": "2026-11-05T15:00:00+08:00",
+      "reference_is_live_quote": false,
+      "price_sources": [
+        "backend/data/baostock/2026-11-05.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/var%20_recovery=/CN_MarketDataService.getKLineData?symbol=sh603699&scale=240&ma=no&datalen=150"
+      ],
+      "strategy_version": "manual_recovery_shadow_v1",
+      "hypothesis": "H2低位换手首板后首次分歧",
+      "trigger": "D日09:35—10:30仅观察换手、第一次分歧和回封；D日涨停价必须另由当日报价核验，不能使用T日39.39作D涨停价。",
+      "invalid": "竞价不在0—5%、一字排队、两只预设同伴603278/002724不足+3%、高标跌停、60秒承接证据或当日上限无法核验即放弃。",
+      "risk": "前三季归母仅+0.06%，Q3归母-20.14%、经营现金净额-58.91%；仅检验日线低位换手假设，不视为业绩加速或正式打板机会。",
+      "main_board_regime": "ordinary_10pct_subject_to_D_security_status_verification",
+      "earliest_legal_exit_if_D_bought": "2026-11-09T09:30:00+08:00",
+      "exit_rule": "D+1实际交易日首个可核实可成交报价；无买盘/停牌保留敞口，不挑次日最高价。",
+      "next_validation_sessions": {
+        "1": "2026-11-09",
+        "2": "2026-11-10",
+        "5": "2026-11-13",
+        "10": "2026-11-20"
+      },
+      "forward_baseline": "D=2026-11-06收盘；仅D收盘后才冻结可比较基准，不将T11/05收盘代理当D买入价。",
+      "entry_fill": null,
+      "executed_trade": false,
+      "executable_net_return_pct": null,
+      "is_recommendation": false,
+      "buy_order_allowed": false,
+      "cohort": "research_shadow",
+      "not_reconstructed_20261105_intraday": true
+    }
+  ],
+  "controls": [
+    {
+      "code": "000159",
+      "reason": "同样放量低位、但前三季归母亏损1.160亿元和经营现金净流出2.680亿元；仅风险对照，不进入优选。"
+    },
+    {
+      "code": "002444",
+      "reason": "日线突破但归母与经营现金流下降、尾盘低于VWAP；未优于两只观察对象。"
+    },
+    {
+      "code": "002302",
+      "reason": "量价推进但前三季亏损4.545亿元、收入-25.98%；仅风险对照。"
+    },
+    {
+      "code": "002475",
+      "reason": "较低价格位置，但经营现金净流出64.344亿元、T收盘低于VWAP；保留为观察对照。"
+    }
+  ],
+  "H3_status": "仅有预选同伴组，缺全板块点时成员与板块K线；H3板块相对强度未验证，不编造完成。"
+}

@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-11-06T02:04:24.678478+08:00",
+  "status": "source_bounded_recovery_verified",
+  "report_count": 7,
+  "full_daily_reports_completed": 0,
+  "learning_review_completed": true,
+  "daily_crosschecked": 147,
+  "minute_verified": 67,
+  "deep_minute_verified": 28,
+  "lhb_a_share_codes": 62,
+  "lhb_a_share_reasons": 68,
+  "research_shadow_count": 3,
+  "formal_recommendation_count": 0,
+  "trade_fills": 0,
+  "production_verified": false,
+  "backend_unit_tests": 237,
+  "delivery_gate_tests": 5,
+  "source_sha256": {
+    "docs/research/recovery-20261105-bars.json": "7866e95b35a6c9b441f46e823b8c1819a8820f8c498a1bc8801f30562a3267c5",
+    "docs/research/recovery-20261105-extra-minutes.json": "94a3078f2f483adca002f2e79a70971a938bb60d3eb5b105773203afaaff072d",
+    "docs/research/recovery-20261105-lhb-raw.json": "894f232dbd0168489684afb93278aef24b382f30ca591f545c960ab8c5ad71ea",
+    "docs/research/recovery-20261105-index-raw.json": "4b12829ee81abc56b9bfeb524d8eb81fd18f1fad529142f0b1fb29a3bbef0427",
+    "docs/research/recovery-20261105-announcements.json": "daa3b846ad9f78c9926045090f8b3d0f6c72d6548a708dd1515deaf761f984e2",
+    "docs/research/recovery-20261105-learning-raw.json": "889e2fa0576cfd9556c83b0525b4f54e4e10281283c046d55d747b64cdf877eb",
+    "docs/research/recovery-20261105-production-before.json": "3fada54bbaa4553a1c41a75e186a05b47f0120c80a916df2b49395d563949add",
+    "docs/research/recovery-20261105-shadow-manifest.json": "b219ef4c5856d47f92d5dfedcd17663c2fad94b0ef5967b2d4da331d8f343186",
+    "docs/research/recovery-20261105-evidence.json": "e70d8f6137191a309e23c416b36ed11fdfbaf11a5265a185f39382304e086461"
+  }
+}
