@@ -1,5 +1,13 @@
 name: Verified five-minute HTTPS/BaoStock collection
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/collect_baostock_five_minute.py'
+      - 'backend/sina_five_minute_https.py'
+      - 'backend/test_sina_five_minute_https.py'
+      - 'backend/test_baostock_session.py'
+      - '.github/workflows/baostock-five-minute.yml'
   workflow_dispatch:
     inputs:
       research_day:
@@ -25,7 +33,7 @@ jobs:
           python-version: '3.11'
       - run: pip install 'baostock==0.9.3'
       - name: Run five-minute parser unit tests
-        run: PYTHONPATH=backend python -m unittest backend/test_baostock_five_minute.py backend/test_baostock_session.py
+        run: PYTHONPATH=backend python -m unittest backend/test_baostock_five_minute.py backend/test_sina_five_minute_https.py backend/test_baostock_session.py
       - name: Fetch verified five-minute bars
         env:
           RESEARCH_DAY: ${{ inputs.research_day || '' }}
@@ -35,7 +43,7 @@ jobs:
             RESEARCH_DAY=$(PYTHONPATH=backend python -c 'from collect_baostock_five_minute import default_research_day; print(default_research_day())')
           fi
           export RESEARCH_DAY
-          echo "FIVE_MIN_COLLECT_START date=$RESEARCH_DAY sources=eastmoney_https,baostock_tcp"
+          echo "FIVE_MIN_COLLECT_START date=$RESEARCH_DAY sources=eastmoney_https,sina_https,baostock_tcp"
           PYTHONPATH=backend python backend/collect_baostock_five_minute.py
           echo "FIVE_MIN_COLLECT_VALIDATED date=$RESEARCH_DAY"
       - name: Summarize failed collection

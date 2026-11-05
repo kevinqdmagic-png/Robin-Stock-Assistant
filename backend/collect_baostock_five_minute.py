@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 from baostock_five_minute import fetch_five_minute
 from eastmoney_five_minute_https import fetch_five_minute_https
+from sina_five_minute_https import fetch_five_minute_sina
 from learning_loop import CN, latest_completed_session
 
 def default_research_day(now=None):
@@ -30,23 +31,45 @@ def validate_session(item, code, day):
     for start, end in ((9 * 60 + 35, 11 * 60 + 30), (13 * 60 + 5, 15 * 60)):
         canonical.extend(f"{day.replace('-', '')}{m // 60:02d}{m % 60:02d}00000"
                          for m in range(start, end + 1, 5))
-    return [bar.get("time") for bar in bars] == canonical
+    if [bar.get("time") for bar in bars] != canonical:
+        return False
+    for bar in bars:
+        try:
+            opening, high, low, closing, volume = (
+                float(bar[field]) for field in ("open", "high", "low", "close", "volume")
+            )
+            amount = float(bar["amount"])
+        except (KeyError, ValueError, TypeError, OverflowError):
+            return False
+        if not (0 < low <= min(opening, closing) <= max(opening, closing) <= high and
+                volume >= 0 and amount >= 0):
+            return False
+    return True
 
 
 def main():
     results, errors = {}, {}
     for code in CODES:
         try:
+            provider_errors = {}
             try:
                 item = fetch_five_minute_https(code, DAY)
-            except Exception as https_exc:
+            except Exception as eastmoney_exc:
+                provider_errors["eastmoney_https"] = str(eastmoney_exc)[:90]
                 try:
-                    item = fetch_five_minute(code, DAY)
-                except Exception as tcp_exc:
-                    raise ValueError(f"https={str(https_exc)[:90]};tcp={str(tcp_exc)[:90]}") from tcp_exc
+                    item = fetch_five_minute_sina(code, DAY)
+                except Exception as sina_exc:
+                    provider_errors["sina_https"] = str(sina_exc)[:90]
+                    try:
+                        item = fetch_five_minute(code, DAY)
+                    except Exception as tcp_exc:
+                        provider_errors["baostock_tcp"] = str(tcp_exc)[:90]
+                        raise ValueError(json.dumps(provider_errors, ensure_ascii=False)) from tcp_exc
             if not item["complete_session"] or not validate_session(item, code, DAY):
                 errors[code] = "invalid_or_incomplete_session:" + str(item["count"])
                 continue
+            if provider_errors:
+                item["fallback_errors"] = provider_errors
             results[code] = item
         except Exception as exc:
             errors[code] = str(exc)[:200]

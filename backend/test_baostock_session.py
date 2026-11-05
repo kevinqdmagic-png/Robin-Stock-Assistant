@@ -12,11 +12,22 @@ class SessionValidationTests(unittest.TestCase):
         for start, end in ((575, 690), (785, 900)):
             stamps += [f"20261104{m//60:02d}{m%60:02d}00000" for m in range(start, end + 1, 5)]
         item = {"code": "sz.002218", "date": day,
-                "bars": [{"time": t} for t in stamps]}
+                "bars": [{"time": t, "open": 3.5, "high": 3.6, "low": 3.4,
+                          "close": 3.55, "volume": 1200, "amount": 4200} for t in stamps]}
         self.assertEqual(len(stamps), 48)
         self.assertTrue(validate_session(item, "sz.002218", day))
         item["bars"][0]["time"] = "20261104093000000"
         self.assertFalse(validate_session(item, "sz.002218", day))
+
+    def test_reject_invalid_or_missing_ohlcv(self):
+        day = "2026-11-04"
+        stamps = [f"20261104{m//60:02d}{m%60:02d}00000" for start, end in
+                  ((575, 690), (785, 900)) for m in range(start, end + 1, 5)]
+        bars = [{"time": t, "open": 3.5, "high": 3.6, "low": 3.4,
+                 "close": 3.55, "volume": 1200, "amount": 4200} for t in stamps]
+        bars[0].pop("amount")
+        self.assertFalse(validate_session({"code": "sz.002218", "date": day, "bars": bars},
+                                          "sz.002218", day))
 
     def test_wrong_date(self):
         self.assertFalse(validate_session({"code": "sz.002218", "date": "2026-11-03", "bars": []},
