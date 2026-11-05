@@ -126,31 +126,133 @@ def latest(slot=None, limit=20, now=None):
     }
 
 
-def target_universe(client=requests):
-    """Discovered turnover leaders + existing app research stock catalog."""
-    codes = []
-    names = {}
-    for archive in ("research_stocks.json", "recommendations.json"):
-        try:
-            rows = load_document(archive)["items"]
-        except (OSError, ValueError):
+def _previous_trading_date(now):
+    """The last closed Chinese session, not a future/partial trading day."""
+    for delta in range(1, 20):
+        probe = now.date() - timedelta(days=delta)
+        state = session_state(datetime.combine(probe, clock(10, 0), CN_TZ))["code"]
+        if state == "trading":
+            return probe.isoformat()
+        if state == "unknown":
+            break
+    return None
+
+
+def _liquidity_stratified_codes(rows, limit=420):
+    """Select liquid and less-crowded names across all four eligible boards.
+
+    This is a historical whole-market *discovery* sample, NOT 420 live-vetted
+    stocks or a signal. Keep selection independent of APP watchlist membership.
+    """
+    groups = {key: [] for key in ("00", "30", "60", "68")}
+    for row in rows:
+        code = str(row.get("code", ""))
+        if not re.fullmatch(r"(?:sh\.6|sz\.[03])\d{5}", code):
             continue
-        for item in rows:
-            code = str(item.get("code") or "")
-            if re.fullmatch(r"\d{6}", code) and code.startswith(("00", "30", "60", "68")):
-                if code not in codes:
-                    codes.append(code)
-                if item.get("name"):
-                    names[code] = str(item["name"])
-    errors = []
+        number = code[-6:]
+        board = next((prefix for prefix in groups if number.startswith(prefix)), None)
+        if board is None:
+            continue
+        try:
+            amount = float(row["amount"])
+            closing = float(row["close"])
+            if not (math.isfinite(amount) and math.isfinite(closing)
+                    and amount >= 2_000_000 and closing > 0):
+                continue
+        except (ValueError, TypeError, KeyError):
+            continue
+        groups[board].append((number, amount))
+    count = sum(len(v) for v in groups.values())
+    if count < 300:
+        return []
+    selected = []
+    for board, values in groups.items():
+        if not values:
+            continue
+        values.sort(key=lambda pair: (-pair[1], pair[0]))
+        quota = max(1, round(limit * len(values) / count))
+        # Use several liquidity strata. Top-amount only misses emerging smaller
+        # companies; equal-amount-only picks can overselect illiquid names.
+        borders = (0, .10, .35, .75, 1)
+        weights = (.46, .31, .18, .05)
+        seen = set()
+        for i, weight in enumerate(weights):
+            begin = int(len(values) * borders[i])
+            stop = int(len(values) * borders[i + 1])
+            pool = values[begin:stop]
+            take = min(len(pool), round(quota * weight))
+            if not pool or not take:
+                continue
+            for n in range(take):
+                code = pool[min(len(pool)-1, int((n + .5) * len(pool) / take))][0]
+                if code not in seen:
+                    selected.append(code)
+                    seen.add(code)
+        if len(seen) < quota:
+            for code, _ in values:
+                if code not in seen:
+                    selected.append(code)
+                    seen.add(code)
+                    if len(seen) >= quota:
+                        break
+    return selected[:limit]
+
+
+def _snapshot_universe(now, root=None):
+    """Verified previous-session BaoStock is historical discovery, not live."""
+    expected = _previous_trading_date(now)
+    info = {"snapshot_trade_date": expected, "universe_source": "none",
+            "historical_universe_count": 0, "historical_scope": "Shanghai+Shenzhen; Beijing excluded",
+            "whole_market_live_scanned": False}
+    if expected is None:
+        return [], info, ["snapshot_previous_session_unknown"]
+    location = (root or (Path(__file__).resolve().parent / "data" / "baostock")) / (expected + ".json")
+    if not location.is_file():
+        return [], info, ["validated_snapshot_missing:" + expected]
+    try:
+        payload = json.loads(location.read_text(encoding="utf-8"))
+        rows = payload.get("rows") or []
+        coverage = payload.get("coverage") or {}
+        if (payload.get("provider") != "baostock"
+                or payload.get("status") != "historical_observation_only"
+                or payload.get("trade_date") != expected
+                or coverage.get("checked", 0) < 5000
+                or coverage.get("verified") != len(rows)
+                or coverage.get("coverage_ratio", 0) < .90
+                or any(row.get("date") != expected for row in rows)):
+            raise ValueError("snapshot_coverage_or_date_invalid")
+        codes = _liquidity_stratified_codes(rows)
+        if len(codes) < 200:
+            raise ValueError("snapshot_discovery_pool_inadequate")
+        info.update({"historical_universe_count": len(rows),
+                     "historical_coverage_ratio": coverage["coverage_ratio"],
+                     "universe_source": "prior_completed_baostock_historical_market",
+                     "historical_preselected": len(codes)})
+        return codes, info, []
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        return [], info, ["validated_snapshot_error:" + type(exc).__name__]
+
+
+def target_universe(client=requests, now=None, snapshot_root=None):
+    """Full-market prior-day discovery, plus *live* turnover leaders where available.
+
+    A full historical 5,000+ name discovery is not full live market coverage.
+    Failures must stay visible; do not describe a legacy 63-name seed as full A.
+    """
+    now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
+    codes, info, errors = _snapshot_universe(now, snapshot_root)
+    names = {}
+    # The current Eastmoney leaders supplement prior-day activity, rather
+    # than letting yesterday's rank ignore newly active names.
     url = "https://push2.eastmoney.com/api/qt/clist/get"
     params = {
-        "pn": 1, "pz": 90, "po": 1, "np": 1,
+        "pn": 1, "pz": 100, "po": 1, "np": 1,
         "ut": "bd1d9ddb04089700cf9c27f6f7426281",
         "fltt": 2, "invt": 2, "fid": "f6",
         "fs": "m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",
         "fields": "f12,f14,f6",
     }
+    leaders = []
     for host in (url, url.replace("push2.", "push2delay.")):
         try:
             resp = client.get(host, params=params, headers={
@@ -162,50 +264,77 @@ def target_universe(client=requests):
             records = data.get("diff") or []
             if isinstance(records, dict):
                 records = list(records.values())
-            if not isinstance(records, list):
-                raise ValueError("invalid_market_rank_response")
+            if not isinstance(records, list) or not records:
+                raise ValueError("empty_market_rank_response")
             for q in records:
                 if not isinstance(q, dict):
                     continue
                 code = str(q.get("f12", ""))
                 if re.fullmatch(r"\d{6}", code) and code.startswith(("00", "30", "60", "68")):
-                    if code not in codes:
-                        codes.append(code)
                     if q.get("f14"):
                         names[code] = str(q["f14"])
-            if records:
-                break
+                    if code not in leaders:
+                        leaders.append(code)
+            break
         except (requests.RequestException, ValueError, TypeError) as exc:
             errors.append("eastmoney_rank:" + type(exc).__name__)
-    codes = [c for c in codes if "ST" not in names.get(c, "").upper()
-             and "退" not in names.get(c, "")]
-    return codes[:150], names, errors
+    # Place newly active names at the front for live-quote coverage, without
+    # collapsing the historical market-discovery sample.
+    codes = list(dict.fromkeys(leaders + codes))[:500]
+    if not codes:
+        # A degraded fallback is clearly labelled and never called full-market.
+        for archive in ("research_stocks.json", "recommendations.json"):
+            try:
+                rows = load_document(archive)["items"]
+            except (OSError, ValueError):
+                continue
+            for item in rows:
+                code = str(item.get("code") or "")
+                if re.fullmatch(r"\d{6}", code) and code.startswith(("00", "30", "60", "68")):
+                    if code not in codes:
+                        codes.append(code)
+                    if item.get("name"):
+                        names[code] = str(item["name"])
+        info["universe_source"] = "legacy_history_fallback_not_full_market"
+        errors.append("whole_market_discovery_unavailable")
+    info["live_quote_requested"] = len(codes)
+    info["eastmoney_leader_count"] = len(leaders)
+    info["full_market_coverage"] = False
+    return codes, names, errors, info
 
 
 def _fresh_quotes(codes, now):
     good = []
     errors = []
-    for begin in range(0, len(codes), 45):
-        chunk = [stock_symbol(c) for c in codes[begin:begin+45]]
-        try:
-            quote_rows = tencent_quotes(chunk)
-            for q in quote_rows:
-                try:
-                    stamp = datetime.fromisoformat(q["as_of"])
-                    age = (now - stamp.astimezone(CN_TZ)).total_seconds()
-                    if stamp.tzinfo is None or stamp.astimezone(CN_TZ).date() != now.date():
+    chunks = [[stock_symbol(c) for c in codes[begin:begin + 45]]
+              for begin in range(0, len(codes), 45)]
+    # 500 live quote requests, not 5,500 daily-bar network fetches. Bounded
+    # concurrency keeps the 09:50 observation within its 18-minute window.
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        pending = {executor.submit(tencent_quotes, chunk): chunk for chunk in chunks}
+        for future in as_completed(pending):
+            try:
+                quote_rows = future.result()
+                for q in quote_rows:
+                    try:
+                        stamp = datetime.fromisoformat(q["as_of"])
+                        if stamp.tzinfo is None:
+                            continue
+                        age = (now - stamp.astimezone(CN_TZ)).total_seconds()
+                        if stamp.astimezone(CN_TZ).date() != now.date():
+                            continue
+                        if not -45 <= age <= MAX_AGE:
+                            continue
+                        if "ST" in q["name"].upper() or "退" in q["name"]:
+                            continue
+                        if not math.isfinite(float(q["price"])) or not math.isfinite(float(q["pct"])):
+                            continue
+                        good.append(q)
+                    except (ValueError, KeyError, TypeError, OverflowError):
                         continue
-                    if not -45 <= age <= MAX_AGE:
-                        continue
-                    if "ST" in q["name"].upper() or "退" in q["name"]:
-                        continue
-                    if not math.isfinite(float(q["price"])) or not math.isfinite(float(q["pct"])):
-                        continue
-                    good.append(q)
-                except (ValueError, KeyError, TypeError, OverflowError):
-                    continue
-        except (requests.RequestException, ValueError, TypeError) as exc:
-            errors.append("tencent_quote_batch:" + type(exc).__name__)
+            except (requests.RequestException, ValueError, TypeError) as exc:
+                errors.append("tencent_quote_batch:" + type(exc).__name__)
+    good = list({row["code"]: row for row in good}.values())
     return good, errors
 
 
@@ -391,7 +520,13 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
         "momentum_control": [], "provider_errors": [],
     }
     try:
-        codes, names, errors = (universe_loader or target_universe)()
+        discovery = (universe_loader or target_universe)()
+        if len(discovery) == 4:
+            codes, names, errors, info = discovery
+            base.update(info)
+        else:
+            codes, names, errors = discovery
+            base["universe_source"] = "injected_test_or_legacy_partial"
         base["scanned"] = len(codes)
         base["provider_errors"].extend(errors)
         if len(codes) < 5:
@@ -399,6 +534,7 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
             return base
         quotes, errors = (quote_loader or _fresh_quotes)(codes, now)
         base["fresh_quotes"] = len(quotes)
+        base["live_quote_coverage_ratio"] = round(len(quotes) / max(1, len(codes)), 4)
         base["provider_errors"].extend(errors)
         if len(quotes) < 5:
             base["reason_code"] = "insufficient_fresh_quotes"
@@ -414,6 +550,7 @@ def execute(slot, now=None, universe_loader=None, quote_loader=None, candidate_l
             abs(float(q["pct"]) - 2.8),
             abs(float(q["volume_ratio"]) - 2),
             -min(float(q["turnover"]), 12), q["code"]))
+        base["preliminary_count"] = len(short)
         short = short[:30]
         results = []
         attempted = 0
