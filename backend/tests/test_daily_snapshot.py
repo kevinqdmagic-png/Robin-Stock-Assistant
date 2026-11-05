@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from daily_snapshot import read_snapshot, validate_snapshot
 from collect_baostock_bulk import collect
+from backfill_https_daily import frozen_universe, collect_rows
 
 DAY = "2026-11-05"
 
@@ -97,6 +98,25 @@ class DailySnapshotTests(unittest.TestCase):
         self.assertEqual(result["coverage"]["errors"], 0)
         self.assertEqual(result["excluded_non_stock_count"], 1)
         self.assertEqual(result["source_coverage"]["checked"], 5001)
+
+    def test_backup_uses_recent_deployed_universe_and_rejects_stale_base(self):
+        with tempfile.TemporaryDirectory() as root:
+            self.write(root, "baostock", document())
+            codes, source_day = frozen_universe("2026-11-06", Path(root))
+            self.assertEqual(len(codes), 5000)
+            self.assertEqual(source_day, DAY)
+            with self.assertRaisesRegex(RuntimeError, "recent verified"):
+                frozen_universe("2026-12-01", Path(root))
+
+    def test_backup_transport_outage_stops_requests_and_keeps_missing_evidence(self):
+        def down(*args):
+            raise ConnectionResetError("source transport unavailable")
+        rows, errors, attempted = collect_rows([f"sh.{600000+i}" for i in range(100)],
+                                               DAY, fetch=down, pause=lambda _: None)
+        self.assertEqual(attempted, 5)
+        self.assertEqual(rows, [])
+        self.assertEqual(len(errors), 100)
+        self.assertEqual(errors[-1]["reason"], "not_attempted_after_transport_failure")
 
     def test_single_bulk_request_includes_missing_prior_code_in_coverage(self):
         raw = [{**r, "adjustflag": "3"} for r in document()["rows"]]
