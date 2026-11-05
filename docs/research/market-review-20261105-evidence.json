@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "market_review",
+  "market_date": "2026-11-05",
+  "market_data_cutoff_at": "2026-11-05T15:00:00+08:00",
+  "collection_started_at": "2026-11-05T16:41:12+08:00",
+  "primary_daily_provider": {
+    "name": "baostock",
+    "attempted_shards": 8,
+    "successful_shards": 0,
+    "verified_rows": 0,
+    "error": "all shard logins failed with network receive error / broken pipe",
+    "used_as_today_market_data": false
+  },
+  "backup_sources": [
+    {"name": "同花顺金融研究中心", "url": "https://news.10jqka.com.cn/20261105/c681500940.shtml", "scope": "indices breadth industry summary"},
+    {"name": "东方财富Choice", "url": "https://fund.eastmoney.com/a/202611053923465485.html", "scope": "indices three-market turnover and change"},
+    {"name": "澎湃新闻/Wind", "url": "https://finance.eastmoney.com/a/202611053923486289.html", "scope": "cross-check breadth and intraday narrative"},
+    {"name": "Toupage", "url": "https://www.toupage.com/stocks/limit-up", "scope": "16:05 limit-up failed-board and ladder event list"},
+    {"name": "市场魔方看盘吧", "url": "https://www.kanpanba.com/limit/2026-11-05", "scope": "cross-check event categories and board status"}
+  ],
+  "market": {
+    "indices": {"sh000001": {"close": 3689.91, "pct": 0.10}, "sz399001": {"close": 11471.09, "pct": 1.19}, "sz399006": {"close": 2566.80, "pct": 0.87}, "sh000688": {"close": 1286.68, "pct": 1.68}, "sh000300": {"close": 4113.41, "pct": 0.29}},
+    "turnover_three_market_cny_100m": 21353,
+    "turnover_change_cny_100m": 831,
+    "breadth_source_variants": [{"source": "10jqka", "up": 4805, "down": 613, "flat": 73}, {"source": "Wind", "up": 4868, "down": 623, "flat": 84}],
+    "event_snapshot": {"source": "Toupage", "as_of": "2026-11-05T16:05:00+08:00", "limit_up": 83, "failed_limit": 47, "limit_down": 0, "seal_rate_pct": 63.8, "connected_boards": 21, "max_board": 4}
+  },
+  "event_broad_pool_count": 130,
+  "deep_event_pool_count": 28,
+  "formal_candidate_count": 0,
+  "analysis_completed": false,
+  "eligible_for_integrated_research": false,
+  "status": "partial",
+  "missing": ["full 2026-11-05 all-stock OHLCV", "turnover and RVOL5/10/20 for deep pool", "20/60/120-day position and CLV", "full official exchange limit/failed-board table", "minute and auction evidence", "previous pool T+1 MFE/MAE and executable exit"]
+}

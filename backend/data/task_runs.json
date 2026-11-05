@@ -5580,6 +5580,30 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "market-review-20261105-scheduled-close-source-bounded-v1-partial",
+      "run_id": "market-review-20261105-scheduled-close-source-bounded-v1",
+      "task_id": "market_review",
+      "date": "2026-11-05",
+      "trigger": "scheduled",
+      "started_at": "2026-11-05T16:41:12+08:00",
+      "completed_at": "2026-11-05T16:46:44+08:00",
+      "recorded_at": "2026-11-05T16:46:44+08:00",
+      "status": "partial",
+      "summary": "T=11/05指数普涨、沪深京成交21353亿元；事件广池130只、深池28只。BaoStock 8分片均登录失败，逐股OHLCV与上一池T+1验证受阻，正式0。 未满足完整研究门槛，不得转completed。",
+      "report_ids": [
+        "market-review-20261105-source-bounded-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-20261105-source-bounded-v1.md",
+        "docs/research/market-review-20261105-evidence.json"
+      ]
     }
   ]
 }
