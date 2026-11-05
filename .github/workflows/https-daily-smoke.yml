@@ -1,0 +1,49 @@
+name: Free HTTPS daily OHLCV smoke
+on:
+  workflow_dispatch:
+    inputs:
+      research_day:
+        description: 'Completed A-share day YYYY-MM-DD'
+        required: true
+        default: '2026-11-05'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/https-daily-smoke.yml'
+      - 'backend/eastmoney_daily_https.py'
+      - 'backend/test_eastmoney_daily_https.py'
+      - 'backend/collect_daily_https_smoke.py'
+permissions:
+  contents: write
+  issues: write
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: PYTHONPATH=backend python -m unittest backend/test_eastmoney_daily_https.py
+      - name: Verify actual HTTPS daily OHLCV
+        env:
+          RESEARCH_DAY: ${{ inputs.research_day || '2026-11-05' }}
+        run: PYTHONPATH=backend python backend/collect_daily_https_smoke.py
+      - name: Commit validated sample only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add backend/data/https_daily_smoke/
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: validated free HTTPS daily OHLCV smoke'
+            git push
+          fi
+      - name: Post evidence to Issue 25
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment 25 --body "Daily HTTPS 2-stock smoke: $JOB_STATUS; run: $RUN_URL. This does NOT certify full-market daily coverage."
