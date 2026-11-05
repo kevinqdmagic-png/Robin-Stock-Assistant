@@ -44,11 +44,15 @@ jobs:
           code=$?
           if [ "$code" -ne 0 ]; then
             # A blacklist response requires cooldown, never another immediate login.
-            if ! rg -q '10001011' backend/data/market_source_status/baostock-"$RESEARCH_DAY".json; then
+            if ! grep -q '10001011' backend/data/market_source_status/baostock-"$RESEARCH_DAY".json; then
               sleep 30
               timeout 120s env PYTHONPATH=backend python scripts/collect_baostock_bulk.py --date "$RESEARCH_DAY"
               code=$?
             fi
+          fi
+          if [ ! -f backend/data/market_source_status/baostock-"$RESEARCH_DAY".json ]; then
+            mkdir -p backend/data/market_source_status
+            python -c 'import json,os,pathlib; day=os.environ["RESEARCH_DAY"]; pathlib.Path("backend/data/market_source_status/baostock-"+day+".json").write_text(json.dumps({"provider":"baostock","trade_date":day,"ok":False,"status":"timeout_no_result"})+"\n")'
           fi
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
       - name: Publish operational status and only validated new history

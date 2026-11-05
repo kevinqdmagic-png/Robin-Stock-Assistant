@@ -5,10 +5,6 @@ on:
       research_day:
         required: true
         default: '2026-11-05'
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/https-daily-full.yml'
   workflow_run:
     workflows: ['Daily validated BaoStock Shanghai Shenzhen close']
     types: [completed]

@@ -1,11 +1,5 @@
 name: Verified five-minute HTTPS/BaoStock collection
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/baostock-five-minute.yml'
-      - 'backend/eastmoney_five_minute_https.py'
-      - 'backend/collect_baostock_five_minute.py'
   workflow_dispatch:
     inputs:
       research_day:
