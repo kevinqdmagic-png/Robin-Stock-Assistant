@@ -6,8 +6,7 @@ import socket
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-from baostock_snapshot import CODE_RE
-from daily_snapshot import validate_snapshot
+from daily_snapshot import STOCK_CODE_RE, validate_snapshot
 
 
 def records(result):
@@ -30,7 +29,7 @@ def collect(client, day, prior_codes):
             raise ValueError("baostock_login_failed:" + login.error_code + ":" + login.error_msg)
         logged_in = True
         raw = records(client.query_daily_history_k_AStock(date=day))
-        scoped = [r for r in raw if CODE_RE.fullmatch(str(r.get("code", "")))]
+        scoped = [r for r in raw if STOCK_CODE_RE.fullmatch(str(r.get("code", "")))]
         codes = [r["code"] for r in scoped]
         if len(set(codes)) != len(codes):
             raise ValueError("duplicate_bulk_code")
@@ -95,7 +94,7 @@ def main():
             if not (day > path.stem >= (date.fromisoformat(day) - timedelta(days=10)).isoformat()):
                 continue
             payload = json.loads(path.read_text())
-            validate_snapshot(payload, path.stem, "baostock")
+            payload = validate_snapshot(payload, path.stem, "baostock")
             prior_codes.update(r["code"] for r in payload["rows"] + payload["errors"])
             break
         import baostock as bs

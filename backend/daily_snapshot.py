@@ -1,6 +1,7 @@
 """Validated, dated SH/SZ history with explicit provider fallback and units."""
 import json
 import math
+import re
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -10,6 +11,7 @@ from baostock_snapshot import CODE_RE
 ROOT = Path(__file__).resolve().parent / "data"
 SOURCES = (("baostock", "baostock"),
            ("eastmoney_https_unofficial", "https_daily_full"))
+STOCK_CODE_RE = re.compile(r"^(?:sh\.6\d{5}|sz\.(?:00|30)\d{4})$")
 
 
 def validate_snapshot(payload, day, provider):
@@ -45,7 +47,18 @@ def validate_snapshot(payload, day, provider):
         item.update(volume=v * (100 if unit == "lots_100_shares" else 1),
                     volume_unit="shares", native_volume=v, native_volume_unit=unit)
         normalized.append(item)
-    return {**payload, "rows": normalized}
+    # The older sz.3-prefix universe also admitted 399xxx Shenzhen indices.
+    # Preserve frozen raw files, but never count those as A-share stocks.
+    stocks = [r for r in normalized if STOCK_CODE_RE.fullmatch(r["code"])]
+    stock_errors = [e for e in errors if STOCK_CODE_RE.fullmatch(e["code"])]
+    stock_checked = len(stocks) + len(stock_errors)
+    if stock_checked < 5000 or len(stocks) / stock_checked < .90:
+        raise ValueError("stock_only_coverage_invalid")
+    return {**payload, "rows": stocks, "errors": stock_errors,
+            "source_coverage": payload.get("source_coverage", coverage),
+            "excluded_non_stock_count": checked - stock_checked,
+            "coverage": {**coverage, "checked": stock_checked, "verified": len(stocks),
+                         "errors": len(stock_errors), "coverage_ratio": round(len(stocks) / stock_checked, 6)}}
 
 
 def read_snapshot(day, root=None):

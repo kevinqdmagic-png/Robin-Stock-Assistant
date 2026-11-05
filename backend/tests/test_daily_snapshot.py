@@ -88,6 +88,16 @@ class DailySnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "coverage_invalid"):
             validate_snapshot(doc, DAY, "baostock")
 
+    def test_legacy_shenzhen_index_not_counted_as_stock_or_outage(self):
+        doc = document()
+        doc["errors"].append({"code": "sz.399001", "reason": "legacy_index_missing"})
+        doc["coverage"].update(checked=5001, errors=1, coverage_ratio=round(5000/5001, 6))
+        result = validate_snapshot(doc, DAY, "baostock")
+        self.assertEqual(result["coverage"]["checked"], 5000)
+        self.assertEqual(result["coverage"]["errors"], 0)
+        self.assertEqual(result["excluded_non_stock_count"], 1)
+        self.assertEqual(result["source_coverage"]["checked"], 5001)
+
     def test_single_bulk_request_includes_missing_prior_code_in_coverage(self):
         raw = [{**r, "adjustflag": "3"} for r in document()["rows"]]
 
