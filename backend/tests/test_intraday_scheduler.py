@@ -50,6 +50,40 @@ class IntradaySchedulerTests(unittest.TestCase):
         self.assertEqual(o["status"],"no_signal")
         self.assertEqual(o["candidates"],[])
 
+    def test_weak_market_still_freezes_two_rank_only_shadow_observations(self):
+        at = datetime(2026, 10, 14, 9, 50, tzinfo=CN)
+        quotes = [dict(q(f"60{i:04d}", at), pct=-2.5 - i * 0.4)
+                  for i in range(8)]
+        def relative(stock, day, now):
+            return {"code": stock["code"], "name": stock["name"],
+                    "price": stock["price"], "as_of": stock["as_of"],
+                    "score": 1.0, "model_version": "intraday_relative_shadow_v1",
+                    "shadow_only": True, "signal_validated": False,
+                    "buy_order_allowed": False}
+        result = module.execute(
+            "early_pair", at,
+            lambda: ([item["code"] for item in quotes], {}, []),
+            lambda codes, now: (quotes, []),
+            lambda stock, day, now: None, relative)
+        self.assertEqual(result["status"], "observed")
+        self.assertEqual(result["relative_shadow_count"], 2)
+        self.assertEqual(result["strict_shadow_count"], 0)
+        self.assertEqual(len(result["candidates"]), 2)
+        self.assertEqual(result["reason_code"], "relative_shadow_fallback_not_backtested")
+        self.assertTrue(all(item["shadow_only"] for item in result["candidates"]))
+        self.assertTrue(all(not item["buy_order_allowed"] for item in result["candidates"]))
+
+    def test_relative_fallback_cannot_override_missing_live_quotes(self):
+        at = datetime(2026, 10, 14, 14, 40, tzinfo=CN)
+        result = module.execute(
+            "late_pair", at, lambda: ([f"60{i:04d}" for i in range(8)], {}, []),
+            lambda codes, now: ([], ["quote_provider_down"]),
+            lambda stock, day, now: None,
+            lambda stock, day, now: {"code": stock["code"], "score": 99})
+        self.assertEqual(result["status"], "blocked")
+        self.assertEqual(result["candidates"], [])
+        self.assertEqual(result["reason_code"], "insufficient_fresh_quotes")
+
     def test_not_enough_fresh_quotes_returns_blocked_and_attempts(self):
         at=datetime(2026,10,14,14,40,tzinfo=CN)
         codes=[f"60{i:04d}" for i in range(8)]
