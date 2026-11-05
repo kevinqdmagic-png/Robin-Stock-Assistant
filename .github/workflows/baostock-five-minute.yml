@@ -18,7 +18,7 @@ permissions:
   contents: write
   issues: write
 concurrency:
-  group: baostock-five-minute-collection
+  group: baostock-source-access
   cancel-in-progress: false
 jobs:
   collect:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install 'baostock>=0.8.9,<0.9'
+      - run: pip install 'baostock==0.9.3'
       - name: Run five-minute parser unit tests
         run: PYTHONPATH=backend python -m unittest backend/test_baostock_five_minute.py backend/test_baostock_session.py
       - name: Fetch verified five-minute bars

@@ -1,19 +1,18 @@
 name: Backfill Shanghai Shenzhen A-share historical daily bars
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'scripts/backfill_baostock_daily.py'
-      - '.github/workflows/baostock-backfill.yml'
 permissions:
   contents: write
+concurrency:
+  group: baostock-source-access
+  cancel-in-progress: false
 jobs:
   historical-backfill:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 1
       matrix:
         shard: [0, 1, 2, 3, 4, 5, 6, 7]
     steps:

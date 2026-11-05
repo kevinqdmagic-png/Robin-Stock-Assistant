@@ -206,14 +206,21 @@ def _snapshot_universe(now, root=None):
             "whole_market_live_scanned": False}
     if expected is None:
         return [], info, ["snapshot_previous_session_unknown"]
-    location = (root or (Path(__file__).resolve().parent / "data" / "baostock")) / (expected + ".json")
-    if not location.is_file():
-        return [], info, ["validated_snapshot_missing:" + expected]
     try:
-        payload = json.loads(location.read_text(encoding="utf-8"))
+        if root is None:
+            from daily_snapshot import read_snapshot
+            payload = read_snapshot(expected)
+            if not payload.get("ok"):
+                return [], info, ["validated_snapshot_missing:" + expected]
+        else:
+            location = root / (expected + ".json")
+            if not location.is_file():
+                return [], info, ["validated_snapshot_missing:" + expected]
+            payload = json.loads(location.read_text(encoding="utf-8"))
+        provider = payload.get("provider")
         rows = payload.get("rows") or []
         coverage = payload.get("coverage") or {}
-        if (payload.get("provider") != "baostock"
+        if (provider not in ("baostock", "eastmoney_https_unofficial")
                 or payload.get("status") != "historical_observation_only"
                 or payload.get("trade_date") != expected
                 or coverage.get("checked", 0) < 5000
@@ -226,7 +233,9 @@ def _snapshot_universe(now, root=None):
             raise ValueError("snapshot_discovery_pool_inadequate")
         info.update({"historical_universe_count": len(rows),
                      "historical_coverage_ratio": coverage["coverage_ratio"],
-                     "universe_source": "prior_completed_baostock_historical_market",
+                     "universe_source": "prior_completed_" + provider + "_historical_market",
+                     "historical_provider": provider,
+                     "historical_fallback_used": payload.get("fallback_used", False),
                      "historical_preselected": len(codes)})
         return codes, info, []
     except (OSError, ValueError, TypeError, KeyError) as exc:

@@ -40,4 +40,5 @@ def fetch_daily_https(code, day, opener=None):
     return {"code": code, "date": day, "open": op, "high": high, "low": low,
             "close": close, "volume": vol, "amount": amount,
             "provider": "eastmoney_https_unofficial", "adjustment": "none",
+            "volume_unit": "lots_100_shares",
             "historical_only": True}

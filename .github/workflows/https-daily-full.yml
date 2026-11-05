@@ -9,13 +9,20 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/https-daily-full.yml'
+  workflow_run:
+    workflows: ['Daily validated BaoStock Shanghai Shenzhen close']
+    types: [completed]
   schedule:
     - cron: '45 9 * * 1-5'
 permissions:
   contents: write
   issues: write
+concurrency:
+  group: daily-https-collection
+  cancel-in-progress: false
 jobs:
   collect:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     strategy:
@@ -91,5 +98,6 @@ jobs:
           git add backend/data/https_daily_full/
           if ! git diff --cached --quiet; then
             git commit -m 'data: validated full-universe HTTPS daily snapshot'
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi

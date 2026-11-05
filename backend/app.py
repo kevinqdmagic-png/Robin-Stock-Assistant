@@ -20,6 +20,7 @@ from intraday_scheduler import (latest as intraday_status, tracking_status as in
                                 start_scheduler as start_intraday_scheduler)
 from daily_providers import tencent_daily, historical_daily_with_fallback
 from baostock_snapshot import load_snapshot
+from daily_snapshot import history as daily_snapshot_history, source_status as daily_source_status
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health, resident_intraday_health
 from provider_health import record_provider_event, quality_summary
@@ -94,6 +95,22 @@ def baostock_history(date: str = "2026-11-03", code: str = "", limit: int = 100,
         return load_snapshot(date, code, limit, offset)
     except (ValueError, OSError, json.JSONDecodeError) as exc:
         return {"ok": False, "status": "snapshot_read_failed", "reason": str(exc), "trade_date": date, "rows": []}
+
+
+@app.get("/api/market/daily/history")
+def validated_daily_history(date: str, code: str = "", limit: int = 100, offset: int = 0):
+    try:
+        return daily_snapshot_history(date, code, limit, offset)
+    except (ValueError, TypeError, OSError) as exc:
+        return {"ok": False, "status": "invalid_daily_request", "reason": str(exc), "rows": []}
+
+
+@app.get("/api/market/data-status")
+def market_data_status(date: str):
+    try:
+        return daily_source_status(date)
+    except (ValueError, TypeError, OSError) as exc:
+        return {"ok": False, "status": "invalid_daily_request", "reason": str(exc)}
 
 
 @app.get("/api/market/history/five-minute/archive")

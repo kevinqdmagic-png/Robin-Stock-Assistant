@@ -7,12 +7,15 @@ on:
       - 'scripts/probe_baostock.py'
       - '.github/workflows/baostock-health.yml'
   schedule:
-    # 17:30 Beijing (09:30 UTC), Monday-Friday. Holiday/no-bar is not an outage.
-    - cron: '30 9 * * 1-5'
+    # 20:45 Beijing, separate from daily collection; all BaoStock workflows share one lock.
+    - cron: '45 12 * * 1-5'
 
 permissions:
   contents: read
 
+concurrency:
+  group: baostock-source-access
+  cancel-in-progress: false
 jobs:
   baostock-probe:
     runs-on: ubuntu-latest
