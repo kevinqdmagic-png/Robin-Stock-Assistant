@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-06T18:25:23.095209+00:00",
+  "updated_at": "2026-11-07T06:42:29+08:00",
   "source": "repository_task_registry_app_and_external_research_snapshot",
   "items": [
     {
@@ -86,7 +86,7 @@
       "enabled": true,
       "one_time": false,
       "dependencies": [],
-      "configuration_confirmed_at": "2026-10-15T17:49:46.905+00:00",
+      "configuration_confirmed_at": "2026-11-07T06:42:29+08:00",
       "execution_mode": "combined_pair_component_full_research_with_partial_fallback",
       "effective_enabled": true,
       "partial_executor_enabled": true,
@@ -331,11 +331,11 @@
     },
     {
       "id": "learning_review",
-      "title": "A股每日研究学习复核",
+      "title": "每日学习复核＋周日研究总结",
       "track": "market_review",
       "summary": "复核最新学习快照、成熟/未成熟价格观察、失败归因与影子假设；不自动改规则、权重或冒充真实成交。",
-      "schedule_text": "每个A股交易日完成后复核最新学习快照；APP仅展示已归档报告和回执",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261015T080000\nRRULE:FREQ=WEEKLY;BYDAY=TU,WE,TH,FR,SA;BYHOUR=8;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+      "schedule_text": "奥克兰周二至周六08:00每日学习与查漏；周日08:00每周研究总结，共用一个外部调度。",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261108T080000\nRRULE:FREQ=WEEKLY;BYDAY=TU,WE,TH,FR,SA,SU;BYHOUR=8;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
       "enabled": true,
@@ -348,11 +348,11 @@
         "dragon_tiger"
       ],
       "include_legacy_reports": false,
-      "execution_mode": "external_scheduled_learning_review",
+      "execution_mode": "external_scheduled_learning_and_weekly_review",
       "research_rule_version": "forward_learning_v1",
       "automatic_training": false,
       "auto_rule_updates": false,
-      "configuration_confirmed_at": "2026-10-16T19:17:36.820Z",
+      "configuration_confirmed_at": "2026-11-07T06:42:29+08:00",
       "recovery_due_local_time": "08:00",
       "recovery_due_timezone": "Pacific/Auckland",
       "missing_delivery_expires": false
@@ -362,7 +362,7 @@
       "title": "每周股市研究总结",
       "track": "market_review",
       "summary": "总结一周及累计研究，分别评估上涨比例与平均收益，把发现转成下周可验证的交易假设。",
-      "schedule_text": "奥克兰周日08:00左右；周末临时轮换名额，结束后恢复量价任务。",
+      "schedule_text": "奥克兰周日08:00，由每日学习复核共用调度执行；不暂停量价。",
       "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261108T080000\nRRULE:FREQ=WEEKLY;BYDAY=SU;BYHOUR=8;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "flexible_schedule",
@@ -370,9 +370,11 @@
       "effective_enabled": true,
       "one_time": false,
       "dependencies": [],
-      "execution_mode": "external_weekend_rotating_slot",
+      "execution_mode": "merged_learning_review_weekly_component",
       "include_legacy_reports": false,
-      "configuration_confirmed_at": "2026-11-06T18:25:23.095209+00:00"
+      "configuration_confirmed_at": "2026-11-07T06:42:29+08:00",
+      "independent_schedule_enabled": false,
+      "executor_task_id": "learning_review"
     }
   ]
 }

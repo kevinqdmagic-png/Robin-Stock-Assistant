@@ -6145,6 +6145,130 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "recovery-20261106-volume_price-manual-v1-receipt",
+      "run_id": "recovery-20261106-volume_price-manual-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-06",
+      "trigger": "manual",
+      "started_at": "2026-11-07T06:32:25+08:00",
+      "recorded_at": "2026-11-07T06:42:29+08:00",
+      "completed_at": "2026-11-07T06:42:29+08:00",
+      "status": "partial",
+      "summary": "补齐原深池其余23只历史五分钟；28/28均48根且与独立日线OHLC、量额核对通过，板块时点与成交证据仍缺。",
+      "report_ids": [
+        "recovery-20261106-volume_price-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://www.baostock.com/",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261106-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261106-low_position-manual-v1-receipt",
+      "run_id": "recovery-20261106-low_position-manual-v1",
+      "task_id": "low_position",
+      "date": "2026-11-06",
+      "trigger": "manual",
+      "started_at": "2026-11-07T06:32:25+08:00",
+      "recorded_at": "2026-11-07T06:42:29+08:00",
+      "completed_at": "2026-11-07T06:42:29+08:00",
+      "status": "partial",
+      "summary": "本地归档补齐52条旧样本/51代码截至11月6日全部日线路径；120只广池中保留9只低位量价形态作待核对照。",
+      "report_ids": [
+        "recovery-20261106-low_position-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://www.baostock.com/",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261106-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261106-dragon_tiger-manual-v1-receipt",
+      "run_id": "recovery-20261106-dragon_tiger-manual-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-06",
+      "trigger": "manual",
+      "started_at": "2026-11-07T06:32:25+08:00",
+      "recorded_at": "2026-11-07T06:42:29+08:00",
+      "completed_at": "2026-11-07T06:42:29+08:00",
+      "status": "partial",
+      "summary": "取得沪深71条原因/57只全部买卖席位；25只两侧前五与上交所原文精确一致，深市及科创官方核验尚未齐。",
+      "report_ids": [
+        "recovery-20261106-dragon_tiger-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_DAILYBILLBOARD_DETAILS&columns=ALL&filter=%28TRADE_DATE%3D%272026-11-06%27%29&pageSize=500&pageNumber=1&source=WEB&client=WEB&sortColumns=SECURITY_CODE&sortTypes=1",
+        "https://query.sse.com.cn/infodisplay/showTradePublicFile.do?jsonCallBack=&isPagination=false&dateTx=2026-11-06&pageHelp.pageSize=200&pageHelp.pageNo=1",
+        "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=1802_xxpl&txtStart=2026-11-06&txtEnd=2026-11-06&tab1PAGENO=1",
+        "https://www.aijingu.com/longhubang/2026-11-06.html"
+      ]
+    },
+    {
+      "id": "recovery-20261106-learning_review-manual-v1-receipt",
+      "run_id": "recovery-20261106-learning_review-manual-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-06",
+      "trigger": "manual",
+      "started_at": "2026-11-07T06:32:25+08:00",
+      "recorded_at": "2026-11-07T06:42:29+08:00",
+      "completed_at": "2026-11-07T06:42:29+08:00",
+      "status": "completed",
+      "summary": "已复核11月6日31条学习记录、17证券基准日/8日期，拆分成功率与收益目标；真实成交与净收益均未知，未自动调权。",
+      "report_ids": [
+        "recovery-20261106-learning_review-v1"
+      ],
+      "analysis_completed": true,
+      "sources": [
+        "https://robin-stock-api-production.up.railway.app/api/learning",
+        "https://robin-stock-api-production.up.railway.app/api/strategy-lab",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=late_pair"
+      ]
+    },
+    {
+      "id": "recovery-20261106-limitup_single-manual-v1-receipt",
+      "run_id": "recovery-20261106-limitup_single-manual-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-06",
+      "trigger": "manual",
+      "started_at": "2026-11-07T06:32:25+08:00",
+      "recorded_at": "2026-11-07T06:42:29+08:00",
+      "completed_at": "2026-11-07T06:42:29+08:00",
+      "status": "partial",
+      "summary": "独立核对T日涨停生态和20%/10%风险；下周一60秒承接、竞价及封单无原时点证据，正式打板0只。",
+      "report_ids": [
+        "recovery-20261106-limitup_single-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://www.baostock.com/",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261106-evidence.json"
+      ]
+    },
+    {
+      "id": "recovery-20261106-combined_pair-manual-v1-receipt",
+      "run_id": "recovery-20261106-combined_pair-manual-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-06",
+      "trigger": "manual",
+      "started_at": "2026-11-07T06:32:25+08:00",
+      "recorded_at": "2026-11-07T06:42:29+08:00",
+      "completed_at": "2026-11-07T06:42:29+08:00",
+      "status": "waiting",
+      "summary": "已读全部同T报告并在学习/独立打板之后重评，保留两只原量价待综合观察；前置仍partial，尚未形成最终双标。",
+      "report_ids": [
+        "recovery-20261106-combined_pair-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://www.baostock.com/",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261106-evidence.json"
+      ]
     }
   ]
 }

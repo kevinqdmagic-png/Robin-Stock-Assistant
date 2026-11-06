@@ -1,0 +1,26 @@
+{
+  "sse": {
+    "source": "https://query.sse.com.cn/infodisplay/showTradePublicFile.do?jsonCallBack=&isPagination=false&dateTx=2026-11-06&pageHelp.pageSize=200&pageHelp.pageNo=1",
+    "file": "docs/research/recovery-20261106-sse.txt",
+    "bytes": 57430,
+    "retrieved_at": "2026-11-06T22:34:26.830678+00:00",
+    "contains_date": true,
+    "sample": "{\"actionErrors\":[],\"actionMessages\":[],\"dateTx\":\"2026-11-06\",\"fieldErrors\":{},\"fileContents\":[\"            上海证券交易所每日交易信息\",\"\",\"交易�"
+  },
+  "szse": {
+    "source": "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=1802_xxpl&txtStart=2026-11-06&txtEnd=2026-11-06&tab1PAGENO=1",
+    "file": "docs/research/recovery-20261106-szse.txt",
+    "bytes": 440,
+    "retrieved_at": "2026-11-06T22:34:22.290474+00:00",
+    "contains_date": false,
+    "sample": "[{\"metadata\":{\"catalogid\":null,\"name\":null,\"excel\":null,\"pagetype\":null,\"subname\":null,\"tabkey\":null,\"pagesize\":null,\"pageno\":0,\"pagecount\":0,\"recordcount\":0,\"s"
+  },
+  "aijingu": {
+    "source": "https://www.aijingu.com/longhubang/2026-11-06.html",
+    "file": "docs/research/recovery-20261106-aijingu.txt",
+    "bytes": 209842,
+    "retrieved_at": "2026-11-06T22:34:22.973050+00:00",
+    "contains_date": true,
+    "sample": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name="
+  }
+}

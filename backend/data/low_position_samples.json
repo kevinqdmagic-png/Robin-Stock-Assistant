@@ -3,7 +3,7 @@
   "track": "low_position",
   "research_version": "low_position_30d_v1",
   "created_at": "2026-10-08T08:15:08.201Z",
-  "updated_at": "2026-10-30T18:20:11+08:00",
+  "updated_at": "2026-11-07T06:42:29+08:00",
   "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
   "milestones_calendar_days": [
     1,
@@ -1749,6 +1749,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 44,
+          "trading_day": 26,
+          "open": 42.68,
+          "high": 43.73,
+          "low": 42.42,
+          "close": 42.8,
+          "change_from_day0_pct": 13.89036721660457,
+          "maximum_price_excursion_pct": 21.208089409260246,
+          "minimum_price_excursion_pct": -14.02341671101649,
+          "close_path_drawdown_pct": -15.81920903954801,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -3487,6 +3518,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 44,
+          "trading_day": 26,
+          "open": 17.01,
+          "high": 17.42,
+          "low": 16.95,
+          "close": 17.14,
+          "change_from_day0_pct": -6.543075245365316,
+          "maximum_price_excursion_pct": 0.8724100327153872,
+          "minimum_price_excursion_pct": -12.977099236641221,
+          "close_path_drawdown_pct": -12.704471101417658,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -5234,6 +5296,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 39,
+          "trading_day": 24,
+          "open": 10.39,
+          "high": 10.61,
+          "low": 10.34,
+          "close": 10.53,
+          "change_from_day0_pct": 7.558733401430029,
+          "maximum_price_excursion_pct": 8.3758937691522,
+          "minimum_price_excursion_pct": -8.069458631256376,
+          "close_path_drawdown_pct": -10.236220472440948,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -6966,6 +7059,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 39,
+          "trading_day": 24,
+          "open": 7.05,
+          "high": 7.21,
+          "low": 7.0,
+          "close": 7.02,
+          "change_from_day0_pct": -5.645161290322587,
+          "maximum_price_excursion_pct": 14.650537634408579,
+          "minimum_price_excursion_pct": -14.381720430107524,
+          "close_path_drawdown_pct": -22.775800711743777,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -8701,6 +8825,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 39,
+          "trading_day": 24,
+          "open": 30.42,
+          "high": 31.77,
+          "low": 30.27,
+          "close": 31.35,
+          "change_from_day0_pct": 3.3289386947923605,
+          "maximum_price_excursion_pct": 10.019775873434412,
+          "minimum_price_excursion_pct": -15.29334212261042,
+          "close_path_drawdown_pct": -20.911854103343465,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -10463,6 +10618,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 39,
+          "trading_day": 24,
+          "open": 12.21,
+          "high": 12.6,
+          "low": 12.1,
+          "close": 12.33,
+          "change_from_day0_pct": -16.463414634146346,
+          "maximum_price_excursion_pct": 14.769647696476973,
+          "minimum_price_excursion_pct": -22.69647696476964,
+          "close_path_drawdown_pct": -30.137807070101864,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -12230,6 +12416,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 38,
+          "trading_day": 23,
+          "open": 24.4,
+          "high": 25.59,
+          "low": 24.38,
+          "close": 24.9,
+          "change_from_day0_pct": -13.179916317991635,
+          "maximum_price_excursion_pct": 12.064156206415632,
+          "minimum_price_excursion_pct": -22.524407252440724,
+          "close_path_drawdown_pct": -27.82747603833866,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -13965,6 +14182,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 38,
+          "trading_day": 23,
+          "open": 6.58,
+          "high": 6.85,
+          "low": 6.57,
+          "close": 6.59,
+          "change_from_day0_pct": -20.79326923076924,
+          "maximum_price_excursion_pct": 12.139423076923084,
+          "minimum_price_excursion_pct": -26.682692307692314,
+          "close_path_drawdown_pct": -31.808278867102402,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -15727,6 +15975,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 38,
+          "trading_day": 23,
+          "open": 13.07,
+          "high": 13.43,
+          "low": 13.02,
+          "close": 13.12,
+          "change_from_day0_pct": -14.583333333333337,
+          "maximum_price_excursion_pct": 33.13802083333333,
+          "minimum_price_excursion_pct": -22.395833333333325,
+          "close_path_drawdown_pct": -36.24020887728459,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -17479,6 +17758,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 38,
+          "trading_day": 23,
+          "open": 9.35,
+          "high": 9.55,
+          "low": 9.34,
+          "close": 9.37,
+          "change_from_day0_pct": -0.9513742071881826,
+          "maximum_price_excursion_pct": 11.522198731501065,
+          "minimum_price_excursion_pct": -9.513742071881614,
+          "close_path_drawdown_pct": -11.067580803134192,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -19231,6 +19541,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 38,
+          "trading_day": 23,
+          "open": 8.34,
+          "high": 9.4,
+          "low": 8.33,
+          "close": 8.75,
+          "change_from_day0_pct": 11.18170266836087,
+          "maximum_price_excursion_pct": 24.26937738246504,
+          "minimum_price_excursion_pct": -10.419313850063538,
+          "close_path_drawdown_pct": -22.49488752556237,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -20883,6 +21224,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 28,
+          "trading_day": 20,
+          "open": 3.7,
+          "high": 4.08,
+          "low": 3.67,
+          "close": 3.85,
+          "change_from_day0_pct": 1.049868766404205,
+          "maximum_price_excursion_pct": 9.973753280839915,
+          "minimum_price_excursion_pct": -7.874015748031504,
+          "close_path_drawdown_pct": -9.045226130653262,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -22533,6 +22905,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 28,
+          "trading_day": 20,
+          "open": 13.21,
+          "high": 13.8,
+          "low": 13.19,
+          "close": 13.49,
+          "change_from_day0_pct": -21.341107871720112,
+          "maximum_price_excursion_pct": 19.999999999999996,
+          "minimum_price_excursion_pct": -27.463556851311953,
+          "close_path_drawdown_pct": -34.33766233766234,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -24200,6 +24603,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 28,
+          "trading_day": 20,
+          "open": 26.0,
+          "high": 27.14,
+          "low": 25.83,
+          "close": 26.2,
+          "change_from_day0_pct": -3.5701140964298994,
+          "maximum_price_excursion_pct": 1.2145748987854255,
+          "minimum_price_excursion_pct": -18.66028708133971,
+          "close_path_drawdown_pct": -16.0471107839529,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -25867,6 +26301,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 28,
+          "trading_day": 20,
+          "open": 12.93,
+          "high": 13.69,
+          "low": 12.93,
+          "close": 13.06,
+          "change_from_day0_pct": 1.4763014763014892,
+          "maximum_price_excursion_pct": 7.770007770007781,
+          "minimum_price_excursion_pct": -10.95571095571094,
+          "close_path_drawdown_pct": -11.73312883435582,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -27497,6 +27962,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 25,
+          "trading_day": 19,
+          "open": 7.41,
+          "high": 7.96,
+          "low": 7.4,
+          "close": 7.63,
+          "change_from_day0_pct": -7.738814993954046,
+          "maximum_price_excursion_pct": 8.585247883917791,
+          "minimum_price_excursion_pct": -24.546553808948,
+          "close_path_drawdown_pct": -22.61185006045948,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -29121,6 +29617,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 25,
+          "trading_day": 19,
+          "open": 5.43,
+          "high": 5.58,
+          "low": 5.39,
+          "close": 5.55,
+          "change_from_day0_pct": 8.823529411764719,
+          "maximum_price_excursion_pct": 10.000000000000009,
+          "minimum_price_excursion_pct": -3.9215686274509665,
+          "close_path_drawdown_pct": -6.060606060606066,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -30745,6 +31272,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 25,
+          "trading_day": 19,
+          "open": 13.74,
+          "high": 14.23,
+          "low": 13.66,
+          "close": 13.74,
+          "change_from_day0_pct": -26.445396145610278,
+          "maximum_price_excursion_pct": 0.0,
+          "minimum_price_excursion_pct": -32.22698072805139,
+          "close_path_drawdown_pct": -29.97858672376873,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -32228,6 +32786,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 10.92,
+          "high": 11.3,
+          "low": 10.89,
+          "close": 11.03,
+          "change_from_day0_pct": -9.515996718621821,
+          "maximum_price_excursion_pct": 0.0,
+          "minimum_price_excursion_pct": -20.016406890894167,
+          "close_path_drawdown_pct": -16.488925348646433,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -33713,6 +34302,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 51.0,
+          "high": 53.47,
+          "low": 51.0,
+          "close": 51.39,
+          "change_from_day0_pct": 6.1996280223186595,
+          "maximum_price_excursion_pct": 14.693118412895224,
+          "minimum_price_excursion_pct": -13.205207687538746,
+          "close_path_drawdown_pct": -11.861954949369713,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -35197,6 +35817,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 17.8,
+          "high": 18.37,
+          "low": 17.64,
+          "close": 17.85,
+          "change_from_day0_pct": 6.8222621184919285,
+          "maximum_price_excursion_pct": 16.337522441651696,
+          "minimum_price_excursion_pct": -4.9670855774985085,
+          "close_path_drawdown_pct": -7.159090909090915,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -36681,6 +37332,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 30.94,
+          "high": 34.04,
+          "low": 30.77,
+          "close": 32.38,
+          "change_from_day0_pct": -5.12745385291532,
+          "maximum_price_excursion_pct": 7.3249340755933146,
+          "minimum_price_excursion_pct": -21.418107237034867,
+          "close_path_drawdown_pct": -20.499007655231082,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -38165,6 +38847,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 9.88,
+          "high": 10.08,
+          "low": 9.83,
+          "close": 10.01,
+          "change_from_day0_pct": -14.663256606990627,
+          "maximum_price_excursion_pct": 3.4100596760443302,
+          "minimum_price_excursion_pct": -17.306052855924992,
+          "close_path_drawdown_pct": -15.856777493606145,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -39649,6 +40362,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 7.99,
+          "high": 8.03,
+          "low": 7.46,
+          "close": 7.49,
+          "change_from_day0_pct": -3.3548387096774213,
+          "maximum_price_excursion_pct": 9.935483870967744,
+          "minimum_price_excursion_pct": -12.903225806451612,
+          "close_path_drawdown_pct": -16.009852216748754,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -41173,6 +41917,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 21,
+          "trading_day": 15,
+          "open": 25.96,
+          "high": 28.81,
+          "low": 25.76,
+          "close": 27.36,
+          "change_from_day0_pct": -14.766355140186926,
+          "maximum_price_excursion_pct": 4.890965732087227,
+          "minimum_price_excursion_pct": -22.9595015576324,
+          "close_path_drawdown_pct": -22.615384615384613,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -42696,6 +43471,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 21,
+          "trading_day": 15,
+          "open": 3.44,
+          "high": 3.59,
+          "low": 3.4,
+          "close": 3.5,
+          "change_from_day0_pct": -2.506963788300831,
+          "maximum_price_excursion_pct": 4.73537604456824,
+          "minimum_price_excursion_pct": -10.027855153203335,
+          "close_path_drawdown_pct": -5.163043478260865,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -44125,6 +44931,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 18,
+          "trading_day": 14,
+          "open": 14.6,
+          "high": 15.34,
+          "low": 14.55,
+          "close": 15.0,
+          "change_from_day0_pct": 11.275964391691385,
+          "maximum_price_excursion_pct": 16.839762611275955,
+          "minimum_price_excursion_pct": -4.302670623145399,
+          "close_path_drawdown_pct": -10.609037328094296,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -45554,6 +46391,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 18,
+          "trading_day": 14,
+          "open": 10.97,
+          "high": 11.38,
+          "low": 10.95,
+          "close": 11.16,
+          "change_from_day0_pct": -18.65889212827989,
+          "maximum_price_excursion_pct": 1.6763848396501357,
+          "minimum_price_excursion_pct": -25.437317784256564,
+          "close_path_drawdown_pct": -24.416909620991266,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -46983,6 +47851,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 18,
+          "trading_day": 14,
+          "open": 38.3,
+          "high": 39.4,
+          "low": 37.51,
+          "close": 37.98,
+          "change_from_day0_pct": -10.191534641759292,
+          "maximum_price_excursion_pct": 8.512650744856941,
+          "minimum_price_excursion_pct": -16.741546464885314,
+          "close_path_drawdown_pct": -15.914170764416635,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -48412,6 +49311,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 18,
+          "trading_day": 14,
+          "open": 33.25,
+          "high": 34.51,
+          "low": 33.25,
+          "close": 33.83,
+          "change_from_day0_pct": 12.354699435403527,
+          "maximum_price_excursion_pct": 15.011624045167737,
+          "minimum_price_excursion_pct": -6.310195948189968,
+          "close_path_drawdown_pct": -3.2151143520053105,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -49841,6 +50771,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 18,
+          "trading_day": 14,
+          "open": 64.2,
+          "high": 67.1,
+          "low": 64.11,
+          "close": 66.12,
+          "change_from_day0_pct": 28.31360372598486,
+          "maximum_price_excursion_pct": 31.826120706384643,
+          "minimum_price_excursion_pct": -0.9120900446341951,
+          "close_path_drawdown_pct": -10.24926205313218,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -51270,6 +52231,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 18,
+          "trading_day": 14,
+          "open": 17.87,
+          "high": 18.65,
+          "low": 17.87,
+          "close": 18.3,
+          "change_from_day0_pct": 6.767794632438751,
+          "maximum_price_excursion_pct": 15.519253208868156,
+          "minimum_price_excursion_pct": -8.109684947491246,
+          "close_path_drawdown_pct": -10.659340659340643,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -52631,6 +53623,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 17,
+          "trading_day": 13,
+          "open": 24.36,
+          "high": 26.98,
+          "low": 24.36,
+          "close": 24.91,
+          "change_from_day0_pct": -2.771272443403594,
+          "maximum_price_excursion_pct": 8.196721311475397,
+          "minimum_price_excursion_pct": -27.86885245901639,
+          "close_path_drawdown_pct": -25.704361250482442,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -54063,6 +55086,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 17,
+          "trading_day": 13,
+          "open": 94.0,
+          "high": 105.2,
+          "low": 93.0,
+          "close": 101.95,
+          "change_from_day0_pct": 40.48504891828581,
+          "maximum_price_excursion_pct": 44.96348353314043,
+          "minimum_price_excursion_pct": -2.4528041890588215,
+          "close_path_drawdown_pct": -13.304588851247301,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -55424,6 +56478,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 17,
+          "trading_day": 13,
+          "open": 13.53,
+          "high": 14.47,
+          "low": 13.51,
+          "close": 14.05,
+          "change_from_day0_pct": 6.198034769463345,
+          "maximum_price_excursion_pct": 18.669690098261515,
+          "minimum_price_excursion_pct": -1.9652305366591016,
+          "close_path_drawdown_pct": -9.004739336492895,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -56657,6 +57742,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 15,
+          "trading_day": 11,
+          "open": 29.35,
+          "high": 29.91,
+          "low": 29.25,
+          "close": 29.91,
+          "change_from_day0_pct": 0.3018108651911433,
+          "maximum_price_excursion_pct": 0.9389671361502483,
+          "minimum_price_excursion_pct": -3.588195841716968,
+          "close_path_drawdown_pct": -2.36745581860619,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -57890,6 +59006,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 15,
+          "trading_day": 11,
+          "open": 3.7,
+          "high": 4.08,
+          "low": 3.67,
+          "close": 3.85,
+          "change_from_day0_pct": -3.2663316582914548,
+          "maximum_price_excursion_pct": 2.5125628140703515,
+          "minimum_price_excursion_pct": -10.80402010050252,
+          "close_path_drawdown_pct": -9.045226130653262,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -59123,6 +60270,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 15,
+          "trading_day": 11,
+          "open": 7.29,
+          "high": 7.32,
+          "low": 7.17,
+          "close": 7.28,
+          "change_from_day0_pct": -1.6216216216216273,
+          "maximum_price_excursion_pct": 3.2432432432432323,
+          "minimum_price_excursion_pct": -3.9189189189189233,
+          "close_path_drawdown_pct": -4.100529100529093,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -60356,6 +61534,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 15,
+          "trading_day": 11,
+          "open": 6.01,
+          "high": 6.52,
+          "low": 6.0,
+          "close": 6.35,
+          "change_from_day0_pct": 4.098360655737698,
+          "maximum_price_excursion_pct": 9.344262295081961,
+          "minimum_price_excursion_pct": -7.049180327868854,
+          "close_path_drawdown_pct": -5.205047318611989,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ],
       "sources": [
@@ -61453,6 +62662,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 11,
+          "trading_day": 9,
+          "open": 4.4,
+          "high": 4.49,
+          "low": 4.36,
+          "close": 4.37,
+          "change_from_day0_pct": -4.793028322440085,
+          "maximum_price_excursion_pct": 8.932461873638342,
+          "minimum_price_excursion_pct": -11.546840958605674,
+          "close_path_drawdown_pct": -8.995815899581604,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -62404,6 +63644,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 11,
+          "trading_day": 9,
+          "open": 39.83,
+          "high": 40.37,
+          "low": 39.7,
+          "close": 40.04,
+          "change_from_day0_pct": 2.116806937005866,
+          "maximum_price_excursion_pct": 8.135679673552666,
+          "minimum_price_excursion_pct": -2.4993624075490994,
+          "close_path_drawdown_pct": -3.156872268091304,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -63497,6 +64768,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 11,
+          "trading_day": 9,
+          "open": 23.02,
+          "high": 23.3,
+          "low": 21.38,
+          "close": 22.49,
+          "change_from_day0_pct": 65.12481644640235,
+          "maximum_price_excursion_pct": 75.33039647577094,
+          "minimum_price_excursion_pct": 0.0,
+          "close_path_drawdown_pct": -3.185535944898843,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -64362,6 +65664,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 10,
+          "trading_day": 8,
+          "open": 11.7,
+          "high": 12.08,
+          "low": 11.65,
+          "close": 11.9,
+          "change_from_day0_pct": -11.786508524833206,
+          "maximum_price_excursion_pct": 6.6716085989621865,
+          "minimum_price_excursion_pct": -17.716827279466273,
+          "close_path_drawdown_pct": -15.97421203438396,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -65225,6 +66558,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 10,
+          "trading_day": 8,
+          "open": 10.04,
+          "high": 10.18,
+          "low": 9.95,
+          "close": 9.98,
+          "change_from_day0_pct": -1.188118811881178,
+          "maximum_price_excursion_pct": 4.35643564356436,
+          "minimum_price_excursion_pct": -7.128712871287113,
+          "close_path_drawdown_pct": -5.742574257425748,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -65853,6 +67217,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 9,
+          "trading_day": 7,
+          "open": 6.3,
+          "high": 6.3,
+          "low": 6.13,
+          "close": 6.22,
+          "change_from_day0_pct": -6.184012066365008,
+          "maximum_price_excursion_pct": 5.2790346907994,
+          "minimum_price_excursion_pct": -7.843137254901955,
+          "close_path_drawdown_pct": -6.184012066365008,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -66481,6 +67876,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 9,
+          "trading_day": 7,
+          "open": 14.64,
+          "high": 15.13,
+          "low": 14.62,
+          "close": 14.92,
+          "change_from_day0_pct": -16.787506971556056,
+          "maximum_price_excursion_pct": 0.0,
+          "minimum_price_excursion_pct": -21.918572225320688,
+          "close_path_drawdown_pct": -18.404907975460116,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -67109,6 +68535,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 9,
+          "trading_day": 7,
+          "open": 14.8,
+          "high": 15.12,
+          "low": 14.58,
+          "close": 14.74,
+          "change_from_day0_pct": -13.599062133645944,
+          "maximum_price_excursion_pct": 3.75146541617819,
+          "minimum_price_excursion_pct": -16.998827667057437,
+          "close_path_drawdown_pct": -13.599062133645944,
+          "initial_invalidation_triggered": true,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -67543,6 +69000,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 8,
+          "trading_day": 6,
+          "open": 54.0,
+          "high": 56.65,
+          "low": 54.0,
+          "close": 55.0,
+          "change_from_day0_pct": -1.610017889087656,
+          "maximum_price_excursion_pct": 6.833631484794278,
+          "minimum_price_excursion_pct": -8.568872987477638,
+          "close_path_drawdown_pct": -5.777141835092103,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -67978,6 +69466,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 8,
+          "trading_day": 6,
+          "open": 13.1,
+          "high": 13.73,
+          "low": 13.01,
+          "close": 13.57,
+          "change_from_day0_pct": 8.64691753402722,
+          "maximum_price_excursion_pct": 9.9279423538831,
+          "minimum_price_excursion_pct": -3.122497998398721,
+          "close_path_drawdown_pct": -0.1532567049808531,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -68412,6 +69931,37 @@
           ],
           "recorded_at": "2026-10-30T18:20:11+08:00",
           "calculated_at": "2026-10-30T09:58:27.513117+00:00"
+        },
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 8,
+          "trading_day": 6,
+          "open": 18.26,
+          "high": 18.75,
+          "low": 18.16,
+          "close": 18.4,
+          "change_from_day0_pct": -7.398087569199808,
+          "maximum_price_excursion_pct": 9.109209864116764,
+          "minimum_price_excursion_pct": -9.360845495722192,
+          "close_path_drawdown_pct": -12.837517764092855,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
         }
       ]
     },
@@ -68617,7 +70167,39 @@
         "entry_fill_verified": null,
         "executable_net_return_pct": null
       },
-      "observations": []
+      "observations": [
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 7,
+          "trading_day": 5,
+          "open": 81.1,
+          "high": 81.67,
+          "low": 79.81,
+          "close": 81.17,
+          "change_from_day0_pct": 5.319839107305069,
+          "maximum_price_excursion_pct": 5.968599974049571,
+          "minimum_price_excursion_pct": 0.0,
+          "close_path_drawdown_pct": -1.9678217821782251,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        }
+      ]
     },
     {
       "id": "low-position-20261030-600510-v1",
@@ -68822,7 +70404,39 @@
         "entry_fill_verified": null,
         "executable_net_return_pct": null
       },
-      "observations": []
+      "observations": [
+        {
+          "as_of": "2026-11-06",
+          "recorded_at": "2026-11-07T06:40:37+08:00",
+          "calendar_day": 7,
+          "trading_day": 5,
+          "open": 6.6,
+          "high": 7.05,
+          "low": 6.56,
+          "close": 6.94,
+          "change_from_day0_pct": 7.430340557275539,
+          "maximum_price_excursion_pct": 9.133126934984514,
+          "minimum_price_excursion_pct": -5.572755417956666,
+          "close_path_drawdown_pct": -3.3434650455926973,
+          "initial_invalidation_triggered": false,
+          "status": "historical_close_path_observation",
+          "executed_trade": false,
+          "executable_net_return": null,
+          "day0_comparison_only": true,
+          "source": "backend/data/baostock/2026-11-06.json",
+          "path_sources": [
+            "docs/research/combined-pair-20261030-evidence.json.gz",
+            "docs/research/nov02-retrospective-market.json",
+            "backend/data/baostock/2026-11-03.json",
+            "backend/data/baostock/2026-11-04.json",
+            "backend/data/baostock/2026-11-05.json",
+            "backend/data/baostock/2026-11-06.json"
+          ],
+          "path_missing_dates": [],
+          "original_snapshot_eligibility_unchanged": true,
+          "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        }
+      ]
     }
   ],
   "comparison_items": [
