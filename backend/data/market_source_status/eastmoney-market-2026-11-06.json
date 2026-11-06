@@ -1,0 +1,27 @@
+{
+  "provider": "Eastmoney close market list HTTPS",
+  "trade_date": "2026-11-06",
+  "attempted_at": "2026-11-06T10:28:14Z",
+  "scope": "Shanghai+Shenzhen; Beijing excluded",
+  "pages_requested": 56,
+  "pages_verified": 55,
+  "page_errors": {
+    "5": "TimeoutError:The read operation timed out"
+  },
+  "rows_received": 5463,
+  "unique_codes": 5463,
+  "deep_pool_requested": 28,
+  "deep_pool_turnover_verified": 28,
+  "deep_pool_close_crosscheck_tolerance": 0.03,
+  "fields": [
+    "close",
+    "pct",
+    "volume",
+    "amount",
+    "turnover",
+    "volume_ratio",
+    "OHLC",
+    "industry"
+  ],
+  "status": "partial_full_list_one_page_timeout_deep_pool_complete"
+}
