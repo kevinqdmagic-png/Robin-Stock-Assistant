@@ -5823,6 +5823,25 @@
         "docs/research/recovery-20261105-learning_review.md",
         "docs/research/recovery-20261105-evidence.json"
       ]
+    },
+    {
+      "id": "early_pair-20261106-gh-42188331484",
+      "run_id": "github-actions-42188331484",
+      "task_id": "early_pair",
+      "date": "2026-11-06",
+      "trigger": "scheduled",
+      "started_at": "2026-11-06T16:32:14.953850+08:00",
+      "recorded_at": "2026-11-06T16:32:15.065749+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 16:32:14。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/42188331484"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
