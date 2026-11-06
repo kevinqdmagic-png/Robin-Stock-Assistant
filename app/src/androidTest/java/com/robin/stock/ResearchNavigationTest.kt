@@ -1,8 +1,9 @@
 package com.robin.stock
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Build
+import android.os.ParcelFileDescriptor
+import android.os.SystemClock
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,6 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.io.File
 
 @RunWith(AndroidJUnit4::class)
 class ResearchNavigationTest {
@@ -40,12 +40,17 @@ class ResearchNavigationTest {
     }
     private fun screenshot(name: String) {
         instrumentation.waitForIdleSync()
-        val bitmap = instrumentation.uiAutomation.takeScreenshot()
-        assertNotNull(bitmap)
-        File(instrumentation.targetContext.filesDir, name).outputStream().use {
-            assertTrue(bitmap.compress(Bitmap.CompressFormat.PNG, 100, it))
-        }
-        bitmap.recycle()
+        SystemClock.sleep(2000)
+        // Gradle uninstalls the target package after instrumentation. Keep the
+        // emulator-only QA images outside its deleted private files directory.
+        val path = "/sdcard/Download/$name"
+        ParcelFileDescriptor.AutoCloseInputStream(
+            instrumentation.uiAutomation.executeShellCommand("screencap -p $path")
+        ).use { it.readBytes() }
+        val bytes = ParcelFileDescriptor.AutoCloseInputStream(
+            instrumentation.uiAutomation.executeShellCommand("cat $path")
+        ).use { it.readBytes() }
+        assertTrue("Valid screenshot bytes", bytes.size > 1000 && bytes.take(4) == listOf(-119, 80, 78, 71).map { it.toByte() })
     }
 
     @Test fun notificationResearchWatchlistDetailAndValidationRemainReachable() {

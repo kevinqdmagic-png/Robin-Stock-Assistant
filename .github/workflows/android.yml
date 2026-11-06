@@ -45,12 +45,12 @@ jobs:
           script: |
             mkdir -p ui-smoke
             gradle :app:connectedDebugAndroidTest
-            adb exec-out run-as com.robin.stock cat files/navigation-research.png > ui-smoke/light-research.png
-            adb exec-out run-as com.robin.stock cat files/navigation-validation.png > ui-smoke/light-validation.png
+            adb pull /sdcard/Download/navigation-research.png ui-smoke/light-research.png
+            adb pull /sdcard/Download/navigation-validation.png ui-smoke/light-validation.png
             adb shell cmd uimode night yes
             gradle :app:connectedDebugAndroidTest --rerun-tasks
-            adb exec-out run-as com.robin.stock cat files/navigation-research.png > ui-smoke/dark-research.png
-            adb exec-out run-as com.robin.stock cat files/navigation-validation.png > ui-smoke/dark-validation.png
+            adb pull /sdcard/Download/navigation-research.png ui-smoke/dark-research.png
+            adb pull /sdcard/Download/navigation-validation.png ui-smoke/dark-validation.png
       - uses: actions/upload-artifact@v4
         if: always()
         with:
