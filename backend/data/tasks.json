@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-24T18:14:54.957065+08:00",
+  "updated_at": "2026-11-06T17:31:43.459661+00:00",
   "source": "repository_task_registry_app_and_external_research_snapshot",
   "items": [
     {
@@ -173,9 +173,9 @@
       "id": "combined_pair",
       "title": "综合双标＋每日打板",
       "track": "market_review",
-      "summary": "同一外部编排分别完成四项前置后的综合决策和独立打板v2；两个栏目、样本与回执分开保留。",
-      "schedule_text": "外部合并研究与复查；四项前置齐备才作综合裁决，打板v2独立归档；GitHub局部证据只作兜底审计",
-      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261001T223000\nRRULE:FREQ=DAILY;BYHOUR=0,6,22,23;BYMINUTE=30\nEND:VEVENT",
+      "summary": "所有研究与学习复核完成后，先归档独立打板，再综合比较各模块候选与反例，最后形成每日双标；正式买点沿用四项前置和原风控。",
+      "schedule_text": "次日奥克兰09:00（周二至周六），在08:00学习复核之后最后执行；缺项先实际补做，未完成综合比较不标最终双标。",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261107T090000\nRRULE:FREQ=WEEKLY;BYDAY=TU,WE,TH,FR,SA;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
       "enabled": true,
@@ -186,7 +186,7 @@
         "low_position",
         "dragon_tiger"
       ],
-      "configuration_confirmed_at": "2026-10-24T18:14:54.957065+08:00",
+      "configuration_confirmed_at": "2026-11-06T17:31:43.459661+00:00",
       "executes_missing_tasks": [
         "market_review",
         "volume_price",
@@ -206,7 +206,17 @@
       ],
       "also_executes_task_ids": [
         "limitup_single"
-      ]
+      ],
+      "final_execution_stage": true,
+      "final_research_inputs": [
+        "market_review",
+        "volume_price",
+        "low_position",
+        "dragon_tiger",
+        "learning_review",
+        "limitup_single"
+      ],
+      "final_output_requires_input_manifest": true
     },
     {
       "id": "early_pair",

@@ -18,9 +18,10 @@ MIN_UNIQUE_DATES = 20
 
 
 def summarize_snapshot(snapshot):
-    """Deduplicate identical date+symbol outcomes across overlapping research tracks."""
+    """Deduplicate by the actual price anchor, not a report's publication date."""
     rows = snapshot.get("evaluations") or []
     by_symbol_date = {}
+    signal_events = set()
     duplicates = 0
     for item in rows:
         if item.get("status") not in {"observed", "partially_observed"}:
@@ -28,7 +29,11 @@ def summarize_snapshot(snapshot):
         code, day = item.get("code"), item.get("signal_date")
         if not (code and day):
             continue
-        key = (str(code), str(day))
+        signal_events.add((str(code), str(day)))
+        # A same-day intraday observation and a next-entry-day close proxy
+        # may share report date+symbol but have different baselines/horizons.
+        anchor = item.get("anchor_date") or day
+        key = (str(code), str(anchor))
         if key in by_symbol_date:
             duplicates += 1
         else:
@@ -46,6 +51,7 @@ def summarize_snapshot(snapshot):
         horizons[str(horizon)] = {
             "sample_count": len(vals),
             "unique_signal_dates": len({r["signal_date"] for r, _ in pool}),
+            "unique_anchor_dates": len({r.get("anchor_date") or r["signal_date"] for r, _ in pool}),
             "positive_pct": round(100 * sum(v > 0 for v in vals) / len(vals), 2) if vals else None,
             "average_price_change_pct": round(mean(vals), 3) if vals else None,
             "median_price_change_pct": round(median(vals), 3) if vals else None,
@@ -55,12 +61,14 @@ def summarize_snapshot(snapshot):
         }
     mature = horizons["2"]
     enough = (mature["sample_count"] >= MIN_FEATURED_SAMPLES and
-              mature["unique_signal_dates"] >= MIN_UNIQUE_DATES)
+              mature["unique_anchor_dates"] >= MIN_UNIQUE_DATES)
     return {
         "ok": True, "snapshot_date": snapshot.get("date"),
         "status": "shadow_observation_only",
         "raw_signal_rows": len(rows),
-        "distinct_signal_date_symbols": len(by_symbol_date),
+        "distinct_signal_date_symbols": len(signal_events),
+        "distinct_anchor_date_symbols": len(by_symbol_date),
+        "deduplication_basis": "symbol_and_actual_anchor_date",
         "overlap_rows_excluded": duplicates,
         "horizons": horizons,
         "research_gate": {
@@ -75,7 +83,7 @@ def summarize_snapshot(snapshot):
         "actual_trades_verified": 0,
         "app_auto_trading_enabled": False,
         "automatic_weight_updates": False,
-        "warning": "价格观察不是买入后的净收益，同日或同股票重复信号已按股票-日期去重。"
+        "warning": "价格观察不是买入后的净收益；按股票与实际价格基准日去重，同股票相邻基准日仍可能相关，不能视为独立成交。"
     }
 
 

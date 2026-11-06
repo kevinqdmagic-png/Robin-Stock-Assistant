@@ -78,6 +78,21 @@ class StrategyLabTests(unittest.TestCase):
         self.assertIsNone(result["horizons"]["2"]["positive_pct"])
         self.assertEqual(result["actual_trades_verified"], 0)
 
+    def test_same_report_date_with_different_price_anchors_is_not_collapsed(self):
+        first = {"code": "601872", "signal_date": "2026-10-08", "status": "observed",
+                 "anchor_date": "2026-10-08", "horizons": [
+                     {"h": 1, "date": "2026-10-09", "status": "observed", "close_pct": .182}]}
+        second = {**first, "anchor_date": "2026-10-09", "horizons": [
+                     {"h": 1, "date": "2026-10-12", "status": "observed", "close_pct": -9.379}]}
+        result = summarize_snapshot({"date": DAY, "evaluations": [first, second]})
+        reverse = summarize_snapshot({"date": DAY, "evaluations": [second, first]})
+        self.assertEqual(result, reverse)
+        self.assertEqual(result["distinct_signal_date_symbols"], 1)
+        self.assertEqual(result["distinct_anchor_date_symbols"], 2)
+        self.assertEqual(result["horizons"]["1"]["sample_count"], 2)
+        self.assertEqual(result["horizons"]["1"]["unique_anchor_dates"], 2)
+        self.assertEqual(result["overlap_rows_excluded"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

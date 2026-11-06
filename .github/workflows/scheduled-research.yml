@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
         env:
           GH_RUN_ID: ${{ github.run_id }}
-        run: python scripts/run_scheduled_research.py --run-id "$GH_RUN_ID" --result scheduled_research_status.json
+        run: python scripts/run_scheduled_research.py --run-id "$GH_RUN_ID" --recover-latest-completed --result scheduled_research_status.json
       - name: Publish research archive first, then linked receipts
         if: always() && steps.bases.outcome == 'success' && steps.study.outcome != 'skipped'
         env:

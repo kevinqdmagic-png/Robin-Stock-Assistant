@@ -1,4 +1,4 @@
-"""Collect verified BaoStock five-minute history to a dated JSON artifact."""
+"""Collect verified multi-source five-minute history to a dated JSON artifact."""
 import json
 import os
 from datetime import datetime
@@ -73,9 +73,12 @@ def main():
             results[code] = item
         except Exception as exc:
             errors[code] = str(exc)[:200]
-    print(json.dumps({"date": DAY, "success": list(results), "errors": errors}, ensure_ascii=False))
+    print(json.dumps({"date": DAY, "requested_count": len(CODES),
+                      "verified_count": len(results), "success": list(results),
+                      "providers": {code: item.get("provider") for code, item in results.items()},
+                      "errors": errors}, ensure_ascii=False))
     if not results:
-        raise SystemExit("No complete BaoStock five-minute history; refusing to publish")
+        raise SystemExit("No complete multi-source five-minute history; refusing to publish")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({"date": DAY, "source": "verified_multi_source_5m", "stocks": results,
                                "errors": errors}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

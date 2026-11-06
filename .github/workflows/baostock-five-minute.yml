@@ -49,7 +49,7 @@ jobs:
       - name: Summarize failed collection
         if: failure()
         run: |
-          echo "### BaoStock 5-minute collection failed" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Multi-source 5-minute collection failed" >> "$GITHUB_STEP_SUMMARY"
           echo "No unverified bars were published. Inspect Fetch verified five-minute bars logs." >> "$GITHUB_STEP_SUMMARY"
       - name: Commit collected history only on success
         run: |
@@ -57,7 +57,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add backend/data/baostock_five_minute/
           if ! git diff --cached --quiet; then
-            git commit -m "data: verified BaoStock five-minute historical snapshot"
+            git commit -m "data: verified multi-source five-minute historical snapshot"
             git push
           fi
       - name: Report collection status to Issue 25
@@ -69,8 +69,8 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           if [ "$JOB_STATUS" = "success" ]; then
-            MESSAGE="BaoStock 5m collector: SUCCESS; verified archive committed. Run: $RUN_URL"
+            MESSAGE="Multi-source 5m collector: SUCCESS; dated archive records verified count and actual provider per stock. This is not proof of BaoStock connectivity or full-market coverage. Run: $RUN_URL"
           else
-            MESSAGE="BaoStock 5m collector: FAILED; no verified archive published. Check job logs: $RUN_URL"
+            MESSAGE="Multi-source 5m collector: FAILED; no verified archive published. Check job logs: $RUN_URL"
           fi
           gh issue comment 25 --body "$MESSAGE"

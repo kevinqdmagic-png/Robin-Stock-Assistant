@@ -66,6 +66,46 @@ class ScheduledResearchTests(unittest.TestCase):
         more = mod.stage(reports, runs, self.registry, snapshot, "12346", self.now)[1]
         self.assertEqual(len(more["items"]), 10)
 
+    def test_delayed_midnight_run_recovers_previous_session_without_backdating_signals(self):
+        delayed = datetime(2026, 10, 16, 0, 48, tzinfo=CN)
+        snapshot = mod.collect(delayed, pool=[str(600001 + i) for i in range(14)],
+                               day_provider=self.daily, quote_provider=self.quotes,
+                               recover_latest_completed=True)
+        self.assertTrue(snapshot["eligible"])
+        self.assertEqual(snapshot["day"], "2026-10-15")
+        self.assertEqual(snapshot["fresh"], 14)
+        self.assertTrue(snapshot["historical_recovery_only"])
+        reports, runs, info = mod.stage(self.reports, self.runs, self.registry,
+                                        snapshot, "12348", delayed)
+        self.assertNotEqual(info["status"], "skipped")
+        self.assertTrue(all(r["date"] == "2026-10-15" for r in runs["items"]))
+        self.assertTrue(all(r["published_at"].startswith("2026-10-16T00:48")
+                            for r in reports["items"]))
+        low = next(r for r in reports["items"] if r["task_id"] == "low_position")
+        self.assertEqual(low["signal_observations"], [])
+        self.assertTrue(all(r["historical_recovery_only"] for r in reports["items"]))
+        self.assertTrue(all(not r["analysis_completed"] for r in runs["items"]))
+
+    def test_saturday_recovery_targets_friday_and_ignores_later_bars(self):
+        saturday = datetime(2026, 11, 7, 0, 48, tzinfo=CN)
+        from unittest.mock import patch
+        # Calendar selection is independent of provider availability.
+        with patch.object(mod, "analyze_one", side_effect=ValueError("provider_down")):
+            snapshot = mod.collect(saturday, pool=["600001"],
+                                   quote_provider=lambda _: [],
+                                   recover_latest_completed=True)
+        self.assertEqual(snapshot["day"], "2026-11-06")
+        self.assertTrue(snapshot["eligible"])
+        self.assertEqual(snapshot["fresh"], 0)
+        later = datetime(2026, 10, 16, 18, 17, tzinfo=CN)
+        def with_later_bar(*args, **kwargs):
+            return self.daily(*args, **kwargs) + [{"date": "2026-10-16", "open": 99,
+                "close": 99, "high": 99, "low": 99, "volume": 200}]
+        row = mod.analyze_one("600001", later, provider=with_later_bar,
+                              research_day="2026-10-15")
+        self.assertEqual(row["date"], "2026-10-15")
+        self.assertEqual(row["close"], 10.1)
+
     def test_only_sixty_observed_bars_can_generate_sixty_day_low_signal(self):
         from learning_loop import is_session
         def full_daily(code, limit=125, adjust="1"):

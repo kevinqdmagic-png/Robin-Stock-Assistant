@@ -22,6 +22,7 @@ from quote_providers import tencent_quotes
 from research_archive import load_document, validate_document, verify_append_only
 from task_center import validate_runs
 from trading_calendar import session_state, completed_bars
+from learning_loop import latest_completed_session
 
 CN = ZoneInfo("Asia/Shanghai")
 INDEXES = ("sh000001", "sz399001", "sz399006", "sh000688")
@@ -75,9 +76,11 @@ def discover_candidates():
     return pool, sources, errors
 
 
-def analyze_one(code, now, provider=tencent_daily):
+def analyze_one(code, now, provider=tencent_daily, research_day=None):
+    day = research_day or now.date().isoformat()
     bars = completed_bars(provider(code, limit=125, adjust="1"), now)
-    if len(bars) < 26 or bars[-1]["date"] != now.date().isoformat():
+    bars = [bar for bar in bars if bar["date"] <= day]
+    if len(bars) < 26 or bars[-1]["date"] != day:
         raise ValueError("insufficient_same_day_history")
     recent = bars[-1]
     prev = bars[-2]
@@ -99,8 +102,16 @@ def analyze_one(code, now, provider=tencent_daily):
     }
 
 
-def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6):
-    if not eligible(now):
+def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6,
+            recover_latest_completed=False):
+    now = now.astimezone(CN)
+    day = now.date().isoformat()
+    if recover_latest_completed:
+        completed = latest_completed_session(now)
+        if completed is None:
+            raise ValueError("completed_session_calendar_unverified")
+        day = completed.isoformat()
+    elif not eligible(now):
         return {"eligible": False, "day": now.date().isoformat(), "reason": session_state(now)["code"]}
     if pool is None:
         pool, sources, discovery_errors = discover_candidates()
@@ -115,7 +126,7 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6):
         quotes = quote_provider(INDEXES)
         for quote in quotes:
             observed = datetime.fromisoformat(quote["as_of"])
-            if (observed.tzinfo and observed.astimezone(CN).date() == now.date()
+            if (observed.tzinfo and observed.astimezone(CN).date().isoformat() == day
                     and observed.astimezone(CN).time() >= time(14, 55)):
                 indexes.append({k: quote.get(k) for k in ("code", "name", "price", "pct", "as_of", "source")})
         if len(indexes) != len(INDEXES):
@@ -124,7 +135,7 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6):
         errors["index_quote_" + type(exc).__name__] += 1
     observations = []
     with ThreadPoolExecutor(max_workers=max(1, min(workers, 8))) as executor:
-        jobs = {executor.submit(analyze_one, code, now, day_provider): code for code in pool}
+        jobs = {executor.submit(analyze_one, code, now, day_provider, day): code for code in pool}
         for job in as_completed(jobs):
             try:
                 observations.append(job.result())
@@ -132,7 +143,9 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6):
                 errors["daily_" + type(exc).__name__] += 1
     observations.sort(key=lambda x: x["code"])
     return {
-        "eligible": True, "day": now.date().isoformat(), "indexes": indexes,
+        "eligible": True, "day": day, "indexes": indexes,
+        "historical_recovery_only": day != now.date().isoformat(),
+        "actual_collected_at": now.isoformat(timespec="seconds"),
         "checked": len(pool), "fresh": len(observations), "observations": observations,
         "errors": dict(errors), "universe": "research_catalog_plus_discoverable_public_turnover_leaders",
         "universe_sources": sources,
@@ -231,6 +244,13 @@ def build_reports(snapshot, now):
         for row in low_launch[:10]
     ] if low_report["run_status"] == "partial" else []
     low_report["security_st_and_listing_status_verified"] = False
+    if snapshot.get("historical_recovery_only"):
+        # Delayed daily evidence may repair an archive, never backdate a signal.
+        low_report["signal_observations"] = []
+        for row in result:
+            row["provenance"] = "delayed_historical_evidence_not_original_signal"
+            row["historical_recovery_only"] = True
+            row["body"] = ("【跨日历史补做；不恢复或新造原时点推荐】\n" + row["body"])
     return result
 
 
@@ -286,9 +306,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--result", default="scheduled_research_status.json")
+    parser.add_argument("--recover-latest-completed", action="store_true",
+                        help="Recover delayed after-close evidence for the latest completed session; never backdate signals")
     args = parser.parse_args()
     now = datetime.now(CN)
-    snapshot = collect(now)
+    snapshot = collect(now, recover_latest_completed=args.recover_latest_completed)
     reports = load_document("research.json", "ROBIN_RESEARCH_FILE")
     runs = load_document("task_runs.json", "ROBIN_TASK_RUNS_FILE")
     tasks = load_document("tasks.json", "ROBIN_TASKS_FILE")
