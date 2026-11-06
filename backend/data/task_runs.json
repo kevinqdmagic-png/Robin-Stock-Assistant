@@ -5842,6 +5842,41 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "market-review-20261106-scheduled-close-v1-partial",
+      "run_id": "market-review-20261106-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-11-06",
+      "trigger": "scheduled",
+      "started_at": "2026-11-06T17:07:59+08:00",
+      "completed_at": "2026-11-06T17:08:58+08:00",
+      "recorded_at": "2026-11-06T17:08:58+08:00",
+      "status": "partial",
+      "summary": "实质完成T=11/06沪深5218只扫描、120广池、28深筛、上一池验证与三时段候选核验；缺全行业成员及深池分钟顺序，不标completed。",
+      "report_ids": [
+        "market-review-20261106-partial-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-20261106-partial-v1.md",
+        "docs/research/market-review-20261106-evidence.json",
+        "backend/data/sina_daily_full/2026-11-06.json",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-live?slot=late_pair",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+      ],
+      "blocked_modules": [
+        "sector_full_membership",
+        "deep_pool_minute_sequence",
+        "turnover",
+        "formal_signal"
+      ],
+      "verified_fill_count": 0
     }
   ]
 }

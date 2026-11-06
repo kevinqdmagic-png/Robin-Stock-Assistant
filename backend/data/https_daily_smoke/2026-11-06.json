@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-06",
+  "source": "eastmoney_https_unofficial",
+  "sample_only": true,
+  "stocks": {
+    "sz.002218": {
+      "code": "sz.002218",
+      "date": "2026-11-06",
+      "open": 3.54,
+      "high": 4.01,
+      "low": 3.54,
+      "close": 3.69,
+      "volume": 1317104.0,
+      "amount": 496556394.94,
+      "provider": "eastmoney_https_unofficial",
+      "adjustment": "none",
+      "volume_unit": "lots_100_shares",
+      "historical_only": true
+    },
+    "sh.688109": {
+      "code": "sh.688109",
+      "date": "2026-11-06",
+      "open": 68.0,
+      "high": 72.37,
+      "low": 63.4,
+      "close": 67.77,
+      "volume": 29594.0,
+      "amount": 206098171.0,
+      "provider": "eastmoney_https_unofficial",
+      "adjustment": "none",
+      "volume_unit": "lots_100_shares",
+      "historical_only": true
+    }
+  }
+}
