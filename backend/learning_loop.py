@@ -99,6 +99,8 @@ def evaluate(record, raw_bars, source, *, as_of, horizons=HORIZONS):
         "signal_id": record.get("id"), "code": record.get("code"),
         "strategy": record.get("strategy") or record.get("model") or "unspecified",
         "task_id": record.get("task_id"),
+        "selection_model_version": record.get("model") or record.get("strategy") or "unspecified",
+        "market_regime": record.get("market_regime") or "unknown",
         "signal_date": anchor_str,
         "basis": "signal_day_unadjusted_close_proxy_not_entry_fill",
         "executed_trade": False, "executable_net_return_pct": None,

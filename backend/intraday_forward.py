@@ -181,10 +181,12 @@ def forward_summary(path, slot=None, limit=100):
             "below_minus_5_pct": round(100 * sum(v <= -5 for v in vals) / len(vals), 2),
             "strategy_profitable_verified": False,
         })
+    from research_statistics import intraday_statistics
     return {
         "ok": True, "status": "forward_price_observations_only",
         "version": VERSION, "items": entries[:max(1, min(int(limit), 200))],
         "total": len(entries), "groups": series,
+        "dual_objective_research": intraday_statistics(entries),
         "min_evaluation_signal_days": 20, "min_evaluation_samples": 36,
         "strategy_validated": False, "automatic_strategy_promotion": False,
         "executed_trades_verified": 0,

@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 from analytics import clean_bars, limit_fraction
 from learning_loop import nth_session_after, is_session
+from research_statistics import snapshot_statistics
 
 CN = ZoneInfo("Asia/Shanghai")
 HORIZONS = (1, 2, 5, 10)
@@ -71,6 +72,7 @@ def summarize_snapshot(snapshot):
         "deduplication_basis": "symbol_and_actual_anchor_date",
         "overlap_rows_excluded": duplicates,
         "horizons": horizons,
+        "dual_objective_research": snapshot_statistics(snapshot),
         "research_gate": {
             "min_samples": MIN_FEATURED_SAMPLES,
             "min_independent_dates": MIN_UNIQUE_DATES,

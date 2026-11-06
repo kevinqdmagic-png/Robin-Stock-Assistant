@@ -23,6 +23,7 @@ from baostock_snapshot import load_snapshot
 from daily_snapshot import history as daily_snapshot_history, source_status as daily_source_status
 from task_center import task_list, run_page, report_page, data_revision
 from delivery_health import delivery_health, resident_intraday_health
+from research_recovery import recovery_backlog
 from provider_health import record_provider_event, quality_summary
 from strategy_lab import summarize_snapshot
 from research_stocks import catalog, stock_research, stock_reports
@@ -365,6 +366,16 @@ def operations_delivery():
         logger.warning("Daily delivery matrix unavailable: %s", exc)
         return {"ok": False, "status": "delivery_matrix_unavailable",
                 "time_cn": now_cn(), "items": []}
+
+
+@app.get("/api/operations/recovery")
+def operations_recovery(since: str = "2026-11-02", offset: int = 0, limit: int = 50):
+    """Old research obligations remain visible across dates until verified."""
+    try:
+        return recovery_backlog(since=since, offset=offset, limit=limit)
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        logger.warning("Research recovery list unavailable: %s", exc)
+        return {"ok": False, "status": "recovery_list_unavailable", "items": []}
 
 
 @app.get("/api/operations/providers")

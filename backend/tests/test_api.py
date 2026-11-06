@@ -67,6 +67,15 @@ class APITests(unittest.TestCase):
         self.assertFalse(response["ok"])
         self.assertEqual(response["status"], "delivery_matrix_unavailable")
 
+    def test_recovery_endpoint_keeps_old_obligations_and_reports_archive_failure(self):
+        with patch("app.recovery_backlog", return_value={"ok": True, "items": [],
+                   "obligations_expire_on_date_change": False}) as tracker:
+            result = api.operations_recovery(since="2026-11-02", offset=0, limit=50)
+        self.assertFalse(result["obligations_expire_on_date_change"])
+        tracker.assert_called_once_with(since="2026-11-02", offset=0, limit=50)
+        with patch("app.recovery_backlog", side_effect=ValueError("invalid_archive")):
+            self.assertFalse(api.operations_recovery()["ok"])
+
     def test_resident_intraday_endpoint_does_not_claim_verified_trade_pick(self):
         with patch("app.intraday_status", return_value={
                 "ok": True, "slot": "late_pair", "current_status": "observed",

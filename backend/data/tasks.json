@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-06T17:31:43.459661+00:00",
+  "updated_at": "2026-11-06T17:52:53.179024+00:00",
   "source": "repository_task_registry_app_and_external_research_snapshot",
   "items": [
     {
@@ -48,7 +48,10 @@
       "effective_enabled": true,
       "partial_executor_enabled": true,
       "executor_workflow": ".github/workflows/scheduled-research.yml",
-      "full_executor_enabled": true
+      "full_executor_enabled": true,
+      "recovery_due_local_time": "21:44",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     },
     {
       "id": "quant_research",
@@ -86,7 +89,10 @@
       "partial_executor_enabled": true,
       "executor_workflow": ".github/workflows/scheduled-research.yml",
       "full_executor_enabled": true,
-      "executor_task_id": "combined_pair"
+      "executor_task_id": "combined_pair",
+      "recovery_due_local_time": "23:23",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     },
     {
       "id": "capital_behavior",
@@ -124,7 +130,10 @@
       "partial_executor_enabled": true,
       "executor_workflow": ".github/workflows/scheduled-research.yml",
       "full_executor_enabled": true,
-      "executor_task_id": "combined_pair"
+      "executor_task_id": "combined_pair",
+      "recovery_due_local_time": "23:30",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     },
     {
       "id": "dragon_tiger",
@@ -142,7 +151,10 @@
       "execution_mode": "combined_pair_component_full_research_with_partial_fallback",
       "effective_enabled": true,
       "full_executor_enabled": true,
-      "executor_task_id": "combined_pair"
+      "executor_task_id": "combined_pair",
+      "recovery_due_local_time": "23:30",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     },
     {
       "id": "low_dragon",
@@ -216,7 +228,10 @@
         "learning_review",
         "limitup_single"
       ],
-      "final_output_requires_input_manifest": true
+      "final_output_requires_input_manifest": true,
+      "recovery_due_local_time": "09:00",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     },
     {
       "id": "early_pair",
@@ -288,7 +303,10 @@
       "executor_workflow": ".github/workflows/scheduled-research.yml",
       "full_executor_enabled": true,
       "executor_task_id": "combined_pair",
-      "independent_schedule_enabled": false
+      "independent_schedule_enabled": false,
+      "recovery_due_local_time": "09:00",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     },
     {
       "id": "capital_watch_daily",
@@ -331,7 +349,10 @@
       "research_rule_version": "forward_learning_v1",
       "automatic_training": false,
       "auto_rule_updates": false,
-      "configuration_confirmed_at": "2026-10-16T19:17:36.820Z"
+      "configuration_confirmed_at": "2026-10-16T19:17:36.820Z",
+      "recovery_due_local_time": "08:00",
+      "recovery_due_timezone": "Pacific/Auckland",
+      "missing_delivery_expires": false
     }
   ]
 }
