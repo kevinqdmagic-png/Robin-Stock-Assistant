@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private var updatePollTask: Runnable? = null
     private var updateStatusView: TextView? = null
     private val autoRefreshMs = 30_000L
-    private val notifyTaskIds = setOf("market_review", "volume_price", "combined_pair", "limitup_single", "early_pair", "late_pair", "low_position", "dragon_tiger", "capital_behavior", "capital_watch_daily")
+    private val notifyTaskIds = setOf("market_review", "volume_price", "combined_pair", "limitup_single", "early_pair", "late_pair", "low_position", "dragon_tiger", "capital_behavior", "capital_watch_daily", "weekly_review")
     private val red = Color.rgb(218, 45, 61)
     private val green = Color.rgb(20, 143, 102)
     private var overviewBox: LinearLayout? = null
@@ -82,6 +82,10 @@ class MainActivity : AppCompatActivity() {
     private var watchlistLastRequestElapsedMs = 0L
     private var watchlistFollowUpTask: Runnable? = null
     private var currentTab = 0
+    private var stockDetailOpen = false
+    private var stockReturnTab = 1
+    private var researchSection = "daily"
+    private var validationSection = "performance"
     private var pageGeneration = 0
     private var minuteGeneration = 0
     private var selectedCode = ""
@@ -170,7 +174,13 @@ class MainActivity : AppCompatActivity() {
             done(fresh)
         }
     }
-    private fun openStock(code: String) { selectedCode = code; showTab(2) }
+    private fun openStock(code: String) {
+        if (!stockDetailOpen) stockReturnTab = currentTab
+        selectedCode = code; stockDetailOpen = true; showTab(2)
+    }
+    private fun openResearchArchive() {
+        stockDetailOpen = false; researchSection = "archive"; showTab(2)
+    }
     private fun request(path: String): JSONObject {
         val conn = URL(base + path).openConnection() as HttpURLConnection
         conn.connectTimeout = 12000; conn.readTimeout = 25000
@@ -212,15 +222,26 @@ class MainActivity : AppCompatActivity() {
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime())
             view.setPadding(bars.left, bars.top, bars.right, bars.bottom); insets
         }
-        showTab(if (intent.getBooleanExtra("open_research", false)) 3 else savedInstanceState?.getInt("tab") ?: 0)
+        stockDetailOpen = savedInstanceState?.getBoolean("stock_detail", false) ?: false
+        stockReturnTab = savedInstanceState?.getInt("stock_return", 1) ?: 1
+        researchSection = savedInstanceState?.getString("research_section") ?: "daily"
+        validationSection = savedInstanceState?.getString("validation_section") ?: "performance"
+        if (intent.getBooleanExtra("open_research", false)) {
+            stockDetailOpen = false; researchSection = "daily"; showTab(2)
+        } else showTab(savedInstanceState?.getInt("tab") ?: 0)
     }
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        if (intent.getBooleanExtra("open_research", false)) showTab(3)
+        if (intent.getBooleanExtra("open_research", false)) {
+            stockDetailOpen = false; researchSection = "daily"; showTab(2)
+        }
     }
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt("tab", currentTab); outState.putString("code", selectedCode); super.onSaveInstanceState(outState)
+        outState.putInt("tab", currentTab); outState.putString("code", selectedCode)
+        outState.putBoolean("stock_detail", stockDetailOpen); outState.putInt("stock_return", stockReturnTab)
+        outState.putString("research_section", researchSection); outState.putString("validation_section", validationSection)
+        super.onSaveInstanceState(outState)
     }
     override fun onResume() {
         super.onResume()
@@ -349,8 +370,7 @@ class MainActivity : AppCompatActivity() {
                         "推荐股条件核验进展" else "推荐股触达建仓观察价位")
                     .setMessage(message + "\n\n注意：不是全部介入条件成立或自动买入通知。")
                     .setPositiveButton("查看首只股票") { _, _ ->
-                        selectedCode = first.optString("code")
-                        showTab(2)
+                        openStock(first.optString("code"))
                     }
                     .setNegativeButton("知道了", null)
                     .create().also { it.show() }
@@ -438,7 +458,11 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
     @Deprecated("Legacy back handling")
-    override fun onBackPressed() { if (currentTab != 0) showTab(0) else super.onBackPressed() }
+    override fun onBackPressed() {
+        if (stockDetailOpen && currentTab == 2) {
+            stockDetailOpen = false; showTab(stockReturnTab)
+        } else if (currentTab != 0) showTab(0) else super.onBackPressed()
+    }
     private fun showTab(index: Int) {
         stopSignalFollowUp()
         stopHomeAutoRefresh()
@@ -454,20 +478,29 @@ class MainActivity : AppCompatActivity() {
         overviewBox = null
         sectorBox = null
         currentTab = index; pageGeneration++; root.removeAllViews(); nav.removeAllViews(); scroller.scrollTo(0, 0)
-        val tabs = listOf("首页", "自选", "分时", "股票研究")
+        val tabs = listOf("首页", "自选", "研究", "验证")
         tabs.forEachIndexed { i, title ->
             val item = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER; setPadding(dp(2), dp(9), dp(2), dp(8))
                 contentDescription = title; isSelected = i == index
                 addView(NavIcon(i, if (i == index) red else muted), LinearLayout.LayoutParams(dp(24), dp(24)))
                 addView(label(title, 12f, i == index).apply { setTextColor(if (i == index) red else muted); gravity = Gravity.CENTER })
-                setOnClickListener { if (currentTab != i) showTab(i) }
+                setOnClickListener {
+                    if (currentTab != i || stockDetailOpen) {
+                        stockDetailOpen = false; showTab(i)
+                    }
+                }
             }
             nav.addView(item, LinearLayout.LayoutParams(0, -2, 1f))
         }
-        root.addView(label(if (index == 0) "Robin 股票助手" else tabs[index], 26f, true))
-        root.addView(label(when(index) { 0 -> "看市场 · 等确认 · 留记录"; 1 -> "我的关注 · 保存在本机"; 2 -> "分钟走势 · 北京时间"; else -> "研究留档 · 推荐跟踪 · 历史验证" }, 13f).apply { setPadding(0, 0, 0, dp(18)) })
-        when (index) { 0 -> home(); 1 -> watchlist(); 2 -> minuteCard(); else -> research() }
+        root.addView(label(if (index == 0) "Robin 股票助手" else if (index == 2 && stockDetailOpen) "个股详情" else tabs[index], 26f, true))
+        root.addView(label(when(index) {
+            0 -> "看市场 · 等确认 · 留记录"
+            1 -> "我的关注 · 保存在本机"
+            2 -> if (stockDetailOpen) "研究理由 · 分钟走势" else "每日成果 · 历史报告 · 资金观察"
+            else -> "成功率与收益 · 学习记录 · 历史验证"
+        }, 13f).apply { setPadding(0, 0, 0, dp(18)) })
+        when (index) { 0 -> home(); 1 -> watchlist(); 2 -> if (stockDetailOpen) minuteCard() else research(); else -> validation() }
     }
 
     private fun requestAbsolute(url: String): JSONObject {
@@ -1078,7 +1111,7 @@ class MainActivity : AppCompatActivity() {
         }
         parent.addView(toggle); parent.addView(records)
         parent.addView(action("查看关联研究全文") {
-            researchCode = code; researchStockName = stock.optString("name"); researchTask = ""; researchTaskTitle = ""; showTab(3)
+            researchCode = code; researchStockName = stock.optString("name"); researchTask = ""; researchTaskTitle = ""; openResearchArchive()
         })
     }
     private fun minuteCard() {
@@ -1173,7 +1206,7 @@ class MainActivity : AppCompatActivity() {
                 box.addView(label(text, 14f).apply {
                     setTextColor(ink)
                     setPadding(0, dp(12), 0, dp(12))
-                    setOnClickListener { selectedCode = code; showTab(2) }
+                    setOnClickListener { openStock(code) }
                 })
             }
             box.addView(label("试运行信号：先接通并记录，完成样本积累后再做回测与阈值校准。", 12f))
@@ -1188,7 +1221,7 @@ class MainActivity : AppCompatActivity() {
             val x = rows.getJSONObject(i); val code = x.optString("code").takeLast(6)
             val item = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL; setPadding(0, dp(8), 0, dp(10))
-                setOnClickListener { selectedCode = code; showTab(2) }
+                setOnClickListener { openStock(code) }
             }
             val pct = x.optDouble("pct")
             textRow(item, "${x.optString("name")}  $code", pctText(pct), pct)
@@ -1229,26 +1262,59 @@ class MainActivity : AppCompatActivity() {
             renderCandidates(box, data.optJSONArray("candidates") ?: JSONArray(), data.optString("time_cn"))
         }
     }
+    private fun sectionMenu(items: List<Pair<String, String>>, selected: String, onSelect: (String) -> Unit) {
+        val buttons = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+        items.forEach { (key, title) ->
+            buttons.addView(action(title) { onSelect(key) }.apply {
+                minWidth = 0; minimumWidth = 0; textSize = 13f; minHeight = dp(48)
+                setPadding(dp(3), dp(6), dp(3), dp(6))
+                isSelected = key == selected
+                setTextColor(if (isSelected) Color.WHITE else ink)
+                backgroundTintList = android.content.res.ColorStateList.valueOf(if (isSelected) red else panelColor)
+                contentDescription = title + if (isSelected) "，已选中" else ""
+            }, LinearLayout.LayoutParams(0, -2, 1f).apply { marginEnd = dp(3) })
+        }
+        root.addView(buttons, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(12) })
+    }
     private fun research() {
+        sectionMenu(listOf("daily" to "每日成果", "archive" to "历史报告", "weekly" to "每周总结", "capital" to "资金观察"), researchSection) {
+            researchSection = it; researchCode = ""; researchStockName = ""; researchTask = ""; researchTaskTitle = ""; showTab(2)
+        }
+        when (researchSection) {
+            "archive" -> researchArchiveCard()
+            "weekly" -> { researchTask = "weekly_review"; researchTaskTitle = "每周研究总结"; researchArchiveCard() }
+            "capital" -> capitalBehaviorCard()
+            else -> {
+                intradayAutoCard()
+                dailyResultsCard()
+                recommendationCard()
+            }
+        }
+    }
+    private fun validation() {
+        sectionMenu(listOf("performance" to "收益统计", "learning" to "学习记录",
+            "backtest" to "历史验证", "tasks" to "任务状态"), validationSection) {
+            validationSection = it; showTab(3)
+        }
+        when (validationSection) {
+            "learning" -> learningCard()
+            "backtest" -> backtestCard()
+            "tasks" -> { taskCenterCard(); operationsHealthCard() }
+            else -> strategyLabCard()
+        }
+    }
+    private fun researchArchiveCard() {
         val names = linkedMapOf("" to "全部", "market_review" to "每日复盘", "volume_price" to "量价研究",
             "dragon_tiger" to "龙虎榜", "low_position" to "低位启动", "capital_behavior" to "主力行为", "limitup_single" to "每日打板", "early_pair" to "早盘9:50荐股", "late_pair" to "下午2:40荐股")
-        intradayAutoCard()
-        dailyResultsCard()
-        taskCenterCard()
-        recommendationCard()
-        learningCard()
-        strategyLabCard()
-        operationsHealthCard()
-        capitalBehaviorCard()
         if (researchCode.isNotBlank()) {
             card("${researchStockName} $researchCode · 关联研究").apply {
                 addView(label("以下全文包含这只股票的研究来源。", 12f))
-                addView(action("查看全部股票研究") { researchCode = ""; researchStockName = ""; showTab(3) })
+                addView(action("查看全部股票研究") { researchCode = ""; researchStockName = ""; openResearchArchive() })
             }
         }
         if (researchTask.isNotBlank()) {
             val selection = card("当前任务：$researchTaskTitle")
-            selection.addView(action("查看全部研究") { researchTask = ""; researchTaskTitle = ""; showTab(3) })
+            selection.addView(action("查看全部研究") { researchTask = ""; researchTaskTitle = ""; openResearchArchive() })
         }
         val archive = card("研究历史")
         val day = EditText(this).apply { hint = "按日期查看：2026-09-30"; textSize = 14f; isSingleLine = true }
@@ -1308,48 +1374,102 @@ class MainActivity : AppCompatActivity() {
         }
         archive.addView(action("按日期筛选 / 刷新") { load() })
         more.setOnClickListener { load(true) }; archive.addView(more); load()
-        // Keep history prominent; move the optional 30-day validation below it.
-        backtestCard()
     }
     private fun strategyLabCard() {
-        val panel = card("策略实验室 · 样本外研究")
-        panel.addView(label("去重统计：同一交易日、同一股票不会因不同栏目重复计算。价格观察不等于实际成交收益，策略不会自动晋级。", 12f))
-        val status = label("正在核对策略实验结果…", 12f)
+        val panel = card("成功率与收益")
+        panel.addView(label("上涨比例与平均收益分别排序；按周期和策略版本查看。", 12f))
+        val source = Spinner(this)
+        val sourceNames = listOf("盘后研究", "早盘 09:50", "尾盘 14:40", "低位形态")
+        source.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, sourceNames)
+        panel.addView(source)
+        val periods = listOf(1, 2, 5, 10)
+        val holding = Spinner(this)
+        holding.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, periods.map { "T+$it" })
+        panel.addView(holding)
+        val controls = LinearLayout(this)
+        var metric = "by_positive_rate"
+        val status = label("正在读取分组统计…", 12f)
         val rows = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        panel.addView(status); panel.addView(rows)
+        var loaded: JSONObject? = null
+        var requestId = 0
+        fun value(row: JSONObject, key: String): String =
+            if (row.isNull(key) || !row.has(key)) "—"
+            else if (key == "positive_price_rate_pct") numText(row.optDouble(key), 1) + "%"
+            else pctText(row.optDouble(key))
+        val strategyNames = mapOf("market_review_conditional" to "复盘条件观察",
+            "combined_limitup_watch" to "综合观察", "limitup_single_v1" to "打板观察 v1",
+            "low_position_shape_proxy_v1" to "低位结构", "low_chase" to "低追高观察",
+            "momentum_control" to "涨幅对照", "late_pair" to "尾盘观察", "early_pair" to "早盘观察")
+        fun render() {
+            rows.removeAllViews()
+            val data = loaded ?: return
+            val dual = data.optJSONObject("dual_objective_research")
+            if (dual == null) {
+                status.text = "分组统计尚未就绪，请稍后刷新。"
+                return
+            }
+            val selected = source.selectedItemPosition
+            val family = when (selected) { 1, 2 -> "intraday_quote_proxy"; 3 -> "low_position_structure"; else -> "recommendation_close_proxy" }
+            val slot = when (selected) { 1 -> "early_pair"; 2 -> "late_pair"; else -> "close_research" }
+            val horizon = periods[holding.selectedItemPosition.coerceIn(0, periods.lastIndex)]
+            val groups = dual.optJSONArray("groups") ?: JSONArray()
+            val rankings = dual.optJSONArray("rankings") ?: JSONArray()
+            val matching = (0 until rankings.length()).mapNotNull { rankings.optJSONObject(it) }
+                .filter { it.optString("family") == family && it.optString("slot") == slot && it.optInt("horizon") == horizon }
+            status.text = sourceNames[selected] + " · T+$horizon · " +
+                if (metric == "by_positive_rate") "按上涨比例排序" else "按平均收益排序"
+            if (matching.isEmpty()) rows.addView(label("当前分组尚无成熟样本，继续跟踪。", 13f))
+            for (comparison in matching) {
+                val ids = comparison.optJSONArray(metric) ?: JSONArray()
+                for (i in 0 until ids.length()) {
+                    val row = (0 until groups.length()).mapNotNull { groups.optJSONObject(it) }
+                        .firstOrNull { it.optString("id") == ids.optString(i) } ?: continue
+                    val name = strategyNames[row.optString("strategy")] ?: row.optString("strategy")
+                    rows.addView(label("${i + 1}. $name", 16f, true))
+                    rows.addView(label("上涨比例 ${value(row, "positive_price_rate_pct")} · 平均 ${value(row, "mean_price_change_pct")}", 13f).apply { setTextColor(ink) })
+                    rows.addView(label("${row.optInt("sample_count")} 个事件 · ${row.optInt("distinct_anchor_dates")} 个基准日期 · 中位 ${value(row, "median_price_change_pct")}", 12f))
+                    val detail = label("平均上涨 ${value(row, "average_positive_change_pct")} · 平均下跌 ${value(row, "average_negative_change_pct")}\n" +
+                        "盈亏幅度比 " + (if (row.isNull("payoff_ratio")) "—" else row.optString("payoff_ratio")) +
+                        " · 最差收盘变化 ${value(row, "worst_close_change_pct")}\n" +
+                        "路径最差不利波动 ${value(row, "worst_path_mae_pct")}\n" +
+                        "版本：${row.optString("version")} · 缺失或未成熟 ${row.optInt("expected_event_count") - row.optInt("sample_count")} 个", 12f).apply { visibility = View.GONE }
+                    val toggle = action("查看盈亏与风险") { }
+                    toggle.setOnClickListener {
+                        detail.visibility = if (detail.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                        toggle.text = if (detail.visibility == View.VISIBLE) "收起明细" else "查看盈亏与风险"
+                    }
+                    rows.addView(toggle); rows.addView(detail)
+                }
+            }
+            rows.addView(label("当前为价格观察，成交净收益尚未验证。小样本排序不代表稳定优势。", 12f))
+        }
         fun load() {
-            fetch("/api/strategy-lab") { data, error ->
-                rows.removeAllViews()
+            val id = ++requestId
+            loaded = null; rows.removeAllViews(); status.text = "正在读取分组统计…"
+            val path = when (source.selectedItemPosition) {
+                1 -> "/api/intraday-performance?slot=early_pair"
+                2 -> "/api/intraday-performance?slot=late_pair"
+                else -> "/api/strategy-lab"
+            }
+            fetch(path) { data, error ->
+                if (id != requestId) return@fetch
                 if (data == null || !data.optBoolean("ok")) {
-                    status.text = "策略实验室暂不可用。" + (error?.let { "\n" + it } ?: "")
-                    return@fetch
-                }
-                if (data.optString("status") == "no_snapshots") {
-                    status.text = "尚无可审计学习快照，继续积累。"
-                    return@fetch
-                }
-                status.text = "最新样本日 " + data.optString("snapshot_date") +
-                    " · 独立股票日期组 " + data.optInt("distinct_signal_date_symbols") +
-                    " · 排除重复 " + data.optInt("overlap_rows_excluded")
-                val horizons = data.optJSONObject("horizons")
-                for (h in listOf(1, 2, 5, 10)) {
-                    val row = horizons?.optJSONObject(h.toString()) ?: continue
-                    val n = row.optInt("sample_count")
-                    val mean = if (row.isNull("average_price_change_pct"))
-                        "N/A" else pctText(row.optDouble("average_price_change_pct"))
-                    val win = if (row.isNull("positive_pct"))
-                        "N/A" else String.format(java.util.Locale.US, "%.1f%%", row.optDouble("positive_pct"))
-                    rows.addView(label("T+$h · 有效 $n · 收涨比例 $win · 平均参考变化 $mean", 12f))
-                }
-                val gate = data.optJSONObject("research_gate")
-                val promotion = if (gate?.optBoolean("model_promotion_authorized") == true)
-                    "须人工审批" else "未授权"
-                rows.addView(label("规则晋级：$promotion · 仅观察不算净收益", 12f, true))
-                rows.addView(label("交易成交已验证：0笔。真实交易须有成交、滑点与风险证据，不能用日线最高价代替卖出收益。", 12f))
+                    status.text = "统计暂不可用，请刷新重试。" + (error?.let { "\n$it" } ?: "")
+                } else { loaded = data; render() }
             }
         }
-        panel.addView(action("刷新策略验证") { load() })
-        load()
+        controls.addView(action("看上涨比例") { metric = "by_positive_rate"; render() }, LinearLayout.LayoutParams(0, -2, 1f))
+        controls.addView(action("看平均收益") { metric = "by_mean_return"; render() }, LinearLayout.LayoutParams(0, -2, 1f))
+        panel.addView(controls); panel.addView(status); panel.addView(rows)
+        panel.addView(action("刷新统计") { load() })
+        source.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) { load() }
+            override fun onNothingSelected(parent: AdapterView<*>?) { }
+        }
+        holding.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) { render() }
+            override fun onNothingSelected(parent: AdapterView<*>?) { }
+        }
     }
 
     private fun operationsHealthCard() {
@@ -1514,15 +1634,14 @@ class MainActivity : AppCompatActivity() {
                     val row = items.optJSONObject(i) ?: continue
                     rows.addView(label(row.optString("title") + " · " +
                         (states[row.optString("status")] ?: "待核验"), 15f, true))
-                    rows.addView(label(row.optString("summary"), 12f))
+                    rows.addView(label(row.optString("summary"), 12f).apply { maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END })
                     val shadows = row.optJSONArray("research_shadow_candidates") ?: JSONArray()
                     for (j in 0 until shadows.length()) {
                         val candidate = shadows.optJSONObject(j) ?: continue
-                        rows.addView(label("观察样本：" + candidate.optString("name") + "（" + candidate.optString("code") +
-                            "） · 历史参考 " + candidate.optString("reference_price") +
-                            "\n价格时点：" + candidate.optString("reference_as_of") +
-                            "\n计划观察日：" + candidate.optString("planned_observation_date") +
-                            "\n" + candidate.optString("hypothesis") + "\n风险：" + candidate.optString("risk"), 12f))
+                        rows.addView(label("观察：" + candidate.optString("name") + "（" + candidate.optString("code") +
+                            "） · 历史参考 " + candidate.optString("reference_price"), 12f).apply {
+                            setOnClickListener { openStock(candidate.optString("code")) }
+                        })
                     }
                     if (row.optBoolean("published")) {
                         val details = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
@@ -1564,19 +1683,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun intradayAutoCard() {
         val panel = card("14:40 / 09:50 · 自动盘中研究")
-        panel.addView(label("由Railway常驻执行器按北京时间检查。仅展示当时验证的部分研究池观察候选；不是已验证的T+1买点。", 12f))
+        panel.addView(label("按北京时间保留原时点观察候选；点击股票查看详情。", 12f))
         val output = label("正在读取盘中自动执行记录…", 12f)
         val rows = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         panel.addView(output)
         panel.addView(rows)
-        val slots = listOf("late_pair" to "14:40", "early_pair" to "09:50")
+        val slots = listOf("early_pair" to "09:50", "late_pair" to "14:40")
         val refresh: () -> Unit = {
             output.text = "正在读取服务器执行记录…"
             rows.removeAllViews()
             for ((slot, title) in slots) {
+                val slotRows = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+                rows.addView(slotRows)
                 fetch("/api/intraday-live?slot=" + slot) { data, error ->
                     if (data == null || !data.optBoolean("ok")) {
-                        rows.addView(label(title + " 数据暂不可用" +
+                        slotRows.addView(label(title + " 数据暂不可用" +
                             (error?.let { "：" + it } ?: ""), 12f))
                         return@fetch
                     }
@@ -1593,25 +1714,32 @@ class MainActivity : AppCompatActivity() {
                     }
                     val date = item?.optString("date") ?: ""
                     val matchesToday = data.optString("time_cn").take(10) == date
-                    rows.addView(label(title + " · " + state +
+                    slotRows.addView(label(title + " · " + state +
                         if (date.isNotBlank()) "（" + date + (if (matchesToday) "，当日" else "，历史") + "）" else "", 14f, true))
                     if (item != null) {
-                        rows.addView(label("检查 " + item.optInt("scanned") + " 只；时效合格报价 " +
+                        slotRows.addView(label("检查 " + item.optInt("scanned") + " 只；时效合格报价 " +
                             item.optInt("fresh_quotes") + " 只；日线检查 " +
-                            item.optInt("daily_checked") + " 只；原因：" +
-                            item.optString("reason_code") + "。", 12f))
+                            item.optInt("daily_checked") + " 只。", 12f))
                         val candidates = item.optJSONArray("candidates") ?: JSONArray()
                         if (candidates.length() == 0) {
-                            rows.addView(label("本次候选尚未交付，需检查行情并补做；历史空记录保留。", 12f))
+                            slotRows.addView(label("本次候选尚未交付，需检查行情并补做；历史空记录保留。", 12f))
                         }
                         for (i in 0 until candidates.length()) {
                             val c = candidates.optJSONObject(i) ?: continue
-                            rows.addView(label((i + 1).toString() + ". " +
-                                c.optString("name") + "（" + c.optString("code") +
-                                "） · 涨幅 " + c.optString("pct") + "% · 观察分 " +
-                                c.optString("score") + "\n报价时间：" + c.optString("as_of") +
-                                "\n证据：" + (if (c.optString("evidence_tier") == "timestamped_quote_only") "仅时点报价，历史核验未完成" else "报价与历史结构观察") +
-                                "\n风险：" + c.optString("risk"), 12f))
+                            slotRows.addView(label(c.optString("name") + "（" + c.optString("code") +
+                                "） · " + c.optString("pct") + "%", 14f, true).apply {
+                                setOnClickListener { openStock(c.optString("code")) }
+                            })
+                            slotRows.addView(label("参考价 " + c.optString("price") + " · " + c.optString("as_of"), 11f))
+                            val detail = label("证据：" + (if (c.optString("evidence_tier") == "timestamped_quote_only")
+                                "仅时点报价，历史核验未完成" else "报价与历史结构观察") +
+                                "\n风险：" + c.optString("risk"), 12f).apply { visibility = View.GONE }
+                            val toggle = action("查看观察依据") { }
+                            toggle.setOnClickListener {
+                                detail.visibility = if (detail.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                                toggle.text = if (detail.visibility == View.VISIBLE) "收起依据" else "查看观察依据"
+                            }
+                            slotRows.addView(toggle); slotRows.addView(detail)
                         }
                     }
                 }
@@ -1833,7 +1961,7 @@ class MainActivity : AppCompatActivity() {
                     wrapper.addView(label("已归档 ${task.optInt("report_count")} 篇报告", 12f))
                     wrapper.addView(action("查看对应报告") {
                         researchCode = ""; researchStockName = ""
-                        researchTask = taskId; researchTaskTitle = title; showTab(3)
+                        researchTask = taskId; researchTaskTitle = title; openResearchArchive()
                     })
                     val history = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
                     val records = action("查看执行记录") { }
@@ -1883,7 +2011,7 @@ class MainActivity : AppCompatActivity() {
                     val code = row.optString("code")
                     box.addView(label("${row.optString("date")} · T+1条件观察", 12f))
                     box.addView(label("${row.optString("name")}  $code", 17f, true).apply {
-                        setOnClickListener { selectedCode = code; showTab(2) }
+                        setOnClickListener { openStock(code) }
                     })
                     box.addView(label("理由：${row.optString("reason")}", 13f))
                     if (row.optString("trigger").isNotBlank())
@@ -1982,8 +2110,8 @@ class MainActivity : AppCompatActivity() {
             when(kind) {
                 0 -> { path.moveTo(3f, 10f); path.lineTo(12f, 3f); path.lineTo(21f, 10f); path.moveTo(5f, 9f); path.lineTo(5f, 21f); path.lineTo(10f,21f); path.lineTo(10f,15f); path.lineTo(14f,15f); path.lineTo(14f,21f); path.lineTo(19f,21f); path.lineTo(19f,9f) }
                 1 -> { path.moveTo(12f,3f); path.lineTo(15f,9f); path.lineTo(22f,10f); path.lineTo(17f,15f); path.lineTo(18f,22f); path.lineTo(12f,19f); path.lineTo(6f,22f); path.lineTo(7f,15f); path.lineTo(2f,10f); path.lineTo(9f,9f); path.close() }
-                2 -> { canvas.drawRoundRect(3f,4f,21f,21f,2f,2f,p); path.moveTo(6f,16f); path.lineTo(10f,11f); path.lineTo(14f,14f); path.lineTo(18f,8f) }
-                else -> { canvas.drawRoundRect(4f,3f,20f,21f,2f,2f,p); for(y in listOf(8f,12f,16f)) canvas.drawLine(8f,y,16f,y,p) }
+                2 -> { canvas.drawRoundRect(4f,3f,20f,21f,2f,2f,p); for(y in listOf(8f,12f,16f)) canvas.drawLine(8f,y,16f,y,p) }
+                else -> { path.moveTo(3f,4f); path.lineTo(3f,21f); path.lineTo(22f,21f); canvas.drawRect(7f,12f,10f,18f,p); canvas.drawRect(13f,8f,16f,18f,p); canvas.drawRect(19f,4f,22f,18f,p) }
             }
             canvas.drawPath(path,p); canvas.restore()
         }

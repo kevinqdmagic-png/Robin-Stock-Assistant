@@ -54,7 +54,7 @@ class ResearchNotificationWorker(context: Context, params: WorkerParameters) :
         if (!payload.optBoolean("ok")) return Result.retry()
         val rows = payload.optJSONArray("items") ?: return Result.retry()
         val ids = setOf("market_review", "volume_price", "low_dragon",
-            "combined_pair", "limitup_single", "early_pair", "late_pair")
+            "combined_pair", "limitup_single", "early_pair", "late_pair", "weekly_review")
         val previous = prefs.getString("notified_research_versions", null)
         val old = try { JSONObject(previous ?: "{}") } catch (_: Exception) { JSONObject() }
         val updated = JSONObject()

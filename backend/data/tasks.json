@@ -1,21 +1,24 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-06T17:52:53.179024+00:00",
+  "updated_at": "2026-11-06T18:25:23.095209+00:00",
   "source": "repository_task_registry_app_and_external_research_snapshot",
   "items": [
     {
       "id": "apk_polish",
-      "title": "上午打磨股票 APK",
+      "title": "APP自主打磨",
       "track": "app_development",
-      "summary": "界面、行情、历史记录、验证工具与安装检查",
-      "schedule_text": "已暂停 · 历史界面打磨任务（不再定时执行；App仅显示北京时间）",
-      "schedule": "BEGIN:VEVENT\nDTSTART:20260930T200000Z\nRRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+      "summary": "主动发现并实施界面、操作与稳定性改进；保留研究数据与自选。",
+      "schedule_text": "奥克兰周六21:44，自主选择改进并构建验证；与工作日复盘使用同一外部调度的周末分支。",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261107T214400\nRRULE:FREQ=WEEKLY;BYDAY=SA;BYHOUR=21;BYMINUTE=44;BYSECOND=0\nEND:VEVENT",
       "timezone": "Pacific/Auckland",
       "timing_mode": "exact_schedule",
-      "enabled": false,
+      "enabled": true,
       "one_time": false,
       "dependencies": [],
-      "configuration_confirmed_at": "2026-10-08T06:46:24.570678+00:00"
+      "configuration_confirmed_at": "2026-11-06T18:25:23.095209+00:00",
+      "effective_enabled": true,
+      "execution_mode": "external_weekend_maintenance",
+      "executor_task_id": "market_review"
     },
     {
       "id": "high_elasticity_once",
@@ -353,6 +356,23 @@
       "recovery_due_local_time": "08:00",
       "recovery_due_timezone": "Pacific/Auckland",
       "missing_delivery_expires": false
+    },
+    {
+      "id": "weekly_review",
+      "title": "每周股市研究总结",
+      "track": "market_review",
+      "summary": "总结一周及累计研究，分别评估上涨比例与平均收益，把发现转成下周可验证的交易假设。",
+      "schedule_text": "奥克兰周日08:00左右；周末临时轮换名额，结束后恢复量价任务。",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Pacific/Auckland:20261108T080000\nRRULE:FREQ=WEEKLY;BYDAY=SU;BYHOUR=8;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+      "timezone": "Pacific/Auckland",
+      "timing_mode": "flexible_schedule",
+      "enabled": true,
+      "effective_enabled": true,
+      "one_time": false,
+      "dependencies": [],
+      "execution_mode": "external_weekend_rotating_slot",
+      "include_legacy_reports": false,
+      "configuration_confirmed_at": "2026-11-06T18:25:23.095209+00:00"
     }
   ]
 }

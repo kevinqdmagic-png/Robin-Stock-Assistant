@@ -33,6 +33,31 @@ jobs:
           gradle-version: '8.9'
       - name: Verify watchlist, market refresh and build debug APK
         run: gradle :app:testDebugUnitTest :app:assembleDebug
+      - name: Enable emulator acceleration
+        run: sudo chmod 666 /dev/kvm
+      - name: Verify research navigation in light and dark mode
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          profile: pixel_2
+          disable-animations: true
+          script: |
+            mkdir -p ui-smoke
+            gradle :app:connectedDebugAndroidTest
+            adb exec-out run-as com.robin.stock cat files/navigation-research.png > ui-smoke/light-research.png
+            adb exec-out run-as com.robin.stock cat files/navigation-validation.png > ui-smoke/light-validation.png
+            adb shell cmd uimode night yes
+            gradle :app:connectedDebugAndroidTest --rerun-tasks
+            adb exec-out run-as com.robin.stock cat files/navigation-research.png > ui-smoke/dark-research.png
+            adb exec-out run-as com.robin.stock cat files/navigation-validation.png > ui-smoke/dark-validation.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Android-navigation-light-dark
+          path: |
+            ui-smoke/
+            app/build/reports/androidTests/
       - name: Read app version
         id: version
         run: echo "name=$(sed -n 's/.*versionName = \"\([^\"]*\)\".*/\1/p' app/build.gradle.kts)" >> "$GITHUB_OUTPUT"
