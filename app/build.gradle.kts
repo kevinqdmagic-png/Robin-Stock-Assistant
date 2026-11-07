@@ -9,8 +9,8 @@ android {
         applicationId = "com.robin.stock"
         minSdk = 26
         targetSdk = 35
-        versionCode = 35
-        versionName = "0.8.16"
+        versionCode = 36
+        versionName = "0.8.17"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {

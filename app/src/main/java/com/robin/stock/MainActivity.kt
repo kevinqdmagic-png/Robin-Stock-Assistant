@@ -1634,14 +1634,58 @@ class MainActivity : AppCompatActivity() {
                     val row = items.optJSONObject(i) ?: continue
                     rows.addView(label(row.optString("title") + " · " +
                         (states[row.optString("status")] ?: "待核验"), 15f, true))
+                    val publishedAt = row.optString("published_at_cn").ifBlank {
+                        ResearchCandidatePresentation.beijingTime(row.optString("published_at")).orEmpty()
+                    }
+                    if (publishedAt.isNotBlank()) {
+                        rows.addView(label("发布时间：北京时间 " + publishedAt.replace("T", " ") + "（UTC+8）", 11f))
+                    }
                     rows.addView(label(row.optString("summary"), 12f).apply { maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END })
                     val shadows = row.optJSONArray("research_shadow_candidates") ?: JSONArray()
                     for (j in 0 until shadows.length()) {
                         val candidate = shadows.optJSONObject(j) ?: continue
-                        rows.addView(label("观察：" + candidate.optString("name") + "（" + candidate.optString("code") +
-                            "） · 历史参考 " + candidate.optString("reference_price"), 12f).apply {
-                            setOnClickListener { openStock(candidate.optString("code")) }
+                        val code = candidate.optString("code")
+                        val candidateCard = LinearLayout(this).apply {
+                            orientation = LinearLayout.VERTICAL
+                            setPadding(dp(14), dp(10), dp(14), dp(10))
+                            background = surface(if (isNight) Color.rgb(45, 40, 47) else Color.rgb(255, 247, 248), 12)
+                            contentDescription = candidate.optString("name") + code + "研究观察详情"
+                        }
+                        rows.addView(candidateCard, LinearLayout.LayoutParams(-1, -2).apply {
+                            topMargin = dp(6); bottomMargin = dp(6)
                         })
+                        candidateCard.addView(label(candidate.optString("name") + "（" + code + "）", 20f, true).apply {
+                            setOnClickListener { openStock(code) }
+                        })
+                        val qualification = ResearchCandidatePresentation.qualification(
+                            row.optString("task_id"), candidate.optString("candidate_status"),
+                            candidate.optBoolean("formal_buy_signal"), row.optBoolean("full_research_completed"),
+                            candidate.optString("display_qualification"))
+                        candidateCard.addView(label("资格：$qualification", 14f, true).apply {
+                            setTextColor(if (qualification == "最终研究双标") red else ink)
+                        })
+                        val referenceAt = candidate.optString("reference_as_of_cn").ifBlank {
+                            ResearchCandidatePresentation.beijingTime(candidate.optString("reference_as_of")).orEmpty()
+                        }
+                        val price = candidate.opt("reference_price")?.toString().orEmpty()
+                        candidateCard.addView(label("参考价：" + (price.ifBlank { "未归档" }) +
+                            if (referenceAt.isNotBlank()) "｜北京时间 " + referenceAt.replace("T", " ") + "（UTC+8）" else "｜参考时点未归档", 12f))
+                        val trigger = candidate.optString("trigger_condition")
+                        candidateCard.addView(label("触发：" + trigger.ifBlank {
+                            "未结构化归档；请打开原报告核对，不能据此直接交易"
+                        }, 12f).apply { setTextColor(ink) })
+                        val abandon = candidate.optString("abandon_condition").ifBlank { candidate.optString("risk") }
+                        candidateCard.addView(label("放弃/风险：" + abandon.ifBlank {
+                            "未结构化归档；证据不足时放弃"
+                        }, 12f).apply { setTextColor(ink) })
+                        val hypothesis = candidate.optString("hypothesis")
+                        if (hypothesis.isNotBlank()) candidateCard.addView(label("研究依据：$hypothesis", 12f))
+                        val planned = candidate.optString("planned_observation_date")
+                        val exit = candidate.optString("earliest_legal_exit_if_entered")
+                        if (planned.isNotBlank() || exit.isNotBlank()) candidateCard.addView(label(
+                            "计划观察日：" + planned.ifBlank { "未归档" } +
+                                "｜若实际入场，最早合法退出：" + exit.ifBlank { "待核验" }, 11f))
+                        candidateCard.addView(action("查看个股详情") { openStock(code) })
                     }
                     if (row.optBoolean("published")) {
                         val details = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }

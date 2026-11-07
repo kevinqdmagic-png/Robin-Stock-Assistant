@@ -119,6 +119,26 @@ class DailyResultIndexTests(unittest.TestCase):
         self.assertEqual(report_detail("partial-today", reports=self.documents()[2])["report"]["body"], "全文")
         self.assertIsNone(report_detail("missing", reports=self.documents()[2]))
 
+    def test_pending_candidate_is_never_presented_as_final_and_time_is_beijing(self):
+        tasks = {"items": [{"id": "combined_pair", "title": "综合双标"}]}
+        reports = {"items": [{
+            "id": "pending", "date": "2026-11-06", "task_id": "combined_pair",
+            "title": "待综合", "status": "waiting", "published_at": "2026-11-06T22:42:00Z",
+            "research_shadow_candidates": [{
+                "task_id": "combined_pair", "code": "600744", "name": "华银电力",
+                "reference_price": 6.01, "reference_as_of": "2026-11-06T15:00:00+08:00",
+                "candidate_status": "pending_integrated_review_not_final",
+                "formal_buy_signal": False, "buy_order_allowed": False,
+            }],
+        }]}
+        data = daily_results("2026-11-06", documents=(tasks, {"items": []}, reports))
+        row = data["items"][0]
+        candidate = row["research_shadow_candidates"][0]
+        self.assertEqual(row["published_at_cn"], "2026-11-07T06:42+08:00")
+        self.assertEqual(candidate["display_qualification"], "待综合观察")
+        self.assertNotEqual(candidate["display_qualification"], "最终研究双标")
+        self.assertFalse(candidate["buy_order_allowed"])
+
     def test_real_full_backup_is_usable_when_primary_archives_are_missing(self):
         import tempfile
         import shutil

@@ -10,6 +10,32 @@ CN = ZoneInfo("Asia/Shanghai")
 TASKS = (*DELIVERY_TASKS, "learning_review")
 
 
+def _beijing_time(value):
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            return None
+        return parsed.astimezone(CN).isoformat(timespec="minutes")
+    except (TypeError, ValueError):
+        return None
+
+
+def _candidate_qualification(task_id, candidate, full):
+    """Keep observation labels conservative unless the archived evidence is final."""
+    if candidate.get("formal_buy_signal") is True:
+        return "正式条件候选"
+    if task_id == "limitup_single":
+        return "打板观察"
+    if (task_id == "combined_pair" and full
+            and candidate.get("candidate_status") == "final_integrated_pair"):
+        return "最终研究双标"
+    if task_id == "combined_pair":
+        return "待综合观察"
+    return "研究观察"
+
+
 def daily_results(day=None, offset=0, limit=7, *, documents=None, now=None):
     now = (now or datetime.now(CN)).astimezone(CN)
     selected = date.fromisoformat(day) if day else latest_completed_session(now)
@@ -42,6 +68,19 @@ def daily_results(day=None, offset=0, limit=7, *, documents=None, now=None):
         state = "completed" if full else (latest or report or {}).get("status", "missing")
         if state == "completed" and not full:
             state = "unverified"
+        candidates = []
+        for candidate in (report or {}).get("research_shadow_candidates", []):
+            if candidate.get("task_id") != task_id:
+                continue
+            item = {key: candidate.get(key) for key in (
+                "code", "name", "reference_price", "reference_as_of", "actual_frozen_at",
+                "reviewed_at", "planned_observation_date", "hypothesis", "risk",
+                "trigger_condition", "abandon_condition", "candidate_status",
+                "formal_buy_signal", "buy_order_allowed", "earliest_legal_exit_if_entered",
+            )}
+            item["display_qualification"] = _candidate_qualification(task_id, candidate, full)
+            item["reference_as_of_cn"] = _beijing_time(candidate.get("reference_as_of"))
+            candidates.append(item)
         rows.append({
             "task_id": task_id, "title": registry[task_id]["title"], "date": day,
             "status": state, "full_research_completed": full,
@@ -50,15 +89,11 @@ def daily_results(day=None, offset=0, limit=7, *, documents=None, now=None):
             "report_title": report.get("title") if report else None,
             "summary": (report or latest or {}).get("summary", "本交易日暂无已发布报告，等待补做。"),
             "published_at": report.get("published_at") if report else None,
+            "published_at_cn": _beijing_time(report.get("published_at")) if report else None,
             "detail_path": "/api/research/" + report["id"] if report else None,
             "receipt_id": (latest or {}).get("id"),
             "recovery_required": not full,
-            "research_shadow_candidates": [
-                {key: candidate.get(key) for key in ("code", "name", "reference_price", "reference_as_of",
-                    "actual_frozen_at", "planned_observation_date", "hypothesis", "risk")}
-                for candidate in (report or {}).get("research_shadow_candidates", [])
-                if candidate.get("task_id") == task_id
-            ],
+            "research_shadow_candidates": candidates,
         })
     return {
         "ok": True, "date_cn": day, "time_cn": now.isoformat(timespec="seconds"),
