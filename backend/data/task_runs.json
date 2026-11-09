@@ -6269,6 +6269,25 @@
         "https://www.baostock.com/",
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261106-evidence.json"
       ]
+    },
+    {
+      "id": "early_pair-20261109-gh-42587855325",
+      "run_id": "github-actions-42587855325",
+      "task_id": "early_pair",
+      "date": "2026-11-09",
+      "trigger": "scheduled",
+      "started_at": "2026-11-09T16:42:29.436235+08:00",
+      "recorded_at": "2026-11-09T16:42:29.525897+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 16:42:29。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/42587855325"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
