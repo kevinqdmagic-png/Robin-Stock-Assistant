@@ -6,12 +6,20 @@ Never infer a bar from a quote, invent volume, or silently mix adjustment types.
 from datetime import date
 import math
 import re
+import threading
+import time
 
 import requests
 
 from quote_providers import stock_symbol
 
 URL = "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+# A provider-wide 501/502/503 response is not a per-security data failure.
+# Short cooldown avoids repeated requests while independent sources can serve
+# valid unadjusted historical bars. It never fabricates adjusted bars.
+_TENCENT_RETRY_SECONDS = 300
+_tencent_retry_after = 0.0
+_tencent_guard = threading.Lock()
 
 
 def parse_tencent_daily(payload, symbol, adjust="1", limit=120):
@@ -63,12 +71,29 @@ def tencent_daily(code, limit=120, adjust="1", client=requests):
     if adjust not in ("0", "1"):
         raise ValueError("unsupported_adjustment")
     symbol = stock_symbol(code)
+    # Only the real shared HTTP client participates in the process-wide gate.
+    # Injected test clients remain independent and deterministic.
+    global _tencent_retry_after
+    if client is requests:
+        with _tencent_guard:
+            if time.monotonic() < _tencent_retry_after:
+                raise ValueError("tencent_daily_circuit_open")
     param = f"{symbol},day,,,{limit}," + ("qfq" if adjust == "1" else "none")
-    response = client.get(URL, params={"param": param}, headers={
-        "User-Agent": "Mozilla/5.0",
-        "Referer": "https://gu.qq.com/",
-    }, timeout=(3.5, 6))
-    response.raise_for_status()
+    try:
+        response = client.get(URL, params={"param": param}, headers={
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://gu.qq.com/",
+        }, timeout=(3.5, 6))
+        response.raise_for_status()
+    except requests.HTTPError as exc:
+        response = getattr(exc, "response", None)
+        status = getattr(response, "status_code", None)
+        if client is requests and status in (501, 502, 503, 504):
+            with _tencent_guard:
+                _tencent_retry_after = max(
+                    _tencent_retry_after, time.monotonic() + _TENCENT_RETRY_SECONDS
+                )
+        raise
     payload = response.json()
     return parse_tencent_daily(payload, symbol, adjust=adjust, limit=limit)
 
