@@ -148,7 +148,6 @@ def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fall
                 provider = archive["provider"]
                 fallback_used = archive["fallback_used"]
                 daily_source = provider + "_unadjusted_daily_archive"
-                archive_pair_count += 1
             else:
                 if sig["code"] not in cache:
                     try:
@@ -221,6 +220,8 @@ def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fall
                 "caveat": "以原盘中报价至T+h收盘的价格观察；不是当时成交、可卖出净收益或盘中回撤路径",
             })
             seen.add(key)
+            if archive is not None:
+                archive_pair_count += 1
     if fresh:
         doc["items"] += fresh
         _write(path, doc)
