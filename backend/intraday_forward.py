@@ -14,6 +14,7 @@ import os
 import tempfile
 
 from daily_providers import historical_daily_with_fallback
+from daily_snapshot import read_snapshot
 from learning_loop import nth_session_after
 from trading_calendar import CN_TZ, completed_bars, session_state
 
@@ -73,8 +74,51 @@ def _eligible_observations(runs):
                 }
 
 
-def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fallback):
-    """Append matured T+h unadjusted-price outcomes; idempotent and fail-closed."""
+def _archived_day(day, loader, cache):
+    """Load a validated full-market close once per day, never an intraday quote."""
+    if day not in cache:
+        try:
+            result = loader(day)
+            if (result.get("ok") is not True or result.get("trade_date") != day
+                    or result.get("provider") not in (
+                        "baostock", "eastmoney_https_unofficial", "sina_close_snapshot"
+                    ) or result.get("status") != "historical_observation_only"):
+                cache[day] = None
+            else:
+                # read_snapshot has already checked full-market coverage, same-day
+                # identity, OHLCV, adjustment=none and normalized share units.
+                cache[day] = {
+                    "provider": result["provider"],
+                    "stocks": {r["code"][-6:]: r for r in result["rows"]
+                               if r.get("adjustment") == "none"},
+                }
+        except (OSError, TypeError, ValueError, KeyError):
+            cache[day] = None
+    return cache[day]
+
+
+def _archive_pair(code, anchor_day, target_day, loader, cache):
+    if loader is None:
+        return None
+    anchor = _archived_day(anchor_day, loader, cache)
+    target = _archived_day(target_day, loader, cache)
+    # Never splice raw closes from two different vendors into one price return.
+    if not anchor or not target or anchor["provider"] != target["provider"]:
+        return None
+    a, b = anchor["stocks"].get(code), target["stocks"].get(code)
+    if not a or not b or a.get("volume", 0) <= 0 or b.get("volume", 0) <= 0:
+        return None
+    return {"anchor": a, "target": b, "provider": anchor["provider"],
+            "fallback_used": anchor["provider"] != "baostock"}
+
+
+def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fallback,
+                   archive_loader=read_snapshot):
+    """Append matured T+h unadjusted-price outcomes; archives first, else network.
+
+    A complete dated pair from the same verified archive provider wins; a
+    partially archived or cross-provider pair reverts to single-source history.
+    """
     now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
     if session_state(now)["code"] != "after_close" or now.hour * 60 + now.minute < 930:
         return {"ok": True, "status": "not_after_verified_close", "appended": 0}
@@ -83,6 +127,8 @@ def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fall
     fresh = []
     errors = []
     cache = {}
+    archive_cache = {}
+    archive_pair_count = 0
     attempted = 0
     for sig in _eligible_observations(runs):
         day = date.fromisoformat(sig["signal_date"])
@@ -95,40 +141,52 @@ def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fall
             if key in seen:
                 continue
             attempted += 1
-            if sig["code"] not in cache:
-                try:
-                    # UNadjusted prices match contemporaneous trading quotes.
-                    result = daily_loader(sig["code"], limit=120, adjust="0")
-                    # The public unadjusted fallback returns rows plus true provenance.
-                    # Legacy injected list loaders remain supported for deterministic tests.
-                    if isinstance(result, dict):
-                        if result.get("adjustment") not in (None, "0"):
-                            raise ValueError("forward_history_must_be_unadjusted")
-                        raw = result["rows"]
-                        provider = result["provider"]
-                        fallback_used = bool(result.get("fallback_used", False))
-                    else:
-                        raw, provider, fallback_used = result, "test_or_legacy", False
-                    cache[sig["code"]] = {
-                        "bars": {
-                            r["date"]: r for r in completed_bars(raw, now)
-                            if r.get("volume", 0) > 0
-                        },
-                        "provider": provider,
-                        "fallback_used": fallback_used,
-                    }
-                except (ValueError, TypeError, KeyError, OSError, Exception) as exc:
-                    # Provider outages remain missing, never retroactively fabricated.
-                    cache[sig["code"]] = None
-                    errors.append(type(exc).__name__)
-            daily = cache[sig["code"]]
-            if daily is None:
-                continue
-            bars = daily["bars"]
-            anchor = bars.get(sig["signal_date"])
-            actual = bars.get(target.isoformat())
-            if anchor is None or actual is None:
-                continue
+            archive = _archive_pair(sig["code"], sig["signal_date"],
+                                    target.isoformat(), archive_loader, archive_cache)
+            if archive is not None:
+                anchor, actual = archive["anchor"], archive["target"]
+                provider = archive["provider"]
+                fallback_used = archive["fallback_used"]
+                daily_source = provider + "_unadjusted_daily_archive"
+                archive_pair_count += 1
+            else:
+                if sig["code"] not in cache:
+                    try:
+                        # UNadjusted prices match contemporaneous trading quotes.
+                        result = daily_loader(sig["code"], limit=120, adjust="0")
+                        # The public unadjusted fallback returns rows plus true provenance.
+                        # Legacy injected list loaders remain supported for deterministic tests.
+                        if isinstance(result, dict):
+                            if result.get("adjustment") not in (None, "0"):
+                                raise ValueError("forward_history_must_be_unadjusted")
+                            raw = result["rows"]
+                            provider = result["provider"]
+                            fallback_used = bool(result.get("fallback_used", False))
+                        else:
+                            raw, provider, fallback_used = result, "test_or_legacy", False
+                        cache[sig["code"]] = {
+                            "bars": {
+                                r["date"]: r for r in completed_bars(raw, now)
+                                if r.get("volume", 0) > 0
+                            },
+                            "provider": provider,
+                            "fallback_used": fallback_used,
+                        }
+                    except Exception as exc:
+                        # Provider outages remain missing, never retroactively fabricated.
+                        cache[sig["code"]] = None
+                        errors.append(type(exc).__name__)
+                daily = cache[sig["code"]]
+                if daily is None:
+                    continue
+                bars = daily["bars"]
+                anchor = bars.get(sig["signal_date"])
+                actual = bars.get(target.isoformat())
+                if anchor is None or actual is None:
+                    continue
+                provider = daily["provider"]
+                fallback_used = daily["fallback_used"]
+                daily_source = provider + "_unadjusted_daily"
             anchor_close = float(anchor["close"])
             close = float(actual["close"])
             if not (math.isfinite(anchor_close) and math.isfinite(close) and
@@ -156,8 +214,8 @@ def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fall
                 "price_change_from_quote_pct": round(
                     (close / sig["signal_quote"] - 1) * 100, 3),
                 "observed_at": now.isoformat(timespec="seconds"),
-                "daily_source": daily["provider"] + "_unadjusted_daily",
-                "daily_fallback_used": daily["fallback_used"],
+                "daily_source": daily_source,
+                "daily_fallback_used": fallback_used,
                 "method": VERSION,
                 "executed_trade": False, "net_trade_return_pct": None,
                 "caveat": "以原盘中报价至T+h收盘的价格观察；不是当时成交、可卖出净收益或盘中回撤路径",
@@ -169,6 +227,7 @@ def update_forward(runs, path, now=None, daily_loader=historical_daily_with_fall
     return {"ok": True, "status": "observed" if fresh else
             ("pending_or_data_gaps" if attempted else "no_new_matured_signals"),
             "appended": len(fresh), "attempted": attempted,
+            "archived_pairs_used": archive_pair_count,
             "provider_errors": errors[:20],
             "sample_count_total": len(doc["items"]), "observation_only": True}
 
