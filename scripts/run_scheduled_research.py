@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 from daily_providers import tencent_daily
+from daily_snapshot import read_snapshot
 from quote_providers import tencent_quotes
 from research_archive import load_document, validate_document, verify_append_only
 from task_center import validate_runs
@@ -102,6 +103,32 @@ def analyze_one(code, now, provider=tencent_daily, research_day=None):
     }
 
 
+def _archived_market_evidence(day):
+    """Use full-market, independently validated daily archive without claiming it
+    supplies minute evidence, sector membership or tradeable recommendations.
+    """
+    try:
+        archive = read_snapshot(day)
+        if not archive.get("ok"):
+            return {"status": "unavailable", "date": day,
+                    "errors": archive.get("source_errors", [])[:3]}
+        rows = archive["rows"]
+        return {
+            "status": "verified", "date": day,
+            "provider": archive["provider"], "coverage": archive["coverage"],
+            "fallback_used": archive["fallback_used"],
+            "stock_count": len(rows),
+            # Candle body direction is NOT close-to-previous-close market breadth.
+            "close_above_open": sum(x["close"] > x["open"] for x in rows),
+            "close_below_open": sum(x["close"] < x["open"] for x in rows),
+            "close_equal_open": sum(x["close"] == x["open"] for x in rows),
+            "daily_ohlcv_only": True, "sector_breadth_verified": False,
+        }
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        return {"status": "unavailable", "date": day,
+                "errors": [type(exc).__name__]}
+
+
 def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6,
             recover_latest_completed=False):
     now = now.astimezone(CN)
@@ -118,6 +145,7 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6,
     else:
         sources, discovery_errors = ["explicit_supplied_universe"], []
     pool = list(dict.fromkeys(pool))[:MAX_UNIVERSE]
+    archived_market = _archived_market_evidence(day)
     day_provider = day_provider or tencent_daily
     quote_provider = quote_provider or tencent_quotes
     errors = Counter(discovery_errors)
@@ -148,7 +176,7 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6,
         "actual_collected_at": now.isoformat(timespec="seconds"),
         "checked": len(pool), "fresh": len(observations), "observations": observations,
         "errors": dict(errors), "universe": "research_catalog_plus_discoverable_public_turnover_leaders",
-        "universe_sources": sources,
+        "universe_sources": sources, "archived_market": archived_market,
         "full_a_share_coverage": False, "minute_orderflow_verified": False,
         "limit_up_board_verified": False, "strategy_validated": False,
     }
@@ -161,8 +189,20 @@ def build_reports(snapshot, now):
     fresh = snapshot["fresh"]
     rows = snapshot["observations"]
     sources = [QUOTE_URL, DAILY_URL]
+    archive = snapshot.get("archived_market") or {}
+    archive_message = (
+        f"已核验沪深全市场历史日线：{archive.get('stock_count')}只，"
+        f"来源{archive.get('provider')}，覆盖率{archive.get('coverage', {}).get('coverage_ratio')}；"
+        f"其中收盘高于开盘{archive.get('close_above_open')}只、低于开盘{archive.get('close_below_open')}只。"
+        "注意：这是当日日K实体方向，不是相对昨收的上涨/下跌家数；"
+        "仅提供收盘OHLCV基线，仍缺行业及分钟证据。"
+        if archive.get("status") == "verified" else
+        f"本研究日缺少可核验全市场历史日线归档（{archive.get('errors', [])}）。"
+    )
     meta = (f"证据日期（北京时间）：{day}；实际扫描已关注研究池{snapshot['checked']}只；"
-            f"同日有效日线{fresh}只；并非全A扫描。样本来源：{snapshot.get('universe_sources', [])}。数据错误：{snapshot['errors']}。"
+            f"同日有效研究池K线{fresh}只；研究池不是全A独立选股。"
+            + archive_message +
+            f" 样本来源：{snapshot.get('universe_sources', [])}。数据错误：{snapshot['errors']}。"
             "样本范围、存活偏差与供应商不可用均可能影响判断。")
     ix = "；".join(f"{r['name'] or r['code']} {r['price']}（{r['pct']:+.2f}%）" for r in snapshot["indexes"])
     strong = [r for r in rows if r["relative_volume20"] >= 1.5 and
