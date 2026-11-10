@@ -1,0 +1,49 @@
+name: BaoStock archive and fallback regression
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/intraday_forward.py'
+      - 'backend/daily_snapshot.py'
+      - 'backend/daily_providers.py'
+      - 'backend/tests/test_intraday_forward*.py'
+      - 'backend/tests/test_scheduled_research*.py'
+      - 'backend/tests/test_daily_snapshot.py'
+      - 'scripts/run_scheduled_research.py'
+      - '.github/workflows/bao-archive-regression.yml'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: bao-archive-regression
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: backend/requirements.txt
+      - name: Install existing backend test dependencies
+        run: python -m pip install -r backend/requirements.txt
+      - name: Compile changed Python modules
+        run: python -m py_compile backend/intraday_forward.py scripts/run_scheduled_research.py
+      - name: Check BaoStock history integrity and consumption
+        run: PYTHONPATH=backend python -m unittest discover -s backend/tests -p 'test_daily_snapshot.py' -v
+      - name: Check no-network archive and conservative online fallback
+        run: PYTHONPATH=backend python -m unittest discover -s backend/tests -p 'test_intraday_forward*.py' -v
+      - name: Check after-close evidence and no fabricated recommendations
+        run: PYTHONPATH=backend python -m unittest discover -s backend/tests -p 'test_scheduled_research*.py' -v
+      - name: Log exact regression outcome to open incident
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          gh issue comment 25 --repo "${{ github.repository }}" \
+            --body "BaoStock archive/fallback regression: **${JOB_STATUS}**. Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}. Date and source completeness still require separate production verification."
