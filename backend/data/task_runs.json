@@ -7185,6 +7185,165 @@
         "executable_strategy"
       ],
       "verified_fill_count": 0
+    },
+    {
+      "id": "manual-recovery-20261111-market_review-v1-receipt",
+      "run_id": "manual-recovery-20261111-market_review-v1",
+      "task_id": "market_review",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "partial",
+      "summary": "完成5219只收盘、双源OHLC核对、指数及板块横比；完整涨停生态和逐时板块证据仍待补。",
+      "report_ids": [
+        "manual-recovery-20261111-market_review-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-sina-close.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/https_daily_full/2026-11-11.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-evidence.json",
+        "https://news.10jqka.com.cn/20261111/c681700951.shtml",
+        "https://finance.eastmoney.com/a/202611113928392529.html"
+      ],
+      "completed_at": "2026-11-11T18:58:46+08:00"
+    },
+    {
+      "id": "manual-recovery-20261111-volume_price-v1-receipt",
+      "run_id": "manual-recovery-20261111-volume_price-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "partial",
+      "summary": "120/120日线核验，深池28只及9只温和结构共37只五分钟全部通过48根及OHLC量额校验。",
+      "report_ids": [
+        "manual-recovery-20261111-volume_price-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-sina-close.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/https_daily_full/2026-11-11.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-evidence.json"
+      ],
+      "completed_at": "2026-11-11T18:58:46+08:00"
+    },
+    {
+      "id": "manual-recovery-20261111-low_position-v1-receipt",
+      "run_id": "manual-recovery-20261111-low_position-v1",
+      "task_id": "low_position",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "partial",
+      "summary": "广池9只温和结构完成历史及分钟对照；给52条旧样本追加真实当日观察，不修改原资格。",
+      "report_ids": [
+        "manual-recovery-20261111-low_position-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-sina-close.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/https_daily_full/2026-11-11.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-evidence.json"
+      ],
+      "completed_at": "2026-11-11T18:58:46+08:00"
+    },
+    {
+      "id": "manual-recovery-20261111-dragon_tiger-v1-receipt",
+      "run_id": "manual-recovery-20261111-dragon_tiger-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "partial",
+      "summary": "取得沪深73条原因、66只股票全部买卖侧查询；交易所原文400/403，不能升级完整前置。",
+      "report_ids": [
+        "manual-recovery-20261111-dragon_tiger-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-sina-close.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/https_daily_full/2026-11-11.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-evidence.json"
+      ],
+      "completed_at": "2026-11-11T18:58:46+08:00"
+    },
+    {
+      "id": "manual-recovery-20261111-learning_review-v1-receipt",
+      "run_id": "manual-recovery-20261111-learning_review-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "completed",
+      "summary": "23代码重新取同日截止历史，31条正式旧记录：22可观察、9回顾性不合格；样本仍不足，未调权。",
+      "report_ids": [
+        "manual-recovery-20261111-learning_review-v1"
+      ],
+      "analysis_completed": true,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-learning-evidence.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-learning-inputs.json"
+      ],
+      "completed_at": "2026-11-11T18:58:46+08:00"
+    },
+    {
+      "id": "manual-recovery-20261111-limitup_single-v1-receipt",
+      "run_id": "manual-recovery-20261111-limitup_single-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "partial",
+      "summary": "独立打板观察东山精密92.06元；正式0只，因次日竞价/60秒承接与可成交证据尚未取得。",
+      "report_ids": [
+        "manual-recovery-20261111-limitup_single-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-sina-close.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/https_daily_full/2026-11-11.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-evidence.json"
+      ],
+      "completed_at": "2026-11-11T18:58:46+08:00"
+    },
+    {
+      "id": "manual-recovery-20261111-combined_pair-v1-receipt",
+      "run_id": "manual-recovery-20261111-combined_pair-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-11T10:45:04+00:00",
+      "recorded_at": "2026-11-11T18:58:46+08:00",
+      "status": "waiting",
+      "summary": "完成当日横比并冻结通富微电45.90、三花智控36.35两只待综合观察；完整前置未齐，最终研究双标仍待确认。",
+      "report_ids": [
+        "manual-recovery-20261111-combined_pair-v1"
+      ],
+      "analysis_completed": false,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-sina-close.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/https_daily_full/2026-11-11.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-evidence.json",
+        "https://static.cninfo.com.cn/finalpage/2026-10-29/1225635152.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-11-06/1225660632.pdf",
+        "https://static.cninfo.com.cn/finalpage/2026-10-29/1225636998.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-27/1225622909.PDF",
+        "https://static.cninfo.com.cn/finalpage/2026-10-30/1225640437.PDF"
+      ]
     }
   ]
 }

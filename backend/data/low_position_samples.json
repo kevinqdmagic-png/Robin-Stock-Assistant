@@ -3,7 +3,7 @@
   "track": "low_position",
   "research_version": "low_position_30d_v1",
   "created_at": "2026-10-08T08:15:08.201Z",
-  "updated_at": "2026-11-07T06:42:29+08:00",
+  "updated_at": "2026-11-11T18:58:46+08:00",
   "notice": "原历史样本依据先前会话报告恢复，标记未经逐条独立核验；未核验的10月8日收盘留空而非0；不删除失败/停牌/无成交样本。新增研究需按原始日期冻结并追加观察，不回填有利成交。",
   "milestones_calendar_days": [
     1,
@@ -1780,6 +1780,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 49,
+          "trading_day": 29,
+          "open": 42.96,
+          "high": 45.48,
+          "low": 42.59,
+          "close": 44.59,
+          "change_from_day0_pct": 18.653539116551364,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -3549,6 +3566,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 49,
+          "trading_day": 29,
+          "open": 16.83,
+          "high": 16.88,
+          "low": 16.58,
+          "close": 16.63,
+          "change_from_day0_pct": -9.323882224645585,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -5327,6 +5361,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 44,
+          "trading_day": 27,
+          "open": 10.43,
+          "high": 10.44,
+          "low": 10.25,
+          "close": 10.25,
+          "change_from_day0_pct": 4.698672114402469,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -7090,6 +7141,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 44,
+          "trading_day": 27,
+          "open": 7.17,
+          "high": 7.27,
+          "low": 7.1,
+          "close": 7.22,
+          "change_from_day0_pct": -2.9569892473118364,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -8856,6 +8924,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 44,
+          "trading_day": 27,
+          "open": 31.2,
+          "high": 31.39,
+          "low": 30.72,
+          "close": 31.21,
+          "change_from_day0_pct": 2.8675016479894566,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -10649,6 +10734,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 44,
+          "trading_day": 27,
+          "open": 12.83,
+          "high": 13.03,
+          "low": 12.8,
+          "close": 12.98,
+          "change_from_day0_pct": -12.059620596205956,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -12447,6 +12549,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 43,
+          "trading_day": 26,
+          "open": 24.4,
+          "high": 24.49,
+          "low": 24.06,
+          "close": 24.37,
+          "change_from_day0_pct": -15.027894002789399,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -14213,6 +14332,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 43,
+          "trading_day": 26,
+          "open": 6.61,
+          "high": 6.72,
+          "low": 6.58,
+          "close": 6.7,
+          "change_from_day0_pct": -19.471153846153843,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -16006,6 +16142,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 43,
+          "trading_day": 26,
+          "open": 13.32,
+          "high": 13.53,
+          "low": 13.22,
+          "close": 13.48,
+          "change_from_day0_pct": -12.239583333333325,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -17789,6 +17942,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 43,
+          "trading_day": 26,
+          "open": 8.92,
+          "high": 9.1,
+          "low": 8.84,
+          "close": 8.9,
+          "change_from_day0_pct": -5.919661733615222,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -19572,6 +19742,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 43,
+          "trading_day": 26,
+          "open": 9.03,
+          "high": 9.29,
+          "low": 8.82,
+          "close": 9.03,
+          "change_from_day0_pct": 14.739517153748395,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -21255,6 +21442,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 33,
+          "trading_day": 23,
+          "open": 3.85,
+          "high": 3.89,
+          "low": 3.82,
+          "close": 3.86,
+          "change_from_day0_pct": 1.3123359580052396,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -22936,6 +23140,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 33,
+          "trading_day": 23,
+          "open": 13.52,
+          "high": 13.92,
+          "low": 13.43,
+          "close": 13.88,
+          "change_from_day0_pct": -19.067055393585996,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -24634,6 +24855,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 33,
+          "trading_day": 23,
+          "open": 26.2,
+          "high": 26.75,
+          "low": 25.92,
+          "close": 26.65,
+          "change_from_day0_pct": -1.9138755980861344,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -26332,6 +26570,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 33,
+          "trading_day": 23,
+          "open": 13.15,
+          "high": 13.44,
+          "low": 12.98,
+          "close": 13.31,
+          "change_from_day0_pct": 3.418803418803429,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -27993,6 +28248,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 30,
+          "trading_day": 22,
+          "open": 7.42,
+          "high": 7.53,
+          "low": 7.25,
+          "close": 7.4,
+          "change_from_day0_pct": -10.519951632406277,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -29648,6 +29920,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 30,
+          "trading_day": 22,
+          "open": 5.63,
+          "high": 5.66,
+          "low": 5.39,
+          "close": 5.42,
+          "change_from_day0_pct": 6.2745098039215685,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -31303,6 +31592,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 30,
+          "trading_day": 22,
+          "open": 14.18,
+          "high": 14.45,
+          "low": 14.01,
+          "close": 14.34,
+          "change_from_day0_pct": -23.23340471092077,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -32817,6 +33123,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 27,
+          "trading_day": 19,
+          "open": 10.64,
+          "high": 10.7,
+          "low": 10.47,
+          "close": 10.63,
+          "change_from_day0_pct": -12.797374897456926,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -34333,6 +34656,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 27,
+          "trading_day": 19,
+          "open": 49.5,
+          "high": 49.85,
+          "low": 48.6,
+          "close": 49.07,
+          "change_from_day0_pct": 1.4052490183922295,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -35848,6 +36188,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 27,
+          "trading_day": 19,
+          "open": 17.56,
+          "high": 17.84,
+          "low": 17.54,
+          "close": 17.77,
+          "change_from_day0_pct": 6.34350688210652,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -37363,6 +37720,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 27,
+          "trading_day": 19,
+          "open": 32.77,
+          "high": 33.38,
+          "low": 32.32,
+          "close": 32.66,
+          "change_from_day0_pct": -4.307061236448884,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -38878,6 +39252,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 27,
+          "trading_day": 19,
+          "open": 10.53,
+          "high": 10.84,
+          "low": 10.45,
+          "close": 10.66,
+          "change_from_day0_pct": -9.12190963341859,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -40393,6 +40784,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 27,
+          "trading_day": 19,
+          "open": 7.77,
+          "high": 7.81,
+          "low": 7.53,
+          "close": 7.6,
+          "change_from_day0_pct": -1.9354838709677469,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -41948,6 +42356,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 26,
+          "trading_day": 18,
+          "open": 26.58,
+          "high": 26.84,
+          "low": 26.42,
+          "close": 26.75,
+          "change_from_day0_pct": -16.666666666666675,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -43502,6 +43927,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 26,
+          "trading_day": 18,
+          "open": 3.88,
+          "high": 3.91,
+          "low": 3.76,
+          "close": 3.83,
+          "change_from_day0_pct": 6.6852367688022385,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -44962,6 +45404,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 23,
+          "trading_day": 17,
+          "open": 15.1,
+          "high": 15.95,
+          "low": 15.08,
+          "close": 15.63,
+          "change_from_day0_pct": 15.949554896142427,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -46422,6 +46881,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 23,
+          "trading_day": 17,
+          "open": 11.24,
+          "high": 11.48,
+          "low": 11.2,
+          "close": 11.4,
+          "change_from_day0_pct": -16.90962099125365,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -47882,6 +48358,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 23,
+          "trading_day": 17,
+          "open": 39.81,
+          "high": 40.45,
+          "low": 38.77,
+          "close": 39.81,
+          "change_from_day0_pct": -5.864270513123659,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -49342,6 +49835,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 23,
+          "trading_day": 17,
+          "open": 32.06,
+          "high": 32.85,
+          "low": 32.06,
+          "close": 32.6,
+          "change_from_day0_pct": 8.269677847891078,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -50802,6 +51312,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 23,
+          "trading_day": 17,
+          "open": 68.14,
+          "high": 69.4,
+          "low": 65.4,
+          "close": 68.64,
+          "change_from_day0_pct": 33.20395885891714,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -52262,6 +52789,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 23,
+          "trading_day": 17,
+          "open": 22.01,
+          "high": 22.61,
+          "low": 21.16,
+          "close": 21.85,
+          "change_from_day0_pct": 27.47957992998833,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -53654,6 +54198,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 25.01,
+          "high": 25.6,
+          "low": 24.46,
+          "close": 24.93,
+          "change_from_day0_pct": -2.693208430913352,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -55117,6 +55678,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 105.68,
+          "high": 107.84,
+          "low": 103.0,
+          "close": 103.27,
+          "change_from_day0_pct": 42.30398236185753,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -56509,6 +57087,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 22,
+          "trading_day": 16,
+          "open": 14.7,
+          "high": 15.14,
+          "low": 14.53,
+          "close": 14.87,
+          "change_from_day0_pct": 12.396069538926668,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -57773,6 +58368,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 20,
+          "trading_day": 14,
+          "open": 29.74,
+          "high": 29.85,
+          "low": 29.46,
+          "close": 29.48,
+          "change_from_day0_pct": -1.140174379611003,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -59037,6 +59649,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 20,
+          "trading_day": 14,
+          "open": 3.85,
+          "high": 3.89,
+          "low": 3.82,
+          "close": 3.86,
+          "change_from_day0_pct": -3.015075376884424,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -60301,6 +60930,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 20,
+          "trading_day": 14,
+          "open": 7.36,
+          "high": 7.41,
+          "low": 7.24,
+          "close": 7.26,
+          "change_from_day0_pct": -1.8918918918918948,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -61565,6 +62211,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 20,
+          "trading_day": 14,
+          "open": 6.54,
+          "high": 7.26,
+          "low": 6.52,
+          "close": 7.26,
+          "change_from_day0_pct": 19.01639344262296,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ],
       "sources": [
@@ -62693,6 +63356,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 16,
+          "trading_day": 12,
+          "open": 4.5,
+          "high": 4.61,
+          "low": 4.48,
+          "close": 4.59,
+          "change_from_day0_pct": 0.0,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -63675,6 +64355,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 16,
+          "trading_day": 12,
+          "open": 40.08,
+          "high": 40.24,
+          "low": 39.42,
+          "close": 39.6,
+          "change_from_day0_pct": 0.9946442234123998,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -64799,6 +65496,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 16,
+          "trading_day": 12,
+          "open": 24.99,
+          "high": 25.5,
+          "low": 22.61,
+          "close": 22.61,
+          "change_from_day0_pct": 66.00587371512484,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -65695,6 +66409,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 15,
+          "trading_day": 11,
+          "open": 12.17,
+          "high": 12.6,
+          "low": 12.17,
+          "close": 12.53,
+          "change_from_day0_pct": -7.116382505559682,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -66589,6 +67320,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 15,
+          "trading_day": 11,
+          "open": 10.18,
+          "high": 11.26,
+          "low": 10.1,
+          "close": 10.57,
+          "change_from_day0_pct": 4.653465346534658,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -67248,6 +67996,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 14,
+          "trading_day": 10,
+          "open": 6.12,
+          "high": 6.21,
+          "low": 6.11,
+          "close": 6.21,
+          "change_from_day0_pct": -6.334841628959276,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -67907,6 +68672,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 14,
+          "trading_day": 10,
+          "open": 15.53,
+          "high": 15.87,
+          "low": 15.33,
+          "close": 15.79,
+          "change_from_day0_pct": -11.935303959843846,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -68566,6 +69348,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 14,
+          "trading_day": 10,
+          "open": 16.37,
+          "high": 17.28,
+          "low": 16.16,
+          "close": 17.1,
+          "change_from_day0_pct": 0.23446658851116187,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -69031,6 +69830,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 13,
+          "trading_day": 9,
+          "open": 59.59,
+          "high": 60.16,
+          "low": 57.21,
+          "close": 58.96,
+          "change_from_day0_pct": 5.47406082289803,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -69497,6 +70313,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 13,
+          "trading_day": 9,
+          "open": 13.1,
+          "high": 13.4,
+          "low": 13.0,
+          "close": 13.16,
+          "change_from_day0_pct": 5.3642914331465175,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -69962,6 +70795,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 13,
+          "trading_day": 9,
+          "open": 19.35,
+          "high": 19.47,
+          "low": 19.1,
+          "close": 19.25,
+          "change_from_day0_pct": -3.120281831907401,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -70198,6 +71048,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 12,
+          "trading_day": 8,
+          "open": 79.76,
+          "high": 79.92,
+          "low": 76.61,
+          "close": 76.99,
+          "change_from_day0_pct": -0.10380173867912124,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     },
@@ -70435,6 +71302,23 @@
           "path_missing_dates": [],
           "original_snapshot_eligibility_unchanged": true,
           "price_basis": "unadjusted_daily_prices_not_trade_fills"
+        },
+        {
+          "as_of": "2026-11-11",
+          "recorded_at": "2026-11-11T18:58:46+08:00",
+          "calendar_day": 12,
+          "trading_day": 8,
+          "open": 8.16,
+          "high": 8.64,
+          "low": 8.08,
+          "close": 8.2,
+          "change_from_day0_pct": 26.93498452012384,
+          "status": "historical_close_observation_not_complete_intraday_path",
+          "source": "docs/research/recovery-20261111-sina-close.json",
+          "price_basis": "unadjusted_daily_close",
+          "original_snapshot_eligibility_unchanged": true,
+          "executed_trade": false,
+          "executable_net_return": null
         }
       ]
     }

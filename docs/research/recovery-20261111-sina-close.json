@@ -1,0 +1,50 @@
+{
+  "provider": "sina_close_snapshot",
+  "trade_date": "2026-11-11",
+  "status": "historical_observation_only",
+  "exchange_scope": "Shanghai+Shenzhen; Beijing excluded",
+  "collected_at": "2026-11-11T10:48:02+00:00",
+  "collection_method": "timestamped_post_close_sina_quote_batches",
+  "coverage": {
+    "checked": 5225,
+    "verified": 5219,
+    "errors": 6,
+    "coverage_ratio": 0.998852
+  },
+  "errors": [
+    {
+      "code": "sh.688121",
+      "reason": "missing_suspended_stale_or_invalid"
+    },
+    {
+      "code": "sh.688496",
+      "reason": "missing_suspended_stale_or_invalid"
+    },
+    {
+      "code": "sh.688798",
+      "reason": "missing_suspended_stale_or_invalid"
+    },
+    {
+      "code": "sz.000831",
+      "reason": "missing_suspended_stale_or_invalid"
+    },
+    {
+      "code": "sz.002129",
+      "reason": "missing_suspended_stale_or_invalid"
+    },
+    {
+      "code": "sz.002717",
+      "reason": "missing_suspended_stale_or_invalid"
+    }
+  ],
+  "raw_evidence_archive": {
+    "filename": "recovery-20261111-sina-close.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "2989a6240d8d35523d8993aa035b7141be6c231f3099fecfe35a30103e192941",
+    "original_sha256": "eedee455e58d5a6380eb930e0b7bcbe2590d4fdc9ee20e74e84fdea18ae70376",
+    "original_bytes": 1930856,
+    "preserved_field_counts": {
+      "rows": 5219
+    }
+  }
+}

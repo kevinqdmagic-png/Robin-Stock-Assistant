@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-11",
+  "collected_at": "2026-11-11T10:48:17.449208+00:00",
+  "url": "https://push2.eastmoney.com/api/qt/clist/get",
+  "params": {
+    "pz": 100,
+    "fs": "m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",
+    "fltt": 2,
+    "invt": 2,
+    "fields": "f12,f14,f2,f3,f6,f8,f10,f17,f18,f15,f16,f124,f5",
+    "fid": "f12",
+    "po": 0
+  },
+  "raw_evidence_archive": {
+    "filename": "recovery-20261111-eastmoney-raw.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "f3ee775edab8a94544b46c8fdaf92861b0deec0d875d3b88fd9e311e48346055",
+    "original_sha256": "b9e1489614945eb353e6c01586f7260c6b952026a6483cca1d911e419880d8ff",
+    "original_bytes": 1130969,
+    "preserved_field_counts": {
+      "pages": 56
+    }
+  }
+}

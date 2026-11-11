@@ -1,0 +1,1 @@
+{"provider": "baostock", "trade_date": "2026-11-11", "attempted_at": "2026-11-11T10:40:14.653065+00:00", "ok": false, "status": "collection_failed", "reason": "ValueError:baostock_login_failed:10002007:网络接收错误。"}
