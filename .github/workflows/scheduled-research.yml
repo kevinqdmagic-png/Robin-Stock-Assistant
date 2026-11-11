@@ -56,11 +56,13 @@ jobs:
           PY
           source publish-env
           if [ "$CHANGED" = "true" ]; then
-            python scripts/safe_github_multi_update.py \
-              "${{ github.repository }}" \
-              --file backend/data/research.json backend/data/research.json "${{ steps.bases.outputs.reports }}" \
-              --file backend/data/task_runs.json backend/data/task_runs.json "${{ steps.bases.outputs.runs }}" \
-              --message "research: atomically append evidence and linked receipts"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git fetch origin main
+            test "$(git rev-parse origin/main)" = "$(git rev-parse HEAD)"
+            git add backend/data/research.json backend/data/task_runs.json
+            git commit -m "research: atomically append evidence and linked receipts"
+            git push origin HEAD:main
           fi
       - name: Preserve debugging evidence
         if: always()
