@@ -40,7 +40,7 @@ jobs:
         env:
           GH_RUN_ID: ${{ github.run_id }}
         run: python scripts/run_scheduled_research.py --run-id "$GH_RUN_ID" --recover-latest-completed --result scheduled_research_status.json
-      - name: Publish research archive first, then linked receipts
+      - name: Publish linked research and receipts atomically
         if: always() && steps.bases.outcome == 'success' && steps.study.outcome != 'skipped'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -49,24 +49,18 @@ jobs:
           python - <<'PY'
           import json
           j = json.load(open("scheduled_research_status.json"))
+          if j["changed_reports"] != j["changed_runs"]:
+              raise SystemExit("linked archives changed asymmetrically")
           with open("publish-env", "w") as f:
-              f.write("REPORTS=" + ("true" if j["changed_reports"] else "false") + "\n")
-              f.write("RUNS=" + ("true" if j["changed_runs"] else "false") + "\n")
+              f.write("CHANGED=" + ("true" if j["changed_reports"] else "false") + "\n")
           PY
           source publish-env
-          if [ "$REPORTS" = "true" ]; then
-            python scripts/safe_github_update.py \
+          if [ "$CHANGED" = "true" ]; then
+            python scripts/safe_github_multi_update.py \
               "${{ github.repository }}" \
-              backend/data/research.json backend/data/research.json \
-              --base-sha "${{ steps.bases.outputs.reports }}" \
-              --message "research: append timestamped after-close partial evidence"
-          fi
-          if [ "$RUNS" = "true" ]; then
-            python scripts/safe_github_update.py \
-              "${{ github.repository }}" \
-              backend/data/task_runs.json backend/data/task_runs.json \
-              --base-sha "${{ steps.bases.outputs.runs }}" \
-              --message "ops: append scheduled research receipts with scope labels"
+              --file backend/data/research.json backend/data/research.json "${{ steps.bases.outputs.reports }}" \
+              --file backend/data/task_runs.json backend/data/task_runs.json "${{ steps.bases.outputs.runs }}" \
+              --message "research: atomically append evidence and linked receipts"
           fi
       - name: Preserve debugging evidence
         if: always()
