@@ -11,6 +11,7 @@ from pathlib import Path
 import time
 from urllib.request import urlopen
 from urllib.error import HTTPError, URLError
+from deployed_revision import covers_revision
 
 def get(url):
     with urlopen(url, timeout=15) as response:
@@ -23,12 +24,14 @@ def probe(base, sha, code, wait=240):
         try:
             health = get(base + "/health")
             active_commit = health.get("build_commit")
-            if sha and active_commit and not active_commit.startswith(sha):
+            if sha and not covers_revision(sha, active_commit):
                 raise RuntimeError("deployment_not_yet_current:" + str(active_commit))
             result = get(base + "/api/stocks/" + code + "/capital-behavior")
             check = {
                 "checked_at_utc": datetime.now().astimezone().isoformat(),
                 "requested_code": code, "build_commit": active_commit,
+                "tested_commit": sha,
+                "revision_relation": "exact" if sha == active_commit else "descendant_same_runtime",
                 "ok": result.get("ok") is True,
                 "status": result.get("status", "ok" if result.get("ok") else "unknown"),
                 "source": result.get("source"),
