@@ -90,6 +90,7 @@ class CapitalBehaviorTests(unittest.TestCase):
     def test_both_daily_providers_unavailable_are_explained(self):
         api._daily_cache.clear()
         with patch("app._eastmoney_daily", return_value=([], None, ["HTTPError"])), \
+             patch("app.sina_daily", side_effect=ValueError("offline")), \
              patch("app.tencent_daily", side_effect=ValueError("offline")):
             result = api.capital_behavior("002068")
         self.assertFalse(result["ok"])
@@ -117,6 +118,31 @@ class CapitalBehaviorTests(unittest.TestCase):
 
     def test_api_rejects_bad_code(self):
         self.assertEqual(api.capital_behavior("../../bad")["status"], "invalid_code")
+
+    def test_sina_raw_observation_is_explicit_and_not_an_adjusted_strategy(self):
+        api._daily_cache.clear()
+        with patch('app.tencent_daily', side_effect=ValueError('501')), \
+             patch('app._eastmoney_daily', return_value=([], 'unavailable', ['502'])), \
+             patch('app.sina_daily', return_value=samples(85)) as sina, \
+             patch('app.completed_bars', side_effect=lambda bars: bars):
+            result = api.capital_behavior('002068')
+        self.assertTrue(result['ok'])
+        self.assertEqual(result['source'], 'sina_unadjusted_daily')
+        self.assertEqual(result['price_basis'], 'unadjusted_observation_only')
+        self.assertTrue(result['version'].endswith('_unadjusted_observation_v1'))
+        self.assertFalse(result['buy_order_allowed'])
+        sina.assert_called_once_with('002068', limit=120)
+        api._daily_cache.clear()
+
+    def test_adjusted_history_never_uses_sina_raw(self):
+        api._daily_cache.clear()
+        with patch('app.tencent_daily', side_effect=ValueError('501')), \
+             patch('app._eastmoney_daily', return_value=([], 'unavailable', ['502'])), \
+             patch('app.sina_daily') as sina:
+            rows, source, errors = api._get_daily('002068', adjust='1')
+        self.assertEqual(rows, [])
+        sina.assert_not_called()
+        api._daily_cache.clear()
 
     def test_api_uses_completed_bars(self):
         with patch("app._get_daily", return_value=(samples(), "synthetic_test", [])), patch(

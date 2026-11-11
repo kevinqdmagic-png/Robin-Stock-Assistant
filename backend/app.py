@@ -18,7 +18,7 @@ from market_insights import overview as market_overview, stamp as quote_stamp
 from quote_providers import stock_symbol, tencent_quotes
 from intraday_scheduler import (latest as intraday_status, tracking_status as intraday_forward_status,
                                 start_scheduler as start_intraday_scheduler)
-from daily_providers import tencent_daily, historical_daily_with_fallback
+from daily_providers import tencent_daily, sina_daily, historical_daily_with_fallback
 from baostock_snapshot import load_snapshot
 from daily_snapshot import history as daily_snapshot_history, source_status as daily_source_status
 from task_center import task_list, run_page, report_page, data_revision
@@ -31,7 +31,7 @@ from capital_behavior import classify as classify_capital_behavior, archive_cont
 from capital_watch import page as capital_watch_page, last_completed_trade_day
 from learning_loop import load_ledger
 
-API_VERSION = "0.10.2"
+API_VERSION = "0.10.3"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 # A single persistent Railway application replica drives the Beijing time windows.
 # This runs irrespective of GitHub Actions' best-effort schedule delays.
@@ -278,6 +278,16 @@ def capital_behavior(code: str):
     try:
         bars, source, errors = _get_daily(code)
         complete = completed_bars(bars)
+        price_basis = "forward_adjusted"
+        if len(complete) < 61:
+            # Manual shape research can explicitly offer a separate raw-price
+            # observation. Do not feed it into adjusted backtests or buy gates.
+            raw, raw_source, raw_errors = _get_daily(code, adjust="0")
+            raw_complete = completed_bars(raw)
+            errors = errors + ["raw_fallback:" + str(e) for e in raw_errors]
+            if len(raw_complete) >= 61:
+                bars, complete, source = raw, raw_complete, raw_source
+                price_basis = "unadjusted_observation_only"
         if len(complete) < 61:
             return {
                 "ok": False, "status": "daily_history_incomplete",
@@ -289,8 +299,14 @@ def capital_behavior(code: str):
                         "根已完成的有效日线（至少需61根）。已尝试东方财富和腾讯，行情不足不能推测主力行为。",
             }
         result = classify_capital_behavior(complete)
+        if price_basis == "unadjusted_observation_only":
+            result["base_model_version"] = result["version"]
+            result["version"] += "_unadjusted_observation_v1"
+            result["risks"].append("本次使用独立未复权日线；除权可能影响形态，不能与前复权策略统计混合或据此取得正式买入资格。")
         return {**result, "code": code, "source": source,
                 "provider_errors": errors, "time_cn": now_cn(),
+                "price_basis": price_basis, "corporate_actions_verified": False,
+                "buy_order_allowed": False,
                 "bars_received": len(bars), "completed_bars": len(complete)}
     except (OSError, ValueError, TypeError) as exc:
         logger.warning("Capital behavior data unavailable: %s", exc)
@@ -1660,6 +1676,15 @@ def _get_daily(code, adjust="1"):
         errors.append("tencent_daily:" + type(exc).__name__)
         logger.warning("Tencent daily K failed for %s: %s", code, exc)
 
+    if len(bars) < 62 and adjust == "0":
+        try:
+            raw_sina = sina_daily(code, limit=120)
+            if len(raw_sina) >= 62:
+                bars, source = raw_sina, "sina_unadjusted_daily"
+            else:
+                errors.append("sina_daily_insufficient_history")
+        except (requests.RequestException, OSError, ValueError, TypeError, KeyError) as exc:
+            errors.append("sina_daily:" + type(exc).__name__)
     if len(bars) < 62:
         east_bars, east_source, east_errors = _eastmoney_daily(code, adjust=adjust)
         errors.extend(east_errors)

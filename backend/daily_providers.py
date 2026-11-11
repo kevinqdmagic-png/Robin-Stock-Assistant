@@ -152,7 +152,7 @@ def sina_daily(code, limit=120, client=requests):
     response = client.get(url, params={"symbol": symbol, "scale": 240,
                           "ma": "no", "datalen": limit}, headers={
         "User-Agent": "Mozilla/5.0", "Referer": "https://finance.sina.com.cn/"
-    }, timeout=(3.5, 7))
+    }, timeout=(8, 12))
     response.raise_for_status()
     raw = response.text.strip()
     # The endpoint returns JSONP; extract only a single list payload.
