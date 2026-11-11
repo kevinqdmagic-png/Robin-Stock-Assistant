@@ -1,0 +1,27 @@
+{
+  "provider": "Eastmoney public close list HTTPS",
+  "trade_date": "2026-11-11",
+  "attempted_at": "2026-11-11T18:37:36+08:00",
+  "historical_daily_or_close_list": "close_list",
+  "primary_attempt": {
+    "host": "push2.eastmoney.com",
+    "result": "HTTP 302 empty body",
+    "redirect_target": "push2delay.eastmoney.com"
+  },
+  "fallback_attempt": {
+    "host": "push2delay.eastmoney.com",
+    "result": "valid JSON on verified pages"
+  },
+  "rows_received": 800,
+  "source_total": 5563,
+  "pages_requested": 12,
+  "pages_verified": 8,
+  "errors": [
+    "page6:ValueError",
+    "page7:ValueError",
+    "page8:ValueError",
+    "page9:ValueError"
+  ],
+  "deep_pool_verified": 8,
+  "status": "partial_bounded_pages_with_verified_fallback"
+}

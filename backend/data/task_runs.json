@@ -7124,6 +7124,67 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "volume-price-20261111-scheduled-close-v1-blocked",
+      "run_id": "volume-price-20261111-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-11",
+      "trigger": "scheduled",
+      "started_at": "2026-11-11T18:23:00+08:00",
+      "recorded_at": "2026-11-11T18:39:38+08:00",
+      "completed_at": "2026-11-11T18:39:38+08:00",
+      "status": "blocked",
+      "summary": "已实质完成11月11日沪深4860/5225收盘扫描、120广池、28深筛、上一局部明列9只验证及5只历史分钟复盘；冻结2只盘后研究影子。全深池分钟和点时板块同步缺失，故不标completed。",
+      "report_ids": [
+        "volume-price-20261111-partial-v1"
+      ],
+      "recommendation_ids": [],
+      "research_shadow_candidates": [
+        {
+          "code": "603275",
+          "name": "众辰科技",
+          "qualification": "待综合观察（盘后量价相对优选影子）",
+          "reference_price": 37.91,
+          "reference_time": "2026-11-11T15:00:00+08:00",
+          "formal_buy_signal": false,
+          "buy_order_allowed": false,
+          "trigger": "11月12日竞价不过度高开，回踩守住35.30且所属板块同步后，再观察放量站稳39.08",
+          "invalid": "有效跌破35.30，或板块不同步、放量冲高回落/长上影扩大",
+          "earliest_legal_exit_if_entered_2026_11_12": "2026-11-13"
+        },
+        {
+          "code": "605228",
+          "name": "神通科技",
+          "qualification": "待综合观察（盘后量价相对优选影子）",
+          "reference_price": 11.38,
+          "reference_time": "2026-11-11T15:00:00+08:00",
+          "formal_buy_signal": false,
+          "buy_order_allowed": false,
+          "trigger": "11月12日竞价不过度高开，回踩守住10.51且所属板块同步后，再观察放量站稳11.59",
+          "invalid": "有效跌破10.51，或板块不同步、放量冲高回落/长上影扩大",
+          "earliest_legal_exit_if_entered_2026_11_12": "2026-11-13"
+        }
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "sources": [
+        "docs/research/volume-price-20261111-evidence.json",
+        "backend/data/sina_daily_full/2026-11-11.json",
+        "backend/data/market_source_status/baostock-2026-11-11.json",
+        "backend/data/market_source_status/sina-2026-11-11.json",
+        "backend/data/market_source_status/eastmoney-market-2026-11-11.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://push2.eastmoney.com/api/qt/clist/get",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/issues/25"
+      ],
+      "blocked_modules": [
+        "full_minute_deep_pool",
+        "point_in_time_sector_sync",
+        "prior_full_cohort",
+        "executable_strategy"
+      ],
+      "verified_fill_count": 0
     }
   ]
 }
