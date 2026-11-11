@@ -31,7 +31,7 @@ from capital_behavior import classify as classify_capital_behavior, archive_cont
 from capital_watch import page as capital_watch_page, last_completed_trade_day
 from learning_loop import load_ledger
 
-API_VERSION = "0.10.1"
+API_VERSION = "0.10.2"
 app = FastAPI(title="Robin Stock Assistant API", version=API_VERSION)
 # A single persistent Railway application replica drives the Beijing time windows.
 # This runs irrespective of GitHub Actions' best-effort schedule delays.
@@ -356,11 +356,17 @@ def tasks():
 
 
 @app.get("/api/operations/delivery")
-def operations_delivery():
+def operations_delivery(date: str | None = None):
     """Show verified daily delivery and explicit missing/partial work."""
     try:
-        result = delivery_health()
-        result["resident_intraday"] = resident_intraday_health()
+        if date is not None:
+            from datetime import date as calendar_date
+            from learning_loop import is_session
+            selected = calendar_date.fromisoformat(date)
+            if is_session(selected) is not True or date > now_cn()[:10]:
+                raise ValueError("invalid_delivery_session")
+        result = delivery_health(session_day=date)
+        result["resident_intraday"] = resident_intraday_health(session_day=result.get("date_cn"))
         return result
     except (OSError, ValueError, TypeError, KeyError) as exc:
         logger.warning("Daily delivery matrix unavailable: %s", exc)

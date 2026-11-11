@@ -10,6 +10,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/run_scheduled_research.py'
+      - 'scripts/publish_linked_archives.py'
       - '.github/workflows/scheduled-research.yml'
 permissions:
   contents: write
@@ -34,6 +35,7 @@ jobs:
         run: |
           echo "reports=$(git rev-parse HEAD:backend/data/research.json)" >> "$GITHUB_OUTPUT"
           echo "runs=$(git rev-parse HEAD:backend/data/task_runs.json)" >> "$GITHUB_OUTPUT"
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Collect verified same-day evidence and stage explicit partial receipts
         id: study
         continue-on-error: true
@@ -58,18 +60,16 @@ jobs:
           if [ "$CHANGED" = "true" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git fetch origin main
-            test "$(git rev-parse origin/main)" = "$(git rev-parse HEAD)"
-            git add backend/data/research.json backend/data/task_runs.json
-            git commit -m "research: atomically append evidence and linked receipts"
-            git push origin HEAD:main
+            python scripts/publish_linked_archives.py --base "${{ steps.bases.outputs.commit }}"
           fi
       - name: Preserve debugging evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: after-close-research-evidence-${{ github.run_id }}
-          path: scheduled_research_status.json
+          path: |
+            scheduled_research_status.json
+            linked-publication.json
           retention-days: 90
       - name: Surface outages instead of claiming delivery
         if: always()

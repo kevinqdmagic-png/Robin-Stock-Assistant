@@ -106,16 +106,16 @@ def build_delivery_health(tasks, runs, reports, *, now=None, session_day=None):
     }
 
 
-def delivery_health(*, now=None):
+def delivery_health(*, now=None, session_day=None):
     tasks, runs, reports = context()
-    return build_delivery_health(tasks, runs, reports, now=now)
+    return build_delivery_health(tasks, runs, reports, now=now, session_day=session_day)
 
 
 INTRADAY_SLOTS = {"early_pair": (9, 50), "late_pair": (14, 40)}
 FINISHED_INTRADAY = {"observed", "no_signal"}
 
 
-def resident_intraday_health(*, now=None, provider=None):
+def resident_intraday_health(*, now=None, provider=None, session_day=None):
     """Assess resident Railway records separately from full GitHub report receipts.
 
     Completion means an observation / legitimate no-signal result was persisted,
@@ -125,7 +125,10 @@ def resident_intraday_health(*, now=None, provider=None):
     from intraday_scheduler import latest as resident_latest
     now = (now or datetime.now(CN)).astimezone(CN)
     provider = provider or resident_latest
-    day = now.date() if is_session(now.date()) is True else latest_completed_session(now)
+    day = session_day or (now.date() if is_session(now.date()) is True else latest_completed_session(now))
+    if isinstance(day, str):
+        from datetime import date
+        day = date.fromisoformat(day)
     if day is None:
         return {"ok": False, "status": "calendar_unverified", "items": []}
     items = []
@@ -133,7 +136,9 @@ def resident_intraday_health(*, now=None, provider=None):
         planned = datetime.combine(day, time(hour, minute), CN)
         try:
             evidence = provider(slot=task_id)
-            latest = evidence.get("latest") or {}
+            # Audit the requested session even if a newer one has been frozen.
+            latest = next((row for row in evidence.get("items", [])
+                           if row.get("date") == day.isoformat()), evidence.get("latest") or {})
             healthy = bool(evidence.get("ok") and
                            evidence.get("storage") == "railway_persistent_volume" and
                            evidence.get("store_writable") is True)

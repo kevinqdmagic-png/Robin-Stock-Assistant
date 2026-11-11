@@ -8,6 +8,7 @@ from task_center import context, checked_receipt
 
 CN = ZoneInfo("Asia/Shanghai")
 TASKS = (*DELIVERY_TASKS, "learning_review")
+AUTOMATED_SCOPES = {"partial_research_universe", "dependency_audit_only", "retrospective_partial_evidence"}
 
 
 def _beijing_time(value):
@@ -56,15 +57,25 @@ def daily_results(day=None, offset=0, limit=7, *, documents=None, now=None):
                           key=lambda r: (r.get("published_at", ""), r["id"]), reverse=True)
         receipts = sorted((r for r in runs["items"] if r.get("task_id") == task_id
                            and r.get("date") == day), key=lambda r: r.get("recorded_at", ""), reverse=True)
-        # Show the latest receipt's linked report when present, without combining
-        # a new failure receipt with an unrelated old completed report.
+        # Keep the latest attempt visible separately. A retry's abbreviated
+        # evidence must not replace a substantive study or erase its candidates.
         latest = checked_receipt(receipts[0], reports) if receipts else None
         linked = [report_index[rid] for rid in (latest or {}).get("report_ids", [])
                   if rid in report_index and report_index[rid].get("task_id") == task_id
                   and report_index[rid].get("date") == day]
-        report = linked[0] if linked else (versions[0] if versions else None)
-        full = any(_published_complete(task_id, r, reports) for r in receipts) if task_id in DELIVERY_TASKS else any(
-            checked_receipt(r, reports)["status"] == "completed" for r in receipts)
+        complete = next((r for r in receipts if (
+            _published_complete(task_id, r, reports) if task_id in DELIVERY_TASKS else
+            checked_receipt(r, reports)["status"] == "completed")), None)
+        full = complete is not None
+        substantive = [r for r in versions if r.get("execution_scope") not in AUTOMATED_SCOPES
+                       and r.get("report_type") in {"manual_recovery_research", "full_daily_research",
+                                                    "full_trading_research", "daily_research"}]
+        if complete:
+            report = next((report_index[rid] for rid in complete.get("report_ids", [])
+                           if rid in report_index), None)
+        else:
+            report = substantive[0] if substantive else (linked[0] if linked else (versions[0] if versions else None))
+        report_receipt = next((r for r in receipts if report and report["id"] in r.get("report_ids", [])), None)
         state = "completed" if full else (latest or report or {}).get("status", "missing")
         if state == "completed" and not full:
             state = "unverified"
@@ -87,11 +98,17 @@ def daily_results(day=None, offset=0, limit=7, *, documents=None, now=None):
             "published": report is not None, "report_count": len(versions),
             "report_id": report["id"] if report else None,
             "report_title": report.get("title") if report else None,
+            "report_status": (report or {}).get("status"),
             "summary": (report or latest or {}).get("summary", "本交易日暂无已发布报告，等待补做。"),
             "published_at": report.get("published_at") if report else None,
             "published_at_cn": _beijing_time(report.get("published_at")) if report else None,
             "detail_path": "/api/research/" + report["id"] if report else None,
-            "receipt_id": (latest or {}).get("id"),
+            "receipt_id": (report_receipt or {}).get("id"),
+            "latest_attempt_receipt_id": (latest or {}).get("id"),
+            "latest_attempt_status": (latest or {}).get("status"),
+            "latest_attempt_report_ids": (latest or {}).get("report_ids", []),
+            "report_selection": "verified_complete" if full else
+                ("substantive_research" if substantive else "latest_attempt"),
             "recovery_required": not full,
             "research_shadow_candidates": candidates,
         })
