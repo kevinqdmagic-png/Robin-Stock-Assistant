@@ -39,6 +39,65 @@ jobs:
         run: PYTHONPATH=backend python -m unittest discover -s backend/tests -p 'test_intraday_forward*.py' -v
       - name: Check after-close evidence and no fabricated recommendations
         run: PYTHONPATH=backend python -m unittest discover -s backend/tests -p 'test_scheduled_research*.py' -v
+      - name: Verify real production archive response (read-only)
+        id: production
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from pathlib import Path
+          import requests
+
+          files = sorted(Path("backend/data/baostock").glob("20??-??-??.json"))
+          if not files:
+              raise SystemExit("no dated BaoStock archive in repository")
+          day = files[-1].stem
+          base = "https://robin-stock-api-production.up.railway.app"
+          errors = []
+          for attempt in range(12):
+              try:
+                  r = requests.get(base + "/api/market/data-status",
+                                   params={"date": day}, timeout=(3, 12))
+                  r.raise_for_status()
+                  status = r.json()
+                  coverage = status.get("coverage") or {}
+                  verified = coverage.get("verified", 0)
+                  if not (status.get("ok") is True and
+                          status.get("provider") == "baostock" and
+                          status.get("trade_date") == day and
+                          verified >= 5000 and
+                          coverage.get("coverage_ratio", 0) >= 0.9):
+                      raise ValueError("not yet serving validated BaoStock date: " +
+                                       json.dumps({k: status.get(k) for k in
+                                                   ("ok", "provider", "trade_date", "status")}))
+                  rows = requests.get(base + "/api/market/daily/history",
+                                      params={"date": day, "limit": 1},
+                                      timeout=(3, 12))
+                  rows.raise_for_status()
+                  history = rows.json()
+                  first = (history.get("rows") or [{}])[0]
+                  if not (history.get("ok") is True and
+                          history.get("provider") == "baostock" and
+                          first.get("date") == day and
+                          first.get("adjustment") == "none"):
+                      raise ValueError("production dated OHLCV readback failed")
+                  report = {"day": day, "provider": "baostock",
+                            "verified": verified, "coverage": coverage.get("coverage_ratio"),
+                            "history_code": first.get("code"),
+                            "source": "production_rest_readback"}
+                  print("VERIFIED_PRODUCTION_ARCHIVE " + json.dumps(report))
+                  with open(os.environ["GITHUB_OUTPUT"], "a") as fp:
+                      fp.write("summary=" + json.dumps(report, ensure_ascii=False) + "\\n")
+                  with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fp:
+                      fp.write("Production BaoStock readback: " + json.dumps(report) + "\\n")
+                  break
+              except (requests.RequestException, ValueError, KeyError) as exc:
+                  errors.append(str(exc)[:180])
+                  if attempt == 11:
+                      raise SystemExit("PRODUCTION_ARCHIVE_BLOCKED: " + repr(errors[-3:]))
+                  time.sleep(10)
+          PY
       - name: Log exact regression outcome to open incident
         if: always()
         env:
@@ -46,4 +105,4 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: |
           gh issue comment 25 --repo "${{ github.repository }}" \
-            --body "BaoStock archive/fallback regression: **${JOB_STATUS}**. Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}. Date and source completeness still require separate production verification."
+            --body "BaoStock archive/fallback regression and production readback: **${JOB_STATUS}**. Production: ${{ steps.production.outputs.summary || 'blocked_or_not_verified' }}. Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}. This verifies dated historical OHLCV only, not completed research or intraday trading."
