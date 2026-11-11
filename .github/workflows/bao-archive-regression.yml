@@ -88,9 +88,9 @@ jobs:
                             "source": "production_rest_readback"}
                   print("VERIFIED_PRODUCTION_ARCHIVE " + json.dumps(report))
                   with open(os.environ["GITHUB_OUTPUT"], "a") as fp:
-                      fp.write("summary=" + json.dumps(report, ensure_ascii=False) + "\\n")
+                      fp.write("summary=" + json.dumps(report, ensure_ascii=False) + "\n")
                   with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fp:
-                      fp.write("Production BaoStock readback: " + json.dumps(report) + "\\n")
+                      fp.write("Production BaoStock readback: " + json.dumps(report) + "\n")
                   break
               except (requests.RequestException, ValueError, KeyError) as exc:
                   errors.append(str(exc)[:180])
@@ -103,6 +103,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           JOB_STATUS: ${{ job.status }}
+          PRODUCTION_SUMMARY: ${{ steps.production.outputs.summary || 'blocked_or_not_verified' }}
         run: |
           gh issue comment 25 --repo "${{ github.repository }}" \
-            --body "BaoStock archive/fallback regression and production readback: **${JOB_STATUS}**. Production: ${{ steps.production.outputs.summary || 'blocked_or_not_verified' }}. Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}. This verifies dated historical OHLCV only, not completed research or intraday trading."
+            --body "BaoStock archive/fallback regression and production readback: **${JOB_STATUS}**. Production: ${PRODUCTION_SUMMARY}. Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}. This verifies dated historical OHLCV only, not completed research or intraday trading."
