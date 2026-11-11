@@ -17,8 +17,9 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
-from daily_providers import tencent_daily
+from daily_providers import tencent_daily, historical_daily_with_fallback
 from daily_snapshot import read_snapshot
+import requests
 from quote_providers import tencent_quotes
 from research_archive import load_document, validate_document, verify_append_only
 from task_center import validate_runs
@@ -77,9 +78,31 @@ def discover_candidates():
     return pool, sources, errors
 
 
-def analyze_one(code, now, provider=tencent_daily, research_day=None):
+def _safe_history_for_partial_research(code, limit=125, adjust="1"):
+    """A whole-price-series fallback, not a splice of qfq and raw data."""
+    try:
+        return {"rows": tencent_daily(code, limit=limit, adjust="1"),
+                "adjustment": "qfq", "provider": "tencent",
+                "fallback_used": False}
+    except (requests.RequestException, ValueError, OSError, TypeError):
+        alternate = historical_daily_with_fallback(code, limit=limit, adjust="0")
+        return {**alternate, "adjustment": "none", "fallback_used": True}
+
+
+def analyze_one(code, now, provider=_safe_history_for_partial_research, research_day=None):
     day = research_day or now.date().isoformat()
-    bars = completed_bars(provider(code, limit=125, adjust="1"), now)
+    result = provider(code, limit=125, adjust="1")
+    if isinstance(result, dict):
+        if result.get("adjustment") not in ("qfq", "none"):
+            raise ValueError("unverified_research_adjustment")
+        bars = result["rows"]
+        source = result["provider"] + "_daily"
+        adjustment = result["adjustment"]
+        fallback_used = bool(result.get("fallback_used", False))
+    else:
+        # Historical injected test providers predate the metadata contract.
+        bars, source, adjustment, fallback_used = result, "injected_daily", "qfq", False
+    bars = completed_bars(bars, now)
     bars = [bar for bar in bars if bar["date"] <= day]
     if len(bars) < 26 or bars[-1]["date"] != day:
         raise ValueError("insufficient_same_day_history")
@@ -99,7 +122,8 @@ def analyze_one(code, now, provider=tencent_daily, research_day=None):
         # Do not call a shorter listing history a real 60-session range.
         "distance_60d_low_pct": round((recent["close"] / min(b["low"] for b in bars[-60:]) - 1) * 100, 2) if len(bars) >= 60 else None,
         "distance_60d_high_pct": round((recent["close"] / max(b["high"] for b in bars[-60:]) - 1) * 100, 2) if len(bars) >= 60 else None,
-        "adjustment": "qfq", "provider": "tencent_daily",
+        "adjustment": adjustment, "provider": source,
+        "fallback_used": fallback_used,
     }
 
 
@@ -146,7 +170,7 @@ def collect(now, pool=None, day_provider=None, quote_provider=None, workers=6,
         sources, discovery_errors = ["explicit_supplied_universe"], []
     pool = list(dict.fromkeys(pool))[:MAX_UNIVERSE]
     archived_market = _archived_market_evidence(day)
-    day_provider = day_provider or tencent_daily
+    day_provider = day_provider or _safe_history_for_partial_research
     quote_provider = quote_provider or tencent_quotes
     errors = Counter(discovery_errors)
     indexes = []
@@ -199,9 +223,13 @@ def build_reports(snapshot, now):
         if archive.get("status") == "verified" else
         f"本研究日缺少可核验全市场历史日线归档（{archive.get('errors', [])}）。"
     )
+    qfq_count = sum(r.get("adjustment") == "qfq" for r in rows)
+    raw_count = sum(r.get("adjustment") == "none" for r in rows)
     meta = (f"证据日期（北京时间）：{day}；实际扫描已关注研究池{snapshot['checked']}只；"
             f"同日有效研究池K线{fresh}只；研究池不是全A独立选股。"
             + archive_message +
+            f" 研究池历史K线口径：前复权{qfq_count}只、未复权{raw_count}只，"
+            "各股独立保持来源一致，不把两种口径拼成一条序列。"
             f" 样本来源：{snapshot.get('universe_sources', [])}。数据错误：{snapshot['errors']}。"
             "样本范围、存活偏差与供应商不可用均可能影响判断。")
     ix = "；".join(f"{r['name'] or r['code']} {r['price']}（{r['pct']:+.2f}%）" for r in snapshot["indexes"])
@@ -217,7 +245,10 @@ def build_reports(snapshot, now):
     low_launch.sort(key=lambda x: (x["distance_60d_low_pct"], -x["relative_volume20"], x["code"]))
     strong.sort(key=lambda x: (-x["relative_volume20"], x["code"]))
     weak.sort(key=lambda x: (x["close_location"], x["code"]))
-    fmt = lambda x: f"{x['code']} 日变动{x['day_pct_proxy']:+.2f}% 量比{x['relative_volume20']:.2f} 收盘位置{x['close_location']} 距MA20{x['distance_ma20_pct']:+.2f}%"
+    fmt = lambda x: (f"{x['code']} 日变动{x['day_pct_proxy']:+.2f}% "
+                    f"量比{x['relative_volume20']:.2f} 收盘位置{x['close_location']} "
+                    f"距MA20{x['distance_ma20_pct']:+.2f}% "
+                    f"来源{x.get('provider', 'unknown')}/口径{x.get('adjustment', 'unknown')}")
     def pack(task, track, title, summary, body, sufficient=True):
         status = "partial" if sufficient else "blocked"
         return {"task_id": task, "track": track, "title": title, "summary": summary,
@@ -235,7 +266,7 @@ def build_reports(snapshot, now):
              len(snapshot["indexes"]) >= 3 and fresh >= MIN_SAMPLE),
         pack("volume_price", "volume_price", f"{day} 量价样本独立观察",
              f"完成{fresh}只有效样本量价核验；强量价形态{len(strong)}只、弱承接{len(weak)}只。",
-             meta + "\n条件型放量收盘强势样本（前复权日线，仅研究）：\n"
+             meta + "\n条件型放量收盘强势样本（逐股完整同口径历史日线，仅研究）：\n"
              + ("\n".join(map(fmt, strong[:10])) or "无")
              + "\n高位承接偏弱样本：\n"
              + ("\n".join(map(fmt, weak[:10])) or "无")
@@ -273,6 +304,8 @@ def build_reports(snapshot, now):
     # proxy signals. Forward outcomes are computed later without retroactive picks.
     low_report = next(row for row in result if row["task_id"] == "low_position")
     low_report["shape_method_version"] = LOW_POSITION_METHOD
+    # The frozen v1 signal schema has qfq_close. Raw fallback observations
+    # are described in partial research, not silently admitted to v1 signals.
     low_report["signal_observations"] = [
         {"code": row["code"], "date": day, "close_qfq": row["close"],
          "day_pct_proxy": row["day_pct_proxy"],
@@ -280,9 +313,12 @@ def build_reports(snapshot, now):
          "close_location": row["close_location"],
          "distance_ma20_pct": row["distance_ma20_pct"],
          "distance_60d_low_pct": row["distance_60d_low_pct"],
-         "source": "tencent_qfq_daily", "eligible_for_trading": False}
-        for row in low_launch[:10]
-    ] if low_report["run_status"] == "partial" else []
+         "source": row.get("provider", "injected_daily") + "_qfq",
+         "eligible_for_trading": False}
+        for row in low_launch if row.get("adjustment") == "qfq"
+    ][:10] if low_report["run_status"] == "partial" else []
+    low_report["raw_fallback_samples_excluded_from_frozen_qfq_signals"] = sum(
+        row.get("adjustment") == "none" for row in low_launch)
     low_report["security_st_and_listing_status_verified"] = False
     if snapshot.get("historical_recovery_only"):
         # Delayed daily evidence may repair an archive, never backdate a signal.
