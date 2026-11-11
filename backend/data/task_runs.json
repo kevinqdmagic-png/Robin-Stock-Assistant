@@ -7838,6 +7838,114 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "learning-delivery-recovery-20261102-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261102-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-02学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261102-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261103-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261103-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-03",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-03学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261103-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261109-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261109-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-09",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-09学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261109-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261110-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261110-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-10",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-10学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261110-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "execution-recovery-20261111-limitup_single-20261112-v1-receipt",
+      "run_id": "execution-recovery-20261111-limitup_single-20261112-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-11",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "11月11日独立打板比较复核｜8只位置与均线偏离",
+      "report_ids": [
+        "execution-recovery-20261111-limitup_single-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "execution-recovery-20261111-combined_pair-20261112-v1-receipt",
+      "run_id": "execution-recovery-20261111-combined_pair-20261112-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-11",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "11月11日综合比较复核｜8只位置与均线偏离",
+      "report_ids": [
+        "execution-recovery-20261111-combined_pair-20261112-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
