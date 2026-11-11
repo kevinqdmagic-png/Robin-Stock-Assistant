@@ -8,7 +8,7 @@
 2. 先取得最新main。如果生产API、网页抓取或某个工具失败，仍通过已连接GitHub读取本文件、`backend/data/research.json`、`task_runs.json`、`tasks.json`和原始证据。能运行终端时，克隆仓库并运行 `python scripts/prepare_task_context.py --output task-context.json`。该程序只用标准库启动、有限重试生产读回，并从仓库生成同T成果、欠项与行情状态。仓库可读意味着研究仍能推进，绝不等于APP已同步。一个访问通道失败不能推断服务宕机、账户额度耗尽或所有资料不存在。
 3. 读取本模块已有详细报告全文和证据，列具体缺项。复用已验证的5,000余只同T日线档案及历史/分钟/龙虎榜资料，实际计算、横比、核查风险并补写研究。`scripts/run_scheduled_research.py`仅为局部证据兜底，不能把运行它当作完成完整研究。每轮必须有实质新增分析/数据，或有准确错误的失败报告；不能只循环审计、重复waiting、调整提示或静默退出。
 4. 日线优先使用已验证BaoStock档案，其次同日独立新浪/东财全范围备份；分别核验日期、OHLCV、单位、代码类型、分母和覆盖率。不因实时源失败重新请求五千次日线。需要联网补取时先检查可用归档，再有限重试并切换独立免费源。BaoStock只用共享并发组内单连接，不并行登录；禁止用历史分钟冒充实时，或拼接来源掩盖缺失。原同花顺接口只在已验证授权接入可用时作为备选，不购买付费服务。
-5. 以不可变ID原子追加完整正文、来源、原始证据和关联回执。`research.json`与`task_runs.json`一起发布；使用 `scripts/publish_linked_archives.py --base ORIGINAL_HEAD`进行ID级并发合并，只追加，不强推、不覆盖历史。其他档案按各自契约保留冻结字段与已有结果。若同ID内容冲突，停下该写入并重新读取，不能自动覆盖。
+5. 以不可变ID原子追加完整正文、来源、原始证据和关联回执。`research.json`与`task_runs.json`一起发布；使用 `scripts/publish_linked_archives.py --base ORIGINAL_HEAD`进行ID级并发合并，只追加，不强推、不覆盖历史。连接器不宜上传整份大档案时，将本轮新增项保存为 `research_backfills/linked-*.json`（对象键为research和task_runs，值为新增记录数组），原子提交该小文件；既有工作流验证链接、合并追加并读回实际生产正文/回执，避免大文件截断或只发布单侧。其他档案按各自契约保留冻结字段与已有结果。若同ID内容冲突，停下该写入并重新读取，不能自动覆盖。
 6. 执行相关回归、档案完整性和容器CI。核对准确已测试SHA的Railway终态SUCCESS，再按同T读取 `/api/daily-results?date=T`、报告全文、关联回执与 `/api/operations/delivery?date=T`。生产暂不可达只使“上线验收”受阻，不取消研究/仓库归档。分别汇报研究、归档、部署、生产读回，任何一项未验收不能称全链完成。
 
 ## 模块职责与完成依据

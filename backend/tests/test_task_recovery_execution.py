@@ -82,6 +82,23 @@ class RecoveryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "receipt_report_link_invalid"):
             publisher.check_links({"items": []}, {"items": [receipt()]}, {"study-receipt"})
 
+    def test_bundle_is_idempotent_and_rejects_links_before_writing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / 'backend/data'
+            folder.mkdir(parents=True)
+            for name in ('research', 'task_runs'):
+                (folder / (name + '.json')).write_text(json.dumps({'schema_version': 1, 'items': []}))
+            (folder/'tasks.json').write_text(json.dumps({'items': [{'id':'market_review'}]}))
+            bundle = {'research': [report()], 'task_runs': [receipt()]}
+            publisher.stage_bundle(bundle, cwd=tmp)
+            before = {p.name: p.read_bytes() for p in folder.glob('*.json')}
+            publisher.stage_bundle(bundle, cwd=tmp)
+            self.assertEqual(before, {p.name: p.read_bytes() for p in folder.glob('*.json')})
+            with self.assertRaisesRegex(ValueError, 'receipt_report_link_invalid'):
+                publisher.stage_bundle({'research': [report('new')],
+                    'task_runs': [receipt('new-receipt', 'missing')]}, cwd=tmp)
+            self.assertEqual(before, {p.name: p.read_bytes() for p in folder.glob('*.json')})
+
     def test_real_git_preserves_concurrent_append_and_other_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)

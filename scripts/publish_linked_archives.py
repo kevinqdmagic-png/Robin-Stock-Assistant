@@ -99,11 +99,32 @@ def publish(base_sha, *, cwd=ROOT, remote="origin", branch="main", attempts=4):
     raise RuntimeError("atomic_publication_failed_after_bounded_retries")
 
 
+def stage_bundle(bundle, *, cwd=ROOT):
+    cwd = Path(cwd)
+    staged = {}
+    for path, key in zip(PATHS, ("research", "task_runs")):
+        current = json.loads((cwd / path).read_text(encoding="utf-8"))
+        proposed = {**current, "items": bundle[key]}
+        staged[path] = merge_append_only({"items": []}, proposed, current,
+                                         "research" if key == "research" else "task_runs")
+    # Validate both documents and every bundle link before writing either file.
+    tasks = json.loads((cwd / 'backend/data/tasks.json').read_text(encoding='utf-8'))
+    validate_document(staged[PATHS[0]], 'research')
+    validate_runs(staged[PATHS[1]], tasks)
+    check_links(staged[PATHS[0]], staged[PATHS[1]], {r['id'] for r in bundle['task_runs']})
+    for path, document in staged.items():
+        (cwd / path).write_text(json.dumps(document, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True)
     parser.add_argument("--result", default="linked-publication.json")
+    parser.add_argument("--bundle", type=Path, help="JSON containing only new research and task_runs items")
     args = parser.parse_args()
+    if args.bundle:
+        bundle = json.loads(args.bundle.read_text(encoding="utf-8"))
+        stage_bundle(bundle)
     result = publish(args.base)
     Path(args.result).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result))

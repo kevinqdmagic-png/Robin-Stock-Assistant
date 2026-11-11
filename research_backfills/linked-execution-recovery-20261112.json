@@ -1,0 +1,286 @@
+{
+  "research": [
+    {
+      "id": "learning-delivery-recovery-20261102-20261112-v1",
+      "date": "2026-11-02",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "title": "2026-11-02学习补做｜全样本、双目标与失败归因",
+      "summary": "2026-11-02学习补做｜全样本、双目标与失败归因",
+      "body": "研究交易日：2026-11-02｜发布时间：北京时间 2026-11-12 05:12（UTC+8）\n\n本次实际补做2026-11-02的学习分析与交付，使用原冻结快照forward-learning-2026-11-02（原记录时间2026-11-03T04:52:55.522090+08:00），只采用该快照截至2026-11-02的成熟结果，未加入后来交易日走势，也未重写旧学习记录。\n\n原记录31条，状态{'observed': 22, 'ineligible_retrospective': 9}。按证券+实际价格基准日去重，避免相同事件重复计数；相邻事件仍相关。原时点早尾盘属于另一数据集，不能用本表代替或事后重建。\n\n|周期|证券—基准日N|独立基准日|正价格比例%|均值%|中位%|\n|---|---:|---:|---:|---:|---:|\n|T+1|17|8|47.06|-0.804|-1.362|\n|T+2|17|8|52.94|-1.633|0.627|\n|T+5|17|8|29.41|-7.055|-8.545|\n|T+10|16|7|18.75|-10.477|-8.457|\n\n上涨比例与均值分别比较：\n\n|组别/版本|周期|N/独立日|正比例%|均值%|平均正/负幅度%|路径MAE%|\n|---|---:|---|---:|---:|---|---:|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+1|4/1|25.0|-0.413|3.934/-1.862|-7.049|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+10|0/0|None|None|None/None|None|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+2|4/1|25.0|-1.451|0.134/-1.98|-7.049|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+30|0/0|None|None|None/None|None|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+5|4/1|75.0|-0.958|1.402/-8.04|-10.804|\n|combined_limitup_watch/legacy_not_frozen|T+1|9/6|33.333|-2.283|1.867/-4.358|-9.923|\n|limitup_single_v1/legacy_not_frozen|T+1|1/1|0.0|-1.479|None/-1.479|-5.209|\n|market_review_conditional/legacy_not_frozen|T+1|8/4|75.0|0.615|4.05/-9.691|-10.002|\n|combined_limitup_watch/legacy_not_frozen|T+10|8/5|25.0|-8.399|0.826/-11.474|-27.639|\n|limitup_single_v1/legacy_not_frozen|T+10|1/1|0.0|-3.923|None/-3.923|-14.92|\n|market_review_conditional/legacy_not_frozen|T+10|8/4|12.5|-10.407|1.407/-12.094|-30.361|\n|combined_limitup_watch/legacy_not_frozen|T+2|9/6|44.444|-1.805|2.355/-5.133|-12.38|\n|limitup_single_v1/legacy_not_frozen|T+2|1/1|0.0|-6.624|None/-6.624|-6.688|\n|market_review_conditional/legacy_not_frozen|T+2|8/4|62.5|-0.582|4.461/-8.987|-17.528|\n|combined_limitup_watch/legacy_not_frozen|T+5|9/6|33.333|-5.969|1.921/-9.913|-18.758|\n|limitup_single_v1/legacy_not_frozen|T+5|1/1|0.0|-14.662|None/-14.662|-14.92|\n|market_review_conditional/legacy_not_frozen|T+5|8/4|25.0|-7.095|1.957/-10.112|-20.807|\n|late_pair/legacy_not_frozen|T+1|2/1|50.0|-1.053|0.182/-2.288|-6.264|\n|late_pair/legacy_not_frozen|T+10|2/1|0.0|-26.614|None/-26.614|-27.082|\n|late_pair/legacy_not_frozen|T+2|2/1|50.0|-4.222|0.771/-9.215|-9.759|\n|late_pair/legacy_not_frozen|T+5|2/1|0.0|-13.098|None/-13.098|-20.165|\n\n失败归因：T+2虽有超过一半事件收涨，负向幅度仍使总体均值为负；这是分布与损益不对称的描述，不是主力行为因果。T+5/T+10更弱，旧样本不支持简单延长持有等待解套。低位组仅4只、一个基准日，个别大亏可以吞掉多数上涨，不能只按上涨比例排名。回顾性9条不纳入有效组，缺失、未触发与不可成交仍保留；旧版未冻结标签不补造为已知版本或市况。\n\n规则提案与样本外方案：维持现行规则；未来冻结温和量能承接/高位加速、首分歧回封/直接追高、板块相对强弱/绝对涨幅三组对照，并用原始真实时点分别验证T+1/T+2/T+5/T+10。至少报告36事件、20独立日期作为探索下限，仍需成交、成本、滑点与证券状态验证；不以达到样本下限宣布统计优势。先冻结新版本再前推，禁止按本批结果倒改历史或自动调权。\n\n本轮学习分析完成；真实成交胜率、可执行净收益保持空值，日线MFE/MAE不是组合最大回撤。原研究四模块、综合与打板尚缺项不会因本篇学习完成而自动解除。",
+      "published_at": "2026-11-12T05:12:35+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "full_daily_research",
+      "provenance": "manual_backfill_actual_publication_time"
+    },
+    {
+      "id": "learning-delivery-recovery-20261103-20261112-v1",
+      "date": "2026-11-03",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "title": "2026-11-03学习补做｜全样本、双目标与失败归因",
+      "summary": "2026-11-03学习补做｜全样本、双目标与失败归因",
+      "body": "研究交易日：2026-11-03｜发布时间：北京时间 2026-11-12 05:12（UTC+8）\n\n本次实际补做2026-11-03的学习分析与交付，使用原冻结快照forward-learning-2026-11-03（原记录时间2026-11-04T02:40:16.425323+08:00），只采用该快照截至2026-11-03的成熟结果，未加入后来交易日走势，也未重写旧学习记录。\n\n原记录31条，状态{'observed': 22, 'ineligible_retrospective': 9}。按证券+实际价格基准日去重，避免相同事件重复计数；相邻事件仍相关。原时点早尾盘属于另一数据集，不能用本表代替或事后重建。\n\n|周期|证券—基准日N|独立基准日|正价格比例%|均值%|中位%|\n|---|---:|---:|---:|---:|---:|\n|T+1|17|8|47.06|-0.804|-1.362|\n|T+2|17|8|52.94|-1.633|0.627|\n|T+5|17|8|29.41|-7.055|-8.545|\n|T+10|16|7|18.75|-10.477|-8.457|\n\n上涨比例与均值分别比较：\n\n|组别/版本|周期|N/独立日|正比例%|均值%|平均正/负幅度%|路径MAE%|\n|---|---:|---|---:|---:|---|---:|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+1|4/1|25.0|-0.413|3.934/-1.862|-7.049|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+10|0/0|None|None|None/None|None|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+2|4/1|25.0|-1.451|0.134/-1.98|-7.049|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+30|0/0|None|None|None/None|None|\n|low_position_shape_proxy_v1/legacy_not_frozen|T+5|4/1|75.0|-0.958|1.402/-8.04|-10.804|\n|combined_limitup_watch/legacy_not_frozen|T+1|9/6|33.333|-2.283|1.867/-4.358|-9.923|\n|limitup_single_v1/legacy_not_frozen|T+1|1/1|0.0|-1.479|None/-1.479|-5.209|\n|market_review_conditional/legacy_not_frozen|T+1|8/4|75.0|0.615|4.05/-9.691|-10.002|\n|combined_limitup_watch/legacy_not_frozen|T+10|8/5|25.0|-8.399|0.826/-11.474|-27.639|\n|limitup_single_v1/legacy_not_frozen|T+10|1/1|0.0|-3.923|None/-3.923|-14.92|\n|market_review_conditional/legacy_not_frozen|T+10|8/4|12.5|-10.407|1.407/-12.094|-30.361|\n|combined_limitup_watch/legacy_not_frozen|T+2|9/6|44.444|-1.805|2.355/-5.133|-12.38|\n|limitup_single_v1/legacy_not_frozen|T+2|1/1|0.0|-6.624|None/-6.624|-6.688|\n|market_review_conditional/legacy_not_frozen|T+2|8/4|62.5|-0.582|4.461/-8.987|-17.528|\n|combined_limitup_watch/legacy_not_frozen|T+5|9/6|33.333|-5.969|1.921/-9.913|-18.758|\n|limitup_single_v1/legacy_not_frozen|T+5|1/1|0.0|-14.662|None/-14.662|-14.92|\n|market_review_conditional/legacy_not_frozen|T+5|8/4|25.0|-7.095|1.957/-10.112|-20.807|\n|late_pair/legacy_not_frozen|T+1|2/1|50.0|-1.053|0.182/-2.288|-6.264|\n|late_pair/legacy_not_frozen|T+10|2/1|0.0|-26.614|None/-26.614|-27.082|\n|late_pair/legacy_not_frozen|T+2|2/1|50.0|-4.222|0.771/-9.215|-9.759|\n|late_pair/legacy_not_frozen|T+5|2/1|0.0|-13.098|None/-13.098|-20.165|\n\n失败归因：T+2虽有超过一半事件收涨，负向幅度仍使总体均值为负；这是分布与损益不对称的描述，不是主力行为因果。T+5/T+10更弱，旧样本不支持简单延长持有等待解套。低位组仅4只、一个基准日，个别大亏可以吞掉多数上涨，不能只按上涨比例排名。回顾性9条不纳入有效组，缺失、未触发与不可成交仍保留；旧版未冻结标签不补造为已知版本或市况。\n\n规则提案与样本外方案：维持现行规则；未来冻结温和量能承接/高位加速、首分歧回封/直接追高、板块相对强弱/绝对涨幅三组对照，并用原始真实时点分别验证T+1/T+2/T+5/T+10。至少报告36事件、20独立日期作为探索下限，仍需成交、成本、滑点与证券状态验证；不以达到样本下限宣布统计优势。先冻结新版本再前推，禁止按本批结果倒改历史或自动调权。\n\n本轮学习分析完成；真实成交胜率、可执行净收益保持空值，日线MFE/MAE不是组合最大回撤。原研究四模块、综合与打板尚缺项不会因本篇学习完成而自动解除。",
+      "published_at": "2026-11-12T05:12:35+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "full_daily_research",
+      "provenance": "manual_backfill_actual_publication_time"
+    },
+    {
+      "id": "learning-delivery-recovery-20261109-20261112-v1",
+      "date": "2026-11-09",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "title": "2026-11-09学习补做｜全样本、双目标与失败归因",
+      "summary": "2026-11-09学习补做｜全样本、双目标与失败归因",
+      "body": "研究交易日：2026-11-09｜发布时间：北京时间 2026-11-12 05:12（UTC+8）\n\n本次实际补做2026-11-09的学习分析与交付，使用原冻结快照forward-learning-2026-11-09（原记录时间2026-11-10T05:37:53.386201+08:00），只采用该快照截至2026-11-09的成熟结果，未加入后来交易日走势，也未重写旧学习记录。\n\n原记录31条，状态{'observed': 22, 'ineligible_retrospective': 9}。按证券+实际价格基准日去重，避免相同事件重复计数；相邻事件仍相关。原时点早尾盘属于另一数据集，不能用本表代替或事后重建。\n\n|周期|证券—基准日N|独立基准日|正价格比例%|均值%|中位%|\n|---|---:|---:|---:|---:|---:|\n|T+1|17|8|47.06|-0.804|-1.362|\n|T+2|17|8|52.94|-1.633|0.627|\n|T+5|17|8|29.41|-7.055|-8.545|\n|T+10|17|8|17.65|-10.286|-7.219|\n\n上涨比例与均值分别比较：\n\n|组别/版本|周期|N/独立日|正比例%|均值%|平均正/负幅度%|路径MAE%|\n|---|---:|---|---:|---:|---|---:|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+1|4/1|25.0|-0.413|3.934/-1.862|-7.049|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+10|4/1|25.0|-1.623|2.623/-3.038|-10.804|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+2|4/1|25.0|-1.451|0.134/-1.98|-7.049|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+30|0/0|None|None|None/None|None|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+5|4/1|75.0|-0.958|1.402/-8.04|-10.804|\n|combined_limitup_watch/combined_limitup_watch_v1|T+1|2/1|50.0|-4.558|0.263/-9.379|-9.923|\n|combined_limitup_watch/combined_limitup_watch_v2|T+1|2/1|50.0|0.868|3.574/-1.837|-3.15|\n|combined_limitup_watch/combined_limitup_watch_v3|T+1|1/1|0.0|-5.752|None/-5.752|-6.511|\n|combined_limitup_watch/combined_limitup_watch_v4|T+1|2/1|0.0|-3.398|None/-3.398|-5.853|\n|combined_limitup_watch/combined_limitup_watch_v5|T+1|2/2|50.0|-0.309|1.765/-2.383|-2.418|\n|limitup_single_v1/limitup_single_v1|T+1|1/1|0.0|-1.479|None/-1.479|-5.209|\n|market_review_conditional/first_divergence_capacity_v1|T+1|1/1|100.0|4.85|4.85/None|0.831|\n|market_review_conditional/first_divergence_repair_v3|T+1|1/1|0.0|-10.002|None/-10.002|-10.002|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+1|1/1|100.0|3.574|3.574/None|-2.939|\n|market_review_conditional/low_position_volume_breakout_v4|T+1|1/1|100.0|1.486|1.486/None|-1.798|\n|market_review_conditional/market_review_v2|T+1|2/1|50.0|-4.558|0.263/-9.379|-9.923|\n|market_review_conditional/market_review_v2_source_corrected|T+1|2/1|50.0|-4.558|0.263/-9.379|-9.923|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+1|1/1|100.0|6.833|6.833/None|-6.25|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+1|1/1|100.0|7.293|7.293/None|0.057|\n|combined_limitup_watch/combined_limitup_watch_v1|T+10|2/1|0.0|-19.622|None/-19.622|-27.639|\n|combined_limitup_watch/combined_limitup_watch_v2|T+10|2/1|50.0|0.036|0.787/-0.715|-8.975|\n|combined_limitup_watch/combined_limitup_watch_v3|T+10|1/1|0.0|-13.577|None/-13.577|-20.934|\n|combined_limitup_watch/combined_limitup_watch_v4|T+10|2/1|50.0|-6.34|0.865/-13.545|-18.478|\n|combined_limitup_watch/combined_limitup_watch_v5|T+10|2/2|0.0|-4.492|None/-4.492|-16.062|\n|limitup_single_v1/limitup_single_v1|T+10|1/1|0.0|-3.923|None/-3.923|-14.92|\n|market_review_conditional/first_divergence_capacity_v1|T+10|1/1|0.0|-11.871|None/-11.871|-18.06|\n|market_review_conditional/first_divergence_repair_v3|T+10|1/1|0.0|-25.619|None/-25.619|-30.361|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+10|1/1|0.0|-0.715|None/-0.715|-8.975|\n|market_review_conditional/low_position_volume_breakout_v4|T+10|1/1|100.0|1.407|1.407/None|-3.206|\n|market_review_conditional/market_review_v2|T+10|2/1|0.0|-19.622|None/-19.622|-27.639|\n|market_review_conditional/market_review_v2_source_corrected|T+10|2/1|0.0|-19.622|None/-19.622|-27.639|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+10|1/1|0.0|-2.167|None/-2.167|-12.458|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+10|1/1|0.0|-5.043|None/-5.043|-7.92|\n|combined_limitup_watch/combined_limitup_watch_v1|T+2|2/1|0.0|-5.142|None/-5.142|-9.923|\n|combined_limitup_watch/combined_limitup_watch_v2|T+2|2/1|50.0|-1.461|2.065/-4.987|-5.249|\n|combined_limitup_watch/combined_limitup_watch_v3|T+2|1/1|0.0|-5.547|None/-5.547|-12.38|\n|combined_limitup_watch/combined_limitup_watch_v4|T+2|2/1|50.0|-2.111|0.627/-4.849|-7.776|\n|combined_limitup_watch/combined_limitup_watch_v5|T+2|2/2|100.0|3.364|3.364/None|-5.561|\n|limitup_single_v1/limitup_single_v1|T+2|1/1|0.0|-6.624|None/-6.624|-6.688|\n|market_review_conditional/first_divergence_capacity_v1|T+2|1/1|100.0|7.39|7.39/None|0.831|\n|market_review_conditional/first_divergence_repair_v3|T+2|1/1|0.0|-16.678|None/-16.678|-17.528|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+2|1/1|100.0|2.065|2.065/None|-2.939|\n|market_review_conditional/low_position_volume_breakout_v4|T+2|1/1|100.0|3.518|3.518/None|-1.798|\n|market_review_conditional/market_review_v2|T+2|2/1|0.0|-5.142|None/-5.142|-9.923|\n|market_review_conditional/market_review_v2_source_corrected|T+2|2/1|0.0|-5.142|None/-5.142|-9.923|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+2|1/1|100.0|2.125|2.125/None|-6.25|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+2|1/1|100.0|7.208|7.208/None|0.057|\n|combined_limitup_watch/combined_limitup_watch_v1|T+5|2/1|0.0|-13.114|None/-13.114|-18.758|\n|combined_limitup_watch/combined_limitup_watch_v2|T+5|2/1|50.0|-1.532|2.1/-5.163|-7.874|\n|combined_limitup_watch/combined_limitup_watch_v3|T+5|1/1|0.0|-10.774|None/-10.774|-12.38|\n|combined_limitup_watch/combined_limitup_watch_v4|T+5|2/1|50.0|-5.474|1.427/-12.375|-18.478|\n|combined_limitup_watch/combined_limitup_watch_v5|T+5|2/2|50.0|-1.353|2.235/-4.94|-8.463|\n|limitup_single_v1/limitup_single_v1|T+5|1/1|0.0|-14.662|None/-14.662|-14.92|\n|market_review_conditional/first_divergence_capacity_v1|T+5|1/1|0.0|-8.545|None/-8.545|-10.485|\n|market_review_conditional/first_divergence_repair_v3|T+5|1/1|0.0|-18.235|None/-18.235|-20.807|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+5|1/1|0.0|-5.163|None/-5.163|-7.387|\n|market_review_conditional/low_position_volume_breakout_v4|T+5|1/1|100.0|1.407|1.407/None|-1.798|\n|market_review_conditional/market_review_v2|T+5|2/1|0.0|-13.114|None/-13.114|-18.758|\n|market_review_conditional/market_review_v2_source_corrected|T+5|2/1|0.0|-13.114|None/-13.114|-18.758|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+5|1/1|0.0|-2.5|None/-2.5|-6.667|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+5|1/1|100.0|2.507|2.507/None|0.057|\n|late_pair/late_pair_volume_price_v1|T+1|2/1|50.0|-1.053|0.182/-2.288|-6.264|\n|late_pair/late_pair_volume_price_v1|T+10|2/1|0.0|-26.614|None/-26.614|-27.082|\n|late_pair/late_pair_volume_price_v1|T+2|2/1|50.0|-4.222|0.771/-9.215|-9.759|\n|late_pair/late_pair_volume_price_v1|T+5|2/1|0.0|-13.098|None/-13.098|-20.165|\n\n失败归因：T+2虽有超过一半事件收涨，负向幅度仍使总体均值为负；这是分布与损益不对称的描述，不是主力行为因果。T+5/T+10更弱，旧样本不支持简单延长持有等待解套。低位组仅4只、一个基准日，个别大亏可以吞掉多数上涨，不能只按上涨比例排名。回顾性9条不纳入有效组，缺失、未触发与不可成交仍保留；旧版未冻结标签不补造为已知版本或市况。\n\n规则提案与样本外方案：维持现行规则；未来冻结温和量能承接/高位加速、首分歧回封/直接追高、板块相对强弱/绝对涨幅三组对照，并用原始真实时点分别验证T+1/T+2/T+5/T+10。至少报告36事件、20独立日期作为探索下限，仍需成交、成本、滑点与证券状态验证；不以达到样本下限宣布统计优势。先冻结新版本再前推，禁止按本批结果倒改历史或自动调权。\n\n本轮学习分析完成；真实成交胜率、可执行净收益保持空值，日线MFE/MAE不是组合最大回撤。原研究四模块、综合与打板尚缺项不会因本篇学习完成而自动解除。",
+      "published_at": "2026-11-12T05:12:35+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "full_daily_research",
+      "provenance": "manual_backfill_actual_publication_time"
+    },
+    {
+      "id": "learning-delivery-recovery-20261110-20261112-v1",
+      "date": "2026-11-10",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "title": "2026-11-10学习补做｜全样本、双目标与失败归因",
+      "summary": "2026-11-10学习补做｜全样本、双目标与失败归因",
+      "body": "研究交易日：2026-11-10｜发布时间：北京时间 2026-11-12 05:12（UTC+8）\n\n本次实际补做2026-11-10的学习分析与交付，使用原冻结快照forward-learning-2026-11-10（原记录时间2026-11-11T02:49:47.924698+08:00），只采用该快照截至2026-11-10的成熟结果，未加入后来交易日走势，也未重写旧学习记录。\n\n原记录31条，状态{'observed': 22, 'ineligible_retrospective': 9}。按证券+实际价格基准日去重，避免相同事件重复计数；相邻事件仍相关。原时点早尾盘属于另一数据集，不能用本表代替或事后重建。\n\n|周期|证券—基准日N|独立基准日|正价格比例%|均值%|中位%|\n|---|---:|---:|---:|---:|---:|\n|T+1|17|8|47.06|-0.804|-1.362|\n|T+2|17|8|52.94|-1.633|0.627|\n|T+5|17|8|29.41|-7.055|-8.545|\n|T+10|17|8|17.65|-10.286|-7.219|\n\n上涨比例与均值分别比较：\n\n|组别/版本|周期|N/独立日|正比例%|均值%|平均正/负幅度%|路径MAE%|\n|---|---:|---|---:|---:|---|---:|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+1|4/1|25.0|-0.413|3.934/-1.862|-7.049|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+10|4/1|25.0|-1.623|2.623/-3.038|-10.804|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+2|4/1|25.0|-1.451|0.134/-1.98|-7.049|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+30|0/0|None|None|None/None|None|\n|low_position_shape_proxy_v1/low_position_shape_proxy_v1|T+5|4/1|75.0|-0.958|1.402/-8.04|-10.804|\n|combined_limitup_watch/combined_limitup_watch_v1|T+1|2/1|50.0|-4.558|0.263/-9.379|-9.923|\n|combined_limitup_watch/combined_limitup_watch_v2|T+1|2/1|50.0|0.868|3.574/-1.837|-3.15|\n|combined_limitup_watch/combined_limitup_watch_v3|T+1|1/1|0.0|-5.752|None/-5.752|-6.511|\n|combined_limitup_watch/combined_limitup_watch_v4|T+1|2/1|0.0|-3.398|None/-3.398|-5.853|\n|combined_limitup_watch/combined_limitup_watch_v5|T+1|2/2|50.0|-0.309|1.765/-2.383|-2.418|\n|limitup_single_v1/limitup_single_v1|T+1|1/1|0.0|-1.479|None/-1.479|-5.209|\n|market_review_conditional/first_divergence_capacity_v1|T+1|1/1|100.0|4.85|4.85/None|0.831|\n|market_review_conditional/first_divergence_repair_v3|T+1|1/1|0.0|-10.002|None/-10.002|-10.002|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+1|1/1|100.0|3.574|3.574/None|-2.939|\n|market_review_conditional/low_position_volume_breakout_v4|T+1|1/1|100.0|1.486|1.486/None|-1.798|\n|market_review_conditional/market_review_v2|T+1|2/1|50.0|-4.558|0.263/-9.379|-9.923|\n|market_review_conditional/market_review_v2_source_corrected|T+1|2/1|50.0|-4.558|0.263/-9.379|-9.923|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+1|1/1|100.0|6.833|6.833/None|-6.25|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+1|1/1|100.0|7.293|7.293/None|0.057|\n|combined_limitup_watch/combined_limitup_watch_v1|T+10|2/1|0.0|-19.622|None/-19.622|-27.639|\n|combined_limitup_watch/combined_limitup_watch_v2|T+10|2/1|50.0|0.036|0.787/-0.715|-8.975|\n|combined_limitup_watch/combined_limitup_watch_v3|T+10|1/1|0.0|-13.577|None/-13.577|-20.934|\n|combined_limitup_watch/combined_limitup_watch_v4|T+10|2/1|50.0|-6.34|0.865/-13.545|-18.478|\n|combined_limitup_watch/combined_limitup_watch_v5|T+10|2/2|0.0|-4.492|None/-4.492|-16.062|\n|limitup_single_v1/limitup_single_v1|T+10|1/1|0.0|-3.923|None/-3.923|-14.92|\n|market_review_conditional/first_divergence_capacity_v1|T+10|1/1|0.0|-11.871|None/-11.871|-18.06|\n|market_review_conditional/first_divergence_repair_v3|T+10|1/1|0.0|-25.619|None/-25.619|-30.361|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+10|1/1|0.0|-0.715|None/-0.715|-8.975|\n|market_review_conditional/low_position_volume_breakout_v4|T+10|1/1|100.0|1.407|1.407/None|-3.206|\n|market_review_conditional/market_review_v2|T+10|2/1|0.0|-19.622|None/-19.622|-27.639|\n|market_review_conditional/market_review_v2_source_corrected|T+10|2/1|0.0|-19.622|None/-19.622|-27.639|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+10|1/1|0.0|-2.167|None/-2.167|-12.458|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+10|1/1|0.0|-5.043|None/-5.043|-7.92|\n|combined_limitup_watch/combined_limitup_watch_v1|T+2|2/1|0.0|-5.142|None/-5.142|-9.923|\n|combined_limitup_watch/combined_limitup_watch_v2|T+2|2/1|50.0|-1.461|2.065/-4.987|-5.249|\n|combined_limitup_watch/combined_limitup_watch_v3|T+2|1/1|0.0|-5.547|None/-5.547|-12.38|\n|combined_limitup_watch/combined_limitup_watch_v4|T+2|2/1|50.0|-2.111|0.627/-4.849|-7.776|\n|combined_limitup_watch/combined_limitup_watch_v5|T+2|2/2|100.0|3.364|3.364/None|-5.561|\n|limitup_single_v1/limitup_single_v1|T+2|1/1|0.0|-6.624|None/-6.624|-6.688|\n|market_review_conditional/first_divergence_capacity_v1|T+2|1/1|100.0|7.39|7.39/None|0.831|\n|market_review_conditional/first_divergence_repair_v3|T+2|1/1|0.0|-16.678|None/-16.678|-17.528|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+2|1/1|100.0|2.065|2.065/None|-2.939|\n|market_review_conditional/low_position_volume_breakout_v4|T+2|1/1|100.0|3.518|3.518/None|-1.798|\n|market_review_conditional/market_review_v2|T+2|2/1|0.0|-5.142|None/-5.142|-9.923|\n|market_review_conditional/market_review_v2_source_corrected|T+2|2/1|0.0|-5.142|None/-5.142|-9.923|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+2|1/1|100.0|2.125|2.125/None|-6.25|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+2|1/1|100.0|7.208|7.208/None|0.057|\n|combined_limitup_watch/combined_limitup_watch_v1|T+5|2/1|0.0|-13.114|None/-13.114|-18.758|\n|combined_limitup_watch/combined_limitup_watch_v2|T+5|2/1|50.0|-1.532|2.1/-5.163|-7.874|\n|combined_limitup_watch/combined_limitup_watch_v3|T+5|1/1|0.0|-10.774|None/-10.774|-12.38|\n|combined_limitup_watch/combined_limitup_watch_v4|T+5|2/1|50.0|-5.474|1.427/-12.375|-18.478|\n|combined_limitup_watch/combined_limitup_watch_v5|T+5|2/2|50.0|-1.353|2.235/-4.94|-8.463|\n|limitup_single_v1/limitup_single_v1|T+5|1/1|0.0|-14.662|None/-14.662|-14.92|\n|market_review_conditional/first_divergence_capacity_v1|T+5|1/1|0.0|-8.545|None/-8.545|-10.485|\n|market_review_conditional/first_divergence_repair_v3|T+5|1/1|0.0|-18.235|None/-18.235|-20.807|\n|market_review_conditional/low_position_event_sector_resonance_v1|T+5|1/1|0.0|-5.163|None/-5.163|-7.387|\n|market_review_conditional/low_position_volume_breakout_v4|T+5|1/1|100.0|1.407|1.407/None|-1.798|\n|market_review_conditional/market_review_v2|T+5|2/1|0.0|-13.114|None/-13.114|-18.758|\n|market_review_conditional/market_review_v2_source_corrected|T+5|2/1|0.0|-13.114|None/-13.114|-18.758|\n|market_review_conditional/platform_breakout_sector_resonance_v3|T+5|1/1|0.0|-2.5|None/-2.5|-6.667|\n|market_review_conditional/platform_breakout_sector_resonance_v4|T+5|1/1|100.0|2.507|2.507/None|0.057|\n|late_pair/late_pair_volume_price_v1|T+1|2/1|50.0|-1.053|0.182/-2.288|-6.264|\n|late_pair/late_pair_volume_price_v1|T+10|2/1|0.0|-26.614|None/-26.614|-27.082|\n|late_pair/late_pair_volume_price_v1|T+2|2/1|50.0|-4.222|0.771/-9.215|-9.759|\n|late_pair/late_pair_volume_price_v1|T+5|2/1|0.0|-13.098|None/-13.098|-20.165|\n\n失败归因：T+2虽有超过一半事件收涨，负向幅度仍使总体均值为负；这是分布与损益不对称的描述，不是主力行为因果。T+5/T+10更弱，旧样本不支持简单延长持有等待解套。低位组仅4只、一个基准日，个别大亏可以吞掉多数上涨，不能只按上涨比例排名。回顾性9条不纳入有效组，缺失、未触发与不可成交仍保留；旧版未冻结标签不补造为已知版本或市况。\n\n规则提案与样本外方案：维持现行规则；未来冻结温和量能承接/高位加速、首分歧回封/直接追高、板块相对强弱/绝对涨幅三组对照，并用原始真实时点分别验证T+1/T+2/T+5/T+10。至少报告36事件、20独立日期作为探索下限，仍需成交、成本、滑点与证券状态验证；不以达到样本下限宣布统计优势。先冻结新版本再前推，禁止按本批结果倒改历史或自动调权。\n\n本轮学习分析完成；真实成交胜率、可执行净收益保持空值，日线MFE/MAE不是组合最大回撤。原研究四模块、综合与打板尚缺项不会因本篇学习完成而自动解除。",
+      "published_at": "2026-11-12T05:12:35+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "full_daily_research",
+      "provenance": "manual_backfill_actual_publication_time"
+    },
+    {
+      "id": "execution-recovery-20261111-limitup_single-20261112-v1",
+      "date": "2026-11-11",
+      "task_id": "limitup_single",
+      "track": "market_review",
+      "title": "11月11日独立打板比较复核｜8只位置与均线偏离",
+      "summary": "11月11日独立打板比较复核｜8只位置与均线偏离",
+      "body": "研究交易日：2026-11-11｜发布时间：北京时间 2026-11-12 05:12（UTC+8）\n\n## **东山精密（002384）**\n\n资格：打板观察；参考92.06元，2026-11-11T15:00:00+08:00，原冻结2026-11-11T18:58:46+08:00。本次仅复核原观察，未虚构新价格或新触发。\n\n触发观察：11月12日09:35—10:30观察首次分歧后回封，须另取得真实竞价、连续至少60秒承接与同期板块反馈。\n\n放弃：一字排队、抢跑高开、板块转弱、无连续盘口或无可成交证据即放弃；不按旧收盘价追入。\n\n风险：前日已封板，次日高开和T+1退出风险；本轮无明日盘口，正式0只是未确认。 最早合法退出：若11月12日实际买入，11月13日。\n\n本轮取得并读回BaoStock 5219/5225只日线，实际生产04fae6a版本0.10.2。原9:50与14:40均原时点各冻2只；与本盘后观察分开，没有因凌晨访问错误认定不存在。现有120只广池、28只深池与额外9只温和结构，以及37只48根五分钟是已有证据范围。此次新增统一比较8只的MA20/60偏离与追价差异：\n\n|代码/名称|T收盘|日涨幅%|RV20|120日位置%|相对MA20%|相对MA60%|\n|---|---:|---:|---:|---:|---:|---:|\n|002156 通富微电|45.90|3.15|1.25|16.52|2.20|-16.79|\n|002050 三花智控|36.35|2.83|1.77|24.07|7.55|3.49|\n|002384 东山精密|92.06|10.00|1.55|6.96|-9.50|-41.64|\n|002599 盛通股份|6.16|5.66|2.02|54.55|9.30|7.78|\n|300415 伊之密|19.45|5.53|2.35|25.05|7.33|2.64|\n|000910 大亚圣象|5.32|3.30|1.91|15.41|1.87|-4.05|\n|002397 梦洁股份|3.26|6.19|3.10|11.70|1.27|-7.14|\n|002310 东方新能|2.95|4.98|17.20|87.39|34.76|29.60|\n\n比较结论：三花已站上MA20/MA60，但36.47前高临近，突破还需真实确认；通富MA20附近修复、中期MA60仍在上方，RV20仅1.25，无法据此叫强趋势反转。东山涨停和披露净买可作为回封研究对照，但仍低于MA20/60，低120日位置本身不能证明建仓完成。盛通距20日前高近但区间位置已过半；伊之密放量形态较强，旧公告核查中的盈利下降/质押事实仍构成否决风险；大亚和梦洁尚未回收MA60，低位置不单独授予资格；东方新能RV20达17.20而CLV仅0.44，作为高量未充分推进反例保留。\n\n独立打板三只比较对照为002050、002156、002599；不能把各自普通结构强行当涨停介入。002384仅保留原观察，完整三日梯队/20日空间及原时点晋级分母、竞价与60秒连续承接未齐，正式0只表示未确认，不是市场没有机会。\n\n完成顺序：先重读同T市场、量价、低位、龙虎榜与已完成学习正文，再独立更新本轮打板对照，最后复核综合比较。四项上游仍是partial，不能把新比较叫最终研究双标；输入仍为manual-recovery-20261111四模块-v1与learning_review-v1，原始发布时间都可追查。已证明主源与原时点观察存在，但完整研究缺口继续保留；没有降低正式买点门槛或重写旧样本。",
+      "published_at": "2026-11-12T05:12:35+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-derived.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-filings.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/baostock/2026-11-11.json"
+      ],
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "report_type": "manual_recovery_research",
+      "provenance": "manual_backfill_actual_publication_time",
+      "research_shadow_candidates": [
+        {
+          "task_id": "limitup_single",
+          "code": "002384",
+          "name": "东山精密",
+          "reference_price": 92.06,
+          "reference_as_of": "2026-11-11T15:00:00+08:00",
+          "actual_frozen_at": "2026-11-11T18:58:46+08:00",
+          "planned_observation_date": "2026-11-12",
+          "candidate_status": "research_shadow_limitup_only",
+          "formal_buy_signal": false,
+          "buy_order_allowed": false,
+          "hypothesis": "硬件强势和同日披露净买支持次日板后承接观察，不能据此预判可成交。",
+          "trigger_condition": "11月12日09:35—10:30观察首次分歧后回封，须另取得真实竞价、连续至少60秒承接与同期板块反馈。",
+          "abandon_condition": "一字排队、抢跑高开、板块转弱、无连续盘口或无可成交证据即放弃；不按旧收盘价追入。",
+          "risk": "前日已封板，次日高开和T+1退出风险；本轮无明日盘口，正式0只是未确认。",
+          "earliest_legal_exit_if_entered": "2026-11-13",
+          "reviewed_at": "2026-11-12T05:12:35+08:00"
+        }
+      ]
+    },
+    {
+      "id": "execution-recovery-20261111-combined_pair-20261112-v1",
+      "date": "2026-11-11",
+      "task_id": "combined_pair",
+      "track": "market_review",
+      "title": "11月11日综合比较复核｜8只位置与均线偏离",
+      "summary": "11月11日综合比较复核｜8只位置与均线偏离",
+      "body": "研究交易日：2026-11-11｜发布时间：北京时间 2026-11-12 05:12（UTC+8）\n\n## **通富微电（002156）**\n\n资格：待综合观察，非最终双标；参考45.9元，2026-11-11T15:00:00+08:00，原冻结2026-11-11T18:58:46+08:00。本次仅复核原观察，未虚构新价格或新触发。\n\n触发观察：45.20—45.30附近承接带、44.91日线MA20为结构参照；11月12日09:35—10:30或14:00—14:40观察承接后放量站稳46.15。\n\n放弃：未入场前跌破44.90且不能回收、半导体同步走弱或较45.90高开超过3%（约47.28）则放弃追价。\n\n风险：Q3扣非净利+76.30%支持对照，但归母+199.54%含较多非经常性收益；RV5不足1，中期MA60约55.16仍在上方，不能当趋势反转。 最早合法退出：若11月12日实际买入，11月13日。\n\n## **三花智控（002050）**\n\n资格：待综合观察，非最终双标；参考36.35元，2026-11-11T15:00:00+08:00，原冻结2026-11-11T18:58:46+08:00。本次仅复核原观察，未虚构新价格或新触发。\n\n触发观察：36.10—36.20附近观察午后低点/VWAP承接；11月12日09:35—10:30或14:00—14:40放量站稳36.47—36.70压力带再评估。\n\n放弃：未入场前失守36.10且不能回收、板块转弱或较36.35高开超过3%（约37.44）则放弃追价。\n\n风险：三季度归母同比-9.64%、扣非-5.09%，不是业绩爆发股；回购截至11月5日约2.23亿元不保证股价，20日前高尚未确认突破。 最早合法退出：若11月12日实际买入，11月13日。\n\n本轮取得并读回BaoStock 5219/5225只日线，实际生产04fae6a版本0.10.2。原9:50与14:40均原时点各冻2只；与本盘后观察分开，没有因凌晨访问错误认定不存在。现有120只广池、28只深池与额外9只温和结构，以及37只48根五分钟是已有证据范围。此次新增统一比较8只的MA20/60偏离与追价差异：\n\n|代码/名称|T收盘|日涨幅%|RV20|120日位置%|相对MA20%|相对MA60%|\n|---|---:|---:|---:|---:|---:|---:|\n|002156 通富微电|45.90|3.15|1.25|16.52|2.20|-16.79|\n|002050 三花智控|36.35|2.83|1.77|24.07|7.55|3.49|\n|002384 东山精密|92.06|10.00|1.55|6.96|-9.50|-41.64|\n|002599 盛通股份|6.16|5.66|2.02|54.55|9.30|7.78|\n|300415 伊之密|19.45|5.53|2.35|25.05|7.33|2.64|\n|000910 大亚圣象|5.32|3.30|1.91|15.41|1.87|-4.05|\n|002397 梦洁股份|3.26|6.19|3.10|11.70|1.27|-7.14|\n|002310 东方新能|2.95|4.98|17.20|87.39|34.76|29.60|\n\n比较结论：三花已站上MA20/MA60，但36.47前高临近，突破还需真实确认；通富MA20附近修复、中期MA60仍在上方，RV20仅1.25，无法据此叫强趋势反转。东山涨停和披露净买可作为回封研究对照，但仍低于MA20/60，低120日位置本身不能证明建仓完成。盛通距20日前高近但区间位置已过半；伊之密放量形态较强，旧公告核查中的盈利下降/质押事实仍构成否决风险；大亚和梦洁尚未回收MA60，低位置不单独授予资格；东方新能RV20达17.20而CLV仅0.44，作为高量未充分推进反例保留。\n\n独立打板三只比较对照为002050、002156、002599；不能把各自普通结构强行当涨停介入。002384仅保留原观察，完整三日梯队/20日空间及原时点晋级分母、竞价与60秒连续承接未齐，正式0只表示未确认，不是市场没有机会。\n\n完成顺序：先重读同T市场、量价、低位、龙虎榜与已完成学习正文，再独立更新本轮打板对照，最后复核综合比较。四项上游仍是partial，不能把新比较叫最终研究双标；输入仍为manual-recovery-20261111四模块-v1与learning_review-v1，原始发布时间都可追查。已证明主源与原时点观察存在，但完整研究缺口继续保留；没有降低正式买点门槛或重写旧样本。",
+      "published_at": "2026-11-12T05:12:35+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-histories.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-derived.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/docs/research/recovery-20261111-filings.json",
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/baostock/2026-11-11.json"
+      ],
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "report_type": "manual_recovery_research",
+      "provenance": "manual_backfill_actual_publication_time",
+      "research_shadow_candidates": [
+        {
+          "task_id": "combined_pair",
+          "code": "002156",
+          "name": "通富微电",
+          "reference_price": 45.9,
+          "reference_as_of": "2026-11-11T15:00:00+08:00",
+          "actual_frozen_at": "2026-11-11T18:58:46+08:00",
+          "reviewed_at": "2026-11-12T05:12:35+08:00",
+          "planned_observation_date": "2026-11-12",
+          "candidate_status": "pending_integrated_review_not_final",
+          "formal_buy_signal": false,
+          "buy_order_allowed": false,
+          "hypothesis": "日线位置修复与完整五分钟承接共同前推验证，尚无统计优势。",
+          "trigger_condition": "45.20—45.30附近承接带、44.91日线MA20为结构参照；11月12日09:35—10:30或14:00—14:40观察承接后放量站稳46.15。",
+          "abandon_condition": "未入场前跌破44.90且不能回收、半导体同步走弱或较45.90高开超过3%（约47.28）则放弃追价。",
+          "risk": "Q3扣非净利+76.30%支持对照，但归母+199.54%含较多非经常性收益；RV5不足1，中期MA60约55.16仍在上方，不能当趋势反转。",
+          "earliest_legal_exit_if_entered": "2026-11-13"
+        },
+        {
+          "task_id": "combined_pair",
+          "code": "002050",
+          "name": "三花智控",
+          "reference_price": 36.35,
+          "reference_as_of": "2026-11-11T15:00:00+08:00",
+          "actual_frozen_at": "2026-11-11T18:58:46+08:00",
+          "reviewed_at": "2026-11-12T05:12:35+08:00",
+          "planned_observation_date": "2026-11-12",
+          "candidate_status": "pending_integrated_review_not_final",
+          "formal_buy_signal": false,
+          "buy_order_allowed": false,
+          "hypothesis": "日线位置修复与完整五分钟承接共同前推验证，尚无统计优势。",
+          "trigger_condition": "36.10—36.20附近观察午后低点/VWAP承接；11月12日09:35—10:30或14:00—14:40放量站稳36.47—36.70压力带再评估。",
+          "abandon_condition": "未入场前失守36.10且不能回收、板块转弱或较36.35高开超过3%（约37.44）则放弃追价。",
+          "risk": "三季度归母同比-9.64%、扣非-5.09%，不是业绩爆发股；回购截至11月5日约2.23亿元不保证股价，20日前高尚未确认突破。",
+          "earliest_legal_exit_if_entered": "2026-11-13"
+        }
+      ]
+    }
+  ],
+  "task_runs": [
+    {
+      "id": "learning-delivery-recovery-20261102-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261102-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-02",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-02学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261102-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261103-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261103-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-03",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-03学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261103-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261109-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261109-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-09",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-09学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261109-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261110-20261112-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261110-20261112-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-10",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "2026-11-10学习补做｜全样本、双目标与失败归因",
+      "report_ids": [
+        "learning-delivery-recovery-20261110-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "execution-recovery-20261111-limitup_single-20261112-v1-receipt",
+      "run_id": "execution-recovery-20261111-limitup_single-20261112-v1",
+      "task_id": "limitup_single",
+      "date": "2026-11-11",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "11月11日独立打板比较复核｜8只位置与均线偏离",
+      "report_ids": [
+        "execution-recovery-20261111-limitup_single-20261112-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "execution-recovery-20261111-combined_pair-20261112-v1-receipt",
+      "run_id": "execution-recovery-20261111-combined_pair-20261112-v1",
+      "task_id": "combined_pair",
+      "date": "2026-11-11",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-12T05:12:35+08:00",
+      "completed_at": "2026-11-12T05:12:35+08:00",
+      "recorded_at": "2026-11-12T05:12:35+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "11月11日综合比较复核｜8只位置与均线偏离",
+      "report_ids": [
+        "execution-recovery-20261111-combined_pair-20261112-v1"
+      ],
+      "recommendation_ids": []
+    }
+  ]
+}

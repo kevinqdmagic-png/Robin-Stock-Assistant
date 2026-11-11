@@ -1,0 +1,60 @@
+name: Publish linked research bundle
+on:
+  push:
+    branches: [main]
+    paths: ['research_backfills/linked-*.json']
+  workflow_dispatch:
+    inputs:
+      bundle:
+        description: Repository path of an append-only linked research bundle
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: linked-research-bundles
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply and publish immutable linked records
+        env:
+          SELECTED_BUNDLE: ${{ inputs.bundle }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python - <<'PY'
+          import os, pathlib, subprocess
+          base = subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip()
+          selected = os.environ.get('SELECTED_BUNDLE')
+          if selected:
+              paths = [selected]
+          else:
+              paths = sorted(str(p) for p in pathlib.Path('research_backfills').glob('linked-*.json'))
+          for path in paths:
+              resolved = pathlib.Path(path).resolve()
+              if resolved.parent != pathlib.Path('research_backfills').resolve() or not resolved.is_file():
+                  raise SystemExit('invalid bundle path')
+              subprocess.run(['python','scripts/publish_linked_archives.py','--base',base,
+                              '--bundle',path], check=True)
+          PY
+      - name: Verify archives after publication
+        run: python scripts/validate_archives.py HEAD
+      - name: Verify actual deployed report bodies and receipts
+        run: python scripts/verify_linked_bundle.py --wait 420
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linked-publication-evidence
+          path: |
+            linked-publication.json
+            bundle-readback.json
+          retention-days: 90
