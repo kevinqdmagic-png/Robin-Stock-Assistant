@@ -27918,6 +27918,31 @@
       "date": "2026-11-12",
       "published_at": "2026-11-13T02:57:30+08:00",
       "run_id": "43285148324"
+    },
+    {
+      "id": "learning-delivery-recovery-20261021-20261113-v1",
+      "date": "2026-10-21",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "title": "2026-10-21学习补做｜原冻结成熟度、双目标与尾部风险",
+      "summary": "补齐10月21日缺失的学习正文与回执：原冻结30条中21条可观察，按证券及实际价格基准日去重为16个事件；T+1/T+2均值为负，T+5仅11个成熟且均值-10.018%，T+10当时未成熟。",
+      "body": "研究交易日：2026-10-21｜发布时间：北京时间 2026-11-13 03:06（UTC+8）\n\n本次实际补做2026-10-21缺失的学习正文与回执，使用原冻结快照`forward-learning-2026-10-21`（原记录时间2026-10-21 20:11，北京时间）。只复述该快照在原时点已成熟的价格观察，不用后来走势补改历史结论，不重建盘中名单。最新研究日2026-11-12的学习正文与回执另已完整核验，本补做不替代最新T。\n\n原记录30条：21条可观察、8条回顾性不合格、1条当时仍待成熟。按证券+实际价格基准日去重为16个事件、7个实际基准日；5条重叠记录不重复计数。数据基础为未复权信号日收盘代理，非实际买入成交。\n\n|周期|证券—基准日N|独立基准日|正价格比例%|均值%|中位%|MAE≤-5%比例%|\n|---|---:|---:|---:|---:|---:|---:|\n|T+1|16|7|50.00|-0.706|-0.590|43.75|\n|T+2|16|7|50.00|-1.979|-1.409|56.25|\n|T+5|11|4|9.09|-10.018|-10.774|100.00|\n|T+10|0|0|—|—|—|—|\n\n上涨比例与收益幅度分开看：T+1、T+2各有一半事件收涨，但均值仍为负，说明负向幅度压过上涨频率；这不是已验证成交胜率。T+5仅11个事件且全部路径MAE低于或等于-5%，成熟度和独立日期都不足，不能据此估计长期期望。T+10在原冻结时点为0个成熟样本，保留为空，不以后来数据倒填。\n\n|策略/原版本标签|周期|N/独立日|正比例%|均值%|平均正/负幅度%|最差收盘%|最差路径MAE%|\n|---|---:|---:|---:|---:|---|---:|---:|\n|market_review_conditional / legacy_not_frozen|T+1|8/4|75.0|0.615|4.050/-9.691|-10.002|-10.002|\n|combined_limitup_watch / legacy_not_frozen|T+1|8/5|37.5|-2.270|1.867/-4.753|-9.379|-9.923|\n|late_pair / legacy_not_frozen|T+1|2/1|50.0|-1.053|0.182/-2.288|-2.288|-6.264|\n|market_review_conditional / legacy_not_frozen|T+2|8/4|62.5|-0.582|4.461/-8.987|-16.678|-17.528|\n|combined_limitup_watch / legacy_not_frozen|T+2|8/5|37.5|-2.519|1.839/-5.133|-6.840|-12.380|\n|late_pair / legacy_not_frozen|T+2|2/1|50.0|-4.222|0.771/-9.215|-9.215|-9.759|\n|market_review_conditional / legacy_not_frozen|T+5|6/3|0.0|-10.112|—/-10.112|-18.235|-20.807|\n|combined_limitup_watch / legacy_not_frozen|T+5|5/3|20.0|-8.013|2.100/-10.541|-17.580|-18.758|\n|late_pair / legacy_not_frozen|T+5|2/1|0.0|-13.098|—/-13.098|-13.940|-20.165|\n\n失败归因：旧版未冻结版本号与市况标签，不能冒充可比策略版本；相邻日期、同证券和同题材相关，独立性低于名义N。上涨比例较高的市场复盘组仍出现约-10%的单事件损失，说明只按成功频率排序会遗漏尾部风险。打板单股原样本仅1条，T+1为-1.479%、T+2为-6.624%、T+5为-14.662%，不足以推断策略总体。低位结构当日尚无冻结样本，不补造。\n\n规则提案只登记、不自动改权：以后把“上涨比例”和“均值/中位及平均盈亏”作为两张榜，同时要求冻结版本、实际基准日、可证实MAE、缺失/不可成交状态；对高正比例但单次大亏的组预注册尾部风险否决条件。首轮仍要求至少36个证券基准日、20个独立日期及按日期隔离的前推样本；还需真实成交、费用和限价可成交证据。当前真实成交胜率、净收益保持空值，历史报告不授权下单或正式晋级。",
+      "published_at": "2026-11-13T03:06:20+08:00",
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/blob/main/backend/data/learning.json"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "full_daily_research",
+      "provenance": "manual_historical_learning_backfill_from_immutable_snapshot",
+      "research_rule_version": "forward_learning_v1_historical_snapshot_only",
+      "market_data_cutoff_at": "2026-10-21T15:00:00+08:00",
+      "recommendation_ids": [],
+      "formal_candidate_count": 0,
+      "verified_fill_count": 0,
+      "sample_count": 30,
+      "unique_anchor_date_symbols": 16
     }
   ]
 }

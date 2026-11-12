@@ -8733,6 +8733,24 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "learning-delivery-recovery-20261021-20261113-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261021-20261113-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-21",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T03:06:20+08:00",
+      "completed_at": "2026-11-13T03:06:20+08:00",
+      "recorded_at": "2026-11-13T03:06:20+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐2026-10-21原冻结学习分析；16个去重事件、7个基准日，真实成交胜率与净收益为空。",
+      "report_ids": [
+        "learning-delivery-recovery-20261021-20261113-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
