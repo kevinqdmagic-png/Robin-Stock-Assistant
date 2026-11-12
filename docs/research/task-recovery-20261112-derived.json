@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-12",
+  "derived_at": "2026-11-13T01:10:57+08:00",
+  "raw_evidence_archive": {
+    "filename": "task-recovery-20261112-derived.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "df432e7f20185ba6e121167ec1c42034fa47fad17d45c5622604900ebdcb977b",
+    "original_sha256": "ec9df98a69c22ac72729a8810c4313fb946f3f34cb84175c5521445bb5a4a5bf",
+    "original_bytes": 1532327
+  }
+}

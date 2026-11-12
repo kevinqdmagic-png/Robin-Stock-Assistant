@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-12",
+  "started_at": "2026-11-12T16:56:12+00:00",
+  "completed_at": "2026-11-12T17:01:10+00:00",
+  "raw_evidence_archive": {
+    "filename": "task-recovery-20261112-raw.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "72a5659fe45dcacb3476f20db2330f859f7f0241f9a0b04969f0d989a0154cfe",
+    "original_sha256": "cbf46a3dff9d42a8b05d609bc817e9131557411cc4bc056c32165319a863821b",
+    "original_bytes": 5213032
+  }
+}

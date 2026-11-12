@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-11",
+  "started_at": "2026-11-12T17:06:26+00:00",
+  "completed_at": "2026-11-12T17:07:51+00:00",
+  "raw_evidence_archive": {
+    "filename": "official-lhb-20261111-full.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "e4988ae37cea1b6ed4e9edd6db6aaa9eda3c1093d1eaa15524ef3f8fc1054774",
+    "original_sha256": "cc5395f5fba3e1648e3cb371c274f3b651936d23bbae1c7dd7bab79a5593b7c4",
+    "original_bytes": 303703
+  }
+}

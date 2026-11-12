@@ -1,0 +1,9 @@
+{
+  "raw_evidence_archive": {
+    "filename": "task-official-lhb-20261112.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "862962e0c71c3bcfff93244fbaf77f6a46f5b0f6de0d86d2865f34f6c76bc090",
+    "original_sha256": "56b8867a1cddabfe64456214704a34fbea017a6ab59b6b037bf44ac6ca714fb5",
+    "original_bytes": 54817
+  }
+}

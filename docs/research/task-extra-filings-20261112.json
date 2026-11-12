@@ -1,0 +1,9 @@
+{
+  "raw_evidence_archive": {
+    "filename": "task-extra-filings-20261112.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "b6bfcf52b6844f35762b8fbda901df9d6a2f93ae76422a901262541081bd922d",
+    "original_sha256": "7175a64cab20a50e37b6c75a3635d63e32c093279ed7b3ce5c44f87cd2c82e02",
+    "original_bytes": 77348
+  }
+}

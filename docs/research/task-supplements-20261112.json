@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-12",
+  "started_at": "2026-11-12T16:58:02+00:00",
+  "completed_at": "2026-11-12T16:59:28+00:00",
+  "raw_evidence_archive": {
+    "filename": "task-supplements-20261112.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "bc0b0e8b476b558e6827383cdee8b53a12ced42ca6393395bc30302829d1b4e0",
+    "original_sha256": "38f0acfb0e963d4919f6ec511300cbeaa8ed7e6e5969d234ff1ce2e06fd2d40c",
+    "original_bytes": 560964
+  }
+}

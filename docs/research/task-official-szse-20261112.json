@@ -1,0 +1,9 @@
+{
+  "raw_evidence_archive": {
+    "filename": "task-official-szse-20261112.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "504e78efd3ecf54b79223a9fb0aa790c63a3a874622be4da04aaaa5e4678ce85",
+    "original_sha256": "e802de7cb0dc86703e593c99ce87518bfe9fcc09b4bdf7ce04df6552eb1e349a",
+    "original_bytes": 6948
+  }
+}

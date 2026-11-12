@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-11",
+  "derived_at": "2026-11-13T01:15:28+08:00",
+  "raw_evidence_archive": {
+    "filename": "lhb-historical-reconciliation-20261111.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "f12abed66f19ac228a18984e02c0e9e5f9e5f9d6918ff3662b6d10dbcf6b5f25",
+    "original_sha256": "5c9e3655f70647c7ec9d617e3958551f869f8906823b1734c486a57ec56a5e36",
+    "original_bytes": 837358
+  }
+}

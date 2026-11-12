@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-12",
+  "started_at": "2026-11-12T17:02:07+00:00",
+  "completed_at": "2026-11-12T17:05:58.742752+00:00",
+  "raw_evidence_archive": {
+    "filename": "sector-paths-20261112.json.gz",
+    "format": "gzip_of_exact_original_json_bytes",
+    "gzip_sha256": "ed9f03af93e40f251b70acc08c5b8a845e2e20b907bcfb99d7b05a3c6c7275d2",
+    "original_sha256": "71749c21eab5b9ddbc4c5ae48f071178485f5e53913a22aa0a3dbfb9a2292fe1",
+    "original_bytes": 24134
+  }
+}
