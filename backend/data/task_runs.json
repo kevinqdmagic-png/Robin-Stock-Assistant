@@ -8060,6 +8060,61 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "market-review-20261112-scheduled-close-v1-completed",
+      "run_id": "market-review-20261112-scheduled-close-v1",
+      "task_id": "market_review",
+      "date": "2026-11-12",
+      "trigger": "scheduled",
+      "started_at": "2026-11-12T16:50:48+08:00",
+      "completed_at": "2026-11-12T16:55:36+08:00",
+      "recorded_at": "2026-11-12T16:55:36+08:00",
+      "status": "completed",
+      "summary": "完整完成T=2026-11-12沪深5218只市场复盘、120广池、28深筛、情绪/主线/公告/三情景及2只待综合观察；报告market-review-20261112-close-v1。",
+      "report_ids": [
+        "market-review-20261112-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-20261112-close-v1.md",
+        "docs/research/market-review-20261112-evidence.json",
+        "backend/data/sina_daily_full/2026-11-12.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-12.json",
+        "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+        "https://www.kanpanba.com/limit/2026-11-12",
+        "https://www.kanpanba.com/limit/2026-11-11",
+        "https://www.sse.com.cn/home/search/?webswd=603366",
+        "https://www.sse.com.cn/home/search/index.shtml?webswd=%E5%B8%82%E5%87%80%E7%8E%87"
+      ]
+    },
+    {
+      "id": "market-review-20261111-historical-event-supplement-v1-receipt",
+      "run_id": "market-review-20261111-historical-event-supplement-v1",
+      "task_id": "market_review",
+      "date": "2026-11-11",
+      "trigger": "manual",
+      "started_at": "2026-11-12T16:50:48+08:00",
+      "completed_at": "2026-11-12T16:55:36+08:00",
+      "recorded_at": "2026-11-12T16:55:36+08:00",
+      "status": "partial",
+      "summary": "实质补得11月11日事件生态和次日反馈；原同日报告仍非完整前置，不改写历史状态。",
+      "report_ids": [
+        "market-review-20261111-event-ecosystem-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "trade_executed": false,
+      "delivery_status": "repository_prepared_not_yet_verified",
+      "sources": [
+        "docs/research/market-review-20261111-event-ecosystem-supplement-v1.md",
+        "https://www.kanpanba.com/limit/2026-11-11"
+      ]
     }
   ]
 }
