@@ -8751,6 +8751,25 @@
         "learning-delivery-recovery-20261021-20261113-v1"
       ],
       "recommendation_ids": []
+    },
+    {
+      "id": "early_pair-20261113-gh-43396055868",
+      "run_id": "github-actions-43396055868",
+      "task_id": "early_pair",
+      "date": "2026-11-13",
+      "trigger": "scheduled",
+      "started_at": "2026-11-13T16:48:24.698932+08:00",
+      "recorded_at": "2026-11-13T16:48:24.839683+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 16:48:24。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/43396055868"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
