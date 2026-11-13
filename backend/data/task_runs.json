@@ -8850,6 +8850,33 @@
         "https://push2.eastmoney.com/api/qt/clist/get"
       ],
       "blocked_modules": []
+    },
+    {
+      "id": "volume-price-20261113-scheduled-close-v3-completed",
+      "run_id": "volume-price-20261113-scheduled-close-v3",
+      "task_id": "volume_price",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T18:53:24+08:00",
+      "recorded_at": "2026-11-13T18:53:24+08:00",
+      "completed_at": "2026-11-13T18:53:24+08:00",
+      "status": "completed",
+      "summary": "修正600567观察顺序为先重新站回1.15、再回踩确认；行情、样本与其余冻结内容不变。",
+      "report_ids": [
+        "volume-price-20261113-close-v3"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "sources": [
+        "docs/research/volume-price-20261113-evidence.json",
+        "backend/data/sina_daily_full/2026-11-13.json.gz",
+        "backend/data/market_source_status/sina-2026-11-13.json",
+        "backend/data/market_source_status/baostock-2026-11-13.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://push2.eastmoney.com/api/qt/clist/get"
+      ],
+      "blocked_modules": []
     }
   ]
 }
