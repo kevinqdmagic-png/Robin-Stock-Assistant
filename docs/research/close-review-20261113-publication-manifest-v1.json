@@ -1,0 +1,64 @@
+{
+  "id": "close-review-20261113-publication-manifest-v1",
+  "prepared_at": "2026-11-13T20:19:59.140649+00:00",
+  "market_date": "2026-11-13",
+  "observation_date": "2026-11-16",
+  "earliest_legal_exit_date_if_bought": "2026-11-17",
+  "linked_archives_commit": "1a7a3d1672ad7a9dac209421d5365e0390984e56",
+  "bundle_path": "research_backfills/linked-close-review-20261113-v1.json",
+  "raw_evidence_sha256": "c3b7ddc8e49aa519ea80e43c0f8ad907dcbd405b401ea7e41c5b98987a64dfa1",
+  "reports": [
+    {
+      "id": "close-review-20261113-market-v1",
+      "status": "completed",
+      "body_sha256": "d8cf46b9d815a127863942de691237fc5c5bde141133a0b48975ded3d3a23255",
+      "receipt_id": "close-review-20261113-market-v1-receipt"
+    },
+    {
+      "id": "close-review-20261113-volume-audit-v1",
+      "status": "partial",
+      "body_sha256": "89bdddc6d270e3049b369fdd18fdd869638515c54c71764d3fbb8aabd420e2e3",
+      "receipt_id": "close-review-20261113-volume-audit-v1-receipt"
+    },
+    {
+      "id": "close-review-20261113-low-v1",
+      "status": "partial",
+      "body_sha256": "f8f051c89cfd81052c881e8e7cccced79bb4522c8ba2d8341e7e21b1743272ba",
+      "receipt_id": "close-review-20261113-low-v1-receipt"
+    },
+    {
+      "id": "close-review-20261113-lhb-v1",
+      "status": "partial",
+      "body_sha256": "a0d391869732334f54df91a3a5e0f5a743a3b40afa8ee0582234f916e764d60f",
+      "receipt_id": "close-review-20261113-lhb-v1-receipt"
+    },
+    {
+      "id": "close-review-20261113-limitup-v1",
+      "status": "partial",
+      "body_sha256": "8587fa0a125aa45a734ba98beb0337db030316f7a4884fc3bd9b26cb8c753acf",
+      "receipt_id": "close-review-20261113-limitup-v1-receipt"
+    },
+    {
+      "id": "close-review-20261113-combined-v1",
+      "status": "partial",
+      "body_sha256": "731d41fda036948a105b86baea857a40610f8fd7f868fd3c195aefdf68d1ee05",
+      "receipt_id": "close-review-20261113-combined-v1-receipt"
+    },
+    {
+      "id": "close-review-20261112-historical-t1-v1",
+      "status": "partial",
+      "body_sha256": "d10c3e21d792449da266a7c17c3220470c42a2e7ff3e636fb03b839664c80c41",
+      "receipt_id": "close-review-20261112-historical-t1-v1-receipt"
+    }
+  ],
+  "verification_scope": "Exact new bodies, sources, evidence and receipts verified in latest main; container CI, Railway exact SHA and production readback remain independent deployment checks.",
+  "full_research_completed": false,
+  "final_combined_pair_authorized": false,
+  "formal_buy_signal_count": 0,
+  "blocked_evidence": [
+    "broad_multiday_structure_and_point_in_time_industry_sync",
+    "one_STAR_LHB_original",
+    "exact_twenty_session_height_upper_bound",
+    "D_auction_tick_queue_and_execution"
+  ]
+}
