@@ -9217,6 +9217,146 @@
         "learning-delivery-recovery-20261016-20261114-v1"
       ],
       "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261113-market-v1-receipt",
+      "run_id": "close-review-20261113-market-v1-run",
+      "task_id": "market_review",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:18+08:00",
+      "recorded_at": "2026-11-14T04:14:18+08:00",
+      "status": "completed",
+      "summary": "5216只双源核验；上证-0.59%、创业板-3.32%，传媒/养殖相对强，天普停牌风险核验。",
+      "report_ids": [
+        "close-review-20261113-market-v1"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
+    },
+    {
+      "id": "close-review-20261113-volume-audit-v1-receipt",
+      "run_id": "close-review-20261113-volume-audit-v1-run",
+      "task_id": "volume_price",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:19+08:00",
+      "recorded_at": "2026-11-14T04:14:19+08:00",
+      "status": "partial",
+      "summary": "山鹰1.15/1.30超普通次日1.10上限；追加9只分钟并重比候选。全行业分钟同步仍缺，保留partial。",
+      "report_ids": [
+        "close-review-20261113-volume-audit-v1"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
+    },
+    {
+      "id": "close-review-20261113-low-v1-receipt",
+      "run_id": "close-review-20261113-low-v1-run",
+      "task_id": "low_position",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:19+08:00",
+      "recorded_at": "2026-11-14T04:14:19+08:00",
+      "status": "partial",
+      "summary": "独立比较五模型；52/52原锚核对，22条正变化、19条破原失效。广域多日与行业路径不足保留。",
+      "report_ids": [
+        "close-review-20261113-low-v1"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
+    },
+    {
+      "id": "close-review-20261113-lhb-v1-receipt",
+      "run_id": "close-review-20261113-lhb-v1-run",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:19+08:00",
+      "recorded_at": "2026-11-14T04:14:19+08:00",
+      "status": "partial",
+      "summary": "33份深市明细、上交所主板原文与58条副本逐ID核对；57条官核，和林微纳科创一条保留待证。",
+      "report_ids": [
+        "close-review-20261113-lhb-v1"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
+    },
+    {
+      "id": "close-review-20261113-limitup-v1-receipt",
+      "run_id": "close-review-20261113-limitup-v1-run",
+      "task_id": "limitup_single",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:19+08:00",
+      "recorded_at": "2026-11-14T04:14:19+08:00",
+      "status": "partial",
+      "summary": "补20日高度下界及37只事前已归档名单反馈；排除D停牌天普，华孚仅观察，正式0只。",
+      "report_ids": [
+        "close-review-20261113-limitup-v1"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
+    },
+    {
+      "id": "close-review-20261113-combined-v1-receipt",
+      "run_id": "close-review-20261113-combined-v1-run",
+      "task_id": "combined_pair",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:19+08:00",
+      "recorded_at": "2026-11-14T04:14:19+08:00",
+      "status": "partial",
+      "summary": "重比8只及公告风险，否决山鹰不可达计划；黔源/立新仅观察，前置缺项保留，非最终双标。",
+      "report_ids": [
+        "close-review-20261113-combined-v1"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
+    },
+    {
+      "id": "close-review-20261112-historical-t1-v1-receipt",
+      "run_id": "close-review-20261112-historical-t1-v1-run",
+      "task_id": "combined_pair",
+      "date": "2026-11-12",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:00:04+00:00",
+      "completed_at": "2026-11-14T04:14:19+08:00",
+      "recorded_at": "2026-11-14T04:14:19+08:00",
+      "status": "partial",
+      "summary": "原两只影子追加T+1，中重-10.020%、起帆-1.265%；28只分母不重选，不伪造成交。",
+      "report_ids": [
+        "close-review-20261112-historical-t1-v1"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "recommendation_ids": [],
+      "verified_fill_count": 0,
+      "trade_executed": false
     }
   ]
 }
