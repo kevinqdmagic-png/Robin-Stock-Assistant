@@ -8770,6 +8770,59 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "volume-price-20261113-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261113-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-13",
+      "trigger": "scheduled",
+      "started_at": "2026-11-13T18:38:41+08:00",
+      "recorded_at": "2026-11-13T18:41:34+08:00",
+      "completed_at": "2026-11-13T18:41:34+08:00",
+      "status": "completed",
+      "summary": "完成沪深5216/5225扫描、120广池、28深池、分钟28/28及上一冻结28/28验证。",
+      "report_ids": [
+        "volume-price-20261113-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "sources": [
+        "docs/research/volume-price-20261113-evidence.json",
+        "backend/data/sina_daily_full/2026-11-13.json.gz",
+        "backend/data/market_source_status/sina-2026-11-13.json",
+        "backend/data/market_source_status/baostock-2026-11-13.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://push2.eastmoney.com/api/qt/clist/get"
+      ],
+      "blocked_modules": []
+    },
+    {
+      "id": "volume-price-20261112-t1-supplement-v1-manual-completed",
+      "run_id": "volume-price-20261112-t1-supplement-v1-manual",
+      "task_id": "volume_price",
+      "date": "2026-11-12",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T18:38:41+08:00",
+      "recorded_at": "2026-11-13T18:41:34+08:00",
+      "completed_at": "2026-11-13T18:41:34+08:00",
+      "status": "completed",
+      "summary": "追加11月12日冻结28只的11月13日T+1价格观察；未伪造成交。",
+      "report_ids": [
+        "volume-price-20261112-t1-supplement-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "sources": [
+        "docs/research/volume-price-20261113-evidence.json",
+        "backend/data/sina_daily_full/2026-11-13.json.gz",
+        "backend/data/market_source_status/sina-2026-11-13.json",
+        "backend/data/market_source_status/baostock-2026-11-13.json",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://push2.eastmoney.com/api/qt/clist/get"
+      ]
     }
   ]
 }
