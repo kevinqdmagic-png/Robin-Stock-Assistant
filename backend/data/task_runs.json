@@ -9181,6 +9181,42 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "learning-review-20261113-full-v1-receipt",
+      "run_id": "learning-review-20261113-full-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-13",
+      "trigger": "scheduled",
+      "started_at": "2026-11-14T03:11:36+08:00",
+      "completed_at": "2026-11-14T03:11:36+08:00",
+      "recorded_at": "2026-11-14T03:11:36+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "17个去重价格代理事件/8个基准日的T+1至T+10已更新；新增11月12日早尾盘8个T+1结果，早盘relative均值-8.050%、尾盘relative均值-0.641%，均无成交证据。",
+      "report_ids": [
+        "learning-review-20261113-full-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261016-20261114-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261016-20261114-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-16",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-14T03:11:36+08:00",
+      "completed_at": "2026-11-14T03:11:36+08:00",
+      "recorded_at": "2026-11-14T03:11:36+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐10月16日原冻结学习正文与回执：11个去重事件/4个基准日，T+1均值-1.367%、T+2 -3.726%、当时T+5仅5个且全部为负，T+10未成熟。",
+      "report_ids": [
+        "learning-delivery-recovery-20261016-20261114-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
