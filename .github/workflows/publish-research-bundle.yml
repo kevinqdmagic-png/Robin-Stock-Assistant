@@ -46,10 +46,25 @@ jobs:
               subprocess.run(['python','scripts/publish_linked_archives.py','--base',base,
                               '--bundle',path], check=True)
           PY
+      # A GITHUB_TOKEN push does not start another correctness workflow. Check
+      # the actual merged commit here, including concurrent append-only writers.
+      - name: Check out the published archive commit
+        run: |
+          git fetch origin main
+          git checkout --detach FETCH_HEAD
+          echo "PUBLISHED_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - run: pip install -r backend/requirements.txt
+      - name: Regressions on the published commit
+        run: python -m unittest discover -s backend/tests -v
       - name: Verify archives after publication
-        run: python scripts/validate_archives.py HEAD
+        run: python scripts/validate_archives.py HEAD^
+      - name: Build and verify the published container
+        run: |
+          docker build -t robin-stock-api:linked backend
+          docker run -d --name robin-linked-api -p 18080:8080 -e PORT=8080 robin-stock-api:linked
+          python scripts/verify_production.py --base http://127.0.0.1:18080 --wait 40
       - name: Verify actual deployed report bodies and receipts
-        run: python scripts/verify_linked_bundle.py --wait 420
+        run: python scripts/verify_linked_bundle.py --wait 420 --expected-sha "$PUBLISHED_SHA"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

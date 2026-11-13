@@ -16,8 +16,10 @@ def read(path):
         raise ValueError('production_payload_not_ok:' + path)
     return result
 
-def check(reports, receipts):
+def check(reports, receipts, expected_sha=None):
     health = read('/health')
+    if expected_sha and health.get('build_commit') != expected_sha:
+        raise ValueError('deployment_commit_mismatch:' + expected_sha + ':' + str(health.get('build_commit')))
     for expected in reports:
         actual = read('/api/research/' + expected['id'])['report']
         if any(actual.get(k) != v for k, v in expected.items()):
@@ -45,6 +47,7 @@ def check(reports, receipts):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--wait', type=int, default=60)
+    parser.add_argument('--expected-sha', help='Exact published commit required in production health')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     bundles = [json.loads(p.read_text(encoding='utf-8')) for p in (root/'research_backfills').glob('linked-*.json')]
@@ -55,7 +58,7 @@ def main():
     deadline = time.monotonic() + args.wait
     while True:
         try:
-            result = check(reports, receipts)
+            result = check(reports, receipts, expected_sha=args.expected_sha)
             break
         except Exception as exc:
             result = {'ok': False, 'error': type(exc).__name__ + ':' + str(exc)[:240]}
