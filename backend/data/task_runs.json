@@ -9357,6 +9357,60 @@
       "recommendation_ids": [],
       "verified_fill_count": 0,
       "trade_executed": false
+    },
+    {
+      "id": "close-review-20261113-volume-audit-v2-receipt",
+      "run_id": "close-review-20261113-volume-audit-v2-run",
+      "task_id": "volume_price",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:21:36.432589+00:00",
+      "completed_at": "2026-11-14T04:27:57+08:00",
+      "recorded_at": "2026-11-14T04:27:57+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "新增深池28/28完整五分钟原始数据并按T日OHLCV核验，496条板块指数完整分页；电力整体弱，原山鹰不可达条件继续否决，成分/同分钟同步缺口不冒称补齐。",
+      "report_ids": [
+        "close-review-20261113-volume-audit-v2"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261113-limitup-v2-receipt",
+      "run_id": "close-review-20261113-limitup-v2-run",
+      "task_id": "limitup_single",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:21:36.432589+00:00",
+      "completed_at": "2026-11-14T04:27:57+08:00",
+      "recorded_at": "2026-11-14T04:27:57+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "读取28只完整五分钟与496条指数补证；棉纺指数+0.62%，仍保留华孚为独立观察，D竞价/逐笔/排队缺失，正式0只。",
+      "report_ids": [
+        "close-review-20261113-limitup-v2"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261113-combined-v2-receipt",
+      "run_id": "close-review-20261113-combined-v2-run",
+      "task_id": "combined_pair",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-13T20:21:36.432589+00:00",
+      "completed_at": "2026-11-14T04:27:57+08:00",
+      "recorded_at": "2026-11-14T04:27:57+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "追加28/28原始五分钟及496条板块指数，电力整体偏弱不认定共振；先归档独立打板v2再比较，黔源/立新仅观察，四前置仍未全通过，非最终双标。",
+      "report_ids": [
+        "close-review-20261113-combined-v2"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
