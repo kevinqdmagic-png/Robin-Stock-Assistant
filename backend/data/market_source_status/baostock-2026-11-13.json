@@ -1,1 +1,1 @@
-{"provider": "baostock", "trade_date": "2026-11-13", "attempted_at": "2026-11-13T10:22:53.371224+00:00", "ok": false, "status": "collection_failed", "reason": "ValueError:baostock_login_failed:10002007:网络接收错误。"}
+{"provider": "baostock", "trade_date": "2026-11-13", "attempted_at": "2026-11-13T17:36:20.776812+00:00", "ok": true, "status": "verified", "coverage": {"checked": 5225, "verified": 5216, "errors": 9, "coverage_ratio": 0.998278}}
