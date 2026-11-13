@@ -2,7 +2,10 @@ name: Publish linked research bundle
 on:
   push:
     branches: [main]
-    paths: ['research_backfills/linked-*.json']
+    paths:
+      - 'research_backfills/linked-*.json'
+      - '.github/workflows/publish-research-bundle.yml'
+      - 'scripts/verify_linked_bundle.py'
   workflow_dispatch:
     inputs:
       bundle:
@@ -51,19 +54,25 @@ jobs:
       - name: Check out the published archive commit
         run: |
           git fetch origin main
-          git checkout --detach FETCH_HEAD
-          echo "PUBLISHED_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          git worktree add --detach "$RUNNER_TEMP/robin-published" FETCH_HEAD
+          echo "PUBLISHED_ROOT=$RUNNER_TEMP/robin-published" >> "$GITHUB_ENV"
+          echo "PUBLISHED_SHA=$(git -C "$RUNNER_TEMP/robin-published" rev-parse HEAD)" >> "$GITHUB_ENV"
       - run: pip install -r backend/requirements.txt
+        working-directory: ${{ env.PUBLISHED_ROOT }}
       - name: Regressions on the published commit
+        working-directory: ${{ env.PUBLISHED_ROOT }}
         run: python -m unittest discover -s backend/tests -v
       - name: Verify archives after publication
+        working-directory: ${{ env.PUBLISHED_ROOT }}
         run: python scripts/validate_archives.py HEAD^
       - name: Build and verify the published container
+        working-directory: ${{ env.PUBLISHED_ROOT }}
         run: |
           docker build -t robin-stock-api:linked backend
           docker run -d --name robin-linked-api -p 18080:8080 -e PORT=8080 robin-stock-api:linked
           python scripts/verify_production.py --base http://127.0.0.1:18080 --wait 40
       - name: Verify actual deployed report bodies and receipts
+        working-directory: ${{ env.PUBLISHED_ROOT }}
         run: python scripts/verify_linked_bundle.py --wait 420 --expected-sha "$PUBLISHED_SHA"
       - uses: actions/upload-artifact@v4
         if: always()
@@ -71,5 +80,5 @@ jobs:
           name: linked-publication-evidence
           path: |
             linked-publication.json
-            bundle-readback.json
+            ${{ env.PUBLISHED_ROOT }}/bundle-readback.json
           retention-days: 90
