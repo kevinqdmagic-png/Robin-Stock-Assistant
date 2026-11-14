@@ -9411,6 +9411,42 @@
         "close-review-20261113-combined-v2"
       ],
       "recommendation_ids": []
+    },
+    {
+      "id": "weekly-review-20261109-20261113-v1-receipt",
+      "run_id": "weekly-review-20261109-20261113-v1",
+      "task_id": "weekly_review",
+      "date": "2026-11-13",
+      "trigger": "scheduled",
+      "started_at": "2026-11-15T03:10:59+08:00",
+      "completed_at": "2026-11-15T03:10:59+08:00",
+      "recorded_at": "2026-11-15T03:10:59+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "周内早盘relative T+1为8只/4日、均值-1.799%，尾盘relative为8只/4日、均值+0.964%；均未在T+1同时胜过对照。累计跨模块T+5/T+10均值继续恶化，保持shadow_only。",
+      "report_ids": [
+        "weekly-review-20261109-20261113-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261019-20261115-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261019-20261115-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-15T03:10:59+08:00",
+      "completed_at": "2026-11-15T03:10:59+08:00",
+      "recorded_at": "2026-11-15T03:10:59+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐10月19日原冻结学习正文与回执：13个去重事件/5个基准日，T+1正比例53.85%但均值-0.481%，T+5仅8个且均值-9.837%，原时点T+10未成熟。",
+      "report_ids": [
+        "learning-delivery-recovery-20261019-20261115-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
