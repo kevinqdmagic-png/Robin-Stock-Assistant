@@ -48029,6 +48029,115 @@
       "date": "2026-11-16",
       "published_at": "2026-11-17T04:32:32+08:00",
       "run_id": "43950787284"
+    },
+    {
+      "task_id": "market_review",
+      "track": "market_review",
+      "title": "2026-11-16 盘后指数与样本广度研究",
+      "summary": "同日指数4/4，股票120/120只，暂未完成全市场复盘。",
+      "body": "【跨日历史补做；不恢复或新造原时点推荐】\n【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-11-17T05:03:46+08:00\n证据日期（北京时间）：2026-11-16；实际扫描已关注研究池120只；同日有效研究池K线120只；研究池不是全A独立选股。已核验沪深全市场历史日线：5217只，来源baostock，覆盖率0.998469；其中收盘高于开盘1253只、低于开盘3832只。注意：这是当日日K实体方向，不是相对昨收的上涨/下跌家数；仅提供收盘OHLCV基线，仍缺行业及分钟证据。 研究池历史K线口径：前复权115只、未复权5只，各股独立保持来源一致，不把两种口径拼成一条序列。 样本来源：['local_research_catalog', 'prior_completed_baostock_historical_market']。数据错误：{}。样本范围、存活偏差与供应商不可用均可能影响判断。\n核验指数：上证指数 3602.57（-0.87%）；深证成指 10690.78（-2.53%）；创业板指 2320.02（-4.37%）；科创50 1213.68（-5.16%）\n研究池上涨25只、下跌95只（非全市场涨跌家数）。\n未取得全市场行业广度、题材情绪、高度板与龙虎榜，不能生成完整次日方向判断。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "delayed_historical_evidence_not_original_signal",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "historical_recovery_only": true,
+      "id": "scheduled-research-20261116-43956145301-market_review-report",
+      "date": "2026-11-16",
+      "published_at": "2026-11-17T05:03:46+08:00",
+      "run_id": "43956145301"
+    },
+    {
+      "task_id": "volume_price",
+      "track": "volume_price",
+      "title": "2026-11-16 量价样本独立观察",
+      "summary": "完成120只有效样本量价核验；强量价形态3只、弱承接74只。",
+      "body": "【跨日历史补做；不恢复或新造原时点推荐】\n【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-11-17T05:03:46+08:00\n证据日期（北京时间）：2026-11-16；实际扫描已关注研究池120只；同日有效研究池K线120只；研究池不是全A独立选股。已核验沪深全市场历史日线：5217只，来源baostock，覆盖率0.998469；其中收盘高于开盘1253只、低于开盘3832只。注意：这是当日日K实体方向，不是相对昨收的上涨/下跌家数；仅提供收盘OHLCV基线，仍缺行业及分钟证据。 研究池历史K线口径：前复权115只、未复权5只，各股独立保持来源一致，不把两种口径拼成一条序列。 样本来源：['local_research_catalog', 'prior_completed_baostock_historical_market']。数据错误：{}。样本范围、存活偏差与供应商不可用均可能影响判断。\n条件型放量收盘强势样本（逐股完整同口径历史日线，仅研究）：\n600406 日变动+4.00% 量比2.33 收盘位置0.929 距MA20+3.15% 来源tencent_daily/口径qfq\n605016 日变动-1.37% 量比2.32 收盘位置0.867 距MA20+6.72% 来源tencent_daily/口径qfq\n002415 日变动+2.47% 量比1.59 收盘位置0.832 距MA20+2.66% 来源tencent_daily/口径qfq\n高位承接偏弱样本：\n001219 日变动-10.00% 量比1.34 收盘位置0.0 距MA20-1.13% 来源tencent_daily/口径qfq\n001233 日变动-10.00% 量比1.10 收盘位置0.0 距MA20-12.63% 来源tencent_daily/口径qfq\n001270 日变动-10.00% 量比0.77 收盘位置0.0 距MA20-8.07% 来源tencent_daily/口径qfq\n002384 日变动-10.00% 量比1.28 收盘位置0.0 距MA20-20.89% 来源tencent_daily/口径qfq\n002463 日变动-10.00% 量比1.25 收盘位置0.0 距MA20-18.87% 来源tencent_daily/口径qfq\n002851 日变动-10.00% 量比1.39 收盘位置0.0 距MA20-21.06% 来源tencent_daily/口径qfq\n600183 日变动-9.99% 量比1.07 收盘位置0.0 距MA20-29.80% 来源tencent_daily/口径qfq\n600410 日变动-2.80% 量比3.51 收盘位置0.0 距MA20+13.01% 来源tencent_daily/口径qfq\n603083 日变动-10.00% 量比1.07 收盘位置0.0 距MA20-18.89% 来源tencent_daily/口径qfq\n002436 日变动-9.96% 量比1.03 收盘位置0.004 距MA20-18.68% 来源tencent_daily/口径qfq\n强弱阈值未经历史样本外验证。缺完整盘口、资金身份与可成交性，禁止把名单转换成自动买入指令。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "delayed_historical_evidence_not_original_signal",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "historical_recovery_only": true,
+      "id": "scheduled-research-20261116-43956145301-volume_price-report",
+      "date": "2026-11-16",
+      "published_at": "2026-11-17T05:03:46+08:00",
+      "run_id": "43956145301"
+    },
+    {
+      "task_id": "limitup_single",
+      "track": "market_review",
+      "title": "2026-11-16 打板生态取证状态",
+      "summary": "已有局部收盘涨幅代理；全市场涨停高度、封板时间、炸板率和可成交证据缺失，本轮不发布打板单股。",
+      "body": "【跨日历史补做；不恢复或新造原时点推荐】\n【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-11-17T05:03:46+08:00\n证据日期（北京时间）：2026-11-16；实际扫描已关注研究池120只；同日有效研究池K线120只；研究池不是全A独立选股。已核验沪深全市场历史日线：5217只，来源baostock，覆盖率0.998469；其中收盘高于开盘1253只、低于开盘3832只。注意：这是当日日K实体方向，不是相对昨收的上涨/下跌家数；仅提供收盘OHLCV基线，仍缺行业及分钟证据。 研究池历史K线口径：前复权115只、未复权5只，各股独立保持来源一致，不把两种口径拼成一条序列。 样本来源：['local_research_catalog', 'prior_completed_baostock_historical_market']。数据错误：{}。样本范围、存活偏差与供应商不可用均可能影响判断。\n研究池收盘涨幅超过9.7%的代理样本数=1。不同板块涨跌停幅度、ST与新股规则不同，前复权收益率不等于交易所核验的涨停；代理样本不得被称为实际涨停。无法检查空间板、进阶板、封单与炸板，正式打板候选=0，策略成功率未知。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "delayed_historical_evidence_not_original_signal",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "historical_recovery_only": true,
+      "id": "scheduled-research-20261116-43956145301-limitup_single-report",
+      "date": "2026-11-16",
+      "published_at": "2026-11-17T05:03:46+08:00",
+      "run_id": "43956145301"
+    },
+    {
+      "task_id": "low_position",
+      "track": "low_position",
+      "title": "2026-11-16 低位启动30日跟踪：当日样本筛查",
+      "summary": "已有研究池120只同日有效日线中，满足低位放量形态代理3只。尚未完成全市场低位启动扫描。",
+      "body": "【跨日历史补做；不恢复或新造原时点推荐】\n【当天自动取证｜partial，不是已完成全市场研究】\n采集时间：2026-11-17T05:03:46+08:00\n证据日期（北京时间）：2026-11-16；实际扫描已关注研究池120只；同日有效研究池K线120只；研究池不是全A独立选股。已核验沪深全市场历史日线：5217只，来源baostock，覆盖率0.998469；其中收盘高于开盘1253只、低于开盘3832只。注意：这是当日日K实体方向，不是相对昨收的上涨/下跌家数；仅提供收盘OHLCV基线，仍缺行业及分钟证据。 研究池历史K线口径：前复权115只、未复权5只，各股独立保持来源一致，不把两种口径拼成一条序列。 样本来源：['local_research_catalog', 'prior_completed_baostock_historical_market']。数据错误：{}。样本范围、存活偏差与供应商不可用均可能影响判断。\n筛选条件（仅供待检验样本观察）：距离近60根日线最低点0%~25%、日量比1.5~5、高于MA20 0%~15%、收盘落当日区间上30%；不代表主力吸筹事实、已成交或有效预测。\n满足代理条件的观察名单：\n002415 日变动+2.47% 量比1.59 收盘位置0.832 距MA20+2.66% 来源tencent_daily/口径qfq 距60日最低点+10.83%\n600406 日变动+4.00% 量比2.33 收盘位置0.929 距MA20+3.15% 来源tencent_daily/口径qfq 距60日最低点+11.74%\n605016 日变动-1.37% 量比2.32 收盘位置0.867 距MA20+6.72% 来源tencent_daily/口径qfq 距60日最低点+21.08%\nT+1/T+2/T+5/T+10/T+30的后续日线收盘观察已接入独立前瞻学习归档；未到期应显示等待，停牌/缺K线不推移到下一可用交易日。除权、可买入性和样本外收益仍待检验。代理样本不能作为新荐股，亦不能从研究池推广至全A胜率。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "partial_research_universe",
+      "provenance": "delayed_historical_evidence_not_original_signal",
+      "validation_status": "partial_not_tradeable",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "shape_method_version": "low_position_shape_proxy_v1",
+      "signal_observations": [],
+      "raw_fallback_samples_excluded_from_frozen_qfq_signals": 0,
+      "security_st_and_listing_status_verified": false,
+      "historical_recovery_only": true,
+      "id": "scheduled-research-20261116-43956145301-low_position-report",
+      "date": "2026-11-16",
+      "published_at": "2026-11-17T05:03:46+08:00",
+      "run_id": "43956145301"
+    },
+    {
+      "task_id": "combined_pair",
+      "track": "market_review",
+      "title": "2026-11-16 综合双标前置审核",
+      "summary": "盘后自动核对显示全市场复盘与打板微观证据不齐；当日新综合双标0只。",
+      "body": "【跨日历史补做；不恢复或新造原时点推荐】\n【当天自动执行的前置审核，不是荐股】\n采集时间：2026-11-17T05:03:46+08:00\n证据日期（北京时间）：2026-11-16；实际扫描已关注研究池120只；同日有效研究池K线120只；研究池不是全A独立选股。已核验沪深全市场历史日线：5217只，来源baostock，覆盖率0.998469；其中收盘高于开盘1253只、低于开盘3832只。注意：这是当日日K实体方向，不是相对昨收的上涨/下跌家数；仅提供收盘OHLCV基线，仍缺行业及分钟证据。 研究池历史K线口径：前复权115只、未复权5只，各股独立保持来源一致，不把两种口径拼成一条序列。 样本来源：['local_research_catalog', 'prior_completed_baostock_historical_market']。数据错误：{}。样本范围、存活偏差与供应商不可用均可能影响判断。\n当前只有研究池局部量价与指数快照，前置研究未达到完整交付标准；综合输出0只，不能事后强行选2只，也不意味着建议买入。",
+      "sources": [
+        "https://qt.gtimg.cn/",
+        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+      ],
+      "execution_scope": "dependency_audit_only",
+      "provenance": "delayed_historical_evidence_not_original_signal",
+      "validation_status": "blocked_by_incomplete_dependencies",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "historical_recovery_only": true,
+      "id": "scheduled-research-20261116-43956145301-combined_pair-report",
+      "date": "2026-11-16",
+      "published_at": "2026-11-17T05:03:46+08:00",
+      "run_id": "43956145301"
     }
   ]
 }
