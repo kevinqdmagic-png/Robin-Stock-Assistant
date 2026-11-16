@@ -9519,6 +9519,25 @@
         "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
         "https://push2.eastmoney.com/api/qt/clist/get"
       ]
+    },
+    {
+      "id": "late_pair-20261117-gh-43906701172",
+      "run_id": "github-actions-43906701172",
+      "task_id": "late_pair",
+      "date": "2026-11-17",
+      "trigger": "scheduled",
+      "started_at": "2026-11-17T00:22:32.237478+08:00",
+      "recorded_at": "2026-11-17T00:22:32.400279+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 00:22:32。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/43906701172"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
