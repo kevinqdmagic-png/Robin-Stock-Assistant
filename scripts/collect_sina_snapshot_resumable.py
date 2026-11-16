@@ -37,7 +37,13 @@ def main() -> int:
         print(json.dumps({"status": "already_verified", "coverage": old["coverage"]}, ensure_ascii=False))
         return 0
 
-    prior = json.loads((data / "baostock" / "2026-11-12.json").read_text())
+    prior_paths = sorted(
+        (p for p in (data / "baostock").glob("20??-??-??.json") if p.stem < day),
+        reverse=True,
+    )
+    if not prior_paths:
+        raise FileNotFoundError("no_prior_baostock_universe")
+    prior = json.loads(prior_paths[0].read_text())
     codes = sorted({x["code"] for x in prior["rows"] + prior["errors"] if STOCK_CODE_RE.fullmatch(x["code"])})
     state = json.loads(progress.read_text()) if progress.exists() else {"rows": [], "attempts": {}}
     rows = {x["code"]: x for x in state.get("rows", [])}
