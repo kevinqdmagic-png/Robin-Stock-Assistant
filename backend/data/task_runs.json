@@ -10614,6 +10614,96 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "close-review-20261118-market-v1-receipt",
+      "run_id": "close-review-20261118-market-v1-run",
+      "task_id": "market_review",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T20:05:30.992172+00:00",
+      "completed_at": "2026-11-19T04:26:23+08:00",
+      "recorded_at": "2026-11-19T04:26:23+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "补齐5217只相对昨收广度、496条指数和三日情绪；缩量指数修复不等于普涨，候选仅交最终综合。",
+      "report_ids": [
+        "close-review-20261118-market-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261118-volume-v1-receipt",
+      "run_id": "close-review-20261118-volume-v1-run",
+      "task_id": "volume_price",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T20:05:30.992172+00:00",
+      "completed_at": "2026-11-19T04:26:23+08:00",
+      "recorded_at": "2026-11-19T04:26:23+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "重建沪深广域120池，28深池全部OHLCV/换手/行业/五分钟核验；验证原28只T+2，否决华达不可达D计划。",
+      "report_ids": [
+        "close-review-20261118-volume-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261118-low-audit-v1-receipt",
+      "run_id": "close-review-20261118-low-audit-v1-run",
+      "task_id": "low_position",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T20:05:30.992172+00:00",
+      "completed_at": "2026-11-19T04:26:23+08:00",
+      "recorded_at": "2026-11-19T04:26:23+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "补齐52/52旧样本新增路径，28条跌破原失效线；五类模型分别裁决，华达原D目标不可达，不更改历史。",
+      "report_ids": [
+        "close-review-20261118-low-audit-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261118-lhb-corrected-v1-receipt",
+      "run_id": "close-review-20261118-lhb-corrected-v1-run",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T20:05:30.992172+00:00",
+      "completed_at": "2026-11-19T04:26:23+08:00",
+      "recorded_at": "2026-11-19T04:26:23+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "87/87原文核验；冰山单日净卖8669万元、九阳净卖2.327亿元，撤销原错误净买依据；奥精分类不作五席累加。",
+      "report_ids": [
+        "close-review-20261118-lhb-corrected-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261118-limitup-v1-receipt",
+      "run_id": "close-review-20261118-limitup-v1-run",
+      "task_id": "limitup_single",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T20:05:30.992172+00:00",
+      "completed_at": "2026-11-19T04:26:23+08:00",
+      "recorded_at": "2026-11-19T04:26:23+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "真实比较7个对象，补20日高度与33只前日原始收盘代理反馈；原策略冻结分母缺失，正式0只、常山仅观察。",
+      "report_ids": [
+        "close-review-20261118-limitup-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
