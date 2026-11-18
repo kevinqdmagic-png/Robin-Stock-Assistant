@@ -1,8 +1,27 @@
 import unittest
-from lhb_official import parse_star, primary_urls
+from lhb_official import parse_star, primary_urls, broker_seat_union
 
 
 class OfficialDisclosureTests(unittest.TestCase):
+    def test_generic_institution_code_does_not_overwrite_other_seat(self):
+        rows = [dict(TRADE_ID='r', OPERATEDEPT_CODE='generic', OPERATEDEPT_NAME='机构专用', BUY=0, SELL=v)
+                for v in [100, 200]]
+        result = broker_seat_union(rows, rows, 'r')
+        self.assertEqual(result['institution_net'], -300)
+
+    def test_sell_column_and_period_are_independent_of_buy_column(self):
+        buy = [dict(TRADE_ID='r', OPERATEDEPT_NAME='甲', BUY=10, SELL=2),
+               dict(TRADE_ID='other-period', OPERATEDEPT_NAME='甲', BUY=1000, SELL=0)]
+        sell = [dict(TRADE_ID='r', OPERATEDEPT_NAME='乙', BUY=3, SELL=20)]
+        result = broker_seat_union(buy, sell, 'r')
+        self.assertEqual(result['buy'], 13)
+        self.assertEqual(result['sell'], 22)
+        self.assertEqual(result['net'], -9)
+
+    def test_duplicate_anonymous_rows_in_same_side_are_not_collapsed(self):
+        row = dict(TRADE_ID='r', OPERATEDEPT_NAME='机构专用', BUY=0, SELL=100)
+        self.assertEqual(broker_seat_union([row, row], [row], 'r')['sell'], 200)
+
     def test_STAR_uses_separate_endpoint_and_szse_current_catalog(self):
         urls = primary_urls('2026-11-18')
         self.assertIn('queryKCBTradeInfo.do?tradeDate=20261118', urls['sse_star'])

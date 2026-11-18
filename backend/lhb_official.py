@@ -1,6 +1,34 @@
 """Source contracts for SSE STAR disclosures: CNY 10,000 and nested categories."""
 from datetime import date
 from decimal import Decimal
+from collections import Counter
+
+
+def broker_seat_union(buy_rows, sell_rows, trade_id):
+    """Combine one reason/period; retain distinct anonymous institution rows."""
+    sides = [[r for r in rows if str(r.get('TRADE_ID')) == str(trade_id)]
+             for rows in (buy_rows, sell_rows)]
+    if not all(sides):
+        raise ValueError('missing_disclosure_side')
+    def key(row):
+        return (row['OPERATEDEPT_NAME'], float(row.get('BUY') or 0), float(row.get('SELL') or 0))
+    rows = list(sides[0])
+    overlap = Counter(key(r) for r in sides[0])
+    for row in sides[1]:
+        k = key(row)
+        if overlap[k]:
+            overlap[k] -= 1
+        else:
+            rows.append(row)
+    if any(r['OPERATEDEPT_NAME'] in {'自然人', '其他自然人', '中小投资者', '机构'} for r in rows):
+        raise ValueError('investor_categories_are_not_broker_seats')
+    buy = sum(float(r.get('BUY') or 0) for r in rows)
+    sell = sum(float(r.get('SELL') or 0) for r in rows)
+    return {'buy': buy, 'sell': sell, 'net': buy - sell,
+            'institution_net': sum(float(r.get('BUY') or 0) - float(r.get('SELL') or 0)
+                                   for r in rows if r['OPERATEDEPT_NAME'] == '机构专用'),
+            'connect_net': sum(float(r.get('BUY') or 0) - float(r.get('SELL') or 0)
+                              for r in rows if '股通' in r['OPERATEDEPT_NAME'])}
 
 
 def primary_urls(day):
