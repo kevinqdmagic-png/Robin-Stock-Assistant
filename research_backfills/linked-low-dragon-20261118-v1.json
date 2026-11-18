@@ -454,7 +454,7 @@
       "run_id": "low-position-20261117-t1-supplement-20261118-v1",
       "task_id": "low_position",
       "date": "2026-11-17",
-      "trigger": "manual_recovery",
+      "trigger": "manual_backfill",
       "started_at": "2026-11-18T18:45:50+08:00",
       "recorded_at": "2026-11-18T18:46:35+08:00",
       "completed_at": "2026-11-18T18:46:35+08:00",
