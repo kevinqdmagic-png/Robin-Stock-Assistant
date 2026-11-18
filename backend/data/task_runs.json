@@ -10165,6 +10165,69 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "low-position-20261118-close-v1-completed",
+      "run_id": "low-position-20261118-close-v1",
+      "task_id": "low_position",
+      "date": "2026-11-18",
+      "trigger": "scheduled",
+      "started_at": "2026-11-18T18:45:50+08:00",
+      "recorded_at": "2026-11-18T18:46:35+08:00",
+      "completed_at": "2026-11-18T18:46:35+08:00",
+      "status": "completed",
+      "summary": "11月18日低位启动｜120广池、28深池、6新增与52条旧样本",
+      "report_ids": [
+        "low-position-20261118-close-v1"
+      ],
+      "sources": [
+        "docs/research/low-dragon-20261118-evidence.json.gz",
+        "docs/research/low-dragon-20261118-lhb-evidence.json.gz",
+        "backend/data/sina_daily_full/2026-11-18.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-18.json"
+      ]
+    },
+    {
+      "id": "dragon-tiger-20261118-close-v1-completed",
+      "run_id": "dragon-tiger-20261118-close-v1",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-18",
+      "trigger": "scheduled",
+      "started_at": "2026-11-18T18:45:50+08:00",
+      "recorded_at": "2026-11-18T18:46:35+08:00",
+      "completed_at": "2026-11-18T18:46:35+08:00",
+      "status": "completed",
+      "summary": "11月18日龙虎榜｜75只同日名单与买卖双侧核对",
+      "report_ids": [
+        "dragon-tiger-20261118-close-v1"
+      ],
+      "sources": [
+        "docs/research/low-dragon-20261118-evidence.json.gz",
+        "docs/research/low-dragon-20261118-lhb-evidence.json.gz",
+        "backend/data/sina_daily_full/2026-11-18.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-18.json"
+      ]
+    },
+    {
+      "id": "low-position-20261117-t1-supplement-20261118-v1-completed",
+      "run_id": "low-position-20261117-t1-supplement-20261118-v1",
+      "task_id": "low_position",
+      "date": "2026-11-17",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T18:45:50+08:00",
+      "recorded_at": "2026-11-18T18:46:35+08:00",
+      "completed_at": "2026-11-18T18:46:35+08:00",
+      "status": "completed",
+      "summary": "2只T+1价格观察补证",
+      "report_ids": [
+        "low-position-20261117-t1-supplement-20261118-v1"
+      ],
+      "sources": [
+        "docs/research/low-dragon-20261118-evidence.json.gz",
+        "docs/research/low-dragon-20261118-lhb-evidence.json.gz",
+        "backend/data/sina_daily_full/2026-11-18.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-18.json"
+      ]
     }
   ]
 }
