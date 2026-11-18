@@ -10483,6 +10483,42 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "learning-review-20261118-full-v1-receipt",
+      "run_id": "learning-review-20261118-full-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-18",
+      "trigger": "scheduled",
+      "started_at": "2026-11-19T03:11:38+08:00",
+      "completed_at": "2026-11-19T03:11:38+08:00",
+      "recorded_at": "2026-11-19T03:11:38+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "17个去重价格代理事件/8个基准日的T+1至T+10已更新；新增11月17日早尾盘8个T+1结果，真实胜率和净收益仍为空。",
+      "report_ids": [
+        "learning-review-20261118-full-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261117-20261119-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261117-20261119-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-17",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-19T03:11:38+08:00",
+      "completed_at": "2026-11-19T03:11:38+08:00",
+      "recorded_at": "2026-11-19T03:11:38+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐11月17日学习正文与回执：17个去重事件/8个基准日；跨日新增早尾盘8个T+1价格观察，仍无成交证据。",
+      "report_ids": [
+        "learning-delivery-recovery-20261117-20261119-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
