@@ -10704,6 +10704,42 @@
         "close-review-20261118-limitup-v1"
       ],
       "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261118-combined-v1-receipt",
+      "run_id": "close-review-20261118-combined-v1-run",
+      "task_id": "combined_pair",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-19T04:34:30+08:00",
+      "completed_at": "2026-11-19T04:34:30+08:00",
+      "recorded_at": "2026-11-19T04:34:30+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "四完整前置和独立打板已先归档，再比12组对象；嘉环未过原CLV线降级，最终观察拓维/工业富联，正式买点0。",
+      "report_ids": [
+        "close-review-20261118-combined-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "close-review-20261113-kcb-recovery-20261119-v1-receipt",
+      "run_id": "close-review-20261113-kcb-recovery-20261119-v1-run",
+      "task_id": "combined_pair",
+      "date": "2026-11-13",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-19T04:34:30+08:00",
+      "completed_at": "2026-11-19T04:34:30+08:00",
+      "recorded_at": "2026-11-19T04:34:30+08:00",
+      "status": "partial",
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "summary": "取得原缺失的科创专用原文，补齐58/58方向金额原文核验；追加原通用代码去重覆盖错误，不回填交易。",
+      "report_ids": [
+        "close-review-20261113-kcb-recovery-20261119-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
