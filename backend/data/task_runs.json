@@ -10228,6 +10228,52 @@
         "backend/data/sina_daily_full/2026-11-18.json.gz",
         "backend/data/market_source_status/baostock-2026-11-18.json"
       ]
+    },
+    {
+      "id": "low-position-20261118-close-v2-completed",
+      "run_id": "low-position-20261118-close-v2-run",
+      "task_id": "low_position",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T18:55:44+08:00",
+      "recorded_at": "2026-11-18T18:55:44+08:00",
+      "completed_at": "2026-11-18T18:55:44+08:00",
+      "status": "completed",
+      "summary": "11月18日低位启动｜120广池、28深池、6新增与52条旧样本；修正完整研究交付字段，不改正文与证据。",
+      "report_ids": [
+        "low-position-20261118-close-v2"
+      ],
+      "sources": [
+        "docs/research/low-dragon-20261118-evidence.json.gz",
+        "docs/research/low-dragon-20261118-lhb-evidence.json.gz",
+        "backend/data/sina_daily_full/2026-11-18.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-18.json"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
+    },
+    {
+      "id": "dragon-tiger-20261118-close-v2-completed",
+      "run_id": "dragon-tiger-20261118-close-v2-run",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-18",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-18T18:55:44+08:00",
+      "recorded_at": "2026-11-18T18:55:44+08:00",
+      "completed_at": "2026-11-18T18:55:44+08:00",
+      "status": "completed",
+      "summary": "11月18日龙虎榜｜75只同日名单与买卖双侧核对；修正完整研究交付字段，不改正文与证据。",
+      "report_ids": [
+        "dragon-tiger-20261118-close-v2"
+      ],
+      "sources": [
+        "docs/research/low-dragon-20261118-evidence.json.gz",
+        "docs/research/low-dragon-20261118-lhb-evidence.json.gz",
+        "backend/data/sina_daily_full/2026-11-18.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-18.json"
+      ],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
     }
   ]
 }
