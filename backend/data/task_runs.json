@@ -11175,6 +11175,101 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "close-review-20261119-market-v1-receipt",
+      "run_id": "close-review-20261119-market-v1-run",
+      "task_id": "market_review",
+      "date": "2026-11-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-20T04:20:49+08:00",
+      "completed_at": "2026-11-20T04:20:49+08:00",
+      "recorded_at": "2026-11-20T04:20:49+08:00",
+      "status": "completed",
+      "summary": "沪深5217/5225日线交叉；弱市分化、最高四退三；新增原文与同T风险分析。",
+      "report_ids": [
+        "close-review-20261119-market-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "research_coverage": "SHSZ5217_120broad_28deep_official85events"
+    },
+    {
+      "id": "close-review-20261119-volume-audit-v1-receipt",
+      "run_id": "close-review-20261119-volume-audit-v1-run",
+      "task_id": "volume_price",
+      "date": "2026-11-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-20T04:20:49+08:00",
+      "completed_at": "2026-11-20T04:20:49+08:00",
+      "recorded_at": "2026-11-20T04:20:49+08:00",
+      "status": "completed",
+      "summary": "重算120历史指标一致，28深池全表；43分钟聚合一致，保留ST天圣47根与所有反例。",
+      "report_ids": [
+        "close-review-20261119-volume-audit-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "research_coverage": "SHSZ5217_120broad_28deep_official85events"
+    },
+    {
+      "id": "close-review-20261119-low-v1-receipt",
+      "run_id": "close-review-20261119-low-v1-run",
+      "task_id": "low_position",
+      "date": "2026-11-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-20T04:20:49+08:00",
+      "completed_at": "2026-11-20T04:20:49+08:00",
+      "recorded_at": "2026-11-20T04:20:49+08:00",
+      "status": "completed",
+      "summary": "5217广域/120历史样本，比较7只；52原锚点全部续跟，11正、31低于原失效。",
+      "report_ids": [
+        "close-review-20261119-low-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "research_coverage": "SHSZ5217_120broad_28deep_official85events"
+    },
+    {
+      "id": "close-review-20261119-lhb-v1-receipt",
+      "run_id": "close-review-20261119-lhb-v1-run",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-20T04:20:49+08:00",
+      "completed_at": "2026-11-20T04:20:49+08:00",
+      "recorded_at": "2026-11-20T04:20:49+08:00",
+      "status": "completed",
+      "summary": "85事件75股，原站主板/科创/深市分页全部取得；单日多日去重、机构卖侧与风险逐项比较。",
+      "report_ids": [
+        "close-review-20261119-lhb-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "research_coverage": "SHSZ5217_120broad_28deep_official85events"
+    },
+    {
+      "id": "close-review-20261119-limitup-v1-receipt",
+      "run_id": "close-review-20261119-limitup-v1-run",
+      "task_id": "limitup_single",
+      "date": "2026-11-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-20T04:20:49+08:00",
+      "completed_at": "2026-11-20T04:20:49+08:00",
+      "recorded_at": "2026-11-20T04:20:49+08:00",
+      "status": "partial",
+      "summary": "正式0；兴业仅观察；85事件原文交叉、8备选、20日下界及前日真实N1反馈，精确20日高度仍缺。",
+      "report_ids": [
+        "close-review-20261119-limitup-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "research_coverage": "SHSZ5217_120broad_28deep_official85events"
     }
   ]
 }
