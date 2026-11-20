@@ -11342,6 +11342,78 @@
         "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
         "https://push2.eastmoney.com/api/qt/clist/get"
       ]
+    },
+    {
+      "id": "low-position-20261120-close-v1-receipt",
+      "run_id": "low-position-20261120-close-v1-run",
+      "task_id": "low_position",
+      "date": "2026-11-20",
+      "trigger": "scheduled",
+      "started_at": "2026-11-20T19:24:36+08:00",
+      "completed_at": "2026-11-20T19:24:36+08:00",
+      "recorded_at": "2026-11-20T19:24:36+08:00",
+      "status": "completed",
+      "summary": "沪深5216/5225日线；52条旧锚点全量验证，新增5条低位研究样本；观察与正式买点分离。",
+      "report_ids": [
+        "low-position-20261120-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true
+    },
+    {
+      "id": "dragon-tiger-20261120-close-v1-receipt",
+      "run_id": "dragon-tiger-20261120-close-v1-run",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-20",
+      "trigger": "scheduled",
+      "started_at": "2026-11-20T19:24:36+08:00",
+      "completed_at": "2026-11-20T19:24:36+08:00",
+      "recorded_at": "2026-11-20T19:24:36+08:00",
+      "status": "blocked",
+      "summary": "69个沪深事件完成买卖两侧与去重；深市官方39/39，上海官方两端点HTTP503，保留blocked。",
+      "report_ids": [
+        "dragon-tiger-20261120-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false
+    },
+    {
+      "id": "dragon-tiger-20261119-t1-supplement-20261120-v1-receipt",
+      "run_id": "dragon-tiger-20261119-t1-supplement-20261120-v1-run",
+      "task_id": "dragon_tiger",
+      "date": "2026-11-19",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-20T19:24:36+08:00",
+      "completed_at": "2026-11-20T19:24:36+08:00",
+      "recorded_at": "2026-11-20T19:24:36+08:00",
+      "status": "completed",
+      "summary": "原正文76只代码，76只完成T+1日线价格验证；不冒充成交胜率。",
+      "report_ids": [
+        "dragon-tiger-20261119-t1-supplement-20261120-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false
+    },
+    {
+      "id": "low-dragon-20261120-execution-summary-v1-receipt",
+      "run_id": "low-dragon-20261120-execution-summary-v1-run",
+      "task_id": "low_dragon",
+      "date": "2026-11-20",
+      "trigger": "scheduled",
+      "started_at": "2026-11-20T19:24:36+08:00",
+      "completed_at": "2026-11-20T19:24:36+08:00",
+      "recorded_at": "2026-11-20T19:24:36+08:00",
+      "status": "blocked",
+      "summary": "低位完成；龙虎榜完成实质研究但上海官方原文HTTP503，联合blocked。",
+      "report_ids": [
+        "low-dragon-20261120-execution-summary-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false
     }
   ]
 }
