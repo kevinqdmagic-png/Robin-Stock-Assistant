@@ -11754,6 +11754,42 @@
         "learning-delivery-recovery-20261014-20261121-v1"
       ],
       "recommendation_ids": []
+    },
+    {
+      "id": "weekly-review-20261116-20261120-v1-receipt",
+      "run_id": "weekly-review-20261116-20261120-v1",
+      "task_id": "weekly_review",
+      "date": "2026-11-20",
+      "trigger": "scheduled",
+      "started_at": "2026-11-22T03:07:35+08:00",
+      "completed_at": "2026-11-22T03:07:35+08:00",
+      "recorded_at": "2026-11-22T03:07:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "本周早盘新影子组T+1/T+2均值均弱于对照；尾盘relative T+2虽75%为正但均值-0.908%，跨模块T+5/T+10均值继续恶化，保持shadow_only。",
+      "report_ids": [
+        "weekly-review-20261116-20261120-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261015-20261122-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261015-20261122-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-15",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-22T03:07:35+08:00",
+      "completed_at": "2026-11-22T03:07:35+08:00",
+      "recorded_at": "2026-11-22T03:07:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐10月15日不可变学习快照的独立正文与回执：11个去重事件/4个基准日，T+1正比例45.45%但均值-1.367%，原时点T+10未成熟。",
+      "report_ids": [
+        "learning-delivery-recovery-20261015-20261122-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
