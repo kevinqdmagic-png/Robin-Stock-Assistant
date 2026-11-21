@@ -1,0 +1,112 @@
+{
+  "research": [
+    {
+      "id": "weekly-review-20261116-20261120-v1",
+      "date": "2026-11-20",
+      "task_id": "weekly_review",
+      "track": "market_review",
+      "run_id": "weekly-review-20261116-20261120-v1",
+      "title": "周总结｜11月16日至20日极弱市反例、双目标与下周前推假设",
+      "summary": "本周早盘新影子组T+1/T+2均值均弱于对照；尾盘relative T+2虽75%为正但均值-0.908%，跨模块T+5/T+10均值继续恶化，保持shadow_only。",
+      "body": "研究交易日：2026-11-20｜发布时间：北京时间 2026-11-22 03:07（UTC+8）\n\n统计区间：2026-11-16至2026-11-20。成熟结果按`target_date`落入本周计入；这不是仅按信号生成日分组。本报告为周日`weekly_review`独立周总结，不产生休市日推荐、盘中信号或最终双标，也不替代每日完整研究。范围仅沪深、排除北交所。报价到未来收盘仅为价格观察；没有订单、成交、费用和滑点证据，真实胜率与净收益保持N/A。\n\n### 数据与交付质量\n\n- 11月20日BaoStock主档检查5225只、验证5216只、缺失9只，覆盖率99.8278%；独立新浪盘后快照同为5216只。两源共同5216只的日期及OHLCV逐字段完全一致，成交额3262只完全一致、最大绝对差0.50元；单位为股、未复权。生产实时缓存只有100只且标为局部，未拿局部数据冒充全市场。\n- 当周六模块完整交付门禁：11月16日1/6、17日0/6、18日5/6、19日1/6、20日1/6。11月20日`market_review`和`low_position`仍partial、`dragon_tiger`因上交所官方接口503而blocked、`combined_pair` waiting、`limitup_single` partial；跨日欠项共78条，周报不解除它们。\n- 11月20日全市场5216只中上涨297、平22、下跌4897，上涨比例5.694%，平均变化-4.755%、中位-5.115%，属于有证据的极弱收盘环境。正式买点与影子观察继续分离。\n\n### 本周成熟价格观察：上涨比例与变化幅度分开\n\n|时段/版本|周期|N/独立信号日|正价格比例|均值|中位|平均正/负幅度|最差|\n|---|---:|---:|---:|---:|---:|---|---:|\n|09:50 low-chase v2|T+1|6/3|16.67%|-7.313%|-9.122%|+3.562% / -9.488%|-14.383%|\n|09:50 relative v2|T+1|4/2|0.00%|-10.304%|-7.859%|— / -10.304%|-19.923%|\n|09:50 control v1|T+1|10/5|10.00%|-3.958%|-4.088%|+6.455% / -5.114%|-15.657%|\n|14:40 low-chase v2|T+1|8/4|25.00%|-4.310%|-5.228%|+1.102% / -6.114%|-10.173%|\n|14:40 relative v2|T+1|2/1|50.00%|+0.008%|+0.008%|+0.889% / -0.874%|-0.874%|\n|14:40 control v1|T+1|10/5|20.00%|-2.615%|-3.832%|+6.322% / -4.850%|-9.719%|\n|09:50 low-chase v2|T+2|4/2|25.00%|-8.680%|-11.279%|+8.509% / -14.410%|-20.671%|\n|09:50 relative v2|T+2|6/3|0.00%|-12.460%|-12.123%|— / -12.460%|-25.753%|\n|09:50 control v1|T+2|10/5|20.00%|-11.832%|-14.748%|+3.828% / -15.747%|-23.284%|\n|14:40 low-chase v2|T+2|6/3|16.67%|-6.981%|-5.957%|+1.691% / -8.716%|-16.372%|\n|14:40 relative v2|T+2|4/2|75.00%|-0.908%|+0.913%|+1.323% / -7.600%|-7.600%|\n|14:40 control v1|T+2|10/5|0.00%|-9.118%|-7.691%|— / -9.118%|-23.537%|\n\n本周的主要反例来自早盘：两个新影子版本在T+1/T+2的均值都比对照更差，不能继续声称“防追高必然降低短线尾部”。尾盘relative的T+2上涨比例较高且中位为正，但均值仍为负，原因是唯一负样本-7.600%压过三个小幅正样本；只有2个信号日，不能晋级。\n\nT+5方面，早盘relative为10只/5日、正比例0%、均值-11.851%、最差-40.679%；早盘control均值-20.771%。尾盘relative为10只/5日、正比例30%、均值-3.148%、最差-19.942%，尾盘control均值-16.233%。T+10每个relative组仅2只/1日，不能排序。所有盘中组的路径MAE样本数仍为0，不得把最差收盘变化当完整路径风险。\n\n### 累计与模块级反例\n\n- 累计跨模块按证券+实际基准日去重为17个事件、8个日期：T+1正比例47.06%、均值-0.804%；T+2正比例52.94%但均值-1.633%；T+5正比例29.41%、均值-7.055%；T+10正比例17.65%、均值-10.286%。可证实MAE≤-5%的比例依次为41.18%、58.82%、88.24%、94.12%。门槛36个事件/20个独立日期仍未满足。\n- 11月20日量价报告复核此前冻结的28个深度池样本：8个为正（28.6%），均值-3.317%、中位-5.266%，日内平均MFE +2.226%、平均MAE -7.684%。弱市中“有盘中上冲”没有转化为收盘优势。\n- 11月19日龙虎榜历史T+1观察覆盖76只，正比例23/76、均值-3.430%、中位-5.474%；11月20日虽有69条沪深事件、63个席位内容组，但深市39/39可核，沪市官方明细持续503，故只能partial，不能从净买入标签推断可交易优势。\n- 11月18日低位旧样本52只中20正、32负，28只收盘低于原失效位；同日龙虎榜87/87官方事件的复核也显示机构/净买标签可以与价格崩落并存。可靠的是风险反例，不是主力身份或盈利因果。\n\n### 本周支持、推翻与停止\n\n- **较可靠**：上涨比例与平均结果必须并列；T+2“过半上涨”与负均值可同时发生，T+5/T+10尾部继续恶化。\n- **被削弱**：早盘low-chase/relative能够稳定降低T+1/T+2尾部。本周和累计样本均没有形成稳定优势。\n- **仍待前推**：尾盘relative可能相对控制组降低短周期损失幅度；但当前版本累计T+2仅12只/6日，且候选筛选深度不同，不支持因果或参数晋级。\n- **应停止**：用单一上涨比例、单周正均值、席位标签或盘中MFE宣称“策略获利”；把收盘代理改称真实成交胜率或净收益。\n\n### 下周可证伪假设\n\n1. 同日期、同时段继续冻结2只relative和2只control；至少36个成熟事件、20个独立日期后，才比较正比例、均值、中位、平均盈亏和最差5%尾部。\n2. 尾盘relative的风险假设预注册为：在正比例不比匹配control低超过10个百分点时，平均负幅度和最差跌幅均更小；连续前推样本不满足即停止该假设。\n3. 补齐原冻结至收盘/次日的分钟路径、涨跌停、停牌、无成交与T+1不可退出证据，才计算路径MAE和可成交净收益；此前真实胜率与净收益为空。\n4. 市况只用信号时点已冻结的全市场广度分层，缺失即`unknown`；禁止从未来收益反推强弱市。\n5. 所有版本继续`shadow_only`，保留旧对照，不自动调权、不改正式门槛、不下单。\n\n本周新增的是在极弱市中的可复核失败反例、尾盘小样本的可证伪风险假设及交付缺口证据，不是保证获利的结论。\n",
+      "sources": [
+        "backend/data/weekly_review_evidence/2026-11-20.json",
+        "backend/data/baostock/2026-11-20.json",
+        "backend/data/sina_daily_full/2026-11-20.json",
+        "https://robin-stock-api-production.up.railway.app/api/strategy-lab",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=early_pair",
+        "https://robin-stock-api-production.up.railway.app/api/intraday-performance?slot=late_pair",
+        "https://robin-stock-api-production.up.railway.app/api/operations/recovery?since=2026-11-02"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "weekly_research",
+      "provenance": "weekly_review_from_immutable_archives_and_production_forward_results",
+      "research_rule_version": "weekly_dual_objective_review_v1",
+      "published_at": "2026-11-22T03:07:35+08:00",
+      "recorded_at": "2026-11-22T03:07:35+08:00",
+      "market_data_cutoff_at": "2026-11-20T15:00:00+08:00",
+      "statistics_period_start": "2026-11-16",
+      "statistics_period_end": "2026-11-20",
+      "recommendation_ids": [],
+      "formal_candidate_count": 0,
+      "verified_fill_count": 0,
+      "actual_trade_win_rate_pct": null,
+      "actual_net_return_pct": null,
+      "model_weights_updated": false,
+      "buy_order_allowed": false
+    },
+    {
+      "id": "learning-delivery-recovery-20261015-20261122-v1",
+      "date": "2026-10-15",
+      "task_id": "learning_review",
+      "track": "market_review",
+      "run_id": "learning-delivery-recovery-20261015-20261122-v1",
+      "title": "2026-10-15学习补做｜高上涨比例、负均值与尾部反例",
+      "summary": "补齐10月15日不可变学习快照的独立正文与回执：11个去重事件/4个基准日，T+1正比例45.45%但均值-1.367%，原时点T+10未成熟。",
+      "body": "研究交易日：2026-10-15｜发布时间：北京时间 2026-11-22 03:07（UTC+8）\n\n本次实际补做2026-10-15缺失的独立学习正文与回执，严格使用不可变快照`forward-learning-2026-10-15`（原记录时间2026-10-15 20:09，北京时间）。不使用后来行情回填原时点的T+10，不改写候选或盘中价格；本报告不进入当前综合。\n\n原快照20条：observed 16、pending 2、retrospective不合格2；按相同证券+实际价格基准日去重后为11个事件、4个基准日，原记录存在5条跨任务/修正版重叠。\n\n|周期|N/独立基准日|正价格比例|均值|中位|MAE≤-5%比例|最差|\n|---|---:|---:|---:|---:|---:|---:|\n|T+1|11/4|45.45%|-1.367%|-1.479%|54.55%|-10.002%|\n|T+2|11/4|36.36%|-3.726%|-4.987%|72.73%|-16.678%|\n|T+5|3/1|0.00%|-13.619%|-13.940%|100.00%|-14.662%|\n|T+10|0/0|—|—|—|—|—|\n\n`market_review_conditional`原始T+1组为6只/3日、正比例66.67%，但均值-0.644%，平均正样本+3.880%、平均负样本-9.691%、最差-10.002%；T+2均值-2.564%、最差-16.678%、最差MAE -17.528%。这直接说明较高上涨比例并不等于正期望。\n\n失败归因：跨任务重复、候选版本未完全冻结、日期相关性高、负样本幅度远大于正样本；`late_pair`仅2只/1日，`limitup_single`仅1只，不能作策略比较。原时点T+10未成熟，保持空值。所有基准为信号日未复权收盘代理，不是订单成交；真实胜率、净收益与不可成交数量均为空。\n\n历史规则提案仅登记、不自动实施：按证券+实际基准日去重；正比例与均值/中位及平均盈亏并列；按日期隔离前推；达到36个成熟事件、20个独立日期并补齐成本/限价可成交证据后再评估。当前不改规则、不调权、不下单。\n",
+      "sources": [
+        "backend/data/learning.json#forward-learning-2026-10-15",
+        "backend/data/weekly_review_evidence/2026-11-20.json"
+      ],
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "report_type": "full_daily_research",
+      "provenance": "manual_historical_learning_backfill_from_immutable_snapshot",
+      "research_rule_version": "forward_learning_v1_historical_snapshot_only",
+      "published_at": "2026-11-22T03:07:35+08:00",
+      "recorded_at": "2026-11-22T03:07:35+08:00",
+      "market_data_cutoff_at": "2026-10-15T15:00:00+08:00",
+      "recommendation_ids": [],
+      "formal_candidate_count": 0,
+      "verified_fill_count": 0,
+      "sample_count": 20,
+      "unique_anchor_date_symbols": 11,
+      "unique_anchor_dates": 4,
+      "actual_trade_win_rate_pct": null,
+      "actual_net_return_pct": null,
+      "model_weights_updated": false,
+      "buy_order_allowed": false
+    }
+  ],
+  "task_runs": [
+    {
+      "id": "weekly-review-20261116-20261120-v1-receipt",
+      "run_id": "weekly-review-20261116-20261120-v1",
+      "task_id": "weekly_review",
+      "date": "2026-11-20",
+      "trigger": "scheduled",
+      "started_at": "2026-11-22T03:07:35+08:00",
+      "completed_at": "2026-11-22T03:07:35+08:00",
+      "recorded_at": "2026-11-22T03:07:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "本周早盘新影子组T+1/T+2均值均弱于对照；尾盘relative T+2虽75%为正但均值-0.908%，跨模块T+5/T+10均值继续恶化，保持shadow_only。",
+      "report_ids": [
+        "weekly-review-20261116-20261120-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261015-20261122-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261015-20261122-v1",
+      "task_id": "learning_review",
+      "date": "2026-10-15",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-22T03:07:35+08:00",
+      "completed_at": "2026-11-22T03:07:35+08:00",
+      "recorded_at": "2026-11-22T03:07:35+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐10月15日不可变学习快照的独立正文与回执：11个去重事件/4个基准日，T+1正比例45.45%但均值-1.367%，原时点T+10未成熟。",
+      "report_ids": [
+        "learning-delivery-recovery-20261015-20261122-v1"
+      ],
+      "recommendation_ids": []
+    }
+  ]
+}

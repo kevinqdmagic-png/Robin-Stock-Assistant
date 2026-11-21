@@ -1,0 +1,1492 @@
+{
+  "schema_version": 1,
+  "research_date": "2026-11-20",
+  "statistics_period": {
+    "start": "2026-11-16",
+    "end": "2026-11-20"
+  },
+  "generated_at": "2026-11-22T03:07:35+08:00",
+  "repository_base_sha": "f0c32b875eeace97ecf26d10a414a0e4b0848ff7",
+  "source_verification": {
+    "trade_date": "2026-11-20",
+    "baostock_coverage": {
+      "checked": 5225,
+      "verified": 5216,
+      "errors": 9,
+      "coverage_ratio": 0.998278
+    },
+    "sina_coverage": {
+      "checked": 5225,
+      "verified": 5216,
+      "errors": 9,
+      "coverage_ratio": 0.998278
+    },
+    "common_codes": 5216,
+    "exact_field_counts": {
+      "open": 5216,
+      "high": 5216,
+      "low": 5216,
+      "close": 5216,
+      "volume": 5216
+    },
+    "amount_exact_count": 3262,
+    "amount_max_abs_difference_yuan": 0.5,
+    "all_dates_exact": true,
+    "adjustment": "none",
+    "volume_unit": "shares",
+    "scope": "Shanghai+Shenzhen; Beijing excluded"
+  },
+  "production_strategy_lab": {
+    "time_cn": "2026-11-22T03:00:16+08:00",
+    "snapshot_date": "2026-11-20",
+    "status": "shadow_observation_only",
+    "raw_signal_rows": 31,
+    "distinct_anchor_date_symbols": 17,
+    "overlap_rows_excluded": 5,
+    "horizons": {
+      "1": {
+        "sample_count": 17,
+        "unique_signal_dates": 7,
+        "unique_anchor_dates": 8,
+        "positive_pct": 47.06,
+        "average_price_change_pct": -0.804,
+        "median_price_change_pct": -1.362,
+        "adverse_below_minus_5_pct": 41.18,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "2": {
+        "sample_count": 17,
+        "unique_signal_dates": 7,
+        "unique_anchor_dates": 8,
+        "positive_pct": 52.94,
+        "average_price_change_pct": -1.633,
+        "median_price_change_pct": 0.627,
+        "adverse_below_minus_5_pct": 58.82,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "5": {
+        "sample_count": 17,
+        "unique_signal_dates": 7,
+        "unique_anchor_dates": 8,
+        "positive_pct": 29.41,
+        "average_price_change_pct": -7.055,
+        "median_price_change_pct": -8.545,
+        "adverse_below_minus_5_pct": 88.24,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      },
+      "10": {
+        "sample_count": 17,
+        "unique_signal_dates": 7,
+        "unique_anchor_dates": 8,
+        "positive_pct": 17.65,
+        "average_price_change_pct": -10.286,
+        "median_price_change_pct": -7.219,
+        "adverse_below_minus_5_pct": 94.12,
+        "source": "signal_day_unadjusted_close_price_only",
+        "net_trading_return": null
+      }
+    },
+    "research_gate": {
+      "min_samples": 36,
+      "min_independent_dates": 20,
+      "enough_price_observations_to_evaluate": false,
+      "model_promotion_authorized": false,
+      "reasons": [
+        "missing_verified_order_fills",
+        "missing_transaction_calibration",
+        "requires_chronological_holdout_and_human_approval"
+      ]
+    },
+    "actual_trades_verified": 0,
+    "automatic_weight_updates": false
+  },
+  "production_intraday": {
+    "early_pair": {
+      "time_cn": "2026-11-22T03:00:22+08:00",
+      "status": "forward_price_observations_only",
+      "total": 212,
+      "groups": [
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 1,
+          "sample_count": 10,
+          "distinct_signal_days": 5,
+          "positive_price_observation_pct": 10.0,
+          "mean_price_change_pct": -5.818,
+          "median_price_change_pct": -4.269,
+          "below_minus_5_pct": 50.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 2,
+          "sample_count": 8,
+          "distinct_signal_days": 4,
+          "positive_price_observation_pct": 12.5,
+          "mean_price_change_pct": -8.048,
+          "median_price_change_pct": -8.959,
+          "below_minus_5_pct": 62.5,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 5,
+          "sample_count": 4,
+          "distinct_signal_days": 2,
+          "positive_price_observation_pct": 25.0,
+          "mean_price_change_pct": -5.073,
+          "median_price_change_pct": -6.524,
+          "below_minus_5_pct": 75.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 10,
+          "sample_count": 4,
+          "distinct_signal_days": 2,
+          "positive_price_observation_pct": 25.0,
+          "mean_price_change_pct": -0.709,
+          "median_price_change_pct": -6.05,
+          "below_minus_5_pct": 50.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 1,
+          "sample_count": 14,
+          "distinct_signal_days": 7,
+          "positive_price_observation_pct": 28.57,
+          "mean_price_change_pct": -4.485,
+          "median_price_change_pct": -3.768,
+          "below_minus_5_pct": 50.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 2,
+          "sample_count": 14,
+          "distinct_signal_days": 7,
+          "positive_price_observation_pct": 21.43,
+          "mean_price_change_pct": -6.282,
+          "median_price_change_pct": -4.446,
+          "below_minus_5_pct": 42.86,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 5,
+          "sample_count": 12,
+          "distinct_signal_days": 6,
+          "positive_price_observation_pct": 0.0,
+          "mean_price_change_pct": -11.22,
+          "median_price_change_pct": -10.045,
+          "below_minus_5_pct": 75.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "early_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 10,
+          "sample_count": 2,
+          "distinct_signal_days": 1,
+          "positive_price_observation_pct": 0.0,
+          "mean_price_change_pct": -21.227,
+          "median_price_change_pct": -21.227,
+          "below_minus_5_pct": 100.0,
+          "strategy_profitable_verified": false
+        }
+      ],
+      "dual_objective_groups": [
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 1,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|1|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 10,
+          "distinct_anchor_dates": 5,
+          "expected_event_count": 10,
+          "status_counts": {
+            "observed": 10
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 1,
+          "negative_count": 9,
+          "positive_price_rate_pct": 10.0,
+          "mean_price_change_pct": -5.818,
+          "median_price_change_pct": -4.269,
+          "average_positive_change_pct": 3.562,
+          "average_negative_change_pct": -6.861,
+          "payoff_ratio": 0.519,
+          "worst_close_change_pct": -14.383,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 1,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|1|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 14,
+          "distinct_anchor_dates": 7,
+          "expected_event_count": 14,
+          "status_counts": {
+            "observed": 14
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 4,
+          "negative_count": 10,
+          "positive_price_rate_pct": 28.571,
+          "mean_price_change_pct": -4.485,
+          "median_price_change_pct": -3.768,
+          "average_positive_change_pct": 2.215,
+          "average_negative_change_pct": -7.165,
+          "payoff_ratio": 0.309,
+          "worst_close_change_pct": -19.923,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 10,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|10|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 4,
+          "distinct_anchor_dates": 2,
+          "expected_event_count": 4,
+          "status_counts": {
+            "observed": 4
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 1,
+          "negative_count": 3,
+          "positive_price_rate_pct": 25.0,
+          "mean_price_change_pct": -0.709,
+          "median_price_change_pct": -6.05,
+          "average_positive_change_pct": 17.598,
+          "average_negative_change_pct": -6.811,
+          "payoff_ratio": 2.584,
+          "worst_close_change_pct": -8.333,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 10,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|10|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 2,
+          "distinct_anchor_dates": 1,
+          "expected_event_count": 2,
+          "status_counts": {
+            "observed": 2
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 0,
+          "negative_count": 2,
+          "positive_price_rate_pct": 0.0,
+          "mean_price_change_pct": -21.227,
+          "median_price_change_pct": -21.227,
+          "average_positive_change_pct": null,
+          "average_negative_change_pct": -21.227,
+          "payoff_ratio": null,
+          "worst_close_change_pct": -25.601,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 2,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|2|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 8,
+          "distinct_anchor_dates": 4,
+          "expected_event_count": 8,
+          "status_counts": {
+            "observed": 8
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 1,
+          "negative_count": 7,
+          "positive_price_rate_pct": 12.5,
+          "mean_price_change_pct": -8.048,
+          "median_price_change_pct": -8.959,
+          "average_positive_change_pct": 8.509,
+          "average_negative_change_pct": -10.413,
+          "payoff_ratio": 0.817,
+          "worst_close_change_pct": -20.671,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 2,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|2|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 14,
+          "distinct_anchor_dates": 7,
+          "expected_event_count": 14,
+          "status_counts": {
+            "observed": 14
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 3,
+          "negative_count": 11,
+          "positive_price_rate_pct": 21.429,
+          "mean_price_change_pct": -6.282,
+          "median_price_change_pct": -4.446,
+          "average_positive_change_pct": 3.646,
+          "average_negative_change_pct": -8.989,
+          "payoff_ratio": 0.406,
+          "worst_close_change_pct": -25.753,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 5,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|5|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 4,
+          "distinct_anchor_dates": 2,
+          "expected_event_count": 4,
+          "status_counts": {
+            "observed": 4
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 1,
+          "negative_count": 3,
+          "positive_price_rate_pct": 25.0,
+          "mean_price_change_pct": -5.073,
+          "median_price_change_pct": -6.524,
+          "average_positive_change_pct": 0.279,
+          "average_negative_change_pct": -6.857,
+          "payoff_ratio": 0.041,
+          "worst_close_change_pct": -7.525,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "early_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 5,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|early_pair|frozen_quote_to_future_close|unknown|5|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 12,
+          "distinct_anchor_dates": 6,
+          "expected_event_count": 12,
+          "status_counts": {
+            "observed": 12
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 0,
+          "negative_count": 12,
+          "positive_price_rate_pct": 0.0,
+          "mean_price_change_pct": -11.22,
+          "median_price_change_pct": -10.045,
+          "average_positive_change_pct": null,
+          "average_negative_change_pct": -11.22,
+          "payoff_ratio": null,
+          "worst_close_change_pct": -40.679,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        }
+      ],
+      "strategy_validated": false,
+      "automatic_strategy_promotion": false,
+      "executed_trades_verified": 0
+    },
+    "late_pair": {
+      "time_cn": "2026-11-22T03:00:28+08:00",
+      "status": "forward_price_observations_only",
+      "total": 208,
+      "groups": [
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 1,
+          "sample_count": 12,
+          "distinct_signal_days": 6,
+          "positive_price_observation_pct": 25.0,
+          "mean_price_change_pct": -3.286,
+          "median_price_change_pct": -2.526,
+          "below_minus_5_pct": 33.33,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 2,
+          "sample_count": 10,
+          "distinct_signal_days": 5,
+          "positive_price_observation_pct": 40.0,
+          "mean_price_change_pct": -3.553,
+          "median_price_change_pct": -2.165,
+          "below_minus_5_pct": 30.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 5,
+          "sample_count": 4,
+          "distinct_signal_days": 2,
+          "positive_price_observation_pct": 25.0,
+          "mean_price_change_pct": -2.252,
+          "median_price_change_pct": -2.578,
+          "below_minus_5_pct": 25.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_low_chase_shadow_v2",
+          "horizon": 10,
+          "sample_count": 4,
+          "distinct_signal_days": 2,
+          "positive_price_observation_pct": 50.0,
+          "mean_price_change_pct": 0.314,
+          "median_price_change_pct": -0.989,
+          "below_minus_5_pct": 50.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 1,
+          "sample_count": 12,
+          "distinct_signal_days": 6,
+          "positive_price_observation_pct": 41.67,
+          "mean_price_change_pct": 0.435,
+          "median_price_change_pct": -0.756,
+          "below_minus_5_pct": 0.0,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 2,
+          "sample_count": 12,
+          "distinct_signal_days": 6,
+          "positive_price_observation_pct": 58.33,
+          "mean_price_change_pct": -0.014,
+          "median_price_change_pct": 0.791,
+          "below_minus_5_pct": 8.33,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 5,
+          "sample_count": 12,
+          "distinct_signal_days": 6,
+          "positive_price_observation_pct": 25.0,
+          "mean_price_change_pct": -2.861,
+          "median_price_change_pct": -2.834,
+          "below_minus_5_pct": 41.67,
+          "strategy_profitable_verified": false
+        },
+        {
+          "task_id": "late_pair",
+          "cohort": "low_chase",
+          "model_version": "intraday_relative_shadow_v2",
+          "horizon": 10,
+          "sample_count": 2,
+          "distinct_signal_days": 1,
+          "positive_price_observation_pct": 50.0,
+          "mean_price_change_pct": -4.237,
+          "median_price_change_pct": -4.237,
+          "below_minus_5_pct": 50.0,
+          "strategy_profitable_verified": false
+        }
+      ],
+      "dual_objective_groups": [
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 1,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|1|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 12,
+          "distinct_anchor_dates": 6,
+          "expected_event_count": 12,
+          "status_counts": {
+            "observed": 12
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 3,
+          "negative_count": 9,
+          "positive_price_rate_pct": 25.0,
+          "mean_price_change_pct": -3.286,
+          "median_price_change_pct": -2.526,
+          "average_positive_change_pct": 0.939,
+          "average_negative_change_pct": -4.694,
+          "payoff_ratio": 0.2,
+          "worst_close_change_pct": -10.173,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 1,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|1|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 12,
+          "distinct_anchor_dates": 6,
+          "expected_event_count": 12,
+          "status_counts": {
+            "observed": 12
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 5,
+          "negative_count": 7,
+          "positive_price_rate_pct": 41.667,
+          "mean_price_change_pct": 0.435,
+          "median_price_change_pct": -0.756,
+          "average_positive_change_pct": 3.43,
+          "average_negative_change_pct": -1.705,
+          "payoff_ratio": 2.012,
+          "worst_close_change_pct": -3.235,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 10,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|10|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 4,
+          "distinct_anchor_dates": 2,
+          "expected_event_count": 4,
+          "status_counts": {
+            "observed": 4
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 2,
+          "negative_count": 2,
+          "positive_price_rate_pct": 50.0,
+          "mean_price_change_pct": 0.314,
+          "median_price_change_pct": -0.989,
+          "average_positive_change_pct": 10.925,
+          "average_negative_change_pct": -10.297,
+          "payoff_ratio": 1.061,
+          "worst_close_change_pct": -13.386,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 10,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|10|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 2,
+          "distinct_anchor_dates": 1,
+          "expected_event_count": 2,
+          "status_counts": {
+            "observed": 2
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 1,
+          "negative_count": 1,
+          "positive_price_rate_pct": 50.0,
+          "mean_price_change_pct": -4.237,
+          "median_price_change_pct": -4.237,
+          "average_positive_change_pct": 1.949,
+          "average_negative_change_pct": -10.423,
+          "payoff_ratio": 0.187,
+          "worst_close_change_pct": -10.423,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 2,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|2|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 10,
+          "distinct_anchor_dates": 5,
+          "expected_event_count": 10,
+          "status_counts": {
+            "observed": 10
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 4,
+          "negative_count": 6,
+          "positive_price_rate_pct": 40.0,
+          "mean_price_change_pct": -3.553,
+          "median_price_change_pct": -2.165,
+          "average_positive_change_pct": 2.844,
+          "average_negative_change_pct": -7.817,
+          "payoff_ratio": 0.364,
+          "worst_close_change_pct": -16.372,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 2,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|2|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 12,
+          "distinct_anchor_dates": 6,
+          "expected_event_count": 12,
+          "status_counts": {
+            "observed": 12
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 7,
+          "negative_count": 5,
+          "positive_price_rate_pct": 58.333,
+          "mean_price_change_pct": -0.014,
+          "median_price_change_pct": 0.791,
+          "average_positive_change_pct": 2.691,
+          "average_negative_change_pct": -3.799,
+          "payoff_ratio": 0.708,
+          "worst_close_change_pct": -7.6,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 5,
+          "strategy": "low_chase",
+          "version": "intraday_low_chase_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|5|low_chase|intraday_low_chase_shadow_v2",
+          "sample_count": 4,
+          "distinct_anchor_dates": 2,
+          "expected_event_count": 4,
+          "status_counts": {
+            "observed": 4
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 1,
+          "negative_count": 3,
+          "positive_price_rate_pct": 25.0,
+          "mean_price_change_pct": -2.252,
+          "median_price_change_pct": -2.578,
+          "average_positive_change_pct": 4.923,
+          "average_negative_change_pct": -4.643,
+          "payoff_ratio": 1.06,
+          "worst_close_change_pct": -8.775,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        },
+        {
+          "family": "intraday_quote_proxy",
+          "slot": "late_pair",
+          "basis": "frozen_quote_to_future_close",
+          "market_regime": "unknown",
+          "horizon": 5,
+          "strategy": "low_chase",
+          "version": "intraday_relative_shadow_v2",
+          "id": "intraday_quote_proxy|late_pair|frozen_quote_to_future_close|unknown|5|low_chase|intraday_relative_shadow_v2",
+          "sample_count": 12,
+          "distinct_anchor_dates": 6,
+          "expected_event_count": 12,
+          "status_counts": {
+            "observed": 12
+          },
+          "duplicates_excluded": 0,
+          "conflicting_events_excluded": 0,
+          "positive_count": 3,
+          "negative_count": 9,
+          "positive_price_rate_pct": 25.0,
+          "mean_price_change_pct": -2.861,
+          "median_price_change_pct": -2.834,
+          "average_positive_change_pct": 10.051,
+          "average_negative_change_pct": -7.166,
+          "payoff_ratio": 1.403,
+          "worst_close_change_pct": -19.942,
+          "path_mae_sample_count": 0,
+          "worst_path_mae_pct": null,
+          "minimum_sample_floor_met": false,
+          "actual_trade_win_rate_pct": null,
+          "actual_net_return_pct": null,
+          "advantage_verified": false
+        }
+      ],
+      "strategy_validated": false,
+      "automatic_strategy_promotion": false,
+      "executed_trades_verified": 0
+    }
+  },
+  "production_delivery_week": {
+    "2026-11-16": {
+      "daily_results": {
+        "time_cn": "2026-11-22T03:00:46+08:00",
+        "completed_count": 2,
+        "publication_is_full_completion": false,
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261116-43956145301-market_review-report",
+            "receipt_id": "scheduled-research-20261116-43956145301-market_review-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "volume-price-20261116-close-v1",
+            "receipt_id": "volume-price-20261116-scheduled-close-v1-completed"
+          },
+          {
+            "task_id": "low_position",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261116-43956145301-low_position-report",
+            "receipt_id": "scheduled-research-20261116-43956145301-low_position-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "missing",
+            "full_research_completed": false,
+            "report_id": null,
+            "receipt_id": null
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261116-43956145301-combined_pair-report",
+            "receipt_id": "scheduled-research-20261116-43956145301-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261116-43956145301-limitup_single-report",
+            "receipt_id": "scheduled-research-20261116-43956145301-limitup_single-receipt"
+          },
+          {
+            "task_id": "learning_review",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "learning-delivery-recovery-20261116-20261120-v1",
+            "receipt_id": "learning-delivery-recovery-20261116-20261120-v1-receipt"
+          }
+        ]
+      },
+      "delivery": {
+        "time_cn": "2026-11-22T03:00:52+08:00",
+        "status": "incomplete",
+        "verified_count": 1,
+        "unverified_task_ids": [
+          "market_review",
+          "low_position",
+          "dragon_tiger",
+          "combined_pair",
+          "limitup_single"
+        ],
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261116-43956145301-market_review-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "verified_receipt_id": "volume-price-20261116-scheduled-close-v1-completed",
+            "latest_receipt_id": "volume-price-20261116-t3-supplement-20261119-v1-manual-completed"
+          },
+          {
+            "task_id": "low_position",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261116-43956145301-low_position-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "missing",
+            "verified_receipt_id": null,
+            "latest_receipt_id": null
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261116-43956145301-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261116-43956145301-limitup_single-receipt"
+          }
+        ]
+      }
+    },
+    "2026-11-17": {
+      "daily_results": {
+        "time_cn": "2026-11-22T03:00:58+08:00",
+        "completed_count": 1,
+        "publication_is_full_completion": false,
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261117-44163248023-market_review-report",
+            "receipt_id": "scheduled-research-20261117-44163248023-market_review-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261117-44163248023-volume_price-report",
+            "receipt_id": "scheduled-research-20261117-44163248023-volume_price-receipt"
+          },
+          {
+            "task_id": "low_position",
+            "status": "unverified",
+            "full_research_completed": false,
+            "report_id": "low-position-20261117-t1-supplement-20261118-v1",
+            "receipt_id": "low-position-20261117-t1-supplement-20261118-v1-completed"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "missing",
+            "full_research_completed": false,
+            "report_id": null,
+            "receipt_id": null
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261117-44163248023-combined_pair-report",
+            "receipt_id": "scheduled-research-20261117-44163248023-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261117-44163248023-limitup_single-report",
+            "receipt_id": "scheduled-research-20261117-44163248023-limitup_single-receipt"
+          },
+          {
+            "task_id": "learning_review",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "learning-delivery-recovery-20261117-20261119-v1",
+            "receipt_id": "learning-delivery-recovery-20261117-20261119-v1-receipt"
+          }
+        ]
+      },
+      "delivery": {
+        "time_cn": "2026-11-22T03:01:04+08:00",
+        "status": "incomplete",
+        "verified_count": 0,
+        "unverified_task_ids": [
+          "market_review",
+          "volume_price",
+          "low_position",
+          "dragon_tiger",
+          "combined_pair",
+          "limitup_single"
+        ],
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261117-44163248023-market_review-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261117-44163248023-volume_price-receipt"
+          },
+          {
+            "task_id": "low_position",
+            "status": "unverified",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "low-position-20261117-t1-supplement-20261118-v1-completed"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "missing",
+            "verified_receipt_id": null,
+            "latest_receipt_id": null
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261117-44163248023-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261117-44163248023-limitup_single-receipt"
+          }
+        ]
+      }
+    },
+    "2026-11-18": {
+      "daily_results": {
+        "time_cn": "2026-11-22T03:01:09+08:00",
+        "completed_count": 6,
+        "publication_is_full_completion": false,
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "close-review-20261118-market-v1",
+            "receipt_id": "close-review-20261118-market-v1-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "close-review-20261118-volume-v1",
+            "receipt_id": "close-review-20261118-volume-v1-receipt"
+          },
+          {
+            "task_id": "low_position",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "close-review-20261118-low-audit-v1",
+            "receipt_id": "close-review-20261118-low-audit-v1-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "close-review-20261118-lhb-corrected-v1",
+            "receipt_id": "close-review-20261118-lhb-corrected-v1-receipt"
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "close-review-20261118-combined-v1",
+            "receipt_id": "close-review-20261118-combined-v1-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "close-review-20261118-limitup-v1",
+            "receipt_id": "close-review-20261118-limitup-v1-receipt"
+          },
+          {
+            "task_id": "learning_review",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "learning-review-20261118-full-v1",
+            "receipt_id": "learning-review-20261118-full-v1-receipt"
+          }
+        ]
+      },
+      "delivery": {
+        "time_cn": "2026-11-22T03:01:15+08:00",
+        "status": "incomplete",
+        "verified_count": 5,
+        "unverified_task_ids": [
+          "limitup_single"
+        ],
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "completed",
+            "verified_receipt_id": "close-review-20261118-market-v1-receipt",
+            "latest_receipt_id": "close-review-20261118-market-v1-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "verified_receipt_id": "close-review-20261118-volume-v1-receipt",
+            "latest_receipt_id": "volume-price-20261118-t1-supplement-20261119-v1-manual-completed"
+          },
+          {
+            "task_id": "low_position",
+            "status": "completed",
+            "verified_receipt_id": "close-review-20261118-low-audit-v1-receipt",
+            "latest_receipt_id": "close-review-20261118-low-audit-v1-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "completed",
+            "verified_receipt_id": "close-review-20261118-lhb-corrected-v1-receipt",
+            "latest_receipt_id": "close-review-20261118-lhb-corrected-v1-receipt"
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "completed",
+            "verified_receipt_id": "close-review-20261118-combined-v1-receipt",
+            "latest_receipt_id": "close-review-20261118-combined-v1-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "close-review-20261118-limitup-v1-receipt"
+          }
+        ]
+      }
+    },
+    "2026-11-19": {
+      "daily_results": {
+        "time_cn": "2026-11-22T03:01:21+08:00",
+        "completed_count": 2,
+        "publication_is_full_completion": false,
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "unverified",
+            "full_research_completed": false,
+            "report_id": "close-review-20261119-market-v1",
+            "receipt_id": "close-review-20261119-market-v1-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "volume-price-20261119-close-v1",
+            "receipt_id": "volume-price-20261119-scheduled-close-v1-completed"
+          },
+          {
+            "task_id": "low_position",
+            "status": "unverified",
+            "full_research_completed": false,
+            "report_id": "close-review-20261119-low-v1",
+            "receipt_id": "close-review-20261119-low-v1-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "unverified",
+            "full_research_completed": false,
+            "report_id": "close-review-20261119-lhb-v1",
+            "receipt_id": "close-review-20261119-lhb-v1-receipt"
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261119-44598830497-combined_pair-report",
+            "receipt_id": "scheduled-research-20261119-44598830497-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "close-review-20261119-limitup-v1",
+            "receipt_id": "close-review-20261119-limitup-v1-receipt"
+          },
+          {
+            "task_id": "learning_review",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "learning-review-20261119-full-v1",
+            "receipt_id": "learning-review-20261119-full-v1-receipt"
+          }
+        ]
+      },
+      "delivery": {
+        "time_cn": "2026-11-22T03:01:27+08:00",
+        "status": "incomplete",
+        "verified_count": 1,
+        "unverified_task_ids": [
+          "market_review",
+          "low_position",
+          "dragon_tiger",
+          "combined_pair",
+          "limitup_single"
+        ],
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "unverified",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "close-review-20261119-market-v1-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "verified_receipt_id": "volume-price-20261119-scheduled-close-v1-completed",
+            "latest_receipt_id": "volume-price-20261119-t1-supplement-20261120-v1-manual-completed"
+          },
+          {
+            "task_id": "low_position",
+            "status": "unverified",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "close-review-20261119-low-v1-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "unverified",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "dragon-tiger-20261119-t1-supplement-20261120-v1-receipt"
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261119-44598830497-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "close-review-20261119-limitup-v1-receipt"
+          }
+        ]
+      }
+    },
+    "2026-11-20": {
+      "daily_results": {
+        "time_cn": "2026-11-22T03:01:33+08:00",
+        "completed_count": 2,
+        "publication_is_full_completion": false,
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261120-44799161594-market_review-report",
+            "receipt_id": "scheduled-research-20261120-44799161594-market_review-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "volume-price-20261120-close-v1",
+            "receipt_id": "volume-price-20261120-scheduled-close-v1-completed"
+          },
+          {
+            "task_id": "low_position",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "low-position-20261120-close-v1",
+            "receipt_id": "low-position-20261120-close-v1-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "blocked",
+            "full_research_completed": false,
+            "report_id": "dragon-tiger-20261120-close-v1",
+            "receipt_id": "dragon-tiger-20261120-close-v1-receipt"
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261120-44799161594-combined_pair-report",
+            "receipt_id": "scheduled-research-20261120-44799161594-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "full_research_completed": false,
+            "report_id": "scheduled-research-20261120-44799161594-limitup_single-report",
+            "receipt_id": "scheduled-research-20261120-44799161594-limitup_single-receipt"
+          },
+          {
+            "task_id": "learning_review",
+            "status": "completed",
+            "full_research_completed": true,
+            "report_id": "learning-review-20261120-full-v1",
+            "receipt_id": "learning-review-20261120-full-v1-receipt"
+          }
+        ]
+      },
+      "delivery": {
+        "time_cn": "2026-11-22T03:01:39+08:00",
+        "status": "incomplete",
+        "verified_count": 1,
+        "unverified_task_ids": [
+          "market_review",
+          "low_position",
+          "dragon_tiger",
+          "combined_pair",
+          "limitup_single"
+        ],
+        "modules": [
+          {
+            "task_id": "market_review",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261120-44799161594-market_review-receipt"
+          },
+          {
+            "task_id": "volume_price",
+            "status": "completed",
+            "verified_receipt_id": "volume-price-20261120-scheduled-close-v1-completed",
+            "latest_receipt_id": "scheduled-research-20261120-44799161594-volume_price-receipt"
+          },
+          {
+            "task_id": "low_position",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261120-44799161594-low_position-receipt"
+          },
+          {
+            "task_id": "dragon_tiger",
+            "status": "blocked",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "dragon-tiger-20261120-close-v1-receipt"
+          },
+          {
+            "task_id": "combined_pair",
+            "status": "waiting",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261120-44799161594-combined_pair-receipt"
+          },
+          {
+            "task_id": "limitup_single",
+            "status": "partial",
+            "verified_receipt_id": null,
+            "latest_receipt_id": "scheduled-research-20261120-44799161594-limitup_single-receipt"
+          }
+        ]
+      }
+    }
+  },
+  "production_recovery": {
+    "time_cn": "2026-11-22T03:00:34+08:00",
+    "tracking_since": "2026-11-02",
+    "latest_completed_session": "2026-11-20",
+    "total": 78,
+    "has_more": false,
+    "automatically_executing": false,
+    "completion_basis": "published_complete_report_and_valid_receipt"
+  },
+  "historical_learning_snapshot": {
+    "id": "forward-learning-2026-10-15",
+    "date": "2026-10-15",
+    "recorded_at": "2026-10-15T20:09:30.329273+08:00",
+    "status": "evaluated",
+    "version": "forward_learning_v1",
+    "sample_count": 20,
+    "status_counts": {
+      "observed": 16,
+      "pending": 2,
+      "ineligible_retrospective": 2
+    },
+    "validation": {
+      "model_version": "forward_learning_v1",
+      "total_mature_t2_featured": 16,
+      "unique_cohort_dates": 3,
+      "promotion_authorized": false,
+      "strategy_active_rules_changed": false,
+      "rule_proposals": [],
+      "status": "insufficient_verified_proxy_samples",
+      "minimum_samples": 36,
+      "minimum_unique_dates": 20
+    },
+    "immutable_source": "backend/data/learning.json#forward-learning-2026-10-15"
+  },
+  "historical_learning_dedup": {
+    "method": "same security + actual anchor date; first immutable observation retained",
+    "unique_events": 11,
+    "unique_anchor_dates": 4,
+    "horizons": {
+      "1": {
+        "n": 11,
+        "independent_anchor_dates": 4,
+        "positive_pct": 45.455,
+        "mean_pct": -1.367,
+        "median_pct": -1.479,
+        "mae_le_minus_5_pct": 54.545,
+        "worst_pct": -10.002
+      },
+      "2": {
+        "n": 11,
+        "independent_anchor_dates": 4,
+        "positive_pct": 36.364,
+        "mean_pct": -3.726,
+        "median_pct": -4.987,
+        "mae_le_minus_5_pct": 72.727,
+        "worst_pct": -16.678
+      },
+      "5": {
+        "n": 3,
+        "independent_anchor_dates": 1,
+        "positive_pct": 0.0,
+        "mean_pct": -13.619,
+        "median_pct": -13.94,
+        "mae_le_minus_5_pct": 100.0,
+        "worst_pct": -14.662
+      },
+      "10": {
+        "n": 0,
+        "independent_anchor_dates": 0,
+        "positive_pct": null,
+        "mean_pct": null,
+        "median_pct": null,
+        "mae_le_minus_5_pct": null,
+        "worst_pct": null
+      }
+    }
+  },
+  "boundaries": {
+    "executed_trades": false,
+    "actual_trade_win_rate_pct": null,
+    "actual_net_return_pct": null,
+    "model_weights_updated": false,
+    "buy_orders_allowed": false,
+    "weekly_report_creates_recommendations": false
+  }
+}
