@@ -11809,6 +11809,65 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "volume-price-20261123-scheduled-close-v1-completed",
+      "run_id": "volume-price-20261123-scheduled-close-v1",
+      "task_id": "volume_price",
+      "date": "2026-11-23",
+      "trigger": "scheduled",
+      "started_at": "2026-11-23T18:51:34+08:00",
+      "recorded_at": "2026-11-23T18:53:50+08:00",
+      "completed_at": "2026-11-23T18:53:50+08:00",
+      "status": "completed",
+      "summary": "沪深5213/5225只OHLCV、120广池、28深池、历史五分钟28/28；验证上一冻结28/28并形成2只待综合观察。",
+      "report_ids": [
+        "volume-price-20261123-close-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "sources": [
+        "docs/research/volume-price-20261123-evidence.json.gz",
+        "docs/research/volume-price-20261123-samples.json.gz",
+        "backend/data/tencent_daily_full/2026-11-23.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-23.json",
+        "backend/data/market_source_status/tencent-market-2026-11-23.json",
+        "backend/data/market_source_status/eastmoney-market-2026-11-23.json",
+        "https://push2.eastmoney.com/api/qt/clist/get",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://qt.gtimg.cn/"
+      ],
+      "blocked_modules": []
+    },
+    {
+      "id": "volume-price-20261120-t1-supplement-20261123-v1-manual-completed",
+      "run_id": "volume-price-20261120-t1-supplement-20261123-v1-manual",
+      "task_id": "volume_price",
+      "date": "2026-11-20",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-23T18:51:34+08:00",
+      "recorded_at": "2026-11-23T18:53:50+08:00",
+      "completed_at": "2026-11-23T18:53:50+08:00",
+      "status": "completed",
+      "summary": "原冻结28只全部追加11月23日日线价格观察；正变化21/28，成交胜率与净收益N/A。",
+      "report_ids": [
+        "volume-price-20261120-t1-supplement-20261123-v1"
+      ],
+      "recommendation_ids": [],
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "sources": [
+        "docs/research/volume-price-20261123-evidence.json.gz",
+        "docs/research/volume-price-20261123-samples.json.gz",
+        "backend/data/tencent_daily_full/2026-11-23.json.gz",
+        "backend/data/market_source_status/baostock-2026-11-23.json",
+        "backend/data/market_source_status/tencent-market-2026-11-23.json",
+        "backend/data/market_source_status/eastmoney-market-2026-11-23.json",
+        "https://push2.eastmoney.com/api/qt/clist/get",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/CN_MarketDataService.getKLineData",
+        "https://qt.gtimg.cn/"
+      ]
     }
   ]
 }
