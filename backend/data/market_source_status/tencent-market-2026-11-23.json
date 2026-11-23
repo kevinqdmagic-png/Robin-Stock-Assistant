@@ -1,0 +1,19 @@
+{
+  "provider": "Tencent public close quote batches",
+  "trade_date": "2026-11-23",
+  "attempted_at": "2026-11-23T18:51:34+08:00",
+  "type": "timestamped post-close quote batches",
+  "batch_count": 27,
+  "batch_errors": [],
+  "snapshot_coverage": {
+    "checked": 5225,
+    "verified": 5213,
+    "errors": 12,
+    "coverage_ratio": 0.997703
+  },
+  "timestamp_range": [
+    "2026-11-23T16:14:00+08:00",
+    "2026-11-23T16:15:00+08:00"
+  ],
+  "status": "verified"
+}

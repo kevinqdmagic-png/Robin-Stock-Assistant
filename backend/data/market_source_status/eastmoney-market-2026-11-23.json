@@ -1,0 +1,13 @@
+{
+  "provider": "Eastmoney public post-close list",
+  "trade_date": "2026-11-23",
+  "attempted_at": "2026-11-23T18:51:34+08:00",
+  "type": "post-close whole-market list",
+  "status": "failed_bounded",
+  "errors": [
+    "主域与delay域在一次成功探测后重复返回HTTP 502；按有界失败停止，未采用其不完整结果"
+  ],
+  "http_statuses": [
+    502
+  ]
+}
