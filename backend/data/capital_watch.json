@@ -7978,6 +7978,163 @@
       "sources": [
         "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/44816562933"
       ]
+    },
+    {
+      "date": "2026-11-23",
+      "as_of": "2026-11-24T06:00:15+08:00",
+      "model": "capital_behavior_daily_v1",
+      "scanned": 110,
+      "valid_daily": 106,
+      "candidates": [
+        {
+          "code": "603259",
+          "name": "药明康德",
+          "as_of": "2026-11-23",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 90,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "波动：近10日平均日内波幅相对上一组10日收窄",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "供给代理：最近5日平均成交量下降",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.89,
+          "price_location60": 0.373,
+          "relative_volume20": 0.916,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "688012",
+          "name": "中微公司",
+          "as_of": "2026-11-23",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 88,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "波动：近10日平均日内波幅相对上一组10日收窄",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "价格：临近20日区间高点",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.876,
+          "price_location60": 0.327,
+          "relative_volume20": 1.083,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "300458",
+          "name": "全志科技",
+          "as_of": "2026-11-23",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 80,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "承接代理：历史20日内多次低位收回（不能确认买方身份）",
+            "供给代理：最近5日平均成交量下降",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.777,
+          "price_location60": 0.191,
+          "relative_volume20": 1.168,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "001270",
+          "name": "铖昌科技",
+          "as_of": "2026-11-23",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 74,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "波动：近10日平均日内波幅相对上一组10日收窄",
+            "供给代理：最近5日平均成交量下降",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.892,
+          "price_location60": 0.133,
+          "relative_volume20": 0.726,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        },
+        {
+          "code": "002812",
+          "name": "恩捷股份",
+          "as_of": "2026-11-23",
+          "stage": "late_accumulation_candidate",
+          "stage_title": "疑似整理尾声（待验证）",
+          "score": 74,
+          "source": "tencent_qfq_daily",
+          "evidence": [
+            "位置：仍处于近60日价格区间的中低部",
+            "整理：近20日涨跌幅相对有限",
+            "波动：近10日平均日内波幅相对上一组10日收窄",
+            "供给代理：最近5日平均成交量下降",
+            "当日：收盘位于日内区间上部"
+          ],
+          "risk": [
+            "收盘低于过去20日均价，须警惕弱势反弹",
+            "日线供需代理不等于真实主力买卖；分数未经过样本外胜率校准"
+          ],
+          "close_location": 0.863,
+          "price_location60": 0.127,
+          "relative_volume20": 0.656,
+          "validation": "uncalibrated_hypothesis_not_a_trading_signal",
+          "signal_identity_verified": false
+        }
+      ],
+      "universe": "historical_research_plus_public_activity_leaders",
+      "universe_sources": [
+        "historical_research_codes",
+        "https://push2.eastmoney.com/api/qt/clist/get",
+        "sina_turnover_leaders"
+      ],
+      "provider_errors": {
+        "ValueError": 4
+      },
+      "coverage": "partial_universe_not_a_share_full_market",
+      "status": "completed",
+      "note": "只代表量价模型观察候选，非真实主力持仓、非已验证交易策略",
+      "matching_before_limit": 33,
+      "id": "capital-watch-20261123-45275294122",
+      "run_id": "github-actions-45275294122",
+      "published_at": "2026-11-24T06:00:40+08:00",
+      "timezone": "Asia/Shanghai",
+      "research_only": true,
+      "selection_validated": false,
+      "delayed_publication": true,
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/45275294122"
+      ]
     }
   ]
 }
