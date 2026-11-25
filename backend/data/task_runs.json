@@ -12533,6 +12533,42 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "id": "learning-review-20261125-full-v1-receipt",
+      "run_id": "learning-review-20261125-full-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-25",
+      "trigger": "scheduled",
+      "started_at": "2026-11-26T03:08:00+08:00",
+      "completed_at": "2026-11-26T03:08:00+08:00",
+      "recorded_at": "2026-11-26T03:08:00+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "17个去重价格代理事件/8个基准日持续跟踪；11月24日信号T+1四组全负，09:50影子均值-15.445%、14:40影子-5.329%；真实胜率和净收益为空。",
+      "report_ids": [
+        "learning-review-20261125-full-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261123-20261126-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261123-20261126-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-23",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-26T03:08:00+08:00",
+      "completed_at": "2026-11-26T03:08:00+08:00",
+      "recorded_at": "2026-11-26T03:08:00+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "补齐11月23日学习正文与回执；归档当日已成熟早尾盘双目标观察，同时保留缺少forward-learning-2026-11-23不可变主账的事实。",
+      "report_ids": [
+        "learning-delivery-recovery-20261123-20261126-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
