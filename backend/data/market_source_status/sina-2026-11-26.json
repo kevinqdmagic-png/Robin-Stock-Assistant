@@ -1,0 +1,1 @@
+{"provider": "sina_close_snapshot", "trade_date": "2026-11-26", "coverage": {"checked": 5225, "verified": 5221, "errors": 4, "coverage_ratio": 0.999234}, "retry_policy": "up_to_3_per_batch_sequential_bounded", "progress_path": "backend/data/sina_daily_full/.2026-11-26.progress.json", "ok": true, "status": "verified"}
