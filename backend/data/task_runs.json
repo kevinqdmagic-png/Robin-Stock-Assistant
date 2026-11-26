@@ -12933,6 +12933,36 @@
       "summary": "低位completed；龙虎榜completed。",
       "task_id": "low_dragon",
       "trigger": "scheduled"
+    },
+    {
+      "completed_at": "2026-11-26T18:57:27+08:00",
+      "date": "2026-11-26",
+      "id": "volume-price-20261126-close-v1-scheduled-run",
+      "recorded_at": "2026-11-26T18:57:27+08:00",
+      "report_ids": [
+        "volume-price-20261126-close-v1"
+      ],
+      "run_id": "volume-price-20261126-close-v1-scheduled",
+      "started_at": "2026-11-26T18:57:27+08:00",
+      "status": "completed",
+      "summary": "沪深5221/5225；120/120历史日线、28/28换手补充、28只深池逐股验证。",
+      "task_id": "volume_price",
+      "trigger": "scheduled"
+    },
+    {
+      "completed_at": "2026-11-26T18:57:27+08:00",
+      "date": "2026-11-23",
+      "id": "volume-price-20261123-followup-20261126-v1-scheduled-run",
+      "recorded_at": "2026-11-26T18:57:27+08:00",
+      "report_ids": [
+        "volume-price-20261123-followup-20261126-v1"
+      ],
+      "run_id": "volume-price-20261123-followup-20261126-v1-scheduled",
+      "started_at": "2026-11-26T18:57:27+08:00",
+      "status": "completed",
+      "summary": "28/28条完成价格观察；成交胜率和净收益留空。",
+      "task_id": "volume_price",
+      "trigger": "scheduled"
     }
   ]
 }
