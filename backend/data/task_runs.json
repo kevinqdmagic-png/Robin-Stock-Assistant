@@ -13077,6 +13077,42 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "research_coverage": "historical_universe_partial"
+    },
+    {
+      "id": "learning-review-20261126-full-v1-receipt",
+      "run_id": "learning-review-20261126-full-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-26",
+      "trigger": "scheduled",
+      "started_at": "2026-11-27T03:08:00+08:00",
+      "completed_at": "2026-11-27T03:08:00+08:00",
+      "recorded_at": "2026-11-27T03:08:00+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": true,
+      "summary": "跨模块17个去重价格代理事件/8日无新周期到期；盘中新成熟31条，弱市T+1早尾盘影子均为0%正变化；真实胜率、净收益为空。",
+      "report_ids": [
+        "learning-review-20261126-full-v1"
+      ],
+      "recommendation_ids": []
+    },
+    {
+      "id": "learning-delivery-recovery-20261124-20261127-v1-receipt",
+      "run_id": "learning-delivery-recovery-20261124-20261127-v1",
+      "task_id": "learning_review",
+      "date": "2026-11-24",
+      "trigger": "manual_backfill",
+      "started_at": "2026-11-27T03:08:00+08:00",
+      "completed_at": "2026-11-27T03:08:00+08:00",
+      "recorded_at": "2026-11-27T03:08:00+08:00",
+      "status": "completed",
+      "analysis_completed": true,
+      "eligible_for_integrated_research": false,
+      "summary": "用不可变forward-learning-2026-11-24及原冻结盘中结果补齐11月24日学习正文与回执；不改历史、不产生推荐。",
+      "report_ids": [
+        "learning-delivery-recovery-20261124-20261127-v1"
+      ],
+      "recommendation_ids": []
     }
   ]
 }
