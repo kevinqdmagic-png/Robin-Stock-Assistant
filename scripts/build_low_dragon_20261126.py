@@ -268,11 +268,11 @@ dt_status="completed" if official_ok and events else "partial"
 reports=[
  report("low-position-20261126-close-v1",T,"low_position","daily_research",low_status,"11月26日低位启动｜全样本扫描、旧30日样本全跟踪与新增冻结",f"沪深{cur_doc['coverage']['verified']}/{cur_doc['coverage']['checked']}；120广池、{len(deep)}深池、{len(legacy)}条旧样本、{len(low_candidates)}条新增。",low_body,low_status=="completed"),
  report("dragon-tiger-20261126-close-v1",T,"dragon_tiger","daily_research",dt_status,"11月26日龙虎榜｜全事件双侧席位与沪深交易所官方核验",f"沪深{len(events)}事件；SZSE 45/45明细，SSE主板/科创板同日正文。",dt_body,dt_status=="completed"),
- report("low-dragon-20261120-followup-20261126-v1","2026-11-20","low_dragon","validation_supplement","completed","11月20日低位与龙虎榜历史锚点截至11月26日价格验证",f"{len(follow)}/{len(anchors)}条取得日线，仅价格观察。",follow_body,False),
+ report("low-dragon-20261120-followup-20261126-v1","2026-11-20","dragon_tiger","validation_supplement","completed","11月20日低位与龙虎榜历史锚点截至11月26日价格验证",f"{len(follow)}/{len(anchors)}条取得日线，仅价格观察。",follow_body,False),
 ]
 summary_status="completed" if low_status==dt_status=="completed" else "partial"
 summary_body=header+f"\n\n- low_position：{low_status}，报告 `low-position-20261126-close-v1`。\n- dragon_tiger：{dt_status}，报告 `dragon-tiger-20261126-close-v1`。\n- 联合仅执行编排，不替代两份正文；eligible_for_integrated_research=false。\n"
-reports.append(report("low-dragon-20261126-execution-summary-v1",T,"low_dragon","execution_summary",summary_status,"11月26日低位+龙虎榜联合执行摘要",f"低位{low_status}；龙虎榜{dt_status}。",summary_body,False))
+reports.append(report("low-dragon-20261126-execution-summary-v1",T,"market_review","execution_summary",summary_status,"11月26日低位+龙虎榜联合执行摘要",f"低位{low_status}；龙虎榜{dt_status}。",summary_body,False))
 
 runs=[]
 for r in reports:

@@ -79,7 +79,7 @@
       "summary": "58/63条取得日线，仅价格观察。",
       "task_id": "low_dragon",
       "title": "11月20日低位与龙虎榜历史锚点截至11月26日价格验证",
-      "track": "low_dragon"
+      "track": "dragon_tiger"
     },
     {
       "analysis_completed": true,
@@ -106,7 +106,7 @@
       "summary": "低位completed；龙虎榜completed。",
       "task_id": "low_dragon",
       "title": "11月26日低位+龙虎榜联合执行摘要",
-      "track": "low_dragon"
+      "track": "market_review"
     }
   ],
   "task_runs": [
