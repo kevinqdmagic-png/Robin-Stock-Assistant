@@ -1,0 +1,57 @@
+{
+  "research": [
+    {
+      "analysis_completed": true,
+      "body": "研究交易日：2026-11-27｜发布时间：北京时间 2026-11-27 18:38（UTC+8）\n\n## **中科金财（002657）**\n\n- 资格：低位栏目待综合观察，不是最终双标、不是正式买点。\n- 参考价：2026-11-27 15:00 收盘 12.96 元；当日区间 11.85–12.96 元。\n- 量价：低位首次放量观察；RV5/10/20=4.13/4.43/3.91，120日位置 13.1%，CLV 1.000。RV是收盘日量相对历史日均量，不是盘中量比。\n- 触发：2026-11-30 回踩不破 11.85 元后重新站上 12.96 元，且板块同步；放弃：跌破 11.85 元、放量滞涨或板块转弱。若 2026-11-30 买入，T+1最早 2026-12-01 卖出。\n\n## **奥瑞德（600666）**\n\n- 资格：低位栏目待综合观察，不是最终双标、不是正式买点。\n- 参考价：2026-11-27 15:00 收盘 2.88 元；当日区间 2.66–2.88 元。\n- 量价：低位首次放量观察；RV5/10/20=2.94/2.56/3.07，120日位置 15.1%，CLV 1.000。RV是收盘日量相对历史日均量，不是盘中量比。\n- 触发：2026-11-30 回踩不破 2.66 元后重新站上 2.88 元，且板块同步；放弃：跌破 2.66 元、放量滞涨或板块转弱。若 2026-11-30 买入，T+1最早 2026-12-01 卖出。\n\n### 结论与证据边界\n\n- 独立完整 low_position 研究；正式买点 0 只，原因是次日竞价、板块与承接尚未发生，不代表市场确定无机会。\n- 沪深收盘快照覆盖 5219/5225（99.89%），排除北交所；未复权 OHLCV，量单位股、额单位元。BaoStock 单次登录失败 `10002007 网络接收错误`，未并发重登；独立新浪源完成替代。\n- 广域 120 只，历史日线成功 119/120，深池 28 只，逐股数据均在证据包；展示两只不替代全样本。板块分类源本轮缺失，因此“板块同步”保留为次日触发门槛，不作已满足断言。\n\n### 新增冻结样本\n\n|代码|名称|模型|收盘|涨跌%|RV5/10/20|120日位置%|CLV|突破20日|\n|---|---|---|---:|---:|---|---:|---:|---|\n|002657|中科金财|低位首次放量观察|12.96|10.02|4.13/4.43/3.91|13.1|1.000|否|\n|600666|奥瑞德|低位首次放量观察|2.88|9.92|2.94/2.56/3.07|15.1|1.000|否|\n|002670|国盛证券|低位分歧承接|9.70|9.98|3.51/4.15/3.69|21.0|1.000|否|\n|601789|宁波建工|低位首次放量观察|3.71|10.09|4.94/3.95/3.91|23.4|1.000|否|\n|002857|三晖电气|低位分歧承接|13.07|9.46|3.02/3.29/3.26|14.8|0.950|否|\n\n### 旧30日样本全量跟踪\n\n- 原冻结 52 条，本轮收盘取得 52/52；正价格变化 13 条，跌破原失效线 31 条。\n- 仅为价格观察；没有真实成交，成交胜率和净收益留空。成功、失败和缺失全部保留。\n\n### 反例与风险\n\n- 深池保留高量滞涨、放量下跌和假突破对照；单日高RV、涨停或长阳均不等于主力建仓完成。\n- 次日若高开加速后量价背离、跌破冻结低点或板块不同步，样本按失败/未触发追加，不删除。\n",
+      "date": "2026-11-27",
+      "eligible_for_integrated_research": true,
+      "evidence_files": [
+        "docs/research/low-dragon-20261127-evidence.json.gz",
+        "docs/research/low-dragon-20261127-samples.json.gz"
+      ],
+      "id": "low-position-20261127-close-v2",
+      "published_at": "2026-11-27T18:48:32+08:00",
+      "recorded_at": "2026-11-27T18:48:32+08:00",
+      "report_type": "full_daily_research",
+      "source_urls": [
+        "https://hq.sinajs.cn/",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/var%20_vp=/CN_MarketDataService.getKLineData",
+        "https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_DAILYBILLBOARD_DETAILS",
+        "https://query.sse.com.cn/infodisplay/showTradePublicFile.do",
+        "https://query.sse.com.cn/marketdata/tradedata/queryKCBTradeInfo.do",
+        "https://www.szse.cn/api/report/ShowReport/data"
+      ],
+      "status": "completed",
+      "summary": "沪深5219/5225；120广池、28深池、52条旧样本、5条新增；v2仅追加完整研究验收字段。",
+      "task_id": "low_position",
+      "title": "11月27日低位启动完整研究v2｜全样本、旧30日跟踪与验收契约纠错",
+      "track": "low_position",
+      "sources": [
+        "https://hq.sinajs.cn/",
+        "https://quotes.sina.cn/cn/api/jsonp_v2.php/var%20_vp=/CN_MarketDataService.getKLineData",
+        "https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_DAILYBILLBOARD_DETAILS",
+        "https://query.sse.com.cn/infodisplay/showTradePublicFile.do",
+        "https://query.sse.com.cn/marketdata/tradedata/queryKCBTradeInfo.do",
+        "https://www.szse.cn/api/report/ShowReport/data"
+      ]
+    }
+  ],
+  "task_runs": [
+    {
+      "id": "low-position-20261127-close-v2-scheduled-run",
+      "run_id": "low-position-20261127-close-v2-scheduled",
+      "task_id": "low_position",
+      "date": "2026-11-27",
+      "trigger": "scheduled",
+      "started_at": "2026-11-27T18:48:32+08:00",
+      "recorded_at": "2026-11-27T18:48:32+08:00",
+      "completed_at": "2026-11-27T18:48:32+08:00",
+      "status": "completed",
+      "summary": "沪深5219/5225；120广池、28深池、52条旧样本、5条新增；v2仅追加完整研究验收字段。",
+      "report_ids": [
+        "low-position-20261127-close-v2"
+      ],
+      "analysis_completed": true
+    }
+  ]
+}
