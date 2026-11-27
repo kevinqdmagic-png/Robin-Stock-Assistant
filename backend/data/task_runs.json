@@ -13322,6 +13322,66 @@
       "analysis_completed": false,
       "eligible_for_integrated_research": false,
       "reason_code": "not_a_verified_trading_session"
+    },
+    {
+      "completed_at": "2026-11-27T18:38:28+08:00",
+      "date": "2026-11-27",
+      "id": "low-position-20261127-close-v1-scheduled-run",
+      "recorded_at": "2026-11-27T18:38:28+08:00",
+      "report_ids": [
+        "low-position-20261127-close-v1"
+      ],
+      "run_id": "low-position-20261127-close-v1-scheduled",
+      "started_at": "2026-11-27T18:38:28+08:00",
+      "status": "completed",
+      "summary": "沪深5219/5225；120广池、28深池、52条旧样本、5条新增。",
+      "task_id": "low_position",
+      "trigger": "scheduled"
+    },
+    {
+      "completed_at": "2026-11-27T18:38:28+08:00",
+      "date": "2026-11-27",
+      "id": "dragon-tiger-20261127-close-v1-scheduled-run",
+      "recorded_at": "2026-11-27T18:38:28+08:00",
+      "report_ids": [
+        "dragon-tiger-20261127-close-v1"
+      ],
+      "run_id": "dragon-tiger-20261127-close-v1-scheduled",
+      "started_at": "2026-11-27T18:38:28+08:00",
+      "status": "partial",
+      "summary": "沪深62事件；SZSE 38/38明细；SSE主板/科创板状态单列。",
+      "task_id": "dragon_tiger",
+      "trigger": "scheduled"
+    },
+    {
+      "completed_at": "2026-11-27T18:38:28+08:00",
+      "date": "2026-11-26",
+      "id": "low-dragon-20261126-followup-20261127-v1-scheduled-run",
+      "recorded_at": "2026-11-27T18:38:28+08:00",
+      "report_ids": [
+        "low-dragon-20261126-followup-20261127-v1"
+      ],
+      "run_id": "low-dragon-20261126-followup-20261127-v1-scheduled",
+      "started_at": "2026-11-27T18:38:28+08:00",
+      "status": "completed",
+      "summary": "70/70条取得日线，仅价格观察。",
+      "task_id": "dragon_tiger",
+      "trigger": "scheduled"
+    },
+    {
+      "completed_at": "2026-11-27T18:38:28+08:00",
+      "date": "2026-11-27",
+      "id": "low-dragon-20261127-execution-summary-v1-scheduled-run",
+      "recorded_at": "2026-11-27T18:38:28+08:00",
+      "report_ids": [
+        "low-dragon-20261127-execution-summary-v1"
+      ],
+      "run_id": "low-dragon-20261127-execution-summary-v1-scheduled",
+      "started_at": "2026-11-27T18:38:28+08:00",
+      "status": "partial",
+      "summary": "低位completed；龙虎榜partial。",
+      "task_id": "market_review",
+      "trigger": "scheduled"
     }
   ]
 }
