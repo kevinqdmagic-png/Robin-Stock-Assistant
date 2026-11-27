@@ -13382,6 +13382,22 @@
       "summary": "低位completed；龙虎榜partial。",
       "task_id": "market_review",
       "trigger": "scheduled"
+    },
+    {
+      "id": "low-position-20261127-close-v2-scheduled-run",
+      "run_id": "low-position-20261127-close-v2-scheduled",
+      "task_id": "low_position",
+      "date": "2026-11-27",
+      "trigger": "scheduled",
+      "started_at": "2026-11-27T18:48:32+08:00",
+      "recorded_at": "2026-11-27T18:48:32+08:00",
+      "completed_at": "2026-11-27T18:48:32+08:00",
+      "status": "completed",
+      "summary": "沪深5219/5225；120广池、28深池、52条旧样本、5条新增；v2仅追加完整研究验收字段。",
+      "report_ids": [
+        "low-position-20261127-close-v2"
+      ],
+      "analysis_completed": true
     }
   ]
 }
