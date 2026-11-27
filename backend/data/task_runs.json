@@ -13398,6 +13398,25 @@
         "low-position-20261127-close-v2"
       ],
       "analysis_completed": true
+    },
+    {
+      "id": "late_pair-20261128-gh-46037901787",
+      "run_id": "github-actions-46037901787",
+      "task_id": "late_pair",
+      "date": "2026-11-28",
+      "trigger": "scheduled",
+      "started_at": "2026-11-28T00:57:49.488430+08:00",
+      "recorded_at": "2026-11-28T00:57:49.690381+08:00",
+      "status": "waiting",
+      "summary": "GitHub调度检查：非已核验的交易时段，未运行选股；实际检查北京时间 00:57:49。",
+      "report_ids": [],
+      "recommendation_ids": [],
+      "sources": [
+        "https://github.com/kevinqdmagic-png/Robin-Stock-Assistant/actions/runs/46037901787"
+      ],
+      "analysis_completed": false,
+      "eligible_for_integrated_research": false,
+      "reason_code": "not_a_verified_trading_session"
     }
   ]
 }
